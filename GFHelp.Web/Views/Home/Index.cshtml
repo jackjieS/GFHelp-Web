@@ -1,0 +1,63 @@
+﻿@page
+<div class="container">
+    <div class="row">&nbsp;</div>
+    <div class="row">
+        <div class="col-6">&nbsp;</div>
+        <div class="col-6">
+            User..........<input type="text" id="userInput" />
+            <br />
+            Message...<input type="text" id="messageInput" />
+            <input type="button" id="RegisterId" value="RegisterId" />
+            <input type="button" id="GetAccountInfo" value="GetAccountInfo" />
+
+
+
+
+
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-12">
+            <hr />
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-6">&nbsp;</div>
+        <div class="col-6">
+            <ul id="messagesList"></ul>
+        </div>
+    </div>
+</div>
+@*
+    If you need a version of the chat script that is compatible with IE 11, replace the above
+<script>
+    tag that imports chat.js with this one
+        < script src = "~/js/es5-chat.js" ></script>
+*@
+<script src="~/lib/SingnlR/signalr.js"></script>
+<script type="text/javascript">
+        const connection = new signalR.HubConnectionBuilder().withUrl("/chatHub").build();
+        connection.on("ReceiveMessage", (message) => {
+            const encodedMsg = message;
+            const li = document.createElement("li");
+            li.textContent = encodedMsg;
+            document.getElementById("messagesList").appendChild(li);
+        });
+
+        document.getElementById("RegisterId").addEventListener("click", event => {
+            const user = document.getElementById("userInput").value;
+            const message = document.getElementById("messageInput").value;
+            connection.invoke("RegisterId", user).catch(err => console.error(err.toString()));
+            event.preventDefault();
+        });
+
+        document.getElementById("GetAccountInfo").addEventListener("click", event => {
+            const user = document.getElementById("userInput").value;
+            const message = document.getElementById("messageInput").value;
+            connection.invoke("SendInfo").catch(err => console.error(err.toString()));
+            event.preventDefault();
+        });
+
+
+        connection.start().catch(err => console.error(err.toString()));
+</script>

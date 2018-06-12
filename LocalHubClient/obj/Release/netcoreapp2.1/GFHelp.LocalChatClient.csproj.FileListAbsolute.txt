@@ -1,0 +1,9 @@
+C:\Users\jack\Desktop\CS\GFHelper-Web\GFHelp\LocalHubClient\bin\Release\netcoreapp2.1\GFHelp.LocalChatClient.deps.json
+C:\Users\jack\Desktop\CS\GFHelper-Web\GFHelp\LocalHubClient\bin\Release\netcoreapp2.1\GFHelp.LocalChatClient.dll
+C:\Users\jack\Desktop\CS\GFHelper-Web\GFHelp\LocalHubClient\bin\Release\netcoreapp2.1\GFHelp.LocalChatClient.pdb
+C:\Users\jack\Desktop\CS\GFHelper-Web\GFHelp\LocalHubClient\obj\Release\netcoreapp2.1\GFHelp.LocalChatClient.csproj.CoreCompileInputs.cache
+C:\Users\jack\Desktop\CS\GFHelper-Web\GFHelp\LocalHubClient\obj\Release\netcoreapp2.1\GFHelp.LocalChatClient.AssemblyInfoInputs.cache
+C:\Users\jack\Desktop\CS\GFHelper-Web\GFHelp\LocalHubClient\obj\Release\netcoreapp2.1\GFHelp.LocalChatClient.AssemblyInfo.cs
+C:\Users\jack\Desktop\CS\GFHelper-Web\GFHelp\LocalHubClient\obj\Release\netcoreapp2.1\GFHelp.LocalChatClient.dll
+C:\Users\jack\Desktop\CS\GFHelper-Web\GFHelp\LocalHubClient\obj\Release\netcoreapp2.1\GFHelp.LocalChatClient.pdb
+C:\Users\jack\Desktop\CS\GFHelper-Web\GFHelp\LocalHubClient\obj\Release\netcoreapp2.1\GFHelp.LocalChatClient.csprojAssemblyReference.cache

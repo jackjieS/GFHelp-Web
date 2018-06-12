@@ -1,0 +1,56 @@
+﻿<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <title></title>
+</head>
+<body>
+    <p id="message"> message </p>
+    <p id="WarningNotes"> WarningNotes </p>
+    <input type="button" id="connectionStart" value="connectionStart" />
+    <input type="button" id="Login" value="Login" />
+    <input type="button" id="GetAccountInfo" value="GetAccountInfo" />
+    <input type="button" id="Logoff" value="Logoff" />
+    <ul id="message"></ul>
+    <!--<script src="lib/jquery/dist/jquery.min.js"></script>-->
+    <script src="/lib/SingnlR/signalr.js"></script>
+    <script>
+        const connection = new signalR.HubConnectionBuilder().withUrl("/chatHub").build();
+        //连接开始
+        document.getElementById("connectionStart").addEventListener("click", event => {
+            connection.start().catch(err => console.error(err.toString()));
+        });
+        //接收服务器返回的信息
+        connection.on("ReceiveGamesInfo", (message) => {
+            const encodedMsg = message;
+            document.getElementById("message").textContent = encodedMsg
+        });
+
+        //接收服务器返回的信息
+        connection.on("ReceiveGamesWarning", (message) => {
+            const warrningNoteMsg = message;
+            document.getElementById("WarningNotes").textContent = warrningNoteMsg
+        });
+
+        //注册 发送网站注册id username
+        //document.getElementById("userInput").value;
+        document.getElementById("Login").addEventListener("click", event => {
+            const user = "admin";//测试账号
+            connection.invoke("Login", user).catch(err => console.error(err.toString()));
+            event.preventDefault();
+        });
+
+        //让后端调用 发送当前用户所有游戏实例信息的 函数
+        document.getElementById("GetAccountInfo").addEventListener("click", event => {
+            connection.invoke("SendInfo").catch(err => console.error(err.toString()));
+            event.preventDefault();
+        });
+        //注销 后端用户，达到暂停发送信息的功能
+        //document.getElementById("userInput").value;
+        document.getElementById("Logoff").addEventListener("click", event => {
+            const user = "admin";//测试账号
+            connection.invoke("Logoff", user).catch(err => console.error(err.toString()));
+            event.preventDefault();
+        });
+    </script>
+</body>
+</html>

@@ -1,0 +1,9 @@
+C:\Users\jack\Desktop\CS\GFHelper-Web\GFHelp\LocalHubClient\bin\Debug\netcoreapp2.1\LocalHubClient.deps.json
+C:\Users\jack\Desktop\CS\GFHelper-Web\GFHelp\LocalHubClient\bin\Debug\netcoreapp2.1\LocalHubClient.dll
+C:\Users\jack\Desktop\CS\GFHelper-Web\GFHelp\LocalHubClient\obj\Debug\netcoreapp2.1\LocalHubClient.csproj.CoreCompileInputs.cache
+C:\Users\jack\Desktop\CS\GFHelper-Web\GFHelp\LocalHubClient\obj\Debug\netcoreapp2.1\LocalHubClient.AssemblyInfoInputs.cache
+C:\Users\jack\Desktop\CS\GFHelper-Web\GFHelp\LocalHubClient\obj\Debug\netcoreapp2.1\LocalHubClient.AssemblyInfo.cs
+C:\Users\jack\Desktop\CS\GFHelper-Web\GFHelp\LocalHubClient\obj\Debug\netcoreapp2.1\LocalHubClient.csprojAssemblyReference.cache
+C:\Users\jack\Desktop\CS\GFHelper-Web\GFHelp\LocalHubClient\bin\Debug\netcoreapp2.1\LocalHubClient.pdb
+C:\Users\jack\Desktop\CS\GFHelper-Web\GFHelp\LocalHubClient\obj\Debug\netcoreapp2.1\LocalHubClient.dll
+C:\Users\jack\Desktop\CS\GFHelper-Web\GFHelp\LocalHubClient\obj\Debug\netcoreapp2.1\LocalHubClient.pdb
