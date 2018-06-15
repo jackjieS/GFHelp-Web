@@ -68,6 +68,10 @@ namespace GFHelp.Web.Controllers
             {
                 var ranks = context.GameAccount.Remove(data);
                 var count = context.SaveChanges();
+                if (Core.Management.Data.data.ContainsKey(accountid))
+                {
+                    Core.Management.Data.data.Remove(accountid);
+                }
             }
             catch (Exception)
             {
@@ -91,6 +95,12 @@ namespace GFHelp.Web.Controllers
                 YunDouDou = accInfo.YunDouDou,
             });
             var count = context.SaveChanges();
+
+            UserData userdata = new UserData();
+            userdata.CreatGameAccount(accInfo);
+            Core.Management.Data.seed(userdata);
+
+
             if (count != 0)
             {
                 return true;
@@ -145,9 +155,9 @@ namespace GFHelp.Web.Controllers
         /// 获取当前用户的信息
         /// </summary>
         /// <returns></returns>
-        [Route("/Account/GetInfo")]
+        [Route("/Account/GetGamesInfo")]
         [HttpGet]
-        public IActionResult GetInfo()
+        public IActionResult GetGamesInfo()
         {
             string username = User.FindFirst(ClaimTypes.NameIdentifier)?.Value;
             List<Data.GameAccount> result = GetAccountInfo(username);
@@ -191,7 +201,7 @@ namespace GFHelp.Web.Controllers
         /// <returns></returns>
         [Route("[action]")]
         [HttpPost]
-        public IActionResult CreatNewGame([FromBody] GameAccountBase accountbase)
+        public IActionResult CreatGame([FromBody] GameAccountBase accountbase)
         {
             string username = User.FindFirst(ClaimTypes.NameIdentifier)?.Value;
 
@@ -241,7 +251,7 @@ namespace GFHelp.Web.Controllers
         /// <returns></returns>
         [Route("[action]")]
         [HttpPost]
-        public IActionResult Delete([FromBody]string Accountid)
+        public IActionResult DeleteGame([FromBody]string Accountid)
         {
             bool reslut=true;
             if(isAccCreated(Accountid))

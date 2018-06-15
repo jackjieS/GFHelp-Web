@@ -1,7 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 
-namespace GFHelp.Core.SystemEvents
+namespace GFHelp.Core.SysteOthers
 {
     public class Log
     {
@@ -41,5 +41,6 @@ namespace GFHelp.Core.SystemEvents
             "10-4E"
         };
         public static int Error_num =3;
+        public static int BL_ReLogin_num = 20;
     }
 }

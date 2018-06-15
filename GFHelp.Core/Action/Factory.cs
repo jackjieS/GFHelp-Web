@@ -339,5 +339,91 @@ namespace GFHelp.Core.Action
 
             return false;
         }
+
+
+
+        /// <summary>
+        /// 枪支拆解 参数type是拆解的星
+        /// </summary>
+        /// <param name="type"> 传入2是只拆2星，传入3是只拆3星</param>
+        /// <returns></returns>
+        public static bool Gun_retire(UserData userData,int type)
+        {
+            while (true)
+            {
+                userData.gun_With_User_Info.Get_Gun_Retire();
+
+
+                StringBuilder sb = new StringBuilder();
+                JsonWriter jsonWriter = new JsonWriter(sb);
+                jsonWriter.WriteArrayStart();
+                switch (type)
+                {
+                    case 2:
+                        {
+                            if (userData.gun_With_User_Info.Rank2.Count == 0) return false;
+                            userData.webData.StatusBarText = "拆解2星人形";
+
+                            foreach (var item in userData.gun_With_User_Info.Rank2)
+                            {
+                                jsonWriter.Write(item);
+                            }
+                            break;
+                        }
+                    case 3:
+                        {
+                            if (userData.gun_With_User_Info.Rank3.Count == 0) return false;
+                            userData.webData.StatusBarText = "拆解3星人形";
+
+                            foreach (var item in userData.gun_With_User_Info.Rank3)
+                            {
+                                jsonWriter.Write(item);
+                            }
+                            break;
+                        }
+                    default:
+                        break;
+                }
+
+                jsonWriter.WriteArrayEnd();
+                Thread.Sleep(2000);
+                int count = 0;
+
+                string result = API.Factory.Retire_Gun(userData.GameAccount,sb.ToString());
+
+                switch (Helper.Response.Check(userData.GameAccount, ref result, "GUN_OUTandIN_Team_PRO", false))
+                {
+                    case 1:
+                        {
+                            userData.gun_With_User_Info.Del_Gun_IN_Dict(type);
+                            return true;
+                        }
+                    case 0:
+                        {
+                            break;
+                        }
+                    case -1:
+                        {
+                            if (count++ > userData.config.ErrorCount)
+                            {
+                                WarningNote note = new WarningNote(-11, "Gun_retire Error");
+                                userData.warningNotes.Add(note);
+                                return false;
+                            }
+                            userData.webData.StatusBarText = "Get_Set_UserInfo";
+                            Home.GetUserInfo(userData);
+                            break;
+                        }
+                    default:
+                        break;
+                }
+            }
+        }
+
+
+
+
+
+
     }
 }

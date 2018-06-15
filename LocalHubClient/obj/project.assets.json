@@ -1350,11 +1350,11 @@
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "C:\\Users\\jack\\Desktop\\CS\\GFHelper-Web\\GFHelp\\LocalHubClient\\GFHelp.LocalChatClient.csproj",
+      "projectUniqueName": "C:\\Users\\jack\\Desktop\\CS\\GFHelp-Web\\LocalHubClient\\GFHelp.LocalChatClient.csproj",
       "projectName": "GFHelp.LocalChatClient",
-      "projectPath": "C:\\Users\\jack\\Desktop\\CS\\GFHelper-Web\\GFHelp\\LocalHubClient\\GFHelp.LocalChatClient.csproj",
+      "projectPath": "C:\\Users\\jack\\Desktop\\CS\\GFHelp-Web\\LocalHubClient\\GFHelp.LocalChatClient.csproj",
       "packagesPath": "C:\\Users\\jack\\.nuget\\packages\\",
-      "outputPath": "C:\\Users\\jack\\Desktop\\CS\\GFHelper-Web\\GFHelp\\LocalHubClient\\obj\\",
+      "outputPath": "C:\\Users\\jack\\Desktop\\CS\\GFHelp-Web\\LocalHubClient\\obj\\",
       "projectStyle": "PackageReference",
       "fallbackFolders": [
         "C:\\Program Files\\dotnet\\sdk\\NuGetFallbackFolder"
@@ -1373,8 +1373,8 @@
       "frameworks": {
         "netcoreapp2.1": {
           "projectReferences": {
-            "C:\\Users\\jack\\Desktop\\CS\\GFHelper-Web\\GFHelp\\GFHelp.Core\\GFHelp.Core.csproj": {
-              "projectPath": "C:\\Users\\jack\\Desktop\\CS\\GFHelper-Web\\GFHelp\\GFHelp.Core\\GFHelp.Core.csproj"
+            "C:\\Users\\jack\\Desktop\\CS\\GFHelp-Web\\GFHelp.Core\\GFHelp.Core.csproj": {
+              "projectPath": "C:\\Users\\jack\\Desktop\\CS\\GFHelp-Web\\GFHelp.Core\\GFHelp.Core.csproj"
             }
           }
         }

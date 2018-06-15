@@ -42,8 +42,8 @@ namespace GFHelp.Core.MulitePlayerData
                 }
                 catch (Exception e)
                 {
-                    SystemEvents.Log log = new SystemEvents.Log(1, "读取maillist", e.ToString());
-                    SystemEvents.Viewer.Logs.Add(log);
+                    SysteOthers.Log log = new SysteOthers.Log(1, "读取maillist", e.ToString());
+                    SysteOthers.Viewer.Logs.Add(log);
                 }
                 dicMail.Add(dicMail.Count, ml);
             }

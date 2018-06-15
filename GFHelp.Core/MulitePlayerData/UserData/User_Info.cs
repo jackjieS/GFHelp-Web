@@ -87,8 +87,8 @@ namespace GFHelp.Core.MulitePlayerData
             }
             catch (Exception e)
             {
-                SystemEvents.Log log = new SystemEvents.Log(1, "读取UserData_user_info遇到错误", e.ToString());
-                SystemEvents.Viewer.Logs.Add(log);
+                SysteOthers.Log log = new SysteOthers.Log(1, "读取UserData_user_info遇到错误", e.ToString());
+                SysteOthers.Viewer.Logs.Add(log);
                 return false;
             }
             return true;

@@ -30,20 +30,16 @@ namespace GFHelp.Web.Controllers
 
 
         /// <summary>
-        /// 获取用户 下所有游戏实例的详细信息
+        /// 获取游戏实例的详细信息
         /// </summary>
         /// <returns></returns>
         [Route("/Game/GetGameDetails")]
-        [HttpGet]
-        public IActionResult GetGameDetails()
+        [HttpPost]
+        public IActionResult GetGameDetails([FromBody] string Accountid)
         {
-            //var temp = new
-            //{
-            //    OperationInfo = Core.CatachData.GetOperationInfo(),
-            //    BattleMap = Core.SystemEvents.ConfigData.BattleMap
-            //};
-            string username = User.FindFirst(ClaimTypes.NameIdentifier)?.Value;
-            var details = Core.Management.Data.GetWebData(username);
+
+            //string username = User.FindFirst(ClaimTypes.NameIdentifier)?.Value;
+            var details = Core.Management.Data.GetWebData(Accountid);
 
             return Ok(new
             {
@@ -51,6 +47,28 @@ namespace GFHelp.Web.Controllers
                 data = details,
             });
         }
+
+        /// <summary>
+        /// 获取游戏实例的状态
+        /// </summary>
+        /// <returns></returns>
+        [Route("/Game/GetGameStatus")]
+        [HttpPost]
+        public IActionResult GetGameStatus([FromBody] string Accountid)
+        {
+
+            //string username = User.FindFirst(ClaimTypes.NameIdentifier)?.Value;
+            var status = Core.Management.Data.GetWebStatus(Accountid);
+            return Ok(new
+            {
+                code = 1,
+                data = status,
+            });
+        }
+
+
+
+
 
         /// <summary>
         /// 游戏登陆
@@ -202,6 +220,50 @@ namespace GFHelp.Web.Controllers
         }
 
 
+        /// <summary>
+        /// 开始作战
+        /// </summary>
+        /// <param name="Accountid"> 游戏账户id</param>
+        /// <returns></returns>
+        [Route("/Game/StartBattle")]
+        [HttpPost]
+        public IActionResult StartBattle([FromBody] modelBattleStart bs)
+        {
+            //加入控制符
+            //Core.Management.Data.data[Accountid].Task.Add(Core.Helper.TaskList.Login);
+            return Ok(new
+            {
+                code = 1,
+                //data = result,
+                message = "开始作战"
+
+            });
+        }
+
+        /// <summary>
+        /// 终止作战
+        /// </summary>
+        /// <param name="Accountid"> 游戏账户id</param>
+        /// <returns></returns>
+        [Route("/Game/AbortBattle")]
+        [HttpPost]
+        public IActionResult AbortBattle([FromBody] modelBattleStart bs)
+        {
+            //加入控制符
+            //Core.Management.Data.data[Accountid].Task.Add(Core.Helper.TaskList.Login);
+            return Ok(new
+            {
+                code = 1,
+
+                message = "终止作战"
+
+            });
+        }
+
+
+        /// <summary>
+        /// 
+        /// </summary>
         public class Operation
         {
             public string accountID;
@@ -209,5 +271,25 @@ namespace GFHelp.Web.Controllers
             public string operationID;
             public string TeamID;
         }
+        /// <summary>
+        /// 
+        /// </summary>
+        public class modelBattleStart
+        {
+            public string accountID;
+            public string Map;
+            public Team[] teams;
+            public string parm;
+        }
+        /// <summary>
+        /// 
+        /// </summary>
+        public class Team
+        {
+            public int Teamid;
+            public int Skt;
+        }
+
+
     }
 }

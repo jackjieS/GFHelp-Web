@@ -708,11 +708,11 @@
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "C:\\Users\\jack\\Desktop\\CS\\GFHelper-Web\\GFHelp\\GFHelp.Core\\GFHelp.Core.csproj",
+      "projectUniqueName": "C:\\Users\\jack\\Desktop\\CS\\GFHelp-Web\\GFHelp.Core\\GFHelp.Core.csproj",
       "projectName": "GFHelp.Core",
-      "projectPath": "C:\\Users\\jack\\Desktop\\CS\\GFHelper-Web\\GFHelp\\GFHelp.Core\\GFHelp.Core.csproj",
+      "projectPath": "C:\\Users\\jack\\Desktop\\CS\\GFHelp-Web\\GFHelp.Core\\GFHelp.Core.csproj",
       "packagesPath": "C:\\Users\\jack\\.nuget\\packages\\",
-      "outputPath": "C:\\Users\\jack\\Desktop\\CS\\GFHelper-Web\\GFHelp\\GFHelp.Core\\obj\\",
+      "outputPath": "C:\\Users\\jack\\Desktop\\CS\\GFHelp-Web\\GFHelp.Core\\obj\\",
       "projectStyle": "PackageReference",
       "fallbackFolders": [
         "C:\\Program Files\\dotnet\\sdk\\NuGetFallbackFolder"

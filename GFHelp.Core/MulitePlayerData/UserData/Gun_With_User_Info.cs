@@ -80,8 +80,8 @@ namespace GFHelp.Core.MulitePlayerData
                 }
                 catch (Exception e)
                 {
-                    SystemEvents.Log log = new SystemEvents.Log(1, "读取UserData_gun_with_user_info遇到错误", e.ToString());
-                    SystemEvents.Viewer.Logs.Add(log);
+                    SysteOthers.Log log = new SysteOthers.Log(1, "读取UserData_gun_with_user_info遇到错误", e.ToString());
+                    SysteOthers.Viewer.Logs.Add(log);
                     continue;
 
                 }
@@ -253,6 +253,9 @@ namespace GFHelp.Core.MulitePlayerData
 
 
         }
+
+
+
 
         public Dictionary<int, Gun_With_User_Info> dicGun = new Dictionary<int, Gun_With_User_Info>();//所有的枪
         public Dictionary<int, Gun_With_User_Info> dicGun_Combine = new Dictionary<int, Gun_With_User_Info>();

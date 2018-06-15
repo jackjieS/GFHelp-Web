@@ -37,17 +37,12 @@ namespace GFHelp.LocalChatClient
                         if (item.Value == k.Value.GameAccount.Base.WebUsername)
                         {
                             k.Value.webData.Get(k.Value);
-                            //await connection.InvokeAsync("SendGamesInfo", item.Key, JsonConvert.SerializeObject(k.Value.webData));
 
                             message.Add(k.Value.GameAccount.Base.Accountid,k.Value.webData);
                         }
                     }
 
                     await connection.InvokeAsync("SendGamesInfo", item.Key, JsonConvert.SerializeObject(message));
-                    //if (k.Value.warningNotes.Count != 0)
-                    //{
-                    //    await connection.InvokeAsync("SendGamesWarning", item.Value, item.Value.warningNotes[0].Note);
-                    //}
                 }
                 Thread.Sleep(1000);
             }

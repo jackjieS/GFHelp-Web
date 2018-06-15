@@ -56,8 +56,7 @@ namespace GFHelp.Web
         {
 
             await Groups.AddToGroupAsync(Context.ConnectionId, groupName);
-
-            await Clients.Group(groupName).SendAsync("ReceiveMessage", $"{Context.ConnectionId} joined {groupName}");
+            //await Clients.Group(groupName).SendAsync("ReceiveMessage", $"{Context.ConnectionId} joined {groupName}");
         }
         /// <summary>
         /// 推出指定组并向组推送消息

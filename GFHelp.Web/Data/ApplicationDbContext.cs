@@ -75,7 +75,6 @@ namespace GFHelp.Web.Data
     public class GameAccount : Core.Management.GameAccountBase
     {
 
-
     }
 
 

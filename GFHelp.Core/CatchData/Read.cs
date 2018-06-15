@@ -125,8 +125,8 @@ namespace GFHelp.Core
 
                 catch (Exception e)
                 {
-                    SystemEvents.Log log = new SystemEvents.Log(1, "读取CatchData_operation_info遇到错误", e.ToString());
-                    SystemEvents.Viewer.Logs.Add(log);
+                    SysteOthers.Log log = new SysteOthers.Log(1, "读取CatchData_operation_info遇到错误", e.ToString());
+                    SysteOthers.Viewer.Logs.Add(log);
                     continue;
                 }
             }
@@ -143,8 +143,8 @@ namespace GFHelp.Core
             }
             catch (Exception e)
             {
-                SystemEvents.Log log = new SystemEvents.Log(1, "读取CatchData_gun_exp_info遇到错误", e.ToString());
-                SystemEvents.Viewer.Logs.Add(log);
+                SysteOthers.Log log = new SysteOthers.Log(1, "读取CatchData_gun_exp_info遇到错误", e.ToString());
+                SysteOthers.Viewer.Logs.Add(log);
                 return false;
             }
             return true;
@@ -165,8 +165,8 @@ namespace GFHelp.Core
             }
             catch (Exception e)
             {
-                SystemEvents.Log log = new SystemEvents.Log(1, "读取CatchData_gun_type_info遇到错误", e.ToString());
-                SystemEvents.Viewer.Logs.Add(log);
+                SysteOthers.Log log = new SysteOthers.Log(1, "读取CatchData_gun_type_info遇到错误", e.ToString());
+                SysteOthers.Viewer.Logs.Add(log);
                 return false;
             }
             return true;
@@ -226,8 +226,8 @@ namespace GFHelp.Core
 
                 catch (Exception e)
                 {
-                    SystemEvents.Log log = new SystemEvents.Log(1, "读取CatchData_Auto_Mission遇到错误", e.ToString());
-                    SystemEvents.Viewer.Logs.Add(log);
+                    SysteOthers.Log log = new SysteOthers.Log(1, "读取CatchData_Auto_Mission遇到错误", e.ToString());
+                    SysteOthers.Viewer.Logs.Add(log);
                 }
             }
         }
@@ -242,8 +242,8 @@ namespace GFHelp.Core
             }
             catch (Exception e)
             {
-                SystemEvents.Log log = new SystemEvents.Log(1, "读取CatchData_equip_exp_info遇到错误", e.ToString());
-                SystemEvents.Viewer.Logs.Add(log);
+                SysteOthers.Log log = new SysteOthers.Log(1, "读取CatchData_equip_exp_info遇到错误", e.ToString());
+                SysteOthers.Viewer.Logs.Add(log);
                 return false;
             }
             return true;
@@ -317,8 +317,8 @@ namespace GFHelp.Core
             }
             catch (Exception e)
             {
-                SystemEvents.Log log = new SystemEvents.Log(1, "读取CatchData_equip_info遇到错误", e.ToString());
-                SystemEvents.Viewer.Logs.Add(log);
+                SysteOthers.Log log = new SysteOthers.Log(1, "读取CatchData_equip_info遇到错误", e.ToString());
+                SysteOthers.Viewer.Logs.Add(log);
                 return false;
             }
             return true;
@@ -337,8 +337,8 @@ namespace GFHelp.Core
             }
             catch (Exception e)
             {
-                SystemEvents.Log log = new SystemEvents.Log(1, "读取CatchData_fairy_type_info遇到错误", e.ToString());
-                SystemEvents.Viewer.Logs.Add(log);
+                SysteOthers.Log log = new SysteOthers.Log(1, "读取CatchData_fairy_type_info遇到错误", e.ToString());
+                SysteOthers.Viewer.Logs.Add(log);
                 return false;
             }
             return true;
@@ -405,8 +405,8 @@ namespace GFHelp.Core
             }
             catch (Exception e)
             {
-                SystemEvents.Log log = new SystemEvents.Log(1, "读取CatchDdat_Fairy_Info遇到错误", e.ToString());
-                SystemEvents.Viewer.Logs.Add(log);
+                SysteOthers.Log log = new SysteOthers.Log(1, "读取CatchDdat_Fairy_Info遇到错误", e.ToString());
+                SysteOthers.Viewer.Logs.Add(log);
                 return false;
             }
             return true;
@@ -446,8 +446,8 @@ namespace GFHelp.Core
             }
             catch (Exception e)
             {
-                SystemEvents.Log log = new SystemEvents.Log(1, "CatchData_gun_type_info遇到错误", e.ToString());
-                SystemEvents.Viewer.Logs.Add(log);
+                SysteOthers.Log log = new SysteOthers.Log(1, "CatchData_gun_type_info遇到错误", e.ToString());
+                SysteOthers.Viewer.Logs.Add(log);
                 return false;
             }
             return true;
@@ -520,8 +520,8 @@ namespace GFHelp.Core
                 }
                 catch (Exception e)
                 {
-                    SystemEvents.Log log = new SystemEvents.Log(1, "读取CatchData_game_config_info遇到错误", e.ToString());
-                    SystemEvents.Viewer.Logs.Add(log);
+                    SysteOthers.Log log = new SysteOthers.Log(1, "读取CatchData_game_config_info遇到错误", e.ToString());
+                    SysteOthers.Viewer.Logs.Add(log);
                     return false;
                 }
 
@@ -547,8 +547,8 @@ namespace GFHelp.Core
             }
             catch (Exception e)
             {
-                SystemEvents.Log log = new SystemEvents.Log(1, "读取CatchData_Furniture_database遇到错误", e.ToString());
-                SystemEvents.Viewer.Logs.Add(log);
+                SysteOthers.Log log = new SysteOthers.Log(1, "读取CatchData_Furniture_database遇到错误", e.ToString());
+                SysteOthers.Viewer.Logs.Add(log);
                 return false;
             }
             return true;
@@ -567,8 +567,8 @@ namespace GFHelp.Core
             }
             catch (Exception e)
             {
-                SystemEvents.Log log = new SystemEvents.Log(1, "读取CatchData_Furniture_server遇到错误", e.ToString());
-                SystemEvents.Viewer.Logs.Add(log);
+                SysteOthers.Log log = new SysteOthers.Log(1, "读取CatchData_Furniture_server遇到错误", e.ToString());
+                SysteOthers.Viewer.Logs.Add(log);
                 return false;
             }
             return true;
@@ -587,8 +587,8 @@ namespace GFHelp.Core
             }
             catch (Exception e)
             {
-                SystemEvents.Log log = new SystemEvents.Log(1, "读取CatchData_Furniture_printer遇到错误", e.ToString());
-                SystemEvents.Viewer.Logs.Add(log);
+                SysteOthers.Log log = new SysteOthers.Log(1, "读取CatchData_Furniture_printer遇到错误", e.ToString());
+                SysteOthers.Viewer.Logs.Add(log);
                 return false;
             }
             return true;
@@ -627,5 +627,19 @@ namespace GFHelp.Core
             }
             return OperationtInfo;
         }
+        public static bool Check_equipRank5(int equip_id)
+        {
+            foreach (var item in equip_info)
+            {
+                if (item.Value.id == equip_id && item.Value.rank == 5)
+                {
+                    return true;
+                }
+            }
+            return false;
+        }
+
+
+
     }
 }

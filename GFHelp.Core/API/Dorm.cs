@@ -99,5 +99,31 @@ namespace GFHelp.Core.API
             return result;
         }
 
+        public static string Friend_visit(GameAccount gameAccount, string outdatacode)
+        {
+            outdatacode = AuthCode.Encode(outdatacode, gameAccount.sign);
+            string requeststring = String.Format("uid={0}&outdatacode={1}&req_id={2}", gameAccount.uid, System.Web.HttpUtility.UrlEncode(outdatacode), gameAccount.req_id++.ToString());
+            string url = gameAccount.GameHost + Helper.URL.Visit_Friend_Build;
+            string result = "";
+            while (string.IsNullOrEmpty(result))
+            {
+                result = BaseRequset.DoPost(url, requeststring);
+            }
+            return result;
+        }
+
+        public static string Friend_praise(GameAccount gameAccount, string outdatacode)
+        {
+            outdatacode = AuthCode.Encode(outdatacode, gameAccount.sign);
+            string requeststring = String.Format("uid={0}&outdatacode={1}&req_id={2}", gameAccount.uid, System.Web.HttpUtility.UrlEncode(outdatacode), gameAccount.req_id++.ToString());
+            string url = gameAccount.GameHost + Helper.URL.Friend_praise;
+            string result = "";
+            while (string.IsNullOrEmpty(result))
+            {
+                result = BaseRequset.DoPost(url, requeststring);
+            }
+            return result;
+        }
+
     }
 }

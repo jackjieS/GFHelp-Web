@@ -49,7 +49,7 @@ namespace GFHelp.Web.Controllers
                 return Ok(new
                 {
                     code = 1,
-                    data = Core.SystemEvents.Viewer.Logs,
+                    data = Core.SysteOthers.Viewer.Logs,
                     message = string.Format("欢迎回来 {0} 管理员", username)
 
                 });
@@ -78,14 +78,14 @@ namespace GFHelp.Web.Controllers
             string username = User.FindFirst(ClaimTypes.NameIdentifier)?.Value;
             if (isAdmin(username))
             {
-                if (Core.SystemEvents.Viewer.Logs.Count != 0)
+                if (Core.SysteOthers.Viewer.Logs.Count != 0)
                 {
-                    Core.SystemEvents.Viewer.Logs.RemoveAt(0);
+                    Core.SysteOthers.Viewer.Logs.RemoveAt(0);
                 }
                 return Ok(new
                 {
                     code = 1,
-                    data = Core.SystemEvents.Viewer.Logs,
+                    data = Core.SysteOthers.Viewer.Logs,
                     message = string.Format("删除成功")
 
                 });
@@ -114,14 +114,14 @@ namespace GFHelp.Web.Controllers
             string username = User.FindFirst(ClaimTypes.NameIdentifier)?.Value;
             if (isAdmin(username))
             {
-                if (Core.SystemEvents.Viewer.Logs.Count != 0)
+                if (Core.SysteOthers.Viewer.Logs.Count != 0)
                 {
-                    Core.SystemEvents.Viewer.Logs.Clear();
+                    Core.SysteOthers.Viewer.Logs.Clear();
                 }
                 return Ok(new
                 {
                     code = 1,
-                    data = Core.SystemEvents.Viewer.Logs,
+                    data = Core.SysteOthers.Viewer.Logs,
                     message = string.Format("删除成功")
 
                 });
@@ -151,7 +151,7 @@ namespace GFHelp.Web.Controllers
             var temp = new
             {
                 OperationInfo = Core.CatachData.GetOperationInfo(),
-                BattleMap = Core.SystemEvents.ConfigData.BattleMap
+                BattleMap = Core.SysteOthers.ConfigData.BattleMap
             };
             return Ok(new
             {

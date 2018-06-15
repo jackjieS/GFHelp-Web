@@ -22,21 +22,22 @@ namespace GFHelp.Web
 {
     public class Startup
     {
+
         public Startup(IConfiguration configuration)
         {
             Configuration = configuration;
         }
 
         public IConfiguration Configuration { get; }
-
+        static dynamic  type = (new Program()).GetType();
+        static string  currentDirectory = Path.GetDirectoryName(type.Assembly.Location);
         // This method gets called by the runtime. Use this method to add services to the container.
         public void ConfigureServices(IServiceCollection services)
         {
             services.AddMvc();
             services.AddSignalR();
 
-            var directory = System.IO.Directory.GetCurrentDirectory();
-            string con = "Data Source=" + @"database.db";
+            string con = "Data Source=" + currentDirectory+ @"\database.db";
             services.AddDbContext<appContext>(options =>
             options.UseSqlite(con));
 
@@ -122,7 +123,8 @@ namespace GFHelp.Web
 
 
             var staticfile = new StaticFileOptions();
-            staticfile.FileProvider = new PhysicalFileProvider(Directory.GetCurrentDirectory() + @"\wwwroot");//指定目录 这里指定C盘,也可以是其它目录
+
+            staticfile.FileProvider = new PhysicalFileProvider(currentDirectory + @"\wwwroot");//指定目录 这里指定C盘,也可以是其它目录
             app.UseStaticFiles(staticfile);
 
 

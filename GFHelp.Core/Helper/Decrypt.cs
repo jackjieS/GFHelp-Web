@@ -42,8 +42,8 @@ namespace GFHelp.Core.Helper
             }
             catch (Exception e)
             {
-                SystemEvents.Log log = new SystemEvents.Log(1, e.ToString(), e.ToString());
-                SystemEvents.Viewer.Logs.Add(log);
+                SysteOthers.Log log = new SysteOthers.Log(1, e.ToString(), e.ToString());
+                SysteOthers.Viewer.Logs.Add(log);
                 throw;
             }
 
@@ -76,8 +76,8 @@ namespace GFHelp.Core.Helper
             }
             catch (Exception ex)
             {
-                SystemEvents.Log log = new SystemEvents.Log(1, ex.ToString(), ex.ToString());
-                SystemEvents.Viewer.Logs.Add(log);
+                SysteOthers.Log log = new SysteOthers.Log(1, ex.ToString(), ex.ToString());
+                SysteOthers.Viewer.Logs.Add(log);
             }
             return result.ToJson();
         }

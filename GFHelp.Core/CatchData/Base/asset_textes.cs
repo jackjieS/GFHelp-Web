@@ -50,8 +50,8 @@ namespace GFHelp.Core.CatchData.Base
             }
             catch (Exception e)
             {
-                SystemEvents.Log log = new SystemEvents.Log(1, "读取 csv 出错", e.ToString());
-                SystemEvents.Viewer.Logs.Add(log);
+                SysteOthers.Log log = new SysteOthers.Log(1, "读取 csv 出错", e.ToString());
+                SysteOthers.Viewer.Logs.Add(log);
                 return false;
             }
             return true;
@@ -80,8 +80,8 @@ namespace GFHelp.Core.CatchData.Base
             }
             catch (Exception e)
             {
-                SystemEvents.Log log = new SystemEvents.Log(1, string.Format("读取 {0} 出错", filename.ToString()), e.ToString());
-                SystemEvents.Viewer.Logs.Add(log);
+                SysteOthers.Log log = new SysteOthers.Log(1, string.Format("读取 {0} 出错", filename.ToString()), e.ToString());
+                SysteOthers.Viewer.Logs.Add(log);
 
                 return false;
             }

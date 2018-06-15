@@ -22,7 +22,7 @@ namespace GFHelp.Core.MulitePlayerData
             }
             catch (Exception e)
             {
-                SystemEvents.Log log = new SystemEvents.Log(1, "读取DormData遇到错误",  e.ToString());
+                SysteOthers.Log log = new SysteOthers.Log(1, "读取DormData遇到错误",  e.ToString());
             }
         }
         public info info = new info();

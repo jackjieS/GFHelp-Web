@@ -34,8 +34,8 @@ namespace GFHelp.Core.Helper
                 }
                 catch (Exception e)
                 {
-                    SystemEvents.Log log = new SystemEvents.Log(1, "Decode解析结果错误", e.ToString());
-                    SystemEvents.Viewer.Logs.Add(log);
+                    SysteOthers.Log log = new SysteOthers.Log(1, "Decode解析结果错误", e.ToString());
+                    SysteOthers.Viewer.Logs.Add(log);
                     return -1;
                 }
             }
@@ -66,8 +66,8 @@ namespace GFHelp.Core.Helper
                         }
                         catch (Exception e)
                         {
-                            SystemEvents.Log log = new SystemEvents.Log(1, "解析sign出现错误", e.ToString());
-                            SystemEvents.Viewer.Logs.Add(log);
+                            SysteOthers.Log log = new SysteOthers.Log(1, "解析sign出现错误", e.ToString());
+                            SysteOthers.Viewer.Logs.Add(log);
                             return -1;
                         }
                     }

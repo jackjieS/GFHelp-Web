@@ -306,8 +306,8 @@ namespace GFHelp.Core.Action
                 }
 
             }
-            userData.others.DeBattery(userData.item_With_User_Info, userData.outhouse_Establish_Info.Furniture_printer * 3);
-            userData.others.DeGolbalFreeExp(userData.item_With_User_Info, userData.outhouse_Establish_Info.Furniture_printer * 3000);
+            userData.others.DeBattery(userData.outhouse_Establish_Info.Furniture_printer * 3);
+            userData.others.DeGolbalFreeExp(userData.outhouse_Establish_Info.Furniture_printer * 3000);
             userData.BattleReport.StartTime = Helper.Decrypt.ConvertDateTime_China_Int(DateTime.Now);
         }
 
@@ -341,19 +341,13 @@ namespace GFHelp.Core.Action
                         }
                     case 0:
                         {
-                            if (count >= userData.config.ErrorCount)
-                            {
-                                WarningNote note = new WarningNote(1, String.Format(" 完成作战报告书"));
-                                userData.warningNotes.Add(note);
-                                return;
-                            }
-                            break;
+                            continue;
                         }
                     case -1:
                         {
-                            if (count >= userData.config.ErrorCount)
+                            if (count++ >= userData.config.ErrorCount)
                             {
-                                WarningNote note = new WarningNote(1, String.Format(" 完成作战报告书"));
+                                WarningNote note = new WarningNote(1, String.Format("Error 完成作战报告书"+result.ToString()));
                                 userData.warningNotes.Add(note);
                             }
                             break;
@@ -364,6 +358,120 @@ namespace GFHelp.Core.Action
 
             }
         }
+
+
+        public static void Friend_Praise(UserData userData)
+        {
+
+            int f_userid=27755;
+            
+            for (int i = 0; i < 50; i++)
+            {
+                bool Loop = true;
+                while (Loop)
+                {
+                    int count = 0;
+                    StringBuilder sb = new StringBuilder();
+                    JsonWriter jsonWriter = new JsonWriter(sb);
+                    jsonWriter.WriteObjectStart();
+                    jsonWriter.WritePropertyName("f_userid");
+                    jsonWriter.Write(0);
+                    jsonWriter.WriteObjectEnd();
+                    Thread.Sleep(1500);
+
+                    string result =API.Dorm.Friend_visit(userData.GameAccount,sb.ToString());
+
+                    switch (Helper.Response.Check(userData.GameAccount, ref result, "Friend_visit", true))
+                    {
+                        case 1:
+                            {
+                                var jsonobj = DynamicJson.Parse(result);
+                                f_userid = Convert.ToInt32(jsonobj.info.f_userid);
+                                userData.webData.StatusBarText = String.Format(" 访问 f_userid = {0} 当前次数 {1}", f_userid, i + 1);
+                                Loop = false;
+                                break;
+
+                            }
+                        case 0:
+                            {
+                                continue;
+
+                            }
+                        case -1:
+                            {
+                                if(count++ > userData.config.ErrorCount)
+                                {
+                                    WarningNote note = new WarningNote(1, String.Format("Error FriendPraise"+ result));
+                                    userData.warningNotes.Add(note);
+                                    Loop = false;
+                                }
+                                break;
+                            }
+                        default:
+                            break;
+                    }
+
+                }
+                Loop = true;
+                
+                while (Loop)
+                {
+                    int count = 0;
+                    StringBuilder sb = new StringBuilder();
+                    JsonWriter jsonWriter = new JsonWriter(sb);
+                    jsonWriter.WriteObjectStart();
+                    jsonWriter.WritePropertyName("f_userid");
+                    jsonWriter.Write(f_userid);
+                    jsonWriter.WriteObjectEnd();
+                    Thread.Sleep(1500);
+                    userData.webData.StatusBarText = String.Format(" 点赞 f_userid = {0},当前次数 {1}", f_userid, i + 1);
+
+
+
+
+                    string result = API.Dorm.Friend_praise(userData.GameAccount,sb.ToString());
+
+                    switch (Helper.Response.Check(userData.GameAccount, ref result, "Friend_praise", true))
+                    {
+                        case 1:
+                            {
+                                Loop = false;
+                                break;
+                            }
+                        case 0:
+                            {
+                                Loop = false;
+                                break;
+                            }
+                        case -1:
+                            {
+                                if (count++ > userData.config.ErrorCount)
+                                {
+                                    WarningNote note = new WarningNote(1, String.Format("Error FriendPraise" + result));
+                                    userData.warningNotes.Add(note);
+                                    Loop = false;
+                                }
+                                break;
+                            }
+
+                        default:
+                            break;
+                    }
+
+
+                }
+            }
+
+
+
+
+        }
+
+
+
+
+
+
 
     }
 }

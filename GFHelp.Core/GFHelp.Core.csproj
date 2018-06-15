@@ -12,11 +12,14 @@
     <Reference Include="AuthCode">
       <HintPath>..\packages\AuthCode.dll</HintPath>
     </Reference>
+    <Reference Include="dotnet-aspnet-codegenerator-design">
+      <HintPath>..\..\..\..\..\..\Program Files\dotnet\sdk\NuGetFallbackFolder\microsoft.visualstudio.web.codegeneration.design\2.1.0\lib\netstandard2.0\dotnet-aspnet-codegenerator-design.dll</HintPath>
+    </Reference>
     <Reference Include="ICSharpCode.SharpZipLib">
       <HintPath>..\packages\ICSharpCode.SharpZipLib.dll</HintPath>
     </Reference>
     <Reference Include="LitJson">
-      <HintPath>..\..\..\NGFhelp\GFHelper\Resources\LitJson.dll</HintPath>
+      <HintPath>..\packages\LitJson.dll</HintPath>
     </Reference>
     <Reference Include="Microsoft.AspNetCore.Identity.EntityFrameworkCore">
       <HintPath>..\..\..\..\..\..\..\Program Files\dotnet\sdk\NuGetFallbackFolder\microsoft.aspnetcore.identity.entityframeworkcore\2.0.3\lib\netstandard2.0\Microsoft.AspNetCore.Identity.EntityFrameworkCore.dll</HintPath>
@@ -25,7 +28,7 @@
       <HintPath>..\..\..\..\..\..\..\Program Files\dotnet\sdk\NuGetFallbackFolder\microsoft.entityframeworkcore\2.0.3\lib\netstandard2.0\Microsoft.EntityFrameworkCore.dll</HintPath>
     </Reference>
     <Reference Include="UnityEngine">
-      <HintPath>..\..\..\GFHookerN\GFHookerN\UnityEngine.dll</HintPath>
+      <HintPath>..\packages\UnityEngine.dll</HintPath>
     </Reference>
   </ItemGroup>
 

@@ -37,7 +37,7 @@ namespace GFHelp.Core.Management
             while (true)
             {
                 Thread.Sleep(1000);
-                if (userData.Task.Count == 0) { continue; }
+                if (userData.Task.Count == 0) { userData.webData.StatusBarText = "空闲"; continue; }
                 switch (userData.Task.ElementAt(0).TaskNumber)
                 {
                     case 1:
@@ -178,7 +178,12 @@ namespace GFHelp.Core.Management
                             userData.Task.RemoveAt(0);
                             break;
                         }
-
+                    case 26:
+                        {
+                            //im.friend.Friend_Praise();
+                            userData.Task.RemoveAt(0);
+                            break;
+                        }
                     case 32:
                         {
                             Action.Battle.GetRecoverBP(userData);
@@ -437,8 +442,8 @@ namespace GFHelp.Core.Management
 
         private static void WriteReport_Start(UserData userData)
         {
-            if (userData.others.Battery(userData.item_With_User_Info) < 1000) return;
-            if (userData.others.GlobalFreeExp(userData.item_With_User_Info) < userData.outhouse_Establish_Info.Furniture_database) return;
+            if (userData.others.Battery() < 1000) return;
+            if (userData.others.GlobalFreeExp() < userData.outhouse_Establish_Info.Furniture_database) return;
             if (userData.BattleReport.Start_add == true) return;
             if (userData.BattleReport.time > 0) return;
             userData.Task.Add(Helper.TaskList.BattleReport_Write);

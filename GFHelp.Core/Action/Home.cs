@@ -2,6 +2,7 @@
 
 using GFHelp.Core.Helper;
 using GFHelp.Core.Management;
+using LitJson;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -27,7 +28,7 @@ namespace GFHelp.Core.Action
             userData.webData.StatusBarText = "查询新邮件";
             Mail(userData);
             userData.webData.StatusBarText = "终止作战";
-            Battle.Abort_Mission_login(userData);
+            userData.battle.Abort_Mission_login();
             userData.config.AutoRelogin = true;
             userData.config.LoginSuccessful = true;//开始自动任务循环
             return true;
@@ -120,8 +121,8 @@ namespace GFHelp.Core.Action
                 }
                 if (Response.Check(userdata.GameAccount, ref result, "LoginFirstUrl", false) == 0)
                 {
-                    SystemEvents.Log log = new SystemEvents.Log(1, result.ToString());
-                    SystemEvents.Viewer.Logs.Add(log);
+                    SysteOthers.Log log = new SysteOthers.Log(1, result.ToString());
+                    SysteOthers.Viewer.Logs.Add(log);
                     continue;
                 }
                 if (Response.Check(userdata.GameAccount, ref result, "LoginFirstUrl", false) == -1)
@@ -157,8 +158,8 @@ namespace GFHelp.Core.Action
             }
             catch (Exception e)
             {
-                SystemEvents.Log log = new SystemEvents.Log(1, "Index_version", e.ToString());
-                SystemEvents.Viewer.Logs.Add(log);
+                SysteOthers.Log log = new SysteOthers.Log(1, "Index_version", e.ToString());
+                SysteOthers.Viewer.Logs.Add(log);
             }
 
 
@@ -171,8 +172,8 @@ namespace GFHelp.Core.Action
                 if (result.Contains("data_version"))
                 {
                     var jsonobj = DynamicJson.Parse(result); //讲道理，我真不想写了
-                    SystemEvents.ConfigData.tomorrow_zero = Convert.ToInt32(jsonobj.tomorrow_zero);
-                    SystemEvents.ConfigData.weekday = Convert.ToInt32(jsonobj.weekday);
+                    SysteOthers.ConfigData.tomorrow_zero = Convert.ToInt32(jsonobj.tomorrow_zero);
+                    SysteOthers.ConfigData.weekday = Convert.ToInt32(jsonobj.weekday);
                     return jsonobj.data_version.ToString(); ;
                 }
             }
@@ -190,8 +191,8 @@ namespace GFHelp.Core.Action
             }
             catch (Exception e)
             {
-                SystemEvents.Log log = new SystemEvents.Log(1, "Index_version", e.ToString());
-                SystemEvents.Viewer.Logs.Add(log);
+                SysteOthers.Log log = new SysteOthers.Log(1, "Index_version", e.ToString());
+                SysteOthers.Viewer.Logs.Add(log);
             }
 
 
@@ -206,7 +207,7 @@ namespace GFHelp.Core.Action
                     var jsonobj = DynamicJson.Parse(result); //讲道理，我真不想写了
                     userData.GameAccount.loginTime = Convert.ToInt32(jsonobj.now);
                     userData.GameAccount.CatchDataVersion = jsonobj.data_version.ToString();
-                    SystemEvents.ConfigData.DataVersion = userData.GameAccount.CatchDataVersion;
+                    SysteOthers.ConfigData.DataVersion = userData.GameAccount.CatchDataVersion;
                     userData.GameAccount.tomorrow_zero = Convert.ToInt32(jsonobj.tomorrow_zero);
                     userData.GameAccount.weekday = Convert.ToInt32(jsonobj.weekday);
                     return true;
@@ -268,37 +269,6 @@ namespace GFHelp.Core.Action
             if (Decrypt.ConvertDateTime_China_Int(DateTime.Now) >userData.user_Record.attendance_type1_time)
             {
                 API.Home.Attendance(userData.GameAccount);
-                int count = 0;
-
-                //while (true)
-                //{
-
-
-
-                    //switch (Response.Check(userData.GameAccount, ref result, "GetUserInfo", false))
-                    //{
-                    //    case 1:
-                    //        {
-                    //            userData.webData.StatusBarText = "登陆成功";
-                    //            return result;
-                    //        }
-                    //    case 0:
-                    //        {
-                    //            //result_error_PRO(result, count++); continue;
-                    //            continue;
-                    //        }
-                    //    case -1:
-                    //        {
-                    //            count++;
-                    //            if (count >= userData.config.ErrorCount) return "error";
-                    //            continue;
-                    //        }
-                    //    default:
-                    //        break;
-                    //}
-
-
-                //}
             }
             return true;
         }
@@ -403,25 +373,18 @@ namespace GFHelp.Core.Action
                         //输出日志
                     }
 
-                    result = API.Home.GetMailResource_Type1(userData.GameAccount,mailwith_user_id);
-                    //if (result.Contains("gun_with_user_id") || result.Contains("equip_with_user_id"))
-                    //{
-                    //    im.userdatasummery.Add_Get_Gun_Equip_Battle(int.Parse(gun_id), result);
-                    //}
 
-                    ////这里检查新枪
-                    //jsonobj = DynamicJson.Parse(result);
-                    //if (result.Contains("gun_id") || result.Contains("equip_ids"))
-                    //{
-                    //    gun_id = jsonobj.gun_id.ToString();
-                    //}
-
-
-                    //result = im.post.GetMailResource_Type1(mailwith_user_id);
-                    //if (result.Contains("gun_with_user_id") || result.Contains("equip_with_user_id"))
-                    //{
-                    //    im.userdatasummery.Add_Get_Gun_Equip_Battle(int.Parse(gun_id), result);
-                    //}
+                    //这里检查新枪
+                    jsonobj = DynamicJson.Parse(result);
+                    if (result.Contains("gun_id") || result.Contains("equip_ids"))
+                    {
+                        gun_id = jsonobj.gun_id.ToString();
+                    }
+                    result = API.Home.GetMailResource_Type1(userData.GameAccount, mailwith_user_id);
+                    if (result.Contains("gun_with_user_id") || result.Contains("equip_with_user_id"))
+                    {
+                        userData.others.Add_Get_Gun_Equip_Battle(int.Parse(gun_id), result);
+                    }
 
                     userData.mailList.dicMail.Remove(x++);
                 }
@@ -433,6 +396,63 @@ namespace GFHelp.Core.Action
             }
 
 
+        }
+
+        public static void changeLock(UserData userData, List<int> listlockid, List<int> listUnlockid)
+        {
+            StringBuilder sb = new StringBuilder();
+            JsonWriter jsonWriter = new JsonWriter(sb);
+            jsonWriter.WriteObjectStart();
+            jsonWriter.WritePropertyName("lock");
+            jsonWriter.WriteArrayStart();
+            foreach (long current2 in listlockid)
+            {
+                jsonWriter.Write(current2);
+            }
+            jsonWriter.WriteArrayEnd();
+            jsonWriter.WritePropertyName("unlock");
+            jsonWriter.WriteArrayStart();
+            foreach (long current3 in listUnlockid)
+            {
+                jsonWriter.Write(current3);
+            }
+            jsonWriter.WriteArrayEnd();
+            jsonWriter.WriteObjectEnd();
+
+
+
+
+            int count = 0;
+            while (true)
+            {
+                string result =API.Home.ChangeLockStatus(userData.GameAccount,sb.ToString());
+
+                switch (Response.Check(userData.GameAccount, ref result, "GUN_OUTandIN_Team_PRO", false))
+                {
+                    case 1:
+                        {
+                            return;
+                        }
+                    case 0:
+                        {
+                            continue;
+                        }
+                    case -1:
+                        {
+                            if (count++ > userData.config.ErrorCount)
+                            {
+                                WarningNote note = new WarningNote(1, String.Format("changeLock Error", userData.user_Info.name));
+                                userData.warningNotes.Add(note);
+                                return;
+                            }
+                            continue;
+                        }
+                    default:
+                        break;
+                }
+
+
+            }
         }
 
 

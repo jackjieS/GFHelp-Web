@@ -15,13 +15,13 @@
             </summary>
             <param name="context"></param>
         </member>
-        <member name="M:GFHelp.Web.Controllers.AccountController.GetInfo">
+        <member name="M:GFHelp.Web.Controllers.AccountController.GetGamesInfo">
             <summary>
             获取当前用户的信息
             </summary>
             <returns></returns>
         </member>
-        <member name="M:GFHelp.Web.Controllers.AccountController.CreatNewGame(GFHelp.Core.Management.GameAccountBase)">
+        <member name="M:GFHelp.Web.Controllers.AccountController.CreatGame(GFHelp.Core.Management.GameAccountBase)">
             <summary>
             创建一个游戏实例
             Username 网站用户名字
@@ -45,7 +45,7 @@
             <param name9="accountbaseYunDouDou">默认为空(这是备用登陆游戏登陆方案)</param>
             <returns></returns>
         </member>
-        <member name="M:GFHelp.Web.Controllers.AccountController.Delete(System.String)">
+        <member name="M:GFHelp.Web.Controllers.AccountController.DeleteGame(System.String)">
             <summary>
             删除一个游戏实例
             </summary>
@@ -76,9 +76,15 @@
             Game控制器
             </summary>
         </member>
-        <member name="M:GFHelp.Web.Controllers.GameController.GetGameDetails">
+        <member name="M:GFHelp.Web.Controllers.GameController.GetGameDetails(System.String)">
             <summary>
-            获取用户 下所有游戏实例的详细信息
+            获取游戏实例的详细信息
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:GFHelp.Web.Controllers.GameController.GetGameStatus(System.String)">
+            <summary>
+            获取游戏实例的状态
             </summary>
             <returns></returns>
         </member>
@@ -89,19 +95,48 @@
             <param name="Accountid"> 游戏账户id</param>
             <returns></returns>
         </member>
-        <member name="M:GFHelp.Web.Controllers.GameController.StartOperation(System.String)">
+        <member name="M:GFHelp.Web.Controllers.GameController.StartOperation(GFHelp.Web.Controllers.GameController.Operation)">
             <summary>
             [josn] accountID,后勤KEY, 后勤ID,后勤梯队ID sample:{"accountID":"13201546359","Key":"0","operationID":"5","TeamID":"1"}
             </summary>
             <param text="json"> json</param>
             <returns></returns>
         </member>
-        <member name="M:GFHelp.Web.Controllers.GameController.AbortOperation(System.String)">
+        <member name="M:GFHelp.Web.Controllers.GameController.AbortOperation(GFHelp.Web.Controllers.GameController.Operation)">
             <summary>
             [josn] accountID,后勤KEY, 后勤ID, sample:{"accountID":"13201546359","Key":"0","operationID":"5"}
             </summary>
             <param text="json"> json</param>
             <returns></returns>
+        </member>
+        <member name="M:GFHelp.Web.Controllers.GameController.StartBattle(GFHelp.Web.Controllers.GameController.modelBattleStart)">
+            <summary>
+            开始作战
+            </summary>
+            <param name="Accountid"> 游戏账户id</param>
+            <returns></returns>
+        </member>
+        <member name="M:GFHelp.Web.Controllers.GameController.AbortBattle(GFHelp.Web.Controllers.GameController.modelBattleStart)">
+            <summary>
+            终止作战
+            </summary>
+            <param name="Accountid"> 游戏账户id</param>
+            <returns></returns>
+        </member>
+        <member name="T:GFHelp.Web.Controllers.GameController.Operation">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="T:GFHelp.Web.Controllers.GameController.modelBattleStart">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="T:GFHelp.Web.Controllers.GameController.Team">
+            <summary>
+            
+            </summary>
         </member>
         <member name="T:GFHelp.Web.Controllers.SystemController">
             <summary>

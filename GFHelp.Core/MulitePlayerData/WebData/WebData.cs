@@ -23,19 +23,6 @@ namespace GFHelp.Core.MulitePlayerData.WebData
             Initialize.GetWebUser_Info(userData, ref webUser_Info);
             Initialize.GetWebOperation(userData,ref webOperation);
         }
-
-        public object ToObject()
-        {
-            var temp = new
-            {
-                statusBarText = JsonConvert.SerializeObject(StatusBarText),
-                webteams = JsonConvert.SerializeObject(WebTeams),
-                webuser_info = JsonConvert.SerializeObject(webUser_Info),
-                weboperation = JsonConvert.SerializeObject(webOperation)
-            };
-            return temp;
-
-        }
     }
     public class Initialize
     {
@@ -117,9 +104,6 @@ namespace GFHelp.Core.MulitePlayerData.WebData
             }
             return "Null";
         } 
-
-
-
     }
 
 
@@ -127,39 +111,40 @@ namespace GFHelp.Core.MulitePlayerData.WebData
     {
         public Gun(Gun_With_User_Info gun_With_User_Info)
         {
-            
+            this.TeamID = gun_With_User_Info.teamId;
             this.Name = Asset_Textes.ChangeCodeFromeCSV(Function.FindGunName_GunId(gun_With_User_Info.gun_id)); 
             this.Lv = gun_With_User_Info.level;
             this.Exp = gun_With_User_Info.gun_exp;
             this.Hp = gun_With_User_Info.life;
             this.number = gun_With_User_Info.number;
         }
-        public string Name;
-        public int Lv;
-        public int Exp;
-        public int Hp;
-        public int number;
+        public int TeamID;//梯队ID
+        public string Name; //人形名字
+        public int Lv;//等级
+        public int Exp;//经验
+        public int Hp;//血
+        public int number;//扩编数量
     }
 
     public class WebUser_Info
     {
-        public string UserName;
-        public string Level;
+        public string UserName;//指挥官名字
+        public string Level;//等级
 
-        public string ammo;
-        public string mre;
-        public string mp;
-        public string part;
-        public string IOP_Contract;//1
-        public string Quick_Develop;//3
-        public string Quick_Reinforce;//4
-        public string Quick_Training;//8
-        public string EQUIP_Contract;//2
-        public string max_build_slot;//建造槽
-        public string max_fix_slot;//维修槽
+        public string ammo;//弹药
+        public string mre;//口粮
+        public string mp;//人力
+        public string part;//零件
+        public string IOP_Contract;//1 人形建造契约
+        public string Quick_Develop;//3 快速建造契约
+        public string Quick_Reinforce;//4 快速修复契约
+        public string Quick_Training;//8 快速训练契约
+        public string EQUIP_Contract;//2 装备建造契约
+        public string max_build_slot;//最大建造槽数量
+        public string max_fix_slot;//最大维修槽数量
         public string GunNum;//拥有人形数量
-        public string maxgun;//最大值
-        public string maxteam;//梯队数量
+        public string maxgun;// 床位数
+        public string maxteam;//最大梯队数量
         public string UnlockRatio;//图鉴解锁率
         public string KalinaLevel;//kalina 等级
         public string KalinaFavor;//kalina 好感度
@@ -180,12 +165,20 @@ namespace GFHelp.Core.MulitePlayerData.WebData
 
     public class WebOperation
     {
-        public string key;
-        public string id;
-        public string operation_id;//
-        public string user_id;//
-        public string team_id;//
-        public string start_time;
-        public string remaining_time;//
+        public string key;//后勤Key 不用显示
+        public string id;//后期 id 不用显示
+        public string operation_id;//后勤任务ID
+        public string user_id;//游戏角色ID 不用显示
+        public string team_id;//后勤梯队
+        public string start_time;//后期开始时间 不用显示
+        public string remaining_time;//后期剩余时间
     }
+
+    public class WebStatus
+    {
+        public string AccountId;//游戏帐户ID
+        public string statusBarText;//状态
+    }
+
+
 }

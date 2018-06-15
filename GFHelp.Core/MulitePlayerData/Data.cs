@@ -1,4 +1,5 @@
-﻿using GFHelp.Core.Helper;
+﻿using GFHelp.Core.Action;
+using GFHelp.Core.Helper;
 using GFHelp.Core.MulitePlayerData;
 using GFHelp.Core.MulitePlayerData.WebData;
 using System;
@@ -24,25 +25,46 @@ namespace GFHelp.Core.Management
 
         public static void seed(UserData userData)
         {
+            userData.battle.SetUserData(userData);
+            userData.others.setUserData(userData);
+            userData.Loop.SetUserdata(userData);
             data.Add(userData.GameAccount.Base.Accountid, userData);
             Task task = new Task(() => Loop.CompleteMisson(userData));
             tasks.Add(userData.GameAccount.Base.Accountid, task);
             tasks[userData.GameAccount.Base.Accountid].Start();
         }
 
-        public static Dictionary<string,WebData> GetWebData(string WebUsername)
+        public static WebData GetWebData(string AccountId)
         {
-            Dictionary<string, WebData> dicWebData = new Dictionary<string, WebData>();
+            WebData webData = new WebData();
             foreach (var item in data)
             {
-                if (item.Value.GameAccount.Base.WebUsername == WebUsername)
+                if (item.Value.GameAccount.Base.Accountid == AccountId)
                 {
                     item.Value.webData.Get(item.Value);
-                    dicWebData.Add(item.Key,item.Value.webData);
+                    webData = item.Value.webData;
                 }
 
             }
-            return dicWebData;
+            return webData;
+        }
+
+        public static WebStatus GetWebStatus(string AccountId)
+        {
+            WebData webData = new WebData();
+            WebStatus WebStatus = new WebStatus();
+            foreach (var item in data)
+            {
+                if (item.Value.GameAccount.Base.Accountid == AccountId)
+                {
+                    item.Value.webData.Get(item.Value);
+                    webData = item.Value.webData;
+                }
+
+            }
+            WebStatus.AccountId = AccountId;
+            WebStatus.statusBarText = webData.StatusBarText;
+            return WebStatus;
         }
 
         public static void AddAccountBaseInDictionary(GameAccountBase accountBase)
@@ -111,6 +133,7 @@ namespace GFHelp.Core.Management
         }
 
 
+        public Battle battle = new Battle();
 
         public int Dorm_Rest_Friend_Build_Coin_Count;
         public bool Mission_S;
@@ -147,6 +170,8 @@ namespace GFHelp.Core.Management
 
         public Others others = new Others();
 
+        public Action.Mission Loop = new Action.Mission();
+
         public Dictionary<int, Dictionary<int, Gun_With_User_Info>> Teams = new Dictionary<int, Dictionary<int, Gun_With_User_Info>>();//没读一次user_info都需要刷新
 
         public BattleReport BattleReport = new BattleReport();
@@ -175,6 +200,9 @@ namespace GFHelp.Core.Management
         public bool Time11AddGetMineBattery = true;
         public bool Time17AddGetFriendBattery = true;
         public bool AutoSimulationBattleF = false;
+        public bool NewGun_Report_Stop = true;
+
+
     }
 
 

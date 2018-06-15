@@ -1,4 +1,5 @@
-﻿using System;
+﻿using Microsoft.VisualStudio.Web.CodeGeneration.Design;
+using System;
 using System.Collections.Generic;
 using System.IO;
 using System.Text;
@@ -23,8 +24,9 @@ namespace GFHelp.Core.Helper
                 return this.value;
             }
         }
-
-        public static string fileName = Directory.GetCurrentDirectory()+ @"\config.cfg";
+        static dynamic type = (new Program()).GetType();
+        static string currentDirectory = Path.GetDirectoryName(type.Assembly.Location);
+        public static string fileName = currentDirectory + @"\config.cfg";
         public static Dictionary<string, object> defultValue = new Dictionary<string, object>();
 
 
@@ -157,7 +159,7 @@ namespace GFHelp.Core.Helper
                 {
                     Console.WriteLine("配置文件加载失败!");
                 }
-                SystemEvents.ConfigData.DataVersion = getConfigString("catchdata").ToLower();
+                SysteOthers.ConfigData.DataVersion = getConfigString("catchdata").ToLower();
             }
             catch (Exception e)
             {

@@ -10,6 +10,7 @@
         "dependencies": {
           "Newtonsoft.Json": "11.0.2",
           "AuthCode": "1.0.0.0",
+          "dotnet-aspnet-codegenerator-design": "2.1.0.0",
           "ICSharpCode.SharpZipLib": "0.86.0.518",
           "LitJson": "1.0.0.0",
           "Microsoft.AspNetCore.Identity.EntityFrameworkCore": "2.0.3.0",
@@ -33,6 +34,14 @@
           "AuthCode.dll": {
             "assemblyVersion": "1.0.0.0",
             "fileVersion": "1.0.0.0"
+          }
+        }
+      },
+      "dotnet-aspnet-codegenerator-design/2.1.0.0": {
+        "runtime": {
+          "dotnet-aspnet-codegenerator-design.dll": {
+            "assemblyVersion": "2.1.0.0",
+            "fileVersion": "2.1.0.18136"
           }
         }
       },
@@ -92,6 +101,11 @@
       "hashPath": "newtonsoft.json.11.0.2.nupkg.sha512"
     },
     "AuthCode/1.0.0.0": {
+      "type": "reference",
+      "serviceable": false,
+      "sha512": ""
+    },
+    "dotnet-aspnet-codegenerator-design/2.1.0.0": {
       "type": "reference",
       "serviceable": false,
       "sha512": ""

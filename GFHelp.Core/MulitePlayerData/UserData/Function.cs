@@ -23,8 +23,8 @@ namespace GFHelp.Core.MulitePlayerData
             }
             catch (Exception e)
             {
-                SystemEvents.Log log = new SystemEvents.Log(1, "读取UserData_equip_with_user_info", e.ToString());
-                SystemEvents.Viewer.Logs.Add(log);
+                SysteOthers.Log log = new SysteOthers.Log(1, "读取UserData_equip_with_user_info", e.ToString());
+                SysteOthers.Viewer.Logs.Add(log);
             }
 
             return "";
@@ -130,8 +130,8 @@ namespace GFHelp.Core.MulitePlayerData
             }
             catch (Exception e)
             {
-                SystemEvents.Log log = new SystemEvents.Log(1, "建立梯队字典出现错误", e.ToString());
-                SystemEvents.Viewer.Logs.Add(log);
+                SysteOthers.Log log = new SysteOthers.Log(1, "建立梯队字典出现错误", e.ToString());
+                SysteOthers.Viewer.Logs.Add(log);
             }
         }
 

@@ -67,8 +67,8 @@ namespace GFHelp.Core.MulitePlayerData
                 }
                 catch (Exception e)
                 {
-                    SystemEvents.Log log = new SystemEvents.Log(1, "读取UserData_Establish", e.ToString());
-                    SystemEvents.Viewer.Logs.Add(log);
+                    SysteOthers.Log log = new SysteOthers.Log(1, "读取UserData_Establish", e.ToString());
+                    SysteOthers.Viewer.Logs.Add(log);
                     continue;
                 }
                 dicEstablish.Add(oei.establish_type, oei);

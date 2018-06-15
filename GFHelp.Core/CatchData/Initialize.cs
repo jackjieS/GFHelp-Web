@@ -12,9 +12,9 @@ namespace GFHelp.Core.CatchData
         {
             DataVersion = Action.Home.Index_version().ToLower();
             
-            if (DataVersion != SystemEvents.ConfigData.DataVersion)
+            if (DataVersion != SysteOthers.ConfigData.DataVersion)
             {
-                SystemEvents.ConfigData.DataVersion = DataVersion;
+                SysteOthers.ConfigData.DataVersion = DataVersion;
                 Base.Asset_Textes.Read_ALL_CSV();
                 Task updata = new Task(() => DownLoad.DownloadCatchdata(DataVersion));
                 updata.Start();
