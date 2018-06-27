@@ -35,30 +35,76 @@ namespace GFHelp.Core.MulitePlayerData
             }
         }
 
-
-        public int GlobalFreeExp()
+        public int GlobalFreeExp
         {
-
-            foreach (var item in userData.item_With_User_Info.dicItem)
+            get
             {
-                if (item.Value.item_id == 507)
+                foreach (var item in userData.item_With_User_Info.dicItem)
                 {
-                    return item.Value.number;
+                    if (item.Value.item_id == 507)
+                    {
+                        return item.Value.number;
+                    }
+                }
+                return 0;
+            }
+            set
+            {
+                foreach (var item in userData.item_With_User_Info.dicItem)
+                {
+                    if (item.Value.item_id == 507)
+                    {
+                        if (value > userData.outhouse_Establish_Info.Furniture_database)
+                        {
+                            item.Value.number = userData.outhouse_Establish_Info.Furniture_database;
+                        }
+                        else
+                        {
+                            item.Value.number = value;
+                        }
+                        return;
+                    }
                 }
             }
-            return 0;
         }
 
-        public void DeGolbalFreeExp(int count)
-        {
-            for (int k = 0; k < userData.item_With_User_Info.dicItem.Count; k++)
-            {
-                if (userData.item_With_User_Info.dicItem[k].item_id == 507)
-                {
-                    userData.item_With_User_Info.dicItem[k].number = userData.item_With_User_Info.dicItem[k].number - count;
-                }
-            }
-        }
+
+
+        //public int GlobalFreeExp()
+        //{
+
+        //    foreach (var item in userData.item_With_User_Info.dicItem)
+        //    {
+        //        if (item.Value.item_id == 507)
+        //        {
+        //            return item.Value.number;
+        //        }
+        //    }
+        //    return 0;
+        //}
+        //public int addGlobalFreeExp()
+        //{
+
+        //    foreach (var item in userData.item_With_User_Info.dicItem)
+        //    {
+        //        if (item.Value.item_id == 507)
+        //        {
+        //            return item.Value.number;
+        //        }
+        //    }
+        //    return 0;
+        //}
+
+        //public void DeGolbalFreeExp(int count)
+        //{
+        //    for (int k = 0; k < userData.item_With_User_Info.dicItem.Count; k++)
+        //    {
+        //        if (userData.item_With_User_Info.dicItem[k].item_id == 507)
+        //        {
+        //            userData.item_With_User_Info.dicItem[k].number = userData.item_With_User_Info.dicItem[k].number - count;
+        //        }
+        //    }
+        //}
 
         public int Battery()
         {
@@ -102,235 +148,7 @@ namespace GFHelp.Core.MulitePlayerData
             return false;
         }
 
-        public void Check_NewGun(int gun_with_user_id, int gun_id, int want_gun_id = 0)
-        {
-            WarningNote note;
-            if (!userData.user_Info.gun_collect.Contains(gun_id))
-            {
-                if (want_gun_id != 0)
-                {
-                    if (gun_id == want_gun_id)
-                    {
-                        if (userData.config.NewGun_Report_Stop)
-                        {
-                            note = new WarningNote(1, string.Format("获取新人形 : {0} ,意不意外 惊不惊喜", CatchData.Base.Asset_Textes.ChangeCodeFromeCSV(Function.FindGunName_GunId(gun_id))));
-                            userData.warningNotes.Add(note);
-                        }
-                    }
-                }
-                note = new WarningNote(1, string.Format("获取新人形 : {0} ,意不意外 惊不惊喜", CatchData.Base.Asset_Textes.ChangeCodeFromeCSV(Function.FindGunName_GunId(gun_id))));
-                userData.warningNotes.Add(note);
 
-                List<int> listLockid = new List<int>();
-                listLockid.Add(gun_with_user_id);
-                List<int> listUnLockid = new List<int>();
-                userData.webData.StatusBarText = "LOCK";
-
-                Thread.Sleep(2000);
-                Action.Home.changeLock(userData,listLockid, listUnLockid);
-                if (userData.config.NewGun_Report_Stop)
-                {
-                    note = new WarningNote(1, string.Format("获取新人形 : {0} ,意不意外 惊不惊喜", CatchData.Base.Asset_Textes.ChangeCodeFromeCSV(Function.FindGunName_GunId(gun_id))));
-                    userData.warningNotes.Add(note);
-                }
-            }
-            else
-            {
-                //WriteLog.Log(string.Format("获取人形 : {0}", Programe.TextRes.Asset_Textes.ChangeCodeFromeCSV(im.userdatasummery.FindGunName_GunId(gun_id))), "log");
-            }
-
-
-        }
-
-        public bool Add_Get_Gun_Equip_Battle(dynamic jsonobj, int Want_gun_id = 0)
-        {
-            //battle_get_equip
-            if (jsonobj.ToString().Contains("battle_get_equip") == true)
-            {
-                try
-                {
-                    Equip_With_User_Info ewui = new Equip_With_User_Info();
-                    ewui.id = Convert.ToInt32(jsonobj.battle_get_equip.id);
-                    ewui.user_id = Convert.ToInt32(jsonobj.battle_get_equip.user_id);
-                    ewui.gun_with_user_id = Convert.ToInt32(jsonobj.battle_get_equip.gun_with_user_id);
-                    ewui.equip_id = Convert.ToInt32(jsonobj.battle_get_equip.equip_id);
-                    ewui.equip_exp = Convert.ToInt32(jsonobj.battle_get_equip.equip_exp);
-                    ewui.equip_level = Convert.ToInt32(jsonobj.battle_get_equip.equip_level);
-                    ewui.pow = Convert.ToInt32(jsonobj.battle_get_equip.pow);
-                    ewui.hit = Convert.ToInt32(jsonobj.battle_get_equip.hit);
-                    ewui.dodge = Convert.ToInt32(jsonobj.battle_get_equip.dodge);
-                    ewui.speed = Convert.ToInt32(jsonobj.battle_get_equip.speed);
-                    ewui.rate = Convert.ToInt32(jsonobj.battle_get_equip.rate);
-                    ewui.critical_harm_rate = Convert.ToInt32(jsonobj.battle_get_equip.critical_harm_rate);
-                    ewui.critical_percent = Convert.ToInt32(jsonobj.battle_get_equip.critical_percent);
-                    ewui.armor_piercing = Convert.ToInt32(jsonobj.battle_get_equip.armor_piercing);
-                    ewui.armor = Convert.ToInt32(jsonobj.battle_get_equip.armor);
-                    ewui.shield = Convert.ToInt32(jsonobj.battle_get_equip.shield);
-                    ewui.damage_amplify = Convert.ToInt32(jsonobj.battle_get_equip.damage_amplify);
-                    ewui.damage_reduction = Convert.ToInt32(jsonobj.battle_get_equip.damage_reduction);
-                    ewui.night_view_percent = Convert.ToInt32(jsonobj.battle_get_equip.night_view_percent);
-
-                    ewui.bullet_number_up = Convert.ToInt32(jsonobj.battle_get_equip.bullet_number_up);
-                    ewui.adjust_count = Convert.ToInt32(jsonobj.battle_get_equip.adjust_count);
-                    ewui.is_locked = Convert.ToInt32(jsonobj.battle_get_equip.is_locked);
-                    ewui.last_adjust = jsonobj.battle_get_equip.last_adjust.ToString();
-                    int i = 0;
-                    while (true)
-                    {
-                        if (!userData.equip_With_User_Info.dicEquip.ContainsKey(i))
-                        {
-                            userData.equip_With_User_Info.dicEquip.Add(i, ewui);
-                            break;
-                        }
-                        i++;
-                    }
-                    if (CatachData.Check_equipRank5(ewui.equip_id))
-                    {
-                        WarningNote note = new WarningNote(-1, "获得5星装备 意不意外 惊不惊喜");
-                        userData.warningNotes.Add(note);
-                    }
-                }
-                catch (Exception e)
-                {
-                    WarningNote note = new WarningNote(-1, "添加掉落装备遇到错误");
-                    userData.warningNotes.Add(note);
-                    return false;
-                }
-            }
-
-            if (jsonobj.ToString().Contains("battle_get_gun") == true)
-            {
-                try
-                {
-                    Gun_With_User_Info gwui = new Gun_With_User_Info();
-
-                    gwui.id = Convert.ToInt32(jsonobj.battle_get_gun.gun_with_user_id);
-                    gwui.gun_id = Convert.ToInt32(jsonobj.battle_get_gun.gun_id);
-                    Check_NewGun(gwui.id, gwui.gun_id);
-                    gwui.UpdateData();
-                    int i = 0;
-                    while (true)
-                    {
-                        if (!userData.gun_With_User_Info.dicGun.ContainsKey(i))
-                        {
-                            userData.gun_With_User_Info.dicGun.Add(i, gwui);
-                            break;
-                        }
-                        i++;
-                    }
-                }
-                catch (Exception e)
-                {
-                    WarningNote note = new WarningNote(-1, "添加人形掉落遇到错误");
-                    userData.warningNotes.Add(note);
-                    return false;
-                }
-            }
-            if (jsonobj.ToString().Contains("reward_gun") == true)
-            {
-                try
-                {
-                    Gun_With_User_Info gwui = new Gun_With_User_Info();
-
-                    gwui.id = Convert.ToInt32(jsonobj.mission_win_result.reward_gun.gun_with_user_id);
-                    gwui.gun_id = Convert.ToInt32(jsonobj.mission_win_result.reward_gun.gun_id);
-                    Check_NewGun(gwui.id, gwui.gun_id);
-                    gwui.UpdateData();
-                    int i = 0;
-                    while (true)
-                    {
-                        if (!userData.gun_With_User_Info.dicGun.ContainsKey(i))
-                        {
-                            userData.gun_With_User_Info.dicGun.Add(i, gwui);
-                            break;
-                        }
-                        i++;
-                    }
-                }
-                catch (Exception e)
-                {
-                    WarningNote note = new WarningNote(-1, "添加人形掉落遇到错误");
-                    userData.warningNotes.Add(note);
-                    return false;
-                }
-            }
-            return true;
-        }
-
-        public bool Add_Get_Gun_Equip_Battle(int gun_equip_id, string with_user_id)
-        {
-            //battle_get_equip
-            if (with_user_id.Contains("gun"))
-            {
-                var jsonobj = DynamicJson.Parse(with_user_id);
-                int gun_with_user_id = int.Parse(jsonobj.gun_with_user_id.ToString());
-                try
-                {
-                    Gun_With_User_Info gwui = new Gun_With_User_Info();
-
-                    gwui.id = gun_with_user_id;
-                    gwui.gun_id = gun_equip_id;
-                    Check_NewGun(gwui.id, gwui.gun_id);
-                    gwui.UpdateData();
-                    int i = 0;
-                    while (true)
-                    {
-                        if (!userData.gun_With_User_Info.dicGun.ContainsKey(i))
-                        {
-                            userData.gun_With_User_Info.dicGun.Add(i, gwui);
-                            break;
-                        }
-                        i++;
-                    }
-                }
-                catch (Exception e)
-                {
-                    WarningNote note = new WarningNote(-1, "添加人形掉落遇到错误");
-                    userData.warningNotes.Add(note);
-                    return false;
-                }
-            }
-            if (with_user_id.Contains("equip"))
-            {
-                try
-                {
-                    var jsonobj = DynamicJson.Parse(with_user_id);
-                    int equip_with_user_id = int.Parse(jsonobj.equip_with_user_id.ToString());
-                    Equip_With_User_Info ewui = new Equip_With_User_Info();
-                    ewui.id = gun_equip_id;
-                    ewui.equip_id = equip_with_user_id;
-                    int i = 0;
-                    while (true)
-                    {
-                        if (!userData.equip_With_User_Info.dicEquip.ContainsKey(i))
-                        {
-                            userData.equip_With_User_Info.dicEquip.Add(i, ewui);
-                            break;
-                        }
-                        i++;
-                    }
-                    if (CatachData.Check_equipRank5(ewui.equip_id))
-                    {
-                        WarningNote note = new WarningNote(-1, "获得5星装备 意不意外 惊不惊喜");
-                        userData.warningNotes.Add(note);
-                    }
-                }
-                catch (Exception e)
-                {
-                    WarningNote note = new WarningNote(-1, "添加掉落装备遇到错误");
-                    userData.warningNotes.Add(note);
-                    return false;
-                }
-
-
-
-
-
-
-            }
-
-            return true;
-        }
 
         public bool CheckTeamLeval(int teamid, int lv)
         {
@@ -344,9 +162,39 @@ namespace GFHelp.Core.MulitePlayerData
             return true;
         }
 
+        public void BattleFinish_ammo_mrc(int teamid)
+        {
+            for (int i = 1; i <= 5; i++)
+            {
+                if (!userData.Teams.ContainsKey(teamid)) return;
+                if (userData.Teams[teamid].ContainsKey(i))
+                {
+                    //存在这个队员
+                    if (userData.Teams[teamid][i].ammo > 0)
+                    {
+                        userData.Teams[teamid][i].ammo--;
+                    }
+                    if (userData.Teams[teamid][i].mre > 0)
+                    {
+                        userData.Teams[teamid][i].mre--;
+                    }
+                }
+            }
+        }
 
+        public bool Check_Equip_GUN_FULL()
+        {
+            if (userData.gun_With_User_Info.dicGun.Count + 5 >= userData.user_Info.maxgun)
+            {
+                return true;
+            }
+            if (userData.equip_With_User_Info.dicEquip.Count + 5 >= userData.user_Info.maxequip)
+            {
+                return true;
+            }
+            return false;
 
-
+        }
 
 
 

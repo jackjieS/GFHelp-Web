@@ -7,6 +7,8 @@ using System.Threading.Tasks;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.SignalR;
 using GFHelp.Core.Management;
+using static GFHelp.LocalChatClient.Client;
+
 namespace GFHelp.Web
 {
 
@@ -83,7 +85,15 @@ namespace GFHelp.Web
 
 
 
-
+        /// <summary>
+        /// 后端向前端发送信息
+        /// 单个游戏实例
+        /// </summary>
+        /// <returns></returns>
+        public async Task SendGamesStatus(string SignalRID, string message)
+        {
+            await Clients.Client(SignalRID).SendAsync("ReceiveGamesStatus", message);
+        }
 
 
 
@@ -91,20 +101,21 @@ namespace GFHelp.Web
 
         /// <summary>
         /// 后端向前端发送信息
+        /// 单个游戏实例
         /// </summary>
         /// <returns></returns>
-        public async Task SendGamesInfo(string WebAccountId,string message)
+        public async Task SendGameDetails(string SignalRID, string message)
         {
-            await Clients.Client(WebAccountId).SendAsync("ReceiveGamesInfo", message);
+            await Clients.Client(SignalRID).SendAsync("ReceiveGamesDetails", message);
         }
 
         /// <summary>
         /// 后端向前端发送信息
         /// </summary>
         /// <returns></returns>
-        public async Task SendGamesWarning(string WebAccountId, string message)
+        public async Task SendGamesNotes(string SignalRID, string message)
         {
-            await Clients.Client(WebAccountId).SendAsync("ReceiveGamesWarning", message);
+            await Clients.Client(SignalRID).SendAsync("ReceiveGamesNotes", message);
         }
 
 
@@ -125,49 +136,55 @@ namespace GFHelp.Web
         /// <returns></returns>
         public override async Task OnDisconnectedAsync(Exception ex)
         {
-            foreach (var item in LocalChatClient.Client.userList)
-            {
-                if (item.Key == Context.ConnectionId)
+            await Task.Run(() => {
+                SignalRInfo signalRInfo = new SignalRInfo();
+                foreach (var item in userList)
                 {
-                    LocalChatClient.Client.userList.Remove(Context.ConnectionId);
-                    break;
+                    if (item.SignalRID == Context.ConnectionId)
+                    {
+                        signalRInfo = item;
+                    }
                 }
-            }
+                userList.Remove(signalRInfo);
+            });
         }
 
+
+
+
         /// <summary>
-        /// ChatHub 登陆用户
+        /// ChatHub 登陆用户ID 网站用户 实例账户ID
         /// </summary>
-        /// <param name="WebAccountId"></param>
-        public void Login(string WebAccountId)
+        /// <param name="ID"></param>
+        public async Task Login(string ID)
         {
-            foreach (var item in LocalChatClient.Client.userList)
-            {
-                if (item.Key == Context.ConnectionId)
-                    return;
-            }
-            LocalChatClient.Client.userList.Add(Context.ConnectionId, WebAccountId);
+            await Task.Run(() => {
+                SignalRInfo user = new SignalRInfo();
+                user.SignalRID = Context.ConnectionId;
+                user.SignalRName = ID;
+                userList.Add(user);
+            });
+
         }
 
         /// <summary>
         /// ChatHub 注销用户
         /// </summary>
         /// <param name="WebAccountId"></param>
-        public void Logoff(string WebAccountId)
+        public async Task Logoff(string WebAccountId)
         {
-            string key = "";
-            foreach (var item in LocalChatClient.Client.userList)
-            {
-                if (item.Value == WebAccountId)
+
+            await Task.Run(() => {
+                SignalRInfo signalRInfo = new SignalRInfo();
+                foreach (var item in LocalChatClient.Client.userList)
                 {
-                    key = item.Key;
-                    break;
+                    if (item.SignalRName == WebAccountId)
+                    {
+                        signalRInfo = item;
+                    }
                 }
-            }
-            if (!string.IsNullOrEmpty(key))
-            {
-                LocalChatClient.Client.userList.Remove(key);
-            }
+                LocalChatClient.Client.userList.Remove(signalRInfo);
+            });
         }
 
     }

@@ -254,7 +254,49 @@ namespace GFHelp.Core.MulitePlayerData
 
         }
 
+        public bool UpdateGun_Exp(dynamic jsonobj, ref int numE)
+        {
+            try
+            {
+                foreach (var item in jsonobj.gun_exp)
+                {
+                    //gun_with_user_id":"2547569"
+                    int exp = Convert.ToInt32(item.exp);
+                    int id = Convert.ToInt32(item.gun_with_user_id);
 
+                    for (int i = 0; i <= dicGun.Last().Key + 1; i++)
+                    {
+                        if (dicGun.ContainsKey(i) == false) continue;
+
+                        if (dicGun[i].level < 120 && dicGun[i].id == id)
+                        {
+                            if (Function.Update_GUN_exp_level(exp, dicGun[i].gun_exp, dicGun[i].gun_level) > 0)
+                            {
+                                int maxlife0 = dicGun[i].maxLife;
+                                dicGun[i].gun_exp += exp;
+                                int maxlife1 = dicGun[i].maxLife;
+                                numE += maxlife1 - maxlife0;
+                            }
+                            else
+                            {
+                                dicGun[i].gun_exp += exp;
+                            }
+                        }
+
+                    }
+                }
+
+                //更新数据 能否升级
+                return true;
+
+            }
+            catch (Exception e)
+            {
+                SysteOthers.Log log = new SysteOthers.Log(1, "读取UserData_gun_with_user_info遇到错误", e.ToString());
+                SysteOthers.Viewer.Logs.Add(log);
+                return false;
+            }
+        }
 
 
         public Dictionary<int, Gun_With_User_Info> dicGun = new Dictionary<int, Gun_With_User_Info>();//所有的枪

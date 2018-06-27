@@ -443,7 +443,7 @@ namespace GFHelp.Core.Management
         private static void WriteReport_Start(UserData userData)
         {
             if (userData.others.Battery() < 1000) return;
-            if (userData.others.GlobalFreeExp() < userData.outhouse_Establish_Info.Furniture_database) return;
+            if (userData.others.GlobalFreeExp < userData.outhouse_Establish_Info.Furniture_database) return;
             if (userData.BattleReport.Start_add == true) return;
             if (userData.BattleReport.time > 0) return;
             userData.Task.Add(Helper.TaskList.BattleReport_Write);

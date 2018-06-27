@@ -63,7 +63,7 @@ namespace GFHelp.Web.Controllers
             var token = new JwtSecurityToken(
                 issuer: "http://oec.com",
                 audience: "http://oec.com",
-                expires: DateTime.UtcNow.AddHours(1),
+                expires: DateTime.UtcNow.AddHours(6),
                 claims: claims,
                 signingCredentials: new SigningCredentials(signingKey, SecurityAlgorithms.HmacSha256)
 

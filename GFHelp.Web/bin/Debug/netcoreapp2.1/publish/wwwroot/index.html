@@ -4,53 +4,83 @@
     <title></title>
 </head>
 <body>
-    <p id="message"> message </p>
-    <p id="WarningNotes"> WarningNotes </p>
+    <p id="label1"> ↓这是网站用户所有游戏实例的简要信息 </p>
+    <p id="GamesStatus"> GamesStatus </p>
+
+    <p id="label2"> ↓这是单个游戏实例的详细信息 </p>
+    <p id="GamesDetails"> GamesDetails </p>
+
+    <p id="label3"> ↓这是游戏的通知信息，发送全部游戏实例的通知还是单个游戏的通知我还没有想好 </p>
+    <p id="GamesNotes"> GamesNotes </p>
+
     <input type="button" id="connectionStart" value="connectionStart" />
     <input type="button" id="Login" value="Login" />
-    <input type="button" id="GetAccountInfo" value="GetAccountInfo" />
     <input type="button" id="Logoff" value="Logoff" />
     <ul id="message"></ul>
     <!--<script src="lib/jquery/dist/jquery.min.js"></script>-->
     <script src="/lib/SingnlR/signalr.js"></script>
     <script>
-        const connection = new signalR.HubConnectionBuilder().withUrl("/chatHub").build();
-        //连接开始
+        //初始化连接
+        const conGamesStatus = new signalR.HubConnectionBuilder().withUrl("/chatHub").build();
+        const conGamesDetails = new signalR.HubConnectionBuilder().withUrl("/chatHub").build();
+        const conGamesNotes = new signalR.HubConnectionBuilder().withUrl("/chatHub").build();
+        //第一步:连接开始
         document.getElementById("connectionStart").addEventListener("click", event => {
-            connection.start().catch(err => console.error(err.toString()));
-        });
-        //接收服务器返回的信息
-        connection.on("ReceiveGamesInfo", (message) => {
-            const encodedMsg = message;
-            document.getElementById("message").textContent = encodedMsg
+            conGamesStatus.start().catch(err => console.error(err.toString()));
+            conGamesDetails.start().catch(err => console.error(err.toString()));
+            conGamesNotes.start().catch(err => console.error(err.toString()));
         });
 
-        //接收服务器返回的信息
-        connection.on("ReceiveGamesWarning", (message) => {
-            const warrningNoteMsg = message;
-            document.getElementById("WarningNotes").textContent = warrningNoteMsg
-        });
-
-        //注册 发送网站注册id username
-        //document.getElementById("userInput").value;
+        //第二步:注册登陆 发送网站用户ID，游戏实例ID，获取所有游戏实例简要信息
+        //这里直接Login两个账户，前端可以根据需求分开写
         document.getElementById("Login").addEventListener("click", event => {
-            const user = "admin";//测试账号
-            connection.invoke("Login", user).catch(err => console.error(err.toString()));
+            const Webuser = "admin";//测试账号
+            const Gameuser = "13201546359";//测试账号
+            conGamesStatus.invoke("Login", Webuser).catch(err => console.error(err.toString()));
+            conGamesDetails.invoke("Login", Gameuser).catch(err => console.error(err.toString()));
             event.preventDefault();
         });
 
-        //让后端调用 发送当前用户所有游戏实例信息的 函数
-        document.getElementById("GetAccountInfo").addEventListener("click", event => {
-            connection.invoke("SendInfo").catch(err => console.error(err.toString()));
-            event.preventDefault();
-        });
-        //注销 后端用户，达到暂停发送信息的功能
-        //document.getElementById("userInput").value;
+        //第三步注销 可以不写,一般不会用到 网页关闭后 后端捕获到异常直接删除注销用户
+        //这里直接Login两个账户，前端可以根据需求分开写
+        //注销后端用户，达到暂停发送信息的功能
         document.getElementById("Logoff").addEventListener("click", event => {
-            const user = "admin";//测试账号
-            connection.invoke("Logoff", user).catch(err => console.error(err.toString()));
+            const Webuser = "admin";//测试账号
+            const Gameuser = "13201546359";//测试账号
+            conGamesStatus.invoke("Logoff", Webuser).catch(err => console.error(err.toString()));
+            conGamesDetails.invoke("Logoff", Gameuser).catch(err => console.error(err.toString()));
             event.preventDefault();
         });
+
+
+        //接收服务器返回的简要信息 status
+        //接收网站用户所有游戏实例的简要信息 status
+        conGamesStatus.on("ReceiveGamesStatus", (message) => {
+            const encodedMsg = message;
+            document.getElementById("GamesStatus").textContent = encodedMsg
+        });
+        //接收服务器返回的详细信息
+        //接收单个实例的详细信息
+        conGamesDetails.on("ReceiveGamesDetails", (message) => {
+            const encodedMsg = message;
+            document.getElementById("GamesDetails").textContent = encodedMsg
+        });
+
+        //接收服务器返回的信息
+        //例如系统警告 系统通知 最后再写
+        conGamesNotes.on("ReceiveGamesNotes", (message) => {
+            const warrningNoteMsg = message;
+            document.getElementById("GamesNotes").textContent = warrningNoteMsg
+        });
+
+
+        //这个功能不需要用到
+        //让后端调用 发送当前用户所有游戏实例信息的方法
+        //document.getElementById("GetAccountInfo").addEventListener("click", event => {
+        //    conGamesDetails.invoke("SendInfo").catch(err => console.error(err.toString()));
+        //    event.preventDefault();
+        //});
+
     </script>
 </body>
 </html>

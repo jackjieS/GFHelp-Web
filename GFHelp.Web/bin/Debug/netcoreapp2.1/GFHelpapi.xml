@@ -250,13 +250,21 @@
             <param name="message"></param>
             <returns></returns>
         </member>
-        <member name="M:GFHelp.Web.Chat.SendGamesInfo(System.String,System.String)">
+        <member name="M:GFHelp.Web.Chat.SendGamesStatus(System.String,System.String)">
             <summary>
             后端向前端发送信息
+            单个游戏实例
             </summary>
             <returns></returns>
         </member>
-        <member name="M:GFHelp.Web.Chat.SendGamesWarning(System.String,System.String)">
+        <member name="M:GFHelp.Web.Chat.SendGameDetails(System.String,System.String)">
+            <summary>
+            后端向前端发送信息
+            单个游戏实例
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:GFHelp.Web.Chat.SendGamesNotes(System.String,System.String)">
             <summary>
             后端向前端发送信息
             </summary>
@@ -277,9 +285,9 @@
         </member>
         <member name="M:GFHelp.Web.Chat.Login(System.String)">
             <summary>
-            ChatHub 登陆用户
+            ChatHub 登陆用户ID 网站用户 实例账户ID
             </summary>
-            <param name="WebAccountId"></param>
+            <param name="ID"></param>
         </member>
         <member name="M:GFHelp.Web.Chat.Logoff(System.String)">
             <summary>

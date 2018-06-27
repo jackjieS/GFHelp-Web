@@ -15,35 +15,48 @@ namespace GFHelp.Core.Action
         static Assembly assembly;
 
         static Type typeNormal;
+        static Type typeActivity;
+        static Type typeSimulation;
         static object instanceNormal;
+        static object instanceActivity;
+        static object instanceSimulation;
         public void SetUserdata(UserData ud)
         {
             userData = ud;
         }
 
         public static void Seed()
-        {
-            assembly = Assembly.LoadFrom(AppDomain.CurrentDomain.BaseDirectory + "Mission.dll");//加载程序集(dll文件地址)，使用Assembly类   
-            typeNormal = assembly.GetType("Mission.Normal");            //获取类型，参数（名称空间+类） 
-            instanceNormal = assembly.CreateInstance("Mission.Normal");//创建该对象的实例，object类型，参数（名称空间+类）   
+        {        
+            //加载程序集(dll文件地址)，使用Assembly类   
+            assembly = Assembly.LoadFile(AppDomain.CurrentDomain.BaseDirectory + "GFHelp.Mission.dll");
+            //获取类型，参数（名称空间+类）   
+            Type typeNormal = assembly.GetType("GFHelp.Mission.Normal");
+            Type typeActivity = assembly.GetType("GFHelp.Mission.Activity");
+            Type typeSimulation = assembly.GetType("GFHelp.Mission.Simulation");
+            //创建该对象的实例，object类型，参数（名称空间+类）   
+            object instanceNormal = assembly.CreateInstance("GFHelp.Mission.Normal");
+            object instanceActivity = assembly.CreateInstance("GFHelp.Mission.Activity");
+            object instanceSimulation = assembly.CreateInstance("GFHelp.Mission.Simulation");
+            
+
+
+
         }
 
-        public void Loop(Normal_MissionInfo normal_MissionInfo)
+        public static void Test(UserData userData,Normal_MissionInfo normal_MissionInfo)
         {
+            //加载程序集(dll文件地址)，使用Assembly类   
+            assembly = Assembly.LoadFile(AppDomain.CurrentDomain.BaseDirectory + "GFHelp.Mission.dll");
+            //获取类型，参数（名称空间+类）   
+            Type typeNormal = assembly.GetType("GFHelp.Mission.Normal");
+            Type typeActivity = assembly.GetType("GFHelp.Mission.Activity");
+            Type typeSimulation = assembly.GetType("GFHelp.Mission.Simulation");
+            //创建该对象的实例，object类型，参数（名称空间+类）   
+            object instanceNormal = assembly.CreateInstance("GFHelp.Mission.Normal");
+            object instanceActivity = assembly.CreateInstance("GFHelp.Mission.Activity");
+            object instanceSimulation = assembly.CreateInstance("GFHelp.Mission.Simulation");
 
-            //加载dll后,需要使用dll中某类.
-
-            //设置Show_Str方法中的参数类型，Type[]类型；如有多个参数可以追加多个   
-            Type[] params_type = new Type[1];
-            params_type[0] = Type.GetType("Normal_MissionInfo");
-            //设置Show_Str方法中的参数值；如有多个参数可以追加多个   
-            Object[] params_obj = new Object[1];
-            params_obj[0] = normal_MissionInfo;
-            //执行Show_Str方法   
-            object value = typeNormal.GetMethod("Show_Str", params_type).Invoke(instanceNormal, params_obj);
-
-
-
+            object value = typeNormal.GetMethod("Battle0_2").Invoke(instanceNormal, new Object[] { userData, normal_MissionInfo });
         }
 
         public void End_At_Battle(Normal_MissionInfo ubti)

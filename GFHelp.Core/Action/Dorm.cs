@@ -307,7 +307,7 @@ namespace GFHelp.Core.Action
 
             }
             userData.others.DeBattery(userData.outhouse_Establish_Info.Furniture_printer * 3);
-            userData.others.DeGolbalFreeExp(userData.outhouse_Establish_Info.Furniture_printer * 3000);
+            userData.others.GlobalFreeExp = userData.others.GlobalFreeExp - userData.outhouse_Establish_Info.Furniture_printer * 3000;
             userData.BattleReport.StartTime = Helper.Decrypt.ConvertDateTime_China_Int(DateTime.Now);
         }
 

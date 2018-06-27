@@ -1,0 +1,9 @@
+C:\Users\jack\Desktop\CS\GFHelp-Web\Mission\bin\Debug\netcoreapp2.1\Mission.deps.json
+C:\Users\jack\Desktop\CS\GFHelp-Web\Mission\bin\Debug\netcoreapp2.1\Mission.dll
+C:\Users\jack\Desktop\CS\GFHelp-Web\Mission\bin\Debug\netcoreapp2.1\Mission.pdb
+C:\Users\jack\Desktop\CS\GFHelp-Web\Mission\obj\Debug\netcoreapp2.1\Mission.csprojAssemblyReference.cache
+C:\Users\jack\Desktop\CS\GFHelp-Web\Mission\obj\Debug\netcoreapp2.1\Mission.csproj.CoreCompileInputs.cache
+C:\Users\jack\Desktop\CS\GFHelp-Web\Mission\obj\Debug\netcoreapp2.1\Mission.AssemblyInfoInputs.cache
+C:\Users\jack\Desktop\CS\GFHelp-Web\Mission\obj\Debug\netcoreapp2.1\Mission.AssemblyInfo.cs
+C:\Users\jack\Desktop\CS\GFHelp-Web\Mission\obj\Debug\netcoreapp2.1\Mission.dll
+C:\Users\jack\Desktop\CS\GFHelp-Web\Mission\obj\Debug\netcoreapp2.1\Mission.pdb

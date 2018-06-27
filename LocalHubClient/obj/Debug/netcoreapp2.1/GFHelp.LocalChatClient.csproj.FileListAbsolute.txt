@@ -30,5 +30,3 @@ C:\Users\jack\Desktop\CS\GFHelp-Web\LocalHubClient\obj\Debug\netcoreapp2.1\GFHel
 C:\Users\jack\Desktop\CS\GFHelp-Web\LocalHubClient\obj\Debug\netcoreapp2.1\GFHelp.LocalChatClient.dll
 C:\Users\jack\Desktop\CS\GFHelp-Web\LocalHubClient\obj\Debug\netcoreapp2.1\GFHelp.LocalChatClient.pdb
 C:\Users\jack\Desktop\CS\GFHelp-Web\LocalHubClient\bin\Debug\netcoreapp2.1\LitJson.dll
-C:\Users\jack\Desktop\CS\GFHelp-Web\LocalHubClient\bin\Debug\netcoreapp2.1\dotnet-aspnet-codegenerator-design.dll
-C:\Users\jack\Desktop\CS\GFHelp-Web\LocalHubClient\bin\Debug\netcoreapp2.1\dotnet-aspnet-codegenerator-design.xml

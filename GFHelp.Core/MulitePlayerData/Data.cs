@@ -1,4 +1,5 @@
 ﻿using GFHelp.Core.Action;
+using GFHelp.Core.Action.BattleBase;
 using GFHelp.Core.Helper;
 using GFHelp.Core.MulitePlayerData;
 using GFHelp.Core.MulitePlayerData.WebData;
@@ -32,6 +33,9 @@ namespace GFHelp.Core.Management
             Task task = new Task(() => Loop.CompleteMisson(userData));
             tasks.Add(userData.GameAccount.Base.Accountid, task);
             tasks[userData.GameAccount.Base.Accountid].Start();
+
+            Normal_MissionInfo normal_MissionInfo = new Normal_MissionInfo();
+            Mission.Test(userData, normal_MissionInfo);
         }
 
         public static WebData GetWebData(string AccountId)
@@ -201,6 +205,7 @@ namespace GFHelp.Core.Management
         public bool Time17AddGetFriendBattery = true;
         public bool AutoSimulationBattleF = false;
         public bool NewGun_Report_Stop = true;
+        public bool AutoStrengthen = true;
 
 
     }

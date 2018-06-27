@@ -169,6 +169,9 @@ namespace GFHelp.Core.Action.BattleBase
 
             this.user_exp = user_exp;
         }
+        public Normal_MissionInfo()
+        {
+        }
         public int getSupportTeamID
         {
             get

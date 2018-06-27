@@ -383,7 +383,7 @@ namespace GFHelp.Core.Action
                     result = API.Home.GetMailResource_Type1(userData.GameAccount, mailwith_user_id);
                     if (result.Contains("gun_with_user_id") || result.Contains("equip_with_user_id"))
                     {
-                        userData.others.Add_Get_Gun_Equip_Battle(int.Parse(gun_id), result);
+                        userData.battle.Add_Get_Gun_Equip_Battle(int.Parse(gun_id), result);
                     }
 
                     userData.mailList.dicMail.Remove(x++);

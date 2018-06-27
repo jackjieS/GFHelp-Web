@@ -24,9 +24,10 @@ namespace GFHelp.Core.Helper
                 return this.value;
             }
         }
-        static dynamic type = (new Program()).GetType();
-        static string currentDirectory = Path.GetDirectoryName(type.Assembly.Location);
-        public static string fileName = currentDirectory + @"\config.cfg";
+        //static dynamic type = (new Program()).GetType();
+        //static string currentDirectory = Path.GetDirectoryName(type.Assembly.Location);
+        public static string directory = Directory.GetCurrentDirectory();
+        public static string fileName = directory + @"\config.cfg";
         public static Dictionary<string, object> defultValue = new Dictionary<string, object>();
 
 

@@ -12,32 +12,37 @@ namespace GFHelp.Core.MulitePlayerData.WebData
     public class WebData
     {
         public string StatusBarText;
-        public Dictionary<int, Dictionary<int, Gun>> WebTeams = new Dictionary<int, Dictionary<int, Gun>>();
+        //public Dictionary<int, Dictionary<int, Gun>> WebTeams = new Dictionary<int, Dictionary<int, Gun>>();
+        public List<List<Gun>> WebTeams = new List<List<Gun>>();
         public WebUser_Info webUser_Info = new WebUser_Info();
-        public Dictionary<int, WebOperation> webOperation = new Dictionary<int, WebOperation>();
-
+        //public Dictionary<int, WebOperation> webOperation = new Dictionary<int, WebOperation>();
+        public List<WebOperation> webOperation = new List<WebOperation>();
+        public WebStatus webStatus = new WebStatus();
 
         public void Get(UserData userData)
         {
             Initialize.GetWebTeam(userData, ref WebTeams);
             Initialize.GetWebUser_Info(userData, ref webUser_Info);
             Initialize.GetWebOperation(userData,ref webOperation);
+            Initialize.GetWebStatus(userData, ref webStatus);
         }
     }
+
+
     public class Initialize
     {
-        public static void GetWebTeam(UserData userData, ref Dictionary<int, Dictionary<int, Gun>> Teams)
+        public static void GetWebTeam(UserData userData, ref List<List<Gun>> Teams)
         {
             Teams.Clear();
             foreach (var team in userData.Teams)
             {
-                Dictionary<int, Gun> Team = new Dictionary<int, Gun>();
+                List<Gun> Team = new List<Gun>();
                 foreach (var k in team.Value)
                 {
                     Gun gun = new Gun(k.Value);
-                    Team.Add(k.Key, gun);
+                    Team.Add(gun);
                 }
-                Teams.Add(team.Key, Team);
+                Teams.Add(Team);
             }
         }
         public static void GetWebUser_Info(UserData ud,ref WebUser_Info ui)
@@ -76,7 +81,7 @@ namespace GFHelp.Core.MulitePlayerData.WebData
             ui.ExchangeCoinNum = getItemNumFromID(ud, 42);
             ui.Core = ud.user_Info.core.ToString();
         }
-        public static void GetWebOperation(UserData ud, ref Dictionary<int, WebOperation> dic)
+        public static void GetWebOperation(UserData ud, ref List<WebOperation> dic)
         {
             dic.Clear();
             foreach (var item in ud.operation_Act_Info.dicOperation)
@@ -89,12 +94,15 @@ namespace GFHelp.Core.MulitePlayerData.WebData
                 webOperation.team_id = item.Value.team_id.ToString();
                 webOperation.start_time = item.Value.start_time.ToString();
                 webOperation.remaining_time = item.Value.remaining_time.ToString();
-                dic.Add(item.Key, webOperation);
+                dic.Add(webOperation);
             }
         }
-
-
-
+        public static void GetWebStatus(UserData ud, ref WebStatus webStatus)
+        {
+            webStatus.AccountId = ud.GameAccount.Base.Accountid;
+            webStatus.Name = ud.GameAccount.Base.Platform + " - " + ud.GameAccount.Base.Accountid +  " - " + ud.user_Info.name;
+            webStatus.statusBarText = ud.webData.StatusBarText;
+        }
         private static string getItemNumFromID(UserData userData,int id)
         {
             foreach (var item in userData.item_With_User_Info.dicItem)
@@ -117,6 +125,7 @@ namespace GFHelp.Core.MulitePlayerData.WebData
             this.Exp = gun_With_User_Info.gun_exp;
             this.Hp = gun_With_User_Info.life;
             this.number = gun_With_User_Info.number;
+            this.Loc = gun_With_User_Info.location;
         }
         public int TeamID;//梯队ID
         public string Name; //人形名字
@@ -124,6 +133,7 @@ namespace GFHelp.Core.MulitePlayerData.WebData
         public int Exp;//经验
         public int Hp;//血
         public int number;//扩编数量
+        public int Loc;
     }
 
     public class WebUser_Info
@@ -177,6 +187,7 @@ namespace GFHelp.Core.MulitePlayerData.WebData
     public class WebStatus
     {
         public string AccountId;//游戏帐户ID
+        public string Name;//游戏角色名称
         public string statusBarText;//状态
     }
 

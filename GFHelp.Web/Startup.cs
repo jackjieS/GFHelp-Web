@@ -167,6 +167,8 @@ namespace GFHelp.Web
             Core.Helper.ConfigManager.getConfig();
             Core.CatchData.Seed.Updata();
             LocalChatClient.Client.seed();
+            Core.Action.Mission.Seed();
+            
 
             SeedDatabase.Initialize(app.ApplicationServices.GetRequiredService<IServiceScopeFactory>().CreateScope().ServiceProvider);
         }

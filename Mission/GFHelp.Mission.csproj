@@ -1,0 +1,18 @@
+<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <TargetFramework>netcoreapp2.1</TargetFramework>
+    <OutputPath>C:\Users\jack\Desktop\CS\GFHelp-Web\GFHelp.Web\bin\Debug\</OutputPath>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <ProjectReference Include="..\GFHelp.Core\GFHelp.Core.csproj" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <Reference Include="LitJson">
+      <HintPath>..\packages\LitJson.dll</HintPath>
+    </Reference>
+  </ItemGroup>
+
+</Project>
