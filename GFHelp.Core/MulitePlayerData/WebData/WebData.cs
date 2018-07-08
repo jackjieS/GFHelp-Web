@@ -13,7 +13,7 @@ namespace GFHelp.Core.MulitePlayerData.WebData
     {
         public string StatusBarText;
         //public Dictionary<int, Dictionary<int, Gun>> WebTeams = new Dictionary<int, Dictionary<int, Gun>>();
-        public List<List<Gun>> WebTeams = new List<List<Gun>>();
+        public List<Team> WebTeams = new List<Team>();
         public WebUser_Info webUser_Info = new WebUser_Info();
         //public Dictionary<int, WebOperation> webOperation = new Dictionary<int, WebOperation>();
         public List<WebOperation> webOperation = new List<WebOperation>();
@@ -21,7 +21,7 @@ namespace GFHelp.Core.MulitePlayerData.WebData
 
         public void Get(UserData userData)
         {
-            Initialize.GetWebTeam(userData, ref WebTeams);
+            Initialize.GetWebTeams(userData, ref WebTeams);
             Initialize.GetWebUser_Info(userData, ref webUser_Info);
             Initialize.GetWebOperation(userData,ref webOperation);
             Initialize.GetWebStatus(userData, ref webStatus);
@@ -31,18 +31,26 @@ namespace GFHelp.Core.MulitePlayerData.WebData
 
     public class Initialize
     {
-        public static void GetWebTeam(UserData userData, ref List<List<Gun>> Teams)
+        public static void GetWebTeams(UserData userData, ref List<Team> Teams)
         {
             Teams.Clear();
             foreach (var team in userData.Teams)
             {
-                List<Gun> Team = new List<Gun>();
+                int teamID=0;
+                string Leader="";
+                List<Gun> guns = new List<Gun>();
                 foreach (var k in team.Value)
                 {
+                    if (k.Value.location == 1)
+                    {
+                        Leader = k.Value.info.name;
+                        teamID = k.Value.teamId;
+                    }
                     Gun gun = new Gun(k.Value);
-                    Team.Add(gun);
+                    guns.Add(gun);
                 }
-                Teams.Add(Team);
+                Team Tteam = new Team(teamID, Leader, guns);
+                Teams.Add(Tteam);
             }
         }
         public static void GetWebUser_Info(UserData ud,ref WebUser_Info ui)
@@ -84,17 +92,31 @@ namespace GFHelp.Core.MulitePlayerData.WebData
         public static void GetWebOperation(UserData ud, ref List<WebOperation> dic)
         {
             dic.Clear();
-            foreach (var item in ud.operation_Act_Info.dicOperation)
+            for(int i = 0; i < 4; i++)
             {
                 WebOperation webOperation = new WebOperation();
-                webOperation.key = item.Value.key.ToString();
-                webOperation.id = item.Value.id.ToString();
-                webOperation.operation_id = item.Value.operation_id.ToString();
-                webOperation.user_id = item.Value.user_id.ToString();
-                webOperation.team_id = item.Value.team_id.ToString();
-                webOperation.start_time = item.Value.start_time.ToString();
-                webOperation.remaining_time = item.Value.remaining_time.ToString();
+                if (ud.operation_Act_Info.dicOperation.ContainsKey(i))
+                {
+                    webOperation.Using = true;
+                    webOperation.key = ud.operation_Act_Info.dicOperation[i].key.ToString();
+                    webOperation.id = ud.operation_Act_Info.dicOperation[i].id.ToString();
+                    webOperation.operation_id = ud.operation_Act_Info.dicOperation[i].operation_id.ToString();
+                    webOperation.user_id = ud.operation_Act_Info.dicOperation[i].user_id.ToString();
+                    webOperation.team_id = ud.operation_Act_Info.dicOperation[i].team_id.ToString();
+                    webOperation.start_time = ud.operation_Act_Info.dicOperation[i].start_time.ToString();
+                    webOperation.remaining_time = ud.operation_Act_Info.dicOperation[i].remaining_time.ToString();
+                }
+                else
+                {
+                    webOperation.Using = false;
+
+                }
                 dic.Add(webOperation);
+
+            }
+            foreach (var item in ud.operation_Act_Info.dicOperation)
+            {
+
             }
         }
         public static void GetWebStatus(UserData ud, ref WebStatus webStatus)
@@ -114,6 +136,20 @@ namespace GFHelp.Core.MulitePlayerData.WebData
         } 
     }
 
+    public class Team
+    {
+        public Team(int teamid,string leader,List<Gun> guns)
+        {
+            this.TeamID = teamid;
+            this.Leader = leader;
+            this.Guns = guns;
+        }
+        public int TeamID;
+        public string Leader;
+        public List<Gun> Guns;
+
+
+    }
 
     public class Gun
     {
@@ -175,6 +211,7 @@ namespace GFHelp.Core.MulitePlayerData.WebData
 
     public class WebOperation
     {
+        public bool Using;//开关
         public string key;//后勤Key 不用显示
         public string id;//后期 id 不用显示
         public string operation_id;//后勤任务ID
@@ -189,6 +226,14 @@ namespace GFHelp.Core.MulitePlayerData.WebData
         public string AccountId;//游戏帐户ID
         public string Name;//游戏角色名称
         public string statusBarText;//状态
+    }
+    public class WebBattle
+    {
+        public bool Using;//Ture正在使用 false 空闲
+        public string Map;//地图
+        public string Times;//已执行次数
+        public string Parm;//参数
+        public List<int> Teams;//参与的梯队
     }
 
 

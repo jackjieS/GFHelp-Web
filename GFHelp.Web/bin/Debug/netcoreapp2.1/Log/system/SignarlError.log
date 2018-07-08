@@ -1,0 +1,126 @@
+【23:57:16】      message = OnDisconnectedAsync ERROR , exception = System.InvalidOperationException: Collection was modified; enumeration operation may not execute.
+   at System.Collections.Generic.List`1.Enumerator.MoveNextRare()
+   at GFHelp.Web.Chat.<OnDisconnectedAsync>b__10_0() in C:\Users\jack\Desktop\CS\GFHelp-Web\GFHelp.Web\Hub\ChatHub.cs:line 141
+【23:57:16】      message = OnDisconnectedAsync ERROR , exception = System.InvalidOperationException: Collection was modified; enumeration operation may not execute.
+   at System.Collections.Generic.List`1.Enumerator.MoveNextRare()
+   at GFHelp.Web.Chat.<OnDisconnectedAsync>b__10_0() in C:\Users\jack\Desktop\CS\GFHelp-Web\GFHelp.Web\Hub\ChatHub.cs:line 141
+【23:57:16】      message = OnDisconnectedAsync ERROR , exception = System.InvalidOperationException: Collection was modified; enumeration operation may not execute.
+   at System.Collections.Generic.List`1.Enumerator.MoveNextRare()
+   at GFHelp.Web.Chat.<OnDisconnectedAsync>b__10_0() in C:\Users\jack\Desktop\CS\GFHelp-Web\GFHelp.Web\Hub\ChatHub.cs:line 141
+【23:57:20】      message = OnDisconnectedAsync ERROR , exception = System.InvalidOperationException: Collection was modified; enumeration operation may not execute.
+   at System.Collections.Generic.List`1.Enumerator.MoveNextRare()
+   at GFHelp.Web.Chat.<OnDisconnectedAsync>b__10_0() in C:\Users\jack\Desktop\CS\GFHelp-Web\GFHelp.Web\Hub\ChatHub.cs:line 141
+【23:57:20】      message = OnDisconnectedAsync ERROR , exception = System.InvalidOperationException: Collection was modified; enumeration operation may not execute.
+   at System.Collections.Generic.List`1.Enumerator.MoveNextRare()
+   at GFHelp.Web.Chat.<OnDisconnectedAsync>b__10_0() in C:\Users\jack\Desktop\CS\GFHelp-Web\GFHelp.Web\Hub\ChatHub.cs:line 141
+【23:57:20】      message = OnDisconnectedAsync ERROR , exception = System.InvalidOperationException: Collection was modified; enumeration operation may not execute.
+   at System.Collections.Generic.List`1.Enumerator.MoveNextRare()
+   at GFHelp.Web.Chat.<OnDisconnectedAsync>b__10_0() in C:\Users\jack\Desktop\CS\GFHelp-Web\GFHelp.Web\Hub\ChatHub.cs:line 141
+【23:57:55】      message = OnDisconnectedAsync ERROR , exception = System.InvalidOperationException: Collection was modified; enumeration operation may not execute.
+   at System.Collections.Generic.List`1.Enumerator.MoveNextRare()
+   at GFHelp.Web.Chat.<OnDisconnectedAsync>b__10_0() in C:\Users\jack\Desktop\CS\GFHelp-Web\GFHelp.Web\Hub\ChatHub.cs:line 141
+【23:57:55】      message = OnDisconnectedAsync ERROR , exception = System.InvalidOperationException: Collection was modified; enumeration operation may not execute.
+   at System.Collections.Generic.List`1.Enumerator.MoveNextRare()
+   at GFHelp.Web.Chat.<OnDisconnectedAsync>b__10_0() in C:\Users\jack\Desktop\CS\GFHelp-Web\GFHelp.Web\Hub\ChatHub.cs:line 141
+【23:57:55】      message = OnDisconnectedAsync ERROR , exception = System.InvalidOperationException: Collection was modified; enumeration operation may not execute.
+   at System.Collections.Generic.List`1.Enumerator.MoveNextRare()
+   at GFHelp.Web.Chat.<OnDisconnectedAsync>b__10_0() in C:\Users\jack\Desktop\CS\GFHelp-Web\GFHelp.Web\Hub\ChatHub.cs:line 141
+【23:58:02】      message = OnDisconnectedAsync ERROR , exception = System.InvalidOperationException: Collection was modified; enumeration operation may not execute.
+   at System.Collections.Generic.List`1.Enumerator.MoveNextRare()
+   at GFHelp.Web.Chat.<OnDisconnectedAsync>b__10_0() in C:\Users\jack\Desktop\CS\GFHelp-Web\GFHelp.Web\Hub\ChatHub.cs:line 141
+【23:58:02】      message = OnDisconnectedAsync ERROR , exception = System.InvalidOperationException: Collection was modified; enumeration operation may not execute.
+   at System.Collections.Generic.List`1.Enumerator.MoveNextRare()
+   at GFHelp.Web.Chat.<OnDisconnectedAsync>b__10_0() in C:\Users\jack\Desktop\CS\GFHelp-Web\GFHelp.Web\Hub\ChatHub.cs:line 141
+【23:58:02】      message = OnDisconnectedAsync ERROR , exception = System.InvalidOperationException: Collection was modified; enumeration operation may not execute.
+   at System.Collections.Generic.List`1.Enumerator.MoveNextRare()
+   at GFHelp.Web.Chat.<OnDisconnectedAsync>b__10_0() in C:\Users\jack\Desktop\CS\GFHelp-Web\GFHelp.Web\Hub\ChatHub.cs:line 141
+【23:58:07】      message = OnDisconnectedAsync ERROR , exception = System.InvalidOperationException: Collection was modified; enumeration operation may not execute.
+   at System.Collections.Generic.List`1.Enumerator.MoveNextRare()
+   at GFHelp.Web.Chat.<OnDisconnectedAsync>b__10_0() in C:\Users\jack\Desktop\CS\GFHelp-Web\GFHelp.Web\Hub\ChatHub.cs:line 141
+【23:58:07】      message = OnDisconnectedAsync ERROR , exception = System.InvalidOperationException: Collection was modified; enumeration operation may not execute.
+   at System.Collections.Generic.List`1.Enumerator.MoveNextRare()
+   at GFHelp.Web.Chat.<OnDisconnectedAsync>b__10_0() in C:\Users\jack\Desktop\CS\GFHelp-Web\GFHelp.Web\Hub\ChatHub.cs:line 141
+【23:58:07】      message = OnDisconnectedAsync ERROR , exception = System.InvalidOperationException: Collection was modified; enumeration operation may not execute.
+   at System.Collections.Generic.List`1.Enumerator.MoveNextRare()
+   at GFHelp.Web.Chat.<OnDisconnectedAsync>b__10_0() in C:\Users\jack\Desktop\CS\GFHelp-Web\GFHelp.Web\Hub\ChatHub.cs:line 141
+【23:58:20】      message = OnDisconnectedAsync ERROR , exception = System.InvalidOperationException: Collection was modified; enumeration operation may not execute.
+   at System.Collections.Generic.List`1.Enumerator.MoveNextRare()
+   at GFHelp.Web.Chat.<OnDisconnectedAsync>b__10_0() in C:\Users\jack\Desktop\CS\GFHelp-Web\GFHelp.Web\Hub\ChatHub.cs:line 141
+【23:58:20】      message = OnDisconnectedAsync ERROR , exception = System.InvalidOperationException: Collection was modified; enumeration operation may not execute.
+   at System.Collections.Generic.List`1.Enumerator.MoveNextRare()
+   at GFHelp.Web.Chat.<OnDisconnectedAsync>b__10_0() in C:\Users\jack\Desktop\CS\GFHelp-Web\GFHelp.Web\Hub\ChatHub.cs:line 141
+【23:58:20】      message = OnDisconnectedAsync ERROR , exception = System.InvalidOperationException: Collection was modified; enumeration operation may not execute.
+   at System.Collections.Generic.List`1.Enumerator.MoveNextRare()
+   at GFHelp.Web.Chat.<OnDisconnectedAsync>b__10_0() in C:\Users\jack\Desktop\CS\GFHelp-Web\GFHelp.Web\Hub\ChatHub.cs:line 141
+【23:59:12】      message = OnDisconnectedAsync ERROR , exception = System.InvalidOperationException: Collection was modified; enumeration operation may not execute.
+   at System.Collections.Generic.List`1.Enumerator.MoveNextRare()
+   at GFHelp.Web.Chat.<OnDisconnectedAsync>b__10_0() in C:\Users\jack\Desktop\CS\GFHelp-Web\GFHelp.Web\Hub\ChatHub.cs:line 141
+【23:59:12】      message = OnDisconnectedAsync ERROR , exception = System.InvalidOperationException: Collection was modified; enumeration operation may not execute.
+   at System.Collections.Generic.List`1.Enumerator.MoveNextRare()
+   at GFHelp.Web.Chat.<OnDisconnectedAsync>b__10_0() in C:\Users\jack\Desktop\CS\GFHelp-Web\GFHelp.Web\Hub\ChatHub.cs:line 141
+【23:59:12】      message = OnDisconnectedAsync ERROR , exception = System.InvalidOperationException: Collection was modified; enumeration operation may not execute.
+   at System.Collections.Generic.List`1.Enumerator.MoveNextRare()
+   at GFHelp.Web.Chat.<OnDisconnectedAsync>b__10_0() in C:\Users\jack\Desktop\CS\GFHelp-Web\GFHelp.Web\Hub\ChatHub.cs:line 141
+【23:59:23】      message = OnDisconnectedAsync ERROR , exception = System.InvalidOperationException: Collection was modified; enumeration operation may not execute.
+   at System.Collections.Generic.List`1.Enumerator.MoveNextRare()
+   at GFHelp.Web.Chat.<OnDisconnectedAsync>b__10_0() in C:\Users\jack\Desktop\CS\GFHelp-Web\GFHelp.Web\Hub\ChatHub.cs:line 141
+【23:59:23】      message = OnDisconnectedAsync ERROR , exception = System.InvalidOperationException: Collection was modified; enumeration operation may not execute.
+   at System.Collections.Generic.List`1.Enumerator.MoveNextRare()
+   at GFHelp.Web.Chat.<OnDisconnectedAsync>b__10_0() in C:\Users\jack\Desktop\CS\GFHelp-Web\GFHelp.Web\Hub\ChatHub.cs:line 141
+【23:59:23】      message = OnDisconnectedAsync ERROR , exception = System.InvalidOperationException: Collection was modified; enumeration operation may not execute.
+   at System.Collections.Generic.List`1.Enumerator.MoveNextRare()
+   at GFHelp.Web.Chat.<OnDisconnectedAsync>b__10_0() in C:\Users\jack\Desktop\CS\GFHelp-Web\GFHelp.Web\Hub\ChatHub.cs:line 141
+【23:59:31】      message = OnDisconnectedAsync ERROR , exception = System.InvalidOperationException: Collection was modified; enumeration operation may not execute.
+   at System.Collections.Generic.List`1.Enumerator.MoveNextRare()
+   at GFHelp.Web.Chat.<OnDisconnectedAsync>b__10_0() in C:\Users\jack\Desktop\CS\GFHelp-Web\GFHelp.Web\Hub\ChatHub.cs:line 141
+【23:59:31】      message = OnDisconnectedAsync ERROR , exception = System.InvalidOperationException: Collection was modified; enumeration operation may not execute.
+   at System.Collections.Generic.List`1.Enumerator.MoveNextRare()
+   at GFHelp.Web.Chat.<OnDisconnectedAsync>b__10_0() in C:\Users\jack\Desktop\CS\GFHelp-Web\GFHelp.Web\Hub\ChatHub.cs:line 141
+【00:00:17】      message = OnDisconnectedAsync ERROR , exception = System.InvalidOperationException: Collection was modified; enumeration operation may not execute.
+   at System.Collections.Generic.List`1.Enumerator.MoveNextRare()
+   at GFHelp.Web.Chat.<OnDisconnectedAsync>b__10_0() in C:\Users\jack\Desktop\CS\GFHelp-Web\GFHelp.Web\Hub\ChatHub.cs:line 141
+【00:00:17】      message = OnDisconnectedAsync ERROR , exception = System.InvalidOperationException: Collection was modified; enumeration operation may not execute.
+   at System.Collections.Generic.List`1.Enumerator.MoveNextRare()
+   at GFHelp.Web.Chat.<OnDisconnectedAsync>b__10_0() in C:\Users\jack\Desktop\CS\GFHelp-Web\GFHelp.Web\Hub\ChatHub.cs:line 141
+【00:02:06】      message = OnDisconnectedAsync ERROR , exception = System.ArgumentOutOfRangeException: Index was out of range. Must be non-negative and less than the size of the collection.
+Parameter name: index
+   at System.Collections.Generic.List`1.RemoveAt(Int32 index)
+   at System.Collections.Generic.List`1.Remove(T item)
+   at GFHelp.Web.Chat.<OnDisconnectedAsync>b__10_0() in C:\Users\jack\Desktop\CS\GFHelp-Web\GFHelp.Web\Hub\ChatHub.cs:line 149
+【00:02:24】      message = OnDisconnectedAsync ERROR , exception = System.InvalidOperationException: Collection was modified; enumeration operation may not execute.
+   at System.Collections.Generic.List`1.Enumerator.MoveNextRare()
+   at GFHelp.Web.Chat.<OnDisconnectedAsync>b__10_0() in C:\Users\jack\Desktop\CS\GFHelp-Web\GFHelp.Web\Hub\ChatHub.cs:line 141
+【00:08:04】      message = OnDisconnectedAsync ERROR , exception = System.NullReferenceException: Object reference not set to an instance of an object.
+   at GFHelp.Web.Chat.<OnDisconnectedAsync>b__10_0() in C:\Users\jack\Desktop\CS\GFHelp-Web\GFHelp.Web\Hub\ChatHub.cs:line 142
+【00:08:08】      message = OnDisconnectedAsync ERROR , exception = System.NullReferenceException: Object reference not set to an instance of an object.
+   at GFHelp.Web.Chat.<OnDisconnectedAsync>b__10_0() in C:\Users\jack\Desktop\CS\GFHelp-Web\GFHelp.Web\Hub\ChatHub.cs:line 142
+【00:08:08】      message = OnDisconnectedAsync ERROR , exception = System.NullReferenceException: Object reference not set to an instance of an object.
+   at GFHelp.Web.Chat.<OnDisconnectedAsync>b__10_0() in C:\Users\jack\Desktop\CS\GFHelp-Web\GFHelp.Web\Hub\ChatHub.cs:line 142
+【00:08:08】      message = OnDisconnectedAsync ERROR , exception = System.NullReferenceException: Object reference not set to an instance of an object.
+   at GFHelp.Web.Chat.<OnDisconnectedAsync>b__10_0() in C:\Users\jack\Desktop\CS\GFHelp-Web\GFHelp.Web\Hub\ChatHub.cs:line 142
+【00:08:14】      message = OnDisconnectedAsync ERROR , exception = System.NullReferenceException: Object reference not set to an instance of an object.
+   at GFHelp.Web.Chat.<OnDisconnectedAsync>b__10_0() in C:\Users\jack\Desktop\CS\GFHelp-Web\GFHelp.Web\Hub\ChatHub.cs:line 142
+【00:08:14】      message = OnDisconnectedAsync ERROR , exception = System.NullReferenceException: Object reference not set to an instance of an object.
+   at GFHelp.Web.Chat.<OnDisconnectedAsync>b__10_0() in C:\Users\jack\Desktop\CS\GFHelp-Web\GFHelp.Web\Hub\ChatHub.cs:line 142
+【00:08:14】      message = OnDisconnectedAsync ERROR , exception = System.NullReferenceException: Object reference not set to an instance of an object.
+   at GFHelp.Web.Chat.<OnDisconnectedAsync>b__10_0() in C:\Users\jack\Desktop\CS\GFHelp-Web\GFHelp.Web\Hub\ChatHub.cs:line 142
+【00:08:14】      message = OnDisconnectedAsync ERROR , exception = System.NullReferenceException: Object reference not set to an instance of an object.
+   at GFHelp.Web.Chat.<OnDisconnectedAsync>b__10_0() in C:\Users\jack\Desktop\CS\GFHelp-Web\GFHelp.Web\Hub\ChatHub.cs:line 142
+【00:08:20】      message = OnDisconnectedAsync ERROR , exception = System.NullReferenceException: Object reference not set to an instance of an object.
+   at GFHelp.Web.Chat.<OnDisconnectedAsync>b__10_0() in C:\Users\jack\Desktop\CS\GFHelp-Web\GFHelp.Web\Hub\ChatHub.cs:line 142
+【00:08:20】      message = OnDisconnectedAsync ERROR , exception = System.NullReferenceException: Object reference not set to an instance of an object.
+   at GFHelp.Web.Chat.<OnDisconnectedAsync>b__10_0() in C:\Users\jack\Desktop\CS\GFHelp-Web\GFHelp.Web\Hub\ChatHub.cs:line 142
+【00:08:20】      message = OnDisconnectedAsync ERROR , exception = System.NullReferenceException: Object reference not set to an instance of an object.
+   at GFHelp.Web.Chat.<OnDisconnectedAsync>b__10_0() in C:\Users\jack\Desktop\CS\GFHelp-Web\GFHelp.Web\Hub\ChatHub.cs:line 142
+【00:08:40】      message = OnDisconnectedAsync ERROR , exception = System.NullReferenceException: Object reference not set to an instance of an object.
+   at GFHelp.Web.Chat.<OnDisconnectedAsync>b__10_0() in C:\Users\jack\Desktop\CS\GFHelp-Web\GFHelp.Web\Hub\ChatHub.cs:line 142
+【00:08:40】      message = OnDisconnectedAsync ERROR , exception = System.NullReferenceException: Object reference not set to an instance of an object.
+   at GFHelp.Web.Chat.<OnDisconnectedAsync>b__10_0() in C:\Users\jack\Desktop\CS\GFHelp-Web\GFHelp.Web\Hub\ChatHub.cs:line 142
+【00:08:40】      message = OnDisconnectedAsync ERROR , exception = System.NullReferenceException: Object reference not set to an instance of an object.
+   at GFHelp.Web.Chat.<OnDisconnectedAsync>b__10_0() in C:\Users\jack\Desktop\CS\GFHelp-Web\GFHelp.Web\Hub\ChatHub.cs:line 142
+【00:08:57】      message = OnDisconnectedAsync ERROR , exception = System.NullReferenceException: Object reference not set to an instance of an object.
+   at GFHelp.Web.Chat.<OnDisconnectedAsync>b__10_0() in C:\Users\jack\Desktop\CS\GFHelp-Web\GFHelp.Web\Hub\ChatHub.cs:line 142
+【00:08:57】      message = OnDisconnectedAsync ERROR , exception = System.NullReferenceException: Object reference not set to an instance of an object.
+   at GFHelp.Web.Chat.<OnDisconnectedAsync>b__10_0() in C:\Users\jack\Desktop\CS\GFHelp-Web\GFHelp.Web\Hub\ChatHub.cs:line 142
+【00:08:57】      message = OnDisconnectedAsync ERROR , exception = System.NullReferenceException: Object reference not set to an instance of an object.
+   at GFHelp.Web.Chat.<OnDisconnectedAsync>b__10_0() in C:\Users\jack\Desktop\CS\GFHelp-Web\GFHelp.Web\Hub\ChatHub.cs:line 142

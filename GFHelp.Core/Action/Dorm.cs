@@ -247,7 +247,7 @@ namespace GFHelp.Core.Action
 
         public static void WriteReport(UserData userData)
         {
-            //im.action.Establish_Build();
+            //userData.battle.Establish_Build();
 
 
             userData.webData.StatusBarText = "开始作战报告书";

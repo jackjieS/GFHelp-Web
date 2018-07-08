@@ -71,7 +71,7 @@ namespace GFHelp.Core.Action
             //检查是否需要修复
             //im.userdatasummery.Check_Gun_need_FIX(ubti.Teams, 0.2);
             //检查是否需要重新登陆
-            if (ubti.LoopTime % SysteOthers.ConfigData.BL_ReLogin_num == 0)
+            if (ubti.LoopTime % SystemOthers.ConfigData.BL_ReLogin_num == 0)
             {
                 userData.Task.Add(TaskList.GetuserInfo);
 

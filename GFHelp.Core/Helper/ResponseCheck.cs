@@ -34,8 +34,7 @@ namespace GFHelp.Core.Helper
                 }
                 catch (Exception e)
                 {
-                    SysteOthers.Log log = new SysteOthers.Log(1, "Decode解析结果错误", e.ToString());
-                    SysteOthers.Viewer.Logs.Add(log);
+                    new Log().systemInit("Decode解析结果错误", e.ToString()).coreError();
                     return -1;
                 }
             }
@@ -66,8 +65,7 @@ namespace GFHelp.Core.Helper
                         }
                         catch (Exception e)
                         {
-                            SysteOthers.Log log = new SysteOthers.Log(1, "解析sign出现错误", e.ToString());
-                            SysteOthers.Viewer.Logs.Add(log);
+                            new Log().systemInit("解析sign出现错误", e.ToString()).coreError();
                             return -1;
                         }
                     }
@@ -228,10 +226,7 @@ namespace GFHelp.Core.Helper
                     {
                         return result.Contains("if_new_mail") ? 1 : 0;
                     }
-                case "AbortOperation":
-                    {
-                        return result.Contains("big_success") ? 1 : 0;
-                    }
+
                 case "GetMailList":
                     {
                         return result.Contains("title") ? 1 : 0;

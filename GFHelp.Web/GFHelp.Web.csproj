@@ -12,6 +12,10 @@
   </PropertyGroup>
 
   <ItemGroup>
+    <None Remove="config.cfg" />
+  </ItemGroup>
+
+  <ItemGroup>
     <PackageReference Include="Microsoft.AspNetCore.All" Version="2.1.0" />
     <PackageReference Include="Microsoft.AspNetCore.SignalR.Client" Version="1.0.0" />
     <PackageReference Include="Microsoft.EntityFrameworkCore.Sqlite" Version="2.1.0" />
@@ -32,9 +36,9 @@
   </ItemGroup>
 
   <ItemGroup>
-    <None Update="config.cfg">
-      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
-    </None>
+    <Content Update="wwwroot\index.html">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
   </ItemGroup>
 
 </Project>

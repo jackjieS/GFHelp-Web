@@ -1,6 +1,8 @@
 ﻿using Codeplex.Data;
 using GFHelp.Core.CatchData.Base;
 using GFHelp.Core.CatchData.Base.CMD;
+using GFHelp.Core.Helper;
+using Microsoft.VisualStudio.Web.CodeGeneration.Design;
 using System;
 using System.Collections.Generic;
 using System.IO;
@@ -61,7 +63,8 @@ namespace GFHelp.Core
 
         private static void ReadCatchData()
         {
-            var catchdatafile = Directory.GetCurrentDirectory() + @"\stc\catchdata.json";
+
+            var catchdatafile = SystemOthers.ConfigData.currentDirectory + @"\stc\catchdata.json";
             string jsondata = File.ReadAllText(catchdatafile);
             var jsonobj = DynamicJson.Parse(jsondata); //讲道理，我真不想写了
 
@@ -125,8 +128,8 @@ namespace GFHelp.Core
 
                 catch (Exception e)
                 {
-                    SysteOthers.Log log = new SysteOthers.Log(1, "读取CatchData_operation_info遇到错误", e.ToString());
-                    SysteOthers.Viewer.Logs.Add(log);
+                    new Log().systemInit("读取CatchData_operation_info遇到错误", e.ToString()).coreError();
+
                     continue;
                 }
             }
@@ -143,8 +146,7 @@ namespace GFHelp.Core
             }
             catch (Exception e)
             {
-                SysteOthers.Log log = new SysteOthers.Log(1, "读取CatchData_gun_exp_info遇到错误", e.ToString());
-                SysteOthers.Viewer.Logs.Add(log);
+                new Log().systemInit("读取CatchData_gun_exp_info遇到错误", e.ToString()).coreError();
                 return false;
             }
             return true;
@@ -165,8 +167,7 @@ namespace GFHelp.Core
             }
             catch (Exception e)
             {
-                SysteOthers.Log log = new SysteOthers.Log(1, "读取CatchData_gun_type_info遇到错误", e.ToString());
-                SysteOthers.Viewer.Logs.Add(log);
+                new Log().systemInit("读取CatchData_gun_type_info遇到错误", e.ToString()).coreError();
                 return false;
             }
             return true;
@@ -226,8 +227,7 @@ namespace GFHelp.Core
 
                 catch (Exception e)
                 {
-                    SysteOthers.Log log = new SysteOthers.Log(1, "读取CatchData_Auto_Mission遇到错误", e.ToString());
-                    SysteOthers.Viewer.Logs.Add(log);
+                    new Log().systemInit("读取CatchData_Auto_Mission遇到错误", e.ToString()).coreError();
                 }
             }
         }
@@ -242,8 +242,7 @@ namespace GFHelp.Core
             }
             catch (Exception e)
             {
-                SysteOthers.Log log = new SysteOthers.Log(1, "读取CatchData_equip_exp_info遇到错误", e.ToString());
-                SysteOthers.Viewer.Logs.Add(log);
+                new Log().systemInit("读取CatchData_equip_exp_info遇到错误", e.ToString()).coreError();
                 return false;
             }
             return true;
@@ -317,8 +316,7 @@ namespace GFHelp.Core
             }
             catch (Exception e)
             {
-                SysteOthers.Log log = new SysteOthers.Log(1, "读取CatchData_equip_info遇到错误", e.ToString());
-                SysteOthers.Viewer.Logs.Add(log);
+                new Log().systemInit("读取CatchData_equip_info遇到错误", e.ToString()).coreError();
                 return false;
             }
             return true;
@@ -337,8 +335,7 @@ namespace GFHelp.Core
             }
             catch (Exception e)
             {
-                SysteOthers.Log log = new SysteOthers.Log(1, "读取CatchData_fairy_type_info遇到错误", e.ToString());
-                SysteOthers.Viewer.Logs.Add(log);
+                new Log().systemInit("读取CatchData_fairy_type_info遇到错误", e.ToString()).coreError();
                 return false;
             }
             return true;
@@ -405,8 +402,7 @@ namespace GFHelp.Core
             }
             catch (Exception e)
             {
-                SysteOthers.Log log = new SysteOthers.Log(1, "读取CatchDdat_Fairy_Info遇到错误", e.ToString());
-                SysteOthers.Viewer.Logs.Add(log);
+                new Log().systemInit("读取CatchDdat_Fairy_Info遇到错误", e.ToString()).coreError();
                 return false;
             }
             return true;
@@ -446,8 +442,7 @@ namespace GFHelp.Core
             }
             catch (Exception e)
             {
-                SysteOthers.Log log = new SysteOthers.Log(1, "CatchData_gun_type_info遇到错误", e.ToString());
-                SysteOthers.Viewer.Logs.Add(log);
+                new Log().systemInit("CatchData_gun_type_info遇到错误", e.ToString()).coreError();
                 return false;
             }
             return true;
@@ -520,8 +515,7 @@ namespace GFHelp.Core
                 }
                 catch (Exception e)
                 {
-                    SysteOthers.Log log = new SysteOthers.Log(1, "读取CatchData_game_config_info遇到错误", e.ToString());
-                    SysteOthers.Viewer.Logs.Add(log);
+                    new Log().systemInit("读取CatchData_game_config_info遇到错误", e.ToString()).coreError();
                     return false;
                 }
 
@@ -547,8 +541,7 @@ namespace GFHelp.Core
             }
             catch (Exception e)
             {
-                SysteOthers.Log log = new SysteOthers.Log(1, "读取CatchData_Furniture_database遇到错误", e.ToString());
-                SysteOthers.Viewer.Logs.Add(log);
+                new Log().systemInit("读取CatchData_Furniture_database遇到错误", e.ToString()).coreError();
                 return false;
             }
             return true;
@@ -567,8 +560,7 @@ namespace GFHelp.Core
             }
             catch (Exception e)
             {
-                SysteOthers.Log log = new SysteOthers.Log(1, "读取CatchData_Furniture_server遇到错误", e.ToString());
-                SysteOthers.Viewer.Logs.Add(log);
+                new Log().systemInit("读取CatchData_Furniture_server遇到错误", e.ToString()).coreError();
                 return false;
             }
             return true;
@@ -587,8 +579,7 @@ namespace GFHelp.Core
             }
             catch (Exception e)
             {
-                SysteOthers.Log log = new SysteOthers.Log(1, "读取CatchData_Furniture_printer遇到错误", e.ToString());
-                SysteOthers.Viewer.Logs.Add(log);
+                new Log().systemInit("读取CatchData_Furniture_printer遇到错误", e.ToString()).coreError();
                 return false;
             }
             return true;
@@ -616,14 +607,20 @@ namespace GFHelp.Core
             }
             return 999999999;
         }
-
-        public static List<string> GetOperationInfo()
+        public class OperationInfo
         {
-            List<string> OperationtInfo = new List<string>();
+            public int id;
+            public string name;
+        }
+        public static List<OperationInfo> GetOperationInfo()
+        {
+            List<OperationInfo> OperationtInfo = new List<OperationInfo>();
             foreach (var item in operation_info)
             {
-                string operation= String.Format("{0}({1}-{2})", item.Value.name, (int)((item.Value.id - 1) / 4), (int)((item.Value.id - 1) % 4) + 1);
-                OperationtInfo.Add(operation);
+                OperationInfo oi = new OperationInfo();
+                oi.id = item.Key;
+                oi.name = String.Format("{0}({1}-{2})", item.Value.name, (int)((item.Value.id - 1) / 4), (int)((item.Value.id - 1) % 4) + 1);
+                OperationtInfo.Add(oi);
             }
             return OperationtInfo;
         }

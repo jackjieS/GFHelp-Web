@@ -56,21 +56,21 @@ namespace GFHelp.Web.Data
     /// <summary>
     /// 网站账户信息
     /// </summary>
-    public class AccountInfo
+    public class AccountInfo:Core.SystemOthers.AccountInfo
     {
-        /// <summary>
-        /// 用户名
-        /// </summary>
-        [Key]
-        public string Username { get; set; }
-        /// <summary>
-        /// 密码
-        /// </summary>
-        public string Password { get; set; }
-        /// <summary>
-        /// 权限
-        /// </summary>
-        public string Policy { get; set; }
+        ///// <summary>
+        ///// 用户名
+        ///// </summary>
+        //[Key]
+        //public string Username { get; set; }
+        ///// <summary>
+        ///// 密码
+        ///// </summary>
+        //public string Password { get; set; }
+        ///// <summary>
+        ///// 权限
+        ///// </summary>
+        //public string Policy { get; set; }
     }
     public class GameAccount : Core.Management.GameAccountBase
     {

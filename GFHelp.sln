@@ -9,7 +9,7 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "GFHelp.Core", "GFHelp.Core\
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "GFHelp.LocalChatClient", "LocalHubClient\GFHelp.LocalChatClient.csproj", "{BDD4DE6A-1626-455D-9C07-333779E32140}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "GFHelp.Mission", "Mission\GFHelp.Mission.csproj", "{2FFF7EB6-A34D-4143-BD3D-DAFFAB10667D}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "GFHelp.Mission", "Mission\GFHelp.Mission.csproj", "{2FFF7EB6-A34D-4143-BD3D-DAFFAB10667D}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution

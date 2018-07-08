@@ -1,4 +1,5 @@
 ﻿using GFHelp.Core.CatchData.Base;
+using GFHelp.Core.Helper;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -48,8 +49,7 @@ namespace GFHelp.Core.MulitePlayerData
                 }
                 catch (Exception e)
                 {
-                    SysteOthers.Log log = new SysteOthers.Log(1, "读取UserData_equip_with_user_info", e.ToString());
-                    SysteOthers.Viewer.Logs.Add(log);
+                    new Log().systemInit("读取UserData_equip_with_user_info", e.ToString()).coreError();
                     continue;
                 }
                 dicEquip.Add(dicEquip.Count, ewui);

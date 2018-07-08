@@ -7,43 +7,17 @@ using System.Text;
 
 namespace GFHelp.Core.Action
 {
-    class Operation
+    public class Operation
     {
-        public static void Start_Loop_Operation_Act(UserData userData, Operation_Act_Info operation_act_info)
+        public static void Start_Loop_Operation_Act(UserData userData, Operation_Act_Info.Data data)
         {
-            ////检测后勤条件
-            //int team_leader_min_level, gun_min;
-            //team_leader_min_level = CatachData.operation_info[operation_act_info.operation_id - 1].team_leader_min_level;
-            //gun_min = CatachData.operation_info[operation_act_info.operation_id - 1].gun_min;
 
-            //bool Out = false;
-
-
-            //if (team_leader_min_level > UserDataSummery.team_info[operation_act_info.team_id][1].gun_level)
-            //{
-            //    Out = true;
-            //    im.mainWindow.Dispatcher.Invoke(() =>
-            //    {
-            //        MessageBox.Show("梯队队长等级不符合后勤任务要求");
-            //    });
-            //};
-
-            //if (gun_min > UserDataSummery.team_info[operation_act_info.team_id].Count)
-            //{
-            //    Out = true;
-            //    im.mainWindow.Dispatcher.Invoke(() =>
-            //    {
-            //        MessageBox.Show("梯队人形总数不符合后勤任务要求");
-            //    });
-            //}
-            //if (Out == true) return;
-            //im.Dic_auto_operation_act[0]
-            userData.webData.StatusBarText = String.Format(" 第 {0} 梯队后勤任务结束 ", operation_act_info.team_id);
+            userData.webData.StatusBarText = String.Format(" 第 {0} 梯队后勤任务结束 ", data.team_id);
             StringBuilder sb = new StringBuilder();
             JsonWriter writer = new JsonWriter(sb);
             writer.WriteObjectStart();
             writer.WritePropertyName("operation_id");
-            writer.Write(operation_act_info.operation_id);
+            writer.Write(data.operation_id);
             writer.WriteObjectEnd();
             int count = 0;
             //发送请求
@@ -55,6 +29,7 @@ namespace GFHelp.Core.Action
                 {
                     case 1:
                         {
+                            userData.operation_Act_Info.Finish(data);
                             break;
                         }
                     case 0:
@@ -81,11 +56,11 @@ namespace GFHelp.Core.Action
             writer = new JsonWriter(sb);
             writer.WriteObjectStart();
             writer.WritePropertyName("team_id");
-            writer.Write(operation_act_info.team_id);
+            writer.Write(data.team_id);
             writer.WritePropertyName("operation_id");
-            writer.Write(operation_act_info.operation_id);
+            writer.Write(data.operation_id);
             writer.WriteObjectEnd();
-            userData.webData.StatusBarText = String.Format(" 第 {0} 梯队后勤任务开始 ", operation_act_info.team_id);
+            userData.webData.StatusBarText = String.Format(" 第 {0} 梯队后勤任务开始 ", data.team_id);
             while (true)
             {
                 string result = API.Operation.StartOperation(userData.GameAccount, sb.ToString());
@@ -94,6 +69,7 @@ namespace GFHelp.Core.Action
                 {
                     case 1:
                         {
+                            userData.operation_Act_Info.Start(data);
                             break;
                         }
                     case 0:
@@ -117,7 +93,7 @@ namespace GFHelp.Core.Action
 
                 if (k == 1)
                 {
-                    userData.operation_Act_Info.dicOperation[operation_act_info.key].start_time = Helper.Decrypt.ConvertDateTime_China_Int(DateTime.Now);
+                    data.start_time = Helper.Decrypt.ConvertDateTime_China_Int(DateTime.Now);
                     break;
 
                 }
@@ -129,57 +105,26 @@ namespace GFHelp.Core.Action
         }
 
 
-        public static void Start_Operation_Act(UserData userData, Operation_Act_Info operation_act_info)
+        public static int Finish_Operation_Act(UserData userData, Operation_Act_Info.Data data)
         {
-            ////检测后勤条件
-            //int team_leader_min_level, gun_min;
-            //team_leader_min_level = im.catchdatasummery.operation_info[operation_act_info.operation_id - 1].team_leader_min_level;
-            //gun_min = im.catchdatasummery.operation_info[operation_act_info.operation_id - 1].gun_min;
-
-            //bool Out = false;
-
-
-            //if (team_leader_min_level > UserDataSummery.team_info[operation_act_info.team_id][1].gun_level)
-            //{
-            //    Out = true;
-            //    im.mainWindow.Dispatcher.Invoke(() =>
-            //    {
-            //        MessageBox.Show("梯队队长等级不符合后勤任务要求");
-            //    });
-            //};
-
-            //if (gun_min > UserDataSummery.team_info[operation_act_info.team_id].Count)
-            //{
-            //    Out = true;
-            //    im.mainWindow.Dispatcher.Invoke(() =>
-            //    {
-            //        MessageBox.Show("梯队人形总数不符合后勤任务要求");
-            //    });
-            //}
-
-
-
-            //if (Out == true) return;
-            //im.Dic_auto_operation_act[0]
+            userData.webData.StatusBarText = String.Format(" 第 {0} 梯队后勤任务结束 ", data.team_id);
             StringBuilder sb = new StringBuilder();
             JsonWriter writer = new JsonWriter(sb);
             writer.WriteObjectStart();
-            writer.WritePropertyName("team_id");
-            writer.Write(operation_act_info.team_id);
             writer.WritePropertyName("operation_id");
-            writer.Write(operation_act_info.operation_id);
+            writer.Write(data.operation_id);
             writer.WriteObjectEnd();
-            userData.webData.StatusBarText = String.Format(" 第 {0} 梯队后勤任务开始 ", operation_act_info.team_id);
             int count = 0;
+            //发送请求
             while (true)
             {
-                string result = API.Operation.StartOperation(userData.GameAccount, sb.ToString());
-                int k = Helper.Response.Check(userData.GameAccount, ref result, "GUN_OUTandIN_Team_PRO", false);
+                string result = API.Operation.FinishOperation(userData.GameAccount, sb.ToString());
+                int k = Helper.Response.Check(userData.GameAccount, ref result, "Finish_Operation_Pro", true);
                 switch (k)
                 {
                     case 1:
                         {
-                            return;
+                            return 1;
                         }
                     case 0:
                         {
@@ -191,7 +136,53 @@ namespace GFHelp.Core.Action
                             {
                                 WarningNote note = new WarningNote(-1, result.ToString());
                                 userData.warningNotes.Add(note);
-                                return;
+                                return -1;
+                            }
+                            break;
+                        }
+                    default:
+                        break;
+                }
+                if (k == 1) break;
+            }
+            return -1;
+
+
+        }
+
+        public static int Start_Operation_Act(UserData userData, Operation_Act_Info.Data data)
+        {
+            StringBuilder sb = new StringBuilder();
+            JsonWriter writer = new JsonWriter(sb);
+            writer.WriteObjectStart();
+            writer.WritePropertyName("team_id");
+            writer.Write(data.team_id);
+            writer.WritePropertyName("operation_id");
+            writer.Write(data.operation_id);
+            writer.WriteObjectEnd();
+            userData.webData.StatusBarText = String.Format(" 第 {0} 梯队后勤任务开始 ", data.team_id);
+            int count = 0;
+            while (true)
+            {
+                string result = API.Operation.StartOperation(userData.GameAccount, sb.ToString());
+                int k = Helper.Response.Check(userData.GameAccount, ref result, "GUN_OUTandIN_Team_PRO", false);
+                switch (k)
+                {
+                    case 1:
+                        {
+                            return 1;
+                        }
+                    case 0:
+                        {
+                            break;
+                        }
+                    case -1:
+                        {
+                            if (count++ >= userData.config.ErrorCount)
+                            {
+                                WarningNote note = new WarningNote(-1, result.ToString());
+                                userData.warningNotes.Add(note);
+                                return -1;
                             }
 
                             break;
@@ -202,25 +193,25 @@ namespace GFHelp.Core.Action
             }
         }
 
-        public static void Abort_Operation_Act(UserData userData, Operation_Act_Info operation_act_info)
+        public static int Abort_Operation_Act(UserData userData, Operation_Act_Info.Data data)
         {
-            userData.webData.StatusBarText = String.Format(" 第 {0} 梯队后勤任务终止 ", operation_act_info.team_id);
+            userData.webData.StatusBarText = String.Format(" 第 {0} 梯队后勤任务终止 ", data.team_id);
             StringBuilder sb = new StringBuilder();
             JsonWriter writer = new JsonWriter(sb);
             writer.WriteObjectStart();
             writer.WritePropertyName("operation_id");
-            writer.Write(operation_act_info.operation_id);
+            writer.Write(data.operation_id);
             writer.WriteObjectEnd();
 
             int count = 0;
             while (true)
             {
                 string result =  API.Operation.AbortOperation(userData.GameAccount, sb.ToString());
-                switch (Helper.Response.Check(userData.GameAccount, ref result, "AbortOperation", true))
+                switch (Convert.ToInt32(result))
                 {
                     case 1:
                         {
-                            return;
+                            return 1;
                         }
                     case 0:
                         {
@@ -232,14 +223,23 @@ namespace GFHelp.Core.Action
                             {
                                 WarningNote note = new WarningNote(-1, "AbortOperation ERROR");
                                 userData.warningNotes.Add(note);
-                                return;
+                                return -1;
                             }
                             break;
                         }
                     default:
-                        break;
+                        {
+                            if (count++ > userData.config.ErrorCount)
+                            {
+                                WarningNote note = new WarningNote(-1, "AbortOperation ERROR");
+                                userData.warningNotes.Add(note);
+                                return -1;
+                            }
+                            break;
+                        }
                 }
             }
+            return -1;
         }
 
 

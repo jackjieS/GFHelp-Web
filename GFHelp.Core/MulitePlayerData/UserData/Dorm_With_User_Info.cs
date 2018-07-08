@@ -1,4 +1,5 @@
-﻿using System;
+﻿using GFHelp.Core.Helper;
+using System;
 using System.Collections.Generic;
 using System.Text;
 
@@ -22,7 +23,7 @@ namespace GFHelp.Core.MulitePlayerData
             }
             catch (Exception e)
             {
-                SysteOthers.Log log = new SysteOthers.Log(1, "读取DormData遇到错误",  e.ToString());
+                new Log().systemInit("读取DormData遇到错误", e.ToString()).coreError();
             }
         }
         public info info = new info();

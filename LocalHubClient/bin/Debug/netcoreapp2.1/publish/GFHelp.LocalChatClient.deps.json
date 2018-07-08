@@ -252,6 +252,7 @@
         "dependencies": {
           "Newtonsoft.Json": "11.0.2",
           "LitJson": "1.0.0.0",
+          "dotnet-aspnet-codegenerator-design": "2.1.0.0",
           "UnityEngine": "0.0.0.0",
           "AuthCode": "1.0.0.0",
           "ICSharpCode.SharpZipLib": "0.86.0.518"
@@ -265,6 +266,14 @@
           "LitJson.dll": {
             "assemblyVersion": "1.0.0.0",
             "fileVersion": "1.0.0.0"
+          }
+        }
+      },
+      "dotnet-aspnet-codegenerator-design.Reference/2.1.0.0": {
+        "runtime": {
+          "dotnet-aspnet-codegenerator-design.dll": {
+            "assemblyVersion": "2.1.0.0",
+            "fileVersion": "2.1.0.18136"
           }
         }
       },
@@ -467,6 +476,11 @@
       "sha512": ""
     },
     "LitJson.Reference/1.0.0.0": {
+      "type": "reference",
+      "serviceable": false,
+      "sha512": ""
+    },
+    "dotnet-aspnet-codegenerator-design.Reference/2.1.0.0": {
       "type": "reference",
       "serviceable": false,
       "sha512": ""

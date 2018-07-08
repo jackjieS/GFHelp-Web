@@ -24,10 +24,8 @@ namespace GFHelp.Core.Helper
                 return this.value;
             }
         }
-        //static dynamic type = (new Program()).GetType();
-        //static string currentDirectory = Path.GetDirectoryName(type.Assembly.Location);
-        public static string directory = Directory.GetCurrentDirectory();
-        public static string fileName = directory + @"\config.cfg";
+
+        public static string fileName = SystemOthers.ConfigData.currentDirectory + @"\config.cfg";
         public static Dictionary<string, object> defultValue = new Dictionary<string, object>();
 
 
@@ -36,6 +34,7 @@ namespace GFHelp.Core.Helper
 
         public static bool Load()
         {
+
             if (String.IsNullOrEmpty(fileName) || !File.Exists(fileName)) return false;
 
             string[] con = File.ReadAllLines(fileName);
@@ -160,7 +159,7 @@ namespace GFHelp.Core.Helper
                 {
                     Console.WriteLine("配置文件加载失败!");
                 }
-                SysteOthers.ConfigData.DataVersion = getConfigString("catchdata").ToLower();
+                SystemOthers.ConfigData.DataVersion = getConfigString("catchdata").ToLower();
             }
             catch (Exception e)
             {

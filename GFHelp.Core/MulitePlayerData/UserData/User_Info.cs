@@ -1,4 +1,5 @@
-﻿using System;
+﻿using GFHelp.Core.Helper;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -87,8 +88,7 @@ namespace GFHelp.Core.MulitePlayerData
             }
             catch (Exception e)
             {
-                SysteOthers.Log log = new SysteOthers.Log(1, "读取UserData_user_info遇到错误", e.ToString());
-                SysteOthers.Viewer.Logs.Add(log);
+                new Log().systemInit("读取UserData_user_info遇到错误", e.ToString()).coreError();
                 return false;
             }
             return true;

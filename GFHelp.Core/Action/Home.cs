@@ -121,8 +121,7 @@ namespace GFHelp.Core.Action
                 }
                 if (Response.Check(userdata.GameAccount, ref result, "LoginFirstUrl", false) == 0)
                 {
-                    SysteOthers.Log log = new SysteOthers.Log(1, result.ToString());
-                    SysteOthers.Viewer.Logs.Add(log);
+                    new Log().systemInit(result.ToString(), "").coreError();
                     continue;
                 }
                 if (Response.Check(userdata.GameAccount, ref result, "LoginFirstUrl", false) == -1)
@@ -158,8 +157,7 @@ namespace GFHelp.Core.Action
             }
             catch (Exception e)
             {
-                SysteOthers.Log log = new SysteOthers.Log(1, "Index_version", e.ToString());
-                SysteOthers.Viewer.Logs.Add(log);
+                new Log().systemInit("Index_version", e.ToString()).coreError();
             }
 
 
@@ -172,8 +170,8 @@ namespace GFHelp.Core.Action
                 if (result.Contains("data_version"))
                 {
                     var jsonobj = DynamicJson.Parse(result); //讲道理，我真不想写了
-                    SysteOthers.ConfigData.tomorrow_zero = Convert.ToInt32(jsonobj.tomorrow_zero);
-                    SysteOthers.ConfigData.weekday = Convert.ToInt32(jsonobj.weekday);
+                    SystemOthers.ConfigData.tomorrow_zero = Convert.ToInt32(jsonobj.tomorrow_zero);
+                    SystemOthers.ConfigData.weekday = Convert.ToInt32(jsonobj.weekday);
                     return jsonobj.data_version.ToString(); ;
                 }
             }
@@ -191,8 +189,8 @@ namespace GFHelp.Core.Action
             }
             catch (Exception e)
             {
-                SysteOthers.Log log = new SysteOthers.Log(1, "Index_version", e.ToString());
-                SysteOthers.Viewer.Logs.Add(log);
+                new Log().systemInit("Index_version", e.ToString()).coreError();
+
             }
 
 
@@ -207,7 +205,7 @@ namespace GFHelp.Core.Action
                     var jsonobj = DynamicJson.Parse(result); //讲道理，我真不想写了
                     userData.GameAccount.loginTime = Convert.ToInt32(jsonobj.now);
                     userData.GameAccount.CatchDataVersion = jsonobj.data_version.ToString();
-                    SysteOthers.ConfigData.DataVersion = userData.GameAccount.CatchDataVersion;
+                    SystemOthers.ConfigData.DataVersion = userData.GameAccount.CatchDataVersion;
                     userData.GameAccount.tomorrow_zero = Convert.ToInt32(jsonobj.tomorrow_zero);
                     userData.GameAccount.weekday = Convert.ToInt32(jsonobj.weekday);
                     return true;

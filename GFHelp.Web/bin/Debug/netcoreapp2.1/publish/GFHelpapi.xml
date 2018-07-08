@@ -154,15 +154,9 @@
             </summary>
             <returns></returns>
         </member>
-        <member name="M:GFHelp.Web.Controllers.SystemController.RemoveLog">
+        <member name="M:GFHelp.Web.Controllers.SystemController.RemoveALLSystemNotice">
             <summary>
-            删除一条系统记录信息
-            </summary>
-            <returns></returns>
-        </member>
-        <member name="M:GFHelp.Web.Controllers.SystemController.RemoveALLLogs">
-            <summary>
-            删除全部系统信息
+            删除全部系统消息信息
             </summary>
             <returns></returns>
         </member>
@@ -178,24 +172,15 @@
             </summary>
             <returns></returns>
         </member>
+        <member name="M:GFHelp.Web.Controllers.SystemController.TestInitSystemNotice">
+            <summary>
+            这是一个测试接口，模拟生成一个系统消息并推送到前端
+            </summary>
+            <returns></returns>
+        </member>
         <member name="T:GFHelp.Web.Data.AccountInfo">
             <summary>
             网站账户信息
-            </summary>
-        </member>
-        <member name="P:GFHelp.Web.Data.AccountInfo.Username">
-            <summary>
-            用户名
-            </summary>
-        </member>
-        <member name="P:GFHelp.Web.Data.AccountInfo.Password">
-            <summary>
-            密码
-            </summary>
-        </member>
-        <member name="P:GFHelp.Web.Data.AccountInfo.Policy">
-            <summary>
-            权限
             </summary>
         </member>
         <member name="T:GFHelp.Web.Data.SeedDatabase">
@@ -210,10 +195,6 @@
             <param name="serviceProvider"></param>
         </member>
         <member name="M:GFHelp.Web.Chat.Send(System.String)">
-            <summary>
-            Key ConnectionId
-            value AccountID
-            </summary>
             <summary>
             向所有人推送消息
             </summary>
@@ -270,6 +251,12 @@
             </summary>
             <returns></returns>
         </member>
+        <member name="M:GFHelp.Web.Chat.SendSystemNotification(System.String,System.String)">
+            <summary>
+            后端向前端发送信息
+            </summary>
+            <returns></returns>
+        </member>
         <member name="M:GFHelp.Web.Chat.OnConnectedAsync">
             <summary>
             建立连接时触发
@@ -286,6 +273,12 @@
         <member name="M:GFHelp.Web.Chat.Login(System.String)">
             <summary>
             ChatHub 登陆用户ID 网站用户 实例账户ID
+            </summary>
+            <param name="ID"></param>
+        </member>
+        <member name="M:GFHelp.Web.Chat.RemoveAllSystemNotice(System.String)">
+            <summary>
+            移除所有系统消息
             </summary>
             <param name="ID"></param>
         </member>

@@ -29,14 +29,15 @@ namespace GFHelp.Web
         }
 
         public IConfiguration Configuration { get; }
-        static dynamic  type = (new Program()).GetType();
-        static string  currentDirectory = Path.GetDirectoryName(type.Assembly.Location);
+
+        static string  currentDirectory = Core.SystemOthers.ConfigData.currentDirectory;
         // This method gets called by the runtime. Use this method to add services to the container.
         public void ConfigureServices(IServiceCollection services)
         {
+
             services.AddMvc();
             services.AddSignalR();
-
+            
             string con = "Data Source=" + currentDirectory+ @"\database.db";
             services.AddDbContext<appContext>(options =>
             options.UseSqlite(con));
@@ -164,12 +165,9 @@ namespace GFHelp.Web
             {
                 c.SwaggerEndpoint("/swagger/v1/swagger.json", "My API V1");
             });
-            Core.Helper.ConfigManager.getConfig();
-            Core.CatchData.Seed.Updata();
-            LocalChatClient.Client.seed();
-            Core.Action.Mission.Seed();
-            
 
+            Core.SystemOthers.ConfigData.Initialize();
+            LocalChatClient.Client.seed();
             SeedDatabase.Initialize(app.ApplicationServices.GetRequiredService<IServiceScopeFactory>().CreateScope().ServiceProvider);
         }
     }

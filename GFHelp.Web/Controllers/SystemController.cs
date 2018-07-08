@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Security.Claims;
 using System.Threading.Tasks;
+using GFHelp.Core.Helper;
 using GFHelp.Web.Data;
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
@@ -49,7 +50,7 @@ namespace GFHelp.Web.Controllers
                 return Ok(new
                 {
                     code = 1,
-                    data = Core.SysteOthers.Viewer.Logs,
+                    data = Core.Helper.Viewer.systemLogs,
                     message = string.Format("欢迎回来 {0} 管理员", username)
 
                 });
@@ -71,57 +72,57 @@ namespace GFHelp.Web.Controllers
         /// 删除一条系统记录信息
         /// </summary>
         /// <returns></returns>
-        [Route("/System/RemoveLog")]
-        [HttpGet]
-        public IActionResult RemoveLog()
-        {
-            string username = User.FindFirst(ClaimTypes.NameIdentifier)?.Value;
-            if (isAdmin(username))
-            {
-                if (Core.SysteOthers.Viewer.Logs.Count != 0)
-                {
-                    Core.SysteOthers.Viewer.Logs.RemoveAt(0);
-                }
-                return Ok(new
-                {
-                    code = 1,
-                    data = Core.SysteOthers.Viewer.Logs,
-                    message = string.Format("删除成功")
+        //[Route("/System/RemoveLog")]
+        //[HttpGet]
+        //public IActionResult RemoveLog()
+        //{
+        //    string username = User.FindFirst(ClaimTypes.NameIdentifier)?.Value;
+        //    if (isAdmin(username))
+        //    {
+        //        if (Core.Helper.Viewer.systemLogs.Count != 0)
+        //        {
+        //            Core.Helper.Viewer.systemLogs.RemoveAt(0);
+        //        }
+        //        return Ok(new
+        //        {
+        //            code = 1,
+        //            data = Core.Helper.Viewer.systemLogs,
+        //            message = string.Format("删除成功")
 
-                });
-            }
-            else
-            {
-                return Ok(new
-                {
-                    code = -1,
-                    data = "error",
-                    message = string.Format("请使用管理员账号登陆")
+        //        });
+        //    }
+        //    else
+        //    {
+        //        return Ok(new
+        //        {
+        //            code = -1,
+        //            data = "error",
+        //            message = string.Format("请使用管理员账号登陆")
 
-                });
-            }
+        //        });
+        //    }
 
-        }
+        //}
 
         /// <summary>
-        /// 删除全部系统信息
+        /// 删除全部系统消息信息
         /// </summary>
         /// <returns></returns>
-        [Route("/System/RemoveALLLogs")]
+        [Route("/System/RemoveALLSystemNotice")]
         [HttpGet]
-        public IActionResult RemoveALLLogs()
+        public IActionResult RemoveALLSystemNotice()
         {
             string username = User.FindFirst(ClaimTypes.NameIdentifier)?.Value;
             if (isAdmin(username))
             {
-                if (Core.SysteOthers.Viewer.Logs.Count != 0)
+                if (Core.Helper.Viewer.systemLogs.Count != 0)
                 {
-                    Core.SysteOthers.Viewer.Logs.Clear();
+                    Core.Helper.Viewer.systemLogs.Clear();
                 }
                 return Ok(new
                 {
                     code = 1,
-                    data = Core.SysteOthers.Viewer.Logs,
+                    data = Core.Helper.Viewer.systemLogs,
                     message = string.Format("删除成功")
 
                 });
@@ -151,7 +152,7 @@ namespace GFHelp.Web.Controllers
             var temp = new
             {
                 OperationInfo = Core.CatachData.GetOperationInfo(),
-                BattleMap = Core.SysteOthers.ConfigData.BattleMap
+                BattleMap = Core.SystemOthers.ConfigData.BattleMap
             };
             return Ok(new
             {
@@ -178,7 +179,27 @@ namespace GFHelp.Web.Controllers
             });
         }
 
+        /// <summary>
+        /// 这是一个测试接口，模拟生成一个系统消息并推送到前端
+        /// </summary>
+        /// <returns></returns>
+        [Route("/System/TestInitSystemNotice")]
+        [HttpPost]
+        public  IActionResult TestInitSystemNotice()
+        {
+            Log log = new Log().systemInit(DateTime.Now.ToString()).coreInfo();
+            Task.Run(()=> 
+            {
+                LocalChatClient.Client.SendSystemNotice(log.data);
+            });
+            return Ok(new
+            {
+                code = 1,
+                data = DateTime.Now.ToString(),
+                message = string.Format("测试")
+            });
 
+        }
 
     }
 }

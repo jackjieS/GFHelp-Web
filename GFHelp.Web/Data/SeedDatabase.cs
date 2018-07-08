@@ -29,6 +29,11 @@ namespace GFHelp.Web.Data
                 ud.CreatGameAccount(item);
                 Core.Management.Data.seed(ud);
             }
+            foreach (var item in context.AccountInfo.ToList())
+            {
+                Core.SystemOthers.ConfigData.WebUserData.Add(item);
+
+            }
         }
 
     }

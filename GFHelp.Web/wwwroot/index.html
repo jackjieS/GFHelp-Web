@@ -10,12 +10,16 @@
     <p id="label2"> ↓这是单个游戏实例的详细信息 </p>
     <p id="GamesDetails"> GamesDetails </p>
 
-    <p id="label3"> ↓这是游戏的通知信息，发送全部游戏实例的通知还是单个游戏的通知我还没有想好 </p>
-    <p id="GamesNotes"> GamesNotes </p>
+    <p id="label4"> ↓结果 </p>
+    <p id="Result"> Result </p>
+
+    <p id="label3"> ↓这是系统通知</p>
+    <table id="SystemNotes"></table>
 
     <input type="button" id="connectionStart" value="connectionStart" />
     <input type="button" id="Login" value="Login" />
     <input type="button" id="Logoff" value="Logoff" />
+    <input type="button" id="RemoveAllSystemNotice" value="朕知道了" />
     <ul id="message"></ul>
     <!--<script src="lib/jquery/dist/jquery.min.js"></script>-->
     <script src="/lib/SingnlR/signalr.js"></script>
@@ -23,12 +27,12 @@
         //初始化连接
         const conGamesStatus = new signalR.HubConnectionBuilder().withUrl("/chatHub").build();
         const conGamesDetails = new signalR.HubConnectionBuilder().withUrl("/chatHub").build();
-        const conGamesNotes = new signalR.HubConnectionBuilder().withUrl("/chatHub").build();
+
         //第一步:连接开始
         document.getElementById("connectionStart").addEventListener("click", event => {
             conGamesStatus.start().catch(err => console.error(err.toString()));
             conGamesDetails.start().catch(err => console.error(err.toString()));
-            conGamesNotes.start().catch(err => console.error(err.toString()));
+
         });
 
         //第二步:注册登陆 发送网站用户ID，游戏实例ID，获取所有游戏实例简要信息
@@ -38,6 +42,7 @@
             const Gameuser = "13201546359";//测试账号
             conGamesStatus.invoke("Login", Webuser).catch(err => console.error(err.toString()));
             conGamesDetails.invoke("Login", Gameuser).catch(err => console.error(err.toString()));
+
             event.preventDefault();
         });
 
@@ -67,19 +72,22 @@
         });
 
         //接收服务器返回的信息
-        //例如系统警告 系统通知 最后再写
-        conGamesNotes.on("ReceiveGamesNotes", (message) => {
-            const warrningNoteMsg = message;
-            document.getElementById("GamesNotes").textContent = warrningNoteMsg
+        //例如系统警告 系统通知
+        conGamesStatus.on("ReceiveSystemNotification", (message) => {
+            const SystemNotes = message;
+            var tb = document.getElementById("SystemNotes");
+            var row = tb.insertRow();
+            var cell = row.insertCell();
+            cell.innerText = SystemNotes;
+            cell = row.insertCell();
+
+        });
+        document.getElementById("RemoveAllSystemNotice").addEventListener("click", event => {
+            const Webuser = "admin";//测试账号
+            conGamesStatus.invoke("RemoveAllSystemNotice", Webuser).catch(err => console.error(err.toString()));
+            event.preventDefault();
         });
 
-
-        //这个功能不需要用到
-        //让后端调用 发送当前用户所有游戏实例信息的方法
-        //document.getElementById("GetAccountInfo").addEventListener("click", event => {
-        //    conGamesDetails.invoke("SendInfo").catch(err => console.error(err.toString()));
-        //    event.preventDefault();
-        //});
 
     </script>
 </body>

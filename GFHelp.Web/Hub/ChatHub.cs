@@ -14,21 +14,6 @@ namespace GFHelp.Web
 
     public class Chat : Hub
     {
-        //public Task SendMessage(string message)
-        //{
-        //    return Clients.All.SendAsync(message);
-        //}
-
-        /// <summary>
-        /// Key ConnectionId
-        /// value AccountID
-        /// </summary>
-
-
-
-
-
-
 
         /// <summary>
         /// 向所有人推送消息
@@ -117,6 +102,19 @@ namespace GFHelp.Web
         {
             await Clients.Client(SignalRID).SendAsync("ReceiveGamesNotes", message);
         }
+        /// <summary>
+        /// 后端向前端发送信息
+        /// </summary>
+        /// <returns></returns>
+        public async Task SendSystemNotification(string SignalRID, string message)
+        {
+            await Clients.Client(SignalRID).SendAsync("ReceiveSystemNotification", message);
+        }
+
+
+
+
+
 
 
         /// <summary>
@@ -137,15 +135,17 @@ namespace GFHelp.Web
         public override async Task OnDisconnectedAsync(Exception ex)
         {
             await Task.Run(() => {
-                SignalRInfo signalRInfo = new SignalRInfo();
-                foreach (var item in userList)
+                try
                 {
-                    if (item.SignalRID == Context.ConnectionId)
-                    {
-                        signalRInfo = item;
-                    }
+                    userList.Remove(Context.ConnectionId);
                 }
-                userList.Remove(signalRInfo);
+                catch (Exception e )
+                {
+                    new Core.Helper.Log().systemInit("OnDisconnectedAsync ERROR", e.ToString()).signarlError();
+
+                }
+
+
             });
         }
 
@@ -162,10 +162,42 @@ namespace GFHelp.Web
                 SignalRInfo user = new SignalRInfo();
                 user.SignalRID = Context.ConnectionId;
                 user.SignalRName = ID;
-                userList.Add(user);
-            });
 
+                foreach (var k in Core.SystemOthers.ConfigData.WebUserData)
+                {
+                    if(k.Username== ID && k.Policy=="admin")
+                    {
+                        user.isAdmin = true;
+                    }
+                }
+                userList.Add(Context.ConnectionId,user);
+                LoginGetNotice(Context.ConnectionId);
+            });
         }
+
+        /// <summary>
+        /// 移除所有系统消息
+        /// </summary>
+        /// <param name="ID"></param>
+        public async Task RemoveAllSystemNotice(string ID)
+        {
+            await Task.Run(() => {
+                foreach (var item in Core.SystemOthers.ConfigData.WebUserData)
+                {
+                    if(item.Username == ID && item.Policy == "admin")
+                    {
+                        Core.Helper.Viewer.systemLogs.Clear();
+                        return 1;
+                    }
+                }
+                return 0;
+            });
+        }
+
+
+
+
+
 
         /// <summary>
         /// ChatHub 注销用户
@@ -175,15 +207,7 @@ namespace GFHelp.Web
         {
 
             await Task.Run(() => {
-                SignalRInfo signalRInfo = new SignalRInfo();
-                foreach (var item in LocalChatClient.Client.userList)
-                {
-                    if (item.SignalRName == WebAccountId)
-                    {
-                        signalRInfo = item;
-                    }
-                }
-                LocalChatClient.Client.userList.Remove(signalRInfo);
+                LocalChatClient.Client.userList.Remove(WebAccountId);
             });
         }
 

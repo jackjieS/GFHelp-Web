@@ -1,0 +1,10 @@
+C:\Users\jack\Desktop\CS\GFHelp-Web\GFHelp.Console\bin\Debug\netcoreapp2.1\GFHelp.Console.deps.json
+C:\Users\jack\Desktop\CS\GFHelp-Web\GFHelp.Console\bin\Debug\netcoreapp2.1\GFHelp.Console.runtimeconfig.json
+C:\Users\jack\Desktop\CS\GFHelp-Web\GFHelp.Console\bin\Debug\netcoreapp2.1\GFHelp.Console.runtimeconfig.dev.json
+C:\Users\jack\Desktop\CS\GFHelp-Web\GFHelp.Console\bin\Debug\netcoreapp2.1\GFHelp.Console.dll
+C:\Users\jack\Desktop\CS\GFHelp-Web\GFHelp.Console\bin\Debug\netcoreapp2.1\GFHelp.Console.pdb
+C:\Users\jack\Desktop\CS\GFHelp-Web\GFHelp.Console\obj\Debug\netcoreapp2.1\GFHelp.Console.csproj.CoreCompileInputs.cache
+C:\Users\jack\Desktop\CS\GFHelp-Web\GFHelp.Console\obj\Debug\netcoreapp2.1\GFHelp.Console.AssemblyInfoInputs.cache
+C:\Users\jack\Desktop\CS\GFHelp-Web\GFHelp.Console\obj\Debug\netcoreapp2.1\GFHelp.Console.AssemblyInfo.cs
+C:\Users\jack\Desktop\CS\GFHelp-Web\GFHelp.Console\obj\Debug\netcoreapp2.1\GFHelp.Console.dll
+C:\Users\jack\Desktop\CS\GFHelp-Web\GFHelp.Console\obj\Debug\netcoreapp2.1\GFHelp.Console.pdb

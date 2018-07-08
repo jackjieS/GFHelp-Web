@@ -1,4 +1,6 @@
-﻿using System;
+﻿using GFHelp.Core.Helper;
+using Microsoft.VisualStudio.Web.CodeGeneration.Design;
+using System;
 using System.Collections.Generic;
 using System.IO;
 using System.Text;
@@ -24,13 +26,14 @@ namespace GFHelp.Core.CatchData.Base
             }
         }
 
-        private static string operationfileName = "textRes\\operation.csv";
-        private static string prizefilename = "textRes\\prize.csv";
-        private static string dailyfilename = "textRes\\daily.csv";
-        private static string achievementfilename = "textRes\\achievement.csv";
-        private static string weeklyfilename = "textRes\\weekly.csv";
-        private static string equipfilename = "textRes\\equip.csv";
-        private static string gunfilename = "textRes\\gun.csv";
+        static string currentDirectory = SystemOthers.ConfigData.currentDirectory;
+        private static string operationfileName = currentDirectory+ "\\textRes\\operation.csv";
+        private static string prizefilename = currentDirectory + "\\textRes\\prize.csv";
+        private static string dailyfilename = currentDirectory + "\\textRes\\daily.csv";
+        private static string achievementfilename = currentDirectory + "\\textRes\\achievement.csv";
+        private static string weeklyfilename = currentDirectory + "\\textRes\\weekly.csv";
+        private static string equipfilename = currentDirectory + "\\textRes\\equip.csv";
+        private static string gunfilename = currentDirectory + "\\textRes\\gun.csv";
         private static Dictionary<int, ConfigNode> csvdata = new Dictionary<int, ConfigNode>();
         private static int maxline = 0;
 
@@ -38,6 +41,7 @@ namespace GFHelp.Core.CatchData.Base
 
         static public bool Read_ALL_CSV()
         {
+
             try
             {
                 ReadCsv(operationfileName, ref csvdata);
@@ -50,8 +54,7 @@ namespace GFHelp.Core.CatchData.Base
             }
             catch (Exception e)
             {
-                SysteOthers.Log log = new SysteOthers.Log(1, "读取 csv 出错", e.ToString());
-                SysteOthers.Viewer.Logs.Add(log);
+                new Log().systemInit("读取 csv 出错", e.ToString()).coreError();
                 return false;
             }
             return true;
@@ -80,9 +83,7 @@ namespace GFHelp.Core.CatchData.Base
             }
             catch (Exception e)
             {
-                SysteOthers.Log log = new SysteOthers.Log(1, string.Format("读取 {0} 出错", filename.ToString()), e.ToString());
-                SysteOthers.Viewer.Logs.Add(log);
-
+                new Log().systemInit(string.Format("读取 {0} 出错", filename.ToString()), e.ToString()).coreError();
                 return false;
             }
         }

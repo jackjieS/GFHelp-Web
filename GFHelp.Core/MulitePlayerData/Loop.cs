@@ -15,11 +15,7 @@ namespace GFHelp.Core.Management
             {
                 foreach (var user_data in Data.data)
                 {
-                    foreach (var item in user_data.Value.operation_Act_Info.dicOperation)
-                    {
-                        if (item.Value.id == 0) continue;
-                        item.Value.Time_Operate(CatachData.operation_info[item.Value.operation_id - 1].duration);
-                    }
+                    user_data.Value.operation_Act_Info.TimeReduce();
                 }
 
 
@@ -32,7 +28,7 @@ namespace GFHelp.Core.Management
         }
 
 
-        public static void  CompleteMisson(UserData userData)
+        public static void CompleteMisson(UserData userData)
         {
             while (true)
             {
@@ -86,6 +82,13 @@ namespace GFHelp.Core.Management
                     case 10:
                         {
                             Action.Operation.Start_Operation_Act(userData, userData.operation_Act_Info.dicOperation[3]);
+                            Action.Home.GetUserInfo(userData);
+                            userData.Task.RemoveAt(0);
+                            break;
+                        }
+                    case 61:
+                        {
+                            Action.Operation.Start_Loop_Operation_Act(userData, userData.operation_Act_Info.dicOperation[0]);
                             Action.Home.GetUserInfo(userData);
                             userData.Task.RemoveAt(0);
                             break;
@@ -224,7 +227,7 @@ namespace GFHelp.Core.Management
             {
                 if (userdata.Value.config.LoginSuccessful)
                 {
-                    Auto_Operation(userdata.Value);
+                    //Auto_Operation(userdata.Value);
                     ClickKalina(userdata.Value);
                     ClickGirlsFavor(userdata.Value);
                     DailyReFlash(userdata.Value);
@@ -241,88 +244,52 @@ namespace GFHelp.Core.Management
 
 
 
-        public static void Auto_Operation(UserData user_data)
-        {
-   
-                //检查UI上的总开关
-                if (user_data.config.NeedAuto_Loop_Operation_Act == false) return;
-                for (int i = 0; i < user_data.operation_Act_Info.dicOperation.Count; i++)
-                {
-                    if (string.IsNullOrEmpty(user_data.operation_Act_Info.dicOperation[i].id.ToString())) continue;
-                    if (user_data.operation_Act_Info.dicOperation[i].remaining_time < 0)
-                    {
-                        if (user_data.operation_Act_Info.dicOperation[i].Added == false)
-                        {
-                            if (user_data.config.NeedAuto_Loop_Operation_Act == false)
-                            {
-                                switch (i)
-                                {
-                                    case 0:
-                                        {
-                                            Data.data[user_data.GameAccount.Base.Accountid].Task.Add(Helper.TaskList.Finish_Operation_Act1);
-                                            break;
-                                        }
-                                    case 1:
-                                        {
-                                            Data.data[user_data.GameAccount.Base.Accountid].Task.Add(Helper.TaskList.Finish_Operation_Act2);
-                                            break;
-                                        }
-                                    case 2:
-                                        {
-                                            Data.data[user_data.GameAccount.Base.Accountid].Task.Add(Helper.TaskList.Finish_Operation_Act3);
-                                            break;
-                                        }
-                                    case 3:
-                                        {
-                                            Data.data[user_data.GameAccount.Base.Accountid].Task.Add(Helper.TaskList.Finish_Operation_Act4);
-                                            break;
-                                        }
-                                    default:
-                                        break;
-                                }
-                            }
-                            else
-                            {
-                                switch (i)
-                                {
-                                    case 0:
-                                        {
-                                            Data.data[user_data.GameAccount.Base.Accountid].Task.Add(Helper.TaskList.Auto_Loop_Operation_Act1);
-                                            break;
-                                        }
-                                    case 1:
-                                        {
-                                            Data.data[user_data.GameAccount.Base.Accountid].Task.Add(Helper.TaskList.Auto_Loop_Operation_Act2);
-                                            break;
-                                        }
-                                    case 2:
-                                        {
-                                            Data.data[user_data.GameAccount.Base.Accountid].Task.Add(Helper.TaskList.Auto_Loop_Operation_Act3);
-                                            break;
-                                        }
-                                    case 3:
-                                        {
-                                            Data.data[user_data.GameAccount.Base.Accountid].Task.Add(Helper.TaskList.Auto_Loop_Operation_Act4);
-                                            break;
-                                        }
-                                    default:
-                                        break;
-                                }
-                            }
-                            user_data.operation_Act_Info.dicOperation[i].Added = true;
-                        }
-                    }
-                    else
-                    {
-                        user_data.operation_Act_Info.dicOperation[i].Added = false;
-                    }
-                }
+        //public static void Auto_Operation(UserData user_data)
+        //{
 
-        }
+        //    //检查UI上的总开关
+        //    if (user_data.config.NeedAuto_Loop_Operation_Act == false) return;
+        //    for (int i = 0; i < user_data.operation_Act_Info.dicOperation.Count; i++)
+        //    {
+        //        if (string.IsNullOrEmpty(user_data.operation_Act_Info.dicOperation[i].id.ToString())) continue;
+        //        if (user_data.operation_Act_Info.dicOperation[i].remaining_time < 0)
+        //        {
+        //            user_data.operation_Act_Info.Finish(user_data.operation_Act_Info.dicOperation[i].operation_id);
+        //            Data.data[user_data.GameAccount.Base.Accountid].Task.Add(Helper.TaskList.Auto_Loop_Operation_Act); 
+        //            //switch (i)
+        //            //{
+        //            //    case 0:
+        //            //        {
+        //            //            Data.data[user_data.GameAccount.Base.Accountid].Task.Add(Helper.TaskList.Auto_Loop_Operation_Act1);
+        //            //            break;
+        //            //        }
+        //            //    case 1:
+        //            //        {
+        //            //            Data.data[user_data.GameAccount.Base.Accountid].Task.Add(Helper.TaskList.Auto_Loop_Operation_Act2);
+        //            //            break;
+        //            //        }
+        //            //    case 2:
+        //            //        {
+        //            //            Data.data[user_data.GameAccount.Base.Accountid].Task.Add(Helper.TaskList.Auto_Loop_Operation_Act3);
+        //            //            break;
+        //            //        }
+        //            //    case 3:
+        //            //        {
+        //            //            Data.data[user_data.GameAccount.Base.Accountid].Task.Add(Helper.TaskList.Auto_Loop_Operation_Act4);
+        //            //            break;
+        //            //        }
+        //            //    default:
+        //            //        break;
+        //            //}
+
+        //        }
+
+        //    }
+        //}
 
         public static void ClickKalina(UserData userData)
         {
-            if (userData.kalina_with_user_info.click_num<5)
+            if (userData.kalina_with_user_info.click_num < 5)
             {
                 userData.Task.Add(Helper.TaskList.Click_Kalina);
 
@@ -425,7 +392,7 @@ namespace GFHelp.Core.Management
 
         public static void BP_Recover(UserData userData)
         {
-            if (userData.user_Info.bp>=6)
+            if (userData.user_Info.bp >= 6)
             {
                 return;
             }

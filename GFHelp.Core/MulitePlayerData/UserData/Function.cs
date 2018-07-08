@@ -1,4 +1,5 @@
-﻿using System;
+﻿using GFHelp.Core.Helper;
+using System;
 using System.Collections.Generic;
 using System.Text;
 using UnityEngine;
@@ -23,8 +24,8 @@ namespace GFHelp.Core.MulitePlayerData
             }
             catch (Exception e)
             {
-                SysteOthers.Log log = new SysteOthers.Log(1, "读取UserData_equip_with_user_info", e.ToString());
-                SysteOthers.Viewer.Logs.Add(log);
+                new Log().systemInit("读取UserData_equip_with_user_info", e.ToString()).coreError();
+
             }
 
             return "";
@@ -130,8 +131,7 @@ namespace GFHelp.Core.MulitePlayerData
             }
             catch (Exception e)
             {
-                SysteOthers.Log log = new SysteOthers.Log(1, "建立梯队字典出现错误", e.ToString());
-                SysteOthers.Viewer.Logs.Add(log);
+                new Log().systemInit("建立梯队字典出现错误", e.ToString()).coreError();
             }
         }
 

@@ -32,6 +32,7 @@ namespace GFHelp.Core.Helper
         public static TaskListInfo Start_Operation_Act3 = new TaskListInfo("后勤任务 3 开始", 9);
         public static TaskListInfo Start_Operation_Act4 = new TaskListInfo("后勤任务 4 开始", 10);
 
+        public static TaskListInfo Auto_Loop_Operation_Act = new TaskListInfo("循环后勤任务", 61);
         public static TaskListInfo Auto_Loop_Operation_Act1 = new TaskListInfo("循环后勤任务1", 11);
         public static TaskListInfo Auto_Loop_Operation_Act2 = new TaskListInfo("循环后勤任务2", 12);
         public static TaskListInfo Auto_Loop_Operation_Act3 = new TaskListInfo("循环后勤任务3", 13);

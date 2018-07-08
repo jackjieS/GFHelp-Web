@@ -1,4 +1,5 @@
-﻿using LitJson;
+﻿using GFHelp.Core.Helper;
+using LitJson;
 using System;
 using System.Collections.Generic;
 using System.Text;
@@ -53,8 +54,8 @@ namespace GFHelp.Core.MulitePlayerData
                 }
                 catch (Exception e)
                 {
-                    SysteOthers.Log log = new SysteOthers.Log(1, "读取UserData_equip_with_user_info", e.ToString());
-                    SysteOthers.Viewer.Logs.Add(log);
+                    new Log().systemInit("读取UserData_equip_with_user_info", e.ToString()).coreError();
+
                     continue;
                 }
                 dicFairy.Add(dicFairy.Count, fwui);

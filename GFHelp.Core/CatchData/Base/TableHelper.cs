@@ -32,7 +32,7 @@ namespace GFHelp.Core.CatchData.Base
         // Token: 0x06003D45 RID: 15685 RVA: 0x001741C0 File Offset: 0x001723C0
         private static bool LoadBytesTable<T>(tBaseDatas<T> tDatas, CmdDef table) where T : NullCmdStruct, tBaseData, new()
         {
-            string stcDirectory = Directory.GetCurrentDirectory() + @"\stc";
+            string stcDirectory = SystemOthers.ConfigData.currentDirectory + @"\stc";
             string str = "\\";
             int num = (int)table;
             string text = stcDirectory + str + num.ToString() + TableHelper.cachePostfix;

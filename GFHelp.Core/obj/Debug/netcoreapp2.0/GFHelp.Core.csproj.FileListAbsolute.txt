@@ -25,7 +25,6 @@ C:\Users\jack\Desktop\CS\GFHelp-Web\GFHelp.Core\bin\Debug\netcoreapp2.0\Microsof
 C:\Users\jack\Desktop\CS\GFHelp-Web\GFHelp.Core\bin\Debug\netcoreapp2.0\Microsoft.EntityFrameworkCore.dll
 C:\Users\jack\Desktop\CS\GFHelp-Web\GFHelp.Core\bin\Debug\netcoreapp2.0\Microsoft.AspNetCore.Identity.EntityFrameworkCore.xml
 C:\Users\jack\Desktop\CS\GFHelp-Web\GFHelp.Core\bin\Debug\netcoreapp2.0\Microsoft.EntityFrameworkCore.xml
-C:\Users\jack\Desktop\CS\GFHelp-Web\GFHelp.Core\obj\Debug\netcoreapp2.0\GFHelp.Core.csprojAssemblyReference.cache
 C:\Users\jack\Desktop\CS\GFHelp-Web\GFHelp.Core\obj\Debug\netcoreapp2.0\GFHelp.Core.csproj.CoreCompileInputs.cache
 C:\Users\jack\Desktop\CS\GFHelp-Web\GFHelp.Core\obj\Debug\netcoreapp2.0\GFHelp.Core.AssemblyInfoInputs.cache
 C:\Users\jack\Desktop\CS\GFHelp-Web\GFHelp.Core\obj\Debug\netcoreapp2.0\GFHelp.Core.AssemblyInfo.cs
@@ -36,3 +35,4 @@ C:\Users\jack\Desktop\CS\GFHelp-Web\GFHelp.Core\bin\Debug\netcoreapp2.0\UnityEng
 C:\Users\jack\Desktop\CS\GFHelp-Web\GFHelp.Core\bin\Debug\netcoreapp2.0\LitJson.dll
 C:\Users\jack\Desktop\CS\GFHelp-Web\GFHelp.Core\bin\Debug\netcoreapp2.0\dotnet-aspnet-codegenerator-design.dll
 C:\Users\jack\Desktop\CS\GFHelp-Web\GFHelp.Core\bin\Debug\netcoreapp2.0\dotnet-aspnet-codegenerator-design.xml
+C:\Users\jack\Desktop\CS\GFHelp-Web\GFHelp.Core\obj\Debug\netcoreapp2.0\GFHelp.Core.csprojAssemblyReference.cache

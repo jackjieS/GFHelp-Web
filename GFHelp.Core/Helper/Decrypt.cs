@@ -42,8 +42,7 @@ namespace GFHelp.Core.Helper
             }
             catch (Exception e)
             {
-                SysteOthers.Log log = new SysteOthers.Log(1, e.ToString(), e.ToString());
-                SysteOthers.Viewer.Logs.Add(log);
+                new Log().systemInit("ConvertDateTime_China_Int", e.ToString()).coreError();
                 throw;
             }
 
@@ -74,10 +73,10 @@ namespace GFHelp.Core.Helper
 
                 result = JsonMapper.ToObject(text2);
             }
-            catch (Exception ex)
+            catch (Exception e)
             {
-                SysteOthers.Log log = new SysteOthers.Log(1, ex.ToString(), ex.ToString());
-                SysteOthers.Viewer.Logs.Add(log);
+                new Log().systemInit("DecodeAndMapJson", e.ToString()).coreError();
+
             }
             return result.ToJson();
         }

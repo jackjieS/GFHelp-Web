@@ -91,7 +91,7 @@ namespace GFHelp.Web.Controllers
         }
 
         /// <summary>
-        /// [josn] accountID,后勤KEY, 后勤ID,后勤梯队ID sample:{"accountID":"13201546359","Key":"0","operationID":"5","TeamID":"1"}
+        /// [josn] accountID,后勤KEY, 后勤ID,后勤梯队ID sample:{"accountID":"13201546359",,"operationID":5,"TeamID":1}
         /// </summary>
         /// <param text="json"> json</param>
         /// <returns></returns>
@@ -112,45 +112,10 @@ namespace GFHelp.Web.Controllers
 
 
             string accountID = text.accountID.ToString();
-            string key = text.key.ToString();
-            string operationID = text.operationID.ToString();
-            string TeamID = text.TeamID.ToString();
-
-            if (!Core.Management.Data.data[accountID].operation_Act_Info.dicOperation.ContainsKey(Convert.ToInt32(key)))
-            {
-                Operation_Act_Info oai = new Operation_Act_Info();
-                Core.Management.Data.data[accountID].operation_Act_Info.dicOperation.Add(Convert.ToInt32(key), oai);
-            }
-
-            Core.Management.Data.data[accountID].operation_Act_Info.dicOperation[Convert.ToInt32(key)].team_id =Convert.ToInt32(TeamID);
-            Core.Management.Data.data[accountID].operation_Act_Info.dicOperation[Convert.ToInt32(key)].operation_id = Convert.ToInt32(operationID);
-            //加入控制符
-            switch (Convert.ToInt32(key))
-            {
-                case 0:
-                    {
-                        Core.Management.Data.data[accountID].Task.Add(Core.Helper.TaskList.Start_Operation_Act1);
-                        break;
-                    }
-                case 1:
-                    {
-                        Core.Management.Data.data[accountID].Task.Add(Core.Helper.TaskList.Start_Operation_Act2);
-                        break;
-                    }
-                case 2:
-                    {
-                        Core.Management.Data.data[accountID].Task.Add(Core.Helper.TaskList.Start_Operation_Act3);
-                        break;
-                    }
-                case 3:
-                    {
-                        Core.Management.Data.data[accountID].Task.Add(Core.Helper.TaskList.Start_Operation_Act4);
-                        break;
-                    }
-                default:
-                    break;
-            }
-
+            Operation_Act_Info.Data data = new Operation_Act_Info.Data();
+            data.team_id = text.TeamID;
+            data.operation_id = text.operationID;
+            Core.Management.Data.data[accountID].operation_Act_Info.Start(data);
             return Ok(new
             {
                 code = 1,
@@ -162,7 +127,7 @@ namespace GFHelp.Web.Controllers
 
 
         /// <summary>
-        /// [josn] accountID,后勤KEY, 后勤ID, sample:{"accountID":"13201546359","Key":"0","operationID":"5"}
+        /// [josn] accountID,后勤KEY, 后勤ID, sample:{"accountID":"13201546359",,"operationID":5,"TeamID":1}
         /// </summary>
         /// <param text="json"> json</param>
         /// <returns></returns>
@@ -170,46 +135,11 @@ namespace GFHelp.Web.Controllers
         [HttpPost]
         public IActionResult AbortOperation([FromBody] Operation text)
         {
-            // accountID
-            // key
-            // operationID
-            // TeamID
-
-            //var jsonobj = DynamicJson.Parse(text); //讲道理，我真不想写了
-            //string accountID = jsonobj.accountID.ToString();
-            //string key = jsonobj.Key.ToString();
-            //string operationID = jsonobj.operationID.ToString();
-
             string accountID = text.accountID.ToString();
-            string key = text.key.ToString();
-            string operationID = text.operationID.ToString();
-            Core.Management.Data.data[accountID].operation_Act_Info.dicOperation[Convert.ToInt32(key)].operation_id = Convert.ToInt32(operationID);
-            //加入控制符
-            switch (Convert.ToInt32(key))
-            {
-                case 0:
-                    {
-                        Core.Management.Data.data[accountID].Task.Add(Core.Helper.TaskList.Abort_Operation_Act1);
-                        break;
-                    }
-                case 1:
-                    {
-                        Core.Management.Data.data[accountID].Task.Add(Core.Helper.TaskList.Abort_Operation_Act2);
-                        break;
-                    }
-                case 2:
-                    {
-                        Core.Management.Data.data[accountID].Task.Add(Core.Helper.TaskList.Abort_Operation_Act3);
-                        break;
-                    }
-                case 3:
-                    {
-                        Core.Management.Data.data[accountID].Task.Add(Core.Helper.TaskList.Abort_Operation_Act4);
-                        break;
-                    }
-                default:
-                    break;
-            }
+            Operation_Act_Info.Data data = new Operation_Act_Info.Data();
+            data.team_id = text.TeamID;
+            data.operation_id = text.operationID;
+            Core.Management.Data.data[accountID].operation_Act_Info.Abort(data);
             return Ok(new
             {
                 code = 1,
@@ -267,9 +197,8 @@ namespace GFHelp.Web.Controllers
         public class Operation
         {
             public string accountID;
-            public string key; 
-            public string operationID;
-            public string TeamID;
+            public int operationID;
+            public int TeamID;
         }
         /// <summary>
         /// 

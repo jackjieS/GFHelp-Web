@@ -29,13 +29,15 @@ namespace GFHelp.Core.Management
             userData.battle.SetUserData(userData);
             userData.others.setUserData(userData);
             userData.Loop.SetUserdata(userData);
+            userData.operation_Act_Info.SetUserdata(userData);
             data.Add(userData.GameAccount.Base.Accountid, userData);
             Task task = new Task(() => Loop.CompleteMisson(userData));
             tasks.Add(userData.GameAccount.Base.Accountid, task);
             tasks[userData.GameAccount.Base.Accountid].Start();
 
-            Normal_MissionInfo normal_MissionInfo = new Normal_MissionInfo();
-            Mission.Test(userData, normal_MissionInfo);
+            //Normal_MissionInfo normal_MissionInfo = new Normal_MissionInfo();
+            //Mission.Test(userData, normal_MissionInfo);
+
         }
 
         public static WebData GetWebData(string AccountId)
@@ -190,6 +192,8 @@ namespace GFHelp.Core.Management
         
 
         public List<WarningNote> warningNotes = new List<WarningNote>();
+
+        public logWriter log = new logWriter();
     }
 
     public class Config
