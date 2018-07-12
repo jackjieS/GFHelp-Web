@@ -15,18 +15,26 @@ namespace GFHelp.Core.Action
     {
         public static bool Login(UserData userData)
         {
+            new Log().userInit(userData.GameAccount.Base.Accountid, "数字天空登陆", "").userInfo();
             userData.webData.StatusBarText = "数字天空登陆";
             if (!LoginDigitalSKY(userData)) return false;
+            new Log().userInit(userData.GameAccount.Base.Accountid, "获取时间信息", "").userInfo();
             userData.webData.StatusBarText = "获取时间信息";
             if (!Index_version(userData)) return false;
+            new Log().userInit(userData.GameAccount.Base.Accountid, "获取Sign", "").userInfo();
             userData.webData.StatusBarText = "获取Sign";
             if (!GetDigitalUid(userData)) return false;
+            new Log().userInit(userData.GameAccount.Base.Accountid, "获取UserInfo", "").userInfo();
             userData.webData.StatusBarText = "获取UserInfo";
             if (!GetUserInfo(userData)) return false;
+            new Log().userInit(userData.GameAccount.Base.Accountid, "签到", "").userInfo();
             userData.webData.StatusBarText = "签到";
+
             if (!Attendance(userData)) return false;
+            new Log().userInit(userData.GameAccount.Base.Accountid, "查询新邮件", "").userInfo();
             userData.webData.StatusBarText = "查询新邮件";
             Mail(userData);
+            new Log().userInit(userData.GameAccount.Base.Accountid, "终止作战", "").userInfo();
             userData.webData.StatusBarText = "终止作战";
             userData.battle.Abort_Mission_login();
             userData.config.AutoRelogin = true;

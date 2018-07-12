@@ -7,7 +7,7 @@ using System.Threading.Tasks;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.SignalR;
 using GFHelp.Core.Management;
-using static GFHelp.LocalChatClient.Client;
+using static GFHelp.Core.SignaIRClient;
 
 namespace GFHelp.Web
 {
@@ -110,7 +110,10 @@ namespace GFHelp.Web
         {
             await Clients.Client(SignalRID).SendAsync("ReceiveSystemNotification", message);
         }
-
+        public async Task SendGameNotification(string SignalRID, string message)
+        {
+            await Clients.Client(SignalRID).SendAsync("ReceiveGameNotification", message);
+        }
 
 
 
@@ -123,7 +126,23 @@ namespace GFHelp.Web
         /// <returns></returns>
         public override async Task OnConnectedAsync()
         {
-            ;
+            string name = Context.GetHttpContext().Request.Query["name"].ToString();
+            await Task.Run(() => {
+                SignalRInfo user = new SignalRInfo();
+                user.SignalRID = Context.ConnectionId;
+                user.SignalRName = name;
+
+                foreach (var k in Core.SystemOthers.ConfigData.WebUserData)
+                {
+                    if (k.Username == name && k.Policy == "admin")
+                    {
+                        user.isAdmin = true;
+                    }
+                }
+                userList.Add(Context.ConnectionId, user);
+                SendSystemNotice(Context.ConnectionId);
+                SendGameNotice(Context.ConnectionId);
+            });
         }
 
 
@@ -149,31 +168,6 @@ namespace GFHelp.Web
             });
         }
 
-
-
-
-        /// <summary>
-        /// ChatHub 登陆用户ID 网站用户 实例账户ID
-        /// </summary>
-        /// <param name="ID"></param>
-        public async Task Login(string ID)
-        {
-            await Task.Run(() => {
-                SignalRInfo user = new SignalRInfo();
-                user.SignalRID = Context.ConnectionId;
-                user.SignalRName = ID;
-
-                foreach (var k in Core.SystemOthers.ConfigData.WebUserData)
-                {
-                    if(k.Username== ID && k.Policy=="admin")
-                    {
-                        user.isAdmin = true;
-                    }
-                }
-                userList.Add(Context.ConnectionId,user);
-                LoginGetNotice(Context.ConnectionId);
-            });
-        }
 
         /// <summary>
         /// 移除所有系统消息

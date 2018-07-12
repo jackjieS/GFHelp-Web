@@ -160,6 +160,8 @@ namespace GFHelp.Core.Helper
                     Console.WriteLine("配置文件加载失败!");
                 }
                 SystemOthers.ConfigData.DataVersion = getConfigString("catchdata").ToLower();
+                SystemOthers.ConfigData.LogID = getConfigInt("LogID");
+
             }
             catch (Exception e)
             {

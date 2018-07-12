@@ -167,7 +167,7 @@ namespace GFHelp.Web
             });
 
             Core.SystemOthers.ConfigData.Initialize();
-            LocalChatClient.Client.seed();
+            Core.SignaIRClient.seed();
             SeedDatabase.Initialize(app.ApplicationServices.GetRequiredService<IServiceScopeFactory>().CreateScope().ServiceProvider);
         }
     }

@@ -27,8 +27,6 @@ namespace GFHelp.Core.MulitePlayerData.WebData
             Initialize.GetWebStatus(userData, ref webStatus);
         }
     }
-
-
     public class Initialize
     {
         public static void GetWebTeams(UserData userData, ref List<Team> Teams)
@@ -43,7 +41,7 @@ namespace GFHelp.Core.MulitePlayerData.WebData
                 {
                     if (k.Value.location == 1)
                     {
-                        Leader = k.Value.info.name;
+                        Leader = Asset_Textes.ChangeCodeFromeCSV(Function.FindGunName_GunId(k.Value.gun_id)); 
                         teamID = k.Value.teamId;
                     }
                     Gun gun = new Gun(k.Value);

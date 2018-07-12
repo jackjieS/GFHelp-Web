@@ -43,7 +43,7 @@ namespace GFHelp.Core.Action
 
         }
 
-        public static void Test(UserData userData,Normal_MissionInfo normal_MissionInfo)
+        public void Test(UserData userData,Normal_MissionInfo normal_MissionInfo)
         {
             //加载程序集(dll文件地址)，使用Assembly类   
             assembly = Assembly.LoadFile(AppDomain.CurrentDomain.BaseDirectory + "GFHelp.Mission.dll");

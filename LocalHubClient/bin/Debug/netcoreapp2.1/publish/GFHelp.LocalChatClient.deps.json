@@ -250,6 +250,7 @@
       },
       "GFHelp.Core/1.0.0": {
         "dependencies": {
+          "Microsoft.AspNetCore.SignalR.Client": "1.0.0",
           "Newtonsoft.Json": "11.0.2",
           "LitJson": "1.0.0.0",
           "dotnet-aspnet-codegenerator-design": "2.1.0.0",

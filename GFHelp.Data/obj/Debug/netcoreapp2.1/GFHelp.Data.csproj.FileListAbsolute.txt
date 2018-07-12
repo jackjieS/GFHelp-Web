@@ -1,0 +1,9 @@
+C:\Users\jack\Desktop\CS\GFHelp-Web\GFHelp.Data\bin\Debug\netcoreapp2.1\GFHelp.Data.deps.json
+C:\Users\jack\Desktop\CS\GFHelp-Web\GFHelp.Data\bin\Debug\netcoreapp2.1\GFHelp.Data.dll
+C:\Users\jack\Desktop\CS\GFHelp-Web\GFHelp.Data\bin\Debug\netcoreapp2.1\GFHelp.Data.pdb
+C:\Users\jack\Desktop\CS\GFHelp-Web\GFHelp.Data\obj\Debug\netcoreapp2.1\GFHelp.Data.csproj.CoreCompileInputs.cache
+C:\Users\jack\Desktop\CS\GFHelp-Web\GFHelp.Data\obj\Debug\netcoreapp2.1\GFHelp.Data.AssemblyInfoInputs.cache
+C:\Users\jack\Desktop\CS\GFHelp-Web\GFHelp.Data\obj\Debug\netcoreapp2.1\GFHelp.Data.AssemblyInfo.cs
+C:\Users\jack\Desktop\CS\GFHelp-Web\GFHelp.Data\obj\Debug\netcoreapp2.1\GFHelp.Data.dll
+C:\Users\jack\Desktop\CS\GFHelp-Web\GFHelp.Data\obj\Debug\netcoreapp2.1\GFHelp.Data.pdb
+C:\Users\jack\Desktop\CS\GFHelp-Web\GFHelp.Data\obj\Debug\netcoreapp2.1\GFHelp.Data.csprojAssemblyReference.cache

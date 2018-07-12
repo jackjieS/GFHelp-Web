@@ -1,4 +1,5 @@
-﻿using GFHelp.Core.MulitePlayerData;
+﻿using GFHelp.Core.Management;
+using GFHelp.Core.MulitePlayerData;
 using LitJson;
 using System;
 using System.Collections.Generic;
@@ -163,14 +164,11 @@ namespace GFHelp.Core.Action.BattleBase
         public bool Loop = true;
         public bool needSupply = true;
         public int requestLv = 0;
-        public Normal_MissionInfo(List<TeamInfo> Teams, int user_exp)
-        {
-            this.Teams = Teams;
+        public bool Using = false;
 
-            this.user_exp = user_exp;
-        }
         public Normal_MissionInfo()
         {
+            this.Using = false;
         }
         public int getSupportTeamID
         {
@@ -183,9 +181,70 @@ namespace GFHelp.Core.Action.BattleBase
                 return 0;
             }
         }
+        public Normal_MissionInfo(UserData userData, Battle battle)
+        {
+            this.Using = true;
+            this.user_exp = userData.user_Info.experience;;
+
+            foreach (var team in battle.Teams)
+            {
+                if (string.IsNullOrEmpty(team.Skt.ToString()))
+                {
+                    Random random = new Random();
+                    team.Skt = random.Next(20000, 30000);
+                }
+            }
+
+            foreach (var team in battle.Teams.OrderBy(s => s.Key).ToList())
+            {
+                TeamInfo bti = new TeamInfo();
+                bti.TeamEffect = Convert.ToInt32(team.Skt);
+                bti.isMainTeam = true;
+                bti.TeamID = team.Teamid;
+                bti.teaminfo = userData.Teams[team.Teamid];
+                this.Teams.Add(bti);
+            }
 
 
 
+            List<string> Parm =battle.Parm.ToLower().Split(' ').ToList();
+
+            if (string.IsNullOrEmpty(battle.Map))
+            {
+                battle.Map = "0-2";
+            }
+            else
+            {
+                this.TaskMap = battle.Map;
+            }
+
+            foreach (var item in Parm)
+            {
+                if (item.Contains("-map"))
+                {
+                    this.TaskMap = item.Remove(0, 4);
+                }
+                if (item.Contains("-loginnum"))
+                {
+                    Int32.TryParse(item.Remove(0, 9), out SystemOthers.ConfigData.BL_ReLogin_num);
+                }
+                if (item.Contains("-lv"))
+                {
+                    int requestlv;
+                    Int32.TryParse(item.Remove(0, 3), out requestlv);
+                    this.requestLv = requestlv;
+                }
+                if (item.Contains("-ns"))
+                {
+                    this.needSupply = false;
+                }
+
+            }
+            if (!string.IsNullOrEmpty(battle.Times.ToString()))
+            {
+                this.MaxLoopTime = battle.Times;
+            }
+        }
 
     }
 
@@ -217,7 +276,6 @@ namespace GFHelp.Core.Action.BattleBase
         }
 
     }
-
 
     public static class BattleData
     {
@@ -727,7 +785,26 @@ namespace GFHelp.Core.Action.BattleBase
 
     }
 
-
+    /// <summary>
+    /// 
+    /// </summary>
+    public class Battle
+    {
+        public string accountID;
+        public string Map;
+        public Team[] Teams;
+        public string Parm;
+        public int Times;
+    }
+    /// <summary>
+    /// 
+    /// </summary>
+    public class Team
+    {
+        public int Teamid;
+        public int Skt;
+        public int Key;
+    }
 
 
 

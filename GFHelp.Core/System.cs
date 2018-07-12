@@ -8,31 +8,7 @@ using System.IO;
 
 namespace GFHelp.Core.SystemOthers
 {
-    //public class Log
-    //{
-    //    public int code;
-    //    public string message;
-    //    public string exception;
-    //    public string timpstamp;
-    //    public Log(int code,string message,string exception)
-    //    {
-    //        this.code = code;
-    //        this.message = message;
-    //        this.exception = exception;
-    //        this.timpstamp = DateTime.Now.ToString();
-    //    }
-    //    public Log(int code, string message)
-    //    {
-    //        this.code = code;
-    //        this.message = message;
-    //        this.timpstamp = DateTime.Now.ToString();
-    //    }
-    //}
-
-    //public class Viewer
-    //{
-    //    public static List< Log> Logs = new List<Log>();
-    //}
+   
 
     public class ConfigData
     {
@@ -41,6 +17,7 @@ namespace GFHelp.Core.SystemOthers
         public static string DataVersion;
         public static int tomorrow_zero;
         public static int weekday;
+
         public static List<string> BattleMap = new List<string>()
         {
             "0-2",
@@ -51,14 +28,15 @@ namespace GFHelp.Core.SystemOthers
         public static int BL_ReLogin_num = 20;
         public static int ListStoreNum = 999;
         public static List<AccountInfo> WebUserData = new List<AccountInfo>();
+        public static int LogID;
         public static void Initialize()
         {
             logWriter.initLogWriter();
-            new Log().systemInit("Log日志测试").coreInfo();
+            ConfigManager.getConfig();
+            new Log().systemInit("读取config配置").coreInfo();
             new Log().systemInit("读取文字解析").coreInfo();
             CatchData.Base.Asset_Textes.Read_ALL_CSV();
-            new Log().systemInit("读取config配置").coreInfo();
-            ConfigManager.getConfig();
+
             new Log().systemInit("updataCatchData").coreInfo();
             CatchData.Seed.Updata();
             new Log().systemInit("引用作战dll").coreInfo();

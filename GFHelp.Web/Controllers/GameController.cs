@@ -77,15 +77,15 @@ namespace GFHelp.Web.Controllers
         /// <returns></returns>
         [Route("/Game/Login")]
         [HttpPost]
-        public IActionResult Login([FromBody] string Accountid)
+        public IActionResult Login([FromBody] Account account)
         {
             //加入控制符
-            Core.Management.Data.data[Accountid].Task.Add(Core.Helper.TaskList.Login);
+            Core.Management.Data.data[account.GameID].Task.Add(Core.Helper.TaskList.Login);
             return Ok(new
             {
                 code = 1,
                 //data = result,
-                message = string.Format("正在登陆 {0}", Accountid)
+                message = string.Format("正在登陆 {0}", account.GameID)
 
             });
         }
@@ -109,8 +109,6 @@ namespace GFHelp.Web.Controllers
             //string key = jsonobj.Key.ToString();
             //string operationID = jsonobj.operationID.ToString();
             //string TeamID = jsonobj.TeamID.ToString();
-
-
             string accountID = text.accountID.ToString();
             Operation_Act_Info.Data data = new Operation_Act_Info.Data();
             data.team_id = text.TeamID;
@@ -153,18 +151,32 @@ namespace GFHelp.Web.Controllers
         /// <summary>
         /// 开始作战
         /// </summary>
-        /// <param name="Accountid"> 游戏账户id</param>
+        /// <param name="bs"></param>
         /// <returns></returns>
         [Route("/Game/StartBattle")]
         [HttpPost]
-        public IActionResult StartBattle([FromBody] modelBattleStart bs)
+        public IActionResult StartBattle([FromBody] Core.Action.BattleBase.Battle bs)
         {
             //加入控制符
-            //Core.Management.Data.data[Accountid].Task.Add(Core.Helper.TaskList.Login);
+
+            if (!Core.Management.Data.data.ContainsKey(bs.accountID))
+            {
+                return Ok(new
+                {
+                    code = -1,
+                    data = "error",
+                    message = string.Format("不存在 {0} 游戏实例", bs.accountID)
+
+                });
+            }
+
+
+            Core.Action.BattleBase.Normal_MissionInfo normal_MissionInfo = new Core.Action.BattleBase.Normal_MissionInfo(Core.Management.Data.data[bs.accountID], bs);
+            Core.Management.Data.data[bs.accountID].normal_MissionInfo = normal_MissionInfo;
+            //Core.Management.Data.data[bs.accountID].Task.Add(Core.Helper.TaskList.TaskBattle_1);
             return Ok(new
             {
                 code = 1,
-                //data = result,
                 message = "开始作战"
 
             });
@@ -177,7 +189,7 @@ namespace GFHelp.Web.Controllers
         /// <returns></returns>
         [Route("/Game/AbortBattle")]
         [HttpPost]
-        public IActionResult AbortBattle([FromBody] modelBattleStart bs)
+        public IActionResult AbortBattle([FromBody] Core.Action.BattleBase.Battle bs)
         {
             //加入控制符
             //Core.Management.Data.data[Accountid].Task.Add(Core.Helper.TaskList.Login);
@@ -189,7 +201,14 @@ namespace GFHelp.Web.Controllers
 
             });
         }
-
+        /// <summary>
+        /// 
+        /// </summary>
+        public class Account
+        {
+            public string username;
+            public string GameID;
+        }
 
         /// <summary>
         /// 
@@ -200,25 +219,6 @@ namespace GFHelp.Web.Controllers
             public int operationID;
             public int TeamID;
         }
-        /// <summary>
-        /// 
-        /// </summary>
-        public class modelBattleStart
-        {
-            public string accountID;
-            public string Map;
-            public Team[] teams;
-            public string parm;
-        }
-        /// <summary>
-        /// 
-        /// </summary>
-        public class Team
-        {
-            public int Teamid;
-            public int Skt;
-        }
-
 
     }
 }

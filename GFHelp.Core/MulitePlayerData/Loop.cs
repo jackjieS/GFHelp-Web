@@ -195,7 +195,14 @@ namespace GFHelp.Core.Management
                             //getuserinfo 不能用太卡了只能手动处理
                             break;
                         }
-
+                    case 41:
+                        {
+                            //练级任务1
+                            userData.Loop.Test(userData,userData.normal_MissionInfo);
+                            userData.Task.RemoveAt(0);
+                            userData.Loop.End_At_Battle(userData.normal_MissionInfo);
+                            break;
+                        }
                     case 51:
                         {
                             Action.Dorm.WriteReport(userData);

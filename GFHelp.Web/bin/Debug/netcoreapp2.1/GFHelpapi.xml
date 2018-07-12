@@ -88,7 +88,7 @@
             </summary>
             <returns></returns>
         </member>
-        <member name="M:GFHelp.Web.Controllers.GameController.Login(System.String)">
+        <member name="M:GFHelp.Web.Controllers.GameController.Login(GFHelp.Web.Controllers.GameController.Account)">
             <summary>
             游戏登陆
             </summary>
@@ -109,31 +109,26 @@
             <param text="json"> json</param>
             <returns></returns>
         </member>
-        <member name="M:GFHelp.Web.Controllers.GameController.StartBattle(GFHelp.Web.Controllers.GameController.modelBattleStart)">
+        <member name="M:GFHelp.Web.Controllers.GameController.StartBattle(GFHelp.Core.Action.BattleBase.Battle)">
             <summary>
             开始作战
             </summary>
-            <param name="Accountid"> 游戏账户id</param>
+            <param name="bs"></param>
             <returns></returns>
         </member>
-        <member name="M:GFHelp.Web.Controllers.GameController.AbortBattle(GFHelp.Web.Controllers.GameController.modelBattleStart)">
+        <member name="M:GFHelp.Web.Controllers.GameController.AbortBattle(GFHelp.Core.Action.BattleBase.Battle)">
             <summary>
             终止作战
             </summary>
             <param name="Accountid"> 游戏账户id</param>
             <returns></returns>
         </member>
+        <member name="T:GFHelp.Web.Controllers.GameController.Account">
+            <summary>
+            
+            </summary>
+        </member>
         <member name="T:GFHelp.Web.Controllers.GameController.Operation">
-            <summary>
-            
-            </summary>
-        </member>
-        <member name="T:GFHelp.Web.Controllers.GameController.modelBattleStart">
-            <summary>
-            
-            </summary>
-        </member>
-        <member name="T:GFHelp.Web.Controllers.GameController.Team">
             <summary>
             
             </summary>
@@ -269,12 +264,6 @@
             </summary>
             <param name="ex"></param>
             <returns></returns>
-        </member>
-        <member name="M:GFHelp.Web.Chat.Login(System.String)">
-            <summary>
-            ChatHub 登陆用户ID 网站用户 实例账户ID
-            </summary>
-            <param name="ID"></param>
         </member>
         <member name="M:GFHelp.Web.Chat.RemoveAllSystemNotice(System.String)">
             <summary>

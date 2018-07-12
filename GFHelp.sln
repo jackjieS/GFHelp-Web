@@ -11,6 +11,8 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "GFHelp.LocalChatClient", "L
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "GFHelp.Mission", "Mission\GFHelp.Mission.csproj", "{2FFF7EB6-A34D-4143-BD3D-DAFFAB10667D}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "GFHelp.Data", "GFHelp.Data\GFHelp.Data.csproj", "{DDA8A7F4-66DA-4A07-A960-63EB8514AAA8}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -33,6 +35,10 @@ Global
 		{2FFF7EB6-A34D-4143-BD3D-DAFFAB10667D}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{2FFF7EB6-A34D-4143-BD3D-DAFFAB10667D}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{2FFF7EB6-A34D-4143-BD3D-DAFFAB10667D}.Release|Any CPU.Build.0 = Release|Any CPU
+		{DDA8A7F4-66DA-4A07-A960-63EB8514AAA8}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{DDA8A7F4-66DA-4A07-A960-63EB8514AAA8}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{DDA8A7F4-66DA-4A07-A960-63EB8514AAA8}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{DDA8A7F4-66DA-4A07-A960-63EB8514AAA8}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

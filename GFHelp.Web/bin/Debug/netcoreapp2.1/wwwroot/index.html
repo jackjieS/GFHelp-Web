@@ -16,44 +16,23 @@
     <p id="label3"> ↓这是系统通知</p>
     <table id="SystemNotes"></table>
 
+    <p id="label4"> ↓这是游戏通知 测试账号 13201546359 </p>
+    <table id="GameNotes"></table>
+
     <input type="button" id="connectionStart" value="connectionStart" />
-    <input type="button" id="Login" value="Login" />
-    <input type="button" id="Logoff" value="Logoff" />
     <input type="button" id="RemoveAllSystemNotice" value="朕知道了" />
     <ul id="message"></ul>
     <!--<script src="lib/jquery/dist/jquery.min.js"></script>-->
     <script src="/lib/SingnlR/signalr.js"></script>
     <script>
-        //初始化连接
-        const conGamesStatus = new signalR.HubConnectionBuilder().withUrl("/chatHub").build();
-        const conGamesDetails = new signalR.HubConnectionBuilder().withUrl("/chatHub").build();
-
+        const Webuser = "admin";//测试账号
+        const Gameuser = "13201546359";//测试账号
+        const conGamesStatus = new signalR.HubConnectionBuilder().withUrl("/chatHub?name=" + Webuser).build();
+        const conGamesDetails = new signalR.HubConnectionBuilder().withUrl("/chatHub?name=" + Gameuser).build();
         //第一步:连接开始
         document.getElementById("connectionStart").addEventListener("click", event => {
             conGamesStatus.start().catch(err => console.error(err.toString()));
             conGamesDetails.start().catch(err => console.error(err.toString()));
-
-        });
-
-        //第二步:注册登陆 发送网站用户ID，游戏实例ID，获取所有游戏实例简要信息
-        //这里直接Login两个账户，前端可以根据需求分开写
-        document.getElementById("Login").addEventListener("click", event => {
-            const Webuser = "admin";//测试账号
-            const Gameuser = "13201546359";//测试账号
-            conGamesStatus.invoke("Login", Webuser).catch(err => console.error(err.toString()));
-            conGamesDetails.invoke("Login", Gameuser).catch(err => console.error(err.toString()));
-
-            event.preventDefault();
-        });
-
-        //第三步注销 可以不写,一般不会用到 网页关闭后 后端捕获到异常直接删除注销用户
-        //这里直接Login两个账户，前端可以根据需求分开写
-        //注销后端用户，达到暂停发送信息的功能
-        document.getElementById("Logoff").addEventListener("click", event => {
-            const Webuser = "admin";//测试账号
-            const Gameuser = "13201546359";//测试账号
-            conGamesStatus.invoke("Logoff", Webuser).catch(err => console.error(err.toString()));
-            conGamesDetails.invoke("Logoff", Gameuser).catch(err => console.error(err.toString()));
             event.preventDefault();
         });
 
@@ -80,14 +59,31 @@
             var cell = row.insertCell();
             cell.innerText = SystemNotes;
             cell = row.insertCell();
-
         });
+
+
+        //接收服务器返回的游戏信息通知
+        conGamesDetails.on("ReceiveGameNotification", (message) => {
+            const SystemNotes = message;
+            var tb = document.getElementById("GameNotes");
+            var row = tb.insertRow();
+            var cell = row.insertCell();
+            cell.innerText = SystemNotes;
+            cell = row.insertCell();
+        });
+
+
+
         document.getElementById("RemoveAllSystemNotice").addEventListener("click", event => {
             const Webuser = "admin";//测试账号
             conGamesStatus.invoke("RemoveAllSystemNotice", Webuser).catch(err => console.error(err.toString()));
             event.preventDefault();
         });
-
+        //document.getElementById("RemoveAllGameNotice").addEventListener("click", event => {
+        //    const Gameuser = "13201546359";//测试账号
+        //    conGamesDetails.invoke("RemoveAllSystemNotice", Gameuser).catch(err => console.error(err.toString()));
+        //    event.preventDefault();
+        //});
 
     </script>
 </body>

@@ -5648,6 +5648,7 @@
         "type": "project",
         "framework": ".NETCoreApp,Version=v2.0",
         "dependencies": {
+          "Microsoft.AspNetCore.SignalR.Client": "1.0.0",
           "Newtonsoft.Json": "11.0.2"
         },
         "compile": {

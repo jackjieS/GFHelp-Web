@@ -38,22 +38,18 @@ namespace GFHelp.LocalChatClient
         public static List<WebData> GameDetails = new List<WebData>();
 
 
-        public async static Task LoginGetNotice(string ConnectionId)
+        public async static Task SendSystemNotice(string ConnectionId)
         {
             if (Viewer.systemLogs.Count == 0 ) { return; }
             foreach (var user in userList)
             {
                 if (!user.Value.isAdmin) continue;
                 if (user.Key != ConnectionId) continue;
-                string text = string.Format("欢迎回来 {0}", user.Value.SignalRName);
-                await connection.InvokeAsync("SendSystemNotification", user.Value.SignalRID, text);
                 foreach (var log in Viewer.systemLogs)
                 {
                     await connection.InvokeAsync("SendSystemNotification", user.Value.SignalRID, JsonConvert.SerializeObject(log));
                 }
-
             }
-
         }
         public async static Task SendSystemNotice(Data data)
         {
@@ -63,6 +59,39 @@ namespace GFHelp.LocalChatClient
                 await connection.InvokeAsync("SendSystemNotification", item.Value.SignalRID, JsonConvert.SerializeObject(data));
             }
         }
+
+
+        public async static Task SendGameNotice(string ConnectionId)
+        {
+            foreach (var user in userList)
+            {
+                if (user.Key != ConnectionId) continue;
+                if (Viewer.usersLogs.ContainsKey(user.Value.SignalRName))
+                {
+                    foreach (var item in Viewer.usersLogs[user.Value.SignalRName])
+                    {
+                        await connection.InvokeAsync("SendGameNotification", ConnectionId, JsonConvert.SerializeObject(item));
+                    }
+                }
+            }
+        }
+
+        public async static Task SendGameNotice(string ConnectionId,Data data)
+        {
+            foreach (var user in userList)
+            {
+                if (user.Key != ConnectionId) continue;
+                if (Viewer.usersLogs.ContainsKey(user.Value.SignalRName))
+                {
+                    await connection.InvokeAsync("SendGameNotification", ConnectionId, JsonConvert.SerializeObject(data));
+                }
+            }
+        }
+
+
+
+
+
 
 
 

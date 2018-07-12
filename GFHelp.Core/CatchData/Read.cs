@@ -618,8 +618,8 @@ namespace GFHelp.Core
             foreach (var item in operation_info)
             {
                 OperationInfo oi = new OperationInfo();
-                oi.id = item.Key;
-                oi.name = String.Format("{0}({1}-{2})", item.Value.name, (int)((item.Value.id - 1) / 4), (int)((item.Value.id - 1) % 4) + 1);
+                oi.id = item.Value.id;
+                oi.name = String.Format("{0}({1}-{2})", item.Value.name, (int)((item.Value.id - 1) / 4), (int)((item.Value.id - 1) % 4)+1);
                 OperationtInfo.Add(oi);
             }
             return OperationtInfo;

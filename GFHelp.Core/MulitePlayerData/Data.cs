@@ -34,10 +34,6 @@ namespace GFHelp.Core.Management
             Task task = new Task(() => Loop.CompleteMisson(userData));
             tasks.Add(userData.GameAccount.Base.Accountid, task);
             tasks[userData.GameAccount.Base.Accountid].Start();
-
-            //Normal_MissionInfo normal_MissionInfo = new Normal_MissionInfo();
-            //Mission.Test(userData, normal_MissionInfo);
-
         }
 
         public static WebData GetWebData(string AccountId)
@@ -139,7 +135,7 @@ namespace GFHelp.Core.Management
         }
 
 
-        public Battle battle = new Battle();
+        public Action.Battle battle = new Action.Battle();
 
         public int Dorm_Rest_Friend_Build_Coin_Count;
         public bool Mission_S;
@@ -176,8 +172,8 @@ namespace GFHelp.Core.Management
 
         public Others others = new Others();
 
-        public Action.Mission Loop = new Action.Mission();
-
+        public Mission Loop = new Mission();
+        public Normal_MissionInfo normal_MissionInfo = new Normal_MissionInfo();
         public Dictionary<int, Dictionary<int, Gun_With_User_Info>> Teams = new Dictionary<int, Dictionary<int, Gun_With_User_Info>>();//没读一次user_info都需要刷新
 
         public BattleReport BattleReport = new BattleReport();

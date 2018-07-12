@@ -156,24 +156,36 @@ namespace GFHelp.Core.Helper
     }
     public struct Data
     {
-        public string id;
+        public int ID;
+        public string AccountID;
         public string message;
         public string exception;
-        public string timpstamp;
+        public string timestamp;
         public string text;
     }
+
+
+
     public class Log
     {
+
+        public static int getLogID()
+        {
+            return SystemOthers.ConfigData.LogID++;
+        }
+
+
         public Data data;
         //private Log log;
         public Log systemInit(string m, string e=null)
         {
             //log = new Log();
             data = new Data();
-            data.id = "system";
+            data.ID = getLogID();
+            data.AccountID = "system";
             data.message = m;
             data.exception = e;
-            data.timpstamp = DateTime.Now.ToString();
+            data.timestamp = DateTime.Now.ToString();
             if (e == null)
             {
                 data.text = string.Format("message = {0} ", data.message);
@@ -182,7 +194,7 @@ namespace GFHelp.Core.Helper
             {
                 data.text = string.Format("message = {0} , exception = {1}", data.message, data.exception);
             }
-            ConsolePrint(data.id, data.text);
+            ConsolePrint(data.AccountID, data.text);
             return this;
         }
 
@@ -190,10 +202,11 @@ namespace GFHelp.Core.Helper
         {
             //log = new Log();
             data = new Data();
-            data.id = id;
+            data.ID = getLogID();
+            data.AccountID = id;
             data.message = m;
             data.exception = e;
-            data.timpstamp = DateTime.Now.ToString();
+            data.timestamp = DateTime.Now.ToString();
             if (e == null)
             {
                 data.text = string.Format("message = {0} ", data.message);
@@ -202,7 +215,7 @@ namespace GFHelp.Core.Helper
             {
                 data.text = string.Format("message = {0} , exception = {1}", data.message, data.exception);
             }
-            ConsolePrint(data.id, data.text);
+            ConsolePrint(data.AccountID, data.text);
             return this;
         }
 
@@ -232,17 +245,18 @@ namespace GFHelp.Core.Helper
         }
         public Log userInfo()
         {
-            logWriter.userInfo(data.id, data.text);
-            if (Viewer.usersLogs.ContainsKey(data.id))
+            logWriter.userInfo(data.AccountID, data.text);
+            if (Viewer.usersLogs.ContainsKey(data.AccountID))
             {
-                Viewer.usersLogs[data.id].Add(data);
+                Viewer.usersLogs[data.AccountID].Add(data);
             }
             else
             {
                 List<Data> list = new List<Data>();
                 list.Add(data);
-                Viewer.usersLogs.Add(data.id, list);
+                Viewer.usersLogs.Add(data.AccountID, list);
             }
+            SignaIRClient.SendGameNotice(data.AccountID, data);
             return this;
         }
         private void ConsolePrint(string id,string m)

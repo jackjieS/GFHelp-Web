@@ -18,10 +18,13 @@ C:\Users\jack\Desktop\CS\GFHelp-Web\LocalHubClient\bin\Debug\netcoreapp2.1\GFHel
 C:\Users\jack\Desktop\CS\GFHelp-Web\LocalHubClient\bin\Debug\netcoreapp2.1\GFHelp.LocalChatClient.dll
 C:\Users\jack\Desktop\CS\GFHelp-Web\LocalHubClient\bin\Debug\netcoreapp2.1\GFHelp.LocalChatClient.pdb
 C:\Users\jack\Desktop\CS\GFHelp-Web\LocalHubClient\bin\Debug\netcoreapp2.1\GFHelp.Core.dll
+C:\Users\jack\Desktop\CS\GFHelp-Web\LocalHubClient\bin\Debug\netcoreapp2.1\LitJson.dll
+C:\Users\jack\Desktop\CS\GFHelp-Web\LocalHubClient\bin\Debug\netcoreapp2.1\dotnet-aspnet-codegenerator-design.dll
 C:\Users\jack\Desktop\CS\GFHelp-Web\LocalHubClient\bin\Debug\netcoreapp2.1\UnityEngine.dll
 C:\Users\jack\Desktop\CS\GFHelp-Web\LocalHubClient\bin\Debug\netcoreapp2.1\AuthCode.dll
 C:\Users\jack\Desktop\CS\GFHelp-Web\LocalHubClient\bin\Debug\netcoreapp2.1\ICSharpCode.SharpZipLib.dll
 C:\Users\jack\Desktop\CS\GFHelp-Web\LocalHubClient\bin\Debug\netcoreapp2.1\GFHelp.Core.pdb
+C:\Users\jack\Desktop\CS\GFHelp-Web\LocalHubClient\bin\Debug\netcoreapp2.1\dotnet-aspnet-codegenerator-design.xml
 C:\Users\jack\Desktop\CS\GFHelp-Web\LocalHubClient\obj\Debug\netcoreapp2.1\GFHelp.LocalChatClient.csprojAssemblyReference.cache
 C:\Users\jack\Desktop\CS\GFHelp-Web\LocalHubClient\obj\Debug\netcoreapp2.1\GFHelp.LocalChatClient.csproj.CoreCompileInputs.cache
 C:\Users\jack\Desktop\CS\GFHelp-Web\LocalHubClient\obj\Debug\netcoreapp2.1\GFHelp.LocalChatClient.AssemblyInfoInputs.cache
@@ -29,6 +32,3 @@ C:\Users\jack\Desktop\CS\GFHelp-Web\LocalHubClient\obj\Debug\netcoreapp2.1\GFHel
 C:\Users\jack\Desktop\CS\GFHelp-Web\LocalHubClient\obj\Debug\netcoreapp2.1\GFHelp.LocalChatClient.csproj.CopyComplete
 C:\Users\jack\Desktop\CS\GFHelp-Web\LocalHubClient\obj\Debug\netcoreapp2.1\GFHelp.LocalChatClient.dll
 C:\Users\jack\Desktop\CS\GFHelp-Web\LocalHubClient\obj\Debug\netcoreapp2.1\GFHelp.LocalChatClient.pdb
-C:\Users\jack\Desktop\CS\GFHelp-Web\LocalHubClient\bin\Debug\netcoreapp2.1\LitJson.dll
-C:\Users\jack\Desktop\CS\GFHelp-Web\LocalHubClient\bin\Debug\netcoreapp2.1\dotnet-aspnet-codegenerator-design.dll
-C:\Users\jack\Desktop\CS\GFHelp-Web\LocalHubClient\bin\Debug\netcoreapp2.1\dotnet-aspnet-codegenerator-design.xml
