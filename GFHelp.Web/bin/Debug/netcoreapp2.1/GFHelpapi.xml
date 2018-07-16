@@ -45,11 +45,11 @@
             <param name9="accountbaseYunDouDou">默认为空(这是备用登陆游戏登陆方案)</param>
             <returns></returns>
         </member>
-        <member name="M:GFHelp.Web.Controllers.AccountController.DeleteGame(System.String)">
+        <member name="M:GFHelp.Web.Controllers.AccountController.DeleteGame(GFHelp.Core.Management.GameAccountBase)">
             <summary>
             删除一个游戏实例
             </summary>
-            <param name="Accountid">游戏帐户id</param>
+            <param name="accountbase"></param>
             <returns></returns>
         </member>
         <member name="T:GFHelp.Web.Controllers.AuthController">
@@ -268,6 +268,12 @@
         <member name="M:GFHelp.Web.Chat.RemoveAllSystemNotice(System.String)">
             <summary>
             移除所有系统消息
+            </summary>
+            <param name="ID"></param>
+        </member>
+        <member name="M:GFHelp.Web.Chat.RemoveGameNotice(System.String)">
+            <summary>
+            移除游戏消息
             </summary>
             <param name="ID"></param>
         </member>

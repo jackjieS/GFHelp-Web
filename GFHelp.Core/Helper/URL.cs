@@ -105,4 +105,45 @@ namespace GFHelp.Core.Helper
         public const string allyTeamAi = "Mission/allyTeamAi";
         public const string saveHostage = "Mission/saveHostage";
     }
+
+    class GameHost
+    {
+        public static string Get(string platform,string channelID,string worldID)
+        {
+            string GameHost="";
+
+            switch (platform.ToLower())
+            {
+                case "android":
+                    {
+                        if (worldID == "0")
+                        {
+                            GameHost = "http://gf-adrgw-cn-zs-game-0001.ppgame.com/index.php/1000/";
+                        }
+                        else
+                        {
+                            GameHost = "http://s" + worldID + ".gw.gf.ppgame.com/index.php/100" + worldID + "/";
+
+                        }
+                        break;
+                    }
+                case "ios":
+                    {
+                        GameHost = "http://gf-ios-cn-zs-game-0001.ppgame.com/index.php/3000/";
+                        break;
+                    }
+                default:
+                    break;
+            }
+
+            if (channelID == "tx") GameHost = "http://gf-adrtx-cn-zs-game-0001.ppgame.com/index.php/2000/";
+            if (channelID == "vivo") GameHost = "http://58.87.102.150/index.php/4000/";
+            if (channelID == "bili") GameHost = "http://gf-adrbili-cn-zs-game-0001.ppgame.com/index.php/5000/";
+            if (channelID == "360") GameHost = "http://58.87.102.150/index.php/4000/";
+            if (channelID == "huawei") GameHost = "http://58.87.102.150/index.php/4000/";
+            if (channelID == "sunborn") GameHost = "http://gf-game.sunborngame.com/index.php/1001/";
+
+            return GameHost;
+        }
+    }
 }

@@ -113,7 +113,7 @@ namespace GFHelp.LocalChatClient
                             if (item.Value.SignalRName == k.Value.GameAccount.Base.WebUsername)
                             {
                                 k.Value.webData.Get(k.Value);
-                                GamesStatus.Add(k.Value.GameAccount.Base.Accountid, k.Value.webData.webStatus);
+                                GamesStatus.Add(k.Value.GameAccount.Base.GameAccountID, k.Value.webData.webStatus);
                             }
                         }
                         if (GamesStatus.Count != 0)
@@ -130,7 +130,7 @@ namespace GFHelp.LocalChatClient
 
                         foreach (var k in Core.Management.Data.data)
                         {
-                            if (item.Value.SignalRName == k.Value.GameAccount.Base.Accountid)
+                            if (item.Value.SignalRName == k.Value.GameAccount.Base.GameAccountID)
                             {
                                 k.Value.webData.Get(k.Value);
                                 GameDetails.Add(k.Value.webData);

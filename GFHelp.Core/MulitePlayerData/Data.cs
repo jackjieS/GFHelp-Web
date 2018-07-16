@@ -30,10 +30,31 @@ namespace GFHelp.Core.Management
             userData.others.setUserData(userData);
             userData.Loop.SetUserdata(userData);
             userData.operation_Act_Info.SetUserdata(userData);
-            data.Add(userData.GameAccount.Base.Accountid, userData);
+            if (data.ContainsKey(userData.GameAccount.Base.GameAccountID))
+            {
+                data[userData.GameAccount.Base.GameAccountID] = userData;
+            }
+            else
+            {
+                data.Add(userData.GameAccount.Base.GameAccountID, userData);
+            }
+
+
+
+
             Task task = new Task(() => Loop.CompleteMisson(userData));
-            tasks.Add(userData.GameAccount.Base.Accountid, task);
-            tasks[userData.GameAccount.Base.Accountid].Start();
+
+            if (tasks.ContainsKey(userData.GameAccount.Base.GameAccountID))
+            {
+                tasks[userData.GameAccount.Base.GameAccountID].Dispose();
+                tasks[userData.GameAccount.Base.GameAccountID] = task;
+            }
+            else
+            {
+                tasks.Add(userData.GameAccount.Base.GameAccountID, task);
+
+            }
+            tasks[userData.GameAccount.Base.GameAccountID].Start();
         }
 
         public static WebData GetWebData(string AccountId)
@@ -41,7 +62,7 @@ namespace GFHelp.Core.Management
             WebData webData = new WebData();
             foreach (var item in data)
             {
-                if (item.Value.GameAccount.Base.Accountid == AccountId)
+                if (item.Value.GameAccount.Base.GameAccountID == AccountId)
                 {
                     item.Value.webData.Get(item.Value);
                     webData = item.Value.webData;
@@ -57,7 +78,7 @@ namespace GFHelp.Core.Management
             WebStatus WebStatus = new WebStatus();
             foreach (var item in data)
             {
-                if (item.Value.GameAccount.Base.Accountid == AccountId)
+                if (item.Value.GameAccount.Base.GameAccountID == AccountId)
                 {
                     item.Value.webData.Get(item.Value);
                     webData = item.Value.webData;
@@ -84,6 +105,9 @@ namespace GFHelp.Core.Management
         public void CreatGameAccount(GameAccountBase gameAccountBase)
         {
             GameAccount.Base = gameAccountBase;
+            GameAccount.Base.AndroidID = Guid.NewGuid().ToString("N");
+            GameAccount.Base.MAC = M.GetNewMac();
+            GameAccount.GameHost = GameHost.Get(GameAccount.Base.Platform, GameAccount.Base.ChannelID, GameAccount.Base.WorldID);
         }
 
         private void Clear()
@@ -187,7 +211,7 @@ namespace GFHelp.Core.Management
         public WebData webData = new WebData();
         
 
-        public List<WarningNote> warningNotes = new List<WarningNote>();
+
 
         public logWriter log = new logWriter();
     }
@@ -221,19 +245,7 @@ namespace GFHelp.Core.Management
         public string Policy { get; set; }
     }
 
-    public class WarningNote
-    {
-        public int Code;
-        public string Note;
-        public string timpstamp;
 
-        public WarningNote(int code, string message)
-        {
-            this.Code = code;
-            this.Note = message;
-            this.timpstamp = DateTime.Now.ToString();
-        }
-    }
 
 
     public class GameAccountBase
@@ -241,19 +253,22 @@ namespace GFHelp.Core.Management
         /// <summary>
         /// 网站用户名字
         /// </summary>
-        [Required(ErrorMessage = "Username is required.")]
+        //[Required(ErrorMessage = "Username is required.")]
         public string WebUsername { get; set; }
         /// <summary>
         /// 游戏账号
         /// </summary>
         [Required(ErrorMessage = "Username is required.")]
         [Key]
-        public string Accountid { get; set; }
+        public string GameAccountID { get; set; }
         /// <summary>
         /// 密码
         /// </summary>
-        public string Password { get; set; }
+        public string GamePassword { get; set; }
 
+        ///AndroidID
+        public string AndroidID { get; set; }
+        public string MAC { get; set; }
         /// <summary>
         /// 平台 安卓苹果
         /// </summary>
@@ -261,25 +276,25 @@ namespace GFHelp.Core.Management
         /// <summary>
         /// 渠道 官服B服腾讯服
         /// </summary>
-        public string Channelid { get; set; }
+        public string ChannelID { get; set; }
         /// <summary>
         /// 服
         /// </summary>
-        public string WorldId { get; set; }
+        public string WorldID { get; set; }
 
         /// <summary>
         /// 不必要 后端自动生成
         /// </summary>
-        public string Androidid { get; set; }
-        /// <summary>
-        /// 不必要 后端自动生成
-        /// </summary>
-        public string MAC { get; set; }
+
 
         /// <summary>
         /// 
         /// </summary>
         public string YunDouDou { get; set; }
+        /// <summary>
+        /// 
+        /// </summary>
+        public string Parm { get; set; }
     }
     public class GameAccount
     {
@@ -288,10 +303,6 @@ namespace GFHelp.Core.Management
         {
             return Convert.ToInt32((DateTime.UtcNow - new DateTime(1970, 1, 1, 0, 0, 0, 0)).TotalSeconds - realtimeSinceLogin + loginTime);
         }
-
-
-
-
         public int realtimeSinceLogin = 0;
         public int loginTime = 0;
         public string access_token;
@@ -308,8 +319,7 @@ namespace GFHelp.Core.Management
         public string CatchDataVersion;
         public int tomorrow_zero;
         public int weekday;
-        public string GameHost = "http://gf-adrgw-cn-zs-game-0001.ppgame.com/index.php/1000/";
-
+        public string GameHost = "";
     }
 
 

@@ -1,4 +1,5 @@
 ﻿using Codeplex.Data;
+using GFHelp.Core.Helper;
 using GFHelp.Core.Management;
 using LitJson;
 using System;
@@ -67,9 +68,7 @@ namespace GFHelp.Core.Action
                             //删除装备
                             userData.equip_With_User_Info.Del_Equip_IN_Dict(equipFood);
                             userData.equip_With_User_Info.Read_Equipment_Rank();
-
-                            WarningNote note = new WarningNote(1, string.Format("装备强化 id {0}", userData.equip_With_User_Info.dicUpgrade[0].id.ToString()));
-                            userData.warningNotes.Add(note);
+                            new Log().userInit(userData.GameAccount.Base.GameAccountID, string.Format("装备强化 id {0}", userData.equip_With_User_Info.dicUpgrade[0].id.ToString()), result.ToString()).userInfo();
                             return true;
                         }
                     case 0:
@@ -108,8 +107,7 @@ namespace GFHelp.Core.Action
 
                 if (userData.equip_With_User_Info.Rank2.Count == 0 && userData.equip_With_User_Info.Rank3.Count == 0)
                 {
-                    WarningNote note = new WarningNote(1, "没有2星3星装备 请整理装备");
-                    userData.warningNotes.Add(note);
+                    new Log().userInit(userData.GameAccount.Base.GameAccountID, " 没有2星3星装备 请整理装备").userInfo();
                 }
                 StringBuilder sb = new StringBuilder();
                 JsonWriter jsonWriter = new JsonWriter(sb);
@@ -205,8 +203,8 @@ namespace GFHelp.Core.Action
                         {
                             userData.user_Info.core  -= userData.gun_With_User_Info.dicGun_Combine[0].Core_COMbineNeed;
                             userData.gun_With_User_Info.dicGun_Combine[0].number++;
-                            WarningNote note = new WarningNote(1, string.Format("人形 : {0} 扩编", userData.gun_With_User_Info.dicGun_Combine[0].id));
-                            userData.warningNotes.Add(note);
+
+                            new Log().userInit(userData.GameAccount.Base.GameAccountID, string.Format("人形 : {0} 扩编", userData.gun_With_User_Info.dicGun_Combine[0].id)).userInfo();
                             return;
                         }
                     case 0:
@@ -215,9 +213,8 @@ namespace GFHelp.Core.Action
                         }
                     case -1:
                         {
-                            WarningNote note = new WarningNote(0, "扩编出错");
-                            userData.warningNotes.Add(note);
-                            if (count >= userData.config.ErrorCount) return;
+                            new Log().userInit(userData.GameAccount.Base.GameAccountID, "扩编出错",result).userInfo();
+                            if (count++ >= userData.config.ErrorCount) return;
                             continue;
                         }
                     default:
@@ -238,8 +235,8 @@ namespace GFHelp.Core.Action
             Thread.Sleep(2000);
             if (userData.gun_With_User_Info.Get_Gun_Retire() == false)
             {
-                WarningNote note = new WarningNote(1, "没有2级枪");
-                userData.warningNotes.Add(note);
+                new Log().userInit(userData.GameAccount.Base.GameAccountID, "没有2级枪 ERROR", result).userInfo();
+
                 return false;
             }
             //Gun_Retire
@@ -281,8 +278,7 @@ namespace GFHelp.Core.Action
                         {
                             if (count++ > userData.config.ErrorCount)
                             {
-                                WarningNote note = new WarningNote(1, "没有2级枪");
-                                userData.warningNotes.Add(note);
+                                new Log().userInit(userData.GameAccount.Base.GameAccountID, "没有2级枪 ERROR", result).userInfo();
                                 return false;
                             }
                             continue;
@@ -320,8 +316,7 @@ namespace GFHelp.Core.Action
                 }
                 catch (Exception e)
                 {
-                    WarningNote note = new WarningNote(0, e.ToString());
-                    userData.warningNotes.Add(note);
+                    new Log().userInit(userData.GameAccount.Base.GameAccountID, "人形强化 ERROR", e.ToString()).userInfo();
                 }
 
                 int additionPow = Convert.ToInt32((int)jsonData["pow"]);
@@ -406,8 +401,7 @@ namespace GFHelp.Core.Action
                         {
                             if (count++ > userData.config.ErrorCount)
                             {
-                                WarningNote note = new WarningNote(-11, "Gun_retire Error");
-                                userData.warningNotes.Add(note);
+                                new Log().userInit(userData.GameAccount.Base.GameAccountID, "Gun_retire ERROR", result).userInfo();
                                 return false;
                             }
                             userData.webData.StatusBarText = "Get_Set_UserInfo";

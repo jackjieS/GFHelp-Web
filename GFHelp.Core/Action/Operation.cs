@@ -1,4 +1,5 @@
-﻿using GFHelp.Core.Management;
+﻿using GFHelp.Core.Helper;
+using GFHelp.Core.Management;
 using GFHelp.Core.MulitePlayerData;
 using LitJson;
 using System;
@@ -40,8 +41,7 @@ namespace GFHelp.Core.Action
                         {
                             if (count++ >= userData.config.ErrorCount)
                             {
-                                WarningNote note = new WarningNote(-1, result.ToString());
-                                userData.warningNotes.Add(note);
+                                new Log().userInit(userData.GameAccount.Base.GameAccountID, "后勤结束", result.ToString()).userInfo();
                                 return;
                             }
                             break;
@@ -80,8 +80,7 @@ namespace GFHelp.Core.Action
                         {
                             if (count++ >= userData.config.ErrorCount)
                             {
-                                WarningNote note = new WarningNote(-1, result.ToString());
-                                userData.warningNotes.Add(note);
+                                new Log().userInit(userData.GameAccount.Base.GameAccountID, "后勤任务开始", result.ToString()).userInfo();
                                 return;
                             }
 
@@ -119,7 +118,7 @@ namespace GFHelp.Core.Action
             while (true)
             {
                 string result = API.Operation.FinishOperation(userData.GameAccount, sb.ToString());
-                int k = Helper.Response.Check(userData.GameAccount, ref result, "Finish_Operation_Pro", true);
+                int k = Response.Check(userData.GameAccount, ref result, "Finish_Operation_Pro", true);
                 switch (k)
                 {
                     case 1:
@@ -134,8 +133,7 @@ namespace GFHelp.Core.Action
                         {
                             if (count++ >= userData.config.ErrorCount)
                             {
-                                WarningNote note = new WarningNote(-1, result.ToString());
-                                userData.warningNotes.Add(note);
+                                new Log().userInit(userData.GameAccount.Base.GameAccountID, "后勤结束失败", result.ToString()).userInfo();
                                 return -1;
                             }
                             break;
@@ -180,8 +178,7 @@ namespace GFHelp.Core.Action
                         {
                             if (count++ >= userData.config.ErrorCount)
                             {
-                                WarningNote note = new WarningNote(-1, result.ToString());
-                                userData.warningNotes.Add(note);
+                                new Log().userInit(userData.GameAccount.Base.GameAccountID, " 开始后勤任务出错", result.ToString()).userInfo();
                                 return -1;
                             }
 
@@ -221,8 +218,7 @@ namespace GFHelp.Core.Action
                         {
                             if (count++ > userData.config.ErrorCount)
                             {
-                                WarningNote note = new WarningNote(-1, "AbortOperation ERROR");
-                                userData.warningNotes.Add(note);
+                                new Log().userInit(userData.GameAccount.Base.GameAccountID, "AbortOperation ERROR", result).userInfo();
                                 return -1;
                             }
                             break;
@@ -231,8 +227,7 @@ namespace GFHelp.Core.Action
                         {
                             if (count++ > userData.config.ErrorCount)
                             {
-                                WarningNote note = new WarningNote(-1, "AbortOperation ERROR");
-                                userData.warningNotes.Add(note);
+                                new Log().userInit(userData.GameAccount.Base.GameAccountID, "AbortOperation ERROR", result).userInfo();
                                 return -1;
                             }
                             break;

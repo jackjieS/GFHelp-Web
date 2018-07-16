@@ -12,8 +12,8 @@ namespace GFHelp.Core.API
 
         public static string Digitalsky(Management.GameAccount gameAccount)
         {
-            string login_pwd = md5.EncryptWithMD5(gameAccount.Base.Password);
-            string login_identify = gameAccount.Base.Accountid;
+            string login_pwd = md5.EncryptWithMD5(gameAccount.Base.GamePassword);
+            string login_identify = gameAccount.Base.GameAccountID;
 
             StringBuilder sb = new StringBuilder();
             StringWriter sw = new StringWriter(sb);

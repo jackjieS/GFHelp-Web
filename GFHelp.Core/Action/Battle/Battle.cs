@@ -90,10 +90,12 @@ namespace GFHelp.Core.Action
                         {
                             if(count++ > userData.config.ErrorCount)
                             {
-                                WarningNote note = new WarningNote(1, String.Format("{0} 无法开始作战任务，请登陆游戏检查",userData.user_Info.name));
-                                userData.warningNotes.Add(note);
+                                new Log().userInit(userData.GameAccount.Base.GameAccountID, String.Format("{0} 无法开始作战任务，请登陆游戏检查", userData.user_Info.name)).userInfo();
+                                userData.normal_MissionInfo.Using = false;
                                 return false;
                             }
+                            Home.Login(userData);
+                            userData.others.Check_Equip_GUN_FULL();
                             continue;
                         }
                     default:
@@ -134,8 +136,7 @@ namespace GFHelp.Core.Action
                         {
                             if (count++ > userData.config.ErrorCount)
                             {
-                                WarningNote note = new WarningNote(1, String.Format("{0} 无法部署梯队，请登陆游戏检查", userData.user_Info.name));
-                                userData.warningNotes.Add(note);
+                                new Log().userInit(userData.GameAccount.Base.GameAccountID, String.Format("{0} 无法部署梯队，请登陆游戏检查", userData.user_Info.name), result).userInfo();
                                 return false;
                             }
                             continue;
@@ -174,8 +175,8 @@ namespace GFHelp.Core.Action
                         {
                             if (count++ > userData.config.ErrorCount)
                             {
-                                WarningNote note = new WarningNote(1, String.Format("allyTeamAi Error", userData.user_Info.name));
-                                userData.warningNotes.Add(note);
+                                new Log().userInit(userData.GameAccount.Base.GameAccountID, "allyTeamAi Error", result).userInfo();
+
                                 return;
                             }
                             continue;
@@ -235,8 +236,7 @@ namespace GFHelp.Core.Action
                         {
                             if (count++ > userData.config.ErrorCount)
                             {
-                                WarningNote note = new WarningNote(1, String.Format("teamMove Error", userData.user_Info.name));
-                                userData.warningNotes.Add(note);
+                                new Log().userInit(userData.GameAccount.Base.GameAccountID, "teamMove Error", result).userInfo();
                                 return false;
                             }
                             continue;
@@ -280,8 +280,8 @@ namespace GFHelp.Core.Action
                         {
                             if (count++ > userData.config.ErrorCount)
                             {
-                                WarningNote note = new WarningNote(1, String.Format("teamMove Error", userData.user_Info.name));
-                                userData.warningNotes.Add(note);
+                                new Log().userInit(userData.GameAccount.Base.GameAccountID, "teamMove Error", result).userInfo();
+
                                 return 0;
                             }
                             continue;
@@ -318,8 +318,7 @@ namespace GFHelp.Core.Action
                         {
                             if (count++ > userData.config.ErrorCount)
                             {
-                                WarningNote note = new WarningNote(1, String.Format("Normal_battleFinish Error", userData.user_Info.name));
-                                userData.warningNotes.Add(note);
+                                new Log().userInit(userData.GameAccount.Base.GameAccountID, "Normal_battleFinish Error", result).userInfo();
                                 return false;
                             }
                             continue;
@@ -367,8 +366,7 @@ namespace GFHelp.Core.Action
                         {
                             if (count++ > userData.config.ErrorCount)
                             {
-                                WarningNote note = new WarningNote(1, String.Format("FairyMissionSkill Error", userData.user_Info.name));
-                                userData.warningNotes.Add(note);
+                                new Log().userInit(userData.GameAccount.Base.GameAccountID, "FairyMissionSkill Error", result).userInfo();
                                 return false;
                             }
                             continue;
@@ -407,8 +405,7 @@ namespace GFHelp.Core.Action
                         {
                             if (count++ > userData.config.ErrorCount)
                             {
-                                WarningNote note = new WarningNote(1, String.Format("withdrawTeam Error", userData.user_Info.name));
-                                userData.warningNotes.Add(note);
+                                new Log().userInit(userData.GameAccount.Base.GameAccountID, "withdrawTeam Error", result).userInfo();
                                 return false;
                             }
                             continue;
@@ -445,8 +442,7 @@ namespace GFHelp.Core.Action
                         {
                             if (count++ > userData.config.ErrorCount)
                             {
-                                WarningNote note = new WarningNote(1, String.Format("endTurn Error", userData.user_Info.name));
-                                userData.warningNotes.Add(note);
+                                new Log().userInit(userData.GameAccount.Base.GameAccountID, "endTurn Error", result).userInfo();
                                 return result;
                             }
                             continue;
@@ -485,8 +481,7 @@ namespace GFHelp.Core.Action
                         {
                             if (count++ > userData.config.ErrorCount)
                             {
-                                WarningNote note = new WarningNote(1, String.Format("startTurn Error", userData.user_Info.name));
-                                userData.warningNotes.Add(note);
+                                new Log().userInit(userData.GameAccount.Base.GameAccountID, "startTurn Error", result).userInfo();
                                 return false;
                             }
                             continue;
@@ -520,8 +515,7 @@ namespace GFHelp.Core.Action
                         {
                             if (count++ > userData.config.ErrorCount)
                             {
-                                WarningNote note = new WarningNote(1, String.Format("Simulation_battleFinish Error", userData.user_Info.name));
-                                userData.warningNotes.Add(note);
+                                new Log().userInit(userData.GameAccount.Base.GameAccountID, "Simulation_battleFinish Error", result).userInfo();
                                 return false;
                             }
                             continue;
@@ -557,8 +551,7 @@ namespace GFHelp.Core.Action
                         {
                             if (count++ > userData.config.ErrorCount)
                             {
-                                WarningNote note = new WarningNote(1, String.Format("Simulation_battleFinish Error", userData.user_Info.name));
-                                userData.warningNotes.Add(note);
+                                new Log().userInit(userData.GameAccount.Base.GameAccountID, "Simulation_battleFinish Error",result).userInfo();
                                 return;
                             }
                             continue;
@@ -595,8 +588,7 @@ namespace GFHelp.Core.Action
                         {
                             if (count++ > userData.config.ErrorCount)
                             {
-                                WarningNote note = new WarningNote(1, String.Format("SupplyTeam Error", userData.user_Info.name));
-                                userData.warningNotes.Add(note);
+                                new Log().userInit(userData.GameAccount.Base.GameAccountID, "SupplyTeam Error", result).userInfo();
                                 return false;
                             }
                             continue;
@@ -637,8 +629,7 @@ namespace GFHelp.Core.Action
                         {
                             if (count++ > userData.config.ErrorCount)
                             {
-                                WarningNote note = new WarningNote(1, String.Format("saveHostage Error", userData.user_Info.name));
-                                userData.warningNotes.Add(note);
+                                new Log().userInit(userData.GameAccount.Base.GameAccountID, "saveHostage Error", result).userInfo();
                                 return false;
                             }
                             continue;
@@ -687,8 +678,7 @@ namespace GFHelp.Core.Action
                         {
                             if (count++ > userData.config.ErrorCount)
                             {
-                                WarningNote note = new WarningNote(1, String.Format("Fix_Gun Error", userData.user_Info.name));
-                                userData.warningNotes.Add(note);
+                                new Log().userInit(userData.GameAccount.Base.GameAccountID, "Fix_Gun Error", result).userInfo();
                                 return false;
                             }
                             continue;
@@ -748,14 +738,12 @@ namespace GFHelp.Core.Action
                     }
                     if (CatachData.Check_equipRank5(ewui.equip_id))
                     {
-                        WarningNote note = new WarningNote(-1, "获得5星装备 意不意外 惊不惊喜");
-                        userData.warningNotes.Add(note);
+                        new Log().userInit(userData.GameAccount.Base.GameAccountID, "获得5星装备 意不意外 惊不惊喜").userInfo();
                     }
                 }
                 catch (Exception e)
                 {
-                    WarningNote note = new WarningNote(-1, "添加掉落装备遇到错误");
-                    userData.warningNotes.Add(note);
+                    new Log().userInit(userData.GameAccount.Base.GameAccountID, "添加掉落装备遇到错误").userInfo();
                     return false;
                 }
             }
@@ -783,8 +771,8 @@ namespace GFHelp.Core.Action
                 }
                 catch (Exception e)
                 {
-                    WarningNote note = new WarningNote(-1, "添加人形掉落遇到错误");
-                    userData.warningNotes.Add(note);
+                    new Log().userInit(userData.GameAccount.Base.GameAccountID, "添加人形掉落遇到错误 Error", e.ToString()).userInfo();
+
                     return false;
                 }
             }
@@ -811,8 +799,7 @@ namespace GFHelp.Core.Action
                 }
                 catch (Exception e)
                 {
-                    WarningNote note = new WarningNote(-1, "添加人形掉落遇到错误");
-                    userData.warningNotes.Add(note);
+                    new Log().userInit(userData.GameAccount.Base.GameAccountID, "添加人形掉落遇到错误 Error", e.ToString()).userInfo();
                     return false;
                 }
             }
@@ -847,8 +834,7 @@ namespace GFHelp.Core.Action
                 }
                 catch (Exception e)
                 {
-                    WarningNote note = new WarningNote(-1, "添加人形掉落遇到错误");
-                    userData.warningNotes.Add(note);
+                    new Log().userInit(userData.GameAccount.Base.GameAccountID, "添加人形掉落遇到错误 Error", e.ToString()).userInfo();
                     return false;
                 }
             }
@@ -873,14 +859,16 @@ namespace GFHelp.Core.Action
                     }
                     if (CatachData.Check_equipRank5(ewui.equip_id))
                     {
-                        WarningNote note = new WarningNote(-1, "获得5星装备 意不意外 惊不惊喜");
-                        userData.warningNotes.Add(note);
+                        new Log().userInit(userData.GameAccount.Base.GameAccountID, "获得5星装备 意不意外 惊不惊喜").userInfo();
+                        if (userData.normal_MissionInfo.StopLoopinGetNew)
+                        {
+                            userData.normal_MissionInfo.Using = false;
+                        }
                     }
                 }
                 catch (Exception e)
                 {
-                    WarningNote note = new WarningNote(-1, "添加掉落装备遇到错误");
-                    userData.warningNotes.Add(note);
+                    new Log().userInit(userData.GameAccount.Base.GameAccountID, "添加掉落装备遇到错误",e.ToString()).userInfo();
                     return false;
                 }
 
@@ -897,7 +885,7 @@ namespace GFHelp.Core.Action
 
         public void Check_NewGun(int gun_with_user_id, int gun_id, int want_gun_id = 0)
         {
-            WarningNote note;
+
             if (!userData.user_Info.gun_collect.Contains(gun_id))
             {
                 if (want_gun_id != 0)
@@ -906,13 +894,16 @@ namespace GFHelp.Core.Action
                     {
                         if (userData.config.NewGun_Report_Stop)
                         {
-                            note = new WarningNote(1, string.Format("获取新人形 : {0} ,意不意外 惊不惊喜", CatchData.Base.Asset_Textes.ChangeCodeFromeCSV(Function.FindGunName_GunId(gun_id))));
-                            userData.warningNotes.Add(note);
+                            new Log().userInit(userData.GameAccount.Base.GameAccountID, string.Format("获取新人形 : {0} ,意不意外 惊不惊喜", CatchData.Base.Asset_Textes.ChangeCodeFromeCSV(Function.FindGunName_GunId(gun_id)))).userInfo();
+
                         }
                     }
                 }
-                note = new WarningNote(1, string.Format("获取新人形 : {0} ,意不意外 惊不惊喜", CatchData.Base.Asset_Textes.ChangeCodeFromeCSV(Function.FindGunName_GunId(gun_id))));
-                userData.warningNotes.Add(note);
+                new Log().userInit(userData.GameAccount.Base.GameAccountID, string.Format("获取新人形 : {0} ,意不意外 惊不惊喜", CatchData.Base.Asset_Textes.ChangeCodeFromeCSV(Function.FindGunName_GunId(gun_id)))).userInfo();
+                if (userData.normal_MissionInfo.StopLoopinGetNew)
+                {
+                    userData.normal_MissionInfo.Using = false;
+                }
 
                 List<int> listLockid = new List<int>();
                 listLockid.Add(gun_with_user_id);
@@ -920,12 +911,8 @@ namespace GFHelp.Core.Action
                 userData.webData.StatusBarText = "LOCK";
 
                 Thread.Sleep(2000);
-                Action.Home.changeLock(userData, listLockid, listUnLockid);
-                if (userData.config.NewGun_Report_Stop)
-                {
-                    note = new WarningNote(1, string.Format("获取新人形 : {0} ,意不意外 惊不惊喜", CatchData.Base.Asset_Textes.ChangeCodeFromeCSV(Function.FindGunName_GunId(gun_id))));
-                    userData.warningNotes.Add(note);
-                }
+                Home.changeLock(userData, listLockid, listUnLockid);
+
             }
             else
             {

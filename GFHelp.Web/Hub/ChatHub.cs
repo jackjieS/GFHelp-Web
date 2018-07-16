@@ -187,7 +187,21 @@ namespace GFHelp.Web
                 return 0;
             });
         }
-
+        /// <summary>
+        /// 移除游戏消息
+        /// </summary>
+        /// <param name="ID"></param>
+        public async Task RemoveGameNotice(string ID)
+        {
+            await Task.Run(() => {
+                string id = userList[Context.ConnectionId].SignalRName;
+                if (Core.Helper.Viewer.usersLogs.ContainsKey(id))
+                {
+                    Core.Helper.Viewer.usersLogs[id].Clear();
+                }
+                return 1;
+            });
+        }
 
 
 

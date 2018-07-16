@@ -15,26 +15,29 @@ namespace GFHelp.Core.Action
     {
         public static bool Login(UserData userData)
         {
-            new Log().userInit(userData.GameAccount.Base.Accountid, "数字天空登陆", "").userInfo();
-            userData.webData.StatusBarText = "数字天空登陆";
-            if (!LoginDigitalSKY(userData)) return false;
-            new Log().userInit(userData.GameAccount.Base.Accountid, "获取时间信息", "").userInfo();
-            userData.webData.StatusBarText = "获取时间信息";
-            if (!Index_version(userData)) return false;
-            new Log().userInit(userData.GameAccount.Base.Accountid, "获取Sign", "").userInfo();
-            userData.webData.StatusBarText = "获取Sign";
-            if (!GetDigitalUid(userData)) return false;
-            new Log().userInit(userData.GameAccount.Base.Accountid, "获取UserInfo", "").userInfo();
+            if (string.IsNullOrEmpty(userData.GameAccount.Base.YunDouDou))
+            {
+                new Log().userInit(userData.GameAccount.Base.GameAccountID, "数字天空登陆", "").userInfo();
+                userData.webData.StatusBarText = "数字天空登陆";
+                if (!LoginDigitalSKY(userData)) return false;
+                new Log().userInit(userData.GameAccount.Base.GameAccountID, "获取时间信息", "").userInfo();
+                userData.webData.StatusBarText = "获取时间信息";
+                if (!Index_version(userData)) return false;
+                new Log().userInit(userData.GameAccount.Base.GameAccountID, "获取Sign", "").userInfo();
+                userData.webData.StatusBarText = "获取Sign";
+                if (!GetDigitalUid(userData)) return false;
+            }
+            new Log().userInit(userData.GameAccount.Base.GameAccountID, "获取UserInfo", "").userInfo();
             userData.webData.StatusBarText = "获取UserInfo";
             if (!GetUserInfo(userData)) return false;
-            new Log().userInit(userData.GameAccount.Base.Accountid, "签到", "").userInfo();
+            new Log().userInit(userData.GameAccount.Base.GameAccountID, "签到", "").userInfo();
             userData.webData.StatusBarText = "签到";
 
             if (!Attendance(userData)) return false;
-            new Log().userInit(userData.GameAccount.Base.Accountid, "查询新邮件", "").userInfo();
+            new Log().userInit(userData.GameAccount.Base.GameAccountID, "查询新邮件", "").userInfo();
             userData.webData.StatusBarText = "查询新邮件";
             Mail(userData);
-            new Log().userInit(userData.GameAccount.Base.Accountid, "终止作战", "").userInfo();
+            new Log().userInit(userData.GameAccount.Base.GameAccountID, "终止作战", "").userInfo();
             userData.webData.StatusBarText = "终止作战";
             userData.battle.Abort_Mission_login();
             userData.config.AutoRelogin = true;
@@ -137,8 +140,8 @@ namespace GFHelp.Core.Action
                     count++;
                     if (count >= userdata.config.ErrorCount)
                     {
-                        WarningNote note = new WarningNote(-1, result.ToString());
-                        userdata.warningNotes.Add(note);
+                        new Log().systemInit("LoginDigitalSKY", result.ToString()).coreError();
+                        new Log().userInit(userdata.GameAccount.Base.GameAccountID, "LoginDigitalSKY", result.ToString()).userInfo();
                         return false;
                     } 
                     continue;
@@ -234,9 +237,9 @@ namespace GFHelp.Core.Action
             parameters.Add("openid", userData.GameAccount.openid);
             parameters.Add("access_token", userData.GameAccount.access_token);
             parameters.Add("app_id", "0002000100021001");
-            parameters.Add("channelid", userData.GameAccount.Base.Channelid);
+            parameters.Add("channelid", userData.GameAccount.Base.ChannelID);
             parameters.Add("idfa", "");
-            parameters.Add("androidid", userData.GameAccount.Base.Androidid);
+            parameters.Add("androidid", userData.GameAccount.Base.AndroidID);
             parameters.Add("mac", userData.GameAccount.Base.MAC);
             parameters.Add("req_id", userData.GameAccount.req_id++.ToString());
 
@@ -309,8 +312,8 @@ namespace GFHelp.Core.Action
                         {
                             if(count++ > userData.config.ErrorCount)
                             {
-                                WarningNote note = new WarningNote(-1, result.ToString());
-                                userData.warningNotes.Add(note);
+                                new Log().systemInit("Mail", result.ToString()).coreError();
+                                new Log().userInit(userData.GameAccount.Base.GameAccountID, "Mail", result.ToString()).userInfo();
                                 return;
                             }
                             break;
@@ -346,8 +349,8 @@ namespace GFHelp.Core.Action
                             {
                                 if (count++ > userData.config.ErrorCount)
                                 {
-                                    WarningNote note = new WarningNote(-1, result.ToString());
-                                    userData.warningNotes.Add(note);
+                                    new Log().systemInit("GetMail", result.ToString()).coreError();
+                                    new Log().userInit(userData.GameAccount.Base.GameAccountID, "GetMail", result.ToString()).userInfo();
                                     return;
                                 }
                                 break;
@@ -447,8 +450,7 @@ namespace GFHelp.Core.Action
                         {
                             if (count++ > userData.config.ErrorCount)
                             {
-                                WarningNote note = new WarningNote(1, String.Format("changeLock Error", userData.user_Info.name));
-                                userData.warningNotes.Add(note);
+                                new Log().userInit(userData.GameAccount.Base.GameAccountID, "锁 失败", result.ToString()).userInfo();
                                 return;
                             }
                             continue;

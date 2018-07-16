@@ -68,10 +68,18 @@ namespace GFHelp.Mission
 
 
         }
-        public static class Map0_2
+        public enum MissionType
+        {
+            Normal,
+            Emergency,
+            Night,
+            Activity
+        };
+        public static class map0_2
         {
             //要给spots1 2 赋值 梯队ID
             //要给teammove 赋值 梯队ID
+            public static MissionType missionType = MissionType.Normal;
             public static int mission_id = 2;
             //[{"spot_id":3033,"team_id":6},{"spot_id":3057,"team_id":7}]
             public static Spots spots1 = new Spots(9);//主力
@@ -112,11 +120,12 @@ namespace GFHelp.Mission
             public static int withdrawSpot = 3033;//撤离
         }
 
-        public static class Map1_6
+        public static class map1_6
         {
             //要给spots1 2 赋值 梯队ID
             //要给teammove 赋值 梯队ID
             public static int mission_id = 10;
+            public static MissionType missionType = MissionType.Normal;
             //[{"spot_id":3033,"team_id":6},{"spot_id":3057,"team_id":7}]
             public static Spots spots1 = new Spots(133);//主力
             public static Spots spots2 = new Spots(133);//辅助
@@ -216,11 +225,12 @@ namespace GFHelp.Mission
         }
 
 
-        public static class Map2_6
+        public static class map2_6
         {
             //要给spots1 2 赋值 梯队ID
             //要给teammove 赋值 梯队ID
             public static int mission_id = 20;
+            public static MissionType missionType = MissionType.Normal;
             //[{"spot_id":3033,"team_id":6},{"spot_id":3057,"team_id":7}]
             public static Spots spots1 = new Spots(260);//主力
 
@@ -254,8 +264,9 @@ namespace GFHelp.Mission
 
         }
 
-        public static class Map3_6
+        public static class map3_6
         {
+            public static MissionType missionType = MissionType.Normal;
             //要给spots1 2 赋值 梯队ID
             //要给teammove 赋值 梯队ID
             public static int mission_id = 30;
@@ -292,8 +303,9 @@ namespace GFHelp.Mission
             public static int withdrawSpot = 427;//撤离
         }
 
-        public static class Map4_6
+        public static class map4_6
         {
+            public static MissionType missionType = MissionType.Normal;
             //要给spots1 2 赋值 梯队ID
             //要给teammove 赋值 梯队ID
             public static int mission_id = 40;
@@ -330,8 +342,9 @@ namespace GFHelp.Mission
 
         }
 
-        public static class Map5_6
+        public static class map5_6
         {
+            public static MissionType missionType = MissionType.Normal;
             //要给spots1 2 赋值 梯队ID
             //要给teammove 赋值 梯队ID
             public static int mission_id = 50;
@@ -368,8 +381,9 @@ namespace GFHelp.Mission
 
         }
 
-        public static class Map6_6
+        public static class map6_6
         {
+            public static MissionType missionType = MissionType.Normal;
             //要给spots1 2 赋值 梯队ID
             //要给teammove 赋值 梯队ID
             public static int mission_id = 60;
@@ -412,8 +426,9 @@ namespace GFHelp.Mission
 
         }
 
-        public static class Map8_6
+        public static class map8_6
         {
+            public static MissionType missionType = MissionType.Normal;
             //要给spots1 2 赋值 梯队ID
             //要给teammove 赋值 梯队ID
             public static int mission_id = 80;
@@ -551,8 +566,9 @@ namespace GFHelp.Mission
             }
         }
 
-        public static class Map10_6
+        public static class map10_6
         {
+            public static MissionType missionType = MissionType.Normal;
             //要给spots1 2 赋值 梯队ID
             //要给teammove 赋值 梯队ID
             public static int mission_id = 100;
@@ -591,8 +607,9 @@ namespace GFHelp.Mission
         }
 
 
-        public static class Map7_6BOSS
+        public static class map7_6boss
         {
+            public static MissionType missionType = MissionType.Normal;
             //要给spots1 2 赋值 梯队ID
             //要给teammove 赋值 梯队ID
             public static int mission_id = 70;
@@ -636,8 +653,9 @@ namespace GFHelp.Mission
             public static int withdrawSpot = 1948;//撤离
         }
 
-        public static class Map4_1
+        public static class map4_1
         {
+            public static MissionType missionType = MissionType.Normal;
             //要给spots1 2 赋值 梯队ID
             //要给teammove 赋值 梯队ID
             public static int mission_id = 35;
@@ -678,8 +696,9 @@ namespace GFHelp.Mission
             public static int withdrawSpot = 5494;//撤离
         }
 
-        public static class Map10_4E
+        public static class map10_4e
         {
+            public static MissionType missionType = MissionType.Emergency;
             //要给spots1 2 赋值 梯队ID
             //要给teammove 赋值 梯队ID
             public static int mission_id = 104;
@@ -720,8 +739,9 @@ namespace GFHelp.Mission
             public static int withdrawSpot = 5494;//撤离
         }
 
-        public static class Map7_6
+        public static class map7_6
         {
+            public static MissionType missionType = MissionType.Normal;
             //要给spots1 2 赋值 梯队ID
             //要给teammove 赋值 梯队ID
             public static int mission_id = 70;
@@ -759,8 +779,9 @@ namespace GFHelp.Mission
             public static int withdrawSpot = 1948;//撤离
         }
 
-        public static class Map2_4N
+        public static class map2_4n
         {
+            public static MissionType missionType = MissionType.Night;
             //要给spots1 2 赋值 梯队ID
             //要给teammove 赋值 梯队ID
             public static int mission_id = 90008;
@@ -822,8 +843,9 @@ namespace GFHelp.Mission
 
 
 
-        public static class Map3_4N
+        public static class map3_4n
         {
+            public static MissionType missionType = MissionType.Night;
             //要给spots1 2 赋值 梯队ID
             //要给teammove 赋值 梯队ID
             public static int mission_id = 90012;
@@ -939,8 +961,9 @@ namespace GFHelp.Mission
 
         }
 
-        public static class Map5_2N
+        public static class map5_2n
         {
+            public static MissionType missionType = MissionType.Night;
             //要给spots1 2 赋值 梯队ID
             //要给teammove 赋值 梯队ID
             public static int mission_id = 90018;
@@ -987,8 +1010,9 @@ namespace GFHelp.Mission
             public static int withdrawSpot = 3057;//撤离
         }
 
-        public static class Map6_4N
+        public static class map6_4n
         {
+            public static MissionType missionType = MissionType.Night;
             //要给spots1 2 赋值 梯队ID
             //要给teammove 赋值 梯队ID
             public static int mission_id = 90024;

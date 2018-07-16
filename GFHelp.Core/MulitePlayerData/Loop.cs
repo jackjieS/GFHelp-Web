@@ -198,7 +198,7 @@ namespace GFHelp.Core.Management
                     case 41:
                         {
                             //练级任务1
-                            userData.Loop.Test(userData,userData.normal_MissionInfo);
+                            userData.Loop.Test(userData);
                             userData.Task.RemoveAt(0);
                             userData.Loop.End_At_Battle(userData.normal_MissionInfo);
                             break;

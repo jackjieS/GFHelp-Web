@@ -165,7 +165,7 @@ namespace GFHelp.Core.Action.BattleBase
         public bool needSupply = true;
         public int requestLv = 0;
         public bool Using = false;
-
+        public bool StopLoopinGetNew = true;
         public Normal_MissionInfo()
         {
             this.Using = false;
@@ -185,7 +185,7 @@ namespace GFHelp.Core.Action.BattleBase
         {
             this.Using = true;
             this.user_exp = userData.user_Info.experience;;
-
+            if (battle.Teams.Count() == 0) { return; }
             foreach (var team in battle.Teams)
             {
                 if (string.IsNullOrEmpty(team.Skt.ToString()))

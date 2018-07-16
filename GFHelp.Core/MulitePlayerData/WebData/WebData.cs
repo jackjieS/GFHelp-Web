@@ -119,8 +119,8 @@ namespace GFHelp.Core.MulitePlayerData.WebData
         }
         public static void GetWebStatus(UserData ud, ref WebStatus webStatus)
         {
-            webStatus.AccountId = ud.GameAccount.Base.Accountid;
-            webStatus.Name = ud.GameAccount.Base.Platform + " - " + ud.GameAccount.Base.Accountid +  " - " + ud.user_Info.name;
+            webStatus.AccountId = ud.GameAccount.Base.GameAccountID;
+            webStatus.Name = ud.GameAccount.Base.Platform + " - " + ud.GameAccount.Base.GameAccountID +  " - " + ud.user_Info.name;
             webStatus.statusBarText = ud.webData.StatusBarText;
         }
         private static string getItemNumFromID(UserData userData,int id)

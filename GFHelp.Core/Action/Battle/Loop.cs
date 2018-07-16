@@ -17,46 +17,66 @@ namespace GFHelp.Core.Action
         static Type typeNormal;
         static Type typeActivity;
         static Type typeSimulation;
-        static object instanceNormal;
-        static object instanceActivity;
-        static object instanceSimulation;
+        static Type typeMap_Sent;
+        //static object instanceNormal;
+        //static object instanceActivity;
+        //static object instanceSimulation;
+        //static object instanceMap_Sent;
         public void SetUserdata(UserData ud)
         {
             userData = ud;
         }
 
-        public static void Seed()
-        {        
+        public static void initialize()
+        {
             //加载程序集(dll文件地址)，使用Assembly类   
             assembly = Assembly.LoadFile(AppDomain.CurrentDomain.BaseDirectory + "GFHelp.Mission.dll");
             //获取类型，参数（名称空间+类）   
-            Type typeNormal = assembly.GetType("GFHelp.Mission.Normal");
-            Type typeActivity = assembly.GetType("GFHelp.Mission.Activity");
-            Type typeSimulation = assembly.GetType("GFHelp.Mission.Simulation");
+            typeNormal = assembly.GetType("GFHelp.Mission.Normal");
+            typeActivity = assembly.GetType("GFHelp.Mission.Activity");
+            typeSimulation = assembly.GetType("GFHelp.Mission.Simulation");
+            typeMap_Sent = assembly.GetType("GFHelp.Mission.Map_Sent");
             //创建该对象的实例，object类型，参数（名称空间+类）   
-            object instanceNormal = assembly.CreateInstance("GFHelp.Mission.Normal");
-            object instanceActivity = assembly.CreateInstance("GFHelp.Mission.Activity");
-            object instanceSimulation = assembly.CreateInstance("GFHelp.Mission.Simulation");
-            
+            //instanceNormal = assembly.CreateInstance("GFHelp.Mission.Normal");
+            //instanceActivity = assembly.CreateInstance("GFHelp.Mission.Activity");
+            //instanceSimulation = assembly.CreateInstance("GFHelp.Mission.Simulation");
+            //instanceMap_Sent = assembly.CreateInstance("GFHelp.Mission.Map_Sent");
 
 
 
         }
 
-        public void Test(UserData userData,Normal_MissionInfo normal_MissionInfo)
+        public void Test(UserData userData)
         {
-            //加载程序集(dll文件地址)，使用Assembly类   
-            assembly = Assembly.LoadFile(AppDomain.CurrentDomain.BaseDirectory + "GFHelp.Mission.dll");
-            //获取类型，参数（名称空间+类）   
-            Type typeNormal = assembly.GetType("GFHelp.Mission.Normal");
-            Type typeActivity = assembly.GetType("GFHelp.Mission.Activity");
-            Type typeSimulation = assembly.GetType("GFHelp.Mission.Simulation");
-            //创建该对象的实例，object类型，参数（名称空间+类）   
-            object instanceNormal = assembly.CreateInstance("GFHelp.Mission.Normal");
-            object instanceActivity = assembly.CreateInstance("GFHelp.Mission.Activity");
-            object instanceSimulation = assembly.CreateInstance("GFHelp.Mission.Simulation");
 
-            object value = typeNormal.GetMethod("Battle0_2").Invoke(instanceNormal, new Object[] { userData, normal_MissionInfo });
+
+            userData.others.Check_Equip_GUN_FULL();
+
+            //userData.normal_MissionInfo.TaskMap;
+            Type neededType = typeMap_Sent.GetNestedType(userData.normal_MissionInfo.TaskMap);
+            var missionType = neededType.GetField("missionType").GetValue(null);
+            var instance = assembly.CreateInstance("GFHelp.Mission."+ missionType.ToString());
+            Type type = assembly.GetType("GFHelp.Mission." + missionType.ToString());
+            try
+            {
+                object value = type.GetMethod(userData.normal_MissionInfo.TaskMap).Invoke(instance, new Object[] { userData, userData.normal_MissionInfo });
+            }
+            catch (Exception e)
+            {
+                new Log().systemInit("调用作战dll文件出错", e.ToString()).coreError();
+                new Log().userInit(userData.GameAccount.Base.GameAccountID, "调用作战dll文件出错", e.ToString()).coreError();
+            }
+
+
+
+
+
+
+
+
+
+
+
         }
 
         public void End_At_Battle(Normal_MissionInfo ubti)

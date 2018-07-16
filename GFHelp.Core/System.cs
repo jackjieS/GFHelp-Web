@@ -40,7 +40,7 @@ namespace GFHelp.Core.SystemOthers
             new Log().systemInit("updataCatchData").coreInfo();
             CatchData.Seed.Updata();
             new Log().systemInit("引用作战dll").coreInfo();
-            Action.Mission.Seed();
+            Action.Mission.initialize();
         }
 
     }

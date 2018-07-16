@@ -1,0 +1,8 @@
+【01:06:11】      message = 调用作战dll文件出错 , exception = System.NullReferenceException: Object reference not set to an instance of an object.
+   at GFHelp.Core.Action.Mission.Test(UserData userData) in C:\Users\jack\Desktop\CS\GFHelp-Web\GFHelp.Core\Action\Battle\Loop.cs:line 61
+【01:06:34】      message = 调用作战dll文件出错 , exception = System.NullReferenceException: Object reference not set to an instance of an object.
+   at GFHelp.Core.Action.Mission.Test(UserData userData) in C:\Users\jack\Desktop\CS\GFHelp-Web\GFHelp.Core\Action\Battle\Loop.cs:line 61
+【01:06:40】      message = 调用作战dll文件出错 , exception = System.NullReferenceException: Object reference not set to an instance of an object.
+   at GFHelp.Core.Action.Mission.Test(UserData userData) in C:\Users\jack\Desktop\CS\GFHelp-Web\GFHelp.Core\Action\Battle\Loop.cs:line 61
+【01:06:40】      message = 调用作战dll文件出错 , exception = System.NullReferenceException: Object reference not set to an instance of an object.
+   at GFHelp.Core.Action.Mission.Test(UserData userData) in C:\Users\jack\Desktop\CS\GFHelp-Web\GFHelp.Core\Action\Battle\Loop.cs:line 61

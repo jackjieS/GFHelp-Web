@@ -10,6 +10,7 @@ using Microsoft.AspNetCore.Authorization;
 using System.Security.Claims;
 using Newtonsoft.Json;
 using GFHelp.Core.Management;
+using GFHelp.Core.Helper;
 
 namespace GFHelp.Web.Controllers
 {
@@ -52,33 +53,36 @@ namespace GFHelp.Web.Controllers
 
         }
 
-        private bool delGameAccount(string accountid)
+        private bool delGameAccount(GameAccountBase gameAccountBase)
         {
             Data.GameAccount data = null;
             foreach (var item in context.GameAccount.ToList())
             {
-                if (item.Accountid == accountid)
+                if (item.GameAccountID == gameAccountBase.GameAccountID && item.WebUsername ==gameAccountBase.WebUsername)
                 {
                     data = item;
-                    break;
+                    try
+                    {
+                        var ranks = context.GameAccount.Remove(data);
+                        var count = context.SaveChanges();
+                        if (Core.Management.Data.data.ContainsKey(gameAccountBase.GameAccountID))
+                        {
+                            Core.Management.Data.data.Remove(gameAccountBase.GameAccountID);
+                        }
+                        if (Core.Management.Data.tasks.ContainsKey(gameAccountBase.GameAccountID))
+                        {
+                            Core.Management.Data.tasks.Remove(gameAccountBase.GameAccountID);
+                        }
+                    }
+                    catch (Exception e)
+                    {
+                        new Log().systemInit(string.Format("删除游戏实例出现错误. {0}",gameAccountBase.ToString()), e.ToString()).coreError();
+                        return false;
+                    }
+                    return true;
                 }
             }
-
-            try
-            {
-                var ranks = context.GameAccount.Remove(data);
-                var count = context.SaveChanges();
-                if (Core.Management.Data.data.ContainsKey(accountid))
-                {
-                    Core.Management.Data.data.Remove(accountid);
-                }
-            }
-            catch (Exception)
-            {
-                return false;
-                throw;
-            }
-            return true;
+            return false;
         }
 
         private bool creatGameAccount(GameAccountBase accInfo)
@@ -86,13 +90,13 @@ namespace GFHelp.Web.Controllers
             context.GameAccount.Add(new Data.GameAccount
             {
                 WebUsername = accInfo.WebUsername,
-                Accountid = accInfo.Accountid,
-                Password = accInfo.Password,
-
+                GameAccountID = accInfo.GameAccountID,
+                GamePassword = accInfo.GamePassword,
                 Platform = accInfo.Platform,
-                Channelid = accInfo.Channelid,
-                WorldId = accInfo.WorldId,
+                ChannelID = accInfo.ChannelID,
+                WorldID = accInfo.WorldID,
                 YunDouDou = accInfo.YunDouDou,
+                Parm = accInfo.Parm,
             });
             var count = context.SaveChanges();
 
@@ -139,11 +143,11 @@ namespace GFHelp.Web.Controllers
 
         }
 
-        private bool isAccCreated(string accountid)
+        private bool isAccCreated(GameAccountBase gameAccountBase)
         {
             foreach (var item in context.GameAccount.ToList())
             {
-                if (item.Accountid == accountid)
+                if (item.GameAccountID == gameAccountBase.GameAccountID)
                 {
                     return true;
                 }
@@ -203,24 +207,30 @@ namespace GFHelp.Web.Controllers
         [HttpPost]
         public IActionResult CreatGame([FromBody] GameAccountBase accountbase)
         {
-            string username = User.FindFirst(ClaimTypes.NameIdentifier)?.Value;
-
+            string username =User.FindFirst(ClaimTypes.NameIdentifier)?.Value;
+            accountbase.WebUsername = username;
             //检查是否admin
-            if (isAdmin(username) && !isAccCreated(accountbase.Accountid))
+            if (isAdmin(username))
             {
-                goto Creat;
-            }
-            //检查是否有多个账号
-            if (isMulteAccount(username) || isAccCreated(accountbase.Accountid))
-            {
-                return Ok(new
+                if (!isAccCreated(accountbase))
                 {
-                    code = 0,
-                    //data = count,
-                    message = string.Format("游戏账号已存在")
-
-                });
+                    goto Creat;
+                }
             }
+            else
+            {
+                //检查是否有多个账号
+                if (isMulteAccount(username) || isAccCreated(accountbase))
+                {
+                    return Ok(new
+                    {
+                        code = 0,
+                        //data = count,
+                        message = string.Format("游戏账号已存在")
+                    });
+                }
+            }
+
 
             Creat:
             bool isCreatSussess = creatGameAccount(accountbase);
@@ -239,24 +249,30 @@ namespace GFHelp.Web.Controllers
                 {
                     code = -1,
                     message = string.Format("游戏账号记录失败")
-
                 });
             }
         }
 
+
         /// <summary>
         /// 删除一个游戏实例
         /// </summary>
-        /// <param name="Accountid">游戏帐户id</param>
+        /// <param name="accountbase"></param>
         /// <returns></returns>
         [Route("[action]")]
         [HttpPost]
-        public IActionResult DeleteGame([FromBody]string Accountid)
+        public IActionResult DeleteGame([FromBody] GameAccountBase accountbase)
         {
             bool reslut=true;
-            if(isAccCreated(Accountid))
+            string username = User.FindFirst(ClaimTypes.NameIdentifier)?.Value;
+            accountbase.WebUsername = username;
+
+
+
+
+            if (isAccCreated(accountbase))
             {
-                reslut = delGameAccount(Accountid);
+                reslut = delGameAccount(accountbase);
             }
 
             if (reslut)
