@@ -17,8 +17,6 @@ namespace GFHelp.Core.Management
                 {
                     user_data.Value.operation_Act_Info.TimeReduce();
                 }
-
-
                 //需要改 在auto那里新建auto_summery 里写入此方法
                 //一些自动循环任务 后勤
                 Auto_Summery.Auto_Act_Summery();
@@ -343,8 +341,6 @@ namespace GFHelp.Core.Management
         public static void Auto_Get_Battary(UserData userData)
         {
             DateTime BeijingTimeNow = Helper.Decrypt.LocalDateTimeConvertToChina(DateTime.Now);
-
-
             //3点
             if (BeijingTimeNow.Hour * 60 + BeijingTimeNow.Minute == (60 * 3 + 1) && userData.config.Time3AddGetFriendBattery == true)
             {
@@ -361,7 +357,6 @@ namespace GFHelp.Core.Management
             if (BeijingTimeNow.Hour * 60 + BeijingTimeNow.Minute == (60 * 15 + 1) && userData.config.Time15AddGetFriendBattery == true)
             {
                 userData.Task.Add(Helper.TaskList.Get_Battary_Friend);
-
                 userData.config.Time15AddGetFriendBattery = false;
             }
             else

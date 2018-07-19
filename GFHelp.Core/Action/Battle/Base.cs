@@ -159,13 +159,14 @@ namespace GFHelp.Core.Action.BattleBase
         public int user_exp;
         public bool TaskList_ADD = false;
         public int LoopTime = 0;
-        public int MaxLoopTime = 0;
+        public int MaxLoopTime=0;
         public int reStart_WaitTime = 1;
         public bool Loop = true;
         public bool needSupply = true;
         public int requestLv = 0;
         public bool Using = false;
         public bool StopLoopinGetNew = true;
+        public string Parm;
         public Normal_MissionInfo()
         {
             this.Using = false;
@@ -184,7 +185,8 @@ namespace GFHelp.Core.Action.BattleBase
         public Normal_MissionInfo(UserData userData, Battle battle)
         {
             this.Using = true;
-            this.user_exp = userData.user_Info.experience;;
+            this.user_exp = userData.user_Info.experience;
+            this.Parm = battle.Parm;
             if (battle.Teams.Count() == 0) { return; }
             foreach (var team in battle.Teams)
             {
@@ -238,12 +240,17 @@ namespace GFHelp.Core.Action.BattleBase
                 {
                     this.needSupply = false;
                 }
+                if (item.Contains("-times"))
+                {
+                    if(int.TryParse(item.Remove(0, 6),out this.LoopTime) == false)
+                    {
+                        this.LoopTime = 0;
+                    }
+
+                }
 
             }
-            if (!string.IsNullOrEmpty(battle.Times.ToString()))
-            {
-                this.MaxLoopTime = battle.Times;
-            }
+            this.MaxLoopTime = this.LoopTime;
         }
 
     }
@@ -794,7 +801,6 @@ namespace GFHelp.Core.Action.BattleBase
         public string Map;
         public Team[] Teams;
         public string Parm;
-        public int Times;
     }
     /// <summary>
     /// 

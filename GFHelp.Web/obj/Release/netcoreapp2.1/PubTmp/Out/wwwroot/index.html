@@ -1,0 +1,90 @@
+﻿<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <title></title>
+</head>
+<body>
+    <p id="label1"> ↓这是网站用户所有游戏实例的简要信息 </p>
+    <p id="GamesStatus"> GamesStatus </p>
+
+    <p id="label2"> ↓这是单个游戏实例的详细信息 </p>
+    <p id="GamesDetails"> GamesDetails </p>
+
+    <p id="label4"> ↓结果 </p>
+    <p id="Result"> Result </p>
+
+    <p id="label3"> ↓这是系统通知</p>
+    <table id="SystemNotes"></table>
+
+    <p id="label4"> ↓这是游戏通知 测试账号 13201546359 </p>
+    <table id="GameNotes"></table>
+
+    <input type="button" id="connectionStart" value="connectionStart" />
+    <input type="button" id="RemoveAllSystemNotice" value="朕知道了" />
+    <ul id="message"></ul>
+    <!--<script src="lib/jquery/dist/jquery.min.js"></script>-->
+    <script src="/lib/SingnlR/signalr.js"></script>
+    <script>
+        const Webuser = "admin";//测试账号
+        const Gameuser = "13201546359";//测试账号
+        const conGamesStatus = new signalR.HubConnectionBuilder().withUrl("/chatHub?name=" + Webuser).build();
+        const conGamesDetails = new signalR.HubConnectionBuilder().withUrl("/chatHub?name=" + Gameuser).build();
+        //第一步:连接开始
+        document.getElementById("connectionStart").addEventListener("click", event => {
+            conGamesStatus.start().catch(err => console.error(err.toString()));
+            conGamesDetails.start().catch(err => console.error(err.toString()));
+            event.preventDefault();
+        });
+
+
+        //接收服务器返回的简要信息 status
+        //接收网站用户所有游戏实例的简要信息 status
+        conGamesStatus.on("ReceiveGamesStatus", (message) => {
+            const encodedMsg = message;
+            document.getElementById("GamesStatus").textContent = encodedMsg
+        });
+        //接收服务器返回的详细信息
+        //接收单个实例的详细信息
+        conGamesDetails.on("ReceiveGamesDetails", (message) => {
+            const encodedMsg = message;
+            document.getElementById("GamesDetails").textContent = encodedMsg
+        });
+
+        //接收服务器返回的信息
+        //例如系统警告 系统通知
+        conGamesStatus.on("ReceiveSystemNotification", (message) => {
+            const SystemNotes = message;
+            var tb = document.getElementById("SystemNotes");
+            var row = tb.insertRow();
+            var cell = row.insertCell();
+            cell.innerText = SystemNotes;
+            cell = row.insertCell();
+        });
+
+
+        //接收服务器返回的游戏信息通知
+        conGamesDetails.on("ReceiveGameNotification", (message) => {
+            const SystemNotes = message;
+            var tb = document.getElementById("GameNotes");
+            var row = tb.insertRow();
+            var cell = row.insertCell();
+            cell.innerText = SystemNotes;
+            cell = row.insertCell();
+        });
+
+
+
+        document.getElementById("RemoveAllSystemNotice").addEventListener("click", event => {
+            const Webuser = "admin";//测试账号
+            conGamesStatus.invoke("RemoveAllSystemNotice", Webuser).catch(err => console.error(err.toString()));
+            event.preventDefault();
+        });
+        document.getElementById("RemoveGameNotice").addEventListener("click", event => {
+            const Gameuser = "13201546359";//测试账号
+            conGamesDetails.invoke("RemoveGameNotice", Gameuser).catch(err => console.error(err.toString()));
+            event.preventDefault();
+        });
+
+    </script>
+</body>
+</html>

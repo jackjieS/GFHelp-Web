@@ -36,50 +36,38 @@ namespace GFHelp.Web.Controllers
 
         internal List<Data.GameAccount> GetAccountInfo(string username)
         {
-            List<Data.GameAccount> gameaccount = new List<Data.GameAccount>();
-            foreach (var item in context.GameAccount.ToList())
-            {
-                if (item.WebUsername == username)
-                {
-                    gameaccount.Add(item);
-                }
-            }
-
+            var gameaccount =  context.GameAccount.Where(p => p.WebUsername == username).ToList();
             if (gameaccount.Count > 0)
             {
                 return gameaccount;
             }
             return null;
-
         }
 
         private bool delGameAccount(GameAccountBase gameAccountBase)
         {
-            Data.GameAccount data = null;
-            foreach (var item in context.GameAccount.ToList())
+            var list = context.GameAccount.Where(p => p.GameAccountID == gameAccountBase.GameAccountID && p.WebUsername == gameAccountBase.WebUsername).ToList();
+            if (list.Count == 0) return false;
+            foreach (var item in list)
             {
-                if (item.GameAccountID == gameAccountBase.GameAccountID && item.WebUsername ==gameAccountBase.WebUsername)
+                try
                 {
-                    data = item;
-                    try
+                    var data = item;
+                    var ranks = context.GameAccount.Remove(data);
+                    var count = context.SaveChanges();
+                    if (Core.Management.Data.data.ContainsKey(data.GameAccountID))
                     {
-                        var ranks = context.GameAccount.Remove(data);
-                        var count = context.SaveChanges();
-                        if (Core.Management.Data.data.ContainsKey(gameAccountBase.GameAccountID))
-                        {
-                            Core.Management.Data.data.Remove(gameAccountBase.GameAccountID);
-                        }
-                        if (Core.Management.Data.tasks.ContainsKey(gameAccountBase.GameAccountID))
-                        {
-                            Core.Management.Data.tasks.Remove(gameAccountBase.GameAccountID);
-                        }
+                        Core.Management.Data.data.Remove(data.GameAccountID);
                     }
-                    catch (Exception e)
+                    if (Core.Management.Data.tasks.ContainsKey(data.GameAccountID))
                     {
-                        new Log().systemInit(string.Format("删除游戏实例出现错误. {0}",gameAccountBase.ToString()), e.ToString()).coreError();
-                        return false;
+                        Core.Management.Data.tasks.Remove(data.GameAccountID);
                     }
-                    return true;
+                }
+                catch (Exception e)
+                {
+                    new Log().systemInit(string.Format("删除游戏实例出现错误. {0}", gameAccountBase.ToString()), e.ToString()).coreError();
+                    return false;
                 }
             }
             return false;
@@ -99,12 +87,9 @@ namespace GFHelp.Web.Controllers
                 Parm = accInfo.Parm,
             });
             var count = context.SaveChanges();
-
             UserData userdata = new UserData();
             userdata.CreatGameAccount(accInfo);
             Core.Management.Data.seed(userdata);
-
-
             if (count != 0)
             {
                 return true;
@@ -114,45 +99,20 @@ namespace GFHelp.Web.Controllers
 
         private bool isAdmin(string username)
         {
-            foreach (var item in context.AccountInfo.ToList())
-            {
-                if (item.Username == username && item.Policy =="admin")
-                {
-                    return true;
-                }
-            }
-            return false;
+            var list = context.AccountInfo.Where(p => p.Username == username && p.Policy == "admin").ToList();
+            return list.Count > 0 ? true : false;
         }
 
         private bool isMulteAccount(string username)
         {
-            int i = 0;
-            foreach (var item in context.GameAccount.ToList())
-            {
-                if (item.WebUsername == username)
-                {
-                    i++;
-                }
-            }
-
-            if (i >= 1)
-            {
-                return true;
-            }
-            return false;
-
+            var list = context.GameAccount.Where(p => p.WebUsername == username).ToList();
+            return list.Count >= 1 ? true : false;
         }
 
         private bool isAccCreated(GameAccountBase gameAccountBase)
         {
-            foreach (var item in context.GameAccount.ToList())
-            {
-                if (item.GameAccountID == gameAccountBase.GameAccountID)
-                {
-                    return true;
-                }
-            }
-            return false;
+            var list = context.GameAccount.Where(p => p.GameAccountID == gameAccountBase.GameAccountID).ToList();
+            return list.Count > 0 ? true : false;
         }
 
         /// <summary>
@@ -207,6 +167,7 @@ namespace GFHelp.Web.Controllers
         [HttpPost]
         public IActionResult CreatGame([FromBody] GameAccountBase accountbase)
         {
+            bool isCreatSussess=false;
             string username =User.FindFirst(ClaimTypes.NameIdentifier)?.Value;
             accountbase.WebUsername = username;
             //检查是否admin
@@ -214,26 +175,20 @@ namespace GFHelp.Web.Controllers
             {
                 if (!isAccCreated(accountbase))
                 {
-                    goto Creat;
+                    isCreatSussess =  creatGameAccount(accountbase);
                 }
+
             }
             else
             {
                 //检查是否有多个账号
-                if (isMulteAccount(username) || isAccCreated(accountbase))
+                if (!isMulteAccount(username)  && !isAccCreated(accountbase))
                 {
-                    return Ok(new
-                    {
-                        code = 0,
-                        //data = count,
-                        message = string.Format("游戏账号已存在")
-                    });
+                    isCreatSussess = creatGameAccount(accountbase);
                 }
             }
 
 
-            Creat:
-            bool isCreatSussess = creatGameAccount(accountbase);
 
             if (isCreatSussess)
             {

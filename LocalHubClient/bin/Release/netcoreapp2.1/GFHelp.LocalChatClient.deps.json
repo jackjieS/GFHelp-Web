@@ -8,6 +8,7 @@
     ".NETCoreApp,Version=v2.1": {
       "GFHelp.LocalChatClient/1.0.0": {
         "dependencies": {
+          "GFHelp.Core": "1.0.0",
           "Microsoft.AspNetCore.SignalR.Client": "1.0.0"
         },
         "runtime": {
@@ -246,6 +247,60 @@
             "fileVersion": "4.6.26515.6"
           }
         }
+      },
+      "GFHelp.Core/1.0.0": {
+        "dependencies": {
+          "Microsoft.AspNetCore.SignalR.Client": "1.0.0",
+          "Newtonsoft.Json": "11.0.2",
+          "LitJson": "1.0.0.0",
+          "dotnet-aspnet-codegenerator-design": "2.1.0.0",
+          "UnityEngine": "0.0.0.0",
+          "AuthCode": "1.0.0.0",
+          "ICSharpCode.SharpZipLib": "0.86.0.518"
+        },
+        "runtime": {
+          "GFHelp.Core.dll": {}
+        }
+      },
+      "LitJson.Reference/1.0.0.0": {
+        "runtime": {
+          "LitJson.dll": {
+            "assemblyVersion": "1.0.0.0",
+            "fileVersion": "1.0.0.0"
+          }
+        }
+      },
+      "dotnet-aspnet-codegenerator-design.Reference/2.1.0.0": {
+        "runtime": {
+          "dotnet-aspnet-codegenerator-design.dll": {
+            "assemblyVersion": "2.1.0.0",
+            "fileVersion": "2.1.0.18136"
+          }
+        }
+      },
+      "UnityEngine.Reference/0.0.0.0": {
+        "runtime": {
+          "UnityEngine.dll": {
+            "assemblyVersion": "0.0.0.0",
+            "fileVersion": "0.0.0.0"
+          }
+        }
+      },
+      "AuthCode.Reference/1.0.0.0": {
+        "runtime": {
+          "AuthCode.dll": {
+            "assemblyVersion": "1.0.0.0",
+            "fileVersion": "1.0.0.0"
+          }
+        }
+      },
+      "ICSharpCode.SharpZipLib.Reference/0.86.0.518": {
+        "runtime": {
+          "ICSharpCode.SharpZipLib.dll": {
+            "assemblyVersion": "0.86.0.518",
+            "fileVersion": "0.86.0.518"
+          }
+        }
       }
     }
   },
@@ -415,6 +470,36 @@
       "sha512": "sha512-Js7f30DXMo1plMo32fOpKF7AhCmuKyOKDT1fSayntGGOVfF5V/xKVu1UPI3N+/hTXuqKKgB++eACPZ120uLpGg==",
       "path": "system.threading.channels/4.5.0",
       "hashPath": "system.threading.channels.4.5.0.nupkg.sha512"
+    },
+    "GFHelp.Core/1.0.0": {
+      "type": "project",
+      "serviceable": false,
+      "sha512": ""
+    },
+    "LitJson.Reference/1.0.0.0": {
+      "type": "reference",
+      "serviceable": false,
+      "sha512": ""
+    },
+    "dotnet-aspnet-codegenerator-design.Reference/2.1.0.0": {
+      "type": "reference",
+      "serviceable": false,
+      "sha512": ""
+    },
+    "UnityEngine.Reference/0.0.0.0": {
+      "type": "reference",
+      "serviceable": false,
+      "sha512": ""
+    },
+    "AuthCode.Reference/1.0.0.0": {
+      "type": "reference",
+      "serviceable": false,
+      "sha512": ""
+    },
+    "ICSharpCode.SharpZipLib.Reference/0.86.0.518": {
+      "type": "reference",
+      "serviceable": false,
+      "sha512": ""
     }
   }
 }

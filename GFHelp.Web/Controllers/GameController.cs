@@ -171,12 +171,13 @@ namespace GFHelp.Web.Controllers
             }
 
 
-            Core.Action.BattleBase.Normal_MissionInfo normal_MissionInfo = new Core.Action.BattleBase.Normal_MissionInfo(Core.Management.Data.data[bs.accountID], bs);
-            Core.Management.Data.data[bs.accountID].normal_MissionInfo = normal_MissionInfo;
-            Core.Management.Data.data[bs.accountID].Task.Add(Core.Helper.TaskList.TaskBattle_1);
+            //Core.Action.BattleBase.Normal_MissionInfo normal_MissionInfo = new Core.Action.BattleBase.Normal_MissionInfo(Core.Management.Data.data[bs.accountID], bs);
+            //Core.Management.Data.data[bs.accountID].normal_MissionInfo = normal_MissionInfo;
+            //Core.Management.Data.data[bs.accountID].Task.Add(Core.Helper.TaskList.TaskBattle_1);
             return Ok(new
             {
                 code = 1,
+                data = bs,
                 message = "开始作战"
 
             });
@@ -196,7 +197,7 @@ namespace GFHelp.Web.Controllers
             return Ok(new
             {
                 code = 1,
-
+                data =bs,
                 message = "终止作战"
 
             });

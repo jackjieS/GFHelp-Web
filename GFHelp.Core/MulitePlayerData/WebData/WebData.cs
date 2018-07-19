@@ -18,13 +18,14 @@ namespace GFHelp.Core.MulitePlayerData.WebData
         //public Dictionary<int, WebOperation> webOperation = new Dictionary<int, WebOperation>();
         public List<WebOperation> webOperation = new List<WebOperation>();
         public WebStatus webStatus = new WebStatus();
-
+        public WebBattle webBattle = new WebBattle();
         public void Get(UserData userData)
         {
             Initialize.GetWebTeams(userData, ref WebTeams);
             Initialize.GetWebUser_Info(userData, ref webUser_Info);
             Initialize.GetWebOperation(userData,ref webOperation);
             Initialize.GetWebStatus(userData, ref webStatus);
+            Initialize.GetWebBattle(userData, ref webBattle);
         }
     }
     public class Initialize
@@ -132,6 +133,14 @@ namespace GFHelp.Core.MulitePlayerData.WebData
             }
             return "Null";
         } 
+        public static void GetWebBattle(UserData userData, ref WebBattle webBattle)
+        {
+            //webBattle.Times = userData.normal_MissionInfo.LoopTime.ToString();
+            webBattle.Times = DateTime.Now.ToLongTimeString();
+            webBattle.Using = userData.normal_MissionInfo.Using;
+            webBattle.Map = userData.normal_MissionInfo.TaskMap;
+            webBattle.Parm = userData.normal_MissionInfo.Parm;
+        }
     }
 
     public class Team

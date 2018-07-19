@@ -132,18 +132,22 @@ namespace GFHelp.Core.Action
                 }
                 if (Response.Check(userdata.GameAccount, ref result, "LoginFirstUrl", false) == 0)
                 {
-                    new Log().systemInit(result.ToString(), "").coreError();
-                    continue;
-                }
-                if (Response.Check(userdata.GameAccount, ref result, "LoginFirstUrl", false) == -1)
-                {
-                    count++;
-                    if (count >= userdata.config.ErrorCount)
+                    if (count++ >= userdata.config.ErrorCount)
                     {
                         new Log().systemInit("LoginDigitalSKY", result.ToString()).coreError();
                         new Log().userInit(userdata.GameAccount.Base.GameAccountID, "LoginDigitalSKY", result.ToString()).userInfo();
                         return false;
-                    } 
+                    }
+                    continue;
+                }
+                if (Response.Check(userdata.GameAccount, ref result, "LoginFirstUrl", false) == -1)
+                {
+                    if (count++ >= userdata.config.ErrorCount)
+                    {
+                        new Log().systemInit("LoginDigitalSKY", result.ToString()).coreError();
+                        new Log().userInit(userdata.GameAccount.Base.GameAccountID, "LoginDigitalSKY", result.ToString()).userInfo();
+                        return false;
+                    }
                     continue;
                 }
 
