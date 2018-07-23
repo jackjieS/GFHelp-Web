@@ -290,7 +290,7 @@ namespace GFHelp.Core.Management
         /// <summary>
         /// 
         /// </summary>
-        public string YunDouDou { get; set; }
+        public string YunDouDou;
         /// <summary>
         /// 
         /// </summary>

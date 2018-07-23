@@ -46,7 +46,7 @@ namespace GFHelp.Core.Helper
                             JsonData jsonData2 = null;
                             gameAccount.realtimeSinceLogin = Convert.ToInt32((DateTime.UtcNow - new DateTime(1970, 1, 1, 0, 0, 0, 0)).TotalSeconds);
                             AuthCode.Init(new AuthCode.IntDelegate(gameAccount.GetCurrentTimeStamp));
-
+                            gameAccount.loginTime = Decrypt.ConvertDateTime_China_Int(DateTime.Now);
                             using (MemoryStream stream = new MemoryStream(AuthCode.DecodeWithGzip(result.Substring(1), "yundoudou")))
                             {
                                 using (Stream stream2 = new GZipInputStream(stream))

@@ -86,7 +86,11 @@ namespace GFHelp.Web.Controllers
                 YunDouDou = accInfo.YunDouDou,
                 Parm = accInfo.Parm,
             });
-            var count = context.SaveChanges();
+            int count=1;
+            if (string.IsNullOrEmpty(accInfo.YunDouDou))
+            {
+                count = context.SaveChanges();
+            }
             UserData userdata = new UserData();
             userdata.CreatGameAccount(accInfo);
             Core.Management.Data.seed(userdata);

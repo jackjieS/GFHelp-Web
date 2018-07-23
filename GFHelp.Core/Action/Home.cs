@@ -15,6 +15,7 @@ namespace GFHelp.Core.Action
     {
         public static bool Login(UserData userData)
         {
+
             if (string.IsNullOrEmpty(userData.GameAccount.Base.YunDouDou))
             {
                 new Log().userInit(userData.GameAccount.Base.GameAccountID, "数字天空登陆", "").userInfo();
@@ -26,6 +27,12 @@ namespace GFHelp.Core.Action
                 new Log().userInit(userData.GameAccount.Base.GameAccountID, "获取Sign", "").userInfo();
                 userData.webData.StatusBarText = "获取Sign";
                 if (!GetDigitalUid(userData)) return false;
+            }
+            else
+            {
+                //解密云豆豆
+                userData.GameAccount.req_id = Decrypt.ConvertDateTime_China_Int(DateTime.Now);
+                if (Response.Check(userData.GameAccount, ref userData.GameAccount.Base.YunDouDou, "GetDigitalUid_Pro", false) != 1) return false;
             }
             new Log().userInit(userData.GameAccount.Base.GameAccountID, "获取UserInfo", "").userInfo();
             userData.webData.StatusBarText = "获取UserInfo";

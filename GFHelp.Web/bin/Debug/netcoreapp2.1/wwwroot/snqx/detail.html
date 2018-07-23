@@ -1,4 +1,4 @@
-<!DOCTYPE html>
+﻿<!DOCTYPE html>
 <html lang="zh-CN">
 <head>
     <meta charset="UTF-8">
@@ -392,17 +392,6 @@
                         </div>
                         <div class="tab-pane" id="bdyl">
                             <div id="bdyl-warpper">
-                                <!-- <div class="col-sm-12">
-                                    <div><h3>第一梯队</h3></div>
-                                    <ul>
-                                        <li>
-                                            <label for="">春田</label>
-                                            <span>lv:100</span>
-                                            <span>exp:4846461</span>
-                                            <span>HP:420</span>
-                                        </li>
-                                    </ul>
-                                </div> -->
                             </div>
                         </div>
                         <div class="tab-pane" id="zd">
@@ -411,7 +400,7 @@
                                     <div>
                                         <label for="">地图:</label>
                                         <span>
-                                            <select name="" id="">
+                                            <select class="form-control" name="map" id="map">
                                                 <option value="">地图1</option>
                                                 <option value="">地图2</option>
                                             </select>
@@ -420,7 +409,7 @@
                                     <div>
                                         <label for="">梯队:</label>
                                         <span>
-                                            <select class="form-control" name="" id="">
+                                            <select class="form-control" name="team2" id="team2">
                                                 <option value="">梯队1</option>
                                                 <option value="">梯队2</option>
                                             </select>
@@ -428,24 +417,12 @@
                                     </div>
                                     <div>
                                         <label for="">梯队效能:</label>
-                                        <span>fawefawef</span>
-                                    </div>
-                                    <div>
-                                        <label for="">已执行次数:</label>
-                                        <span>12</span>
-                                    </div>
-                                    <div>
-                                        <label for="">循环次数:</label>
-                                        <span>0</span>
-                                    </div>
-                                    <div>
-                                        <label for="">参数:</label>
                                         <span>
-                                            <textarea class="form-control" name="" id="" cols="35" rows="3"></textarea>
+                                            <input class="form-control" name="skt" />
                                         </span>
                                     </div>
                                     <div>
-                                        <button class="btn btn-primary btn-block">
+                                        <button onclick="joinTeam()" class="btn btn-primary btn-block">
                                             加入
                                         </button> 
                                     </div>
@@ -456,28 +433,13 @@
                                             已选择
                                             <span class="clear-list">清空</span>
                                         </div>
-                                        <ul class="list-group">
-                                            <li class="list-group-item">
-                                                第一梯队
-                                            </li>
-                                            <li class="list-group-item">
-                                                 第二梯队
-                                            </li>
-                                            <li class="list-group-item">
-                                                 第三梯队
-                                            </li>
-                                            <li class="list-group-item">
-                                                 第四梯队
-                                            </li>
-                                            <li class="list-group-item">
-                                                 第五梯队
-                                            </li>
+                                        <ul class="list-group team-list">
                                         </ul>
                                     </div>
                                 </div>
                                 <div class="zd-bottom">
-                                    <button class="btn btn-primary btn-block">开始</button>
-                                    <button class="btn btn-primary btn-block">终止</button>
+                                    <button onclick="startBattle()" class="btn btn-primary btn-block">开始</button>
+                                    <button onclick="abortBattle()" class="btn btn-primary btn-block">终止</button>
                                 </div>
                             </div>
                         </div>
@@ -642,14 +604,13 @@
             var token = checkToken();
             var html_o='';
             $.ajax({
-                url: 'http://118.24.162.26:7777/System/GetOperationInfo',
+                url: 'http://127.0.0.1:7777/System/GetOperationInfo',
                 type:'get',
                 async: false,
                 dataType: 'json',
                 headers: { 'Authorization': 'Bearer ' + token },
                 success:function (res) {
                     if(res.code==1){
-                        console.log(res);
                         html_o = res;
                         return html_o;
                     }
@@ -660,14 +621,13 @@
 
 
         var param = GetRequest();
-        const Gameuser = param.gid;//测试账号
+        const Gameuser = param.gid;
         const conGamesDetails = new signalR.HubConnectionBuilder().withUrl("/chatHub?name="+Gameuser).build();
         conGamesDetails.start().catch(err => console.error(err.toString()));
         function GetGamesDetail() {
             conGamesDetails.on("ReceiveGamesDetails", (message) => {
                 message = $.parseJSON(message);
                 var operationInfo = null;
-                // console.log(message);
                 $('#commander').html(message[0].webUser_Info.UserName);
                 $('#level').html(message[0].webUser_Info.Level);
                 $('#Core').html(message[0].webUser_Info.Core);
@@ -701,7 +661,7 @@
                 if(gameStatus){
                     var teamHtml = '';
                     $(message[0].WebTeams).each(function(index, el) {
-                        select1_option += '<option value="'+el.TeamID+'">'+el.Leader+'</option>';
+                        select1_option += '<option value="'+el.TeamID+'">第'+(index+1)+'梯队('+el.Leader+')</option>';
                         var person = '';
                         $(el.Guns).each(function(index2, el2) {
                             person += '<li><label for="">'+el2.Name+':</label><span>lv:'+el2.Lv+'</span><span>exp:'+el2.Exp+'</span><span>HP:'+el2.Hp+'</span><span>扩编数量:'+el2.number+'</span></li>';
@@ -709,6 +669,7 @@
                         teamHtml += '<div class=""><div><h3>第'+(index+1)+'梯队</h3></div><ul>'+person+'</ul></div>';
                     });
                     $('#bdyl-warpper').html(teamHtml);
+                    $('#zd-warpper #team2').html(select1_option);
                 }
 
                 for (var i = 0; i < message[0].webOperation.length; i++) {
@@ -750,16 +711,12 @@
             });
             
             conGamesDetails.on("ReceiveGameNotification", (message) => {
-                console.log(message);
                 message = $.parseJSON(message);
                 html_msg = '<div class="alert alert-info">'+message.ID+':'+message.message+'<span style="float:right;">'+message.timestamp+'</span></div>';
                 if($('#message-warpper').find('html_msg')){
                     $('#message-warpper').prepend(html_msg);
                 }
             });
-
-
-                //conGamesDetails.invoke("Logoff", Gameuser).catch(err => console.error(err.toString()));
         };
 
        
@@ -779,11 +736,8 @@
             var teamID = $(Obj).parents('.hqrw-item-list').find('.select1').val();
             var operationID = $(Obj).parents('.hqrw-item-list').find('.select2').val();
             var accountID = param.gid;
-            console.log(teamID);
-            console.log(operationID);
-            console.log(accountID);
             $.ajax({
-                url: 'http://118.24.162.26:7777/Game/StartOperation',
+                url: 'http://127.0.0.1:7777/Game/StartOperation',
                 type: 'post',
                 dataType: 'json',
                 contentType : 'application/json;charset=UTF-8',
@@ -801,11 +755,8 @@
             var teamID = $(Obj).parents('.hqrw-item-list').find('.select1').val();
             var operationID = $(Obj).parents('.hqrw-item-list').find('.select2').val();
             var accountID = param.gid;
-            console.log(teamID);
-            console.log(operationID);
-            console.log(accountID);
             $.ajax({
-                url: 'http://118.24.162.26:7777/Game/AbortOperation',
+                url: 'http://127.0.0.1:7777/Game/AbortOperation',
                 type: 'post',
                 dataType: 'json',
                 contentType : 'application/json;charset=UTF-8',
@@ -840,7 +791,7 @@
             var token = checkToken();
             var username = sessionStorage.getItem('username');
             $.ajax({
-                url: 'http://118.24.162.26:7777/Game/Login',
+                url: 'http://127.0.0.1:7777/Game/Login',
                 type: 'post',
                 dataType: 'json',
                 contentType : 'application/json;charset=UTF-8',
@@ -856,6 +807,83 @@
             conGamesDetails.invoke("RemoveGameNotice", window.Gameuser).catch(err => console.error(err.toString()));
             $('#message-warpper').html('');
         });
+
+
+        var operation_info = getOperationInfo();
+        var map_list = operation_info.data.battleMap;
+        console.log(operation_info);
+        var html_map = '';
+        $.each(map_list, function(index, val) {
+            html_map += '<option value="'+val+'">'+val+'</option>';
+        });
+        
+        $('#zd-warpper select[name=map]').html(html_map);
+
+        function joinTeam(){
+            var values = $('#team2').val();
+            var names = $('#team2 option:selected').html();
+            var skt = $('input[name=skt]').val();
+            var team_list = '<li class="list-group-item">'+
+                                '<span class="team-title">'+names+'</span>'+
+                                '<input type="hidden" name="team_id" value="'+values+'">'+
+                                '<input type="hidden" name="skt" value="'+skt+'">'+
+                                '<span style="float: right;">梯队效能:'+skt+'</span>'+
+                            '</li>'
+            
+            console.log($('.team-list').find('input[value='+values+']'));
+            if($('.team-list').find('input[value='+values+']').length>=1){
+                alert('已存在梯队，不能重复添加');
+            }else{
+                $('.team-list').append(team_list);
+            }
+        }
+
+        function startBattle(){
+            var token = checkToken();
+            var username = sessionStorage.getItem('username');
+            var team_data = [];
+            for(i=0;$('.team-list input[name=team_id]').length>i;i++){
+                var teamid = '';
+                var skt = '';
+                console.log($($('input[name=team_id]')[i]).val());
+                teamid = $($('input[name=team_id]')[i]).val();
+                skt = $($('input[name=skt]')[i]).val();
+                team_data.push({"teamid":teamid,"skt":skt,"key":i});
+            }
+            var data = {
+                          "accountID": param.gid,
+                          "map": $('#map').val(),
+                          "teams": team_data,
+                          "parm": "string"
+                        };
+            $.ajax({
+                url: 'http://127.0.0.1:7777/Game/StartBattle',
+                type: 'post',
+                dataType: 'json',
+                contentType : 'application/json;charset=UTF-8',
+                data:JSON.stringify(data),
+                headers: { 'Authorization': 'Bearer ' + token },
+                success: function (res) {
+                    console.log(res);
+                    alert(res.message);  
+                }
+            });
+        }
+
+        function abortBattle(){
+            var token = checkToken();
+            $.ajax({
+                url: 'http://127.0.0.1:7777/Game/AbortBattle',
+                type: 'post',
+                dataType: 'json',
+                contentType : 'application/json;charset=UTF-8',
+                data:JSON.stringify({accountId:param.gid}),
+                headers: { 'Authorization': 'Bearer ' + token },
+                success: function (res) {
+                    alert(res.message);  
+                }
+            });
+        }
 
     </script>
 </body>

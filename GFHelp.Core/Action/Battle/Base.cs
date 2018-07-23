@@ -213,13 +213,13 @@ namespace GFHelp.Core.Action.BattleBase
 
             if (string.IsNullOrEmpty(battle.Map))
             {
-                battle.Map = "0-2";
+                battle.Map = "-map0_2";
             }
             else
             {
                 this.TaskMap = battle.Map;
             }
-
+            this.TaskMap = battle.Map.Remove(0, 1);
             foreach (var item in Parm)
             {
                 if (item.Contains("-map"))

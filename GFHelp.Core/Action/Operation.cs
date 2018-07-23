@@ -127,7 +127,12 @@ namespace GFHelp.Core.Action
                         }
                     case 0:
                         {
-                            break;
+                            if (count++ >= userData.config.ErrorCount)
+                            {
+                                new Log().userInit(userData.GameAccount.Base.GameAccountID, "后勤结束失败", result.ToString()).userInfo();
+                                return -1;
+                            }
+                            continue;
                         }
                     case -1:
                         {
@@ -136,7 +141,7 @@ namespace GFHelp.Core.Action
                                 new Log().userInit(userData.GameAccount.Base.GameAccountID, "后勤结束失败", result.ToString()).userInfo();
                                 return -1;
                             }
-                            break;
+                            continue ;
                         }
                     default:
                         break;

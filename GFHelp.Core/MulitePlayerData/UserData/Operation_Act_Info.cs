@@ -42,7 +42,7 @@ namespace GFHelp.Core.MulitePlayerData
                 for (int i = 0; i < dicOperation.Count; i++)
                 {
                     if (!dicOperation.ContainsKey(i)) continue;
-                    if (dicOperation[i].remaining_time <= 0)
+                    if (dicOperation[i].remaining_time < 0)
                     {
                         Data data = dicOperation[i];
                         dicOperation.Remove(i);
@@ -86,8 +86,7 @@ namespace GFHelp.Core.MulitePlayerData
                 {
                     if (Action.Operation.Start_Operation_Act(userData, data) == 1)
                     {
-
-                        data.start_time = Decrypt.ConvertDateTime_China_Int(DateTime.Now);
+                        data.start_time = Decrypt.ConvertDateTime_China_Int(DateTime.Now)+10;
                         dicOperation.Add(i, data);
                         return 1;
                     }
@@ -99,9 +98,7 @@ namespace GFHelp.Core.MulitePlayerData
 
         public void Finish(Data data)
         {
-            //string accountID = text.accountID.ToString();
-            //string operationID = text.operationID.ToString();
-            //string TeamID = text.TeamID.ToString();
+
             if (Action.Operation.Finish_Operation_Act(userData, data) == 1)
             {
 

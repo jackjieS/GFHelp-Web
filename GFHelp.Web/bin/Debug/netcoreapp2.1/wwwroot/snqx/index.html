@@ -244,14 +244,13 @@
     <script type="text/javascript">
         $(function () {
             programInit()
-           
         });
 
         function programInit() {
-            const Webuser = "admin";
+            const Webuser = sessionStorage.getItem('username')
             const conGamesStatus = new signalR.HubConnectionBuilder().withUrl("/chatHub?name="+Webuser).build();
             conGamesStatus.start().catch(err => console.error(err.toString()));
-            //conGamesStatus.invoke("Login",Webuser).catch(err => console.error(err.toString()));
+
             conGamesStatus.on("ReceiveGamesStatus", (message) => {
                 var html = '';
                 message = $.parseJSON(message);
@@ -267,7 +266,7 @@
                         '<span>状态：'+message[key]['statusBarText']+'</span>' +
                         '</div>' +
                         '<div style="margin-top: 50px;">' +
-                        '<a href="">登录</a>' +
+                        '<a onclick="gameLogin('+message[key]['AccountId']+')" href="javascript:void(0);">登录</a>' +
                         '<a href="">退出</a>' +
                         '<a href="detail.html?gid='+message[key]['AccountId'] +'">查看详情</a>' +
                         '<a href="" onclick="del_game(\''+ message[key]['AccountId']+'\')">删除实例</a>' +
@@ -391,7 +390,7 @@
             if (worldId == 'other') {
                 worldId = $('input[name=worldId_input]').val();
             }
-            if(platform==''|| channelid==''|| worldId==''){
+            if(accountid==''&& yunDouDou==''){
                 alert('请正确且完整填写表单');
                 return;
             }else{
@@ -434,6 +433,24 @@
             }else{
                 $(Obj).parents('p').next().find('input').css('display', 'none');
             }
+        }
+
+        function gameLogin(gameid){
+            var token = checkToken();
+            var username = sessionStorage.getItem('username');
+            $.ajax({
+                url: 'http://127.0.0.1:7777/Game/Login',
+                type: 'post',
+                dataType: 'json',
+                contentType : 'application/json;charset=UTF-8',
+                data:JSON.stringify({gameID:gameid,username:username}),
+                headers: { 'Authorization': 'Bearer ' + token },
+                success: function (res) {
+                    if(res.code==1){
+                        alert(res.message);  
+                    }
+                }
+            });
         }
     </script>
 </body>
