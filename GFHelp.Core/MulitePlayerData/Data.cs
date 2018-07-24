@@ -39,22 +39,15 @@ namespace GFHelp.Core.Management
                 data.Add(userData.GameAccount.Base.GameAccountID, userData);
             }
 
-
-
-
-            Task task = new Task(() => Loop.CompleteMisson(userData));
-
-            if (tasks.ContainsKey(userData.GameAccount.Base.GameAccountID))
+            userData.task = new Task(() => Loop.CompleteMisson(userData));
+            userData.task.Start();
+            userData.cd = new Task(() => Loop.CountDown(userData));
+            userData.cd.Start();
+            userData.task.ContinueWith(t => 
             {
-                tasks[userData.GameAccount.Base.GameAccountID].Dispose();
-                tasks[userData.GameAccount.Base.GameAccountID] = task;
-            }
-            else
-            {
-                tasks.Add(userData.GameAccount.Base.GameAccountID, task);
-
-            }
-            tasks[userData.GameAccount.Base.GameAccountID].Start();
+                Task.WaitAll(userData.cd, userData.task);
+                userData = null;
+            });
         }
 
         public static WebData GetWebData(string AccountId)
@@ -158,7 +151,9 @@ namespace GFHelp.Core.Management
             }
         }
 
-
+        public Task task;
+        public Task cd;
+        public bool taskDispose = false;
         public Action.Battle battle = new Action.Battle();
 
         public int Dorm_Rest_Friend_Build_Coin_Count;

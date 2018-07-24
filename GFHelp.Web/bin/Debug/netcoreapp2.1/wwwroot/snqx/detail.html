@@ -422,9 +422,21 @@
                                         </span>
                                     </div>
                                     <div>
+                                        <label for="">参数:</label>
+                                        <span>
+                                            <input class="form-control" name="parm" id="parm"/>
+                                        </span>
+                                    </div>
+                                    <div>
+                                        <label for="">循环次数:  </label>
+                                        <span>
+                                            <label  name="times" id="times"/>
+                                        </span>
+                                    </div>
+                                    <div>
                                         <button onclick="joinTeam()" class="btn btn-primary btn-block">
                                             加入
-                                        </button> 
+                                        </button>
                                     </div>
                                 </div>
                                 <div class="zd-right col-sm-5">
@@ -658,6 +670,7 @@
                 $('#Coin2').html(message[0].webUser_Info.Coin2);
                 $('#Coin3').html(message[0].webUser_Info.Coin3);
                 $('#GlobalEXP').html(message[0].webUser_Info.GlobalEXP);
+                $('#times').html(message[0].webBattle.Times);
                 if(gameStatus){
                     var teamHtml = '';
                     $(message[0].WebTeams).each(function(index, el) {
@@ -854,7 +867,7 @@
                           "accountID": param.gid,
                           "map": $('#map').val(),
                           "teams": team_data,
-                          "parm": "string"
+                          "parm":$('#parm').val()
                         };
             $.ajax({
                 url: 'http://127.0.0.1:7777/Game/StartBattle',

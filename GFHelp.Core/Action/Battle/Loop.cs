@@ -50,7 +50,7 @@ namespace GFHelp.Core.Action
         {
 
 
-            userData.others.Check_Equip_GUN_FULL();
+            userData.battle.Check_Equip_Gun_FULL();
 
             //userData.normal_MissionInfo.TaskMap;
             Type neededType = typeMap_Sent.GetNestedType(userData.normal_MissionInfo.TaskMap);

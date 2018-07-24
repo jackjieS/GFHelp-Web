@@ -26,7 +26,7 @@
     <script src="/lib/SingnlR/signalr.js"></script>
     <script>
         const Webuser = "admin";//测试账号
-        const Gameuser = "13201546359";//测试账号
+        const Gameuser = "13916411136";//测试账号
         const conGamesStatus = new signalR.HubConnectionBuilder().withUrl("/chatHub?name=" + Webuser).build();
         const conGamesDetails = new signalR.HubConnectionBuilder().withUrl("/chatHub?name=" + Gameuser).build();
         //第一步:连接开始
@@ -79,11 +79,11 @@
             conGamesStatus.invoke("RemoveAllSystemNotice", Webuser).catch(err => console.error(err.toString()));
             event.preventDefault();
         });
-        document.getElementById("RemoveGameNotice").addEventListener("click", event => {
-            const Gameuser = "13201546359";//测试账号
-            conGamesDetails.invoke("RemoveGameNotice", Gameuser).catch(err => console.error(err.toString()));
-            event.preventDefault();
-        });
+        //document.getElementById("RemoveGameNotice").addEventListener("click", event => {
+        //    const Gameuser = "13916411136";//测试账号
+        //    conGamesDetails.invoke("RemoveGameNotice", Gameuser).catch(err => console.error(err.toString()));
+        //    event.preventDefault();
+        //});
 
     </script>
 </body>

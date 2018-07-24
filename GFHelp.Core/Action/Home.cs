@@ -90,8 +90,8 @@ namespace GFHelp.Core.Action
                         }
                     case -1:
                         {
-                            count++;
-                            if (count >= userData.config.ErrorCount) return "error";
+
+                            if (count++ >= userData.config.ErrorCount) return "error";
                             continue;
                         }
                     default:
@@ -235,8 +235,7 @@ namespace GFHelp.Core.Action
                 if (Response.Check(userData.GameAccount, ref result, "Index_version", false) == 0) { continue; }
                 if (Response.Check(userData.GameAccount, ref result, "Index_version", false) == -1)
                 {
-                    count++;
-                    if (count >= userData.config.ErrorCount) return false;
+                    if (count++ >= userData.config.ErrorCount) return false;
                     continue; /*特殊处理我还没想好*/;
                 }
             }
@@ -274,8 +273,7 @@ namespace GFHelp.Core.Action
                         }
                     case -1:
                         {
-                            count++;
-                            if (count >= userData.config.ErrorCount) return false;
+                            if (count++ >= userData.config.ErrorCount) return false;
                             continue;
                         }
                     default:

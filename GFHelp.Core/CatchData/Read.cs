@@ -2,6 +2,7 @@
 using GFHelp.Core.CatchData.Base;
 using GFHelp.Core.CatchData.Base.CMD;
 using GFHelp.Core.Helper;
+using LitJson;
 using Microsoft.VisualStudio.Web.CodeGeneration.Design;
 using System;
 using System.Collections.Generic;
@@ -67,7 +68,8 @@ namespace GFHelp.Core
             var catchdatafile = SystemOthers.ConfigData.currentDirectory + @"\stc\catchdata.json";
             string jsondata = File.ReadAllText(catchdatafile);
             var jsonobj = DynamicJson.Parse(jsondata); //讲道理，我真不想写了
-
+            JsonData jsonData = JsonMapper.ToObject(jsonobj.game_config_info.ToString());
+            CatchData.Base.Data.ReadInfo(jsonData);
             ReadCatchData_operation_info(jsonobj);
             ReadCatchData_gun_exp_info(jsonobj);
             ReadCatchData_kalina_favor_info(jsonobj);

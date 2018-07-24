@@ -31,6 +31,7 @@ namespace GFHelp.Mission
 
             if(userData.battle.startMission(Map_Sent.map0_2.mission_id, Map_Sent.map0_2.Mission_Start_spots) == false)
             {
+                //这里该怎么办呢
                 return;
             }
 

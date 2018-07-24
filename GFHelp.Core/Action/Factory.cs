@@ -175,7 +175,7 @@ namespace GFHelp.Core.Action
 
             int count = 0;
 
-            userData.gun_With_User_Info.Get_dicGun_Combine();
+            userData.gun_With_User_Info.Get_dicGun_Combine(userData.normal_MissionInfo.Teams[0].TeamID);
             if (userData.gun_With_User_Info.dicGun_Combine.Count == 0) return;
 
             if (userData.user_Info.core < userData.gun_With_User_Info.dicGun_Combine[0].Core_COMbineNeed) return;

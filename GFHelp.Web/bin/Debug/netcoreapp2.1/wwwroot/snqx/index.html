@@ -216,7 +216,7 @@
                             <label for="">服:</label>
                             <p>
                                 <label class="radio-inline">
-                                    <input onclick="other(this)" type="radio" checked name="worldId" value="0"> 服0
+                                    <input onclick="other(this)" type="radio" checked name="worldId" value="0"> 0服
                                 </label>
                                 <label class="radio-inline">
                                     <input onclick="other(this)" type="radio" name="worldId" value="other"> 其他
@@ -416,10 +416,10 @@
                     contentType: "application/json",
                     data: data,
                     success: function (res) {
-                        alert(res.message);
-                        if(res.status==1){
-                            $('#myModal').modal('hide');
+                        if (res.code != 1) {
+                            alert(res.message);
                         }
+                        $('#myModal').modal('hide');
                     }
                 });
             }

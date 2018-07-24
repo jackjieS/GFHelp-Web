@@ -48,29 +48,30 @@ namespace GFHelp.Web.Controllers
         {
             var list = context.GameAccount.Where(p => p.GameAccountID == gameAccountBase.GameAccountID && p.WebUsername == gameAccountBase.WebUsername).ToList();
             if (list.Count == 0) return false;
+            bool result = true;
             foreach (var item in list)
             {
+
+                var data = item;
+                var ranks = context.GameAccount.Remove(data);
+                var count = context.SaveChanges();
+
                 try
                 {
-                    var data = item;
-                    var ranks = context.GameAccount.Remove(data);
-                    var count = context.SaveChanges();
                     if (Core.Management.Data.data.ContainsKey(data.GameAccountID))
                     {
+                        Core.Management.Data.data[data.GameAccountID].taskDispose = true;
                         Core.Management.Data.data.Remove(data.GameAccountID);
                     }
-                    if (Core.Management.Data.tasks.ContainsKey(data.GameAccountID))
-                    {
-                        Core.Management.Data.tasks.Remove(data.GameAccountID);
-                    }
+
                 }
                 catch (Exception e)
                 {
-                    new Log().systemInit(string.Format("删除游戏实例出现错误. {0}", gameAccountBase.ToString()), e.ToString()).coreError();
-                    return false;
+                    new Log().systemInit(string.Format("删除游戏实例data出现错误. {0}", gameAccountBase.ToString()), e.ToString()).coreError();
+                    result = false;
                 }
             }
-            return false;
+            return result;
         }
 
         private bool creatGameAccount(GameAccountBase accInfo)
@@ -86,11 +87,7 @@ namespace GFHelp.Web.Controllers
                 YunDouDou = accInfo.YunDouDou,
                 Parm = accInfo.Parm,
             });
-            int count=1;
-            if (string.IsNullOrEmpty(accInfo.YunDouDou))
-            {
-                count = context.SaveChanges();
-            }
+            var count = context.SaveChanges();
             UserData userdata = new UserData();
             userdata.CreatGameAccount(accInfo);
             Core.Management.Data.seed(userdata);

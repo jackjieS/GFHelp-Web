@@ -6,4 +6,3 @@ C:\Users\jack\Desktop\CS\GFHelp-Web\GFHelp.Data\obj\Debug\netcoreapp2.1\GFHelp.D
 C:\Users\jack\Desktop\CS\GFHelp-Web\GFHelp.Data\obj\Debug\netcoreapp2.1\GFHelp.Data.AssemblyInfo.cs
 C:\Users\jack\Desktop\CS\GFHelp-Web\GFHelp.Data\obj\Debug\netcoreapp2.1\GFHelp.Data.dll
 C:\Users\jack\Desktop\CS\GFHelp-Web\GFHelp.Data\obj\Debug\netcoreapp2.1\GFHelp.Data.pdb
-C:\Users\jack\Desktop\CS\GFHelp-Web\GFHelp.Data\obj\Debug\netcoreapp2.1\GFHelp.Data.csprojAssemblyReference.cache

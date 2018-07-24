@@ -9,19 +9,19 @@ namespace GFHelp.Core.Management
 {
     public class Loop
     {
-        public static void CountDown()//倒计时
+        public static void CountDown(UserData userData)//倒计时
         {
             while (true)
             {
-                foreach (var user_data in Data.data)
+                Thread.Sleep(1000);
+                if (userData.taskDispose == true)
                 {
-                    user_data.Value.operation_Act_Info.TimeReduce();
+                    return;
                 }
+                userData.operation_Act_Info.TimeReduce();
                 //需要改 在auto那里新建auto_summery 里写入此方法
                 //一些自动循环任务 后勤
-                Auto_Summery.Auto_Act_Summery();
-                //im.uihelp.setUI_User_info();
-                Thread.Sleep(1000);
+                Auto_Summery.Auto_Act_Summery(userData);
             }
         }
 
@@ -31,6 +31,10 @@ namespace GFHelp.Core.Management
             while (true)
             {
                 Thread.Sleep(1000);
+                if (userData.taskDispose == true)
+                {
+                    return;
+                }
                 if (userData.Task.Count == 0) { userData.webData.StatusBarText = "空闲"; continue; }
                 switch (userData.Task.ElementAt(0).TaskNumber)
                 {
@@ -203,13 +207,13 @@ namespace GFHelp.Core.Management
                         }
                     case 51:
                         {
-                            Action.Dorm.WriteReport(userData);
+                            //Action.Dorm.WriteReport(userData);
                             userData.Task.RemoveAt(0);
                             break;
                         }
                     case 52:
                         {
-                            Action.Dorm.WriteReportFinish(userData);
+                            //Action.Dorm.WriteReportFinish(userData);
                             userData.Task.RemoveAt(0);
                             break;
                         }
@@ -226,23 +230,22 @@ namespace GFHelp.Core.Management
     class Auto_Summery
     {
         //总的循环
-        public static void Auto_Act_Summery()
+        public static void Auto_Act_Summery(UserData userData)
         {
-            foreach (var userdata in Data.data)
+
+            if (userData.config.LoginSuccessful)
             {
-                if (userdata.Value.config.LoginSuccessful)
-                {
-                    //Auto_Operation(userdata.Value);
-                    ClickKalina(userdata.Value);
-                    ClickGirlsFavor(userdata.Value);
-                    DailyReFlash(userdata.Value);
-                    Auto_Get_Battary(userdata.Value);
-                    BP_Recover(userdata.Value);
-                    WriteReport_Start(userdata.Value);
-                    WriteReport_Finish(userdata.Value);
-                    Auto_Simulation_Battle(userdata.Value);
-                }
+                //Auto_Operation(userdata.Value);
+                ClickKalina(userData);
+                ClickGirlsFavor(userData);
+                DailyReFlash(userData);
+                Auto_Get_Battary(userData);
+                BP_Recover(userData);
+                //WriteReport_Start(userData);
+                //WriteReport_Finish(userData);
+                Auto_Simulation_Battle(userData);
             }
+
         }
 
 

@@ -335,7 +335,7 @@ namespace GFHelp.Core.MulitePlayerData
             {
                 num = 0;
             }
-            float equipLevelUpRate = Game_Config_Info_Func.GetEquipLevelUpRate((int)this.info.rank);
+            float equipLevelUpRate = CatchData.Base.Data.GetEquipLevelUpRate((int)this.info.rank);
             float exclusiveRate = this.info.exclusive_rate;
             return Mathf.CeilToInt((float)num * equipLevelUpRate * exclusiveRate);
         }
@@ -352,7 +352,7 @@ namespace GFHelp.Core.MulitePlayerData
             {
                 num = 0;
             }
-            float equipLevelUpRate = Game_Config_Info_Func.GetEquipLevelUpRate(this.info.rank);
+            float equipLevelUpRate = CatchData.Base.Data.GetEquipLevelUpRate(this.info.rank);
             return Mathf.CeilToInt((float)num * equipLevelUpRate * this.info.exclusive_rate);
         }
 

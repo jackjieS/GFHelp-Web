@@ -883,22 +883,11 @@ namespace GFHelp.Core.Action
         }
 
 
-        public void Check_NewGun(int gun_with_user_id, int gun_id, int want_gun_id = 0)
+        public void Check_NewGun(int gun_with_user_id, int gun_id)
         {
 
             if (!userData.user_Info.gun_collect.Contains(gun_id))
             {
-                if (want_gun_id != 0)
-                {
-                    if (gun_id == want_gun_id)
-                    {
-                        if (userData.config.NewGun_Report_Stop)
-                        {
-                            new Log().userInit(userData.GameAccount.Base.GameAccountID, string.Format("获取新人形 : {0} ,意不意外 惊不惊喜", CatchData.Base.Asset_Textes.ChangeCodeFromeCSV(Function.FindGunName_GunId(gun_id)))).userInfo();
-
-                        }
-                    }
-                }
                 new Log().userInit(userData.GameAccount.Base.GameAccountID, string.Format("获取新人形 : {0} ,意不意外 惊不惊喜", CatchData.Base.Asset_Textes.ChangeCodeFromeCSV(Function.FindGunName_GunId(gun_id)))).userInfo();
                 if (userData.normal_MissionInfo.StopLoopinGetNew)
                 {
@@ -930,7 +919,6 @@ namespace GFHelp.Core.Action
             ubti.user_exp = userData.user_Info.experience;
 
 
-
             //装备
 
             if (result.Contains("free_exp"))
@@ -944,7 +932,7 @@ namespace GFHelp.Core.Action
             int numE = 0;
             userData.gun_With_User_Info.UpdateGun_Exp(jsonobj, ref numE);
 
-            //效能更新 升级后 hp的差额加入效能 是否重新入字典
+
 
             userData.others.BattleFinish_ammo_mrc(ubti.Teams[teamLoc].TeamID);
         }
@@ -1065,12 +1053,12 @@ namespace GFHelp.Core.Action
                         }
                     case 0:
                         {
-                            if (count >= userData.config.ErrorCount) { return false; }
+                            if (count++ >= userData.config.ErrorCount) { return false; }
                             break;
                         }
                     case -1:
                         {
-                            if (count >= userData.config.ErrorCount) { return false; }
+                            if (count++ >= userData.config.ErrorCount) { return false; }
                             break;
                         }
                     default:

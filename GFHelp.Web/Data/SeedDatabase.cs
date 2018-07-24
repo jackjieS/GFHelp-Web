@@ -20,8 +20,7 @@ namespace GFHelp.Web.Data
         public static void Initialize(IServiceProvider serviceProvider)
         {
             var context = serviceProvider.GetRequiredService<appContext>();
-            Task cd = new Task(() => Loop.CountDown());
-            cd.Start();
+
 
             foreach (var item in context.GameAccount.ToList())
             {

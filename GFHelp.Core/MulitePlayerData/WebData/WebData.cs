@@ -136,7 +136,7 @@ namespace GFHelp.Core.MulitePlayerData.WebData
         public static void GetWebBattle(UserData userData, ref WebBattle webBattle)
         {
             //webBattle.Times = userData.normal_MissionInfo.LoopTime.ToString();
-            webBattle.Times = DateTime.Now.ToLongTimeString();
+            webBattle.Times = userData.normal_MissionInfo.LoopTime.ToString();
             webBattle.Using = userData.normal_MissionInfo.Using;
             webBattle.Map = userData.normal_MissionInfo.TaskMap;
             webBattle.Parm = userData.normal_MissionInfo.Parm;

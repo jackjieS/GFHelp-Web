@@ -156,7 +156,8 @@ namespace GFHelp.Core.MulitePlayerData
             foreach (var item in dicGun)
             {
                 //if (im.userdatasummery.CheckGunStatus(item.Value)) continue;
-                if (item.Value.maxAddDodge > item.Value.additionDodge && item.Value.maxAddHit > item.Value.additionHit && item.Value.maxAddPow > item.Value.additionPow && item.Value.maxAddRate > item.Value.additionRate)
+                if (item.Value.level < 10) continue;
+                if (item.Value.maxAddDodge != item.Value.additionDodge && item.Value.maxAddHit != item.Value.additionHit && item.Value.maxAddPow != item.Value.additionPow && item.Value.maxAddRate != item.Value.additionRate)
                 {
                     dicGun_PowerUP.Add(i++, item.Value);
                 }
@@ -261,7 +262,7 @@ namespace GFHelp.Core.MulitePlayerData
             {
                 foreach (var item in jsonobj.gun_exp)
                 {
-                    //gun_with_user_id":"2547569"
+
                     int exp = Convert.ToInt32(item.exp);
                     int id = Convert.ToInt32(item.gun_with_user_id);
 
@@ -273,10 +274,8 @@ namespace GFHelp.Core.MulitePlayerData
                         {
                             if (Function.Update_GUN_exp_level(exp, dicGun[i].gun_exp, dicGun[i].gun_level) > 0)
                             {
-                                int maxlife0 = dicGun[i].maxLife;
-                                dicGun[i].gun_exp += exp;
-                                int maxlife1 = dicGun[i].maxLife;
-                                numE += maxlife1 - maxlife0;
+                                dicGun[i].UpdateData();
+
                             }
                             else
                             {
@@ -358,7 +357,7 @@ namespace GFHelp.Core.MulitePlayerData
         public int soul_bond;
         public int skin;
         public int can_click;
-
+        public int level;
         public int crit;
         public int piercing;
         public int maxLife;
@@ -666,260 +665,79 @@ namespace GFHelp.Core.MulitePlayerData
                 }
             }
 
-
-
-            float floatFromStringArray = Game_Config_Info_Func.GetFloatFromStringArray("life_basic", 0, ',');
-            float floatFromStringArray2 = Game_Config_Info_Func.GetFloatFromStringArray("life_basic", 1, ',');
-            float floatFromStringArray3 = Game_Config_Info_Func.GetFloatFromStringArray("life_basic", 2, ',');
-
-            this.maxLife = Mathf.CeilToInt((floatFromStringArray + ((float)this.level - 1f) * floatFromStringArray2) * Game_Config_Info_Func.GetGunBasicAttribute(this.info.type, "basic_attribute_life") * this.info.ratioLife / floatFromStringArray3) * this.number;
-
-            floatFromStringArray = Game_Config_Info_Func.GetFloatFromStringArray("power_basic", 0, ',');
-            floatFromStringArray2 = Game_Config_Info_Func.GetFloatFromStringArray("power_basic", 1, ',');
-            this.basePow = Mathf.CeilToInt(floatFromStringArray * Game_Config_Info_Func.GetGunBasicAttribute(this.info.type, "basic_attribute_pow") * (float)this.info.ratioPow / floatFromStringArray2);
-            floatFromStringArray = Game_Config_Info_Func.GetFloatFromStringArray("power_grow", 0, ',');
-            floatFromStringArray2 = Game_Config_Info_Func.GetFloatFromStringArray("power_grow", 1, ',');
-            floatFromStringArray3 = Game_Config_Info_Func.GetFloatFromStringArray("power_grow", 2, ',');
-            this.maxAddPow = Mathf.CeilToInt((float)(this.level - 1) * floatFromStringArray * Game_Config_Info_Func.GetGunBasicAttribute(this.info.type, "basic_attribute_pow") * (float)this.info.ratioPow * this.info.eatRatio / floatFromStringArray2 / floatFromStringArray3);
+            float num = (this.level <= 100) ? CatchData.Base.Data.GetDataFromStringArray<float>("life_basic", 0, ',') : CatchData.Base.Data.GetDataFromStringArray<float>("life_basic_after100", 0, ',');
+            float num2 = (this.level <= 100) ? CatchData.Base.Data.GetDataFromStringArray<float>("life_basic", 1, ',') : CatchData.Base.Data.GetDataFromStringArray<float>("life_basic_after100", 1, ',');
+            float num3 = (this.level <= 100) ? CatchData.Base.Data.GetDataFromStringArray<float>("life_basic", 2, ',') : CatchData.Base.Data.GetDataFromStringArray<float>("life_basic_after100", 2, ',');
+            this.maxLife = global::Mathf.CeilToInt((num + ((float)this.level - 1f) * num2) * CatchData.Base.Data.GetGunBasicAttribute(this.info.type, "basic_attribute_life") * (float)this.info.ratio_life / num3) * this.number;
+            num = CatchData.Base.Data.GetDataFromStringArray<float>("power_basic", 0, ',');
+            num2 = CatchData.Base.Data.GetDataFromStringArray<float>("power_basic", 1, ',');
+            this.basePow = global::Mathf.CeilToInt(num * CatchData.Base.Data.GetGunBasicAttribute(this.info.type, "basic_attribute_pow") * (float)this.info.ratio_pow / num2);
+            num = ((this.level <= 100) ? CatchData.Base.Data.GetDataFromStringArray<float>("power_grow", 0, ',') : CatchData.Base.Data.GetDataFromStringArray<float>("power_grow_after100", 0, ','));
+            num2 = ((this.level <= 100) ? CatchData.Base.Data.GetDataFromStringArray<float>("power_grow", 1, ',') : CatchData.Base.Data.GetDataFromStringArray<float>("power_grow_after100", 1, ','));
+            num3 = ((this.level <= 100) ? CatchData.Base.Data.GetDataFromStringArray<float>("power_grow", 2, ',') : CatchData.Base.Data.GetDataFromStringArray<float>("power_grow_after100", 2, ','));
+            float num4 = (this.level <= 100) ? CatchData.Base.Data.GetDataFromStringArray<float>("power_grow", 3, ',') : CatchData.Base.Data.GetDataFromStringArray<float>("power_grow_after100", 3, ',');
+            this.maxAddPow = global::Mathf.CeilToInt((num4 + (float)(this.level - 1) * num) * CatchData.Base.Data.GetGunBasicAttribute(this.info.type, "basic_attribute_pow") * (float)this.info.ratio_pow * (float)this.info.eat_ratio / num2 / num3);
             this.pow = this.basePow + this.additionPow;
-            this.favorPow = Math.Sign(this.favorRatio) * Mathf.CeilToInt(Mathf.Abs((float)this.pow * this.favorRatio));
+            this.favorPow = Math.Sign(this.favorRatio) * Mathf.CeilToInt(global::Mathf.Abs((float)this.pow * this.favorRatio));
             this.pow += this.favorPow;
+            int i = 0;
 
-            using (List<Equip_With_User_Info>.Enumerator enumerator = this.equipList.GetEnumerator())
-            {
-                while (enumerator.MoveNext())
-                {
-                    Equip_With_User_Info current = enumerator.Current;//没有get_Current这个函数
-                    this.pow += current.pow;
-                }
-            }
-            //if (this.fairy == null)
-            //{
-            //    this.fairyPow = 0;
-            //}
-            //else
-            //{
-            //    this.fairyPow = Mathf.CeilToInt((float)this.pow * this.fairy.pow / 100f);
-            //}
-            this.pow += this.fairyPow;
-            floatFromStringArray = Game_Config_Info_Func.GetFloatFromStringArray("rate_basic", 0, ',');
-            floatFromStringArray2 = Game_Config_Info_Func.GetFloatFromStringArray("rate_basic", 1, ',');
-            this.baseRate = Mathf.CeilToInt(floatFromStringArray * Game_Config_Info_Func.GetGunBasicAttribute(this.info.type, "basic_attribute_rate") * (float)this.info.ratioRate / floatFromStringArray2);
-            floatFromStringArray = Game_Config_Info_Func.GetFloatFromStringArray("rate_grow", 0, ',');
-            floatFromStringArray2 = Game_Config_Info_Func.GetFloatFromStringArray("rate_grow", 1, ',');
-            floatFromStringArray3 = Game_Config_Info_Func.GetFloatFromStringArray("rate_grow", 2, ',');
-            this.maxAddRate = Mathf.CeilToInt((float)(this.level - 1) * floatFromStringArray * Game_Config_Info_Func.GetGunBasicAttribute(this.info.type, "basic_attribute_rate") * (float)this.info.ratioRate * this.info.eatRatio / floatFromStringArray2 / floatFromStringArray3);
+
+            num = CatchData.Base.Data.GetDataFromStringArray<float>("rate_basic", 0, ',');
+            num2 = CatchData.Base.Data.GetDataFromStringArray<float>("rate_basic", 1, ',');
+            this.baseRate = global::Mathf.CeilToInt(num * CatchData.Base.Data.GetGunBasicAttribute(this.info.type, "basic_attribute_rate") * (float)this.info.ratio_rate / num2);
+            num = ((this.level <= 100) ? CatchData.Base.Data.GetDataFromStringArray<float>("rate_grow", 0, ',') : CatchData.Base.Data.GetDataFromStringArray<float>("rate_grow_after100", 0, ','));
+            num2 = ((this.level <= 100) ? CatchData.Base.Data.GetDataFromStringArray<float>("rate_grow", 1, ',') : CatchData.Base.Data.GetDataFromStringArray<float>("rate_grow_after100", 1, ','));
+            num3 = ((this.level <= 100) ? CatchData.Base.Data.GetDataFromStringArray<float>("rate_grow", 2, ',') : CatchData.Base.Data.GetDataFromStringArray<float>("rate_grow_after100", 2, ','));
+            num4 = ((this.level <= 100) ? CatchData.Base.Data.GetDataFromStringArray<float>("rate_grow", 3, ',') : CatchData.Base.Data.GetDataFromStringArray<float>("rate_grow_after100", 3, ','));
+            this.maxAddRate = global::Mathf.CeilToInt((num4 + (float)(this.level - 1) * num) * CatchData.Base.Data.GetGunBasicAttribute(this.info.type, "basic_attribute_rate") * (float)this.info.ratio_rate * (float)this.info.eat_ratio / num2 / num3);
             this.rate = this.baseRate + this.additionRate;
-            using (List<Equip_With_User_Info>.Enumerator enumerator2 = this.equipList.GetEnumerator())
-            {
-                while (enumerator2.MoveNext())
-                {
-                    Equip_With_User_Info current2 = enumerator2.Current;
-                    this.rate += current2.rate;
-                }
-            }
-            floatFromStringArray = Game_Config_Info_Func.GetFloatFromStringArray("hit_basic", 0, ',');
-            floatFromStringArray2 = Game_Config_Info_Func.GetFloatFromStringArray("hit_basic", 1, ',');
-            this.baseHit = Mathf.CeilToInt(floatFromStringArray * Game_Config_Info_Func.GetGunBasicAttribute(this.info.type, "basic_attribute_hit") * (float)this.info.ratioHit / floatFromStringArray2);
-            floatFromStringArray = Game_Config_Info_Func.GetFloatFromStringArray("hit_grow", 0, ',');
-            floatFromStringArray2 = Game_Config_Info_Func.GetFloatFromStringArray("hit_grow", 1, ',');
-            floatFromStringArray3 = Game_Config_Info_Func.GetFloatFromStringArray("hit_grow", 2, ',');
-            this.maxAddHit = Mathf.CeilToInt((float)(this.level - 1) * floatFromStringArray * Game_Config_Info_Func.GetGunBasicAttribute(this.info.type, "basic_attribute_hit") * (float)this.info.ratioHit * this.info.eatRatio / floatFromStringArray2 / floatFromStringArray3);
+
+            num = CatchData.Base.Data.GetDataFromStringArray<float>("hit_basic", 0, ',');
+            num2 = CatchData.Base.Data.GetDataFromStringArray<float>("hit_basic", 1, ',');
+            this.baseHit = global::Mathf.CeilToInt(num * CatchData.Base.Data.GetGunBasicAttribute(this.info.type, "basic_attribute_hit") * (float)this.info.ratio_hit / num2);
+            num = ((this.level <= 100) ? CatchData.Base.Data.GetDataFromStringArray<float>("hit_grow", 0, ',') : CatchData.Base.Data.GetDataFromStringArray<float>("hit_grow_after100", 0, ','));
+            num2 = ((this.level <= 100) ? CatchData.Base.Data.GetDataFromStringArray<float>("hit_grow", 1, ',') : CatchData.Base.Data.GetDataFromStringArray<float>("hit_grow_after100", 1, ','));
+            num3 = ((this.level <= 100) ? CatchData.Base.Data.GetDataFromStringArray<float>("hit_grow", 2, ',') : CatchData.Base.Data.GetDataFromStringArray<float>("hit_grow_after100", 2, ','));
+            num4 = ((this.level <= 100) ? CatchData.Base.Data.GetDataFromStringArray<float>("hit_grow", 3, ',') : CatchData.Base.Data.GetDataFromStringArray<float>("hit_grow_after100", 3, ','));
+            this.maxAddHit = global::Mathf.CeilToInt((num4 + (float)(this.level - 1) * num) * CatchData.Base.Data.GetGunBasicAttribute(this.info.type, "basic_attribute_hit") * (float)this.info.ratio_hit * (float)this.info.eat_ratio / num2 / num3);
             this.hit = this.baseHit + this.additionHit;
-            this.favorHit = Math.Sign(this.favorRatio) * Mathf.CeilToInt(Mathf.Abs((float)this.hit * this.favorRatio));
+            this.favorHit = Math.Sign(this.favorRatio) * global::Mathf.CeilToInt(global::Mathf.Abs((float)this.hit * this.favorRatio));
             this.hit += this.favorHit;
-            using (List<Equip_With_User_Info>.Enumerator enumerator3 = this.equipList.GetEnumerator())
-            {
-                while (enumerator3.MoveNext())
-                {
-                    Equip_With_User_Info current3 = enumerator3.Current;
-                    this.hit += current3.hit;
-                }
-            }
-            //if (this.fairy == null)
-            //{
-            //    this.fairyHit = 0;
-            //}
-            //else
-            //{
-            //    this.fairyHit = Mathf.CeilToInt((float)this.hit * this.fairy.hit / 100f);
-            //}
-            this.hit += this.fairyHit;
-            floatFromStringArray = Game_Config_Info_Func.GetFloatFromStringArray("dodge_basic", 0, ',');
-            floatFromStringArray2 = Game_Config_Info_Func.GetFloatFromStringArray("dodge_basic", 1, ',');
-            this.baseDodge = Mathf.CeilToInt(floatFromStringArray * Game_Config_Info_Func.GetGunBasicAttribute(this.info.type, "basic_attribute_dodge") * (float)this.info.ratioDodge / floatFromStringArray2);
-            floatFromStringArray = Game_Config_Info_Func.GetFloatFromStringArray("dodge_grow", 0, ',');
-            floatFromStringArray2 = Game_Config_Info_Func.GetFloatFromStringArray("dodge_grow", 1, ',');
-            floatFromStringArray3 = Game_Config_Info_Func.GetFloatFromStringArray("dodge_grow", 2, ',');
-            this.maxAddDodge = Mathf.CeilToInt((float)(this.level - 1) * floatFromStringArray * Game_Config_Info_Func.GetGunBasicAttribute(this.info.type, "basic_attribute_dodge") * (float)this.info.ratioDodge * this.info.eatRatio / floatFromStringArray2 / floatFromStringArray3);
+
+
+            num = CatchData.Base.Data.GetDataFromStringArray<float>("dodge_basic", 0, ',');
+            num2 = CatchData.Base.Data.GetDataFromStringArray<float>("dodge_basic", 1, ',');
+            this.baseDodge = global::Mathf.CeilToInt(num * CatchData.Base.Data.GetGunBasicAttribute(this.info.type, "basic_attribute_dodge") * (float)this.info.ratio_dodge / num2);
+            num = ((this.level <= 100) ? CatchData.Base.Data.GetDataFromStringArray<float>("dodge_grow", 0, ',') : CatchData.Base.Data.GetDataFromStringArray<float>("dodge_grow_after100", 0, ','));
+            num2 = ((this.level <= 100) ? CatchData.Base.Data.GetDataFromStringArray<float>("dodge_grow", 1, ',') : CatchData.Base.Data.GetDataFromStringArray<float>("dodge_grow_after100", 1, ','));
+            num3 = ((this.level <= 100) ? CatchData.Base.Data.GetDataFromStringArray<float>("dodge_grow", 2, ',') : CatchData.Base.Data.GetDataFromStringArray<float>("dodge_grow_after100", 2, ','));
+            num4 = ((this.level <= 100) ? CatchData.Base.Data.GetDataFromStringArray<float>("dodge_grow", 3, ',') : CatchData.Base.Data.GetDataFromStringArray<float>("dodge_grow_after100", 3, ','));
+            this.maxAddDodge = global::Mathf.CeilToInt((num4 + (float)(this.level - 1) * num) * CatchData.Base.Data.GetGunBasicAttribute(this.info.type, "basic_attribute_dodge") * (float)this.info.ratio_dodge * (float)this.info.eat_ratio / num2 / num3);
             this.dodge = this.baseDodge + this.additionDodge;
-            this.favorDodge = Math.Sign(this.favorRatio) * Mathf.CeilToInt(Mathf.Abs((float)this.dodge * this.favorRatio));
+            this.favorDodge = Math.Sign(this.favorRatio) * global::Mathf.CeilToInt(global::Mathf.Abs((float)this.dodge * this.favorRatio));
             this.dodge += this.favorDodge;
-            using (List<Equip_With_User_Info>.Enumerator enumerator4 = this.equipList.GetEnumerator())
-            {
-                while (enumerator4.MoveNext())
-                {
-                    Equip_With_User_Info current4 = enumerator4.Current;
-                    this.dodge += current4.dodge;
-                }
-            }
-            //if (this.fairy == null)
-            //{
-            //    this.fairyDodge = 0;
-            //}
-            //else
-            //{
-            //    this.fairyDodge = Mathf.CeilToInt((float)this.dodge * this.fairy.dodge / 100f);
-            //}
-            this.dodge += this.fairyDodge;
-            this.piercing = this.info.armorPiercing;
-            this.equipAp = 0;
-            using (List<Equip_With_User_Info>.Enumerator enumerator5 = this.equipList.GetEnumerator())
-            {
-                while (enumerator5.MoveNext())
-                {
-                    Equip_With_User_Info current5 = enumerator5.Current;
-                    this.equipAp += current5.armor_piercing;
-                }
-            }
-            this.piercing += this.equipAp;
-            floatFromStringArray = Game_Config_Info_Func.GetFloatFromStringArray("armor_basic", 0, ',');
-            floatFromStringArray2 = Game_Config_Info_Func.GetFloatFromStringArray("armor_basic", 1, ',');
-            floatFromStringArray3 = Game_Config_Info_Func.GetFloatFromStringArray("armor_basic", 2, ',');
-            this.armor = Mathf.CeilToInt((floatFromStringArray + (float)(this.level - 1) * floatFromStringArray2) * Game_Config_Info_Func.GetGunBasicAttribute(this.info.type, "basic_attribute_armor") * (float)this.info.ratioArmor / floatFromStringArray3);
-            using (List<Equip_With_User_Info>.Enumerator enumerator6 = this.equipList.GetEnumerator())
-            {
-                while (enumerator6.MoveNext())
-                {
-                    Equip_With_User_Info current6 = enumerator6.Current;
-                    this.armor += current6.armor;
-                }
-            }
-            //if (this.fairy == null)
-            //{
-            //    this.fairyArmor = 0;
-            //}
-            //else
-            //{
-            //    this.fairyArmor = Mathf.CeilToInt((float)this.armor * this.fairy.armor / 100f);
-            //}
-            this.armor += this.fairyArmor;
+            int l = 0;
+
+
+            num = ((this.level <= 100) ? CatchData.Base.Data.GetDataFromStringArray<float>("armor_basic", 0, ',') : CatchData.Base.Data.GetDataFromStringArray<float>("armor_basic_after100", 0, ','));
+            num2 = ((this.level <= 100) ? CatchData.Base.Data.GetDataFromStringArray<float>("armor_basic", 1, ',') : CatchData.Base.Data.GetDataFromStringArray<float>("armor_basic_after100", 1, ','));
+            num3 = ((this.level <= 100) ? CatchData.Base.Data.GetDataFromStringArray<float>("armor_basic", 2, ',') : CatchData.Base.Data.GetDataFromStringArray<float>("armor_basic_after100", 2, ','));
+            this.armor = global::Mathf.CeilToInt((num + (float)(this.level - 1) * num2) * CatchData.Base.Data.GetGunBasicAttribute(this.info.type, "basic_attribute_armor") * (float)this.info.ratio_armor / num3);
             this.crit = this.info.ratioCrit;
-            using (List<Equip_With_User_Info>.Enumerator enumerator7 = this.equipList.GetEnumerator())
-            {
-                while (enumerator7.MoveNext())
-                {
-                    Equip_With_User_Info current7 = enumerator7.Current;
-                    this.crit += current7.critical_percent;
-                }
-            }
-            this.criHarmRate = 50;
-            using (List<Equip_With_User_Info>.Enumerator enumerator8 = this.equipList.GetEnumerator())
-            {
-                while (enumerator8.MoveNext())
-                {
-                    Equip_With_User_Info current8 = enumerator8.Current;
-                    this.criHarmRate += current8.critical_harm_rate;
-                }
-            }
-            //if (this.fairy == null)
-            //{
-            //    this.fairyCriHarmRate = 0;
-            //}
-            //else
-            //{
-            //    this.fairyCriHarmRate = Mathf.CeilToInt((float)this.criHarmRate * this.fairy.critDamage / 100f);
-            //}
-            this.criHarmRate += this.fairyCriHarmRate;
-            this.nightResistance = 0f;
-            using (List<Equip_With_User_Info>.Enumerator enumerator9 = this.equipList.GetEnumerator())
-            {
-                while (enumerator9.MoveNext())
-                {
-                    Equip_With_User_Info current9 = enumerator9.Current;
-                    this.nightResistance += (float)current9.nightResistance;
-                }
-            }
-            this.nightResistance /= 100f;
-            floatFromStringArray = Game_Config_Info_Func.GetFloatFromStringArray("speed_basic", 0, ',');
-            floatFromStringArray2 = Game_Config_Info_Func.GetFloatFromStringArray("speed_basic", 1, ',');
-            this.speed = Mathf.CeilToInt(floatFromStringArray * Game_Config_Info_Func.GetGunBasicAttribute(this.info.type, "basic_attribute_speed") * (float)this.info.ratioSpeed / floatFromStringArray2);
-            using (List<Equip_With_User_Info>.Enumerator enumerator10 = this.equipList.GetEnumerator())
-            {
-                while (enumerator10.MoveNext())
-                {
-                    Equip_With_User_Info current10 = enumerator10.Current;
-                    this.speed += current10.speed;
-                }
-            }
-            this.bulletNumber = 0;
-            using (List<Equip_With_User_Info>.Enumerator enumerator11 = this.equipList.GetEnumerator())
-            {
-                while (enumerator11.MoveNext())
-                {
-                    Equip_With_User_Info current11 = enumerator11.Current;
-                    this.bulletNumber += current11.bullet_number_up;
-                }
-            }
-            //guiling
-            //using (List<Equip_With_User_Info>.Enumerator enumerator12 = this.equipList.GetEnumerator())
-            //{
-            //    while (enumerator12.MoveNext())
-            //    {
-            //        Equip_With_User_Info current12 = enumerator12.Current;
-            //        if (current12.info.skill != 0)
-            //        {
-            //            this.GetSkill(enumSkill.eNormal).id = current12.info.skill;
-            //            break;
-            //        }
-            //        this.InitSkills();
-            //    }
-            //}
-            //if (this.equipList.Count() == 0 && this.mVecSkill.Count() != 0)
-            //{
-            //    this.InitSkills();
-            //}
+
+
+
+
         }
-
-        //public void InitSkills()
-        //{
-        //    this.mHasDodgeSkill = false;
-        //    this.mHasHurtSkill = false;
-        //    for (int i = 0; i < this.info.skills.Count(); i++)
-        //    {
-        //        //if (this.mVecSkill.Count() <= i)
-        //        //{
-        //        //    this.mVecSkill.Add(new Skill(this.info.skills[i], 1));
-        //        //}
-        //        //else
-        //        //{
-        //        //    this.mVecSkill[i].id = this.info.skills[i];
-        //        //}
-        //        //if (this.mVecSkill[i].info != null && this.mVecSkill[i].info.triggerType == 11)
-        //        //{
-        //        //    this.mHasDodgeSkill = true;
-        //        //}
-        //        //if (this.mVecSkill[i].info != null && this.mVecSkill[i].info.triggerType == 10)
-        //        //{
-        //        //    this.mHasHurtSkill = true;
-        //        //}
-        //    }
-        //}
-
-        /// <summary>
-        /// 如果更新了的话 level=99 会自动更新this.life
-        /// </summary>
-        /// 
         public void UpdateMaxLife()
         {
-            float floatFromStringArray = Game_Config_Info_Func.GetFloatFromStringArray("life_basic", 0, ',');
-            float floatFromStringArray2 = Game_Config_Info_Func.GetFloatFromStringArray("life_basic", 1, ',');
-            float floatFromStringArray3 = Game_Config_Info_Func.GetFloatFromStringArray("life_basic", 2, ',');
-            this.maxLife = Mathf.CeilToInt((floatFromStringArray + ((float)this.level - 1f) * floatFromStringArray2) * Game_Config_Info_Func.GetGunBasicAttribute(this.info.type, "basic_attribute_life") * this.info.ratioLife / floatFromStringArray3) * this.number;
+            float floatFromStringArray = CatchData.Base.Data.GetFloatFromStringArray("life_basic", 0, ',');
+            float floatFromStringArray2 = CatchData.Base.Data.GetFloatFromStringArray("life_basic", 1, ',');
+            float floatFromStringArray3 = CatchData.Base.Data.GetFloatFromStringArray("life_basic", 2, ',');
+            this.maxLife = Mathf.CeilToInt((floatFromStringArray + ((float)this.level - 1f) * floatFromStringArray2) * CatchData.Base.Data.GetGunBasicAttribute(this.info.type, "basic_attribute_life") * this.info.ratioLife / floatFromStringArray3) * this.number;
 
         }
-
-        public int level;
 
         public float favorRatio
         {

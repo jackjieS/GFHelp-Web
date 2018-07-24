@@ -51,12 +51,12 @@ namespace GFHelp.Core.Action
                                     }
                                 case 0:
                                     {
-                                        if (count >= userData.config.ErrorCount) break;
+                                        if (count++ >= userData.config.ErrorCount) break;
                                         break;
                                     }
                                 case -1:
                                     {
-                                        if (count >= userData.config.ErrorCount) break;
+                                        if (count++ >= userData.config.ErrorCount) break;
                                         break;
                                     }
                                 default:break;
@@ -161,7 +161,7 @@ namespace GFHelp.Core.Action
                             }
                         case 0:
                             {
-                                if (count >= userData.config.ErrorCount)
+                                if (count++ >= userData.config.ErrorCount)
                                 {
                                     new Log().userInit(userData.GameAccount.Base.GameAccountID, "获取电池出错", result.ToString()).userInfo();
                                     return;
@@ -170,7 +170,7 @@ namespace GFHelp.Core.Action
                             }
                         case -1:
                             {
-                                if (count >= userData.config.ErrorCount)
+                                if (count++ >= userData.config.ErrorCount)
                                 {
                                     new Log().userInit(userData.GameAccount.Base.GameAccountID, " 获取电池出错", result.ToString()).userInfo();
                                     return;
@@ -209,7 +209,7 @@ namespace GFHelp.Core.Action
                             }
                         case 0:
                             {
-                                if (count >= userData.config.ErrorCount)
+                                if (count++ >= userData.config.ErrorCount)
                                 {
                                     new Log().userInit(userData.GameAccount.Base.GameAccountID, "获取电池出错", result).userInfo();
                                     return;
@@ -218,7 +218,7 @@ namespace GFHelp.Core.Action
                             }
                         case -1:
                             {
-                                if (count >= userData.config.ErrorCount)
+                                if (count++ >= userData.config.ErrorCount)
                                 {
                                     new Log().userInit(userData.GameAccount.Base.GameAccountID, "获取宿舍信息出错", result).userInfo();
                                     return;
