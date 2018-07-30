@@ -135,7 +135,7 @@
             <div class="content-header">
                 <ul class="breadcrumb">
                     <li><a href="#"><i class="icon icon-home"></i></a></li>
-                    <li class="active">实例详情</li>
+                    <li id="gameDetail" class="active">实例详情</li>
                 </ul>
             </div>
             <div class="content-body">
@@ -474,35 +474,34 @@
                         <div class="tab-pane" id="hqrw">
                             <div id="hqrw-warpper">
                                <div class="hq-list">
-                                    <div class="hqrw-item-list">
-                                        <input type="hidden" name="teamID" value="" >
-                                        <input type="hidden" name="accountID" value="" >
-                                        <input type="hidden" name="operationID" value="" >
-                                        <div class="hqrw-item">
-                                            <span class="hqrw-item-title">后勤任务:</span>
-                                            <span>
-                                                <select name="" id="" class="select1">
-                                                    <option>123</option>
-                                                    <option>123</option>
-                                                    <option>123</option>
-                                                    <option>123</option>
-                                                </select>
-                                            </span>
-                                            <span>
-                                                <select name="" id="" class="select2">
-                                                </select>
-                                            </span>
-                                            <span class="time">
-                                                00:00:00
-                                            </span>
-                                            <span>
-                                                <button onclick="startOperation(this)" class="btn btn-primary">开始任务</button>
-                                            </span>
-                                            <span>
-                                                <button onclick="abortOperation(this)" class="btn btn-primary">终止任务</button>
-                                            </span>
-                                        </div>
-                                    </div>
+                                   <div class="hqrw-item-list">
+                                       <input type="hidden" name="teamID" value="">
+                                       <input type="hidden" name="accountID" value="">
+                                       <input type="hidden" name="operationID" value="">
+                                       <div class="hqrw-item">
+                                           <span class="hqrw-item-title">后勤任务:</span>
+                                           <span>
+                                               <select name="" id="" class="select1">
+                                                   <option>123</option>
+                                                   <option>123</option>
+                                                   <option>123</option>
+                                                   <option>123</option>
+                                               </select>
+                                           </span>
+                                           <span>
+                                               <select name="" id="" class="select2"></select>
+                                           </span>
+                                           <span class="time">
+                                               00:00:00
+                                           </span>
+                                           <span>
+                                               <button onclick="startOperation(this)" class="btn btn-primary">开始任务</button>
+                                           </span>
+                                           <span>
+                                               <button onclick="abortOperation(this)" class="btn btn-primary">终止任务</button>
+                                           </span>
+                                       </div>
+                                   </div>
                                     <div class="hqrw-item-list">
                                         <div class="hqrw-item">
                                             <span class="hqrw-item-title">后勤任务:</span>
@@ -671,23 +670,33 @@
                 $('#Coin3').html(message[0].webUser_Info.Coin3);
                 $('#GlobalEXP').html(message[0].webUser_Info.GlobalEXP);
                 $('#times').html(message[0].webBattle.Times);
-                if(gameStatus){
+                $('#gameDetail').html(message[0].webStatus.Name + " | " + message[0].webStatus.statusBarText);
+                if (true) {
+                    $('ul.Guns').html("");
                     var teamHtml = '';
                     $(message[0].WebTeams).each(function(index, el) {
                         select1_option += '<option value="'+el.TeamID+'">第'+(index+1)+'梯队('+el.Leader+')</option>';
                         var person = '';
-                        $(el.Guns).each(function(index2, el2) {
-                            person += '<li><label for="">'+el2.Name+':</label><span>lv:'+el2.Lv+'</span><span>exp:'+el2.Exp+'</span><span>HP:'+el2.Hp+'</span><span>扩编数量:'+el2.number+'</span></li>';
+                        $(el.Guns).each(function (index2, el2) {
+                            person += '<li><div id="gun"><span id="gunName">' + el2.Name + '</span><span id="gunLv">' + " | " + "LV: " + el2.Lv + '</span><span id ="gunHp">' + " | " + "HP: " + el2.Hp + '</span><span id = "gunExp">' + " | " + "Exp: " + el2.Exp + '</span><span id="Number">' + " | " + el2.number + "扩" + '</span></div></li> ';
                         });
-                        teamHtml += '<div class=""><div><h3>第'+(index+1)+'梯队</h3></div><ul>'+person+'</ul></div>';
+
+                        teamHtml += '<div class=""><div><h3>第' + (index + 1) + '梯队</h3></div><ul>' + person + '</ul></div>';
+
+
                     });
+                    if (gameStatus)
+                    {
+                        $('#zd-warpper #team2').html(select1_option);
+                    }
                     $('#bdyl-warpper').html(teamHtml);
-                    $('#zd-warpper #team2').html(select1_option);
+                    //$('#zd-warpper #team2').html(select1_option);
+
                 }
 
                 for (var i = 0; i < message[0].webOperation.length; i++) {
                     var obj = $('.hqrw-item-list')[i];
-                    if(gameStatus){
+                    if (gameStatus){
                         var select2_res = getOperationInfo();
                         var select1_option = '';
                         $(message[0].WebTeams).each(function(index, el) {
@@ -710,7 +719,7 @@
                         $(obj).find('.select2').html(select2_option);
                         $(obj).find('.select1').html(select1_option);
                     }
-                    $(obj).find('.time').html(message[0].webOperation[i].remaining_time);
+                    $(obj).find('.time').html(formatSeconds(message[0].webOperation[i].remaining_time));
                     if(message[0].webOperation[i].Using){
                         $(obj).find('.select1').attr('disabled','disabled');
                         $(obj).find('.select2').attr('disabled','disabled');
@@ -732,7 +741,26 @@
             });
         };
 
-       
+        function formatSeconds(value) {
+            var secondTime = parseInt(value);// 秒
+            var minuteTime = 0;// 分
+            var hourTime = 0;// 小时
+            if (secondTime > 60) {//如果秒数大于60，将秒数转换成整数
+                //获取分钟，除以60取整数，得到整数分钟
+                minuteTime = parseInt(secondTime / 60);
+                //获取秒数，秒数取佘，得到整数秒数
+                secondTime = parseInt(secondTime % 60);
+                //如果分钟大于60，将分钟转换成小时
+                if (minuteTime > 60) {
+                    //获取小时，获取分钟除以60，得到整数小时
+                    hourTime = parseInt(minuteTime / 60);
+                    //获取小时后取佘的分，获取分钟除以60取佘的分
+                    minuteTime = parseInt(minuteTime % 60);
+                }
+            }
+            return result = hourTime + ":" + minuteTime + ":" +secondTime;
+        }
+
 
         function checkToken() {
             var token = sessionStorage.getItem('token');

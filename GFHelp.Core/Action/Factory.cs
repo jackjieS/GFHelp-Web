@@ -12,64 +12,68 @@ namespace GFHelp.Core.Action
 {
     class Factory
     {
-        public static bool Eat_Equip(UserData userData)
+        public static bool Eat_EquipHandle(UserData userData)
         {
+            //SELECT+1
+            //选取需要升级的枪 done
+            //选取狗粮 优先2级 done
+            //发送请求         done
+            //删除装备         done
+            //经验++           done
+            Thread.Sleep(2000);
+            userData.webData.StatusBarText = "准备装备升级";
 
-
-            //发送请求
-            //数据处理
-
-            while (true)
+            userData.equip_With_User_Info.Read_Equipment_Upgrade();
+            string result = "";
+            for (int i = 0; i < userData.equip_With_User_Info.dicUpgrade.Count;)
             {
-                //SELECT+1
-                //选取需要升级的枪 done
-                //选取狗粮 优先2级 done
-                //发送请求         done
-                //删除装备         done
-                //经验++           done
-                Thread.Sleep(2000);
-                userData.webData.StatusBarText = "准备装备升级";
-
-                if (userData.equip_With_User_Info.dicEquip.Count + 2 <userData.user_Info.maxequip)
+                long id = userData.equip_With_User_Info.dicUpgrade[i].id;
+                int updateResult = Eat_Equip(userData,id, ref result);
+                if (updateResult == 1)
                 {
+                    JsonData jsonData = JsonMapper.ToObject(result);
+                    int @int = jsonData["equip_add_exp"].Int;
+                    userData.equip_With_User_Info.listEquip.GetDataById(id).equip_level +=  userData.equip_With_User_Info.listEquip.GetDataById(id).GetLevelToBeAdded(@int);
+                    userData.equip_With_User_Info.listEquip.GetDataById(id).equip_exp += @int;
+                    //删除装备
+                    userData.equip_With_User_Info.Del_Equip_IN_Dict(userData.equip_With_User_Info.Get_Equipment_Food());
+                    new Log().userInit(userData.GameAccount.Base.GameAccountID, string.Format("装备强化 id {0}", userData.equip_With_User_Info.dicUpgrade[0].id.ToString())).userInfo();
                     return true;
                 }
-                userData.equip_With_User_Info.Read_Equipment_Rank();
-                userData.equip_With_User_Info.Read_Equipment_Upgrade();
-
-                List<int> equipFood = new List<int>();
-                equipFood = userData.equip_With_User_Info.Get_Equipment_Food();
-
-
-                StringBuilder sb = new StringBuilder();
-                JsonWriter jsonWriter = new JsonWriter(sb);
-                jsonWriter.WriteObjectStart();
-                jsonWriter.WritePropertyName("equip_with_user_id");
-                jsonWriter.Write(userData.equip_With_User_Info.dicUpgrade[0].id.ToString());
-                jsonWriter.WritePropertyName("food");
-                jsonWriter.WriteArrayStart();
-                foreach (var item in equipFood)
+                if (updateResult == -1)
                 {
-                    jsonWriter.Write(item.ToString());
+                    i++;
+                    continue;
                 }
-                jsonWriter.WriteArrayEnd();
-                jsonWriter.WriteObjectEnd();
-                string result = API.Factory.Eat_Equip(userData.GameAccount,sb.ToString());
-
-
-                switch (Helper.Response.Check(userData.GameAccount, ref result, "Eat_Equip_Pro", true))
+            }
+            return true;
+        }
+        private static int Eat_Equip(UserData userData, long id, ref string result)
+        {
+            List<long> equipFood = new List<long>();
+            equipFood = userData.equip_With_User_Info.Get_Equipment_Food();
+            StringBuilder sb = new StringBuilder();
+            JsonWriter jsonWriter = new JsonWriter(sb);
+            jsonWriter.WriteObjectStart();
+            jsonWriter.WritePropertyName("equip_with_user_id");
+            jsonWriter.Write(id);
+            jsonWriter.WritePropertyName("food");
+            jsonWriter.WriteArrayStart();
+            foreach (var item in equipFood)
+            {
+                jsonWriter.Write(item.ToString());
+            }
+            jsonWriter.WriteArrayEnd();
+            jsonWriter.WriteObjectEnd();
+            int count = 0;
+            while (true)
+            {
+                result = API.Factory.Eat_Equip(userData.GameAccount, sb.ToString());
+                switch (Response.Check(userData.GameAccount, ref result, "Eat_Equip_Pro", true))
                 {
                     case 1:
                         {
-                            var jsonobj = DynamicJson.Parse(result);
-                            result = jsonobj.equip_add_exp.ToString();
-                            //加经验 检测是否 超过等级
-                            userData.equip_With_User_Info.Check_Equipment_Update(userData.equip_With_User_Info.dicUpgrade[0].id, Convert.ToInt32(result));
-                            //删除装备
-                            userData.equip_With_User_Info.Del_Equip_IN_Dict(equipFood);
-                            userData.equip_With_User_Info.Read_Equipment_Rank();
-                            new Log().userInit(userData.GameAccount.Base.GameAccountID, string.Format("装备强化 id {0}", userData.equip_With_User_Info.dicUpgrade[0].id.ToString()), result.ToString()).userInfo();
-                            return true;
+                            return 1;
                         }
                     case 0:
                         {
@@ -77,16 +81,18 @@ namespace GFHelp.Core.Action
                         }
                     case -1:
                         {
-                            Home.GetUserInfo(userData);
-                            break;
+                            if (count++ > userData.config.ErrorCount)
+                            {
+                                new Log().userInit(userData.GameAccount.Base.GameAccountID, "装备强化 ERROR", result).userInfo();
+                                return -1;
+                            }
+                            continue;
                         }
                     default:
                         break;
                 }
-
             }
         }
-
         public static void Equip_retire(UserData userData)
         {
             while (true)
@@ -95,17 +101,14 @@ namespace GFHelp.Core.Action
                 Thread.Sleep(2000);
                 userData.webData.StatusBarText = "准备装备拆解";
 
-                if (userData.equip_With_User_Info.dicEquip.Count + 5 <userData.user_Info.maxequip)
+                if (userData.equip_With_User_Info.listEquip.Count + 5 < userData.user_Info.maxequip)
                 {
                     return;
                 }
-                userData.equip_With_User_Info.Read_Equipment_Rank();
-
-
-                List<int> equipFood = new List<int>();
+                List<long> equipFood = new List<long>();
                 equipFood = userData.equip_With_User_Info.Get_Equipment_Food();
 
-                if (userData.equip_With_User_Info.Rank2.Count == 0 && userData.equip_With_User_Info.Rank3.Count == 0)
+                if (equipFood.Count==0)
                 {
                     new Log().userInit(userData.GameAccount.Base.GameAccountID, " 没有2星3星装备 请整理装备").userInfo();
                 }
@@ -128,9 +131,9 @@ namespace GFHelp.Core.Action
 
                 jsonWriter.WriteObjectEnd();
 
-                string result =API.Factory.Equip_retire(userData.GameAccount,sb.ToString());
+                string result = API.Factory.Equip_retire(userData.GameAccount, sb.ToString());
 
-                switch (Helper.Response.Check(userData.GameAccount,ref result, "GUN_OUTandIN_Team_PRO", false))
+                switch (Helper.Response.Check(userData.GameAccount, ref result, "GUN_OUTandIN_Team_PRO", false))
                 {
                     case 1:
                         {
@@ -229,15 +232,14 @@ namespace GFHelp.Core.Action
         }
 
 
-        public static bool Gun_PowerUP(UserData userData,int id, ref string result)
+        public static int Gun_PowerUP(UserData userData,int id, ref string result)
         {
 
             Thread.Sleep(2000);
             if (userData.gun_With_User_Info.Get_Gun_Retire() == false)
             {
                 new Log().userInit(userData.GameAccount.Base.GameAccountID, "没有2级枪 ERROR", result).userInfo();
-
-                return false;
+                return 0;
             }
             //Gun_Retire
             int count = 0;
@@ -264,11 +266,11 @@ namespace GFHelp.Core.Action
                 result =API.Factory.EatGun(userData.GameAccount,sb.ToString());
 
 
-                switch (Helper.Response.Check(userData.GameAccount,ref result, "EatGun", true))
+                switch (Response.Check(userData.GameAccount,ref result, "EatGun", true))
                 {
                     case 1:
                         {
-                            return true;
+                            return 1;
                         }
                     case 0:
                         {
@@ -278,8 +280,8 @@ namespace GFHelp.Core.Action
                         {
                             if (count++ > userData.config.ErrorCount)
                             {
-                                new Log().userInit(userData.GameAccount.Base.GameAccountID, "没有2级枪 ERROR", result).userInfo();
-                                return false;
+                                new Log().userInit(userData.GameAccount.Base.GameAccountID, "人形强化 ERROR", result).userInfo();
+                                return -1;
                             }
                             continue;
                         }
@@ -296,17 +298,21 @@ namespace GFHelp.Core.Action
             userData.webData.StatusBarText = "准备人形强化";
 
             string result = "";
-            userData.gun_With_User_Info.Get_dicGun_PowerUP();
-            userData.gun_With_User_Info.Get_Gun_Retire();
+            userData.others.Get_dicGun_PowerUP();
 
             if (userData.gun_With_User_Info.dicGun_PowerUP.Count == 0) return false;
 
-            for (int i = 0; i <= userData.gun_With_User_Info.dicGun_PowerUP.Last().Key; i++)
+            for (int i = 0; i < userData.gun_With_User_Info.dicGun_PowerUP.Count();)
             {
-                if (userData.gun_With_User_Info.dicGun_PowerUP.ContainsKey(i) == false) continue;
-                if (Gun_PowerUP(userData,userData.gun_With_User_Info.dicGun_PowerUP[i].id, ref result))
+                int intResult = Gun_PowerUP(userData, userData.gun_With_User_Info.dicGun_PowerUP[i].id, ref result);
+                if (intResult==1)
                 {
                     userData.gun_With_User_Info.Del_Gun_IN_Dict(2);
+                }
+                if(intResult == -1)
+                {
+                    i++;
+                    continue;
                 }
 
                 JsonData jsonData = new JsonData();

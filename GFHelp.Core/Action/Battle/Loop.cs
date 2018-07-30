@@ -6,77 +6,72 @@ using System.Collections.Generic;
 using System.Reflection;
 using System.Text;
 using System.Threading;
+using System.Threading.Tasks;
 
 namespace GFHelp.Core.Action
 {
     public class Mission
     {
         private UserData userData;
-        static Assembly assembly;
+        class Data
+        {
+            public Data()
+            {
+                assembly = Assembly.LoadFile(AppDomain.CurrentDomain.BaseDirectory + "GFHelp.Mission.dll");
+                typeMap_Sent = assembly.GetType("GFHelp.Mission.Map_Sent");
+            }
+            public Assembly assembly;
+            public Type typeMap_Sent;
+            public Type type = null;
+            public Type neededType;
+            public object missionType;
+            public object instance;
+            public Data init(string taskMap)
+            {
 
-        static Type typeNormal;
-        static Type typeActivity;
-        static Type typeSimulation;
-        static Type typeMap_Sent;
-        //static object instanceNormal;
-        //static object instanceActivity;
-        //static object instanceSimulation;
-        //static object instanceMap_Sent;
+                neededType = typeMap_Sent.GetNestedType(taskMap);
+                missionType = neededType.GetField("missionType").GetValue(null);
+                instance = assembly.CreateInstance("GFHelp.Mission." + missionType.ToString());
+                type= assembly.GetType("GFHelp.Mission." + missionType.ToString());
+                return this;
+            }
+        }
+
         public void SetUserdata(UserData ud)
         {
             userData = ud;
         }
 
-        public static void initialize()
-        {
-            //加载程序集(dll文件地址)，使用Assembly类   
-            assembly = Assembly.LoadFile(AppDomain.CurrentDomain.BaseDirectory + "GFHelp.Mission.dll");
-            //获取类型，参数（名称空间+类）   
-            typeNormal = assembly.GetType("GFHelp.Mission.Normal");
-            typeActivity = assembly.GetType("GFHelp.Mission.Activity");
-            typeSimulation = assembly.GetType("GFHelp.Mission.Simulation");
-            typeMap_Sent = assembly.GetType("GFHelp.Mission.Map_Sent");
-            //创建该对象的实例，object类型，参数（名称空间+类）   
-            //instanceNormal = assembly.CreateInstance("GFHelp.Mission.Normal");
-            //instanceActivity = assembly.CreateInstance("GFHelp.Mission.Activity");
-            //instanceSimulation = assembly.CreateInstance("GFHelp.Mission.Simulation");
-            //instanceMap_Sent = assembly.CreateInstance("GFHelp.Mission.Map_Sent");
-
-
-
-        }
-
         public void Test(UserData userData)
         {
-
-
             userData.battle.Check_Equip_Gun_FULL();
-
-            //userData.normal_MissionInfo.TaskMap;
-            Type neededType = typeMap_Sent.GetNestedType(userData.normal_MissionInfo.TaskMap);
-            var missionType = neededType.GetField("missionType").GetValue(null);
-            var instance = assembly.CreateInstance("GFHelp.Mission."+ missionType.ToString());
-            Type type = assembly.GetType("GFHelp.Mission." + missionType.ToString());
+            Data data=null;
             try
             {
-                object value = type.GetMethod(userData.normal_MissionInfo.TaskMap).Invoke(instance, new Object[] { userData, userData.normal_MissionInfo });
+                data = new Data().init(userData.normal_MissionInfo.TaskMap);
+
+            }
+            catch (Exception e)
+            {
+                new Log().userInit(userData.GameAccount.Base.GameAccountID, "初始化战斗任务 ERROR", e.ToString());
+                userData.normal_MissionInfo.Loop = false;
+                return;
+            }
+
+            try
+            {
+                //Invoke()
+                MethodInfo methodInfo = data.type.GetMethod(userData.normal_MissionInfo.TaskMap);
+                Task methodTask = new Task(() => methodInfo.Invoke(data.instance, new Object[] { userData, userData.normal_MissionInfo }));
+                methodTask.Start();
+                Task.WaitAll(methodTask);
             }
             catch (Exception e)
             {
                 new Log().systemInit("调用作战dll文件出错", e.ToString()).coreError();
                 new Log().userInit(userData.GameAccount.Base.GameAccountID, "调用作战dll文件出错", e.ToString()).coreError();
+                userData.normal_MissionInfo.Loop = false;
             }
-
-
-
-
-
-
-
-
-
-
-
         }
 
         public void End_At_Battle(Normal_MissionInfo ubti)

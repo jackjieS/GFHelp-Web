@@ -191,7 +191,19 @@ namespace GFHelp.Web.Controllers
         public IActionResult AbortBattle([FromBody] Core.Action.BattleBase.Battle bs)
         {
             //加入控制符
-            //Core.Management.Data.data[Accountid].Task.Add(Core.Helper.TaskList.Login);
+            if (!Core.Management.Data.data.ContainsKey(bs.accountID))
+            {
+                return Ok(new
+                {
+                    code = -1,
+                    data = "error",
+                    message = string.Format("不存在 {0} 游戏实例", bs.accountID)
+
+                });
+            }
+            Core.Management.Data.data[bs.accountID].normal_MissionInfo.Loop = false;
+
+
             return Ok(new
             {
                 code = 1,

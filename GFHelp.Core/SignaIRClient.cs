@@ -16,19 +16,19 @@ namespace GFHelp.Core
         /// <summary>
         /// Key 是 Signarl 的id , value 是游戏实例accountID
         /// </summary>
-        public static Dictionary<string,SignalRInfo> userList;
+        public static List<SignalRInfo> userList;
         public class SignalRInfo
         {
             public string SignalRID;
             public string SignalRName;
-            public bool isAdmin=false;
+            public bool isAdmin = false;
         }
 
 
         public async static Task seed()
         {
             build();
-            await connectStart();
+            //await connectStart();
 
             Task MessageTask = new Task(() => LoopGameMessage());
             MessageTask.Start();
@@ -40,52 +40,58 @@ namespace GFHelp.Core
 
         public async static Task SendSystemNotice(string ConnectionId)
         {
-            if (Viewer.systemLogs.Count == 0 ) { return; }
-            foreach (var user in userList)
+            if (Viewer.systemLogs.Count == 0) { return; }
+            for (int i = 0; i < userList.Count; i++)
             {
-                if (!user.Value.isAdmin) continue;
-                if (user.Key != ConnectionId) continue;
+                if (!userList[i].isAdmin) continue;
+                if (userList[i].SignalRID != ConnectionId) continue;
                 foreach (var log in Viewer.systemLogs)
                 {
-                    await connection.InvokeAsync("SendSystemNotification", user.Value.SignalRID, JsonConvert.SerializeObject(log));
+                    await connection.InvokeAsync("SendSystemNotification", userList[i].SignalRID, JsonConvert.SerializeObject(log));
                 }
             }
+
         }
         public async static Task SendSystemNotice(Data data)
         {
-            foreach (var item in userList)
+            for (int i = 0; i < userList.Count; i++)
             {
-                if (!item.Value.isAdmin) continue;
-                await connection.InvokeAsync("SendSystemNotification", item.Value.SignalRID, JsonConvert.SerializeObject(data));
+                if (userList[i].isAdmin)
+                {
+                    await connection.InvokeAsync("SendSystemNotification", userList[i].SignalRID, JsonConvert.SerializeObject(data));
+                }
             }
+
         }
 
 
         public async static Task SendGameNotice(string ConnectionId)
         {
-            foreach (var user in userList)
+            for (int i = 0; i < userList.Count; i++)
             {
-                if (user.Key != ConnectionId) continue;
-                if (Viewer.usersLogs.ContainsKey(user.Value.SignalRName))
+                if (userList[i].SignalRID != ConnectionId) continue;
+                if (Viewer.usersLogs.ContainsKey(userList[i].SignalRName))
                 {
-                    foreach (var item in Viewer.usersLogs[user.Value.SignalRName])
+                    foreach (var item in Viewer.usersLogs[userList[i].SignalRName])
                     {
                         await connection.InvokeAsync("SendGameNotification", ConnectionId, JsonConvert.SerializeObject(item));
                     }
                 }
             }
+
         }
 
-        public async static Task SendGameNotice(string gameID,Data data)
+        public async static Task SendGameNotice(string gameID, Data data)
         {
-            foreach (var user in userList)
+            for (int i = 0; i < userList.Count; i++)
             {
-                if (user.Value.SignalRName != gameID) continue;
-                if (Viewer.usersLogs.ContainsKey(user.Value.SignalRName))
+                if (userList[i].SignalRName != gameID) continue;
+                if (Viewer.usersLogs.ContainsKey(userList[i].SignalRName))
                 {
-                    await connection.InvokeAsync("SendGameNotification", user.Value.SignalRID, JsonConvert.SerializeObject(data));
+                    await connection.InvokeAsync("SendGameNotification", userList[i].SignalRID, JsonConvert.SerializeObject(data));
                 }
             }
+
         }
 
 
@@ -100,63 +106,79 @@ namespace GFHelp.Core
             //检查是否有客户端 如果没有的话就不发送了
             while (true)
             {
-                try
+                Thread.Sleep(1000);
+                if (userList.Count == 0)
                 {
-                    Thread.Sleep(1000);
-                    //if (userList.Count <= 1) { continue; }
-                    foreach (var item in userList)
-                    {
-                        GamesStatus.Clear();
-                        //GamesStatus
-                        foreach (var k in Core.Management.Data.data)
-                        {
-                            if (item.Value.SignalRName == k.Value.GameAccount.Base.WebUsername)
-                            {
-                                k.Value.webData.Get(k.Value);
-                                GamesStatus.Add(k.Value.GameAccount.Base.GameAccountID, k.Value.webData.webStatus);
-                            }
-                        }
-                        if (GamesStatus.Count != 0)
-                        {
-                            await connection.InvokeAsync("SendGamesStatus", item.Value.SignalRID, JsonConvert.SerializeObject(GamesStatus));
-                        }
-
-
-                    }
-                    foreach (var item in userList)
-                    {
-                        //GameDetails
-                        GameDetails.Clear();
-
-                        foreach (var k in Core.Management.Data.data)
-                        {
-                            if (item.Value.SignalRName == k.Value.GameAccount.Base.GameAccountID)
-                            {
-                                k.Value.webData.Get(k.Value);
-                                GameDetails.Add(k.Value.webData);
-                            }
-                        }
-                        if (GameDetails.Count != 0)
-                        {
-                            await connection.InvokeAsync("SendGameDetails", item.Value.SignalRID, JsonConvert.SerializeObject(GameDetails));
-                        }
-
-                    }
-
+                    continue;
                 }
-                catch (Exception)
+                if (userList.Count == 1 && userList[0].SignalRName == "LocalClient")
                 {
-                    //做记录
-                    //throw;
+                    await connection.StopAsync();
+                    continue;
+                }
+                await connection.StartAsync();
+                for (int i = 0; i < userList.Count;i++)
+                {
+                    GamesStatus.Clear();
+                    foreach (var k in Management.Data.data)
+                    {
+                        if (userList[i].SignalRName == k.Value.GameAccount.Base.WebUsername)
+                        {
+                            k.Value.webData.Get(k.Value);
+                            GamesStatus.Add(k.Value.GameAccount.Base.GameAccountID, k.Value.webData.webStatus);
+                        }
+                    }
+                    if (GamesStatus.Count != 0)
+                    {
+                        try
+                        {
+                            await connection.InvokeAsync("SendGamesStatus", userList[i].SignalRID, JsonConvert.SerializeObject(GamesStatus));
+                        }
+                        catch (Exception e)
+                        {
+                            new Log().systemInit("SendGamesStatus Error", e.ToString()).signarlError();
+                        }
+                        finally
+                        {
+                            ;
+                        }
+                    }
                 }
 
+                for (int i = 0; i < userList.Count;i++)
+                {
+                    GameDetails.Clear();
+                    foreach (var k in Core.Management.Data.data)
+                    {
+                        if (userList[i].SignalRName == k.Value.GameAccount.Base.GameAccountID)
+                        {
+                            k.Value.webData.Get(k.Value);
+                            GameDetails.Add(k.Value.webData);
+                        }
+                    }
+                    if (GameDetails.Count != 0)
+                    {
+                        try
+                        {
+                            await connection.InvokeAsync("SendGameDetails", userList[i].SignalRID, JsonConvert.SerializeObject(GameDetails));
+                        }
+                        catch (Exception e)
+                        {
+                            new Log().systemInit("SendGameDetails Error", e.ToString()).signarlError();
+                        }
+                        finally
+                        {
+                            ;
+                        }
 
+                    }
+                }
             }
         }
 
         private static void build()
         {
-            userList = new Dictionary<string, SignalRInfo>();
+            userList = new List<SignalRInfo>();
             connection = new HubConnectionBuilder()
             .WithUrl("http://localhost:7777/chathub?name=LocalClient")
             .Build();
@@ -174,18 +196,6 @@ namespace GFHelp.Core
             }
         }
 
-        private async static Task sendButton_Click()
-        {
-            try
-            {
-                await connection.InvokeAsync("RegisterId", "jack");
-            }
-            catch (Exception ex)
-            {
-                Console.WriteLine(ex.ToString());
-                //messagesList.Items.Add(ex.Message);
-            }
-        }
 
 
 

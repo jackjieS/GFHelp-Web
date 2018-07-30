@@ -72,7 +72,7 @@ namespace GFHelp.Core.CatchData.Base
         public int armorPiercing;
         // Token: 0x040017DE RID: 6110
         public int ratioArmor;
-
+        public int maxMod;
         public int ratioCrit;
         // Token: 0x040017E0 RID: 6112
         public int ratioDodge;

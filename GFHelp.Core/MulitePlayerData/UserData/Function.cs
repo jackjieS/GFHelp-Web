@@ -121,7 +121,7 @@ namespace GFHelp.Core.MulitePlayerData
                     Dictionary<int, Gun_With_User_Info> Dic_gwui = new Dictionary<int, Gun_With_User_Info>();
                     foreach (var item in userData.gun_With_User_Info.dicGun)
                     {
-                        if (item.Value.team_id == i)
+                        if (item.Value.teamId == i)
                         {
                             Dic_gwui.Add(item.Value.location, item.Value);
                         }

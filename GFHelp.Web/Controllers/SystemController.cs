@@ -201,5 +201,34 @@ namespace GFHelp.Web.Controllers
 
         }
 
+        /// <summary>
+        /// 获取当前游戏实例个数
+        /// </summary>
+        /// <returns></returns>
+        [Route("/System/GetCountOfGame")]
+        [HttpGet]
+        public IActionResult GetCountOfGame()
+        {
+            int count = Core.Management.Data.data.Count;
+
+            return Ok(new
+            {
+                code = 1,
+                data = count,
+                message = string.Format("当前共有 {0} 个游戏实例托管中", count)
+            });
+        }
+
+
+
+
+
+
+
+
+
+
+
+
     }
 }

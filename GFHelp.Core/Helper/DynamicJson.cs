@@ -35,7 +35,15 @@ namespace Codeplex.Data
         public static dynamic Parse(string json)
         {
             if (json == "") return false;
-            return Parse(json, Encoding.Unicode);
+            try
+            {
+                return Parse(json, Encoding.Unicode);
+            }
+            catch (Exception)
+            {
+                return "";
+            }
+
         }
 
         /// <summary>from JsonSring to DynamicJson</summary>

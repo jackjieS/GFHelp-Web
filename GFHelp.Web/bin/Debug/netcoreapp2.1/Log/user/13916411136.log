@@ -1,341 +1,67 @@
-【21:53:54】      message = 获取UserInfo , exception = 
-【21:53:59】      message = 签到 , exception = 
-【21:53:59】      message = 查询新邮件 , exception = 
-【21:54:08】      message = 终止作战 , exception = 
-【21:59:25】      message = 数字天空登陆 , exception = 
-【21:59:34】      message = LoginDigitalSKY , exception = {"result":60113,"msg":"login_pwd not match."}
-【21:59:56】      message = 获取UserInfo , exception = 
-【22:04:12】      message = 获取UserInfo , exception = 
-【22:04:21】      message = 签到 , exception = 
-【22:04:21】      message = 查询新邮件 , exception = 
-【22:04:21】      message = 终止作战 , exception = 
-【22:09:34】      message = 人形 : 7670552 扩编 
-【22:21:05】      message = 获取UserInfo , exception = 
-【22:21:10】      message = 签到 , exception = 
-【22:21:10】      message = 查询新邮件 , exception = 
-【22:21:16】      message = 终止作战 , exception = 
-【22:22:41】      message = 人形 : 11829261 扩编 
-【22:25:26】      message = 人形 : 14213481 扩编 
-【22:27:50】      message = 获取UserInfo , exception = 
-【22:28:04】      message = 签到 , exception = 
-【22:28:04】      message = 查询新邮件 , exception = 
-【22:28:05】      message = 终止作战 , exception = 
-【22:29:34】      message = 人形 : 3329119 扩编 
-【22:48:41】      message = 获取UserInfo , exception = 
-【22:48:50】      message = 签到 , exception = 
-【22:48:50】      message = 查询新邮件 , exception = 
-【22:49:08】      message = 终止作战 , exception = 
-【22:49:09】      message = 获取UserInfo , exception = 
-【22:49:13】      message = 签到 , exception = 
-【22:49:13】      message = 查询新邮件 , exception = 
-【22:49:13】      message = 终止作战 , exception = 
-【22:49:17】      message = 获取UserInfo , exception = 
-【22:49:25】      message = 签到 , exception = 
-【22:49:25】      message = 查询新邮件 , exception = 
-【22:49:26】      message = 终止作战 , exception = 
-【22:49:27】      message = 获取UserInfo , exception = 
-【22:49:35】      message = 签到 , exception = 
-【22:49:35】      message = 查询新邮件 , exception = 
-【22:49:36】      message = 终止作战 , exception = 
-【22:49:36】      message = 克羅諾 无法开始作战任务，请登陆游戏检查 
-【22:49:41】      message = 获取UserInfo , exception = 
-【22:49:53】      message = 签到 , exception = 
-【22:49:53】      message = 查询新邮件 , exception = 
-【22:49:54】      message = 终止作战 , exception = 
-【22:49:55】      message = 获取UserInfo , exception = 
-【22:50:04】      message = 签到 , exception = 
-【22:50:04】      message = 查询新邮件 , exception = 
-【22:50:05】      message = 终止作战 , exception = 
-【22:50:06】      message = 获取UserInfo , exception = 
-【22:50:10】      message = 签到 , exception = 
-【22:50:10】      message = 查询新邮件 , exception = 
-【22:50:13】      message = 终止作战 , exception = 
-【22:50:14】      message = 获取UserInfo , exception = 
-【22:50:22】      message = 签到 , exception = 
-【22:50:22】      message = 查询新邮件 , exception = 
-【22:50:26】      message = 终止作战 , exception = 
-【22:50:30】      message = 克羅諾 无法开始作战任务，请登陆游戏检查 
-【22:50:34】      message = 获取UserInfo , exception = 
-【22:50:38】      message = 签到 , exception = 
-【22:50:38】      message = 查询新邮件 , exception = 
-【22:50:48】      message = 终止作战 , exception = 
-【22:50:54】      message = 克羅諾 无法开始作战任务，请登陆游戏检查 
-【22:51:07】      message = 克羅諾 无法开始作战任务，请登陆游戏检查 
-【22:51:24】      message = 克羅諾 无法开始作战任务，请登陆游戏检查 
-【22:51:31】      message = 克羅諾 无法开始作战任务，请登陆游戏检查 
-【22:51:39】      message = 克羅諾 无法开始作战任务，请登陆游戏检查 
-【22:51:50】      message = 克羅諾 无法开始作战任务，请登陆游戏检查 
-【22:51:57】      message = 克羅諾 无法开始作战任务，请登陆游戏检查 
-【22:52:09】      message = 克羅諾 无法开始作战任务，请登陆游戏检查 
-【22:52:26】      message = 克羅諾 无法开始作战任务，请登陆游戏检查 
-【22:52:58】      message = 克羅諾 无法开始作战任务，请登陆游戏检查 
-【22:53:06】      message = 克羅諾 无法开始作战任务，请登陆游戏检查 
-【22:53:13】      message = 克羅諾 无法开始作战任务，请登陆游戏检查 
-【22:53:24】      message = 克羅諾 无法开始作战任务，请登陆游戏检查 
-【22:53:37】      message = 克羅諾 无法开始作战任务，请登陆游戏检查 
-【22:53:56】      message = 克羅諾 无法开始作战任务，请登陆游戏检查 
-【22:54:07】      message = 克羅諾 无法开始作战任务，请登陆游戏检查 
-【22:54:17】      message = 克羅諾 无法开始作战任务，请登陆游戏检查 
-【22:54:25】      message = 克羅諾 无法开始作战任务，请登陆游戏检查 
-【22:54:44】      message = 克羅諾 无法开始作战任务，请登陆游戏检查 
-【22:54:52】      message = 克羅諾 无法开始作战任务，请登陆游戏检查 
-【22:55:02】      message = 克羅諾 无法开始作战任务，请登陆游戏检查 
-【22:55:13】      message = 克羅諾 无法开始作战任务，请登陆游戏检查 
-【22:55:21】      message = 克羅諾 无法开始作战任务，请登陆游戏检查 
-【22:55:37】      message = 克羅諾 无法开始作战任务，请登陆游戏检查 
-【22:55:45】      message = 克羅諾 无法开始作战任务，请登陆游戏检查 
-【22:55:54】      message = 克羅諾 无法开始作战任务，请登陆游戏检查 
-【22:56:01】      message = 克羅諾 无法开始作战任务，请登陆游戏检查 
-【22:56:12】      message = 克羅諾 无法开始作战任务，请登陆游戏检查 
-【22:56:19】      message = 克羅諾 无法开始作战任务，请登陆游戏检查 
-【22:56:26】      message = 克羅諾 无法开始作战任务，请登陆游戏检查 
-【22:56:35】      message = 克羅諾 无法开始作战任务，请登陆游戏检查 
-【22:56:43】      message = 克羅諾 无法开始作战任务，请登陆游戏检查 
-【22:56:54】      message = 克羅諾 无法开始作战任务，请登陆游戏检查 
-【22:57:02】      message = 克羅諾 无法开始作战任务，请登陆游戏检查 
-【22:57:12】      message = 克羅諾 无法开始作战任务，请登陆游戏检查 
-【22:57:25】      message = 克羅諾 无法开始作战任务，请登陆游戏检查 
-【22:57:32】      message = 克羅諾 无法开始作战任务，请登陆游戏检查 
-【22:57:39】      message = 克羅諾 无法开始作战任务，请登陆游戏检查 
-【22:57:55】      message = 克羅諾 无法开始作战任务，请登陆游戏检查 
-【22:58:02】      message = 克羅諾 无法开始作战任务，请登陆游戏检查 
-【22:58:10】      message = 克羅諾 无法开始作战任务，请登陆游戏检查 
-【22:58:17】      message = 克羅諾 无法开始作战任务，请登陆游戏检查 
-【22:58:28】      message = 克羅諾 无法开始作战任务，请登陆游戏检查 
-【22:58:39】      message = 克羅諾 无法开始作战任务，请登陆游戏检查 
-【22:58:52】      message = 克羅諾 无法开始作战任务，请登陆游戏检查 
-【22:59:06】      message = 克羅諾 无法开始作战任务，请登陆游戏检查 
-【22:59:14】      message = 克羅諾 无法开始作战任务，请登陆游戏检查 
-【22:59:24】      message = 克羅諾 无法开始作战任务，请登陆游戏检查 
-【22:59:43】      message = 克羅諾 无法开始作战任务，请登陆游戏检查 
-【22:59:54】      message = 克羅諾 无法开始作战任务，请登陆游戏检查 
-【23:00:01】      message = 克羅諾 无法开始作战任务，请登陆游戏检查 
-【23:00:09】      message = 克羅諾 无法开始作战任务，请登陆游戏检查 
-【23:00:20】      message = 克羅諾 无法开始作战任务，请登陆游戏检查 
-【23:28:20】      message = 数字天空登陆 , exception = 
-【23:28:23】      message = LoginDigitalSKY , exception = {"result":60113,"msg":"login_pwd not match."}
-【00:33:21】      message = 获取UserInfo , exception = 
-【00:33:32】      message = 签到 , exception = 
-【00:33:32】      message = 查询新邮件 , exception = 
-【00:33:32】      message = 终止作战 , exception = 
-【00:50:28】      message = 获取UserInfo , exception = 
-【00:50:37】      message = 签到 , exception = 
-【00:50:37】      message = 查询新邮件 , exception = 
-【00:50:38】      message = 终止作战 , exception = 
-【00:51:02】      message = 后勤结束失败 , exception = error:11
-【00:53:35】      message = 获取UserInfo , exception = 
-【00:54:23】      message = 获取UserInfo , exception = 
-【00:54:45】      message = 获取UserInfo , exception = 
-【00:54:54】      message = 签到 , exception = 
-【00:54:54】      message = 查询新邮件 , exception = 
-【00:54:55】      message = 终止作战 , exception = 
-【00:57:15】      message = 获取UserInfo , exception = 
-【00:57:20】      message = 签到 , exception = 
-【00:57:20】      message = 查询新邮件 , exception = 
-【00:57:21】      message = 终止作战 , exception = 
-【02:26:41】      message = 获取UserInfo , exception = 
-【02:26:53】      message = 签到 , exception = 
-【02:26:53】      message = 查询新邮件 , exception = 
-【02:27:09】      message = 终止作战 , exception = 
-【02:30:25】      message = 获取UserInfo , exception = 
-【02:33:45】      message = 获取UserInfo , exception = 
-【02:34:50】      message = 签到 , exception = 
-【02:34:50】      message = 查询新邮件 , exception = 
-【02:34:51】      message = 终止作战 , exception = 
-【02:43:04】      message = 获取UserInfo , exception = 
-【02:43:11】      message = 签到 , exception = 
-【02:43:11】      message = 查询新邮件 , exception = 
-【02:43:12】      message = 终止作战 , exception = 
-【02:51:16】      message = 获取UserInfo , exception = 
-【02:51:22】      message = 签到 , exception = 
-【02:51:22】      message = 查询新邮件 , exception = 
-【02:51:41】      message = 终止作战 , exception = 
-【02:51:42】      message = 获取UserInfo , exception = 
-【02:51:55】      message = 签到 , exception = 
-【02:51:55】      message = 查询新邮件 , exception = 
-【02:52:02】      message = 终止作战 , exception = 
-【02:52:03】      message = 获取UserInfo , exception = 
-【02:52:09】      message = 签到 , exception = 
-【02:52:09】      message = 查询新邮件 , exception = 
-【02:52:15】      message = 终止作战 , exception = 
-【02:52:16】      message = 获取UserInfo , exception = 
-【02:52:21】      message = 签到 , exception = 
-【02:52:21】      message = 查询新邮件 , exception = 
-【02:52:22】      message = 终止作战 , exception = 
-【02:52:23】      message = 克羅諾 无法开始作战任务，请登陆游戏检查 
-【02:52:28】      message = 获取UserInfo , exception = 
-【02:52:33】      message = 签到 , exception = 
-【02:52:33】      message = 查询新邮件 , exception = 
-【02:52:34】      message = 终止作战 , exception = 
-【02:52:35】      message = 获取UserInfo , exception = 
-【02:52:42】      message = 签到 , exception = 
-【02:52:42】      message = 查询新邮件 , exception = 
-【02:52:43】      message = 终止作战 , exception = 
-【02:52:44】      message = 获取UserInfo , exception = 
-【02:52:50】      message = 签到 , exception = 
-【02:52:50】      message = 查询新邮件 , exception = 
-【02:52:51】      message = 终止作战 , exception = 
-【02:52:52】      message = 获取UserInfo , exception = 
-【02:53:05】      message = 签到 , exception = 
-【02:53:05】      message = 查询新邮件 , exception = 
-【02:53:06】      message = 终止作战 , exception = 
-【02:53:07】      message = 克羅諾 无法开始作战任务，请登陆游戏检查 
-【02:53:11】      message = 获取UserInfo , exception = 
-【02:53:24】      message = 签到 , exception = 
-【02:53:24】      message = 查询新邮件 , exception = 
-【02:53:28】      message = 终止作战 , exception = 
-【02:53:31】      message = 获取UserInfo , exception = 
-【02:53:37】      message = 签到 , exception = 
-【02:53:37】      message = 查询新邮件 , exception = 
-【02:53:41】      message = 终止作战 , exception = 
-【02:53:58】      message = 获取UserInfo , exception = 
-【02:54:22】      message = 签到 , exception = 
-【02:54:22】      message = 查询新邮件 , exception = 
-【02:54:23】      message = 终止作战 , exception = 
-【02:54:24】      message = 获取UserInfo , exception = 
-【02:54:29】      message = 签到 , exception = 
-【02:54:29】      message = 查询新邮件 , exception = 
-【02:54:30】      message = 终止作战 , exception = 
-【02:54:31】      message = 克羅諾 无法开始作战任务，请登陆游戏检查 
-【02:54:36】      message = 获取UserInfo , exception = 
-【02:54:42】      message = 签到 , exception = 
-【02:54:42】      message = 查询新邮件 , exception = 
-【02:54:43】      message = 终止作战 , exception = 
-【02:54:44】      message = 获取UserInfo , exception = 
-【02:54:49】      message = 签到 , exception = 
-【02:54:49】      message = 查询新邮件 , exception = 
-【02:54:50】      message = 终止作战 , exception = 
-【02:54:51】      message = 获取UserInfo , exception = 
-【02:54:57】      message = 签到 , exception = 
-【02:54:57】      message = 查询新邮件 , exception = 
-【02:54:58】      message = 终止作战 , exception = 
-【02:54:59】      message = 获取UserInfo , exception = 
-【02:55:05】      message = 签到 , exception = 
-【02:55:05】      message = 查询新邮件 , exception = 
-【02:55:06】      message = 终止作战 , exception = 
-【02:55:07】      message = 克羅諾 无法开始作战任务，请登陆游戏检查 
-【02:55:34】      message = 获取UserInfo , exception = 
-【02:55:40】      message = 签到 , exception = 
-【02:55:40】      message = 查询新邮件 , exception = 
-【02:55:40】      message = 终止作战 , exception = 
-【02:55:41】      message = 获取UserInfo , exception = 
-【02:55:48】      message = 签到 , exception = 
-【02:55:48】      message = 查询新邮件 , exception = 
-【02:55:49】      message = 终止作战 , exception = 
-【02:55:49】      message = 获取UserInfo , exception = 
-【02:56:06】      message = 签到 , exception = 
-【02:56:06】      message = 查询新邮件 , exception = 
-【02:56:07】      message = 终止作战 , exception = 
-【02:56:08】      message = 获取UserInfo , exception = 
-【02:56:20】      message = 签到 , exception = 
-【02:56:20】      message = 查询新邮件 , exception = 
-【02:56:21】      message = 终止作战 , exception = 
-【02:56:22】      message = 克羅諾 无法开始作战任务，请登陆游戏检查 
-【02:57:41】      message = 获取UserInfo , exception = 
-【02:57:54】      message = 签到 , exception = 
-【02:57:54】      message = 查询新邮件 , exception = 
-【02:57:55】      message = 终止作战 , exception = 
-【02:59:08】      message = 获取UserInfo , exception = 
-【02:59:14】      message = 签到 , exception = 
-【02:59:14】      message = 查询新邮件 , exception = 
-【02:59:18】      message = 终止作战 , exception = 
-【02:59:19】      message = 获取UserInfo , exception = 
-【02:59:25】      message = 签到 , exception = 
-【02:59:25】      message = 查询新邮件 , exception = 
-【02:59:25】      message = 终止作战 , exception = 
-【02:59:26】      message = 获取UserInfo , exception = 
-【02:59:38】      message = 签到 , exception = 
-【02:59:38】      message = 查询新邮件 , exception = 
-【02:59:39】      message = 终止作战 , exception = 
-【02:59:40】      message = 获取UserInfo , exception = 
-【02:59:53】      message = 签到 , exception = 
-【02:59:53】      message = 查询新邮件 , exception = 
-【02:59:54】      message = 终止作战 , exception = 
-【02:59:55】      message = 克羅諾 无法开始作战任务，请登陆游戏检查 
-【03:00:09】      message = 获取UserInfo , exception = 
-【03:00:26】      message = 签到 , exception = 
-【03:00:26】      message = 查询新邮件 , exception = 
-【03:00:27】      message = 终止作战 , exception = 
-【03:00:27】      message = 获取UserInfo , exception = 
-【03:00:33】      message = 签到 , exception = 
-【03:00:33】      message = 查询新邮件 , exception = 
-【03:00:34】      message = 终止作战 , exception = 
-【03:00:35】      message = 获取UserInfo , exception = 
-【03:02:28】      message = 获取UserInfo , exception = 
-【03:02:35】      message = 签到 , exception = 
-【03:02:35】      message = 查询新邮件 , exception = 
-【03:02:41】      message = 终止作战 , exception = 
-【03:05:18】      message = 获取UserInfo , exception = 
-【03:05:24】      message = 签到 , exception = 
-【03:05:24】      message = 查询新邮件 , exception = 
-【03:05:25】      message = 终止作战 , exception = 
-【03:05:26】      message = 获取UserInfo , exception = 
-【03:05:41】      message = 签到 , exception = 
-【03:05:41】      message = 查询新邮件 , exception = 
-【03:05:42】      message = 终止作战 , exception = 
-【03:05:43】      message = 获取UserInfo , exception = 
-【03:05:49】      message = 签到 , exception = 
-【03:05:49】      message = 查询新邮件 , exception = 
-【03:05:50】      message = 终止作战 , exception = 
-【03:05:51】      message = 获取UserInfo , exception = 
-【03:06:03】      message = 签到 , exception = 
-【03:06:03】      message = 查询新邮件 , exception = 
-【03:06:04】      message = 终止作战 , exception = 
-【03:06:05】      message = 克羅諾 无法开始作战任务，请登陆游戏检查 
-【03:06:10】      message = 获取UserInfo , exception = 
-【03:06:15】      message = 签到 , exception = 
-【03:06:15】      message = 查询新邮件 , exception = 
-【03:06:16】      message = 终止作战 , exception = 
-【03:06:17】      message = 获取UserInfo , exception = 
-【03:06:22】      message = 签到 , exception = 
-【03:06:22】      message = 查询新邮件 , exception = 
-【03:06:23】      message = 终止作战 , exception = 
-【03:06:24】      message = 获取UserInfo , exception = 
-【03:06:29】      message = 签到 , exception = 
-【03:06:29】      message = 查询新邮件 , exception = 
-【03:06:33】      message = 终止作战 , exception = 
-【03:06:34】      message = 获取UserInfo , exception = 
-【03:06:34】      message = 获取UserInfo , exception = 
-【03:06:39】      message = 签到 , exception = 
-【03:06:39】      message = 查询新邮件 , exception = 
-【03:06:40】      message = 终止作战 , exception = 
-【03:06:41】      message = 签到 , exception = 
-【03:06:41】      message = 查询新邮件 , exception = 
-【03:06:41】      message = 克羅諾 无法开始作战任务，请登陆游戏检查 
-【03:06:42】      message = 终止作战 , exception = 
-【03:08:00】      message = 获取UserInfo , exception = 
-【03:08:06】      message = 签到 , exception = 
-【03:08:06】      message = 查询新邮件 , exception = 
-【03:08:07】      message = 终止作战 , exception = 
-【03:19:38】      message = 获取UserInfo , exception = 
-【03:19:44】      message = 签到 , exception = 
-【03:19:44】      message = 查询新邮件 , exception = 
-【03:19:45】      message = 终止作战 , exception = 
-【03:38:09】      message = 获取UserInfo , exception = 
-【03:38:13】      message = 签到 , exception = 
-【03:38:13】      message = 查询新邮件 , exception = 
-【03:38:24】      message = 终止作战 , exception = 
-【03:39:10】      message = 人形 : 1912675 扩编 
-【03:40:03】      message = 人形 : 3338094 扩编 
-【03:40:35】      message = Normal_battleFinish Error , exception = error:0
-【03:40:40】      message = endTurn Error , exception = error:0
-【03:40:49】      message = Simulation_battleFinish Error , exception = error:0
-【03:40:54】      message = startTurn Error , exception = error:0
-【03:40:59】      message = teamMove Error , exception = error:0
-【03:41:07】      message = Normal_battleFinish Error , exception = error:0
-【03:41:12】      message = teamMove Error , exception = error:0
-【03:41:19】      message = Normal_battleFinish Error , exception = error:0
-【03:41:24】      message = endTurn Error , exception = error:0
-【03:41:55】      message = 获取UserInfo , exception = 
-【03:42:06】      message = 签到 , exception = 
-【03:42:06】      message = 查询新邮件 , exception = 
-【03:42:07】      message = 终止作战 , exception = 
-【03:58:54】      message = 人形 : 1912973 扩编 
-【04:23:39】      message = 获取UserInfo , exception = 
-【04:23:45】      message = 签到 , exception = 
-【04:23:45】      message = 查询新邮件 , exception = 
-【04:23:55】      message = 终止作战 , exception = 
-【04:27:37】      message = 获取UserInfo , exception = 
-【04:27:42】      message = 签到 , exception = 
-【04:27:42】      message = 查询新邮件 , exception = 
-【04:27:43】      message = 终止作战 , exception = 
+【22:40:49】      message = 获取UserInfo , exception = 
+【22:40:53】      message = 签到 , exception = 
+【22:40:53】      message = 查询新邮件 , exception = 
+【22:41:16】      message = 终止作战 , exception = 
+【22:46:07】      message = 获取UserInfo , exception = 
+【22:46:11】      message = 签到 , exception = 
+【22:46:11】      message = 查询新邮件 , exception = 
+【22:48:12】      message = 获取UserInfo , exception = 
+【22:48:16】      message = 签到 , exception = 
+【22:48:16】      message = 查询新邮件 , exception = 
+【22:49:03】      message = 归雪 无法部署梯队，请登陆游戏检查 , exception = error:2
+【22:55:11】      message = 获取UserInfo , exception = 
+【22:55:15】      message = 签到 , exception = 
+【22:55:15】      message = 查询新邮件 , exception = 
+【22:55:16】      message = 终止作战 , exception = 
+【23:03:48】      message = 获取UserInfo , exception = 
+【23:03:52】      message = 签到 , exception = 
+【23:03:52】      message = 查询新邮件 , exception = 
+【23:03:58】      message = 终止作战 , exception = 
+【23:05:55】      message = endTurn Error , exception = error:2
+【23:06:01】      message = Simulation_battleFinish Error , exception = error:2
+【23:06:05】      message = startTurn Error , exception = error:2
+【23:06:14】      message = teamMove Error , exception = error:203|行动点数计算有误
+【23:14:12】      message = 获取UserInfo , exception = 
+【23:14:16】      message = 签到 , exception = 
+【23:14:16】      message = 查询新邮件 , exception = 
+【23:14:17】      message = 终止作战 , exception = 
+【23:15:46】      message = endTurn Error , exception = error:2
+【23:15:51】      message = Simulation_battleFinish Error , exception = error:2
+【23:15:55】      message = startTurn Error , exception = error:2
+【23:16:00】      message = teamMove Error , exception = error:203|行动点数计算有误
+【23:31:31】      message = 获取UserInfo , exception = 
+【23:31:35】      message = 签到 , exception = 
+【23:31:35】      message = 查询新邮件 , exception = 
+【23:31:36】      message = 终止作战 , exception = 
+【23:34:16】      message = 获取UserInfo , exception = 
+【23:34:20】      message = 签到 , exception = 
+【23:34:20】      message = 查询新邮件 , exception = 
+【23:34:21】      message = 终止作战 , exception = 
+【23:34:34】      message = 获取UserInfo , exception = 
+【23:34:38】      message = 签到 , exception = 
+【23:34:38】      message = 查询新邮件 , exception = 
+【00:35:31】      message = 获取UserInfo , exception = 
+【00:35:36】      message = 签到 , exception = 
+【00:35:36】      message = 查询新邮件 , exception = 
+【00:35:36】      message = 终止作战 , exception = 
+【00:37:02】      message = 获取UserInfo , exception = 
+【00:37:06】      message = 签到 , exception = 
+【00:37:06】      message = 查询新邮件 , exception = 
+【00:37:07】      message = 终止作战 , exception = 
+【00:43:01】      message = 获取UserInfo , exception = 
+【00:43:05】      message = 签到 , exception = 
+【00:43:05】      message = 查询新邮件 , exception = 
+【00:43:06】      message = 终止作战 , exception = 
+【00:44:28】      message = 获取UserInfo , exception = 
+【00:44:36】      message = 签到 , exception = 
+【00:44:36】      message = 查询新邮件 , exception = 
+【00:44:36】      message = 终止作战 , exception = 
+【00:49:34】      message = 获取UserInfo , exception = 
+【00:49:38】      message = 签到 , exception = 
+【00:49:38】      message = 查询新邮件 , exception = 
+【00:49:39】      message = 终止作战 , exception = 
+【01:09:07】      message = 人形 : 6746852 扩编 
+【01:27:11】      message = 获取新人形 : evo 3 ,意不意外 惊不惊喜 
+【01:32:39】      message = 获取新人形 : ots-44 ,意不意外 惊不惊喜 
+【01:42:33】      message = 获取新人形 : 59式 ,意不意外 惊不惊喜 
+【01:45:07】      message = 获取新人形 : g28 ,意不意外 惊不惊喜 

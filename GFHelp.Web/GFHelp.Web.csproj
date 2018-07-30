@@ -31,8 +31,12 @@
   </ItemGroup>
 
   <ItemGroup>
-    <ProjectReference Include="..\GFHelp.Core\GFHelp.Core.csproj" />
-    <ProjectReference Include="..\LocalHubClient\GFHelp.LocalChatClient.csproj" />
+    <ProjectReference Include="..\GFHelp.Core\GFHelp.Core.csproj">
+      <Private>true</Private>
+    </ProjectReference>
+    <ProjectReference Include="..\LocalHubClient\GFHelp.LocalChatClient.csproj">
+      <Private>true</Private>
+    </ProjectReference>
   </ItemGroup>
 
   <ItemGroup>

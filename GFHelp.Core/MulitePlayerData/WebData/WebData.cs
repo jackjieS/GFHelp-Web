@@ -4,8 +4,9 @@ using LitJson;
 using Newtonsoft.Json;
 using System;
 using System.Collections.Generic;
-using System.IO;
+
 using System.Text;
+
 
 namespace GFHelp.Core.MulitePlayerData.WebData
 {
@@ -42,7 +43,7 @@ namespace GFHelp.Core.MulitePlayerData.WebData
                 {
                     if (k.Value.location == 1)
                     {
-                        Leader = Asset_Textes.ChangeCodeFromeCSV(Function.FindGunName_GunId(k.Value.gun_id)); 
+                        Leader = k.Value.info.en_name; 
                         teamID = k.Value.teamId;
                     }
                     Gun gun = new Gun(k.Value);
@@ -74,7 +75,7 @@ namespace GFHelp.Core.MulitePlayerData.WebData
             ui.KalinaLevel = ud.kalina_with_user_info.level.ToString();
             ui.KalinaFavor = ud.kalina_with_user_info.favor.ToString();
 
-            ui.EquipNum = ud.equip_With_User_Info.dicEquip.Count.ToString();
+            ui.EquipNum = ud.equip_With_User_Info.listEquip.Count.ToString();
             ui.FriendNum = ud.friend_with_user_info.dicFriend.Count.ToString();
             ui.Coin1 = ud.user_Info.coin1.ToString();
             ui.Coin2 = ud.user_Info.coin2.ToString();
@@ -91,32 +92,20 @@ namespace GFHelp.Core.MulitePlayerData.WebData
         public static void GetWebOperation(UserData ud, ref List<WebOperation> dic)
         {
             dic.Clear();
-            for(int i = 0; i < 4; i++)
-            {
-                WebOperation webOperation = new WebOperation();
-                if (ud.operation_Act_Info.dicOperation.ContainsKey(i))
-                {
-                    webOperation.Using = true;
-                    webOperation.key = ud.operation_Act_Info.dicOperation[i].key.ToString();
-                    webOperation.id = ud.operation_Act_Info.dicOperation[i].id.ToString();
-                    webOperation.operation_id = ud.operation_Act_Info.dicOperation[i].operation_id.ToString();
-                    webOperation.user_id = ud.operation_Act_Info.dicOperation[i].user_id.ToString();
-                    webOperation.team_id = ud.operation_Act_Info.dicOperation[i].team_id.ToString();
-                    webOperation.start_time = ud.operation_Act_Info.dicOperation[i].start_time.ToString();
-                    webOperation.remaining_time = ud.operation_Act_Info.dicOperation[i].remaining_time.ToString();
-                }
-                else
-                {
-                    webOperation.Using = false;
-
-                }
-                dic.Add(webOperation);
-
-            }
             foreach (var item in ud.operation_Act_Info.dicOperation)
             {
-
+                WebOperation webOperation = new WebOperation();
+                webOperation.Using = item.Value.Using;
+                webOperation.key = item.Value.key.ToString();
+                webOperation.id = item.Value.id.ToString();
+                webOperation.operation_id = item.Value.operation_id.ToString();
+                webOperation.user_id = item.Value.user_id.ToString();
+                webOperation.team_id = item.Value.team_id.ToString();
+                webOperation.start_time = item.Value.start_time.ToString();
+                webOperation.remaining_time = item.Value.remaining_time.ToString();
+                dic.Add(webOperation);
             }
+
         }
         public static void GetWebStatus(UserData ud, ref WebStatus webStatus)
         {
@@ -160,15 +149,38 @@ namespace GFHelp.Core.MulitePlayerData.WebData
 
     public class Gun
     {
+        private string padRightEx(string str, int totalByteCount)
+        {
+            int dcount = 0;
+            foreach (var s in str)
+            {
+                if (s>= 0x7F)
+                {
+                    dcount++;
+                }
+            }
+            string w = str.PadRight(totalByteCount - dcount);
+            return w;
+        }
+
         public Gun(Gun_With_User_Info gun_With_User_Info)
         {
             this.TeamID = gun_With_User_Info.teamId;
-            this.Name = Asset_Textes.ChangeCodeFromeCSV(Function.FindGunName_GunId(gun_With_User_Info.gun_id)); 
+            //this.Name = Asset_Textes.ChangeCodeFromeCSV(Function.FindGunName_GunId(gun_With_User_Info.gun_id));
+            this.Name = gun_With_User_Info.info.en_name;
+
+
+            //this.Name = padRightEx(this.Name, 20);
+
+
             this.Lv = gun_With_User_Info.level;
-            this.Exp = gun_With_User_Info.gun_exp;
+            this.Exp = gun_With_User_Info.experience;
             this.Hp = gun_With_User_Info.life;
             this.number = gun_With_User_Info.number;
             this.Loc = gun_With_User_Info.location;
+            //this.Text = String.Format("{0}  {1,-10}   {2,-8}   {3,-20}   {4,-10}", Name, "Hp:" + Hp, "Lv:" + Lv, "Exp:" + Exp, number + "扩编");
+
+
         }
         public int TeamID;//梯队ID
         public string Name; //人形名字
@@ -177,6 +189,7 @@ namespace GFHelp.Core.MulitePlayerData.WebData
         public int Hp;//血
         public int number;//扩编数量
         public int Loc;
+        //public string Text;
     }
 
     public class WebUser_Info
@@ -245,3 +258,4 @@ namespace GFHelp.Core.MulitePlayerData.WebData
 
 
 }
+

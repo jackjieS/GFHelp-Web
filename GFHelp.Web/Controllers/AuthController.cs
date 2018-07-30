@@ -29,7 +29,7 @@ namespace GFHelp.Web.Controllers
 
         }
 
-        private async Task<bool>CheckUserName(string username)
+        private async Task<bool>isUserNameExist(string username)
         {
 
             foreach (var item in context.AccountInfo.ToList())
@@ -37,7 +37,6 @@ namespace GFHelp.Web.Controllers
                 if (item.Username == username) { return true; }
             }
             return false;
-
         }
 
         private async Task<bool> CheckUser(string username,string password)
@@ -50,7 +49,21 @@ namespace GFHelp.Web.Controllers
             return false;
 
         }
+        private bool creatWebAccount(LoginModel accInfo)
+        {
+            context.AccountInfo.Add(new Data.AccountInfo
+            {
+                Username = accInfo.Username,
+                Password = accInfo.Password,
+            });
+            var count = context.SaveChanges();
 
+            if (count != 0)
+            {
+                return true;
+            }
+            return false;
+        }
         private JwtSecurityToken CreateToken(string username)
         {
             var claims = new[]
@@ -113,5 +126,65 @@ namespace GFHelp.Web.Controllers
 
             });
         }
+
+
+        /// <summary>
+        /// 网站注册
+        /// Username
+        /// Password
+        /// </summary>
+        /// <param name="model.Username"> 123 </param>
+        /// <returns>123</returns>
+        [Route("[action]")]
+        [HttpPost]
+        public async Task<IActionResult> WebRegister([FromBody]LoginModel model)
+        {
+            if (string.IsNullOrEmpty(model.Username) || string.IsNullOrEmpty(model.Password))
+                return Ok(new
+                {
+                    code = -1,
+                    message = "注册失败"
+
+                });
+        
+            if (await isUserNameExist(model.Username))
+                return Ok(new
+                {
+                    code = -1,
+                    message = model.Username + " 已存在"
+
+                });
+
+
+            if (creatWebAccount(model))
+            {
+                var token = CreateToken(model.Username);
+                return Ok(new
+                {
+                    code = 1,
+                    data = new JwtSecurityTokenHandler().WriteToken(token),
+                    message = "注册成功"
+
+                });
+            }
+            else
+            {
+                return Ok(new
+                {
+                    code = -1,
+                    message = "注册失败"
+
+                });
+            }
+
+
+
+
+
+        }
+
+
+
+
     }
 }

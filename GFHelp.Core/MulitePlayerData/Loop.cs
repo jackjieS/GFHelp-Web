@@ -19,6 +19,7 @@ namespace GFHelp.Core.Management
                     return;
                 }
                 userData.operation_Act_Info.TimeReduce();
+                userData.dorm_with_user_info.TimeReduce();
                 //需要改 在auto那里新建auto_summery 里写入此方法
                 //一些自动循环任务 后勤
                 Auto_Summery.Auto_Act_Summery(userData);
@@ -166,21 +167,14 @@ namespace GFHelp.Core.Management
                         }
                     case 23:
                         {
-                            Action.Dorm.VisitFriendDorm(userData);
-                            userData.Task.RemoveAt(0);
                             break;
                         }
                     case 24:
                         {
-                            Action.Dorm.Get_Build_Coin(userData);
-
-                            userData.Task.RemoveAt(0);
                             break;
                         }
                     case 25:
                         {
-                            Action.Dorm.Get_Dorm_Info(userData);
-                            userData.Task.RemoveAt(0);
                             break;
                         }
                     case 26:
@@ -239,11 +233,10 @@ namespace GFHelp.Core.Management
                 ClickKalina(userData);
                 ClickGirlsFavor(userData);
                 DailyReFlash(userData);
-                Auto_Get_Battary(userData);
                 BP_Recover(userData);
                 //WriteReport_Start(userData);
                 //WriteReport_Finish(userData);
-                Auto_Simulation_Battle(userData);
+                //Auto_Simulation_Battle(userData);
             }
 
         }
@@ -312,7 +305,7 @@ namespace GFHelp.Core.Management
             {
                 foreach (var x in k.Value)
                 {
-                    if (x.Value.can_click == 1)
+                    if (x.Value.canClick == 1)
                     {
                         userData.Task.Add(Helper.TaskList.Click_Girls_In_Dorm);
                         userData.others.ClickGrilsFavor = false;
@@ -341,59 +334,7 @@ namespace GFHelp.Core.Management
             return;
         }
 
-        public static void Auto_Get_Battary(UserData userData)
-        {
-            DateTime BeijingTimeNow = Helper.Decrypt.LocalDateTimeConvertToChina(DateTime.Now);
-            //3点
-            if (BeijingTimeNow.Hour * 60 + BeijingTimeNow.Minute == (60 * 3 + 1) && userData.config.Time3AddGetFriendBattery == true)
-            {
-                userData.Task.Add(Helper.TaskList.Get_Battary_Friend);
-                userData.config.Time3AddGetFriendBattery = false;
-            }
-            else
-            {
-                if (BeijingTimeNow.Hour * 60 + BeijingTimeNow.Minute != 60 * 3 + 1)
-                    userData.config.Time3AddGetFriendBattery = true;
-            }
 
-            //11点
-            if (BeijingTimeNow.Hour * 60 + BeijingTimeNow.Minute == (60 * 15 + 1) && userData.config.Time15AddGetFriendBattery == true)
-            {
-                userData.Task.Add(Helper.TaskList.Get_Battary_Friend);
-                userData.config.Time15AddGetFriendBattery = false;
-            }
-            else
-            {
-                if (BeijingTimeNow.Hour * 60 + BeijingTimeNow.Minute != 60 * 15 + 1)
-                    userData.config.Time3AddGetFriendBattery = true;
-            }
-
-            if (BeijingTimeNow.Hour * 60 + BeijingTimeNow.Minute == (60 * 11 + 1) && userData.config.Time11AddGetMineBattery == true)
-            {
-                userData.Task.Add(Helper.TaskList.Get_Dorm_Info);
-                userData.Task.Add(Helper.TaskList.Get_Battary_Mine);
-                userData.config.Time11AddGetMineBattery = false;
-            }
-            else
-            {
-                if (BeijingTimeNow.Hour * 60 + BeijingTimeNow.Minute != 60 * 11 + 1)
-                    userData.config.Time11AddGetMineBattery = true;
-            }
-
-            //17点
-            if (BeijingTimeNow.Hour * 60 + BeijingTimeNow.Minute == (60 * 17 + 1) && userData.config.Time17AddGetFriendBattery == true)
-            {
-
-                userData.Task.Add(Helper.TaskList.Get_Dorm_Info);
-                userData.Task.Add(Helper.TaskList.Get_Battary_Mine);
-                userData.config.Time17AddGetFriendBattery = false;
-            }
-            else
-            {
-                if (BeijingTimeNow.Hour * 60 + BeijingTimeNow.Minute != 60 * 17 + 1)
-                    userData.config.Time17AddGetFriendBattery = true;
-            }
-        }
 
         public static void BP_Recover(UserData userData)
         {

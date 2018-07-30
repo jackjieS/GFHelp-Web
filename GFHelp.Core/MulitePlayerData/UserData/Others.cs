@@ -134,13 +134,13 @@ namespace GFHelp.Core.MulitePlayerData
             //是否在后勤 自律 训练
             foreach (var x in userData.operation_Act_Info.dicOperation)
             {
-                if (x.Value.team_id == gwui.team_id)
+                if (x.Value.team_id == gwui.teamId)
                 {
                     return true;
                 }
 
             }
-            if (userData.auto_Mission_Act_Info.team_ids.Contains(gwui.team_id)) return true;
+            if (userData.auto_Mission_Act_Info.team_ids.Contains(gwui.teamId)) return true;
             foreach (var y in userData.upgrade_Act_Info.dic_Upgrade)
             {
                 if (y.Value.gun_with_user_id == gwui.id) return true;
@@ -148,7 +148,23 @@ namespace GFHelp.Core.MulitePlayerData
             return false;
         }
 
-
+        /// <summary>
+        /// 获取当前需要强化的人形
+        /// </summary>
+        /// <returns></returns>
+        public void Get_dicGun_PowerUP()
+        {
+            userData.gun_With_User_Info.dicGun_PowerUP.Clear();
+            foreach (var item in userData.gun_With_User_Info.dicGun)
+            {
+                if (item.Value.level < 10) continue;
+                if (CheckGunStatus(item.Value)) continue;
+                if (item.Value.maxAddDodge > item.Value.additionDodge || item.Value.maxAddHit > item.Value.additionHit || item.Value.maxAddPow > item.Value.additionPow || item.Value.maxAddRate > item.Value.additionRate)
+                {
+                    userData.gun_With_User_Info.dicGun_PowerUP.Add(item.Value);
+                }
+            }
+        }
 
         public bool CheckTeamLeval(int teamid, int lv)
         {
@@ -184,11 +200,11 @@ namespace GFHelp.Core.MulitePlayerData
 
         public bool Check_Equip_GUN_FULL()
         {
-            if (userData.gun_With_User_Info.dicGun.Count + 5 >= userData.user_Info.maxgun)
+            if (userData.gun_With_User_Info.dicGun.Count + SystemOthers.ConfigData.UpdateCache >= userData.user_Info.maxgun)
             {
                 return true;
             }
-            if (userData.equip_With_User_Info.dicEquip.Count + 5 >= userData.user_Info.maxequip)
+            if (userData.equip_With_User_Info.listEquip.Count + SystemOthers.ConfigData.UpdateCache >= userData.user_Info.maxequip)
             {
                 return true;
             }

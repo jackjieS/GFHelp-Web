@@ -13,6 +13,11 @@ namespace GFHelp.Core.MulitePlayerData
     {
         public class Data
         {
+            public Data()
+            {
+                this.Using = false;
+            }
+            public bool Using;
             public int key;//表示当前字段在字典里的键位
             public int id;
             public int operation_id;
@@ -34,22 +39,36 @@ namespace GFHelp.Core.MulitePlayerData
             //剩下时间 = 开始时间+任务时间 - 当前时间
             try
             {
-                foreach (var item in dicOperation)
-                {
-                    item.Value.remaining_time= item.Value.start_time + /*任务时间*/ CatachData.operation_info[item.Value.operation_id - 1 ].duration - Decrypt.ConvertDateTime_China_Int(DateTime.Now);
-                }
-
                 for (int i = 0; i < dicOperation.Count; i++)
                 {
-                    if (!dicOperation.ContainsKey(i)) continue;
+                    if (dicOperation[i].start_time == (int)DateTime.MinValue.Ticks) continue;
+                    dicOperation[i].remaining_time = dicOperation[i].start_time + /*任务时间*/ CatachData.operation_info[dicOperation[i].operation_id - 1].duration - Decrypt.ConvertDateTime_China_Int(DateTime.Now);
                     if (dicOperation[i].remaining_time < 0)
                     {
                         Data data = dicOperation[i];
-                        dicOperation.Remove(i);
-                        Task taskFinish = new Task(() => Finish(data));
-                        taskFinish.ContinueWith(t=> Start(data));
+                        dicOperation[i].Using = false;
+                        Task<int> taskFinish = new Task<int>(() => Finish(data));
+                        Task<int> taskStart = new Task<int>(() => Start(data));
                         taskFinish.Start();
 
+                        taskFinish.ContinueWith(t =>
+                        {
+                            if (taskFinish.Result == 1)
+                            {
+                                taskStart.Start();
+                            }
+                            else
+                            {
+                                dicOperation[i].start_time = (int)DateTime.MinValue.Ticks;
+                                dicOperation[i].Using = false;
+                                dicOperation[i].remaining_time = 0;
+                            }
+                        });
+                        Task.WaitAll(taskStart);
+                    }
+                    else
+                    {
+                        dicOperation[i].Using = true;
                     }
                 }
 
@@ -60,56 +79,40 @@ namespace GFHelp.Core.MulitePlayerData
                 //MessageBox.Show(e.ToString());
             }
         }
-        
-        
         public int Start(Data data)
         {
             //string accountID = text.accountID.ToString();
             //string operationID = text.operationID.ToString();
             //string TeamID = text.TeamID.ToString();
-            foreach (var item in dicOperation)
-            {
-                if(item.Value.operation_id == data.operation_id || item.Value.team_id == data.team_id)
-                {
-                    //当前任务已存在
-                    return -1;
-                }
-            }
             if (dicOperation.Count >= 4)
             {
-                //已有4个任务
-                return -2;
+                new Log().userInit(userData.GameAccount.Base.AndroidID, "后勤开始失败" + data.ToString());
             }
-            for (int i = 0; i < 4; i++)
+            for (int i = 0; i < dicOperation.Count; i++)
             {
-                if (!dicOperation.ContainsKey(i))
+                if (dicOperation[i].Using == false)
                 {
                     if (Action.Operation.Start_Operation_Act(userData, data) == 1)
                     {
-                        data.start_time = Decrypt.ConvertDateTime_China_Int(DateTime.Now)+10;
-                        dicOperation.Add(i, data);
+                        data.start_time = Decrypt.ConvertDateTime_China_Int(DateTime.Now) + 10;
+                        dicOperation[i] = data;
                         return 1;
                     }
                 }
             }
+            new Log().userInit(userData.GameAccount.Base.AndroidID, "后勤开始失败 " + data.ToString());
             return -1;
         }
         
 
-        public void Finish(Data data)
+        public int Finish(Data data)
         {
-
-            if (Action.Operation.Finish_Operation_Act(userData, data) == 1)
-            {
-
-            }
-            //没有这个任务
+            return Action.Operation.Finish_Operation_Act(userData, data);
         }
 
         public bool Read(dynamic jsonobj)
         {
             dicOperation.Clear();
-
             foreach (var item in jsonobj.operation_act_info)
             {
                 Data data = new Data();
@@ -129,7 +132,10 @@ namespace GFHelp.Core.MulitePlayerData
                     continue;
                 }
                 dicOperation.Add(dicOperation.Count, data);
-
+            }
+            while (dicOperation.Count<4)
+            {
+                dicOperation.Add(dicOperation.Count, new Data());
             }
             return true;
         }
@@ -138,26 +144,22 @@ namespace GFHelp.Core.MulitePlayerData
 
         public void Abort(Data data)
         {
-            //
             for (int i = 0; i < dicOperation.Count; i++)
             {
-                if (!dicOperation.ContainsKey(i)) continue;
                 if (dicOperation[i].operation_id == data.operation_id)
                 {
-                    int result = 0;
-                    int key = i;
                     Task taskAbort = new Task(() =>
                     {
-                        result = Action.Operation.Abort_Operation_Act(userData, data);
-                    });
-                    taskAbort.ContinueWith(t =>
-                    {
-                        if (result == 1)
+                        int key = i;
+                        if (Action.Operation.Abort_Operation_Act(userData, data) == 1)
                         {
-                            dicOperation.Remove(key);
+                            dicOperation[i].start_time = (int)DateTime.MinValue.Ticks;
+                            dicOperation[i].Using = false;
+                            dicOperation[i].remaining_time = 0;
                         }
                     });
                     taskAbort.Start();
+                    Task.WaitAll(taskAbort);
                 }
             }
         }

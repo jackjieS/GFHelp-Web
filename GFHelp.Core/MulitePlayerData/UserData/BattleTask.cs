@@ -27,7 +27,7 @@ namespace GFHelp.Core.MulitePlayerData
                     Dictionary<int, int> mvp = new Dictionary<int, int>();
                     foreach (var item in userData.Teams[TeamID])
                     {
-                        mvp.Add(item.Value.id, item.Value.gun_exp);
+                        mvp.Add(item.Value.id, item.Value.experience);
                     }
                     return mvp.Keys.Select(x => new { x, y = mvp[x] }).OrderBy(x => x.y).First().x;
                 }
@@ -38,7 +38,7 @@ namespace GFHelp.Core.MulitePlayerData
                 int seed = 0;
                 foreach (var item in teaminfo)
                 {
-                    seed += item.Value.gun_exp;
+                    seed += item.Value.experience;
                     seed += item.Value.life;
                     seed += item.Value.teamId;
                 }

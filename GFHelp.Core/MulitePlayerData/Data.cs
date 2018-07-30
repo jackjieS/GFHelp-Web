@@ -14,10 +14,6 @@ namespace GFHelp.Core.Management
 {
     public static class Data
     {
-        /// <summary>
-        /// 每个游戏实例的计划任务
-        /// </summary>
-        public static Dictionary<string, Task> tasks = new Dictionary<string, Task>();
 
         /// <summary>
         /// 每个网站用户的游戏实例 key是游戏账户id
@@ -30,6 +26,7 @@ namespace GFHelp.Core.Management
             userData.others.setUserData(userData);
             userData.Loop.SetUserdata(userData);
             userData.operation_Act_Info.SetUserdata(userData);
+            userData.dorm_with_user_info.SetUserdata(userData);
             if (data.ContainsKey(userData.GameAccount.Base.GameAccountID))
             {
                 data[userData.GameAccount.Base.GameAccountID] = userData;
@@ -46,7 +43,10 @@ namespace GFHelp.Core.Management
             userData.task.ContinueWith(t => 
             {
                 Task.WaitAll(userData.cd, userData.task);
+                string id = userData.GameAccount.Base.GameAccountID;
                 userData = null;
+                data.Remove(id);
+
             });
         }
 
@@ -112,13 +112,13 @@ namespace GFHelp.Core.Management
 
         }
 
-        public void Read(dynamic jsonobj)
+        public void Read(dynamic jsonobj,LitJson.JsonData jsonData)
         {
             Clear();
             Dorm_Rest_Friend_Build_Coin_Count = -1;
             user_Info.Read(jsonobj);
             user_Record.Read(jsonobj);
-            equip_With_User_Info.Read(jsonobj);
+            equip_With_User_Info.Read(jsonData);
             operation_Act_Info.Read(jsonobj);
             kalina_with_user_info.Read(jsonobj);
             friend_with_user_info.Read(jsonobj);
@@ -130,7 +130,7 @@ namespace GFHelp.Core.Management
             fairy_With_User_Info.Read(jsonobj);
             //装备开发暂时不写
             item_With_User_Info.Read(jsonobj);
-            gun_With_User_Info.Read(jsonobj);
+            gun_With_User_Info.Read(jsonData);
             others.Read(jsonobj);
             Function.SetTeamInfo(this);
         }
@@ -169,7 +169,7 @@ namespace GFHelp.Core.Management
 
         public Operation_Act_Info operation_Act_Info = new Operation_Act_Info();
 
-        public Equip_With_User_Info equip_With_User_Info = new Equip_With_User_Info();
+        public Equip equip_With_User_Info = new Equip();
 
         public Kalina_With_User_Info kalina_with_user_info = new Kalina_With_User_Info();
         public Dorm_With_User_Info dorm_with_user_info = new Dorm_With_User_Info();
@@ -213,15 +213,11 @@ namespace GFHelp.Core.Management
 
     public class Config
     {
-        public int ErrorCount = 3;
+        public int ErrorCount = 1;
         public bool LoginSuccessful = false;
         public bool AutoRelogin = false;
         public bool NeedAuto_Loop_Operation_Act = true;
         public bool NeedAuto_Click_Girls_In_Dorm = true;//这些都需要 read userinfo 重置
-        public bool Time3AddGetFriendBattery = true;//3点收电池  不需要read userinfo重置
-        public bool Time15AddGetFriendBattery = true;
-        public bool Time11AddGetMineBattery = true;
-        public bool Time17AddGetFriendBattery = true;
         public bool AutoSimulationBattleF = false;
         public bool NewGun_Report_Stop = true;
         public bool AutoStrengthen = true;

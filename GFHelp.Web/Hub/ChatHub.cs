@@ -127,21 +127,30 @@ namespace GFHelp.Web
         public override async Task OnConnectedAsync()
         {
             string name = Context.GetHttpContext().Request.Query["name"].ToString();
+            if (name.ToLower() == "null" || string.IsNullOrEmpty(name)) return;
             await Task.Run(() => {
-                SignalRInfo user = new SignalRInfo();
-                user.SignalRID = Context.ConnectionId;
-                user.SignalRName = name;
-
-                foreach (var k in Core.SystemOthers.ConfigData.WebUserData)
+                try
                 {
-                    if (k.Username == name && k.Policy == "admin")
+                    SignalRInfo user = new SignalRInfo();
+                    user.SignalRID = Context.ConnectionId;
+                    user.SignalRName = name;
+                    user.isAdmin = false;
+                    foreach (var k in Core.SystemOthers.ConfigData.WebUserData)
                     {
-                        user.isAdmin = true;
+                        if (k.Username == name && k.Policy == "admin")
+                        {
+                            user.isAdmin = true;
+                        }
                     }
+                    userList.Add(user);
+                    SendSystemNotice(Context.ConnectionId);
+                    SendGameNotice(Context.ConnectionId);
                 }
-                userList.Add(Context.ConnectionId, user);
-                SendSystemNotice(Context.ConnectionId);
-                SendGameNotice(Context.ConnectionId);
+                catch (Exception e)
+                {
+                    new Core.Helper.Log().systemInit("OnDisconnectedAsync ERROR", e.ToString()).signarlError();
+                }
+                
             });
         }
 
@@ -156,9 +165,17 @@ namespace GFHelp.Web
             await Task.Run(() => {
                 try
                 {
-                    userList.Remove(Context.ConnectionId);
+                    for (int i = 0; i < userList.Count; i++)
+                    {
+                        if(userList[i].SignalRID == Context.ConnectionId)
+                        {
+                            userList[i] = null;
+                            userList.RemoveAt(i);
+                            return;
+                        }
+                    }
                 }
-                catch (Exception e )
+                catch (Exception e)
                 {
                     new Core.Helper.Log().systemInit("OnDisconnectedAsync ERROR", e.ToString()).signarlError();
 
@@ -194,10 +211,13 @@ namespace GFHelp.Web
         public async Task RemoveGameNotice(string ID)
         {
             await Task.Run(() => {
-                string id = userList[Context.ConnectionId].SignalRName;
-                if (Core.Helper.Viewer.usersLogs.ContainsKey(id))
+                var listId = userList
+                    .Where(t =>
+                    t.SignalRName == Context.ConnectionId)
+                    .Select(t => t.SignalRName).ToList();
+                if (Core.Helper.Viewer.usersLogs.ContainsKey(listId[0]))
                 {
-                    Core.Helper.Viewer.usersLogs[id].Clear();
+                    Core.Helper.Viewer.usersLogs[listId[0]].Clear();
                 }
                 return 1;
             });

@@ -98,7 +98,7 @@ namespace GFHelp.Core.CatchData.Base
                 }
             }
 
-            return string.Format("解析错误 {0}", res);
+            return res;
         }
 
     }

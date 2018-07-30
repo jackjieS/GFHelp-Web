@@ -31,7 +31,7 @@ namespace GFHelp.Core.Action
                         continue;
                     }
 
-                    if (userData.Teams[x][y].can_click == 1)
+                    if (userData.Teams[x][y].canClick == 1)
                     {
                         bool Loop = true;
                         int count = 0;
@@ -45,7 +45,7 @@ namespace GFHelp.Core.Action
                                         var jsonobj = DynamicJson.Parse(result);
                                         result = jsonobj.favor_click.ToString();
                                         userData.webData.StatusBarText = String.Format(" 第 {0} 宿舍 少女 {1} 好感度提升 result = {2}", x, userData.Teams[x][y].gun_id.ToString(), result);
-                                        userData.Teams[x][y].can_click++;
+                                        userData.Teams[x][y].canClick++;
                                         Loop = false;
                                         break;
                                     }
@@ -68,174 +68,9 @@ namespace GFHelp.Core.Action
 
         }
 
-        private static int GetFriendBatteryNum(UserData userData,int id)
-        {
-            int count = 0;
-            while (true)
-            {
-                var result = API.Dorm.Get_Friend_BattaryNum(userData.GameAccount, id);
-                switch (Helper.Response.Check(userData.GameAccount, ref result, "Get_Friend_BattaryNum", true))
-                {
-                    case 1:
-                        {
-                            var jsonobj = DynamicJson.Parse(result);
-                            return Convert.ToInt32(jsonobj.build_coin_flag.ToString());
 
-                        }
-                    case 0:
-                        {
-                            if (count++ >= userData.config.ErrorCount) return 0;
-                            continue;
-                        }
-                    case -1:
-                        {
-                            if (count++ >= userData.config.ErrorCount) return 0;
-                            continue;
-                        }
-                    default: break;
-                }
-            }
-        }
-        private static bool GetFriendBattery(UserData userData, int id)
-        {
-            int count = 0;
-            while (true)
-            {
-                var result = API.Dorm.Get_Friend_Battary(userData.GameAccount, id, 0);
-                switch (Helper.Response.Check(userData.GameAccount, ref result, "Get_Friend_Battary", true))
-                {
-                    case 1:
-                        {
-                            userData.Dorm_Rest_Friend_Build_Coin_Count--;
-                            return true;
-                        }
-                    case 0:
-                        {
-                            if (count++ >= userData.config.ErrorCount) return false;
-                            continue;
-                        }
-                    case -1:
-                        {
-                            if (count++ >= userData.config.ErrorCount) return false;
-                            continue;
-                        }
-                    default: break;
-                }
-            }
-        }
 
-        public static void VisitFriendDorm(UserData userData)
-        {
-            int BattaryNum = 10;
-            foreach (var item in userData.friend_with_user_info.dicFriend)
-            {
-                int Friend_BattaryNum = GetFriendBatteryNum(userData, item.Value.f_userid);
-                new Helper.Log().userInit(userData.GameAccount.Base.GameAccountID, String.Format(" 好友 {0} 宿舍  拥有电池数 {1} 意不意外 惊不惊喜", item.Value.name.ToString(), Friend_BattaryNum)).userInfo();
-                if (Friend_BattaryNum == BattaryNum)
-                {
-                    GetFriendBattery(userData,item.Value.f_userid);
-                    userData.Dorm_Rest_Friend_Build_Coin_Count--;
-                    new Helper.Log().userInit(userData.GameAccount.Base.GameAccountID, String.Format(" 获取好友 {0} 宿舍的电池 数目: {1} ", item.Value.name.ToString(), Friend_BattaryNum)).userInfo();
-                }
-                if (userData.Dorm_Rest_Friend_Build_Coin_Count == 0) return;
-            }
-        }
 
-        public static void Get_Build_Coin(UserData userData)
-        {
-            try
-            {
-                if (userData.dorm_with_user_info.current_build_coin <= 0) return;
-                //开始获得
-                userData.dorm_with_user_info.current_build_coin = 0;
-                int count = 0;
-                while (true)
-                {
-                    string result = API.Dorm.Get_Build_Coin(userData.GameAccount,userData.dorm_with_user_info.info.user_id, userData.dorm_with_user_info.info.dorm_id);
-
-                    switch (Helper.Response.Check(userData.GameAccount,ref result, "Get_Friend_Build_Coin_Pro", true))
-                    {
-                        case 1:
-                            {
-                                return;
-                            }
-                        case 0:
-                            {
-                                if (count++ >= userData.config.ErrorCount)
-                                {
-                                    new Log().userInit(userData.GameAccount.Base.GameAccountID, "获取电池出错", result.ToString()).userInfo();
-                                    return;
-                                }
-                                break;
-                            }
-                        case -1:
-                            {
-                                if (count++ >= userData.config.ErrorCount)
-                                {
-                                    new Log().userInit(userData.GameAccount.Base.GameAccountID, " 获取电池出错", result.ToString()).userInfo();
-                                    return;
-                                }
-                                break;
-                            }
-                        default:
-                            break;
-                    }
-
-                }
-
-            }
-            catch (Exception)
-            {
-                return;
-            }
-        }
-
-        public static void Get_Dorm_Info(UserData userData)
-        {
-            try
-            {
-                int count = 0;
-                while (true)
-                {
-                    string result = API.Dorm.GetFriend_DormInfo(userData.GameAccount);
-
-                    switch (Helper.Response.Check(userData.GameAccount,ref result, "GetFriend_DormInfo_Pro", true))
-                    {
-                        case 1:
-                            {
-                                var jsonobj = DynamicJson.Parse(result);
-                                userData.dorm_with_user_info.Read(jsonobj);
-                                return;
-                            }
-                        case 0:
-                            {
-                                if (count++ >= userData.config.ErrorCount)
-                                {
-                                    new Log().userInit(userData.GameAccount.Base.GameAccountID, "获取电池出错", result).userInfo();
-                                    return;
-                                }
-                                break;
-                            }
-                        case -1:
-                            {
-                                if (count++ >= userData.config.ErrorCount)
-                                {
-                                    new Log().userInit(userData.GameAccount.Base.GameAccountID, "获取宿舍信息出错", result).userInfo();
-                                    return;
-                                }
-                                break;
-                            }
-                        default:
-                            break;
-                    }
-
-                }
-            }
-            catch (Exception)
-            {
-                return;
-            }
-        }
 
         public static void WriteReport(UserData userData)
         {

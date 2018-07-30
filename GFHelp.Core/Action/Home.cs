@@ -44,8 +44,6 @@ namespace GFHelp.Core.Action
             new Log().userInit(userData.GameAccount.Base.GameAccountID, "查询新邮件", "").userInfo();
             userData.webData.StatusBarText = "查询新邮件";
             Mail(userData);
-            new Log().userInit(userData.GameAccount.Base.GameAccountID, "终止作战", "").userInfo();
-            userData.webData.StatusBarText = "终止作战";
             userData.battle.Abort_Mission_login();
             userData.config.AutoRelogin = true;
             userData.config.LoginSuccessful = true;//开始自动任务循环
@@ -63,7 +61,8 @@ namespace GFHelp.Core.Action
             string result = _GetUserInfo(userData);
             if (result.Contains("error")) return false;
             var jsonobj = DynamicJson.Parse(result); //讲道理，我真不想写了
-            userData.Read(jsonobj);
+            JsonData jsonData = JsonMapper.ToObject(result);
+            userData.Read(jsonobj, jsonData);
             return true;
         }
 

@@ -1,6 +1,7 @@
 ﻿using GFHelp.Core.CatchData.Base;
 using GFHelp.Core.Helper;
 using GFHelp.Core.MulitePlayerData;
+using LitJson;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -11,52 +12,92 @@ namespace GFHelp.Core.MulitePlayerData
 {
     public class Gun_With_User_Info
     {
-        public void Read(dynamic jsonobj)
+        public void Read(JsonData jsonobj)
         {
+            JsonData jsonData17 = jsonobj["gun_with_user_info"];
             dicGun.Clear();
-            foreach (var item in jsonobj.gun_with_user_info)
+            for (int num9 = 0; num9 < jsonData17.Count; num9++)
             {
+                JsonData jsonGun = jsonData17[num9];
                 Gun_With_User_Info gwui = new Gun_With_User_Info();
                 try
                 {
-                    gwui.id = Convert.ToInt32(item.id);
-                    gwui.user_id = Convert.ToInt32(item.user_id);
-                    gwui.gun_id = Convert.ToInt32(item.gun_id);
-                    gwui._gun_exp = Convert.ToInt32(item.gun_exp);
-                    gwui.gun_level = Convert.ToInt32(item.gun_level);
-                    gwui._level = gwui.gun_level;
-                    gwui.level = gwui.gun_level;
-                    gwui.team_id = Convert.ToInt32(item.team_id);
-                    gwui.teamId = gwui.team_id;
-                    gwui.if_modification = Convert.ToInt32(item.if_modification);
-                    gwui.location = Convert.ToInt32(item.location);
-                    gwui.position = Convert.ToInt32(item.position);
-                    gwui.life = Convert.ToInt32(item.life);
-                    gwui.ammo = Convert.ToInt32(item.ammo);
-                    gwui.mre = Convert.ToInt32(item.mre);
-                    gwui.pow = Convert.ToInt32(item.pow);
-                    gwui.hit = Convert.ToInt32(item.hit);
-                    gwui.additionHit = gwui.hit;
-                    gwui.dodge = Convert.ToInt32(item.dodge);
-                    gwui.additionDodge = gwui.dodge;
-                    gwui.rate = Convert.ToInt32(item.rate);
-                    gwui.info.maxAddRate = gwui.rate;
-                    gwui.skill1 = Convert.ToInt32(item.skill1);
-                    gwui.skill2 = Convert.ToInt32(item.skill2);
-                    gwui.fix_end_time = Convert.ToInt32(item.fix_end_time);
-                    gwui.is_locked = Convert.ToInt32(item.is_locked);
-                    gwui.number = Convert.ToInt32(item.number);
-                    gwui.equip1 = Convert.ToInt32(item.equip1);
-                    gwui.equip2 = Convert.ToInt32(item.equip2);
-                    gwui.equip3 = Convert.ToInt32(item.equip3);
-                    gwui.equip4 = Convert.ToInt32(item.equip4);
-                    gwui.favor = Convert.ToInt32(item.favor);
-                    gwui.max_favor = Convert.ToInt32(item.max_favor);
-                    gwui.favor_toplimit = Convert.ToInt32(item.favor_toplimit);
-                    gwui.soul_bond = Convert.ToInt32(item.soul_bond);
-                    gwui.skin = Convert.ToInt32(item.skin);
-                    gwui.can_click = Convert.ToInt32(item.can_click);
-                    //gwui.UpdateMaxLife();
+                    gwui.id = jsonGun["id"].Int;
+                    if (jsonGun.Contains("user_id"))
+                    {
+                        gwui.user_id = jsonGun["user_id"].Int;
+                    }
+
+                    gwui.gun_id = jsonGun["gun_id"].Int;
+                    if (jsonGun.Contains("gun_exp"))
+                    {
+                        gwui.experience = jsonGun["gun_exp"].Int;
+                    }
+                    gwui._level = jsonGun["gun_level"].Int;
+                    gwui.level = gwui._level;
+                    if (jsonGun.Contains("team_id"))
+                    {
+                        gwui.teamId = jsonGun["team_id"].Int;
+                    }
+
+                    if (jsonGun.Contains("if_modification"))
+                    {
+                        this.mod = jsonGun["if_modification"].Int;
+                        if (this.info.maxMod < this.mod)
+                        {
+                            this.info.maxMod = this.mod;
+                        }
+                    }
+                    gwui.location = jsonGun["location"].Int;
+                    gwui.position = jsonGun["position"].Int;
+                    if (jsonGun.Contains("life"))
+                    {
+                        gwui.life = jsonGun["life"].Int;
+                    }
+                    if (jsonGun.Contains("ammo"))
+                    {
+                        gwui.ammo = jsonGun["ammo"].Int;
+                    }
+                    if (jsonGun.Contains("mre"))
+                    {
+                        gwui.mre = jsonGun["mre"].Int;
+                    }
+                    gwui.pow = Convert.ToInt32((string)jsonGun["pow"]);
+                    gwui.hit = Convert.ToInt32((string)jsonGun["hit"]);
+                    //gwui.additionHit = gwui.hit;
+                    gwui.dodge = Convert.ToInt32((string)jsonGun["dodge"]);
+                    //gwui.additionDodge = gwui.dodge;
+                    gwui.rate = Convert.ToInt32((string)jsonGun["rate"]);
+                    gwui.additionPow = Convert.ToInt32((string)jsonGun["pow"]);
+                    gwui.additionHit = Convert.ToInt32((string)jsonGun["hit"]);
+                    gwui.additionDodge = Convert.ToInt32((string)jsonGun["dodge"]);
+                    gwui.additionRate = Convert.ToInt32((string)jsonGun["rate"]);
+                    //gwui.info.maxAddRate = gwui.rate;
+                    //gwui.skill1 = Convert.ToInt32(item.skill1);
+                    //gwui.skill2 = Convert.ToInt32(item.skill2);
+                    //gwui.fix_end_time = Convert.ToInt32(item.fix_end_time);
+                    if (jsonGun.Contains("is_locked"))
+                    {
+                        gwui.isLocked = jsonGun["is_locked"].Bool;
+                    }
+                    gwui.number = Convert.ToInt32((string)jsonGun["number"]);
+                    //gwui.equip1 = Convert.ToInt32(item.equip1);
+                    //gwui.equip2 = Convert.ToInt32(item.equip2);
+                    //gwui.equip3 = Convert.ToInt32(item.equip3);
+                    //gwui.equip4 = Convert.ToInt32(item.equip4);
+                    if (jsonGun.Contains("favor"))
+                    {
+                        gwui.favor = jsonGun["favor"].Int;
+                    }
+                    //gwui.max_favor = Convert.ToInt32(item.max_favor);
+                    //gwui.favor_toplimit = Convert.ToInt32(item.favor_toplimit);
+                    gwui.soul_bond = jsonGun["soul_bond"].Bool;
+                    gwui.soulBondTime = jsonGun["soul_bond_time"].Int;
+                    gwui.skin = jsonGun["skin"].Int;
+                    if (jsonGun.Contains("can_click"))
+                    {
+                        gwui.canClick = jsonGun["can_click"].Int;
+                    }
                     gwui.UpdateData();
                     //gwui.crit = Convert.ToInt32(item.crit);
                     //gwui.piercing = Convert.ToInt32(item.piercing);
@@ -98,11 +139,11 @@ namespace GFHelp.Core.MulitePlayerData
             dicGun_Combine.Clear();
             foreach (var item in dicGun)
             {
-                if (item.Value.is_locked == 0) continue;
+                if (!item.Value.isLocked) continue;
                 //if (im.userdatasummery.CheckGunStatus(item.Value)) continue;
                 if (teamID != -1)
                 {
-                    if (item.Value.team_id != teamID) continue;
+                    if (item.Value.teamId != teamID) continue;
                 }
 
                 //2扩
@@ -144,25 +185,7 @@ namespace GFHelp.Core.MulitePlayerData
             }
         }
 
-        /// <summary>
-        /// 获取当前需要强化的人形
-        /// </summary>
-        /// <returns></returns>
-        public void Get_dicGun_PowerUP()
-        {
-            dicGun_PowerUP.Clear();
-            int i = 0;
 
-            foreach (var item in dicGun)
-            {
-                //if (im.userdatasummery.CheckGunStatus(item.Value)) continue;
-                if (item.Value.level < 10) continue;
-                if (item.Value.maxAddDodge != item.Value.additionDodge && item.Value.maxAddHit != item.Value.additionHit && item.Value.maxAddPow != item.Value.additionPow && item.Value.maxAddRate != item.Value.additionRate)
-                {
-                    dicGun_PowerUP.Add(i++, item.Value);
-                }
-            }
-        }
 
         /// <summary>
         /// 返回false 表示没有2级枪了
@@ -174,7 +197,8 @@ namespace GFHelp.Core.MulitePlayerData
             Rank3.Clear();
             foreach (var item in dicGun)
             {
-                if (item.Value.info.rank == 2 && item.Value.is_locked == 0 && item.Value.teamId == 0)
+
+                if (item.Value.info.rank == 2 && item.Value.isLocked == false && item.Value.teamId == 0 && item.Value.level<=10)
                 {
                     Rank2.Add(item.Value.id);
                     if (Rank2.Count >= 24) break;
@@ -182,7 +206,8 @@ namespace GFHelp.Core.MulitePlayerData
             }
             foreach (var item in dicGun)
             {
-                if (item.Value.info.rank == 3 && item.Value.is_locked == 0 && item.Value.teamId == 0)
+                if (item.Value.gun_id == 120) continue;
+                if (item.Value.info.rank == 3 && item.Value.isLocked == false && item.Value.teamId == 0 && item.Value.level <= 10)
                 {
                     Rank3.Add(item.Value.id);
                     if (Rank3.Count >= 24) break;
@@ -269,20 +294,10 @@ namespace GFHelp.Core.MulitePlayerData
                     for (int i = 0; i <= dicGun.Last().Key + 1; i++)
                     {
                         if (dicGun.ContainsKey(i) == false) continue;
-
-                        if (dicGun[i].level < 120 && dicGun[i].id == id)
+                        if (dicGun[i].id == id)
                         {
-                            if (Function.Update_GUN_exp_level(exp, dicGun[i].gun_exp, dicGun[i].gun_level) > 0)
-                            {
-                                dicGun[i].UpdateData();
-
-                            }
-                            else
-                            {
-                                dicGun[i].gun_exp += exp;
-                            }
+                            dicGun[i].experience += exp;
                         }
-
                     }
                 }
 
@@ -300,37 +315,39 @@ namespace GFHelp.Core.MulitePlayerData
 
         public Dictionary<int, Gun_With_User_Info> dicGun = new Dictionary<int, Gun_With_User_Info>();//所有的枪
         public Dictionary<int, Gun_With_User_Info> dicGun_Combine = new Dictionary<int, Gun_With_User_Info>();
-        public Dictionary<int, Gun_With_User_Info> dicGun_PowerUP = new Dictionary<int, Gun_With_User_Info>();
+        public List<Gun_With_User_Info> dicGun_PowerUP = new List<Gun_With_User_Info>();
         public List<int> Rank2 = new List<int>();
         public List<int> Rank3 = new List<int>();
         public int id;//这个是与user有关的id 通常是6位数
         public int user_id;
         public int gun_id;//这是是2位数
-        public int _gun_exp;
-        public int gun_exp
+        public int experience
         {
-            get { return _gun_exp; }
+            get
+            {
+                return this._exp;
+            }
             set
             {
-                _gun_exp = value;
-                if (level == 100) return;
-                if (Function.ExpToLevel(_gun_exp) == level) return;
-                level += Function.Update_GUN_exp_level(value, _gun_exp - value, level);
-                gun_level = level;
-                if (life == maxLife)
+                this._exp = global::Mathf.Min(new int[]
                 {
-                    UpdateMaxLife();
-                    life = maxLife;
-                }
-                else
-                {
-                    UpdateMaxLife();
-                }
+                    GameData.LevelToSumExp(this.levelUpperLimit - 1, false),
+                    value
+                });
+                this.level = GameData.ExpToLevel(this._exp, false);
             }
-
         }
+        public int levelUpperLimit
+        {
+            get
+            {
+                return CatchData.Base.Data.GunLevelUpperLimit(this.mod);
+            }
+        }
+        private int _exp;
+        public int mod;
         public int gun_level;
-        public int team_id;
+
         public int teamId;
         public int if_modification;
         public int location;
@@ -345,7 +362,7 @@ namespace GFHelp.Core.MulitePlayerData
         public int skill1;
         public int skill2;
         public int fix_end_time;
-        public int is_locked;
+        public bool isLocked;
         public int number;
         public int equip1;
         public int equip2;
@@ -354,9 +371,10 @@ namespace GFHelp.Core.MulitePlayerData
         public int favor;
         public int max_favor;
         public int favor_toplimit;
-        public int soul_bond;
+        public bool soul_bond;
+        public int soulBondTime;
         public int skin;
-        public int can_click;
+        public int canClick;
         public int level;
         public int crit;
         public int piercing;
@@ -402,7 +420,7 @@ namespace GFHelp.Core.MulitePlayerData
         public int additionPow;
         public int current_Maxlife;
         // Token: 0x04001782 RID: 6018
-        public List<Equip_With_User_Info> equipList = new List<Equip_With_User_Info>();
+        public List<Equip> equipList = new List<Equip>();
         // Token: 0x170005F2 RID: 1522
         // (get) Token: 0x06001880 RID: 6272 RVA: 0x0008551C File Offset: 0x0008371C
         //Fairy fairy
@@ -660,7 +678,7 @@ namespace GFHelp.Core.MulitePlayerData
             {
                 if (gun_id == item.id)
                 {
-                    info = item;
+                    this.info = item;
                     break;
                 }
             }
@@ -680,7 +698,7 @@ namespace GFHelp.Core.MulitePlayerData
             this.pow = this.basePow + this.additionPow;
             this.favorPow = Math.Sign(this.favorRatio) * Mathf.CeilToInt(global::Mathf.Abs((float)this.pow * this.favorRatio));
             this.pow += this.favorPow;
-            int i = 0;
+
 
 
             num = CatchData.Base.Data.GetDataFromStringArray<float>("rate_basic", 0, ',');
@@ -730,14 +748,7 @@ namespace GFHelp.Core.MulitePlayerData
 
 
         }
-        public void UpdateMaxLife()
-        {
-            float floatFromStringArray = CatchData.Base.Data.GetFloatFromStringArray("life_basic", 0, ',');
-            float floatFromStringArray2 = CatchData.Base.Data.GetFloatFromStringArray("life_basic", 1, ',');
-            float floatFromStringArray3 = CatchData.Base.Data.GetFloatFromStringArray("life_basic", 2, ',');
-            this.maxLife = Mathf.CeilToInt((floatFromStringArray + ((float)this.level - 1f) * floatFromStringArray2) * CatchData.Base.Data.GetGunBasicAttribute(this.info.type, "basic_attribute_life") * this.info.ratioLife / floatFromStringArray3) * this.number;
 
-        }
 
         public float favorRatio
         {

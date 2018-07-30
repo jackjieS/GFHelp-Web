@@ -13,7 +13,6 @@ namespace GFHelp.Core.API
         {
             outdatacode = AuthCode.Encode(outdatacode, gameAccount.sign);
             string requeststring = String.Format("uid={0}&outdatacode={1}&req_id={2}", gameAccount.uid, System.Web.HttpUtility.UrlEncode(outdatacode), gameAccount.req_id++.ToString());
-
             var url = gameAccount.GameHost + Helper.URL.Eat_Equip;
             string result = "";
             while (string.IsNullOrEmpty(result))

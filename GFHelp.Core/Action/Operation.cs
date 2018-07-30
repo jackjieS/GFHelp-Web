@@ -10,6 +10,11 @@ namespace GFHelp.Core.Action
 {
     public class Operation
     {
+        /// <summary>
+        /// 不再使用
+        /// </summary>
+        /// <param name="userData"></param>
+        /// <param name="data"></param>
         public static void Start_Loop_Operation_Act(UserData userData, Operation_Act_Info.Data data)
         {
 
@@ -118,8 +123,7 @@ namespace GFHelp.Core.Action
             while (true)
             {
                 string result = API.Operation.FinishOperation(userData.GameAccount, sb.ToString());
-                int k = Response.Check(userData.GameAccount, ref result, "Finish_Operation_Pro", true);
-                switch (k)
+                switch (Response.Check(userData.GameAccount, ref result, "Finish_Operation_Pro", true))
                 {
                     case 1:
                         {
@@ -127,11 +131,6 @@ namespace GFHelp.Core.Action
                         }
                     case 0:
                         {
-                            if (count++ >= userData.config.ErrorCount)
-                            {
-                                new Log().userInit(userData.GameAccount.Base.GameAccountID, "后勤结束失败", result.ToString()).userInfo();
-                                return -1;
-                            }
                             continue;
                         }
                     case -1:
@@ -141,16 +140,12 @@ namespace GFHelp.Core.Action
                                 new Log().userInit(userData.GameAccount.Base.GameAccountID, "后勤结束失败", result.ToString()).userInfo();
                                 return -1;
                             }
-                            continue ;
+                            continue;
                         }
                     default:
                         break;
                 }
-                if (k == 1) break;
             }
-            return -1;
-
-
         }
 
         public static int Start_Operation_Act(UserData userData, Operation_Act_Info.Data data)

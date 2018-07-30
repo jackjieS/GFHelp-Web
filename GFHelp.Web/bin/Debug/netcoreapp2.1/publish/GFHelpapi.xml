@@ -66,6 +66,15 @@
             <param name="model.Username.Username"> 123 </param>
             <returns>123</returns>
         </member>
+        <member name="M:GFHelp.Web.Controllers.AuthController.WebRegister(GFHelp.Web.Models.LoginModel)">
+            <summary>
+            网站注册
+            Username
+            Password
+            </summary>
+            <param name="model.Username.Username"> 123 </param>
+            <returns>123</returns>
+        </member>
         <member name="T:GFHelp.Web.Controllers.GameController">
             <summary>
             游戏操作的
@@ -170,6 +179,12 @@
         <member name="M:GFHelp.Web.Controllers.SystemController.TestInitSystemNotice">
             <summary>
             这是一个测试接口，模拟生成一个系统消息并推送到前端
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:GFHelp.Web.Controllers.SystemController.GetCountOfGame">
+            <summary>
+            获取当前游戏实例个数
             </summary>
             <returns></returns>
         </member>

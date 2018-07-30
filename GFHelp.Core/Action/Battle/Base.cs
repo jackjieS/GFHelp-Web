@@ -129,7 +129,7 @@ namespace GFHelp.Core.Action.BattleBase
                 Dictionary<int, int> mvp = new Dictionary<int, int>();
                 foreach (var item in teaminfo)
                 {
-                    mvp.Add(item.Value.id, item.Value.gun_exp);
+                    mvp.Add(item.Value.id, item.Value.experience);
                 }
                 return mvp.Keys.Select(x => new { x, y = mvp[x] }).OrderBy(x => x.y).First().x;
             }
@@ -140,7 +140,7 @@ namespace GFHelp.Core.Action.BattleBase
             int seed = 0;
             foreach (var item in teaminfo)
             {
-                seed += item.Value.gun_exp;
+                seed += item.Value.experience;
                 seed += item.Value.life;
                 seed += item.Value.teamId;
             }
@@ -219,12 +219,12 @@ namespace GFHelp.Core.Action.BattleBase
             {
                 this.TaskMap = battle.Map;
             }
-            this.TaskMap = battle.Map.Remove(0, 1);
+
             foreach (var item in Parm)
             {
                 if (item.Contains("-map"))
                 {
-                    this.TaskMap = item.Remove(0, 4);
+                    this.TaskMap = item.ToString();
                 }
                 if (item.Contains("-loginnum"))
                 {
@@ -242,14 +242,15 @@ namespace GFHelp.Core.Action.BattleBase
                 }
                 if (item.Contains("-times"))
                 {
-                    if(int.TryParse(item.Remove(0, 6),out this.LoopTime) == false)
+                    if(int.TryParse(item.Remove(0, 6),out this.MaxLoopTime) == false)
                     {
-                        this.LoopTime = 0;
+                        this.MaxLoopTime = 0;
                     }
 
                 }
 
             }
+            this.TaskMap = TaskMap.Remove(0, 1);
             this.MaxLoopTime = this.LoopTime;
         }
 
@@ -284,23 +285,34 @@ namespace GFHelp.Core.Action.BattleBase
 
     }
 
-    public static class BattleData
+    public class BattleData
     {
-        public static int spot_id;
-        public static bool if_enemy_die = true;
-        public static int current_time;
-        public static int boss_hp = 0;
-        public static int mvp;
-        public static string last_battle_info;
-        public static List<TeamInfo> Teams = new List<TeamInfo>();
-        public static int teamLoc;
-        public static string user_rec;
-        public static int truetime;
-        public static int life_reduce;
-        public static int enemy_effect_client;
-        public static int enemy_character_type_id;
-        public static int life_enemy;
-        public static int user_exp;
+        public class Data
+        {
+            public int spot_id;
+            public bool if_enemy_die = true;
+            public int current_time;
+            public int boss_hp = 0;
+            public int mvp;
+            public string last_battle_info;
+            public List<TeamInfo> Teams = new List<TeamInfo>();
+            public int teamLoc;
+            public string user_rec;
+            public int truetime;
+            public int life_reduce;
+            public int enemy_effect_client;
+            public int enemy_character_type_id;
+            public int life_enemy;
+            public int user_exp;
+        }
+
+        Data data = new Data();
+        public BattleData(List<TeamInfo> Teams)
+        {
+            data.Teams = Teams;
+        }
+
+
         /// <summary>
         /// 
         /// </summary>
@@ -312,47 +324,48 @@ namespace GFHelp.Core.Action.BattleBase
         /// <param name="le">life_enemy</param>
         /// <param name="userexp"></param>
         /// <param name="ecti">enemy_character_type_id</param>
-        public static void setData(int spotid, int teamLoc, int lrd, int tt, int eec, int le, int ecti, int userexp, bool if_enemy_die = true)
+        public string setData(int spotid, int teamLoc, int lrd, int tt, int eec, int le, int ecti, int userexp, bool if_enemy_die = true)
         {
-            BattleData.if_enemy_die = if_enemy_die;
-            spot_id = spotid;
-            BattleData.teamLoc = teamLoc;
-            mvp = Teams[BattleData.teamLoc].MVP;
-            enemy_effect_client = eec;
-            life_enemy = le;
-            truetime = tt;
-            life_reduce = lrd;
-            user_exp = userexp;
-            enemy_character_type_id = ecti;
+            data.if_enemy_die = if_enemy_die;
+            data.spot_id = spotid;
+            data.teamLoc = teamLoc;
+            data.mvp = data.Teams[data.teamLoc].MVP;
+            data.enemy_effect_client = eec;
+            data.life_enemy = le;
+            data.truetime = tt;
+            data.life_reduce = lrd;
+            data.user_exp = userexp;
+            data.enemy_character_type_id = ecti;
             WriteData();
+            return stringBuilder.ToString();
         }
-        public static StringBuilder stringBuilder;
-        public static JsonWriter writer;
+        public StringBuilder stringBuilder;
+        public JsonWriter writer;
 
 
 
-        public static void WriteData()
+        public void WriteData()
         {
             stringBuilder = new StringBuilder();
             writer = new JsonWriter(stringBuilder);
             writer.WriteObjectStart();
 
             writer.WritePropertyName("spot_id");
-            writer.Write(spot_id);
+            writer.Write(data.spot_id);
             writer.WritePropertyName("if_enemy_die");
-            writer.Write(if_enemy_die);
+            writer.Write(data.if_enemy_die);
             writer.WritePropertyName("current_time");
             writer.Write(Helper.Decrypt.ConvertDateTime_China_Int(DateTime.Now));
             writer.WritePropertyName("boss_hp");
-            writer.Write(boss_hp);
+            writer.Write(data.boss_hp);
             writer.WritePropertyName("mvp");
-            writer.Write(mvp);
+            writer.Write(data.mvp);
             writer.WritePropertyName("last_battle_info");
             writer.Write("");
 
             writer.WritePropertyName("guns");
             writer.WriteArrayStart();
-            foreach (var item in Teams[teamLoc].teaminfo)
+            foreach (var item in data.Teams[data.teamLoc].teaminfo)
             {
                 writer.WriteObjectStart();
                 writer.WritePropertyName("id");
@@ -368,7 +381,7 @@ namespace GFHelp.Core.Action.BattleBase
             JsonWriter jsonWriter1 = new JsonWriter(stringBuilder1);
             jsonWriter1.WriteObjectStart();
             jsonWriter1.WritePropertyName("seed");
-            jsonWriter1.Write(Teams[teamLoc].getSeed(user_exp));
+            jsonWriter1.Write(data.Teams[data.teamLoc].getSeed(data.user_exp));
             jsonWriter1.WritePropertyName("record");
             jsonWriter1.WriteArrayStart();
             //foreach (var current in user_rec.listRecord)
@@ -384,32 +397,32 @@ namespace GFHelp.Core.Action.BattleBase
             writer.WritePropertyName("1000");
             writer.WriteObjectStart();
             writer.WritePropertyName("10");
-            writer.Write(Teams[teamLoc].TeamEffect);
+            writer.Write(data.Teams[data.teamLoc].TeamEffect);
             writer.WritePropertyName("11");
-            writer.Write(Teams[teamLoc].TeamEffect - life_reduce);
+            writer.Write(data.Teams[data.teamLoc].TeamEffect - data.life_reduce);
             writer.WritePropertyName("12");
-            writer.Write(Teams[teamLoc].TeamEffect);
+            writer.Write(data.Teams[data.teamLoc].TeamEffect);
             writer.WritePropertyName("13");
-            writer.Write(Teams[teamLoc].TeamEffect);
+            writer.Write(data.Teams[data.teamLoc].TeamEffect);
             writer.WritePropertyName("15");
-            writer.Write(enemy_effect_client);
+            writer.Write(data.enemy_effect_client);
 
             writer.WritePropertyName("16");
             writer.Write(0);
 
             writer.WritePropertyName("17");
-            writer.Write(truetime * 29.7);//要 4场战斗 不同的时间 总帧数
+            writer.Write(data.truetime * 29.7);//要 4场战斗 不同的时间 总帧数
 
             writer.WritePropertyName("33");
-            writer.Write(enemy_character_type_id);//改
+            writer.Write(data.enemy_character_type_id);//改
 
             writer.WritePropertyName("40");
             writer.Write(128);//我也不知道是什么
 
             writer.WritePropertyName("18");
-            writer.Write(life_reduce);
+            writer.Write(data.life_reduce);
             writer.WritePropertyName("19");
-            writer.Write((int)(life_reduce * (double)random.Next(10, 20) / 10));
+            writer.Write((int)(data.life_reduce * (double)random.Next(10, 20) / 10));
 
 
             writer.WritePropertyName("20");
@@ -421,13 +434,13 @@ namespace GFHelp.Core.Action.BattleBase
             writer.WritePropertyName("23");
             writer.Write(0);
             writer.WritePropertyName("24");
-            writer.Write(life_enemy);//要 damage_enemy 4场战斗不同的数据
+            writer.Write(data.life_enemy);//要 damage_enemy 4场战斗不同的数据
             writer.WritePropertyName("25");
             writer.Write(0);
             writer.WritePropertyName("26");
-            writer.Write(life_enemy);//要 life_enemy 4场战斗不同的数据
+            writer.Write(data.life_enemy);//要 life_enemy 4场战斗不同的数据
             writer.WritePropertyName("27");
-            writer.Write(truetime);// 要 实际时间 4场战斗不同的数据
+            writer.Write(data.truetime);// 要 实际时间 4场战斗不同的数据
 
             writer.WritePropertyName("34");//  min_damage_armor = "34";
             writer.Write(0);
@@ -449,7 +462,7 @@ namespace GFHelp.Core.Action.BattleBase
             writer.WritePropertyName("1002");
             writer.WriteObjectStart();
 
-            foreach (var item in Teams[teamLoc].teaminfo)
+            foreach (var item in data.Teams[data.teamLoc].teaminfo)
             {
                 writer.WritePropertyName(item.Value.id.ToString());
                 writer.WriteObjectStart();

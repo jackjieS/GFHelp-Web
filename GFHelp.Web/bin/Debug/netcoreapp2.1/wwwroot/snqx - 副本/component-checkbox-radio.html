@@ -1,0 +1,275 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>zui-admin</title>
+    <!-- zui css -->
+    <link rel="stylesheet" href="dist/css/zui.min.css">
+    <link rel="stylesheet" href="dist/theme/blue.css">
+    <!-- app css -->
+    <link rel="stylesheet" href="css/app.css">
+    <!-- jquery js -->
+    <script src="dist/lib/jquery/jquery.js"></script>
+    
+</head>
+<body>
+    <div class="wrapper">
+        <header class="main-header">
+            <nav class="navbar navbar-fixed-top bg-primary">
+                <div class="navbar-header">
+                    <a class="navbar-toggle" href="javascript:;" data-toggle="collapse" data-target=".navbar-collapse"><i class="icon icon-th-large"></i></a>
+                    <a class="sidebar-toggle" href="javascript:;" data-toggle="push-menu"><i class="icon icon-bars"></i></a>
+                    <a class="navbar-brand" href="#">
+                        <span class="logo">ZUIAdmin</span>
+                        <span class="logo-mini">ZA</span> 
+                    </a>
+                </div>
+                <div class="collapse navbar-collapse">
+                    <div class="container-fluid">
+                        <ul class="nav navbar-nav">
+                            <li><a href="javascript:;" data-toggle="push-menu"><i class="icon icon-bars"></i></a></li>
+                        </ul>
+                        <ul class="nav navbar-nav navbar-right">
+                            <li>
+                                <a href="javascript:;">
+                                    <span>
+                                        <i class="icon icon-bell-alt"></i>
+                                        <span class="label label-danger label-pill up">5</span>
+                                    </span>
+                                </a>
+                            </li>
+                            <li>
+                                <a href="javascript:;">
+                                    <span>
+                                        <i class="icon icon-envelope-alt"></i>
+                                        <span class="label label-success label-pill up">2</span>
+                                    </span>
+                                </a>
+                            </li>
+                            <li class="dropdown">
+                                <a href="javascript:;" data-toggle="dropdown"><i class="icon icon-user"></i> 管理员 <span class="caret"></span></a>
+                                <ul class="dropdown-menu">
+                                    <li><a href="#">资料设置</a></li>
+                                    <li><a href="#">清除缓存</a></li>
+                                    <li class="divider"></li>
+                                    <li><a href="#">注销</a></li>
+                                </ul>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+            </nav>
+        </header>
+        <aside class="main-sidebar">
+            <section class="sidebar">
+                <ul class="sidebar-menu" data-widget="tree">
+                    <li class="header">主要菜单</li>
+                    <li>
+                        <a href="index.html">
+                            <i class="icon icon-dashboard"></i> 
+                            <span>仪表盘</span>
+                            <span class="pull-right-container">
+                            </span>
+                        </a>
+                    </li>
+                    <li class="treeview">
+                        <a href="javascript:;">
+                            <i class="icon icon-file"></i> 
+                            <span>页面演示</span>
+                            <span class="pull-right-container">
+                                <i class="icon icon-angle-left"></i>
+                            </span>
+                        </a>
+                        <ul class="treeview-menu">
+                            <li><a href="layout.html"><i class="icon icon-circle-blank"></i> 空白页</a></li>
+                            <li><a href="login.html"><i class="icon icon-circle-blank"></i> 登录</a></li>
+                            <li><a href="error-404.html"><i class="icon icon-circle-blank"></i> 404页</a></li>
+                            <li><a href="config.html"><i class="icon icon-circle-blank"></i> 系统设置</a></li>
+                            <li><a href="list.html"><i class="icon icon-circle-blank"></i> 用户列表</a></li>
+                        </ul>
+                    </li>
+                    <li class="treeview">
+                        <a href="javascript:;">
+                            <i class="icon icon-columns"></i> 
+                            <span>基础组件</span>
+                            <span class="pull-right-container">
+                                <i class="icon icon-angle-left"></i>
+                            </span>
+                        </a>
+                        <ul class="treeview-menu">
+                            <li class="active"><a href="component-checkbox-radio.html"><i class="icon icon-circle-blank"></i> 多选和单选框</a></li>
+                            <li><a href="component-step.html"><i class="icon icon-circle-blank"></i> 步骤条</a></li>
+                        </ul>
+                    </li>
+                    <li class="treeview">
+                        <a href="javascript:;">
+                            <i class="icon icon-comments-alt"></i> 
+                            <span>提示插件</span>
+                            <span class="pull-right-container">
+                                <i class="icon icon-angle-left"></i>
+                            </span>
+                        </a>
+                        <ul class="treeview-menu">
+                            <li><a href="plugin-toastr.html"><i class="icon icon-circle-blank"></i> Toastr</a></li>
+                            <li><a href="plugin-notify.html"><i class="icon icon-circle-blank"></i> Notify</a></li>
+                        </ul>
+                    </li>
+                </ul>
+            </section>
+        </aside>
+        <div class="content-wrapper">
+            <div class="content-header">
+                <ul class="breadcrumb">
+                    <li><a href="#"><i class="icon icon-home"></i></a></li>
+                    <li><a href="#">基础组件</a></li>
+                    <li class="active">多选和单选框</li>
+                </ul>
+            </div>
+            <div class="content-body">
+                <div class="container-fluid">
+                    <div class="panel">
+                        <div class="panel-heading">
+                            <div class="panel-title">多选和单选框</div>
+                        </div>
+                        <div class="panel-body">
+                            <div class="row">
+                                <div class="col-md-4">
+                                    <!-- Example Checkboxes -->
+                                    <div class="example-wrap">
+                                        <h4>多选框</h4>
+                                        <p>样式为<code>.checkbox-custom</code></p>
+                                        <div class="checkbox-custom checkbox-primary">
+                                            <input type="checkbox" id="inputUnchecked">
+                                            <label for="inputUnchecked">未选中</label>
+                                        </div>
+                                        <div class="checkbox-custom checkbox-primary">
+                                            <input type="checkbox" id="inputChecked" checked="">
+                                            <label for="inputChecked">选中</label>
+                                        </div>
+                                        <div class="checkbox-custom">
+                                            <input type="checkbox" disabled="">
+                                            <label>不可选时未选中</label>
+                                        </div>
+                                        <div class="checkbox-custom">
+                                            <input type="checkbox" disabled="" checked="">
+                                            <label>不可选时选中</label>
+                                        </div>
+                                    </div>
+                                    <!-- End Example Checkboxes -->
+                                </div>
+                            
+                                <div class="col-md-4">
+                                    <!-- Example Radios -->
+                                    <div class="example-wrap">
+                                        <h4>单选框</h4>
+                                        <p>样式为<code>.radio-custom</code></p>
+                                        <div class="radio-custom radio-primary">
+                                            <input type="radio" id="inputRadiosUnchecked" name="inputRadios">
+                                            <label for="inputRadiosUnchecked">未选中</label>
+                                        </div>
+                                        <div class="radio-custom radio-primary">
+                                            <input type="radio" id="inputRadiosChecked" name="inputRadios" checked="">
+                                            <label for="inputRadiosChecked">选中</label>
+                                        </div>
+                                        <div class="radio-custom radio-primary">
+                                            <input type="radio" id="inputRadiosDisabled" name="inputRadiosDisabled" disabled="">
+                                            <label for="inputRadiosDisabled">不可选时未选中</label>
+                                        </div>
+                                        <div class="radio-custom radio-primary">
+                                            <input type="radio" id="inputRadiosDisabledChecked" name="inputRadiosDisabledChecked" disabled="" checked="">
+                                            <label for="inputRadiosDisabledChecked">不可选时选中</label>
+                                        </div>
+                                    </div>
+                                    <!-- End Example Radios -->
+                                </div>
+                            
+                                <div class="col-md-4">
+                                    <!-- Example Color Options -->
+                                    <div class="example-wrap">
+                                        <h4 class="example-title">多色</h4>
+                                        <p>样式为<code>.checkbox-default</code>,
+                                            <code>.checkbox-primary</code>,
+                                            <code>.checkbox-success</code>,
+                                            <code>.checkbox-info</code>,
+                                            <code>.checkbox-warning</code>,
+                                            <code>.checkbox-danger</code></p>
+                                            <p>
+                                                <div class="checkbox-custom checkbox-inline">
+                                                    <input type="checkbox" name="inputCheckboxes" checked="">
+                                                    <label></label>
+                                                </div>
+                                                <div class="checkbox-custom checkbox-default checkbox-inline">
+                                                    <input type="checkbox" name="inputCheckboxes" checked="">
+                                                    <label></label>
+                                                </div>
+                                                <div class="checkbox-custom checkbox-primary checkbox-inline">
+                                                    <input type="checkbox" name="inputCheckboxes" checked="">
+                                                    <label></label>
+                                                </div>
+                                                <div class="checkbox-custom checkbox-success checkbox-inline">
+                                                    <input type="checkbox" name="inputCheckboxes" checked="">
+                                                    <label></label>
+                                                </div>
+                                                <div class="checkbox-custom checkbox-info checkbox-inline">
+                                                    <input type="checkbox" name="inputCheckboxes" checked="">
+                                                    <label></label>
+                                                </div>
+                                                <div class="checkbox-custom checkbox-warning checkbox-inline">
+                                                    <input type="checkbox" name="inputCheckboxes" checked="">
+                                                    <label></label>
+                                                </div>
+                                                <div class="checkbox-custom checkbox-danger checkbox-inline">
+                                                    <input type="checkbox" name="inputCheckboxes" checked="">
+                                                    <label></label>
+                                                </div>
+                                            </p>
+                                            <p>
+                                                <div class="radio-custom radio-inline">
+                                                    <input type="radio" id="inputRadioNormal" name="inputRadiosNormal" checked="">
+                                                    <label for="inputRadioNormal"></label>
+                                                </div>
+                                                <div class="radio-custom radio-default radio-inline">
+                                                    <input type="radio" name="inputRadioDefault" checked="">
+                                                    <label></label>
+                                                </div>
+                                                <div class="radio-custom radio-primary radio-inline">
+                                                    <input type="radio" name="inputRadioPrimary" checked="">
+                                                    <label></label>
+                                                </div>
+                                                <div class="radio-custom radio-success radio-inline">
+                                                    <input type="radio" name="inputRadioSuccess" checked="">
+                                                    <label></label>
+                                                </div>
+                                                <div class="radio-custom radio-info radio-inline">
+                                                    <input type="radio" name="inputRadioInfo" checked="">
+                                                    <label></label>
+                                                </div>
+                                                <div class="radio-custom radio-warning radio-inline">
+                                                    <input type="radio" name="inputRadioWarning" checked="">
+                                                    <label></label>
+                                                </div>
+                                                <div class="radio-custom radio-danger radio-inline">
+                                                    <input type="radio" name="inputRadioDanger" checked="">
+                                                    <label></label>
+                                                </div>
+                                            </p>
+                                        </div>
+                                        <!-- End Example Color Options -->
+                                    </div>
+                                </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div> 
+    </div>
+
+
+    <!-- zui js -->
+    <script src="dist/js/zui.min.js"></script>
+    <!-- app js -->
+    <script src="js/app.js"></script>
+</body>
+</html>

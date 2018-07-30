@@ -1,4 +1,5 @@
-﻿using LitJson;
+﻿using GFHelp.Core.CatchData.Base.CMD;
+using LitJson;
 using System;
 using System.Collections.Generic;
 using System.Text;
@@ -226,7 +227,11 @@ namespace GFHelp.Core.CatchData.Base
             return (T)((object)Data.dictConfigDataArray[key][id]);
         }
 
-
+        // Token: 0x06001C62 RID: 7266 RVA: 0x00092EB0 File Offset: 0x000910B0
+        public static int GunLevelUpperLimit(int stageNum)
+        {
+            return Data.GetDataFromStringArray<int>("gun_max_level", stageNum, ',');
+        }
 
 
 
@@ -316,4 +321,79 @@ namespace GFHelp.Core.CatchData.Base
         }
 
     }
+
+    public class GameData
+    {
+        public static int LevelToSumExp(int level, bool isUser = false)
+        {
+            int num = 0;
+            if (!isUser)
+            {
+                return GameData.dictLevelToSumExp[level];
+            }
+            while (level != 0)
+            {
+                num += GameData.CurrentLeveMaxExp(level--, isUser);
+            }
+            return num;
+        }
+        public static int CurrentLeveMaxExp(int level, bool isUser = false)
+        {
+            if (isUser)
+            {
+                if (level <= 25)
+                {
+                    return level * 100;
+                }
+                if (level <= 99)
+                {
+                    return 100 * global::Mathf.FloorToInt(global::Mathf.Pow((float)level * 0.2f, 2f));
+                }
+                if (level <= 199)
+                {
+                    return 100 * global::Mathf.FloorToInt(global::Mathf.Pow((float)level * 0.11f, 2.5f));
+                }
+                return 100 * global::Mathf.FloorToInt(global::Mathf.Pow((float)level * 0.0118f, 9f));
+            }
+            else
+            {
+                if (level > Data.GunLevelUpperLimit(3))
+                {
+                    return -1;
+                }
+                return GameData.dictGunUpLevelExp[level];
+            }
+        }
+
+
+        public static Dictionary<int, int> dictGunUpLevelExp;
+        public static Dictionary<int, int> dictLevelToSumExp = new Dictionary<int, int>();
+        public static tBaseDatas<EquipInfo> listEquipInfo;
+        public static Dictionary<int, int> dictEquipmentExpInfo;
+        public static int ExpToLevel(int exp, bool isUser = false)
+        {
+            if (isUser)
+            {
+                int num = 0;
+                while ((exp -= GameData.CurrentLeveMaxExp(++num, isUser)) >= 0)
+                {
+                }
+                return num;
+            }
+            int i = 0;
+            int count = GameData.dictLevelToSumExp.Count;
+            while (i < count)
+            {
+                if (GameData.dictLevelToSumExp[i] > exp)
+                {
+                    return i;
+                }
+                i++;
+            }
+            return Data.GunLevelUpperLimit(3);
+        }
+    }
+
+
+
 }

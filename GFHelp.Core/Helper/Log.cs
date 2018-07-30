@@ -12,21 +12,19 @@ namespace GFHelp.Core.Helper
     public class logWriter
     {
         //Log 分系统和User
-    
+
         private static StreamWriter coreErrorWriter; //写文件  
         private static StreamWriter coreInfoWriter; //写文件  
         private static StreamWriter signarlWriter; //写文件  
         private static StreamWriter webWriter; //写文件  
-        private static StreamWriter streamWriter; //写文件  
-        private static StreamWriter userWriter;
-
+        private static object userLock = new object();
+        private static object systemLock = new object();
         private static string systemDic;
         private static string userDic;
         private static string coreErrorPath;
         private static string coreInfoPath;
         private static string signarlPath;
         private static string webPath;
-
 
         public static void initLogWriter()
         {
@@ -72,87 +70,28 @@ namespace GFHelp.Core.Helper
         }
 
 
-        private static void write(StreamWriter writer,string message)
+        private static void write(StreamWriter writer, string message)
         {
-            writer.WriteLine("【" + DateTime.Now.ToString("HH:mm:ss") + "】" + "      " +  /*"异常信息：\r\n"*/ message);
-            writer.Flush();
-            //streamWriter.Dispose();
-            //streamWriter = null;
+            lock (systemLock)
+            {
+                writer.WriteLine("【" + DateTime.Now.ToString("HH:mm:ss") + "】" + "      " +  /*"异常信息：\r\n"*/ message);
+                writer.Flush();
+            }
         }
 
         public static void userInfo(string id,string message)
         {
-            string path = userDic +string.Format(@"\{0}.log", id);
-            if (streamWriter == null)
+            lock (userLock)
             {
-                streamWriter = !File.Exists(path) ? File.CreateText(path) : File.AppendText(path);    //判断文件是否存在如果不存在则创建，如果存在则添加。
-            }
-            if (message != null)
-            {
+                string path = userDic + string.Format(@"\{0}.log", id);
+                StreamWriter streamWriter = !File.Exists(path) ? File.CreateText(path) : File.AppendText(path);    //判断文件是否存在如果不存在则创建，如果存在则添加。
                 streamWriter.WriteLine("【" + DateTime.Now.ToString("HH:mm:ss") + "】" + "      " +  /*"异常信息：\r\n"*/ message);
+                streamWriter.Flush();
+                streamWriter.Dispose();
             }
-            streamWriter.Flush();
-            streamWriter.Dispose();
-            streamWriter = null;
+
         }
 
-
-        //public void Error(string message)
-        //{
-        //    string path = directPath + string.Format(@"\Error.log");
-        //    if (streamWriter == null)
-        //    {
-        //        streamWriter = !File.Exists(path) ? File.CreateText(path) : File.AppendText(path);    //判断文件是否存在如果不存在则创建，如果存在则添加。
-        //    }
-        //    if (message != null)
-        //    {
-        //        streamWriter.WriteLine("【" + DateTime.Now.ToString("HH:mm:ss") + "】" + "      " +  /*"异常信息：\r\n"*/ message);
-        //    }
-        //    streamWriter.Flush();
-        //    streamWriter.Dispose();
-        //    streamWriter = null;
-        //}
-        //public void Info(string message)
-        //{
-        //    try
-        //    {
-        //        directPath += string.Format(@"\Info.log");
-        //        if (streamWriter == null)
-        //        {
-        //            streamWriter = !File.Exists(directPath) ? File.CreateText(directPath) : File.AppendText(directPath);    //判断文件是否存在如果不存在则创建，如果存在则添加。
-        //        }
-
-        //        if (message != null)
-        //        {
-        //            streamWriter.WriteLine("【" + DateTime.Now.ToString("MM-dd HH:mm:ss") + "】" + "      " +  /*"异常信息：\r\n"*/ message);
-        //        }
-        //    }
-
-        //    catch (Exception ex)
-        //    {
-
-        //        Error("记录输出异常：" + ex.Message);
-        //    }
-
-        //    finally
-        //    {
-        //        if (streamWriter != null)
-        //        {
-        //            try
-        //            {
-        //                streamWriter.Flush();
-        //                streamWriter.Dispose();
-        //                streamWriter = null;
-        //            }
-        //            catch (Exception ex)
-        //            {
-
-        //                Error("记录输出异常：" + ex.Message);
-        //            }
-
-        //        }
-        //    }
-        //}
     }
     public struct Data
     {
@@ -200,7 +139,6 @@ namespace GFHelp.Core.Helper
 
         public Log userInit(string id,string m, string e=null)
         {
-            //log = new Log();
             data = new Data();
             data.ID = getLogID();
             data.AccountID = id;
@@ -266,12 +204,6 @@ namespace GFHelp.Core.Helper
         }
         private void Add<T>(List<T> list,T data)
         {
-            //if (typeof(T) == typeof(Data))
-            //{
-            //    Data test = (Data)Convert.ChangeType(data, typeof(Data));
-            //    Viewer.FrontsystemLogs.Add(test);
-            //}
-
             if (list.Count >= SystemOthers.ConfigData.ListStoreNum)
             {
                 list.RemoveAt(0);

@@ -20,7 +20,6 @@ namespace GFHelp.Core
         public static Dictionary<int, Fairy_Type_Info> fairy_type_info = new Dictionary<int, Fairy_Type_Info>();
         public static Dictionary<int, Fairy_Info> fairy_info = new Dictionary<int, Fairy_Info>();
         public static Dictionary<int, float> equip_exp_Rate_info = new Dictionary<int, float>();
-        public static Dictionary<int, Equip_Info> equip_info = new Dictionary<int, Equip_Info>();
         public static tBaseDatas<Gun_Info> listGunInfo = new tBaseDatas<Gun_Info>();
         public static Dictionary<int, Gun_Type_Info> gun_type_info = new Dictionary<int, Gun_Type_Info>();
         public static Dictionary<int, Kalina_Favor_Info> kalina_favor_info = new Dictionary<int, Kalina_Favor_Info>();
@@ -54,7 +53,6 @@ namespace GFHelp.Core
             fairy_info.Clear();
             equip_exp_info.Clear();
             gun_exp_info.Clear();
-            equip_info.Clear();
             listGunInfo.Clear();
             gun_type_info.Clear();
             kalina_favor_info.Clear();
@@ -141,9 +139,17 @@ namespace GFHelp.Core
         {
             try
             {
-                foreach (var item in jsonobj.gun_exp_info)
+                JsonData jsonData = JsonMapper.ToObject(jsonobj.ToString());
+                JsonData jsonData23 = jsonData["gun_exp_info"];
+                GameData.dictGunUpLevelExp = new Dictionary<int, int>();
+                GameData.dictLevelToSumExp = new Dictionary<int, int>();
+                GameData.dictLevelToSumExp[0] = 0;
+                for (int num16 = 0; num16 < jsonData23.Count; num16++)
                 {
-                    gun_exp_info.Add(Convert.ToInt32(item.lv), Convert.ToInt32(item.exp));
+                    int @int = jsonData23[num16]["lv"].Int;
+                    int int2 = jsonData23[num16]["exp"].Int;
+                    GameData.dictGunUpLevelExp.Add(@int, int2);
+                    GameData.dictLevelToSumExp.Add(@int, int2 + ((@int <= 1) ? 0 : GameData.dictLevelToSumExp[@int - 1]));
                 }
             }
             catch (Exception e)
@@ -235,92 +241,44 @@ namespace GFHelp.Core
         }
         private static bool ReadCatchData_equip_exp_info(dynamic jsonobj)
         {
-            try
+            GameData.listEquipInfo = new tBaseDatas<EquipInfo>();
+            JsonData jsonData = JsonMapper.ToObject(jsonobj.ToString());
+            if (jsonData.Contains("equip_exp_info"))
             {
-                foreach (var item in jsonobj.equip_exp_info)
+                GameData.dictEquipmentExpInfo = new Dictionary<int, int>();
+                JsonData jsonData33 = jsonData["equip_exp_info"];
+                if (jsonData33 != null)
                 {
-                    equip_exp_info.Add(Convert.ToInt32(item.level), Convert.ToInt32(item.exp));
+                    for (int num26 = 1; num26 <= jsonData33.Count; num26++)
+                    {
+                        int value = int.Parse(jsonData33[num26 - 1]["exp"].ToString());
+                        GameData.dictEquipmentExpInfo.Add(num26, value);
+                    }
                 }
-            }
-            catch (Exception e)
-            {
-                new Log().systemInit("读取CatchData_equip_exp_info遇到错误", e.ToString()).coreError();
-                return false;
             }
             return true;
         }
         private static bool ReadCatchData_equip_info(dynamic jsonobj)
         {
-            try
+            GameData.listEquipInfo = new tBaseDatas<EquipInfo>();
+            JsonData jsonData = JsonMapper.ToObject(jsonobj.ToString());
+            JsonData jsonData32 = jsonData["equip_info"];
+            if (jsonData32 != null)
             {
-                foreach (var item in jsonobj.equip_info)
+                for (int num25 = 0; num25 < jsonData32.Count; num25++)
                 {
-                    Equip_Info ei = new Equip_Info();
-                    ei.id = Convert.ToInt32(item.id);
-                    ei.name = item.name.ToString();
-                    ei.description = item.description.ToString();
-                    ei.rank = Convert.ToInt32(item.rank);
-                    ei.category = Convert.ToInt32(item.category);//具体类型
-                    ei.type = Convert.ToInt32(item.type);//3大类
-                    ei.pow = item.pow.ToString();
-                    ei.hit = item.hit.ToString();
-                    ei.dodge = item.dodge.ToString();
-                    ei.speed = item.speed.ToString();
-                    ei.rate = item.rate.ToString();
-                    ei.critical_harm_rate = item.critical_harm_rate.ToString();
-
-                    foreach (var x in item.critical_percent.Split(','))
+                    try
                     {
-
-                        if (String.IsNullOrEmpty(x)) continue;
-                        ei.critical_percent.Add(Convert.ToInt32(x));
+                        EquipInfo data13 = new EquipInfo(jsonData32[num25]);
+                        GameData.listEquipInfo.Add(data13);
                     }
-
-                    ei.armor_piercing = item.armor_piercing.ToString();
-                    ei.armor = item.armor.ToString();
-                    ei.shield = item.shield.ToString();
-                    ei.damage_amplify = item.damage_amplify.ToString();
-                    ei.damage_reduction = item.damage_reduction.ToString();
-                    ei.night_view_percent = item.night_view_percent.ToString();
-                    ei.bullet_number_up = item.bullet_number_up.ToString();
-                    ei.slow_down_percent = item.slow_down_percent.ToString();
-                    int.TryParse(item.slow_down_rate, out ei.slow_down_rate);
-                    int.TryParse(item.slow_down_time, out ei.slow_down_time);
-                    ei.dot_percent = item.dot_percent.ToString();
-                    int.TryParse(item.dot_damage, out ei.dot_damage);
-                    int.TryParse(item.dot_time, out ei.dot_time);
-                    int.TryParse(item.retire_mp, out ei.retire_mp);
-                    int.TryParse(item.retire_ammo, out ei.retire_ammo);
-                    int.TryParse(item.retire_mre, out ei.retire_mre);
-                    int.TryParse(item.retire_part, out ei.retire_part);
-                    ei.code = item.code.ToString();
-                    int.TryParse(item.develop_duration, out ei.develop_duration);
-                    ei.company = item.company.ToString();
-                    int.TryParse(item.skill_level_up, out ei.skill_level_up);
-                    ei.fit_guns = item.fit_guns.ToString();
-                    ei.equip_introduction = item.equip_introduction.ToString();
-
-                    double.TryParse(item.powerup_mp, out ei.powerup_mp);
-                    double.TryParse(item.powerup_ammo, out ei.powerup_ammo);
-                    double.TryParse(item.powerup_mre, out ei.powerup_mre);
-                    double.TryParse(item.powerup_part, out ei.powerup_part);
-                    float.TryParse(item.exclusive_rate, out ei.exclusive_rate);//专有没办法的啦 3倍
-
-                    ei.bonus_type = item.bonus_type.ToString();
-
-                    int.TryParse(item.skill, out ei.skill);
-                    int.TryParse(item.max_level, out ei.max_level);
-
-
-
-                    equip_info.Add(ei.id - 1, ei);
+                    catch(Exception e)
+                    {
+                        new Log().systemInit("读取CatchData_equip_info遇到错误", e.ToString()).coreError();
+                    }
                 }
             }
-            catch (Exception e)
-            {
-                new Log().systemInit("读取CatchData_equip_info遇到错误", e.ToString()).coreError();
-                return false;
-            }
+
             return true;
         }
         private static bool ReadCatchData_fairy_type_info(dynamic jsonobj)
@@ -587,17 +545,7 @@ namespace GFHelp.Core
             return true;
         }
 
-        public static int getEquipDevTimeFromID(int id)
-        {
-            foreach (var item in equip_info)
-            {
-                if (item.Value.id == id)
-                {
-                    return item.Value.develop_duration;
-                }
-            }
-            return 999999999;
-        }
+
         public static int getFairyDevTimeFromID(int id)
         {
             foreach (var item in fairy_info)
@@ -626,19 +574,5 @@ namespace GFHelp.Core
             }
             return OperationtInfo;
         }
-        public static bool Check_equipRank5(int equip_id)
-        {
-            foreach (var item in equip_info)
-            {
-                if (item.Value.id == equip_id && item.Value.rank == 5)
-                {
-                    return true;
-                }
-            }
-            return false;
-        }
-
-
-
     }
 }
