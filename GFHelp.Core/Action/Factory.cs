@@ -147,7 +147,7 @@ namespace GFHelp.Core.Action
                     case -1:
                         {
                             userData.webData.StatusBarText = "Get_Set_UserInfo";
-                            Home.GetUserInfo(userData);
+                            userData.home.GetUserInfo();
                             break;
                         }
                     default:
@@ -411,7 +411,7 @@ namespace GFHelp.Core.Action
                                 return false;
                             }
                             userData.webData.StatusBarText = "Get_Set_UserInfo";
-                            Home.GetUserInfo(userData);
+                           userData.home.GetUserInfo();
                             break;
                         }
                     default:

@@ -13,15 +13,19 @@ namespace GFHelp.Core.Action
     public class Mission
     {
         private UserData userData;
+        public Mission(UserData userData)
+        {
+            this.userData = userData;
+        }
         class Data
         {
             public Data()
             {
                 assembly = Assembly.LoadFile(AppDomain.CurrentDomain.BaseDirectory + "GFHelp.Mission.dll");
-                typeMap_Sent = assembly.GetType("GFHelp.Mission.Map_Sent");
+                typeMap_Controller = assembly.GetType("GFHelp.Mission.Map_Controller");
             }
             public Assembly assembly;
-            public Type typeMap_Sent;
+            public Type typeMap_Controller;
             public Type type = null;
             public Type neededType;
             public object missionType;
@@ -29,18 +33,14 @@ namespace GFHelp.Core.Action
             public Data init(string taskMap)
             {
 
-                neededType = typeMap_Sent.GetNestedType(taskMap);
+                neededType = typeMap_Controller.GetNestedType(taskMap);
                 missionType = neededType.GetField("missionType").GetValue(null);
                 instance = assembly.CreateInstance("GFHelp.Mission." + missionType.ToString());
-                type= assembly.GetType("GFHelp.Mission." + missionType.ToString());
+                type = assembly.GetType("GFHelp.Mission." + missionType.ToString());
                 return this;
             }
         }
 
-        public void SetUserdata(UserData ud)
-        {
-            userData = ud;
-        }
 
         public void Test(UserData userData)
         {
@@ -88,8 +88,7 @@ namespace GFHelp.Core.Action
             //检查是否需要重新登陆
             if (ubti.LoopTime % SystemOthers.ConfigData.BL_ReLogin_num == 0)
             {
-                userData.Task.Add(TaskList.GetuserInfo);
-
+                userData.eventAction.GetUserInfo();
             }
 
             //是否达到客服要求 多用于练级
@@ -125,7 +124,7 @@ namespace GFHelp.Core.Action
 
         public void ContinueLoopBattle()
         {
-            userData.Task.Add(TaskList.TaskBattle_1);
+            userData.eventAction.TaskBattle_1();
         }
     }
 }

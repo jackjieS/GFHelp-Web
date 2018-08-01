@@ -25,7 +25,6 @@
       "GFHelp.Web/1.0.0": {
         "dependencies": {
           "GFHelp.Core": "1.0.0",
-          "GFHelp.LocalChatClient": "1.0.0",
           "Microsoft.AspNetCore.All": "2.1.0",
           "Microsoft.AspNetCore.SignalR.Client": "1.0.0",
           "Microsoft.EntityFrameworkCore.Sqlite": "2.1.0",
@@ -639,29 +638,17 @@
       "GFHelp.Core/1.0.0": {
         "dependencies": {
           "Microsoft.AspNetCore.SignalR.Client": "1.0.0",
-          "Newtonsoft.Json": "11.0.2"
-        },
-        "runtime": {
-          "GFHelp.Core.dll": {}
-        },
-        "compile": {
-          "GFHelp.Core.dll": {}
-        }
-      },
-      "GFHelp.LocalChatClient/1.0.0": {
-        "dependencies": {
-          "GFHelp.Core": "1.0.0",
-          "Microsoft.AspNetCore.SignalR.Client": "1.0.0",
+          "Newtonsoft.Json": "11.0.2",
           "LitJson": "1.0.0.0",
           "UnityEngine": "0.0.0.0",
           "AuthCode": "1.0.0.0",
           "ICSharpCode.SharpZipLib": "0.86.0.518"
         },
         "runtime": {
-          "GFHelp.LocalChatClient.dll": {}
+          "GFHelp.Core.dll": {}
         },
         "compile": {
-          "GFHelp.LocalChatClient.dll": {}
+          "GFHelp.Core.dll": {}
         }
       },
       "LitJson.Reference/1.0.0.0": {
@@ -4424,11 +4411,6 @@
       "hashPath": "system.linq.parallel.4.3.0.nupkg.sha512"
     },
     "GFHelp.Core/1.0.0": {
-      "type": "project",
-      "serviceable": false,
-      "sha512": ""
-    },
-    "GFHelp.LocalChatClient/1.0.0": {
       "type": "project",
       "serviceable": false,
       "sha512": ""

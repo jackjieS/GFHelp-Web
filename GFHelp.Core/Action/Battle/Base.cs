@@ -8,11 +8,12 @@ using System.Text;
 
 namespace GFHelp.Core.Action.BattleBase
 {
-    public class Spots
+    public class Spot
     {
-        public Spots(int spot_id)
+        public Spot(int spot_id,int key)
         {
             this.spot_id = spot_id;
+            this.team_loc = key;
         }
         public int spot_id
         {
@@ -24,7 +25,7 @@ namespace GFHelp.Core.Action.BattleBase
             set;
             get;
         }
-
+        public int team_loc;
     }
 
     public class user_rec
@@ -101,17 +102,19 @@ namespace GFHelp.Core.Action.BattleBase
 
     public class TeamMove
     {
-        public TeamMove(int from_spot_id, int to_spot_id, int move_type)
+        public TeamMove(int from_spot_id, int to_spot_id, int move_type,int teamLOC)
         {
             this.from_spot_id = from_spot_id;
             this.to_spot_id = to_spot_id;
             this.move_type = move_type;
+            this.teamLOC = teamLOC;
         }
         //{"team_id":6,"from_spot_id":3033,"to_spot_id":3038,"move_type":1}
         public int team_id { set; get; }
         public int from_spot_id { set; get; }
         public int to_spot_id { set; get; }
         public int move_type { set; get; }
+        public int teamLOC { set; get; }
     }
 
 

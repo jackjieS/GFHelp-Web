@@ -63,3 +63,198 @@
 【02:52:05】      message = 获取UserInfo , exception = 
 【02:52:08】      message = 签到 , exception = 
 【02:52:08】      message = 查询新邮件 , exception = 
+【17:40:15】      message = 数字天空登陆 , exception = 
+【17:40:16】      message = 获取时间信息 , exception = 
+【17:40:17】      message = 获取Sign , exception = 
+【17:40:18】      message = 获取UserInfo , exception = 
+【17:40:23】      message = 签到 , exception = 
+【17:40:23】      message = 查询新邮件 , exception = 
+【17:40:37】      message = 当前teammove 步数 0 
+【17:41:20】      message = 数字天空登陆 , exception = 
+【17:41:20】      message = 获取时间信息 , exception = 
+【17:41:21】      message = 获取Sign , exception = 
+【17:41:22】      message = 获取UserInfo , exception = 
+【17:41:32】      message = 签到 , exception = 
+【17:41:32】      message = 查询新邮件 , exception = 
+【17:41:33】      message = 终止作战 , exception = 
+【17:41:51】      message = 当前teammove 步数 0 
+【17:42:01】      message = 当前teammove 步数 1 
+【17:42:10】      message = 当前teammove 步数 2 
+【17:42:12】      message = 当前teammove 步数 3 
+【17:42:29】      message = 当前teammove 步数 4 
+【17:42:38】      message = 当前teammove 步数 5 
+【17:50:13】      message = 数字天空登陆 , exception = 
+【17:50:14】      message = 获取时间信息 , exception = 
+【17:50:15】      message = 获取Sign , exception = 
+【17:50:16】      message = 获取UserInfo , exception = 
+【17:50:20】      message = 签到 , exception = 
+【17:50:20】      message = 查询新邮件 , exception = 
+【17:51:21】      message = 数字天空登陆 , exception = 
+【17:51:22】      message = 获取时间信息 , exception = 
+【17:51:23】      message = 获取Sign , exception = 
+【17:51:23】      message = 获取UserInfo , exception = 
+【17:51:32】      message = 签到 , exception = 
+【17:51:32】      message = 查询新邮件 , exception = 
+【17:52:34】      message = 数字天空登陆 , exception = 
+【17:52:35】      message = 获取时间信息 , exception = 
+【17:52:36】      message = 获取Sign , exception = 
+【17:52:36】      message = 获取UserInfo , exception = 
+【17:52:40】      message = 签到 , exception = 
+【17:52:40】      message = 查询新邮件 , exception = 
+【19:21:35】      message = 数字天空登陆 , exception = 
+【19:21:36】      message = 获取时间信息 , exception = 
+【19:21:37】      message = 获取Sign , exception = 
+【19:21:38】      message = 获取UserInfo , exception = 
+【19:21:42】      message = 签到 , exception = 
+【19:21:42】      message = 查询新邮件 , exception = 
+【19:23:51】      message = 数字天空登陆 , exception = 
+【19:23:55】      message = 获取时间信息 , exception = 
+【19:23:59】      message = 获取Sign , exception = 
+【19:24:00】      message = 获取UserInfo , exception = 
+【19:24:09】      message = 签到 , exception = 
+【19:24:09】      message = 查询新邮件 , exception = 
+【19:24:49】      message = 数字天空登陆 , exception = 
+【19:24:49】      message = 获取时间信息 , exception = 
+【19:24:50】      message = 获取Sign , exception = 
+【19:24:51】      message = 获取UserInfo , exception = 
+【19:24:59】      message = 签到 , exception = 
+【19:24:59】      message = 查询新邮件 , exception = 
+【19:25:00】      message = 数字天空登陆 , exception = 
+【19:25:01】      message = 获取时间信息 , exception = 
+【19:25:01】      message = 获取Sign , exception = 
+【19:25:02】      message = 获取UserInfo , exception = 
+【19:25:12】      message = 签到 , exception = 
+【19:25:12】      message = 查询新邮件 , exception = 
+【19:25:13】      message = jackjieS 无法开始作战任务，请登陆游戏检查 
+【19:25:38】      message = 数字天空登陆 , exception = 
+【19:25:38】      message = 获取时间信息 , exception = 
+【19:25:39】      message = 获取Sign , exception = 
+【19:25:40】      message = 获取UserInfo , exception = 
+【19:25:49】      message = 签到 , exception = 
+【19:25:49】      message = 查询新邮件 , exception = 
+【19:25:58】      message = 数字天空登陆 , exception = 
+【19:25:59】      message = 获取时间信息 , exception = 
+【19:25:59】      message = 获取Sign , exception = 
+【19:26:00】      message = 获取UserInfo , exception = 
+【19:26:04】      message = 签到 , exception = 
+【19:26:04】      message = 查询新邮件 , exception = 
+【19:26:08】      message = 数字天空登陆 , exception = 
+【19:26:09】      message = 获取时间信息 , exception = 
+【19:26:10】      message = 获取Sign , exception = 
+【19:26:10】      message = 获取UserInfo , exception = 
+【19:26:23】      message = 签到 , exception = 
+【19:26:23】      message = 查询新邮件 , exception = 
+【19:26:25】      message = jackjieS 无法开始作战任务，请登陆游戏检查 
+【19:29:58】      message = 数字天空登陆 , exception = 
+【19:29:58】      message = 获取时间信息 , exception = 
+【19:30:00】      message = 获取Sign , exception = 
+【19:30:00】      message = 获取UserInfo , exception = 
+【19:30:08】      message = 签到 , exception = 
+【19:30:08】      message = 查询新邮件 , exception = 
+【21:50:17】      message = 数字天空登陆 , exception = 
+【21:50:17】      message = 数字天空登陆 , exception = 
+【21:50:18】      message = 获取时间信息 , exception = 
+【21:50:18】      message = 获取时间信息 , exception = 
+【21:50:19】      message = 获取Sign , exception = 
+【21:50:19】      message = 获取Sign , exception = 
+【21:50:20】      message = 获取UserInfo , exception = 
+【21:50:20】      message = 获取UserInfo , exception = 
+【21:50:24】      message = 签到 , exception = 
+【21:50:24】      message = 查询新邮件 , exception = 
+【21:50:29】      message = 签到 , exception = 
+【21:50:29】      message = 查询新邮件 , exception = 
+【21:51:19】      message = 数字天空登陆 , exception = 
+【21:51:19】      message = 数字天空登陆 , exception = 
+【21:51:19】      message = 获取时间信息 , exception = 
+【21:51:23】      message = 获取Sign , exception = 
+【21:51:24】      message = 获取UserInfo , exception = 
+【21:51:28】      message = 获取时间信息 , exception = 
+【21:51:32】      message = 获取Sign , exception = 
+【21:51:33】      message = 获取UserInfo , exception = 
+【21:52:10】      message = 数字天空登陆 , exception = 
+【21:52:25】      message = 获取时间信息 , exception = 
+【21:52:29】      message = 获取Sign , exception = 
+【21:52:30】      message = 获取UserInfo , exception = 
+【21:53:38】      message = 签到 , exception = 
+【21:53:38】      message = 查询新邮件 , exception = 
+【21:54:37】      message = 数字天空登陆 , exception = 
+【21:54:41】      message = 获取时间信息 , exception = 
+【21:54:42】      message = 获取Sign , exception = 
+【21:54:43】      message = 获取UserInfo , exception = 
+【22:02:13】      message = 数字天空登陆 , exception = 
+【22:02:35】      message = 获取时间信息 , exception = 
+【22:03:01】      message = 获取Sign , exception = 
+【22:03:33】      message = 获取UserInfo , exception = 
+【22:05:50】      message = 数字天空登陆 , exception = 
+【22:06:32】      message = LoginDigitalSKY , exception = false System.Net.WebException: 由于连接方在一段时间后没有正确答复或连接的主机没有反应，连接尝试失败。 由于连接方在一段时间后没有正确答复或连接的主机没有反应，连接尝试失败。 ---> System.Net.Http.HttpRequestException: 由于连接方在一段时间后没有正确答复或连接的主机没有反应，连接尝试失败。 ---> System.Net.Sockets.SocketException: 由于连接方在一段时间后没有正确答复或连接的主机没有反应，连接尝试失败。
+   at System.Net.Http.ConnectHelper.ConnectAsync(String host, Int32 port, CancellationToken cancellationToken)
+   --- End of inner exception stack trace ---
+   at System.Net.Http.ConnectHelper.ConnectAsync(String host, Int32 port, CancellationToken cancellationToken)
+   at System.Threading.Tasks.ValueTask`1.get_Result()
+   at System.Net.Http.HttpConnectionPool.CreateConnectionAsync(HttpRequestMessage request, CancellationToken cancellationToken)
+   at System.Threading.Tasks.ValueTask`1.get_Result()
+   at System.Net.Http.HttpConnectionPool.WaitForCreatedConnectionAsync(ValueTask`1 creationTask)
+   at System.Threading.Tasks.ValueTask`1.get_Result()
+   at System.Net.Http.HttpConnectionPool.SendWithRetryAsync(HttpRequestMessage request, Boolean doRequestAuth, CancellationToken cancellationToken)
+   at System.Net.Http.RedirectHandler.SendAsync(HttpRequestMessage request, CancellationToken cancellationToken)
+   at System.Net.Http.HttpClient.FinishSendAsyncUnbuffered(Task`1 sendTask, HttpRequestMessage request, CancellationTokenSource cts, Boolean disposeCts)
+   at System.Net.HttpWebRequest.SendRequest()
+   at System.Net.HttpWebRequest.GetResponse()
+   --- End of inner exception stack trace ---
+   at System.Net.HttpWebRequest.GetResponse()
+   at System.Net.WebClient.GetWebResponse(WebRequest request)
+   at System.Net.WebClient.DownloadBits(WebRequest request, Stream writeStream)
+   at System.Net.WebClient.UploadBits(WebRequest request, Stream readStream, Byte[] buffer, Int32 chunkSize, Byte[] header, Byte[] footer)
+   at System.Net.WebClient.UploadDataInternal(Uri address, String method, Byte[] data, WebRequest& request)
+   at System.Net.WebClient.UploadData(Uri address, String method, Byte[] data)
+   at System.Net.WebClient.UploadData(String address, String method, Byte[] data)
+   at GFHelp.Core.API.BaseRequset.DoPost(String url, Byte[] postData) in C:\Users\jack\Desktop\CS\GFHelp-Web\GFHelp.Core\API\BaseRequset.cs:line 40
+【03:10:00】      message = 数字天空登陆 , exception = 
+【03:10:01】      message = 获取时间信息 , exception = 
+【03:10:02】      message = 获取Sign , exception = 
+【03:10:03】      message = 获取UserInfo , exception = 
+【03:10:10】      message = 签到 , exception = 
+【03:10:11】      message = 查询新邮件 , exception = 
+【02:01:33】      message = 数字天空登陆 , exception = 
+【02:01:34】      message = 获取时间信息 , exception = 
+【02:01:35】      message = 获取Sign , exception = 
+【02:01:40】      message = 获取UserInfo , exception = 
+【02:01:48】      message = 签到 , exception = 
+【02:01:49】      message = 查询新邮件 , exception = 
+【02:01:50】      message = 后勤结束失败 , exception = error:3
+【03:18:44】      message = 数字天空登陆 , exception = 
+【03:18:45】      message = 获取时间信息 , exception = 
+【03:18:46】      message = 获取Sign , exception = 
+【03:18:46】      message = 获取UserInfo , exception = 
+【03:18:51】      message = 签到 , exception = 
+【03:18:51】      message = 查询新邮件 , exception = 
+【03:22:02】      message = 数字天空登陆 , exception = 
+【03:22:03】      message = 获取时间信息 , exception = 
+【03:22:04】      message = 获取Sign , exception = 
+【03:22:05】      message = 获取UserInfo , exception = 
+【03:22:09】      message = 签到 , exception = 
+【03:22:09】      message = 查询新邮件 , exception = 
+【03:23:59】      message = 数字天空登陆 , exception = 
+【03:24:00】      message = 获取时间信息 , exception = 
+【03:24:01】      message = 获取Sign , exception = 
+【03:24:02】      message = 获取UserInfo , exception = 
+【03:24:06】      message = 签到 , exception = 
+【03:24:06】      message = 查询新邮件 , exception = 
+【04:47:20】      message = 数字天空登陆 , exception = 
+【04:47:21】      message = 获取时间信息 , exception = 
+【04:47:22】      message = 获取Sign , exception = 
+【04:47:23】      message = 获取UserInfo , exception = 
+【04:47:29】      message = 签到 , exception = 
+【04:47:29】      message = 查询新邮件 , exception = 
+【05:00:55】      message = 数字天空登陆 , exception = 
+【05:00:57】      message = 获取时间信息 , exception = 
+【05:00:57】      message = 获取Sign , exception = 
+【05:00:58】      message = 获取UserInfo , exception = 
+【05:01:03】      message = 签到 , exception = 
+【05:01:03】      message = 查询新邮件 , exception = 
+【05:10:56】      message = 数字天空登陆 , exception = 
+【05:10:57】      message = 获取时间信息 , exception = 
+【05:10:58】      message = 获取Sign , exception = 
+【05:10:58】      message = 获取UserInfo , exception = 
+【05:11:03】      message = 签到 , exception = 
+【05:11:03】      message = 查询新邮件 , exception = 

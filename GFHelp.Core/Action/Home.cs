@@ -2,6 +2,7 @@
 
 using GFHelp.Core.Helper;
 using GFHelp.Core.Management;
+using GFHelp.Core.MulitePlayerData;
 using LitJson;
 using System;
 using System.Collections.Generic;
@@ -13,20 +14,25 @@ namespace GFHelp.Core.Action
 {
     public class Home
     {
-        public static bool Login(UserData userData)
+        private UserData userData;
+        public Home(UserData userData)
+        {
+            this.userData = userData;
+        }
+        public bool Login()
         {
 
             if (string.IsNullOrEmpty(userData.GameAccount.Base.YunDouDou))
             {
                 new Log().userInit(userData.GameAccount.Base.GameAccountID, "数字天空登陆", "").userInfo();
                 userData.webData.StatusBarText = "数字天空登陆";
-                if (!LoginDigitalSKY(userData)) return false;
+                if (!LoginDigitalSKY()) return false;
                 new Log().userInit(userData.GameAccount.Base.GameAccountID, "获取时间信息", "").userInfo();
                 userData.webData.StatusBarText = "获取时间信息";
-                if (!Index_version(userData)) return false;
+                if (!Index_version()) return false;
                 new Log().userInit(userData.GameAccount.Base.GameAccountID, "获取Sign", "").userInfo();
                 userData.webData.StatusBarText = "获取Sign";
-                if (!GetDigitalUid(userData)) return false;
+                if (!GetDigitalUid()) return false;
             }
             else
             {
@@ -36,29 +42,24 @@ namespace GFHelp.Core.Action
             }
             new Log().userInit(userData.GameAccount.Base.GameAccountID, "获取UserInfo", "").userInfo();
             userData.webData.StatusBarText = "获取UserInfo";
-            if (!GetUserInfo(userData)) return false;
+            if (!GetUserInfo()) return false;
             new Log().userInit(userData.GameAccount.Base.GameAccountID, "签到", "").userInfo();
             userData.webData.StatusBarText = "签到";
 
-            if (!Attendance(userData)) return false;
+            if (!Attendance()) return false;
             new Log().userInit(userData.GameAccount.Base.GameAccountID, "查询新邮件", "").userInfo();
             userData.webData.StatusBarText = "查询新邮件";
-            Mail(userData);
+            Mail();
             userData.battle.Abort_Mission_login();
             userData.config.AutoRelogin = true;
             userData.config.LoginSuccessful = true;//开始自动任务循环
             return true;
         }
 
-
-
-
-
-
-        public static bool GetUserInfo(UserData userData)
+        public bool GetUserInfo()
         {
-
-            string result = _GetUserInfo(userData);
+            userData.webData.StatusBarText = "开始游戏登陆";
+            string result = _GetUserInfo();
             if (result.Contains("error")) return false;
             var jsonobj = DynamicJson.Parse(result); //讲道理，我真不想写了
             JsonData jsonData = JsonMapper.ToObject(result);
@@ -67,7 +68,7 @@ namespace GFHelp.Core.Action
         }
 
 
-        private static string _GetUserInfo(UserData userData)
+        private string _GetUserInfo()
         {
 
             int count = 0;
@@ -123,35 +124,35 @@ namespace GFHelp.Core.Action
             return buffer.ToString();
         }
 
-        private static bool LoginDigitalSKY(UserData userdata)
+        private bool LoginDigitalSKY()
         {
             int count = 0;
             while (true)
             {
-                string result = API.Login.Digitalsky(userdata.GameAccount);
-                if (Response.Check(userdata.GameAccount, ref result, "LoginFirstUrl", false) == 1)
+                string result = API.Login.Digitalsky(userData.GameAccount);
+                if (Response.Check(userData.GameAccount, ref result, "LoginFirstUrl", false) == 1)
                 {
                     var jsonobj = DynamicJson.Parse(result); //讲道理，我真不想写了
-                    userdata.GameAccount.access_token = jsonobj.access_token.ToString();
-                    userdata.GameAccount.openid = jsonobj.openid.ToString();
+                    userData.GameAccount.access_token = jsonobj.access_token.ToString();
+                    userData.GameAccount.openid = jsonobj.openid.ToString();
                     return true;
                 }
-                if (Response.Check(userdata.GameAccount, ref result, "LoginFirstUrl", false) == 0)
+                if (Response.Check(userData.GameAccount, ref result, "LoginFirstUrl", false) == 0)
                 {
-                    if (count++ >= userdata.config.ErrorCount)
+                    if (count++ >= userData.config.ErrorCount)
                     {
                         new Log().systemInit("LoginDigitalSKY", result.ToString()).coreError();
-                        new Log().userInit(userdata.GameAccount.Base.GameAccountID, "LoginDigitalSKY", result.ToString()).userInfo();
+                        new Log().userInit(userData.GameAccount.Base.GameAccountID, "LoginDigitalSKY", result.ToString()).userInfo();
                         return false;
                     }
                     continue;
                 }
-                if (Response.Check(userdata.GameAccount, ref result, "LoginFirstUrl", false) == -1)
+                if (Response.Check(userData.GameAccount, ref result, "LoginFirstUrl", false) == -1)
                 {
-                    if (count++ >= userdata.config.ErrorCount)
+                    if (count++ >= userData.config.ErrorCount)
                     {
                         new Log().systemInit("LoginDigitalSKY", result.ToString()).coreError();
-                        new Log().userInit(userdata.GameAccount.Base.GameAccountID, "LoginDigitalSKY", result.ToString()).userInfo();
+                        new Log().userInit(userData.GameAccount.Base.GameAccountID, "LoginDigitalSKY", result.ToString()).userInfo();
                         return false;
                     }
                     continue;
@@ -166,39 +167,7 @@ namespace GFHelp.Core.Action
             //return result;
         }
 
-
-        public static string Index_version()
-        {
-            IDictionary<string, string> parameters = new Dictionary<string, string>();
-            parameters.Add("", "");
-            try
-            {
-                var req_id = Decrypt.ConvertDateTime_China_Int(DateTime.Now);
-                parameters.Add("req_id", req_id.ToString());
-            }
-            catch (Exception e)
-            {
-                new Log().systemInit("Index_version", e.ToString()).coreError();
-            }
-
-
-            string data = StringBuilder_(parameters);
-            string result = "";
-
-            while (true)
-            {
-                result = API.BaseRequset.DoPost("http://gf-adrgw-cn-zs-game-0001.ppgame.com/index.php/1000/" + URL.Index_version, data.ToString());//明码不需要解密
-                if (result.Contains("data_version"))
-                {
-                    var jsonobj = DynamicJson.Parse(result); //讲道理，我真不想写了
-                    SystemOthers.ConfigData.tomorrow_zero = Convert.ToInt32(jsonobj.tomorrow_zero);
-                    SystemOthers.ConfigData.weekday = Convert.ToInt32(jsonobj.weekday);
-                    return jsonobj.data_version.ToString(); ;
-                }
-            }
-        }
-
-        private static bool Index_version(UserData userData)//这个API发的是当前时间戳？
+        public  bool Index_version()//这个API发的是当前时间戳？
         {
 
             IDictionary<string, string> parameters = new Dictionary<string, string>();
@@ -239,8 +208,40 @@ namespace GFHelp.Core.Action
                 }
             }
         }
+        public static string Index_version(bool a)//这个API发的是当前时间戳？
+        {
 
-        private static bool GetDigitalUid(UserData userData)
+            IDictionary<string, string> parameters = new Dictionary<string, string>();
+            parameters.Add("", "");
+            try
+            {
+                parameters.Add("req_id", Decrypt.ConvertDateTime_China_Int(DateTime.Now).ToString());
+            }
+            catch (Exception e)
+            {
+                new Log().systemInit("Index_version", e.ToString()).coreError();
+
+            }
+            string data = StringBuilder_(parameters);
+            string result = "";
+            int count = 0;
+            while (true)
+            {
+                result = API.BaseRequset.DoPost("http://gf-adrgw-cn-zs-game-0001.ppgame.com/index.php/1000/" + URL.Index_version, data.ToString());
+                if (Response.Check(ref result, "Index_version") == 1)
+                {
+                    var jsonobj = DynamicJson.Parse(result); //讲道理，我真不想写了
+                    return jsonobj.data_version.ToString(); 
+                }
+                if (Response.Check(ref result, "Index_version") == 0) { continue; }
+                if (Response.Check(ref result, "Index_version") == -1)
+                {
+                    if (count++ >= 2) return "";
+                    continue; /*特殊处理我还没想好*/;
+                }
+            }
+        }
+        private bool GetDigitalUid()
         {
             IDictionary<string, string> parameters = new Dictionary<string, string>();
             parameters.Add("openid", userData.GameAccount.openid);
@@ -281,7 +282,7 @@ namespace GFHelp.Core.Action
             }
         }
 
-        private static bool Attendance(UserData userData)
+        private bool Attendance()
         {
             if (Decrypt.ConvertDateTime_China_Int(DateTime.Now) >userData.user_Record.attendance_type1_time)
             {
@@ -294,7 +295,7 @@ namespace GFHelp.Core.Action
         /// Mail只处理签到信息
         /// 可能会处理友情点 资源
         /// </summary>
-        public static void Mail(UserData userData)
+        public void Mail()
         {
             var jsonobj = DynamicJson.Parse("");
             bool Loop = true;
@@ -415,7 +416,7 @@ namespace GFHelp.Core.Action
 
         }
 
-        public static void changeLock(UserData userData, List<int> listlockid, List<int> listUnlockid)
+        public void changeLock(List<int> listlockid, List<int> listUnlockid)
         {
             StringBuilder sb = new StringBuilder();
             JsonWriter jsonWriter = new JsonWriter(sb);
@@ -471,7 +472,47 @@ namespace GFHelp.Core.Action
             }
         }
 
+        public void Click_Kalina()
+        {
+            if (userData.kalina_with_user_info.click_num < 5)
+            {
+                string result = API.Kalina.Click_kalinaFavor(userData.GameAccount);
+                if (result.Contains("1"))
+                {
+                    userData.webData.StatusBarText = String.Format(" Kalina好感度 + 1 ");
+                    userData.kalina_with_user_info.click_num++;
+                }
+            }
+        }
+        public void ClickGirlsFavor()
+        {
+            if (!userData.others.ClickGrilsFavor) return;
+            foreach (var k in userData.Teams)
+            {
+                foreach (var x in k.Value)
+                {
+                    if (x.Value.canClick == 1)
+                    {
+                        userData.dorm_with_user_info.ClickGirlsFavor();
+                        userData.others.ClickGrilsFavor = false;
+                        return;
+                    }
+                }
+            }
+            userData.others.ClickGrilsFavor = false;
+        }
+        public void DailyReFlash()
+        {
+            if (userData.GameAccount.tomorrow_zero == 0) return;
 
+            if (userData.config.AutoRelogin && DateTime.Now.Minute == 35 && DateTime.Now.Second == 1)
+            {
+                userData.GameAccount.tomorrow_zero = 2101948800;
+                userData.config.AutoRelogin = false;
+                userData.eventAction.Login();
+            }
+            return;
+        }
 
     }
 }

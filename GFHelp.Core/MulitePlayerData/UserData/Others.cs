@@ -10,7 +10,7 @@ namespace GFHelp.Core.MulitePlayerData
     public class Others
     {
         private UserData userData;
-        public void setUserData(UserData userData)
+        public Others(UserData userData)
         {
             this.userData = userData;
         }

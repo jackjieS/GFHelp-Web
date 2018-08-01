@@ -28,7 +28,7 @@ namespace GFHelp.Web.Controllers
         {
             foreach (var item in context.AccountInfo.ToList())
             {
-                if (item.Username == username && item.Policy == "admin")
+                if (item.Username == username && item.Policy == "1")
                 {
                     return true;
                 }
@@ -68,41 +68,7 @@ namespace GFHelp.Web.Controllers
 
         }
 
-        /// <summary>
-        /// 删除一条系统记录信息
-        /// </summary>
-        /// <returns></returns>
-        //[Route("/System/RemoveLog")]
-        //[HttpGet]
-        //public IActionResult RemoveLog()
-        //{
-        //    string username = User.FindFirst(ClaimTypes.NameIdentifier)?.Value;
-        //    if (isAdmin(username))
-        //    {
-        //        if (Core.Helper.Viewer.systemLogs.Count != 0)
-        //        {
-        //            Core.Helper.Viewer.systemLogs.RemoveAt(0);
-        //        }
-        //        return Ok(new
-        //        {
-        //            code = 1,
-        //            data = Core.Helper.Viewer.systemLogs,
-        //            message = string.Format("删除成功")
 
-        //        });
-        //    }
-        //    else
-        //    {
-        //        return Ok(new
-        //        {
-        //            code = -1,
-        //            data = "error",
-        //            message = string.Format("请使用管理员账号登陆")
-
-        //        });
-        //    }
-
-        //}
 
         /// <summary>
         /// 删除全部系统消息信息
@@ -190,7 +156,7 @@ namespace GFHelp.Web.Controllers
             Log log = new Log().systemInit(DateTime.Now.ToString()).coreInfo();
             Task.Run(()=> 
             {
-                LocalChatClient.Client.SendSystemNotice(log.data);
+                Core.SignaIRClient.SendSystemNotice(log.data);
             });
             return Ok(new
             {

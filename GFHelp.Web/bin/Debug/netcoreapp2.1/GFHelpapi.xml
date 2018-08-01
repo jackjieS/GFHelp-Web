@@ -292,11 +292,5 @@
             </summary>
             <param name="ID"></param>
         </member>
-        <member name="M:GFHelp.Web.Chat.Logoff(System.String)">
-            <summary>
-            ChatHub 注销用户
-            </summary>
-            <param name="WebAccountId"></param>
-        </member>
     </members>
 </doc>

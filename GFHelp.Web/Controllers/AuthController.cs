@@ -55,6 +55,7 @@ namespace GFHelp.Web.Controllers
             {
                 Username = accInfo.Username,
                 Password = accInfo.Password,
+                Policy="2"
             });
             var count = context.SaveChanges();
 

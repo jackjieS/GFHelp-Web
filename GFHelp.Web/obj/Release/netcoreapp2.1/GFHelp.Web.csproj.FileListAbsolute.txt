@@ -47,13 +47,11 @@ C:\Users\jack\Desktop\CS\GFHelp-Web\GFHelp.Web\bin\Release\netcoreapp2.1\GFHelp.
 C:\Users\jack\Desktop\CS\GFHelp-Web\GFHelp.Web\bin\Release\netcoreapp2.1\GFHelp.Web.Views.dll
 C:\Users\jack\Desktop\CS\GFHelp-Web\GFHelp.Web\bin\Release\netcoreapp2.1\GFHelp.Web.Views.pdb
 C:\Users\jack\Desktop\CS\GFHelp-Web\GFHelp.Web\bin\Release\netcoreapp2.1\GFHelp.Core.dll
-C:\Users\jack\Desktop\CS\GFHelp-Web\GFHelp.Web\bin\Release\netcoreapp2.1\GFHelp.LocalChatClient.dll
 C:\Users\jack\Desktop\CS\GFHelp-Web\GFHelp.Web\bin\Release\netcoreapp2.1\LitJson.dll
 C:\Users\jack\Desktop\CS\GFHelp-Web\GFHelp.Web\bin\Release\netcoreapp2.1\UnityEngine.dll
 C:\Users\jack\Desktop\CS\GFHelp-Web\GFHelp.Web\bin\Release\netcoreapp2.1\AuthCode.dll
 C:\Users\jack\Desktop\CS\GFHelp-Web\GFHelp.Web\bin\Release\netcoreapp2.1\ICSharpCode.SharpZipLib.dll
 C:\Users\jack\Desktop\CS\GFHelp-Web\GFHelp.Web\bin\Release\netcoreapp2.1\GFHelp.Core.pdb
-C:\Users\jack\Desktop\CS\GFHelp-Web\GFHelp.Web\bin\Release\netcoreapp2.1\GFHelp.LocalChatClient.pdb
 C:\Users\jack\Desktop\CS\GFHelp-Web\GFHelp.Web\obj\Release\netcoreapp2.1\GFHelp.Web.csprojAssemblyReference.cache
 C:\Users\jack\Desktop\CS\GFHelp-Web\GFHelp.Web\obj\Release\netcoreapp2.1\GFHelp.Web.csproj.CoreCompileInputs.cache
 C:\Users\jack\Desktop\CS\GFHelp-Web\GFHelp.Web\obj\Release\netcoreapp2.1\GFHelp.Web.RazorAssemblyInfo.cache

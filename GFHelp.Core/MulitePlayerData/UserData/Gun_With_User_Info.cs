@@ -139,13 +139,7 @@ namespace GFHelp.Core.MulitePlayerData
             dicGun_Combine.Clear();
             foreach (var item in dicGun)
             {
-                if (!item.Value.isLocked) continue;
-                //if (im.userdatasummery.CheckGunStatus(item.Value)) continue;
-                if (teamID != -1)
-                {
-                    if (item.Value.teamId != teamID) continue;
-                }
-
+                if (item.Value.teamId != teamID) continue;
                 //2扩
                 if (item.Value.level >= 10 && item.Value.level < 30)
                 {

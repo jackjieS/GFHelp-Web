@@ -7,6 +7,7 @@ using System.Threading.Tasks;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.SignalR;
 using GFHelp.Core.Management;
+using GFHelp.Core;
 using static GFHelp.Core.SignaIRClient;
 
 namespace GFHelp.Web
@@ -137,7 +138,7 @@ namespace GFHelp.Web
                     user.isAdmin = false;
                     foreach (var k in Core.SystemOthers.ConfigData.WebUserData)
                     {
-                        if (k.Username == name && k.Policy == "admin")
+                        if (k.Username == name && k.Policy == "1")
                         {
                             user.isAdmin = true;
                         }
@@ -195,7 +196,7 @@ namespace GFHelp.Web
             await Task.Run(() => {
                 foreach (var item in Core.SystemOthers.ConfigData.WebUserData)
                 {
-                    if(item.Username == ID && item.Policy == "admin")
+                    if(item.Username == ID && item.Policy == "1")
                     {
                         Core.Helper.Viewer.systemLogs.Clear();
                         return 1;
@@ -211,7 +212,7 @@ namespace GFHelp.Web
         public async Task RemoveGameNotice(string ID)
         {
             await Task.Run(() => {
-                var listId = userList
+                var listId = Core.SignaIRClient.userList
                     .Where(t =>
                     t.SignalRName == Context.ConnectionId)
                     .Select(t => t.SignalRName).ToList();
@@ -227,17 +228,7 @@ namespace GFHelp.Web
 
 
 
-        /// <summary>
-        /// ChatHub 注销用户
-        /// </summary>
-        /// <param name="WebAccountId"></param>
-        public async Task Logoff(string WebAccountId)
-        {
 
-            await Task.Run(() => {
-                LocalChatClient.Client.userList.Remove(WebAccountId);
-            });
-        }
 
     }
 }

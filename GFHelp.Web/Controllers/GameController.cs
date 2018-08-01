@@ -80,7 +80,7 @@ namespace GFHelp.Web.Controllers
         public IActionResult Login([FromBody] Account account)
         {
             //加入控制符
-            Core.Management.Data.data[account.GameID].Task.Add(Core.Helper.TaskList.Login);
+            Core.Management.Data.data[account.GameID].eventAction.Login();
             return Ok(new
             {
                 code = 1,
@@ -171,7 +171,7 @@ namespace GFHelp.Web.Controllers
             }
             Core.Action.BattleBase.Normal_MissionInfo normal_MissionInfo = new Core.Action.BattleBase.Normal_MissionInfo(Core.Management.Data.data[bs.accountID], bs);
             Core.Management.Data.data[bs.accountID].normal_MissionInfo = normal_MissionInfo;
-            Core.Management.Data.data[bs.accountID].Task.Add(Core.Helper.TaskList.TaskBattle_1);
+            Core.Management.Data.data[bs.accountID].eventAction.TaskBattle_1();
             return Ok(new
             {
                 code = 1,

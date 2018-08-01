@@ -234,7 +234,6 @@ namespace GFHelp.Core.Action
                         }
                 }
             }
-            return -1;
         }
 
 

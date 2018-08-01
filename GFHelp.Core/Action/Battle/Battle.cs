@@ -13,12 +13,11 @@ namespace GFHelp.Core.Action
 {
     public class Battle
     {
-        private UserData userData;
-        public void SetUserData(UserData userData)
+        public Battle(UserData userData)
         {
-           this.userData = userData;
+            this.userData = userData;
         }
-
+        private UserData userData;
 
         public void Abort_Mission_login()
         {
@@ -62,7 +61,7 @@ namespace GFHelp.Core.Action
             }
         }
 
-        public int startMission(int mission_id, Spots[] spots)
+        public int startMission(int mission_id, Spot[] spots)
         {
             userData.webData.StatusBarText = "回合开始";
 
@@ -96,7 +95,7 @@ namespace GFHelp.Core.Action
                                 userData.normal_MissionInfo.Loop = false;
                                 return -1;
                             }
-                            Home.Login(userData);
+                            userData.home.Login();
                             userData.others.Check_Equip_GUN_FULL();
                             continue;
                         }
@@ -106,7 +105,7 @@ namespace GFHelp.Core.Action
             }
         }
 
-        public bool reinforceTeam(Spots spots, bool night = false)
+        public bool reinforceTeam(Spot spots, bool night = false)
         {
             userData.webData.StatusBarText = "部署梯队";
 
@@ -870,7 +869,7 @@ namespace GFHelp.Core.Action
                 userData.webData.StatusBarText = "LOCK";
 
                 Thread.Sleep(2000);
-                Home.changeLock(userData, listLockid, listUnLockid);
+               userData.home.changeLock(listLockid, listUnLockid);
 
             }
             else
@@ -992,17 +991,108 @@ namespace GFHelp.Core.Action
 
 
 
+        public void BP_Recover()
+        {
+            if (userData.user_Info.bp >= 6)
+            {
+                return;
+            }
+            if ((userData.user_Info.last_bp_recover_time + 7200 + 600) < (Helper.Decrypt.ConvertDateTime_China_Int(DateTime.Now)))//600是延迟10分钟
+            {
+                //如果上次恢复时间到现在当前时间差距大于两个小时 则 发送请求 
+                GetRecoverBP();
+                userData.webData.StatusBarText = "空闲";
+                userData.user_Info.last_bp_recover_time = Helper.Decrypt.ConvertDateTime_China_Int(DateTime.Now);
+            }
+
+        }
+
+        public void WriteReport_Start()
+        {
+            if (userData.others.Battery() < 1000) return;
+            if (userData.others.GlobalFreeExp < userData.outhouse_Establish_Info.Furniture_database) return;
+            if (userData.BattleReport.Start_add == true) return;
+            if (userData.BattleReport.time > 0) return;
+            userData.eventAction.BattleReport_Write();
+            userData.BattleReport.Start_add = true;
+            userData.BattleReport.Finish_add = false;
+            userData.BattleReport.StartTime = Decrypt.ConvertDateTime_China_Int(DateTime.Now);
+        }
+        public void WriteReport_Finish()
+        {
+            if (userData.BattleReport.Finish_add == true) return;
+            if (userData.BattleReport.time > 0) return;
+            userData.eventAction.BattleReport_Finish();
+            userData.BattleReport.Finish_add = true;
+            userData.BattleReport.Start_add = false;
+
+        }
 
 
+        public void Auto_Simulation_Battle()
+        {
+            if (userData.config.AutoSimulationBattleF == false) return;
+            //决定哪种模式
+            int day = (int)Helper.Decrypt.LocalDateTimeConvertToChina(DateTime.Now).DayOfWeek;
+            if (day == 3 || day == 4)
+            {
+                if (userData.user_Info.bp >= 5)
+                {
+                    userData.eventAction.Start_Trial();
+                    userData.user_Info.bp -= 5;
+                }
+            }
+
+            if (day == 1 || day == 6)
+            {
+                if (userData.user_Info.bp >= 3)
+                {
+                    userData.eventAction.Simulation_Corridor();
+                    userData.user_Info.bp -= 3;
+                }
+            }
 
 
+            if (day == 2 || day == 5 || day == 0)
+            {
+                switch (userData.user_Info.GetSimulationType())
+                {
+                    case 1:
+                        {
+                            if (userData.user_Info.bp >= 1)
+                            {
+                                userData.eventAction.Simulation_DATA();
+                                userData.user_Info.bp -= 1;
+                            }
+                            break;
+                        }
+                    case 2:
+                        {
+                            if (userData.user_Info.bp >= 2)
+                            {
+                                userData.eventAction.Simulation_DATA();
+                                userData.user_Info.bp -= 2;
+                            }
+                            break;
+                        }
+                    case 3:
+                        {
+                            if (userData.user_Info.bp >= 3)
+                            {
+                                userData.eventAction.Simulation_DATA();
+                                userData.user_Info.bp -= 3;
+                            }
+                            break;
+                        }
+                    default:
+                        break;
+                }
+            }
 
 
+        }
 
-
-
-
-        public static bool GetRecoverBP(UserData userData)
+        public bool GetRecoverBP()
         {
             userData.webData.StatusBarText = "动能点数恢复";
 

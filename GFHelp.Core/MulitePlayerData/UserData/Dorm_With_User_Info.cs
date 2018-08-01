@@ -13,6 +13,10 @@ namespace GFHelp.Core.MulitePlayerData
     /// </summary>
     public class Dorm_With_User_Info
     {
+        public Dorm_With_User_Info(UserData userData)
+        {
+            this.userData = userData;
+        }
         public void Read(dynamic jsonobj)
         {
             try
@@ -33,10 +37,7 @@ namespace GFHelp.Core.MulitePlayerData
         public int current_build_coin;
         public int build_coin_flag;
         public UserData userData;
-        public void SetUserdata(UserData ud)
-        {
-            userData = ud;
-        }
+
         private bool is3AMswitchStart = false;
         private bool is15PMswitchStart = false;
         private bool is11PMswitchMineStart = false;
@@ -46,13 +47,14 @@ namespace GFHelp.Core.MulitePlayerData
         {
             DateTime BeijingTimeNow = Decrypt.LocalDateTimeConvertToChina(DateTime.Now);
             //3点
-            if (BeijingTimeNow.Hour * 60 + BeijingTimeNow.Minute == (60 * 3 + 1))
+            if (BeijingTimeNow.Hour * 60 + BeijingTimeNow.Minute == (60 * 3 + 10))
             {
                 if (is3AMswitchStart == false)
                 {
                     Task getFriendBattery = new Task(() => FriendBattery(userData));
                     is3AMswitchStart = true;
                     getFriendBattery.Start();
+                    
                 }
             }
             else
@@ -61,21 +63,21 @@ namespace GFHelp.Core.MulitePlayerData
             }
 
 
-            if (BeijingTimeNow.Hour * 60 + BeijingTimeNow.Minute == (60 * 15 + 1))
+            if (BeijingTimeNow.Hour * 60 + BeijingTimeNow.Minute == (60 * 15 + 10))
             {
                 if (is15PMswitchStart == false)
                 {
                     Task getFriendBattery = new Task(() => FriendBattery(userData));
-                    is3AMswitchStart = true;
+                    is15PMswitchStart = true;
                     getFriendBattery.Start();
                 }
             }
             else
             {
-                is3AMswitchStart = false;
+                is15PMswitchStart = false;
             }
 
-            if (BeijingTimeNow.Hour * 60 + BeijingTimeNow.Minute == (60 * 11 + 1))
+            if (BeijingTimeNow.Hour * 60 + BeijingTimeNow.Minute == (60 * 11 + 10))
             {
                 if (is11PMswitchMineStart == false)
                 {
@@ -93,7 +95,7 @@ namespace GFHelp.Core.MulitePlayerData
             }
 
             //17点
-            if (BeijingTimeNow.Hour * 60 + BeijingTimeNow.Minute == (60 * 17 + 1))
+            if (BeijingTimeNow.Hour * 60 + BeijingTimeNow.Minute == (60 * 17 + 10))
             {
 
                 if (is17PMswitchMineStart == false)
@@ -115,7 +117,62 @@ namespace GFHelp.Core.MulitePlayerData
 
         }
 
+        public void ClickGirlsFavor()
+        {
+            //编列梯队列表
+            //梯队内人形can_click ==1 则发送post
+            //根据result can_click +1;
 
+            for (int x = 1; x <= userData.Teams.Count; x++)
+            {
+                if (userData.Teams[x].Count == 0) continue;
+                for (int y = 1; y <= userData.Teams[x].Count; y++)
+                {
+                    try
+                    {
+                        if (string.IsNullOrEmpty(userData.Teams[x][y].location.ToString())) continue;
+                    }
+                    catch (Exception)
+                    {
+                        continue;
+                    }
+
+                    if (userData.Teams[x][y].canClick == 1)
+                    {
+                        bool Loop = true;
+                        int count = 0;
+                        while (Loop)
+                        {
+                            string result = API.Dorm.ClickGirlsFavor(userData.GameAccount, x, userData.Teams[x][y].id);
+                            switch (Helper.Response.Check(userData.GameAccount, ref result, "ClickGirlsFavor", true))
+                            {
+                                case 1:
+                                    {
+                                        var jsonobj = DynamicJson.Parse(result);
+                                        result = jsonobj.favor_click.ToString();
+                                        userData.webData.StatusBarText = String.Format(" 第 {0} 宿舍 少女 {1} 好感度提升 result = {2}", x, userData.Teams[x][y].gun_id.ToString(), result);
+                                        userData.Teams[x][y].canClick++;
+                                        Loop = false;
+                                        break;
+                                    }
+                                case 0:
+                                    {
+                                        if (count++ >= userData.config.ErrorCount) break;
+                                        break;
+                                    }
+                                case -1:
+                                    {
+                                        if (count++ >= userData.config.ErrorCount) break;
+                                        break;
+                                    }
+                                default: break;
+                            }
+                        }
+                    }
+                }
+            }
+
+        }
 
 
         private void FriendBattery(UserData userData)
@@ -146,7 +203,6 @@ namespace GFHelp.Core.MulitePlayerData
                         {
                             var jsonobj = DynamicJson.Parse(result);
                             return Convert.ToInt32(jsonobj.build_coin_flag.ToString());
-
                         }
                     case 0:
                         {

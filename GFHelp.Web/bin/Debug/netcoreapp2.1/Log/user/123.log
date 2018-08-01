@@ -1,0 +1,34 @@
+【05:25:14】      message = 获取UserInfo , exception = 
+【05:25:17】      message = 签到 , exception = 
+【05:25:17】      message = 查询新邮件 , exception = 
+【05:26:05】      message = teamMove Error , exception = error:2
+【05:26:08】      message = endTurn Error , exception = error:2
+【05:26:13】      message = Simulation_battleFinish Error , exception = error:2
+【05:26:16】      message = startTurn Error , exception = error:2
+【05:26:25】      message = teamMove Error , exception = error:203|行动点数计算有误
+【05:26:33】      message = teamMove Error , exception = error:203|行动点数计算有误
+【05:26:40】      message = teamMove Error , exception = error:203|行动点数计算有误
+【05:32:01】      message = 获取UserInfo , exception = 
+【05:32:04】      message = 签到 , exception = 
+【05:32:04】      message = 查询新邮件 , exception = 
+【05:32:04】      message = 终止作战 , exception = 
+【05:33:08】      message = teamMove Error , exception = error:2
+【05:33:11】      message = endTurn Error , exception = error:2
+【05:34:47】      message = 获取UserInfo , exception = 
+【05:34:50】      message = 签到 , exception = 
+【05:34:50】      message = 查询新邮件 , exception = 
+【05:34:50】      message = 终止作战 , exception = 
+【05:35:35】      message = 获取UserInfo , exception = 
+【05:35:36】      message = 获取UserInfo , exception = 
+【05:35:38】      message = 签到 , exception = 
+【05:35:38】      message = 查询新邮件 , exception = 
+【05:35:39】      message = 签到 , exception = 
+【05:35:39】      message = 查询新邮件 , exception = 
+【05:35:39】      message = 终止作战 , exception = 
+【05:35:39】      message = 终止作战 , exception = 
+【05:38:08】      message = 5_1 成功 
+【05:38:56】      message = 5_2 成功 
+【05:40:26】      message = 5_3 成功 
+【05:40:52】      message = 5_4 成功 
+【05:42:08】      message = 5_5 成功 
+【05:42:32】      message = 5_6BOSS 成功 , exception = 

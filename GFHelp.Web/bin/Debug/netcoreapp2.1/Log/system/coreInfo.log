@@ -210,3 +210,201 @@
 【02:22:09】      message = 读取文字解析 
 【02:22:09】      message = updataCatchData 
 【02:22:12】      message = 引用作战dll 
+【17:39:49】      message = 读取config配置 
+【17:39:49】      message = 读取文字解析 
+【17:39:49】      message = updataCatchData 
+【17:39:52】      message = 引用作战dll 
+【17:40:51】      message = 读取config配置 
+【17:40:51】      message = 读取文字解析 
+【17:40:51】      message = updataCatchData 
+【17:40:54】      message = 引用作战dll 
+【17:49:47】      message = 读取config配置 
+【17:49:47】      message = 读取文字解析 
+【17:49:47】      message = updataCatchData 
+【17:49:50】      message = 引用作战dll 
+【17:51:14】      message = 读取config配置 
+【17:51:14】      message = 读取文字解析 
+【17:51:14】      message = updataCatchData 
+【17:51:17】      message = 引用作战dll 
+【17:52:18】      message = 读取config配置 
+【17:52:18】      message = 读取文字解析 
+【17:52:18】      message = updataCatchData 
+【17:52:21】      message = 引用作战dll 
+【19:21:12】      message = 读取config配置 
+【19:21:12】      message = 读取文字解析 
+【19:21:12】      message = updataCatchData 
+【19:21:15】      message = 引用作战dll 
+【19:23:27】      message = 读取config配置 
+【19:23:27】      message = 读取文字解析 
+【19:23:27】      message = updataCatchData 
+【19:23:39】      message = 引用作战dll 
+【19:29:45】      message = 读取config配置 
+【19:29:45】      message = 读取文字解析 
+【19:29:45】      message = updataCatchData 
+【19:29:48】      message = 引用作战dll 
+【21:49:39】      message = 读取config配置 
+【21:49:39】      message = 读取文字解析 
+【21:49:39】      message = updataCatchData 
+【21:49:42】      message = 引用作战dll 
+【21:51:04】      message = 读取config配置 
+【21:51:04】      message = 读取文字解析 
+【21:51:04】      message = updataCatchData 
+【21:51:07】      message = 引用作战dll 
+【21:51:52】      message = 读取config配置 
+【21:51:52】      message = 读取文字解析 
+【21:51:52】      message = updataCatchData 
+【21:52:04】      message = 引用作战dll 
+【21:53:10】      message = 删除游戏实例data出现错误. GFHelp.Core.Management.GameAccountBase , exception = System.PlatformNotSupportedException: Thread abort is not supported on this platform.
+   at System.Threading.Thread.Abort()
+   at GFHelp.Web.Controllers.AccountController.delGameAccount(GameAccountBase gameAccountBase) in C:\Users\jack\Desktop\CS\GFHelp-Web\GFHelp.Web\Controllers\AccountController.cs:line 64
+【21:53:49】      message = 读取config配置 
+【21:53:49】      message = 读取文字解析 
+【21:53:49】      message = updataCatchData 
+【21:54:12】      message = 引用作战dll 
+【22:01:41】      message = 读取config配置 
+【22:01:41】      message = 读取文字解析 
+【22:01:41】      message = updataCatchData 
+【22:01:44】      message = 引用作战dll 
+【22:03:22】      message = 解析sign出现错误 , exception = System.ArgumentNullException: Buffer cannot be null.
+Parameter name: buffer
+   at System.IO.MemoryStream..ctor(Byte[] buffer, Boolean writable)
+   at GFHelp.Core.Helper.Response.Check(GameAccount gameAccount, String& result, String type, Boolean need_decode) in C:\Users\jack\Desktop\CS\GFHelp-Web\GFHelp.Core\Helper\ResponseCheck.cs:line 50
+【22:05:20】      message = 读取config配置 
+【22:05:20】      message = 读取文字解析 
+【22:05:20】      message = updataCatchData 
+【22:05:25】      message = 引用作战dll 
+【22:06:32】      message = LoginDigitalSKY , exception = false System.Net.WebException: 由于连接方在一段时间后没有正确答复或连接的主机没有反应，连接尝试失败。 由于连接方在一段时间后没有正确答复或连接的主机没有反应，连接尝试失败。 ---> System.Net.Http.HttpRequestException: 由于连接方在一段时间后没有正确答复或连接的主机没有反应，连接尝试失败。 ---> System.Net.Sockets.SocketException: 由于连接方在一段时间后没有正确答复或连接的主机没有反应，连接尝试失败。
+   at System.Net.Http.ConnectHelper.ConnectAsync(String host, Int32 port, CancellationToken cancellationToken)
+   --- End of inner exception stack trace ---
+   at System.Net.Http.ConnectHelper.ConnectAsync(String host, Int32 port, CancellationToken cancellationToken)
+   at System.Threading.Tasks.ValueTask`1.get_Result()
+   at System.Net.Http.HttpConnectionPool.CreateConnectionAsync(HttpRequestMessage request, CancellationToken cancellationToken)
+   at System.Threading.Tasks.ValueTask`1.get_Result()
+   at System.Net.Http.HttpConnectionPool.WaitForCreatedConnectionAsync(ValueTask`1 creationTask)
+   at System.Threading.Tasks.ValueTask`1.get_Result()
+   at System.Net.Http.HttpConnectionPool.SendWithRetryAsync(HttpRequestMessage request, Boolean doRequestAuth, CancellationToken cancellationToken)
+   at System.Net.Http.RedirectHandler.SendAsync(HttpRequestMessage request, CancellationToken cancellationToken)
+   at System.Net.Http.HttpClient.FinishSendAsyncUnbuffered(Task`1 sendTask, HttpRequestMessage request, CancellationTokenSource cts, Boolean disposeCts)
+   at System.Net.HttpWebRequest.SendRequest()
+   at System.Net.HttpWebRequest.GetResponse()
+   --- End of inner exception stack trace ---
+   at System.Net.HttpWebRequest.GetResponse()
+   at System.Net.WebClient.GetWebResponse(WebRequest request)
+   at System.Net.WebClient.DownloadBits(WebRequest request, Stream writeStream)
+   at System.Net.WebClient.UploadBits(WebRequest request, Stream readStream, Byte[] buffer, Int32 chunkSize, Byte[] header, Byte[] footer)
+   at System.Net.WebClient.UploadDataInternal(Uri address, String method, Byte[] data, WebRequest& request)
+   at System.Net.WebClient.UploadData(Uri address, String method, Byte[] data)
+   at System.Net.WebClient.UploadData(String address, String method, Byte[] data)
+   at GFHelp.Core.API.BaseRequset.DoPost(String url, Byte[] postData) in C:\Users\jack\Desktop\CS\GFHelp-Web\GFHelp.Core\API\BaseRequset.cs:line 40
+【03:09:21】      message = 读取config配置 
+【03:09:21】      message = 读取文字解析 
+【03:09:21】      message = updataCatchData 
+【03:09:24】      message = 引用作战dll 
+【03:33:33】      message = 读取config配置 
+【03:33:33】      message = 读取文字解析 
+【03:33:33】      message = updataCatchData 
+【03:33:36】      message = 引用作战dll 
+【03:41:40】      message = 读取config配置 
+【03:41:40】      message = 读取文字解析 
+【03:41:40】      message = updataCatchData 
+【03:41:43】      message = 引用作战dll 
+【03:43:22】      message = 读取config配置 
+【03:43:22】      message = 读取文字解析 
+【03:43:22】      message = updataCatchData 
+【03:43:25】      message = 引用作战dll 
+【03:43:50】      message = 读取config配置 
+【03:43:50】      message = 读取文字解析 
+【03:43:50】      message = updataCatchData 
+【03:43:53】      message = 引用作战dll 
+【03:44:45】      message = 读取config配置 
+【03:44:45】      message = 读取文字解析 
+【03:44:45】      message = updataCatchData 
+【03:44:48】      message = 引用作战dll 
+【03:45:55】      message = 读取config配置 
+【03:45:55】      message = 读取文字解析 
+【03:45:55】      message = updataCatchData 
+【03:45:58】      message = 引用作战dll 
+【03:52:49】      message = 读取config配置 
+【03:52:49】      message = 读取文字解析 
+【03:52:49】      message = updataCatchData 
+【03:52:52】      message = 引用作战dll 
+【04:20:06】      message = 读取config配置 
+【04:20:06】      message = 读取文字解析 
+【04:20:06】      message = updataCatchData 
+【04:20:09】      message = 引用作战dll 
+【04:20:29】      message = 读取config配置 
+【04:20:29】      message = 读取文字解析 
+【04:20:29】      message = updataCatchData 
+【04:20:32】      message = 引用作战dll 
+【04:23:27】      message = 读取config配置 
+【04:23:27】      message = 读取文字解析 
+【04:23:27】      message = updataCatchData 
+【04:23:30】      message = 引用作战dll 
+【01:07:47】      message = 读取config配置 
+【01:07:47】      message = 读取文字解析 
+【01:07:47】      message = updataCatchData 
+【01:07:50】      message = 引用作战dll 
+【01:55:46】      message = 读取config配置 
+【01:55:46】      message = 读取文字解析 
+【01:55:46】      message = updataCatchData 
+【01:55:49】      message = 引用作战dll 
+【02:01:11】      message = 读取config配置 
+【02:01:11】      message = 读取文字解析 
+【02:01:11】      message = updataCatchData 
+【02:01:14】      message = 引用作战dll 
+【03:18:21】      message = 读取config配置 
+【03:18:21】      message = 读取文字解析 
+【03:18:21】      message = updataCatchData 
+【03:18:24】      message = 引用作战dll 
+【03:21:46】      message = 读取config配置 
+【03:21:46】      message = 读取文字解析 
+【03:21:46】      message = updataCatchData 
+【03:21:49】      message = 引用作战dll 
+【03:23:51】      message = 读取config配置 
+【03:23:51】      message = 读取文字解析 
+【03:23:51】      message = updataCatchData 
+【03:23:54】      message = 引用作战dll 
+【04:46:52】      message = 读取config配置 
+【04:46:52】      message = 读取文字解析 
+【04:46:52】      message = updataCatchData 
+【04:46:55】      message = 引用作战dll 
+【04:51:58】      message = 读取config配置 
+【04:51:58】      message = 读取文字解析 
+【04:51:58】      message = updataCatchData 
+【04:52:01】      message = 引用作战dll 
+【04:55:40】      message = 读取config配置 
+【04:55:40】      message = 读取文字解析 
+【04:55:40】      message = updataCatchData 
+【04:55:43】      message = 引用作战dll 
+【04:57:01】      message = 读取config配置 
+【04:57:01】      message = 读取文字解析 
+【04:57:01】      message = updataCatchData 
+【04:57:04】      message = 引用作战dll 
+【05:00:28】      message = 读取config配置 
+【05:00:28】      message = 读取文字解析 
+【05:00:28】      message = updataCatchData 
+【05:00:31】      message = 引用作战dll 
+【05:07:30】      message = 读取config配置 
+【05:07:30】      message = 读取文字解析 
+【05:07:30】      message = updataCatchData 
+【05:07:33】      message = 引用作战dll 
+【05:10:06】      message = 读取config配置 
+【05:10:06】      message = 读取文字解析 
+【05:10:06】      message = updataCatchData 
+【05:10:09】      message = 引用作战dll 
+【05:24:48】      message = 读取config配置 
+【05:24:48】      message = 读取文字解析 
+【05:24:48】      message = updataCatchData 
+【05:24:51】      message = 引用作战dll 
+【05:31:36】      message = 读取config配置 
+【05:31:36】      message = 读取文字解析 
+【05:31:36】      message = updataCatchData 
+【05:31:39】      message = 引用作战dll 
+【05:34:27】      message = 读取config配置 
+【05:34:27】      message = 读取文字解析 
+【05:34:27】      message = updataCatchData 
+【05:34:30】      message = 引用作战dll 
+【05:35:17】      message = 读取config配置 
+【05:35:17】      message = 读取文字解析 
+【05:35:17】      message = updataCatchData 
+【05:35:20】      message = 引用作战dll 

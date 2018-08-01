@@ -61,7 +61,6 @@ namespace GFHelp.Web.Controllers
                     if (Core.Management.Data.data.ContainsKey(data.GameAccountID))
                     {
                         Core.Management.Data.data[data.GameAccountID].taskDispose = true;
-
                     }
 
                 }
@@ -100,7 +99,7 @@ namespace GFHelp.Web.Controllers
 
         private bool isAdmin(string username)
         {
-            var list = context.AccountInfo.Where(p => p.Username == username && p.Policy == "admin").ToList();
+            var list = context.AccountInfo.Where(p => p.Username == username && p.Policy == "1").ToList();
             return list.Count > 0 ? true : false;
         }
 

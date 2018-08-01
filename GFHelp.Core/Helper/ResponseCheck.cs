@@ -241,6 +241,189 @@ namespace GFHelp.Core.Helper
 
         }
 
+        public static int Check(ref string result, string type)
+        {
+            if (result == "") { return 0; }//
+            if (result.ToLower().Contains("error")) { return -1; }//我也不知道return 什么好
+            if (result.ToLower().Contains("err_msg") || result.ToLower().Contains("err_no")) return -1;
+
+            switch (type)
+            {
+
+                case "Simulation_DATA_Pro":
+                    {
+                        return result.Contains("coin_num") && result.Contains("coin_type") ? 1 : 0;
+                    }
+                case "GUN_OUTandIN_Team_PRO":
+                    {
+                        return result == "1" ? 1 : 0;
+                    }
+                case "Abort_Mission_Pro":
+                    {
+                        return result.Contains("mission_lose_result") && result.Contains("turn") && result.Contains("enemydie_num") ? 1 : 0;
+                    }
+                case "WithDraw_Team_Pro":
+                    {
+                        return result.Contains("spot_id") || result.Contains("[]") ? 1 : 0;
+                    }
+                case "Battle_Finish_Pro":
+                    {
+                        return result.Contains("user_exp") && result.Contains("battle_rank") ? 1 : 0;
+                    }
+                case "Team_Move_Pro":
+                    {
+                        return result.Contains("fairy_skill_perform") && result.Contains("fairy_skill_return") ? 1 : 0;
+                    }
+                case "Start_Mission_Pro":
+                    {
+                        return result.Contains("spot_id") ? 1 : 0;
+                    }
+                case "Eat_Equip_Pro":
+                    {
+                        return result.Contains("equip_add_exp") ? 1 : 0;
+                    }
+                case "Finish_Operation_Pro":
+                    {
+                        return result.Contains("big_success") && result.Contains("item_id") ? 1 : 0;
+                    }
+                case "StartTrial_Pro":
+                    {
+                        return result.Contains("trial_id") ? 1 : 0;
+                    }
+                case "EndTrial_Pro":
+                    {
+                        return result.Contains("reward_voucher") ? 1 : 0;
+                    }
+                case "GetFriend_DormInfo_Pro":
+                    {
+                        return result.Contains("current_build_coin") && result.Contains("build_coin_flag") ? 1 : 0;
+                    }
+                case "Get_Friend_Build_Coin_Pro":
+                    {
+                        return result.Contains("build_coin") ? 1 : 0;
+                    }
+                case "Get_RecoverBP_Pro":
+                    {
+                        return result.Contains("recover_bp") && result.Contains("last_bp_recover_time") ? 1 : 0;
+                    }
+                case "endTurn":
+                    {
+                        return result.Contains("mission_win_result") || result.Contains("fairy_skill_on_enemy") ? 1 : 0;
+                    }
+                case "startTurn":
+                    {
+                        return result.Contains("mission_lose_result") || result.Contains("mission_win_result") || result.Contains("fairy_skill_return") ? 1 : 0;
+                    }
+
+                case "EatGun":
+                    {
+                        return result.Contains("pow") && result.Contains("dodge") && result.Contains("rate") ? 1 : 0;
+                    }
+                case "Friend_visit":
+                    {
+                        return result.Contains("info") && result.Contains("user_id") && result.Contains("f_userid") ? 1 : 0;
+                    }
+                case "Friend_praise":
+                    {
+                        return result.Contains("package") && result.Contains("id") && result.Contains("user_exp") ? 1 : 0;
+                    }
+                //LoginFirstUrl
+                case "LoginFirstUrl":
+                    {
+                        return result.Contains("access_token") && result.Contains("openid") && result.Contains("result") ? 1 : 0;
+                    }
+                //Index_version
+                case "Index_version":
+                    {
+                        return result.Contains("now") && result.Contains("tomorrow_zero") && result.Contains("data_version") ? 1 : 0;
+                    }
+                //GetUserInfo
+                case "GetUserInfo":
+                    {
+                        return result.Contains("id") && result.Contains("gun") && result.Contains("user") ? 1 : 0;
+                    }
+
+                case "endEnemyTurn_PRO":
+                    {
+                        return result.Contains("ally_instance_betray") && result.Contains("mission_lose_result") && result.Contains("ally_instance_transform") ? 1 : 0;
+                    }
+                case "eventDraw":
+                    {
+                        return result.Contains("mission_campaign") && result.Contains("draw_event_id") && result.Contains("start_time") ? 1 : 0;
+                    }
+                case "night_reinforceTeam":
+                    {
+                        return result.Contains("night_spots") && result.Contains("spot_id") && result.Contains("belong") ? 1 : 0;
+                    }
+                case "FairyMissionSkill":
+                    {
+                        return result.Contains("fairy_team_id") && result.Contains("fairy_skill_perform") && result.Contains("next_skill_cd_turn") ? 1 : 0;
+                    }
+                case "Team_MoveRandom_Pro":
+                    {
+                        return result.Contains("fairy_skill_return") || result.Contains("enemy_instance_id") ? 1 : 0;
+                    }
+                case "Establish_Build":
+                    {
+                        return result.Contains("build_tmp_data") && result.Contains("build_coin") ? 1 : 0;
+                    }
+                case "Establish_Build_Finish":
+                    {
+                        return result.Contains("gift") ? 1 : 0;
+                    }
+                case "StartEquipmentDevelop":
+                    {
+                        return result.Contains("equip_id") || result.Contains("fairy_id") ? 1 : 0;
+                    }
+                case "FinishEquipmentDevelop":
+                    {
+                        return result.Contains("equip_id") || result.Contains("fairy_id") ? 1 : 0;
+                    }
+                case "missionGroupReset":
+                    {
+                        return result.Contains("mission_group_today_reset_num") ? 1 : 0;
+                    }
+                case "saveHostage":
+                    {
+                        return result.Contains("mission_win_result") ? 1 : 0;
+                    }
+                case "GetMail_Content_Pro":
+                    {
+                        return result.Contains("title") ? 1 : 0;
+                    }
+                case "ClickGirlsFavor":
+                    {
+                        return result.Contains("favor_click") ? 1 : 0;
+                    }
+                case "Get_Friend_BattaryNum":
+                    {
+                        return result.Contains("build_coin_flag") ? 1 : 0;
+                    }
+                case "Get_Friend_Battary":
+                    {
+                        return result.Contains("build_coin") ? 1 : 0;
+                    }
+                case "ifNewMail":
+                    {
+                        return result.Contains("if_new_mail") ? 1 : 0;
+                    }
+
+                case "GetMailList":
+                    {
+                        return result.Contains("title") ? 1 : 0;
+                    }
+
+                default:
+                    break;
+            }
+
+            return 1;
+
+
+
+        }
+
+
         public static string UnicodeToString(string srcText)
         {
             if (srcText.Contains("\\") == false) return srcText;

@@ -7,10 +7,14 @@ using System.Threading.Tasks;
 
 namespace GFHelp.Core.MulitePlayerData
 {
-    
+
 
     public class Operation_Act_Info
     {
+        public Operation_Act_Info(UserData userData)
+        {
+            this.userData = userData;
+        }
         public class Data
         {
             public Data()
@@ -29,11 +33,6 @@ namespace GFHelp.Core.MulitePlayerData
         public UserData userData;
         public Dictionary<int, Data> dicOperation = new Dictionary<int, Data>();
         public Data data = new Data();
-        public void SetUserdata(UserData ud)
-        {
-            userData = ud;
-        }
-
         public void TimeReduce()
         {
             //剩下时间 = 开始时间+任务时间 - 当前时间

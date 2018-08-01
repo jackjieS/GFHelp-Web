@@ -8,6 +8,7 @@ using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations;
 using System.Linq;
 using System.Text;
+using System.Threading;
 using System.Threading.Tasks;
 
 namespace GFHelp.Core.Management
@@ -22,11 +23,8 @@ namespace GFHelp.Core.Management
 
         public static void seed(UserData userData)
         {
-            userData.battle.SetUserData(userData);
-            userData.others.setUserData(userData);
-            userData.Loop.SetUserdata(userData);
-            userData.operation_Act_Info.SetUserdata(userData);
-            userData.dorm_with_user_info.SetUserdata(userData);
+
+
             if (data.ContainsKey(userData.GameAccount.Base.GameAccountID))
             {
                 data[userData.GameAccount.Base.GameAccountID] = userData;
@@ -36,17 +34,14 @@ namespace GFHelp.Core.Management
                 data.Add(userData.GameAccount.Base.GameAccountID, userData);
             }
 
-            userData.task = new Task(() => Loop.CompleteMisson(userData));
-            userData.task.Start();
             userData.cd = new Task(() => Loop.CountDown(userData));
             userData.cd.Start();
-            userData.task.ContinueWith(t => 
+            userData.cd.ContinueWith(t =>
             {
-                Task.WaitAll(userData.cd, userData.task);
+                Task.WaitAll(userData.cd);
                 string id = userData.GameAccount.Base.GameAccountID;
                 userData = null;
                 data.Remove(id);
-
             });
         }
 
@@ -95,6 +90,17 @@ namespace GFHelp.Core.Management
     }
     public class UserData
     {
+        public UserData()
+        {
+            eventAction = new EventAction(this);
+            this.battle = new Action.Battle(this);
+            this.others = new Others(this);
+            this.mission = new Mission(this);
+            this.operation_Act_Info = new Operation_Act_Info(this);
+            this.dorm_with_user_info = new Dorm_With_User_Info(this);
+            this.home = new Home(this);
+            this.auto_Summery = new Auto_Summery(this);
+        }
         public void CreatGameAccount(GameAccountBase gameAccountBase)
         {
             GameAccount.Base = gameAccountBase;
@@ -151,10 +157,12 @@ namespace GFHelp.Core.Management
             }
         }
 
-        public Task task;
         public Task cd;
         public bool taskDispose = false;
-        public Action.Battle battle = new Action.Battle();
+
+        public Auto_Summery auto_Summery;
+        public Home home;
+        public Action.Battle battle;
 
         public int Dorm_Rest_Friend_Build_Coin_Count;
         public bool Mission_S;
@@ -167,12 +175,12 @@ namespace GFHelp.Core.Management
 
         public User_Record user_Record = new User_Record();
 
-        public Operation_Act_Info operation_Act_Info = new Operation_Act_Info();
+        public Operation_Act_Info operation_Act_Info;
 
         public Equip equip_With_User_Info = new Equip();
 
         public Kalina_With_User_Info kalina_with_user_info = new Kalina_With_User_Info();
-        public Dorm_With_User_Info dorm_with_user_info = new Dorm_With_User_Info();
+        public Dorm_With_User_Info dorm_with_user_info;
         public Friend_With_User_Info friend_with_user_info = new Friend_With_User_Info();
 
         public MailList mailList = new MailList();
@@ -189,9 +197,9 @@ namespace GFHelp.Core.Management
 
         public Gun_With_User_Info gun_With_User_Info = new Gun_With_User_Info();
 
-        public Others others = new Others();
+        public Others others;
 
-        public Mission Loop = new Mission();
+        public Mission mission;
         public Normal_MissionInfo normal_MissionInfo = new Normal_MissionInfo();
         public Dictionary<int, Dictionary<int, Gun_With_User_Info>> Teams = new Dictionary<int, Dictionary<int, Gun_With_User_Info>>();//没读一次user_info都需要刷新
 
@@ -204,11 +212,9 @@ namespace GFHelp.Core.Management
         //还有一个进度信息StatusBarText
         //以Json形式扔出去
         public WebData webData = new WebData();
-        
-
-
 
         public logWriter log = new logWriter();
+        public EventAction eventAction;
     }
 
     public class Config
@@ -310,12 +316,80 @@ namespace GFHelp.Core.Management
         public string CatchDataVersion;
         public int tomorrow_zero;
         public int weekday;
-        public string GameHost = "";
+        public string GameHost = "http://gf-adrgw-cn-zs-game-0001.ppgame.com/index.php/1000/";
     }
 
 
 
+    public class EventAction
+    {
+        private UserData userData;
+        public EventAction(UserData userData)
+        {
+            this.userData = userData;
+            this.waiter = new Waiter();
+            Action += this.waiter.ActionEvent;
+        }
+        public Waiter waiter;
+        private event ActionEventHandler Action;
+        private void invoke(ActionEventArgs e)
+        {
+            if (this.Action != null)
+            {
+                this.Action.Invoke(userData, e);
+            }
+        }
 
+        public void Login()
+        {
+            invoke(new ActionEventArgs(TaskList.Login));
+        }
+        public void GetUserInfo()
+        {
+            invoke(new ActionEventArgs(TaskList.GetuserInfo));
+        }
+        public void Click_Kalina()
+        {
+            invoke(new ActionEventArgs(TaskList.Click_Kalina));
+        }
+
+        public void GetRecoverBp()
+        {
+            invoke(new ActionEventArgs(TaskList.GetRecoverBp));
+        }
+
+        public void Simulation_DATA()
+        {
+            invoke(new ActionEventArgs(TaskList.Simulation_DATA));
+        }
+        public void Simulation_Corridor()
+        {
+            invoke(new ActionEventArgs(TaskList.Simulation_Corridor));
+        }
+
+        public void TaskBattle_1()
+        {
+            invoke(new ActionEventArgs(TaskList.TaskBattle_1));
+        }
+
+        public void BattleReport_Write()
+        {
+            invoke(new ActionEventArgs(TaskList.BattleReport_Write));
+        }
+        public void BattleReport_Finish()
+        {
+            invoke(new ActionEventArgs(TaskList.BattleReport_Finish));
+        }
+        public void Start_Trial()
+        {
+            invoke(new ActionEventArgs(TaskList.Start_Trial));
+        }
+        public void Click_Girls_In_Dorm()
+        {
+            invoke(new ActionEventArgs(TaskList.Click_Girls_In_Dorm));
+        }
+
+    }
 
 
 

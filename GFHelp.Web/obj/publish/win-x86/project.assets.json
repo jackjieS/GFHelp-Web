@@ -5657,20 +5657,6 @@
         "runtime": {
           "bin/placeholder/GFHelp.Core.dll": {}
         }
-      },
-      "GFHelp.LocalChatClient/1.0.0": {
-        "type": "project",
-        "framework": ".NETCoreApp,Version=v2.1",
-        "dependencies": {
-          "GFHelp.Core": "1.0.0",
-          "Microsoft.AspNetCore.SignalR.Client": "1.0.0"
-        },
-        "compile": {
-          "bin/placeholder/GFHelp.LocalChatClient.dll": {}
-        },
-        "runtime": {
-          "bin/placeholder/GFHelp.LocalChatClient.dll": {}
-        }
       }
     },
     ".NETCoreApp,Version=v2.1/win-x86": {
@@ -11264,20 +11250,6 @@
         },
         "runtime": {
           "bin/placeholder/GFHelp.Core.dll": {}
-        }
-      },
-      "GFHelp.LocalChatClient/1.0.0": {
-        "type": "project",
-        "framework": ".NETCoreApp,Version=v2.1",
-        "dependencies": {
-          "GFHelp.Core": "1.0.0",
-          "Microsoft.AspNetCore.SignalR.Client": "1.0.0"
-        },
-        "compile": {
-          "bin/placeholder/GFHelp.LocalChatClient.dll": {}
-        },
-        "runtime": {
-          "bin/placeholder/GFHelp.LocalChatClient.dll": {}
         }
       }
     }
@@ -20384,17 +20356,11 @@
       "type": "project",
       "path": "../GFHelp.Core/GFHelp.Core.csproj",
       "msbuildProject": "../GFHelp.Core/GFHelp.Core.csproj"
-    },
-    "GFHelp.LocalChatClient/1.0.0": {
-      "type": "project",
-      "path": "../LocalHubClient/GFHelp.LocalChatClient.csproj",
-      "msbuildProject": "../LocalHubClient/GFHelp.LocalChatClient.csproj"
     }
   },
   "projectFileDependencyGroups": {
     ".NETCoreApp,Version=v2.1": [
       "GFHelp.Core >= 1.0.0",
-      "GFHelp.LocalChatClient >= 1.0.0",
       "Microsoft.AspNetCore.All >= 2.1.0",
       "Microsoft.AspNetCore.SignalR.Client >= 1.0.0",
       "Microsoft.EntityFrameworkCore.Sqlite >= 2.1.0",
@@ -20436,9 +20402,6 @@
           "projectReferences": {
             "C:\\Users\\jack\\Desktop\\CS\\GFHelp-Web\\GFHelp.Core\\GFHelp.Core.csproj": {
               "projectPath": "C:\\Users\\jack\\Desktop\\CS\\GFHelp-Web\\GFHelp.Core\\GFHelp.Core.csproj"
-            },
-            "C:\\Users\\jack\\Desktop\\CS\\GFHelp-Web\\LocalHubClient\\GFHelp.LocalChatClient.csproj": {
-              "projectPath": "C:\\Users\\jack\\Desktop\\CS\\GFHelp-Web\\LocalHubClient\\GFHelp.LocalChatClient.csproj"
             }
           }
         }

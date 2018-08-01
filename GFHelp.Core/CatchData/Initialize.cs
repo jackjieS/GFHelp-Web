@@ -12,7 +12,7 @@ namespace GFHelp.Core.CatchData
         {
 
 
-            DataVersion = Action.Home.Index_version().ToLower();
+            DataVersion = Action.Home.Index_version(true).ToLower();
 
             if (DataVersion != SystemOthers.ConfigData.DataVersion.ToLower())
             {
