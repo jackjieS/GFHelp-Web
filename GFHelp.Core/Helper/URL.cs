@@ -142,6 +142,7 @@ namespace GFHelp.Core.Helper
             if (channelID == "360") GameHost = "http://58.87.102.150/index.php/4000/";
             if (channelID == "huawei") GameHost = "http://58.87.102.150/index.php/4000/";
             if (channelID == "sunborn") GameHost = "http://gf-game.sunborngame.com/index.php/1001/";
+            if (channelID == "sunbornjp") GameHost = "http://gfjp-game.sunborngame.com/index.php/1001/";
             if (channelID == "oppo") GameHost = "http://58.87.102.150/index.php/4000/";
             return GameHost;
         }

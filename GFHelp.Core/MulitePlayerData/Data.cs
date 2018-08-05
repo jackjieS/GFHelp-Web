@@ -13,35 +13,98 @@ using System.Threading.Tasks;
 
 namespace GFHelp.Core.Management
 {
+    public class gameDatas
+    {
+        public bool Add(UserData userData)
+        {
+            foreach (UserData item in mDatas)
+            {
+                if(item.GameAccount.Base.GameAccountID == userData.GameAccount.Base.GameAccountID && item.taskDispose == false)
+                {
+                    return false;
+                }
+            }
+            mDatas.Add(userData);
+            return true;
+        }
+        public int Count
+        {
+            get
+            {
+                int count=0;
+                foreach (var item in mDatas)
+                {
+                    if (item.taskDispose == false) count++;
+                }
+                return count;
+            }
+        }
+        public UserData getDataByID(string ID)
+        {
+            foreach (var item in mDatas)
+            {
+                if(item.GameAccount.Base.GameAccountID == ID && item.taskDispose == false)
+                {
+                    return item;
+                }
+            }
+            return null;
+        }
+        public void RemoveByID(string ID)
+        {
+            for (int i = 0; i < mDatas.Count; i++)
+            {
+                if (mDatas[i].GameAccount.Base.GameAccountID == ID)
+                {
+                    mDatas.RemoveAt(i);
+                }
+            }
+        }
+        public bool ContainsKey(string id)
+        {
+            foreach (var item in mDatas)
+            {
+                if(item.GameAccount.Base.GameAccountID == id && item.taskDispose == false)
+                {
+                    return true;
+                }
+            }
+            return false;
+        }
+        public IEnumerator<UserData> GetEnumerator()
+        {
+            return this.mDatas.GetEnumerator();
+        }
+        private List<UserData> mDatas = new List<UserData>();
+
+    }
     public static class Data
     {
 
         /// <summary>
         /// 每个网站用户的游戏实例 key是游戏账户id
         /// </summary>
-        public static Dictionary<string, UserData> data = new Dictionary<string, UserData>();
-
-        public static void seed(UserData userData)
+        /// 
+        public static gameDatas data = new gameDatas();
+        //public static Dictionary<string, UserData> data = new Dictionary<string, UserData>();
+        public static void Seed(UserData userData)
         {
-
-
             if (data.ContainsKey(userData.GameAccount.Base.GameAccountID))
             {
-                data[userData.GameAccount.Base.GameAccountID] = userData;
+                return;
             }
             else
             {
-                data.Add(userData.GameAccount.Base.GameAccountID, userData);
+                data.Add(userData);
             }
 
             userData.cd = new Task(() => Loop.CountDown(userData));
             userData.cd.Start();
             userData.cd.ContinueWith(t =>
             {
-                Task.WaitAll(userData.cd);
                 string id = userData.GameAccount.Base.GameAccountID;
                 userData = null;
-                data.Remove(id);
+                data.RemoveByID(id);
             });
         }
 
@@ -50,10 +113,10 @@ namespace GFHelp.Core.Management
             WebData webData = new WebData();
             foreach (var item in data)
             {
-                if (item.Value.GameAccount.Base.GameAccountID == AccountId)
+                if (item.GameAccount.Base.GameAccountID == AccountId)
                 {
-                    item.Value.webData.Get(item.Value);
-                    webData = item.Value.webData;
+                    item.webData.Get(item);
+                    webData = item.webData;
                 }
 
             }
@@ -66,10 +129,10 @@ namespace GFHelp.Core.Management
             WebStatus WebStatus = new WebStatus();
             foreach (var item in data)
             {
-                if (item.Value.GameAccount.Base.GameAccountID == AccountId)
+                if (item.GameAccount.Base.GameAccountID == AccountId)
                 {
-                    item.Value.webData.Get(item.Value);
-                    webData = item.Value.webData;
+                    item.webData.Get(item);
+                    webData = item.webData;
                 }
 
             }
@@ -82,7 +145,7 @@ namespace GFHelp.Core.Management
         {
             UserData userdata = new UserData();
             userdata.CreatGameAccount(accountBase);
-            seed(userdata);
+            Seed(userdata);
         }
 
 

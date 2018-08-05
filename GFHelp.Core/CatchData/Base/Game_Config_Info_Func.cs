@@ -369,6 +369,7 @@ namespace GFHelp.Core.CatchData.Base
         public static Dictionary<int, int> dictGunUpLevelExp;
         public static Dictionary<int, int> dictLevelToSumExp = new Dictionary<int, int>();
         public static tBaseDatas<EquipInfo> listEquipInfo;
+        public static tBaseDatas<Gun_Info> listGunInfo = new tBaseDatas<Gun_Info>();
         public static Dictionary<int, int> dictEquipmentExpInfo;
         public static int ExpToLevel(int exp, bool isUser = false)
         {

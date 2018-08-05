@@ -1,4 +1,5 @@
-﻿using GFHelp.Core.Helper;
+﻿using GFHelp.Core.CatchData.Base;
+using GFHelp.Core.Helper;
 using System;
 using System.Collections.Generic;
 using System.Text;
@@ -14,7 +15,7 @@ namespace GFHelp.Core.MulitePlayerData
             //在catchdata里找对应的枪
             try
             {
-                foreach (var k in CatachData.listGunInfo)
+                foreach (var k in GameData.listGunInfo)
                 {
                     if (gun_id == k.id)
                     {

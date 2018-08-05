@@ -95,6 +95,7 @@ namespace GFHelp.Core.Action
         }
         public static void Equip_retire(UserData userData)
         {
+            int count = 0;
             while (true)
             {
 
@@ -146,8 +147,13 @@ namespace GFHelp.Core.Action
                         }
                     case -1:
                         {
-                            userData.webData.StatusBarText = "Get_Set_UserInfo";
-                            userData.home.GetUserInfo();
+                            if (count++ > userData.config.ErrorCount)
+                            {
+                                userData.webData.StatusBarText = "Get_Set_UserInfo";
+                                userData.home.GetUserInfo();
+                                new Log().userInit(userData.GameAccount.Base.GameAccountID, "装备强化 ERROR", result).userInfo();
+                                return;
+                            }
                             break;
                         }
                     default:
@@ -206,7 +212,6 @@ namespace GFHelp.Core.Action
                         {
                             userData.user_Info.core  -= userData.gun_With_User_Info.dicGun_Combine[0].Core_COMbineNeed;
                             userData.gun_With_User_Info.dicGun_Combine[0].number++;
-
                             new Log().userInit(userData.GameAccount.Base.GameAccountID, string.Format("人形 : {0} 扩编", userData.gun_With_User_Info.dicGun_Combine[0].id)).userInfo();
                             return;
                         }

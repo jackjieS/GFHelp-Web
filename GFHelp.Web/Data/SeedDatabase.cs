@@ -26,7 +26,7 @@ namespace GFHelp.Web.Data
             {
                 UserData ud = new UserData();
                 ud.CreatGameAccount(item);
-                Core.Management.Data.seed(ud);
+                Core.Management.Data.Seed(ud);
             }
             foreach (var item in context.AccountInfo.ToList())
             {

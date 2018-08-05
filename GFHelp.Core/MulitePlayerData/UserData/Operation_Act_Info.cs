@@ -94,8 +94,16 @@ namespace GFHelp.Core.MulitePlayerData
                     if (Action.Operation.Start_Operation_Act(userData, data) == 1)
                     {
                         data.start_time = Decrypt.ConvertDateTime_China_Int(DateTime.Now) + 10;
-                        dicOperation[i] = data;
+
+                        userData.webData.StatusBarText = String.Format("空闲 ", data.team_id);
                         return 1;
+                    }
+                    else
+                    {
+                        data.start_time = (int)DateTime.MinValue.Ticks;
+                        data.Using = false;
+                        data.remaining_time = 0;
+                        dicOperation[i] = data;
                     }
                 }
             }
@@ -106,7 +114,14 @@ namespace GFHelp.Core.MulitePlayerData
 
         public int Finish(Data data)
         {
-            return Action.Operation.Finish_Operation_Act(userData, data);
+            int result = Action.Operation.Finish_Operation_Act(userData, data);
+            if (result == -1)
+            {
+                data.start_time = (int)DateTime.MinValue.Ticks;
+                data.Using = false;
+                data.remaining_time = 0;
+            }
+            return result;
         }
 
         public bool Read(dynamic jsonobj)

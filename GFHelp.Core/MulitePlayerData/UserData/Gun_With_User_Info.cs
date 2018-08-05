@@ -29,6 +29,16 @@ namespace GFHelp.Core.MulitePlayerData
                     }
 
                     gwui.gun_id = jsonGun["gun_id"].Int;
+
+                    if (jsonGun.Contains("if_modification"))
+                    {
+                        gwui.mod = jsonGun["if_modification"].Int;
+                        //if (this.info.maxMod < this.mod)
+                        //{
+                        //    this.info.maxMod = this.mod;
+                        //}
+                    }
+
                     if (jsonGun.Contains("gun_exp"))
                     {
                         gwui.experience = jsonGun["gun_exp"].Int;
@@ -40,14 +50,7 @@ namespace GFHelp.Core.MulitePlayerData
                         gwui.teamId = jsonGun["team_id"].Int;
                     }
 
-                    if (jsonGun.Contains("if_modification"))
-                    {
-                        this.mod = jsonGun["if_modification"].Int;
-                        if (this.info.maxMod < this.mod)
-                        {
-                            this.info.maxMod = this.mod;
-                        }
-                    }
+
                     gwui.location = jsonGun["location"].Int;
                     gwui.position = jsonGun["position"].Int;
                     if (jsonGun.Contains("life"))
@@ -98,6 +101,7 @@ namespace GFHelp.Core.MulitePlayerData
                     {
                         gwui.canClick = jsonGun["can_click"].Int;
                     }
+                    gwui.info = GameData.listGunInfo.GetDataById((long)jsonGun["gun_id"].Int);
                     gwui.UpdateData();
                     //gwui.crit = Convert.ToInt32(item.crit);
                     //gwui.piercing = Convert.ToInt32(item.piercing);
@@ -109,6 +113,19 @@ namespace GFHelp.Core.MulitePlayerData
                     //gwui.fairyDodge = Convert.ToInt32(item.fairyDodge);
                     //gwui.fairyArmor = Convert.ToInt32(item.fairyArmor);
                     //gwui.criHarmRate = Convert.ToInt32(item.criHarmRate);
+
+                }
+                catch (Exception e)
+                {
+                    new Log().systemInit("读取UserData_gun_with_user_info遇到错误", e.ToString()).coreError();
+                    gwui.gun_id = 1;
+                    gwui.info = GameData.listGunInfo.GetDataById((long)jsonGun["gun_id"].Int);
+                    gwui.UpdateData();
+                    continue;
+
+                }
+                finally
+                {
                     int i = 0;
                     while (true)
                     {
@@ -119,13 +136,6 @@ namespace GFHelp.Core.MulitePlayerData
                         }
                         i++;
                     }
-                }
-                catch (Exception e)
-                {
-                    new Log().systemInit("读取UserData_gun_with_user_info遇到错误", e.ToString()).coreError();
-
-                    continue;
-
                 }
 
             }
@@ -291,11 +301,12 @@ namespace GFHelp.Core.MulitePlayerData
                         if (dicGun[i].id == id)
                         {
                             dicGun[i].experience += exp;
+                            dicGun[i].level = GameData.ExpToLevel(dicGun[i].experience, false);
                         }
                     }
                 }
 
-                //更新数据 能否升级
+
                 return true;
 
             }
@@ -668,7 +679,7 @@ namespace GFHelp.Core.MulitePlayerData
 
         public void UpdateData()
         {
-            foreach (var item in CatachData.listGunInfo)
+            foreach (var item in GameData.listGunInfo)
             {
                 if (gun_id == item.id)
                 {

@@ -80,7 +80,11 @@ namespace GFHelp.Core.Action
             ubti.LoopTime++;
 
             //检查是否需要扩编
-            Factory.CombineGun(userData);
+            if (ubti.AutoCombine)
+            {
+                Factory.CombineGun(userData);
+            }
+
             //检查是否需要拆解核心
             Gun_Retire_Core();
             //检查是否需要修复

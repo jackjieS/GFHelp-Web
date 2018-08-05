@@ -169,6 +169,7 @@ namespace GFHelp.Core.Action.BattleBase
         public int requestLv = 0;
         public bool Using = false;
         public bool StopLoopinGetNew = true;
+        public bool AutoCombine = true;
         public string Parm;
         public Normal_MissionInfo()
         {
@@ -251,39 +252,14 @@ namespace GFHelp.Core.Action.BattleBase
                     }
 
                 }
+                if (item.Contains("-combine"))
+                {
+                    this.AutoCombine = false;
+                }
 
             }
             this.TaskMap = TaskMap.Remove(0, 1);
             this.MaxLoopTime = this.LoopTime;
-        }
-
-    }
-
-    public class Simulation_MissionInfo
-    {
-
-        public int Type;// 1 初级 2 中级 3 高级
-        public int mission_id1 = 1301;
-        public int mission_id2 = 1302;
-        public int mission_id3 = 1303;
-        public double duration;
-        public double L_duration1 = 0.7f;
-        public double L_duration2 = 1.4f;
-        public double L_duration3 = 2.87f;
-        public int skill_cd;
-        public int enemy_effect_client1 = 2569;
-        public int enemy_effect_client2 = 5069;
-        public int enemy_effect_client3 = 10069;
-
-        public int enemy_life1 = 10000;
-        public int enemy_life2 = 20000;
-        public int enemy_life3 = 40000;
-
-        public void setData(int type, double duration, int skill_cd)
-        {
-            this.Type = type;
-            this.duration = duration;
-            this.skill_cd = skill_cd;
         }
 
     }
@@ -585,27 +561,69 @@ namespace GFHelp.Core.Action.BattleBase
 
     }
 
+    public class Simulation_MissionInfo
+    {
+
+        public int Type;// 1 初级 2 中级 3 高级
+        public int mission_id1 = 1301;
+        public int mission_id2 = 1302;
+        public int mission_id3 = 1303;
+        public double duration;
+        public double L_duration1 = 0.7f;
+        public double L_duration2 = 1.4f;
+        public double L_duration3 = 2.87f;
+        public int skill_cd;
+        public int enemy_effect_client1 = 2569;
+        public int enemy_effect_client2 = 5069;
+        public int enemy_effect_client3 = 10069;
+
+        public int enemy_life1 = 10000;
+        public int enemy_life2 = 20000;
+        public int enemy_life3 = 40000;
+
+        public void setData(int type, double duration, int skill_cd)
+        {
+            this.Type = type;
+            this.duration = duration;
+            this.skill_cd = skill_cd;
+        }
+
+    }
     public class Simulation_Battle_Sent
     {
+        public Simulation_Battle_Sent(Simulation_MissionInfo usbt)
+        {
+            if (usbt.Type == 1)
+            {
+                mission_id = usbt.mission_id1;
+                this.battle_time.enemy_effect_client = usbt.enemy_effect_client1;
+                this.life_enemy = usbt.enemy_life1;
+            }
+            if (usbt.Type == 2)
+            {
+                mission_id = usbt.mission_id2;
+                this.battle_time.enemy_effect_client = usbt.enemy_effect_client2;
+                this.life_enemy = usbt.enemy_life2;
+            }
+
+            if (usbt.Type == 3)
+            {
+                mission_id = usbt.mission_id3;
+                this.battle_time.enemy_effect_client = usbt.enemy_effect_client3;
+                this.life_enemy = usbt.enemy_life3;
+            }
+            this.duration = usbt.duration;
+            this.skill_cd = usbt.skill_cd;
+            this.battle_time.true_time = duration;
+        }
+
+
         public int mission_id;
         public int boss_hp = 0;
         public double duration;
         public int skill_cd;
         public int life_enemy;
         public battle_time battle_time = new battle_time();
-
-        public void set_Data(int mission_id, double duration, int skill_cd, int enemy_effect_client, int life_enemy)
-        {
-            //根据不同关卡选不同的血量
-            this.mission_id = mission_id;
-            this.duration = duration;
-            this.skill_cd = skill_cd;
-            this.battle_time.enemy_effect_client = enemy_effect_client;
-
-            this.life_enemy = life_enemy;
-
-            this.battle_time.true_time = duration;
-        }
         public string BattleResult
         {
             get

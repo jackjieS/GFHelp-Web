@@ -71,7 +71,7 @@ namespace GFHelp.Core.MulitePlayerData.WebData
             ui.GunNum = ud.gun_With_User_Info.dicGun.Count.ToString();
             ui.maxgun = ud.user_Info.maxgun.ToString();
             ui.maxteam = ud.user_Info.maxteam.ToString();
-            ui.UnlockRatio = ((int)((double)ud.user_Info.gun_collect.Count / (double)CatachData.listGunInfo.Count * 100)).ToString() + "%";
+            ui.UnlockRatio = ((int)((double)ud.user_Info.gun_collect.Count / (double)GameData.listGunInfo.Count * 100)).ToString() + "%";
             ui.KalinaLevel = ud.kalina_with_user_info.level.ToString();
             ui.KalinaFavor = ud.kalina_with_user_info.favor.ToString();
 

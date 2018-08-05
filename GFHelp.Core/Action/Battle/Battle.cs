@@ -952,11 +952,6 @@ namespace GFHelp.Core.Action
                     {
                         Factory.Equip_retire(userData);
                     }
-
-
-
-
-
                 }
 
 
@@ -1033,12 +1028,12 @@ namespace GFHelp.Core.Action
         {
             if (userData.config.AutoSimulationBattleF == false) return;
             //决定哪种模式
-            int day = (int)Helper.Decrypt.LocalDateTimeConvertToChina(DateTime.Now).DayOfWeek;
+            int day = (int)Decrypt.LocalDateTimeConvertToChina(DateTime.Now).DayOfWeek;
             if (day == 3 || day == 4)
             {
                 if (userData.user_Info.bp >= 5)
                 {
-                    userData.eventAction.Start_Trial();
+                    //userData.eventAction.Start_Trial();
                     userData.user_Info.bp -= 5;
                 }
             }
@@ -1047,7 +1042,7 @@ namespace GFHelp.Core.Action
             {
                 if (userData.user_Info.bp >= 3)
                 {
-                    userData.eventAction.Simulation_Corridor();
+                    //userData.eventAction.Simulation_Corridor();
                     userData.user_Info.bp -= 3;
                 }
             }

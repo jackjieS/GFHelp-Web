@@ -212,13 +212,10 @@ namespace GFHelp.Web
         public async Task RemoveGameNotice(string ID)
         {
             await Task.Run(() => {
-                var listId = Core.SignaIRClient.userList
-                    .Where(t =>
-                    t.SignalRName == Context.ConnectionId)
-                    .Select(t => t.SignalRName).ToList();
-                if (Core.Helper.Viewer.usersLogs.ContainsKey(listId[0]))
+              
+                if (Core.Helper.Viewer.usersLogs.ContainsKey(ID))
                 {
-                    Core.Helper.Viewer.usersLogs[listId[0]].Clear();
+                    Core.Helper.Viewer.usersLogs[ID].Clear();
                 }
                 return 1;
             });

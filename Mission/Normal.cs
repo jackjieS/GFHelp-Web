@@ -16,32 +16,65 @@ namespace GFHelp.Mission
 
         public void mapnormal(UserData userData, Normal_MissionInfo ubti)
         {
-            map2_2(userData, ubti);
-            map2_3(userData, ubti);
-            map2_4(userData, ubti);
-            map2_5(userData, ubti);
-            map2_6(userData, ubti);
-            map3_1(userData, ubti);
-            map3_2(userData, ubti);
-            map3_3(userData, ubti);
-            map3_4(userData, ubti);
-            map3_5(userData, ubti);
-            map3_6(userData, ubti);
-            map4_1(userData, ubti);
-            map4_2(userData, ubti);
-            map4_3(userData, ubti);
-            map4_4(userData, ubti);
-            map4_5(userData, ubti);
-            map4_6(userData, ubti);
-            map5_1(userData, ubti);
-            map5_2(userData, ubti);
-            map5_3(userData, ubti);
-            map5_4(userData, ubti);
-            map5_5(userData, ubti);
-            map5_6(userData, ubti);
+            map2_2(userData, ubti); userData.battle.Check_Equip_Gun_FULL();
+            map2_3(userData, ubti); userData.battle.Check_Equip_Gun_FULL();
+            map2_4(userData, ubti); userData.battle.Check_Equip_Gun_FULL();
+            map2_5(userData, ubti); userData.battle.Check_Equip_Gun_FULL();
+            map2_6(userData, ubti); userData.battle.Check_Equip_Gun_FULL();
+            map3_1(userData, ubti); userData.battle.Check_Equip_Gun_FULL();
+            map3_2(userData, ubti); userData.battle.Check_Equip_Gun_FULL();
+            map3_3(userData, ubti); userData.battle.Check_Equip_Gun_FULL();
+            map3_4(userData, ubti); userData.battle.Check_Equip_Gun_FULL();
+            map3_5(userData, ubti); userData.battle.Check_Equip_Gun_FULL();
+            map3_6(userData, ubti); userData.battle.Check_Equip_Gun_FULL();
+            map4_1(userData, ubti); userData.battle.Check_Equip_Gun_FULL();
+            map4_2(userData, ubti); userData.battle.Check_Equip_Gun_FULL();
+            map4_3(userData, ubti); userData.battle.Check_Equip_Gun_FULL();
 
+            map4_4(userData, ubti); userData.battle.Check_Equip_Gun_FULL();
+            map4_5(userData, ubti); userData.battle.Check_Equip_Gun_FULL();
+            map4_6(userData, ubti); userData.battle.Check_Equip_Gun_FULL();
+            map5_1(userData, ubti); userData.battle.Check_Equip_Gun_FULL();
+            map5_2(userData, ubti); userData.battle.Check_Equip_Gun_FULL();
+            map5_3(userData, ubti); userData.battle.Check_Equip_Gun_FULL();
+            map5_4(userData, ubti); userData.battle.Check_Equip_Gun_FULL();
+            map5_5(userData, ubti); userData.battle.Check_Equip_Gun_FULL();
+            map5_6(userData, ubti); userData.battle.Check_Equip_Gun_FULL();
+            map6_1(userData, ubti); userData.battle.Check_Equip_Gun_FULL();
+            map6_2(userData, ubti); userData.battle.Check_Equip_Gun_FULL();
+            map6_3(userData, ubti); userData.battle.Check_Equip_Gun_FULL();
+            map6_4(userData, ubti); userData.battle.Check_Equip_Gun_FULL();
+            map6_5(userData, ubti); userData.battle.Check_Equip_Gun_FULL();
+            map6_6(userData, ubti); userData.battle.Check_Equip_Gun_FULL();
             ubti.Loop = false;
         }
+        public void mapemergency(UserData userData, Normal_MissionInfo ubti)
+        {
+            map1_1e(userData, ubti); userData.battle.Check_Equip_Gun_FULL();
+            map1_2e(userData, ubti); userData.battle.Check_Equip_Gun_FULL();
+            map1_3e(userData, ubti); userData.battle.Check_Equip_Gun_FULL();
+            map1_4e(userData, ubti); userData.battle.Check_Equip_Gun_FULL();
+            userData.battle.Check_Equip_Gun_FULL();
+            map2_1e(userData, ubti); userData.battle.Check_Equip_Gun_FULL();
+            map2_2e(userData, ubti); userData.battle.Check_Equip_Gun_FULL();
+            map2_3e(userData, ubti); userData.battle.Check_Equip_Gun_FULL();
+            map2_4e(userData, ubti); userData.battle.Check_Equip_Gun_FULL();
+            userData.battle.Check_Equip_Gun_FULL();
+            map3_1e(userData, ubti); userData.battle.Check_Equip_Gun_FULL();
+            map3_2e(userData, ubti); userData.battle.Check_Equip_Gun_FULL();
+            map3_3e(userData, ubti); userData.battle.Check_Equip_Gun_FULL();
+            map3_4e(userData, ubti); userData.battle.Check_Equip_Gun_FULL();
+
+            map4_1e(userData, ubti); userData.battle.Check_Equip_Gun_FULL();
+            map4_2e(userData, ubti); userData.battle.Check_Equip_Gun_FULL();
+            map4_3e(userData, ubti); userData.battle.Check_Equip_Gun_FULL();
+            map4_4e(userData, ubti); userData.battle.Check_Equip_Gun_FULL();
+            userData.battle.Check_Equip_Gun_FULL();
+            map0_1(userData, ubti); userData.battle.Check_Equip_Gun_FULL();
+            ubti.Loop = false;
+        }
+
+
 
         public void map0_2(UserData userData, Normal_MissionInfo ubti)
         {

@@ -124,6 +124,10 @@ namespace GFHelp.Mission
         {
             public static MissionType missionType = MissionType.Normal;
         }
+        public class mapemergency
+        {
+            public static MissionType missionType = MissionType.Normal;
+        }
         public class map0_2
         {
             public map0_2(Normal_MissionInfo ubti)

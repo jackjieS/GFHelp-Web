@@ -46,9 +46,10 @@ namespace GFHelp.Core.Management
                 userData.dorm_with_user_info.ClickGirlsFavor();
                 userData.home.DailyReFlash();
                 userData.battle.BP_Recover();
+                userData.battle.Auto_Simulation_Battle();
                 //WriteReport_Start(userData);
                 //WriteReport_Finish(userData);
-                //Auto_Simulation_Battle(userData);
+
             }
 
         }

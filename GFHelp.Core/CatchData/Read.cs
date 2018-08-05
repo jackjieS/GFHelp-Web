@@ -20,7 +20,7 @@ namespace GFHelp.Core
         public static Dictionary<int, Fairy_Type_Info> fairy_type_info = new Dictionary<int, Fairy_Type_Info>();
         public static Dictionary<int, Fairy_Info> fairy_info = new Dictionary<int, Fairy_Info>();
         public static Dictionary<int, float> equip_exp_Rate_info = new Dictionary<int, float>();
-        public static tBaseDatas<Gun_Info> listGunInfo = new tBaseDatas<Gun_Info>();
+
         public static Dictionary<int, Gun_Type_Info> gun_type_info = new Dictionary<int, Gun_Type_Info>();
         public static Dictionary<int, Kalina_Favor_Info> kalina_favor_info = new Dictionary<int, Kalina_Favor_Info>();
         public static Dictionary<int, Operation_Info> operation_info = new Dictionary<int, Operation_Info>();
@@ -53,7 +53,7 @@ namespace GFHelp.Core
             fairy_info.Clear();
             equip_exp_info.Clear();
             gun_exp_info.Clear();
-            listGunInfo.Clear();
+            GameData.listGunInfo.Clear();
             gun_type_info.Clear();
             kalina_favor_info.Clear();
             operation_info.Clear();
@@ -369,7 +369,7 @@ namespace GFHelp.Core
         }
         private static void ReadCatchData_gun_info()
         {
-            TableHelper.LoadTable<Gun_Info>(ref listGunInfo, CmdDef.stcGunList, true);
+            TableHelper.LoadTable<Gun_Info>(ref GameData.listGunInfo, CmdDef.stcGunList, true);
         }
 
         private static void ReadCatchDATA_Item_Info()

@@ -85,7 +85,7 @@ namespace GFHelp.Core.Action
                         {
                             if (count++ >= userData.config.ErrorCount)
                             {
-                                new Log().userInit(userData.GameAccount.Base.GameAccountID, "后勤任务开始", result.ToString()).userInfo();
+                                new Log().userInit(userData.GameAccount.Base.GameAccountID, "后勤任务开始 ERROR", result.ToString()).userInfo();
                                 return;
                             }
 

@@ -28,14 +28,12 @@ namespace GFHelp.Core
         public async static Task seed()
         {
             build();
-            //await connectStart();
-
             Task MessageTask = new Task(() => LoopGameMessage());
             MessageTask.Start();
 
         }
-        public static Dictionary<string, WebStatus> GamesStatus = new Dictionary<string, WebStatus>();
-        public static List<WebData> GameDetails = new List<WebData>();
+        public static Dictionary<string,List<WebStatus>> GamesStatus = new Dictionary<string, List<WebStatus>>();
+        public static Dictionary<string, List<WebData>> GameDetails = new Dictionary<string, List<WebData>>();
 
 
         public async static Task SendSystemNotice(string ConnectionId)
@@ -45,6 +43,7 @@ namespace GFHelp.Core
             {
                 if (!userList[i].isAdmin) continue;
                 if (userList[i].SignalRID != ConnectionId) continue;
+                await connection.StartAsync();
                 foreach (var log in Viewer.systemLogs)
                 {
                     await connection.InvokeAsync("SendSystemNotification", userList[i].SignalRID, JsonConvert.SerializeObject(log));
@@ -58,6 +57,7 @@ namespace GFHelp.Core
             {
                 if (userList[i].isAdmin)
                 {
+                    await connection.StartAsync();
                     await connection.InvokeAsync("SendSystemNotification", userList[i].SignalRID, JsonConvert.SerializeObject(data));
                 }
             }
@@ -72,6 +72,7 @@ namespace GFHelp.Core
                 if (userList[i].SignalRID != ConnectionId) continue;
                 if (Viewer.usersLogs.ContainsKey(userList[i].SignalRName))
                 {
+                    await connection.StartAsync();
                     foreach (var item in Viewer.usersLogs[userList[i].SignalRName])
                     {
                         await connection.InvokeAsync("SendGameNotification", ConnectionId, JsonConvert.SerializeObject(item));
@@ -86,6 +87,7 @@ namespace GFHelp.Core
             for (int i = 0; i < userList.Count; i++)
             {
                 if (userList[i].SignalRName != gameID) continue;
+                await connection.StartAsync();
                 if (Viewer.usersLogs.ContainsKey(userList[i].SignalRName))
                 {
                     await connection.InvokeAsync("SendGameNotification", userList[i].SignalRID, JsonConvert.SerializeObject(data));
@@ -98,12 +100,46 @@ namespace GFHelp.Core
 
 
 
+        private static void getWebData()
+        {
+            GamesStatus.Clear();
+            GameDetails.Clear();
+            List<WebStatus> webStatuses = new List<WebStatus>();
+            foreach (var k in Management.Data.data)
+            {
+                try
+                {
+                    if (k.taskDispose == true) continue;
+                    k.webData.Get(k);
+                    if(!GamesStatus.ContainsKey(k.GameAccount.Base.WebUsername))
+                    {
+                        GamesStatus.Add(k.GameAccount.Base.WebUsername,new List<WebStatus>());
+                    }
+                    GamesStatus[k.GameAccount.Base.WebUsername].Add(k.webData.webStatus);
 
+                    if (!GameDetails.ContainsKey(k.GameAccount.Base.GameAccountID))
+                    {
+                        GameDetails.Add(k.GameAccount.Base.GameAccountID, new List<WebData>());
+                    }
+                    GameDetails[k.GameAccount.Base.GameAccountID].Add(k.webData);
 
+                }
+                catch (Exception e)
+                {
+                    new Log().systemInit("getGamesStatus Error", e.ToString()).signarlError();
+                }
+                finally
+                {
+
+                }
+
+            }
+        }
 
         private async static Task LoopGameMessage()
         {
             //检查是否有客户端 如果没有的话就不发送了
+            await connection.StartAsync();
             while (true)
             {
                 Thread.Sleep(1000);
@@ -116,61 +152,39 @@ namespace GFHelp.Core
                     await connection.StopAsync();
                     continue;
                 }
-                await connection.StartAsync();
-                for (int i = 0; i < userList.Count;i++)
+                getWebData();
+                for (int i = 0; i < userList.Count; i++)
                 {
-                    GamesStatus.Clear();
-                    foreach (var k in Management.Data.data)
-                    {
-                        if (userList[i].SignalRName == k.Value.GameAccount.Base.WebUsername)
-                        {
-                            k.Value.webData.Get(k.Value);
-                            GamesStatus.Add(k.Value.GameAccount.Base.GameAccountID, k.Value.webData.webStatus);
-                        }
-                    }
-                    if (GamesStatus.Count != 0)
+                    await connection.StartAsync();
+                    if (userList[i].SignalRName == "LocalClient") continue;
+                    if (GamesStatus.Count != 0 || GameDetails.Count != 0)
                     {
                         try
                         {
-                            await connection.InvokeAsync("SendGamesStatus", userList[i].SignalRID, JsonConvert.SerializeObject(GamesStatus));
+                            if (GamesStatus.ContainsKey(userList[i].SignalRName))
+                            {
+                                await connection.InvokeAsync("SendGamesStatus", userList[i].SignalRID, JsonConvert.SerializeObject(GamesStatus[userList[i].SignalRName]));
+                            }
+
+
                         }
                         catch (Exception e)
                         {
                             new Log().systemInit("SendGamesStatus Error", e.ToString()).signarlError();
-                        }
-                        finally
-                        {
-                            ;
-                        }
-                    }
-                }
 
-                for (int i = 0; i < userList.Count;i++)
-                {
-                    GameDetails.Clear();
-                    foreach (var k in Core.Management.Data.data)
-                    {
-                        if (userList[i].SignalRName == k.Value.GameAccount.Base.GameAccountID)
-                        {
-                            k.Value.webData.Get(k.Value);
-                            GameDetails.Add(k.Value.webData);
                         }
-                    }
-                    if (GameDetails.Count != 0)
-                    {
                         try
                         {
-                            await connection.InvokeAsync("SendGameDetails", userList[i].SignalRID, JsonConvert.SerializeObject(GameDetails));
+                            if (GameDetails.ContainsKey(userList[i].SignalRName))
+                            {
+                                await connection.InvokeAsync("SendGameDetails", userList[i].SignalRID, JsonConvert.SerializeObject(GameDetails[userList[i].SignalRName]));
+                            }
+
                         }
                         catch (Exception e)
                         {
                             new Log().systemInit("SendGameDetails Error", e.ToString()).signarlError();
                         }
-                        finally
-                        {
-                            ;
-                        }
-
                     }
                 }
             }

@@ -60,7 +60,7 @@ namespace GFHelp.Web.Controllers
                 {
                     if (Core.Management.Data.data.ContainsKey(data.GameAccountID))
                     {
-                        Core.Management.Data.data[data.GameAccountID].taskDispose = true;
+                        Core.Management.Data.data.getDataByID(data.GameAccountID).taskDispose = true;
                     }
 
                 }
@@ -89,7 +89,7 @@ namespace GFHelp.Web.Controllers
             var count = context.SaveChanges();
             UserData userdata = new UserData();
             userdata.CreatGameAccount(accInfo);
-            Core.Management.Data.seed(userdata);
+            Core.Management.Data.Seed(userdata);
             if (count != 0)
             {
                 return true;
