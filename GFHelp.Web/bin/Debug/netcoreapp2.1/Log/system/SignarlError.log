@@ -5834,3 +5834,7 @@ Parameter name: index
 【20:09:22】      message = SendGamesStatus Error , exception = System.Collections.Generic.KeyNotFoundException: The given key '18318080899' was not present in the dictionary.
    at System.Collections.Generic.Dictionary`2.get_Item(TKey key)
    at GFHelp.Core.SignaIRClient.LoopGameMessage() in C:\Users\jack\Desktop\CS\GFHelp-Web\GFHelp.Core\SignaIRClient.cs:line 164
+【02:36:20】      message = SendGameDetails Error , exception = System.ArgumentOutOfRangeException: Index was out of range. Must be non-negative and less than the size of the collection.
+Parameter name: index
+   at System.Collections.Generic.List`1.get_Item(Int32 index)
+   at GFHelp.Core.SignaIRClient.LoopGameMessage() in C:\Users\jack\Desktop\CS\GFHelp-Web\GFHelp.Core\SignaIRClient.cs:line 178

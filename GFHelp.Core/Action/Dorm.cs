@@ -17,12 +17,6 @@ namespace GFHelp.Core.Action
             this.userData = userData;
         }
 
-
-
-
-
-
-
         public static void Friend_Praise(UserData userData)
         {
 

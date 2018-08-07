@@ -981,3 +981,130 @@ Parameter name: buffer
 【08:37:14】      message = 读取UserData_gun_with_user_info遇到错误 , exception = System.NullReferenceException: Object reference not set to an instance of an object.
    at GFHelp.Core.MulitePlayerData.Gun_With_User_Info.UpdateData() in C:\Users\jack\Desktop\CS\GFHelp-Web\GFHelp.Core\MulitePlayerData\UserData\Gun_With_User_Info.cs:line 694
    at GFHelp.Core.MulitePlayerData.Gun_With_User_Info.Read(JsonData jsonobj) in C:\Users\jack\Desktop\CS\GFHelp-Web\GFHelp.Core\MulitePlayerData\UserData\Gun_With_User_Info.cs:line 105
+【08:42:21】      message = 读取UserData_gun_with_user_info遇到错误 , exception = System.NullReferenceException: Object reference not set to an instance of an object.
+   at GFHelp.Core.MulitePlayerData.Gun_With_User_Info.UpdateData() in C:\Users\jack\Desktop\CS\GFHelp-Web\GFHelp.Core\MulitePlayerData\UserData\Gun_With_User_Info.cs:line 694
+   at GFHelp.Core.MulitePlayerData.Gun_With_User_Info.Read(JsonData jsonobj) in C:\Users\jack\Desktop\CS\GFHelp-Web\GFHelp.Core\MulitePlayerData\UserData\Gun_With_User_Info.cs:line 105
+【08:52:13】      message = 读取UserData_gun_with_user_info遇到错误 , exception = System.NullReferenceException: Object reference not set to an instance of an object.
+   at GFHelp.Core.MulitePlayerData.Gun_With_User_Info.UpdateData() in C:\Users\jack\Desktop\CS\GFHelp-Web\GFHelp.Core\MulitePlayerData\UserData\Gun_With_User_Info.cs:line 694
+   at GFHelp.Core.MulitePlayerData.Gun_With_User_Info.Read(JsonData jsonobj) in C:\Users\jack\Desktop\CS\GFHelp-Web\GFHelp.Core\MulitePlayerData\UserData\Gun_With_User_Info.cs:line 105
+【09:06:23】      message = 读取UserData_gun_with_user_info遇到错误 , exception = System.NullReferenceException: Object reference not set to an instance of an object.
+   at GFHelp.Core.MulitePlayerData.Gun_With_User_Info.UpdateData() in C:\Users\jack\Desktop\CS\GFHelp-Web\GFHelp.Core\MulitePlayerData\UserData\Gun_With_User_Info.cs:line 694
+   at GFHelp.Core.MulitePlayerData.Gun_With_User_Info.Read(JsonData jsonobj) in C:\Users\jack\Desktop\CS\GFHelp-Web\GFHelp.Core\MulitePlayerData\UserData\Gun_With_User_Info.cs:line 105
+【09:20:52】      message = 读取UserData_gun_with_user_info遇到错误 , exception = System.NullReferenceException: Object reference not set to an instance of an object.
+   at GFHelp.Core.MulitePlayerData.Gun_With_User_Info.UpdateData() in C:\Users\jack\Desktop\CS\GFHelp-Web\GFHelp.Core\MulitePlayerData\UserData\Gun_With_User_Info.cs:line 694
+   at GFHelp.Core.MulitePlayerData.Gun_With_User_Info.Read(JsonData jsonobj) in C:\Users\jack\Desktop\CS\GFHelp-Web\GFHelp.Core\MulitePlayerData\UserData\Gun_With_User_Info.cs:line 105
+【09:35:09】      message = 读取UserData_gun_with_user_info遇到错误 , exception = System.NullReferenceException: Object reference not set to an instance of an object.
+   at GFHelp.Core.MulitePlayerData.Gun_With_User_Info.UpdateData() in C:\Users\jack\Desktop\CS\GFHelp-Web\GFHelp.Core\MulitePlayerData\UserData\Gun_With_User_Info.cs:line 694
+   at GFHelp.Core.MulitePlayerData.Gun_With_User_Info.Read(JsonData jsonobj) in C:\Users\jack\Desktop\CS\GFHelp-Web\GFHelp.Core\MulitePlayerData\UserData\Gun_With_User_Info.cs:line 105
+【09:49:23】      message = 读取UserData_gun_with_user_info遇到错误 , exception = System.NullReferenceException: Object reference not set to an instance of an object.
+   at GFHelp.Core.MulitePlayerData.Gun_With_User_Info.UpdateData() in C:\Users\jack\Desktop\CS\GFHelp-Web\GFHelp.Core\MulitePlayerData\UserData\Gun_With_User_Info.cs:line 694
+   at GFHelp.Core.MulitePlayerData.Gun_With_User_Info.Read(JsonData jsonobj) in C:\Users\jack\Desktop\CS\GFHelp-Web\GFHelp.Core\MulitePlayerData\UserData\Gun_With_User_Info.cs:line 105
+【10:03:56】      message = 读取UserData_gun_with_user_info遇到错误 , exception = System.NullReferenceException: Object reference not set to an instance of an object.
+   at GFHelp.Core.MulitePlayerData.Gun_With_User_Info.UpdateData() in C:\Users\jack\Desktop\CS\GFHelp-Web\GFHelp.Core\MulitePlayerData\UserData\Gun_With_User_Info.cs:line 694
+   at GFHelp.Core.MulitePlayerData.Gun_With_User_Info.Read(JsonData jsonobj) in C:\Users\jack\Desktop\CS\GFHelp-Web\GFHelp.Core\MulitePlayerData\UserData\Gun_With_User_Info.cs:line 105
+【16:13:26】      message = 解析sign出现错误 , exception = System.ArgumentNullException: Buffer cannot be null.
+Parameter name: buffer
+   at System.IO.MemoryStream..ctor(Byte[] buffer, Boolean writable)
+   at GFHelp.Core.Helper.Response.Check(GameAccount gameAccount, String& result, String type, Boolean need_decode) in C:\Users\jack\Desktop\CS\GFHelp-Web\GFHelp.Core\Helper\ResponseCheck.cs:line 50
+【16:13:27】      message = 解析sign出现错误 , exception = System.ArgumentNullException: Buffer cannot be null.
+Parameter name: buffer
+   at System.IO.MemoryStream..ctor(Byte[] buffer, Boolean writable)
+   at GFHelp.Core.Helper.Response.Check(GameAccount gameAccount, String& result, String type, Boolean need_decode) in C:\Users\jack\Desktop\CS\GFHelp-Web\GFHelp.Core\Helper\ResponseCheck.cs:line 50
+【16:16:19】      message = 解析sign出现错误 , exception = System.ArgumentNullException: Buffer cannot be null.
+Parameter name: buffer
+   at System.IO.MemoryStream..ctor(Byte[] buffer, Boolean writable)
+   at GFHelp.Core.Helper.Response.Check(GameAccount gameAccount, String& result, String type, Boolean need_decode) in C:\Users\jack\Desktop\CS\GFHelp-Web\GFHelp.Core\Helper\ResponseCheck.cs:line 50
+【16:16:30】      message = 解析sign出现错误 , exception = System.ArgumentNullException: Buffer cannot be null.
+Parameter name: buffer
+   at System.IO.MemoryStream..ctor(Byte[] buffer, Boolean writable)
+   at GFHelp.Core.Helper.Response.Check(GameAccount gameAccount, String& result, String type, Boolean need_decode) in C:\Users\jack\Desktop\CS\GFHelp-Web\GFHelp.Core\Helper\ResponseCheck.cs:line 50
+【16:16:40】      message = 解析sign出现错误 , exception = System.ArgumentNullException: Buffer cannot be null.
+Parameter name: buffer
+   at System.IO.MemoryStream..ctor(Byte[] buffer, Boolean writable)
+   at GFHelp.Core.Helper.Response.Check(GameAccount gameAccount, String& result, String type, Boolean need_decode) in C:\Users\jack\Desktop\CS\GFHelp-Web\GFHelp.Core\Helper\ResponseCheck.cs:line 50
+【16:17:06】      message = 解析sign出现错误 , exception = System.ArgumentNullException: Buffer cannot be null.
+Parameter name: buffer
+   at System.IO.MemoryStream..ctor(Byte[] buffer, Boolean writable)
+   at GFHelp.Core.Helper.Response.Check(GameAccount gameAccount, String& result, String type, Boolean need_decode) in C:\Users\jack\Desktop\CS\GFHelp-Web\GFHelp.Core\Helper\ResponseCheck.cs:line 50
+【16:17:07】      message = 解析sign出现错误 , exception = System.ArgumentNullException: Buffer cannot be null.
+Parameter name: buffer
+   at System.IO.MemoryStream..ctor(Byte[] buffer, Boolean writable)
+   at GFHelp.Core.Helper.Response.Check(GameAccount gameAccount, String& result, String type, Boolean need_decode) in C:\Users\jack\Desktop\CS\GFHelp-Web\GFHelp.Core\Helper\ResponseCheck.cs:line 50
+【16:19:04】      message = 读取UserData_gun_with_user_info遇到错误 , exception = System.NullReferenceException: Object reference not set to an instance of an object.
+   at GFHelp.Core.MulitePlayerData.Gun_With_User_Info.UpdateData() in C:\Users\jack\Desktop\CS\GFHelp-Web\GFHelp.Core\MulitePlayerData\UserData\Gun_With_User_Info.cs:line 694
+   at GFHelp.Core.MulitePlayerData.Gun_With_User_Info.Read(JsonData jsonobj) in C:\Users\jack\Desktop\CS\GFHelp-Web\GFHelp.Core\MulitePlayerData\UserData\Gun_With_User_Info.cs:line 105
+【16:33:29】      message = 读取UserData_gun_with_user_info遇到错误 , exception = System.NullReferenceException: Object reference not set to an instance of an object.
+   at GFHelp.Core.MulitePlayerData.Gun_With_User_Info.UpdateData() in C:\Users\jack\Desktop\CS\GFHelp-Web\GFHelp.Core\MulitePlayerData\UserData\Gun_With_User_Info.cs:line 694
+   at GFHelp.Core.MulitePlayerData.Gun_With_User_Info.Read(JsonData jsonobj) in C:\Users\jack\Desktop\CS\GFHelp-Web\GFHelp.Core\MulitePlayerData\UserData\Gun_With_User_Info.cs:line 105
+【18:07:52】      message = 读取config配置 
+【18:07:52】      message = 读取文字解析 
+【18:07:52】      message = updataCatchData 
+【18:07:54】      message = 引用作战dll 
+【18:13:42】      message = 读取config配置 
+【18:13:42】      message = 读取文字解析 
+【18:13:42】      message = updataCatchData 
+【18:13:45】      message = 引用作战dll 
+【18:15:51】      message = 读取config配置 
+【18:15:51】      message = 读取文字解析 
+【18:15:51】      message = updataCatchData 
+【18:15:54】      message = 引用作战dll 
+【19:22:26】      message = 读取config配置 
+【19:22:26】      message = 读取文字解析 
+【19:22:26】      message = updataCatchData 
+【19:22:31】      message = 引用作战dll 
+【19:35:24】      message = 读取config配置 
+【19:35:24】      message = 读取文字解析 
+【19:35:24】      message = updataCatchData 
+【19:35:27】      message = 引用作战dll 
+【19:39:55】      message = 读取config配置 
+【19:39:55】      message = 读取文字解析 
+【19:39:55】      message = updataCatchData 
+【19:39:58】      message = 引用作战dll 
+【21:04:15】      message = 读取config配置 
+【21:04:15】      message = 读取文字解析 
+【21:04:15】      message = updataCatchData 
+【21:04:18】      message = 引用作战dll 
+【21:05:28】      message = 读取config配置 
+【21:05:28】      message = 读取文字解析 
+【21:05:28】      message = updataCatchData 
+【21:05:30】      message = 引用作战dll 
+【21:06:15】      message = 读取config配置 
+【21:06:15】      message = 读取文字解析 
+【21:06:15】      message = updataCatchData 
+【21:06:18】      message = 引用作战dll 
+【21:07:30】      message = 读取config配置 
+【21:07:30】      message = 读取文字解析 
+【21:07:30】      message = updataCatchData 
+【21:07:32】      message = 引用作战dll 
+【21:08:38】      message = 读取config配置 
+【21:08:38】      message = 读取文字解析 
+【21:08:38】      message = updataCatchData 
+【21:08:42】      message = 引用作战dll 
+【21:09:34】      message = 读取config配置 
+【21:09:34】      message = 读取文字解析 
+【21:09:34】      message = updataCatchData 
+【21:09:37】      message = 引用作战dll 
+【21:10:31】      message = 读取config配置 
+【21:10:31】      message = 读取文字解析 
+【21:10:31】      message = updataCatchData 
+【21:10:34】      message = 引用作战dll 
+【21:13:57】      message = 读取config配置 
+【21:13:57】      message = 读取文字解析 
+【21:13:57】      message = updataCatchData 
+【21:14:00】      message = 引用作战dll 
+【00:00:14】      message = 读取config配置 
+【00:00:14】      message = 读取文字解析 
+【00:00:14】      message = updataCatchData 
+【00:00:17】      message = 引用作战dll 
+【00:01:51】      message = 读取config配置 
+【00:01:51】      message = 读取文字解析 
+【00:01:51】      message = updataCatchData 
+【00:01:54】      message = 引用作战dll 
+【00:13:00】      message = 读取config配置 
+【00:13:00】      message = 读取文字解析 
+【00:13:00】      message = updataCatchData 
+【00:13:03】      message = 引用作战dll 
+【02:35:17】      message = 读取config配置 
+【02:35:17】      message = 读取文字解析 
+【02:35:17】      message = updataCatchData 
+【02:35:19】      message = 引用作战dll 

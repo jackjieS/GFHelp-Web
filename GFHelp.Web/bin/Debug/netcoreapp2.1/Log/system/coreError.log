@@ -474,3 +474,58 @@ Parameter name: buffer
 【08:37:14】      message = 读取UserData_gun_with_user_info遇到错误 , exception = System.NullReferenceException: Object reference not set to an instance of an object.
    at GFHelp.Core.MulitePlayerData.Gun_With_User_Info.UpdateData() in C:\Users\jack\Desktop\CS\GFHelp-Web\GFHelp.Core\MulitePlayerData\UserData\Gun_With_User_Info.cs:line 694
    at GFHelp.Core.MulitePlayerData.Gun_With_User_Info.Read(JsonData jsonobj) in C:\Users\jack\Desktop\CS\GFHelp-Web\GFHelp.Core\MulitePlayerData\UserData\Gun_With_User_Info.cs:line 105
+【08:42:21】      message = 读取UserData_gun_with_user_info遇到错误 , exception = System.NullReferenceException: Object reference not set to an instance of an object.
+   at GFHelp.Core.MulitePlayerData.Gun_With_User_Info.UpdateData() in C:\Users\jack\Desktop\CS\GFHelp-Web\GFHelp.Core\MulitePlayerData\UserData\Gun_With_User_Info.cs:line 694
+   at GFHelp.Core.MulitePlayerData.Gun_With_User_Info.Read(JsonData jsonobj) in C:\Users\jack\Desktop\CS\GFHelp-Web\GFHelp.Core\MulitePlayerData\UserData\Gun_With_User_Info.cs:line 105
+【08:52:13】      message = 读取UserData_gun_with_user_info遇到错误 , exception = System.NullReferenceException: Object reference not set to an instance of an object.
+   at GFHelp.Core.MulitePlayerData.Gun_With_User_Info.UpdateData() in C:\Users\jack\Desktop\CS\GFHelp-Web\GFHelp.Core\MulitePlayerData\UserData\Gun_With_User_Info.cs:line 694
+   at GFHelp.Core.MulitePlayerData.Gun_With_User_Info.Read(JsonData jsonobj) in C:\Users\jack\Desktop\CS\GFHelp-Web\GFHelp.Core\MulitePlayerData\UserData\Gun_With_User_Info.cs:line 105
+【09:06:23】      message = 读取UserData_gun_with_user_info遇到错误 , exception = System.NullReferenceException: Object reference not set to an instance of an object.
+   at GFHelp.Core.MulitePlayerData.Gun_With_User_Info.UpdateData() in C:\Users\jack\Desktop\CS\GFHelp-Web\GFHelp.Core\MulitePlayerData\UserData\Gun_With_User_Info.cs:line 694
+   at GFHelp.Core.MulitePlayerData.Gun_With_User_Info.Read(JsonData jsonobj) in C:\Users\jack\Desktop\CS\GFHelp-Web\GFHelp.Core\MulitePlayerData\UserData\Gun_With_User_Info.cs:line 105
+【09:20:52】      message = 读取UserData_gun_with_user_info遇到错误 , exception = System.NullReferenceException: Object reference not set to an instance of an object.
+   at GFHelp.Core.MulitePlayerData.Gun_With_User_Info.UpdateData() in C:\Users\jack\Desktop\CS\GFHelp-Web\GFHelp.Core\MulitePlayerData\UserData\Gun_With_User_Info.cs:line 694
+   at GFHelp.Core.MulitePlayerData.Gun_With_User_Info.Read(JsonData jsonobj) in C:\Users\jack\Desktop\CS\GFHelp-Web\GFHelp.Core\MulitePlayerData\UserData\Gun_With_User_Info.cs:line 105
+【09:35:09】      message = 读取UserData_gun_with_user_info遇到错误 , exception = System.NullReferenceException: Object reference not set to an instance of an object.
+   at GFHelp.Core.MulitePlayerData.Gun_With_User_Info.UpdateData() in C:\Users\jack\Desktop\CS\GFHelp-Web\GFHelp.Core\MulitePlayerData\UserData\Gun_With_User_Info.cs:line 694
+   at GFHelp.Core.MulitePlayerData.Gun_With_User_Info.Read(JsonData jsonobj) in C:\Users\jack\Desktop\CS\GFHelp-Web\GFHelp.Core\MulitePlayerData\UserData\Gun_With_User_Info.cs:line 105
+【09:49:23】      message = 读取UserData_gun_with_user_info遇到错误 , exception = System.NullReferenceException: Object reference not set to an instance of an object.
+   at GFHelp.Core.MulitePlayerData.Gun_With_User_Info.UpdateData() in C:\Users\jack\Desktop\CS\GFHelp-Web\GFHelp.Core\MulitePlayerData\UserData\Gun_With_User_Info.cs:line 694
+   at GFHelp.Core.MulitePlayerData.Gun_With_User_Info.Read(JsonData jsonobj) in C:\Users\jack\Desktop\CS\GFHelp-Web\GFHelp.Core\MulitePlayerData\UserData\Gun_With_User_Info.cs:line 105
+【10:03:56】      message = 读取UserData_gun_with_user_info遇到错误 , exception = System.NullReferenceException: Object reference not set to an instance of an object.
+   at GFHelp.Core.MulitePlayerData.Gun_With_User_Info.UpdateData() in C:\Users\jack\Desktop\CS\GFHelp-Web\GFHelp.Core\MulitePlayerData\UserData\Gun_With_User_Info.cs:line 694
+   at GFHelp.Core.MulitePlayerData.Gun_With_User_Info.Read(JsonData jsonobj) in C:\Users\jack\Desktop\CS\GFHelp-Web\GFHelp.Core\MulitePlayerData\UserData\Gun_With_User_Info.cs:line 105
+【16:13:26】      message = 解析sign出现错误 , exception = System.ArgumentNullException: Buffer cannot be null.
+Parameter name: buffer
+   at System.IO.MemoryStream..ctor(Byte[] buffer, Boolean writable)
+   at GFHelp.Core.Helper.Response.Check(GameAccount gameAccount, String& result, String type, Boolean need_decode) in C:\Users\jack\Desktop\CS\GFHelp-Web\GFHelp.Core\Helper\ResponseCheck.cs:line 50
+【16:13:27】      message = 解析sign出现错误 , exception = System.ArgumentNullException: Buffer cannot be null.
+Parameter name: buffer
+   at System.IO.MemoryStream..ctor(Byte[] buffer, Boolean writable)
+   at GFHelp.Core.Helper.Response.Check(GameAccount gameAccount, String& result, String type, Boolean need_decode) in C:\Users\jack\Desktop\CS\GFHelp-Web\GFHelp.Core\Helper\ResponseCheck.cs:line 50
+【16:16:19】      message = 解析sign出现错误 , exception = System.ArgumentNullException: Buffer cannot be null.
+Parameter name: buffer
+   at System.IO.MemoryStream..ctor(Byte[] buffer, Boolean writable)
+   at GFHelp.Core.Helper.Response.Check(GameAccount gameAccount, String& result, String type, Boolean need_decode) in C:\Users\jack\Desktop\CS\GFHelp-Web\GFHelp.Core\Helper\ResponseCheck.cs:line 50
+【16:16:30】      message = 解析sign出现错误 , exception = System.ArgumentNullException: Buffer cannot be null.
+Parameter name: buffer
+   at System.IO.MemoryStream..ctor(Byte[] buffer, Boolean writable)
+   at GFHelp.Core.Helper.Response.Check(GameAccount gameAccount, String& result, String type, Boolean need_decode) in C:\Users\jack\Desktop\CS\GFHelp-Web\GFHelp.Core\Helper\ResponseCheck.cs:line 50
+【16:16:40】      message = 解析sign出现错误 , exception = System.ArgumentNullException: Buffer cannot be null.
+Parameter name: buffer
+   at System.IO.MemoryStream..ctor(Byte[] buffer, Boolean writable)
+   at GFHelp.Core.Helper.Response.Check(GameAccount gameAccount, String& result, String type, Boolean need_decode) in C:\Users\jack\Desktop\CS\GFHelp-Web\GFHelp.Core\Helper\ResponseCheck.cs:line 50
+【16:17:06】      message = 解析sign出现错误 , exception = System.ArgumentNullException: Buffer cannot be null.
+Parameter name: buffer
+   at System.IO.MemoryStream..ctor(Byte[] buffer, Boolean writable)
+   at GFHelp.Core.Helper.Response.Check(GameAccount gameAccount, String& result, String type, Boolean need_decode) in C:\Users\jack\Desktop\CS\GFHelp-Web\GFHelp.Core\Helper\ResponseCheck.cs:line 50
+【16:17:07】      message = 解析sign出现错误 , exception = System.ArgumentNullException: Buffer cannot be null.
+Parameter name: buffer
+   at System.IO.MemoryStream..ctor(Byte[] buffer, Boolean writable)
+   at GFHelp.Core.Helper.Response.Check(GameAccount gameAccount, String& result, String type, Boolean need_decode) in C:\Users\jack\Desktop\CS\GFHelp-Web\GFHelp.Core\Helper\ResponseCheck.cs:line 50
+【16:19:04】      message = 读取UserData_gun_with_user_info遇到错误 , exception = System.NullReferenceException: Object reference not set to an instance of an object.
+   at GFHelp.Core.MulitePlayerData.Gun_With_User_Info.UpdateData() in C:\Users\jack\Desktop\CS\GFHelp-Web\GFHelp.Core\MulitePlayerData\UserData\Gun_With_User_Info.cs:line 694
+   at GFHelp.Core.MulitePlayerData.Gun_With_User_Info.Read(JsonData jsonobj) in C:\Users\jack\Desktop\CS\GFHelp-Web\GFHelp.Core\MulitePlayerData\UserData\Gun_With_User_Info.cs:line 105
+【16:33:29】      message = 读取UserData_gun_with_user_info遇到错误 , exception = System.NullReferenceException: Object reference not set to an instance of an object.
+   at GFHelp.Core.MulitePlayerData.Gun_With_User_Info.UpdateData() in C:\Users\jack\Desktop\CS\GFHelp-Web\GFHelp.Core\MulitePlayerData\UserData\Gun_With_User_Info.cs:line 694
+   at GFHelp.Core.MulitePlayerData.Gun_With_User_Info.Read(JsonData jsonobj) in C:\Users\jack\Desktop\CS\GFHelp-Web\GFHelp.Core\MulitePlayerData\UserData\Gun_With_User_Info.cs:line 105

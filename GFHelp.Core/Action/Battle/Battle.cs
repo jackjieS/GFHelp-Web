@@ -493,15 +493,15 @@ namespace GFHelp.Core.Action
 
             }
         }
-        public bool Simulation_battleFinish(string data, ref string result)
+        public bool Simulation_battleFinish(string data)
         {
             Thread.Sleep(2000);
             int count = 0;
             while (true)
             {
-                result = API.Battle.simulation_DATA(userData.GameAccount, data);
+                string result = API.Battle.simulation_DATA(userData.GameAccount, data);
 
-                switch (Response.Check(userData.GameAccount,ref result, "Simulation_DATA_Pro", true))
+                switch (Response.Check(userData.GameAccount, ref result, "Simulation_DATA_Pro", true))
                 {
                     case 1:
                         {
@@ -515,7 +515,6 @@ namespace GFHelp.Core.Action
                         {
                             if (count++ > userData.config.ErrorCount)
                             {
-                                new Log().userInit(userData.GameAccount.Base.GameAccountID, "Simulation_battleFinish Error", result).userInfo();
                                 return false;
                             }
                             continue;
@@ -551,7 +550,7 @@ namespace GFHelp.Core.Action
                         {
                             if (count++ > userData.config.ErrorCount)
                             {
-                                new Log().userInit(userData.GameAccount.Base.GameAccountID, "Simulation_battleFinish Error",result).userInfo();
+                                new Log().userInit(userData.GameAccount.Base.GameAccountID, "endEnemyTurn Error", result).userInfo();
                                 return;
                             }
                             continue;
@@ -892,7 +891,7 @@ namespace GFHelp.Core.Action
 
             if (result.Contains("free_exp"))
             {
-                userData.others.GlobalFreeExp += Convert.ToInt16(jsonobj.free_exp);
+                userData.item_With_User_Info.globalFreeExp += Convert.ToInt16(jsonobj.free_exp);
             }
 
 
@@ -999,91 +998,6 @@ namespace GFHelp.Core.Action
                 userData.webData.StatusBarText = "空闲";
                 userData.user_Info.last_bp_recover_time = Helper.Decrypt.ConvertDateTime_China_Int(DateTime.Now);
             }
-
-        }
-
-        public void WriteReport_Start()
-        {
-            if (userData.others.Battery() < 1000) return;
-            if (userData.others.GlobalFreeExp < userData.outhouse_Establish_Info.Furniture_database) return;
-            if (userData.BattleReport.Start_add == true) return;
-            if (userData.BattleReport.time > 0) return;
-            userData.eventAction.BattleReport_Write();
-            userData.BattleReport.Start_add = true;
-            userData.BattleReport.Finish_add = false;
-            userData.BattleReport.StartTime = Decrypt.ConvertDateTime_China_Int(DateTime.Now);
-        }
-        public void WriteReport_Finish()
-        {
-            if (userData.BattleReport.Finish_add == true) return;
-            if (userData.BattleReport.time > 0) return;
-            userData.eventAction.BattleReport_Finish();
-            userData.BattleReport.Finish_add = true;
-            userData.BattleReport.Start_add = false;
-
-        }
-
-
-        public void Auto_Simulation_Battle()
-        {
-            if (userData.config.AutoSimulationBattleF == false) return;
-            //决定哪种模式
-            int day = (int)Decrypt.LocalDateTimeConvertToChina(DateTime.Now).DayOfWeek;
-            if (day == 3 || day == 4)
-            {
-                if (userData.user_Info.bp >= 5)
-                {
-                    //userData.eventAction.Start_Trial();
-                    userData.user_Info.bp -= 5;
-                }
-            }
-
-            if (day == 1 || day == 6)
-            {
-                if (userData.user_Info.bp >= 3)
-                {
-                    //userData.eventAction.Simulation_Corridor();
-                    userData.user_Info.bp -= 3;
-                }
-            }
-
-
-            if (day == 2 || day == 5 || day == 0)
-            {
-                switch (userData.user_Info.GetSimulationType())
-                {
-                    case 1:
-                        {
-                            if (userData.user_Info.bp >= 1)
-                            {
-                                userData.eventAction.Simulation_DATA();
-                                userData.user_Info.bp -= 1;
-                            }
-                            break;
-                        }
-                    case 2:
-                        {
-                            if (userData.user_Info.bp >= 2)
-                            {
-                                userData.eventAction.Simulation_DATA();
-                                userData.user_Info.bp -= 2;
-                            }
-                            break;
-                        }
-                    case 3:
-                        {
-                            if (userData.user_Info.bp >= 3)
-                            {
-                                userData.eventAction.Simulation_DATA();
-                                userData.user_Info.bp -= 3;
-                            }
-                            break;
-                        }
-                    default:
-                        break;
-                }
-            }
-
 
         }
 

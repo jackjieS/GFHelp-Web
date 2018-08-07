@@ -1,4 +1,5 @@
-﻿using GFHelp.Core.Helper;
+﻿using GFHelp.Core.Action.BattleBase;
+using GFHelp.Core.Helper;
 using GFHelp.Core.Management;
 using System;
 using System.Collections.Generic;
@@ -46,7 +47,7 @@ namespace GFHelp.Core.MulitePlayerData
                     }
                 case 31:
                     {
-
+                        new SimulationTrialHandle(userData).Start();
                         break;
                     }
                 case 32:
@@ -56,12 +57,13 @@ namespace GFHelp.Core.MulitePlayerData
                     }
                 case 33:
                     {
-                        //userData.mission.Test(Simulation_DATA)
+                        new SimulationDataHandle(userData).Start();
                         break;
                     }
                 case 34:
                     {
-                        //Simulation_Corridor
+                        userData.mission.corridor(userData);
+                        //Simulation_map
                         break;
                     }
                 case 41:

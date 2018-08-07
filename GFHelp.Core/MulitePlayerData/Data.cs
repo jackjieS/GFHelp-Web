@@ -155,6 +155,7 @@ namespace GFHelp.Core.Management
     {
         public UserData()
         {
+
             eventAction = new EventAction(this);
             this.battle = new Action.Battle(this);
             this.others = new Others(this);
@@ -163,6 +164,11 @@ namespace GFHelp.Core.Management
             this.dorm_with_user_info = new Dorm_With_User_Info(this);
             this.home = new Home(this);
             this.auto_Summery = new Auto_Summery(this);
+            this.simulation = new Simulation(this);
+            this.BattleReport = new BattleReport(this);
+            this.outhouse_Establish_Info = new Outhouse_Establish_Info(this);
+            this.item_With_User_Info = new Item_With_User_Info(this);
+            this.config = new Config(this);
         }
         public void CreatGameAccount(GameAccountBase gameAccountBase)
         {
@@ -230,7 +236,7 @@ namespace GFHelp.Core.Management
         public int Dorm_Rest_Friend_Build_Coin_Count;
         public bool Mission_S;
 
-        public Config config = new Config();
+        public Config config; 
 
         public GameAccount GameAccount = new GameAccount();
 
@@ -252,21 +258,22 @@ namespace GFHelp.Core.Management
 
         public Upgrade_Act_Info upgrade_Act_Info = new Upgrade_Act_Info();
 
-        public Outhouse_Establish_Info outhouse_Establish_Info = new Outhouse_Establish_Info();
+        public Outhouse_Establish_Info outhouse_Establish_Info; 
 
         public Fairy_With_User_info fairy_With_User_Info = new Fairy_With_User_info();
 
-        public Item_With_User_Info item_With_User_Info = new Item_With_User_Info();
+        public Item_With_User_Info item_With_User_Info;
 
         public Gun_With_User_Info gun_With_User_Info = new Gun_With_User_Info();
 
         public Others others;
 
         public Mission mission;
+        public Simulation simulation;
         public Normal_MissionInfo normal_MissionInfo = new Normal_MissionInfo();
         public Dictionary<int, Dictionary<int, Gun_With_User_Info>> Teams = new Dictionary<int, Dictionary<int, Gun_With_User_Info>>();//没读一次user_info都需要刷新
 
-        public BattleReport BattleReport = new BattleReport();
+        public BattleReport BattleReport;
 
         //任务列表
         public List<TaskListInfo> Task = new List<TaskListInfo>();
@@ -282,15 +289,36 @@ namespace GFHelp.Core.Management
 
     public class Config
     {
+        public Config(UserData userData)
+        {
+            ParmConfiuge(userData);
+
+
+
+        }
         public int ErrorCount = 1;
         public bool LoginSuccessful = false;
         public bool AutoRelogin = false;
         public bool NeedAuto_Loop_Operation_Act = true;
         public bool NeedAuto_Click_Girls_In_Dorm = true;//这些都需要 read userinfo 重置
-        public bool AutoSimulationBattleF = false;
+        public bool AutoSimulation = true;
         public bool NewGun_Report_Stop = true;
         public bool AutoStrengthen = true;
-
+        private void ParmConfiuge(UserData userData)
+        {
+            List<string> Parm = userData.GameAccount.Base.Parm.ToLower().Split(' ').ToList();
+            foreach (var item in Parm)
+            {
+                if (item.Contains("-sf"))
+                {
+                    this.AutoSimulation = false;
+                }
+                if (item.Contains("-st"))
+                {
+                    this.AutoStrengthen = false;
+                }
+            }
+        }
 
     }
 
@@ -392,14 +420,29 @@ namespace GFHelp.Core.Management
             this.userData = userData;
             this.waiter = new Waiter();
             Action += this.waiter.ActionEvent;
+            Task run = new Task(Run);
+            run.Start();
         }
         public Waiter waiter;
         private event ActionEventHandler Action;
+        private List<ActionEventArgs> list = new List<ActionEventArgs>();
+        private void Run()
+        {
+            while (true)
+            {
+                Thread.Sleep(1000);
+                if (userData.taskDispose) return;
+                if (list.Count == 0) continue;
+                this.Action.Invoke(userData, list[0]);
+                list.RemoveAt(0);
+            }
+        }
+
         private void invoke(ActionEventArgs e)
         {
             if (this.Action != null)
             {
-                this.Action.Invoke(userData, e);
+                list.Add(e);
             }
         }
 

@@ -12,40 +12,57 @@ namespace GFHelp.Mission
         {
             return "Hello world";
         }
-        public void Simulation_DATA(UserData userData,Simulation_MissionInfo usbt)
-        {
-            string result = "";
-            Simulation_Battle_Sent sbs = new Simulation_Battle_Sent(usbt);
-            if (userData.battle.Simulation_battleFinish(sbs.BattleResult, ref result) == true)
-            {
-                var jsonobj = Codeplex.Data.DynamicJson.Parse(result);
 
-                int coin_num = Convert.ToInt32(jsonobj.coin_num);
-                switch (usbt.Type)
+        private Normal_MissionInfo seedmap(UserData userData,int teamID)
+        {
+
+            Team team = new Team();
+            Battle battle = new Battle();
+            team.Key = 0;
+            team.Skt = 26643;
+            team.Teamid = teamID;
+            battle.Teams[0] = team;
+            Normal_MissionInfo normal_MissionInfo = new Normal_MissionInfo(userData, battle);
+            return normal_MissionInfo;
+        }
+        private bool Startmap(UserData userData,ref Map_Controller.mapcorridor map,ref Normal_MissionInfo normal_MissionInfo)
+        {
+            foreach (var item in userData.Teams)
+            {
+
+                normal_MissionInfo = seedmap(userData, item.Key);
+                map = new Map_Controller.mapcorridor(normal_MissionInfo);
+                if (userData.battle.startMission(map.mission_id, map.Mission_Start_spots) == 1)
                 {
-                    case 1:
-                        {
-                            userData.user_Info.coin1 += coin_num;
-                            break;
-                        }
-                    case 2:
-                        {
-                            userData.user_Info.coin2 += coin_num;
-                            break;
-                        }
-                    case 3:
-                        {
-                            userData.user_Info.coin3 += coin_num;
-                            break;
-                        }
-                    default:
-                        break;
+                    return true;
                 }
             }
 
+            return false;
+        }
 
 
 
+        public void mapcorridor(UserData userData)
+        {
+            Random random = new Random();
+            int stepNum = 0; string result = "";
+            string battledata;
+            Normal_MissionInfo ubti= new Normal_MissionInfo();
+            Map_Controller.mapcorridor map = new Map_Controller.mapcorridor();
+            if (Startmap(userData, ref map,ref ubti) == false) return;
+
+            userData.battle.teamMove(map.dic_TeamMove[stepNum++]);
+            userData.battle.teamMove_Random(map.dic_TeamMove[stepNum++]);
+            userData.battle.teamMove_Random(map.dic_TeamMove[stepNum++]);
+            userData.battle.teamMove_Random(map.dic_TeamMove[stepNum++]);
+            userData.battle.teamMove_Random(map.dic_TeamMove[stepNum++]);
+
+            battledata = new BattleData(ubti.Teams).setData(5520, 0, 0, random.Next(8, 10), 26483, 28819, 10009, userData.user_Info.experience);
+            if (userData.battle.Normal_battleFinish(battledata, ref result))
+            {
+                userData.battle.Battle_Result_PRO(ref ubti, 0, ref result);
+            }
         }
     }
 }

@@ -81,8 +81,10 @@ namespace GFHelp.Core.MulitePlayerData.WebData
             ui.Coin2 = ud.user_Info.coin2.ToString();
             ui.Coin3 = ud.user_Info.coin3.ToString();
             ui.GemNum = ud.user_Info.gem.ToString();
-            ui.BatteryNum = getItemNumFromID(ud, 506);
-            ui.GlobalEXP = getItemNumFromID(ud, 507);
+            ui.BatteryNum = ud.item_With_User_Info.Battery.ToString();
+
+            ui.GlobalEXP = ud.item_With_User_Info.globalFreeExp > 0 ? ud.item_With_User_Info.globalFreeExp.ToString():0.ToString();
+            ui.TimeOfReport = ud.outhouse_Establish_Info.time.ToString();
             ui.BPnum = ud.user_Info.bp.ToString();
             ui.BP_PayNUM = ud.user_Info.bp_pay.ToString();
             ui.FurnitureCoinNum = getItemNumFromID(ud, 41);
@@ -102,7 +104,7 @@ namespace GFHelp.Core.MulitePlayerData.WebData
                 webOperation.user_id = item.Value.user_id.ToString();
                 webOperation.team_id = item.Value.team_id.ToString();
                 webOperation.start_time = item.Value.start_time.ToString();
-                webOperation.remaining_time = item.Value.remaining_time.ToString();
+                webOperation.remaining_time = item.Value.remaining_time > 0 ? item.Value.remaining_time.ToString() : 0.ToString();
                 dic.Add(webOperation);
             }
 
@@ -227,6 +229,7 @@ namespace GFHelp.Core.MulitePlayerData.WebData
         public string FurnitureCoinNum;//采购币
         public string ExchangeCoinNum;//兑换卷
         public string Core;//核心
+        public string TimeOfReport;
     }
 
     public class WebOperation

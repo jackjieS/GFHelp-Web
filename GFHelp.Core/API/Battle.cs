@@ -8,6 +8,27 @@ namespace GFHelp.Core.API
 {
     class Battle
     {
+        public static string StartTrial(GameAccount gameAccount,string teamids)
+        {
+            string outdatacode = "{\"team_ids\":" + "\"" + teamids.ToString() + "\"" + "," + "\"battle_team\":" + teamids.ToString() + "}";
+            outdatacode = AuthCode.Encode(outdatacode, gameAccount.sign);
+            string requeststring = String.Format("uid={0}&outdatacode={1}&req_id={2}", gameAccount.uid, System.Web.HttpUtility.UrlEncode(outdatacode), gameAccount.req_id++.ToString());
+            string result = "";
+            var url = gameAccount.GameHost + Helper.URL.StartTrial;
+            while (string.IsNullOrEmpty(result))
+            { result = BaseRequset.DoPost(url, requeststring); }
+            return result;
+        }
+        public static string EndTrial(GameAccount gameAccount,string outdatacode)
+        {
+            outdatacode = AuthCode.Encode(outdatacode, gameAccount.sign);
+            string requeststring = String.Format("uid={0}&outdatacode={1}&req_id={2}", gameAccount.uid, System.Web.HttpUtility.UrlEncode(outdatacode), gameAccount.req_id++.ToString());
+            string result = "";
+            var url = gameAccount.GameHost + Helper.URL.EndTrial;
+            while (string.IsNullOrEmpty(result))
+            { result = BaseRequset.DoPost(url, requeststring); }
+            return result;
+        }
         public static string abortMission(GameAccount gameAccount)
         {
             string result = "";

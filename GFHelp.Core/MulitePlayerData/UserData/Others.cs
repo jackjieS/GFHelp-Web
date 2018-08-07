@@ -35,99 +35,13 @@ namespace GFHelp.Core.MulitePlayerData
             }
         }
 
-        public int GlobalFreeExp
-        {
-            get
-            {
-                foreach (var item in userData.item_With_User_Info.dicItem)
-                {
-                    if (item.Value.item_id == 507)
-                    {
-                        return item.Value.number;
-                    }
-                }
-                return 0;
-            }
-            set
-            {
-                foreach (var item in userData.item_With_User_Info.dicItem)
-                {
-                    if (item.Value.item_id == 507)
-                    {
-                        if (value > userData.outhouse_Establish_Info.Furniture_database)
-                        {
-                            item.Value.number = userData.outhouse_Establish_Info.Furniture_database;
-                        }
-                        else
-                        {
-                            item.Value.number = value;
-                        }
-                        return;
-                    }
-                }
-            }
-        }
 
 
 
-        //public int GlobalFreeExp()
-        //{
 
-        //    foreach (var item in userData.item_With_User_Info.dicItem)
-        //    {
-        //        if (item.Value.item_id == 507)
-        //        {
-        //            return item.Value.number;
-        //        }
-        //    }
-        //    return 0;
-        //}
-        //public int addGlobalFreeExp()
-        //{
 
-        //    foreach (var item in userData.item_With_User_Info.dicItem)
-        //    {
-        //        if (item.Value.item_id == 507)
-        //        {
-        //            return item.Value.number;
-        //        }
-        //    }
-        //    return 0;
-        //}
 
-        //public void DeGolbalFreeExp(int count)
-        //{
-        //    for (int k = 0; k < userData.item_With_User_Info.dicItem.Count; k++)
-        //    {
-        //        if (userData.item_With_User_Info.dicItem[k].item_id == 507)
-        //        {
-        //            userData.item_With_User_Info.dicItem[k].number = userData.item_With_User_Info.dicItem[k].number - count;
-        //        }
-        //    }
-        //}
 
-        public int Battery()
-        {
-
-            foreach (var item in userData.item_With_User_Info.dicItem)
-            {
-                if (item.Value.item_id == 506)
-                {
-                    return item.Value.number;
-                }
-            }
-            return 0;
-        }
-        public void DeBattery(int count)
-        {
-            for (int k = 0; k < userData.item_With_User_Info.dicItem.Count; k++)
-            {
-                if (userData.item_With_User_Info.dicItem[k].item_id == 506)
-                {
-                    userData.item_With_User_Info.dicItem[k].number = userData.item_With_User_Info.dicItem[k].number - count;
-                }
-            }
-        }
 
         public bool CheckGunStatus(Gun_With_User_Info gwui)
         {
@@ -212,10 +126,22 @@ namespace GFHelp.Core.MulitePlayerData
 
         }
 
-
-
-
-
+        public int GetSimulatieDataType()
+        {
+            int coin1 = userData.user_Info.coin1;
+            int coin2 = userData.user_Info.coin2;
+            int coin3 = userData.user_Info.coin3;
+            int min = Math.Min(Math.Min(coin1, coin2), coin3);
+            if (coin1 == min)
+            {
+                return 1;
+            }
+            if (coin2 == min)
+            {
+                return 2;
+            }
+            return 3;
+        }
 
 
 

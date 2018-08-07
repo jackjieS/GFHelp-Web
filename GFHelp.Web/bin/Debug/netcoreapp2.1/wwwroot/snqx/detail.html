@@ -365,12 +365,12 @@
                                         <li>资料室:</li>
                                         <li>
                                             <p>
-                                                <label for="">经验:</label>
+                                                <label for="">全局经验:</label>
                                                 <span id="GlobalEXP"></span>
-                                            </p>
+                                                </p>
                                             <p>
-                                                <label for="">电池:</label>
-                                                <span id="BatteryNum1"></span>
+                                                <label for="">生产时间:</label>
+                                                <span id="TimeOfReport"></span>
                                             </p>
                                         </li>
                                     </ul>
@@ -671,6 +671,13 @@
                 $('#GlobalEXP').html(message[0].webUser_Info.GlobalEXP);
                 $('#times').html(message[0].webBattle.Times);
                 $('#gameDetail').html(message[0].webStatus.Name + " | " + message[0].webStatus.statusBarText);
+                if (true) {
+                    $('#GlobalEXP').html(message[0].webUser_Info.GlobalEXP);
+                    $('#TimeOfReport').html(formatSeconds(message[0].webUser_Info.TimeOfReport));
+                    
+                }
+
+
                 if (true) {
                     $('ul.Guns').html("");
                     var teamHtml = '';

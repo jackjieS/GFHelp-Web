@@ -1,4 +1,5 @@
-﻿using GFHelp.Core.Management;
+﻿using GFHelp.Core.Helper;
+using GFHelp.Core.Management;
 using GFHelp.Core.MulitePlayerData;
 using LitJson;
 using System;
@@ -10,7 +11,7 @@ namespace GFHelp.Core.Action.BattleBase
 {
     public class Spot
     {
-        public Spot(int spot_id,int key)
+        public Spot(int spot_id, int key)
         {
             this.spot_id = spot_id;
             this.team_loc = key;
@@ -102,7 +103,7 @@ namespace GFHelp.Core.Action.BattleBase
 
     public class TeamMove
     {
-        public TeamMove(int from_spot_id, int to_spot_id, int move_type,int teamLOC)
+        public TeamMove(int from_spot_id, int to_spot_id, int move_type, int teamLOC)
         {
             this.from_spot_id = from_spot_id;
             this.to_spot_id = to_spot_id;
@@ -162,7 +163,7 @@ namespace GFHelp.Core.Action.BattleBase
         public int user_exp;
         public bool TaskList_ADD = false;
         public int LoopTime = 0;
-        public int MaxLoopTime=0;
+        public int MaxLoopTime = 0;
         public int reStart_WaitTime = 1;
         public bool Loop = true;
         public bool needSupply = true;
@@ -213,7 +214,7 @@ namespace GFHelp.Core.Action.BattleBase
 
 
 
-            List<string> Parm =battle.Parm.ToLower().Split(' ').ToList();
+            List<string> Parm = battle.Parm.ToLower().Split(' ').ToList();
 
             if (string.IsNullOrEmpty(battle.Map))
             {
@@ -244,15 +245,17 @@ namespace GFHelp.Core.Action.BattleBase
                 {
                     this.needSupply = false;
                 }
-                if (item.Contains("-times"))
+                //循环次数
+                if (item.Contains("-t"))
                 {
-                    if(int.TryParse(item.Remove(0, 6),out this.MaxLoopTime) == false)
+                    if (int.TryParse(item.Remove(0, 2), out this.MaxLoopTime) == false)
                     {
                         this.MaxLoopTime = 0;
                     }
 
                 }
-                if (item.Contains("-combine"))
+                //自动扩编
+                if (item.Contains("-c"))
                 {
                     this.AutoCombine = false;
                 }
@@ -561,63 +564,199 @@ namespace GFHelp.Core.Action.BattleBase
 
     }
 
-    public class Simulation_MissionInfo
+    public class Simulation
     {
-
-        public int Type;// 1 初级 2 中级 3 高级
-        public int mission_id1 = 1301;
-        public int mission_id2 = 1302;
-        public int mission_id3 = 1303;
-        public double duration;
-        public double L_duration1 = 0.7f;
-        public double L_duration2 = 1.4f;
-        public double L_duration3 = 2.87f;
-        public int skill_cd;
-        public int enemy_effect_client1 = 2569;
-        public int enemy_effect_client2 = 5069;
-        public int enemy_effect_client3 = 10069;
-
-        public int enemy_life1 = 10000;
-        public int enemy_life2 = 20000;
-        public int enemy_life3 = 40000;
-
-        public void setData(int type, double duration, int skill_cd)
+        SimulationDay Sday;
+        UserData userData;
+        int bp;
+        public Simulation(UserData userData)
         {
-            this.Type = type;
-            this.duration = duration;
-            this.skill_cd = skill_cd;
+            this.userData = userData;
+            this.bp = userData.user_Info.bp;
+            this.Sday = new SimulationDay();
         }
+        public void Run()
+        {
+            if (userData.config.AutoSimulation == false) return;
+            //获取梯队
+            if (Sday.SimulationType == 1 && userData.user_Info.bp >= 5)
+            {
+                userData.eventAction.Start_Trial();
+                userData.user_Info.bp -= 5;
+                //无限防御
+            }
+            if (Sday.SimulationType == 2)
+            {
+                if(userData.others.GetSimulatieDataType()==1 && userData.user_Info.bp >= 1)
+                {
+                    userData.eventAction.Simulation_DATA();
+                    userData.user_Info.bp -= 1;
+                }
+                if (userData.others.GetSimulatieDataType() == 2 && userData.user_Info.bp >= 2)
+                {
+                    userData.eventAction.Simulation_DATA();
+                    userData.user_Info.bp -= 2;
+                }
+                if (userData.others.GetSimulatieDataType() == 3 && userData.user_Info.bp >= 3)
+                {
+                    userData.eventAction.Simulation_DATA();
+                    userData.user_Info.bp -= 3;
+                }
+                //资料
+            }
+            if (Sday.SimulationType == 3 && userData.user_Info.bp >= 3)
+            {
+                userData.eventAction.Simulation_Corridor();
+                userData.user_Info.bp -= 3;
+                //云图
+            }
+        }
+
+
+
 
     }
-    public class Simulation_Battle_Sent
+
+    public class SimulationDay
     {
-        public Simulation_Battle_Sent(Simulation_MissionInfo usbt)
+        /// <summary>
+        /// Type:1 是无限防御 2是资料 3是云图
+        /// </summary>
+        public int SimulationType
         {
-            if (usbt.Type == 1)
+            get
             {
-                mission_id = usbt.mission_id1;
-                this.battle_time.enemy_effect_client = usbt.enemy_effect_client1;
-                this.life_enemy = usbt.enemy_life1;
+                if (Day == 3 || Day == 4)
+                {
+                    return 1;
+                }
+                if (Day == 2 || Day == 5 || Day == 0)
+                {
+                    return 2;
+                }
+                if (Day == 1 || Day == 6)
+                {
+                    return 3;
+                }
+                return 1;
             }
-            if (usbt.Type == 2)
+        }
+        public int Day
+        {
+            get
             {
-                mission_id = usbt.mission_id2;
-                this.battle_time.enemy_effect_client = usbt.enemy_effect_client2;
-                this.life_enemy = usbt.enemy_life2;
+                return (int)Helper.Decrypt.LocalDateTimeConvertToChina(DateTime.Now).DayOfWeek;
             }
 
-            if (usbt.Type == 3)
+        }
+    }
+
+    public class SimulationDataHandle
+    {
+        class Info
+        {
+            public Info(int type)
             {
-                mission_id = usbt.mission_id3;
-                this.battle_time.enemy_effect_client = usbt.enemy_effect_client3;
-                this.life_enemy = usbt.enemy_life3;
+                this.DataType = type;
+                if (type!=1 && type!=2 && type != 3)
+                {
+                    this.DataType = 1;
+                }
             }
-            this.duration = usbt.duration;
-            this.skill_cd = usbt.skill_cd;
-            this.battle_time.true_time = duration;
+            public int DataType;
+            public int mission_id
+            {
+                get
+                {
+                    if (DataType == 1)
+                    {
+                        return 1301;
+                    }
+                    if (DataType == 2)
+                    {
+                        return 1302;
+                    }
+                    return 1303;
+                }
+            }
+            public double Max_duration
+            {
+                get
+                {
+                    if (DataType == 1)
+                    {
+                        return 0.7f;
+                    }
+                    if (DataType == 2)
+                    {
+                        return 1.4f;
+                    }
+                    return 2.87f;
+                }
+            }
+            public int enemy_effect_client
+            {
+                get
+                {
+                    if (DataType == 1)
+                    {
+                        return 2569;
+                    }
+                    if (DataType == 2)
+                    {
+                        return 5069;
+                    }
+                    return 10069;
+                }
+            }
+            public int enemy_life
+            {
+                get
+                {
+                    if (DataType == 1)
+                    {
+                        return 10000;
+                    }
+                    if (DataType == 2)
+                    {
+                        return 20000;
+                    }
+                    return 40000;
+                }
+            }
+            public int skill_cd
+            {
+                get
+                {
+                    Random random = new Random();
+                    return random.Next(20000, 30000);
+                }
+            }
+        }
+
+        public SimulationDataHandle(UserData userData)
+        {
+            this.userData = userData;
+            this.info = new Info(userData.others.GetSimulatieDataType());
+            this.mission_id = info.mission_id;
+            this.battle_time.enemy_effect_client = info.enemy_effect_client;
+            this.life_enemy = info.enemy_life;
+            this.duration = Math.Round(info.Max_duration, 2);
+            this.skill_cd = info.skill_cd;
+            this.battle_time.true_time = info.Max_duration;
+        }
+        public void Start()
+        {
+            if (userData.battle.Simulation_battleFinish(BattleResult) == false)
+            {
+                new Helper.Log().userInit(userData.GameAccount.Base.GameAccountID, "模拟作战 Error");
+            }
         }
 
 
+
+        private UserData userData;
+        private Info info;
         public int mission_id;
         public int boss_hp = 0;
         public double duration;
@@ -637,24 +776,14 @@ namespace GFHelp.Core.Action.BattleBase
                 jsonWriter.Write(0);
                 jsonWriter.WritePropertyName("duration");
                 jsonWriter.Write(battle_time.true_time);
-
                 WriteDamageData(jsonWriter);
-
                 jsonWriter.WritePropertyName("battle_time");
                 jsonWriter.WriteObjectStart();
                 jsonWriter.WriteObjectEnd();
                 jsonWriter.WriteObjectEnd();
-
-
                 return sb.ToString();
             }
         }
-
-
-
-
-
-
         public void WriteDamageData(JsonWriter writer)
         {
             writer.WritePropertyName("1000");
@@ -700,131 +829,206 @@ namespace GFHelp.Core.Action.BattleBase
             writer.WriteObjectStart();
             writer.WriteObjectEnd();
         }
-
         public static int GetTotalFPS_(double time)
         {
             double result = time * 31;
             return (int)Math.Ceiling(result);
         }
-
-
-
-
-
-
-
-
-
-
-
     }
 
-    public class TrialExercise_Battle_Sent
+    public class SimulationTrialHandle
     {
-
-        public int if_win = 0;
-        internal Dictionary<int, Gun_With_User_Info> teaminfo = new Dictionary<int, Gun_With_User_Info>();
-
-        public TrialExercise_Battle_Sent(Dictionary<int, Gun_With_User_Info> teaminfo)
+        public class TrialExercise_Battle_Sent
         {
-            this.teaminfo = teaminfo;
-        }
 
+            public int if_win = 0;
+            internal Dictionary<int, Gun_With_User_Info> teaminfo = new Dictionary<int, Gun_With_User_Info>();
 
-
-
-        public string BattleResult
-        {
-            get
+            public TrialExercise_Battle_Sent(Dictionary<int, Gun_With_User_Info> teaminfo)
             {
-                StringBuilder stringBuilder = new StringBuilder();
-                JsonWriter jsonWriter = new JsonWriter(stringBuilder);
-                jsonWriter.WriteObjectStart();
-
-                jsonWriter.WritePropertyName("if_win");
-                jsonWriter.Write(0);
-
-                jsonWriter.WritePropertyName("battle_guns");
-                jsonWriter.WriteObjectStart();
-                foreach (var item in teaminfo)
+                this.teaminfo = teaminfo;
+            }
+            public string BattleResult
+            {
+                get
                 {
-                    jsonWriter.WritePropertyName(item.Value.id.ToString());
+                    StringBuilder stringBuilder = new StringBuilder();
+                    JsonWriter jsonWriter = new JsonWriter(stringBuilder);
                     jsonWriter.WriteObjectStart();
 
-                    jsonWriter.WritePropertyName("life");
-                    jsonWriter.Write(item.Value.life);
-
-                    jsonWriter.WritePropertyName("dps");
+                    jsonWriter.WritePropertyName("if_win");
                     jsonWriter.Write(0);
+
+                    jsonWriter.WritePropertyName("battle_guns");
+                    jsonWriter.WriteObjectStart();
+                    foreach (var item in teaminfo)
+                    {
+                        jsonWriter.WritePropertyName(item.Value.id.ToString());
+                        jsonWriter.WriteObjectStart();
+
+                        jsonWriter.WritePropertyName("life");
+                        jsonWriter.Write(item.Value.life);
+
+                        jsonWriter.WritePropertyName("dps");
+                        jsonWriter.Write(0);
+                        jsonWriter.WriteObjectEnd();
+
+
+                    }
+                    jsonWriter.WriteObjectEnd();
+                    WriteDamageData(jsonWriter);
+                    jsonWriter.WritePropertyName("battle_damage");
+                    jsonWriter.WriteObjectStart();
+                    jsonWriter.WriteObjectEnd();
                     jsonWriter.WriteObjectEnd();
 
 
+
+
+                    return stringBuilder.ToString();
                 }
-                jsonWriter.WriteObjectEnd();
-                WriteDamageData(jsonWriter);
-                jsonWriter.WritePropertyName("battle_damage");
-                jsonWriter.WriteObjectStart();
-                jsonWriter.WriteObjectEnd();
-                jsonWriter.WriteObjectEnd();
+            }
+
+
+            public void WriteDamageData(JsonWriter writer)
+            {
+                writer.WritePropertyName("1000");
+                writer.WriteObjectStart();
+                writer.WritePropertyName("11");
+                writer.Write(149);
+                writer.WritePropertyName("12");
+                writer.Write(0);
+                writer.WritePropertyName("13");
+                writer.Write(0);
+                writer.WritePropertyName("15");
+                writer.Write(22644);
+                writer.WritePropertyName("17");
+                writer.Write(0);
+                writer.WritePropertyName("18");
+                writer.Write(0);
+                writer.WritePropertyName("19");
+                writer.Write(0);
+                writer.WritePropertyName("20");
+                writer.Write(0);
+                writer.WritePropertyName("21");
+                writer.Write(0);
+                writer.WritePropertyName("22");
+                writer.Write(0);
+                writer.WritePropertyName("23");
+                writer.Write(0);
+                writer.WritePropertyName("24");
+                writer.Write(0);
+                writer.WritePropertyName("25");
+                writer.Write(0);
+                writer.WritePropertyName("26");
+                writer.Write(24520);
+                writer.WritePropertyName("27");
+                writer.Write(3);
+                writer.WriteObjectEnd();
+                writer.WritePropertyName("1001");
+                writer.WriteObjectStart();
+                writer.WriteObjectEnd();
+                writer.WritePropertyName("1002");
+                writer.WriteObjectStart();
+                writer.WriteObjectEnd();
+                writer.WritePropertyName("1003");
+                writer.WriteObjectStart();
+                writer.WriteObjectEnd();
+            }
 
 
 
 
-                return stringBuilder.ToString();
+        }
+        public SimulationTrialHandle(UserData userData)
+        {
+            this.userData = userData;
+
+        }
+
+        public bool Start()
+        {
+            if (StartBattle()==false) return false;
+            return EndBattle();
+        }
+
+        private bool StartBattle()
+        {
+            foreach (var team in userData.Teams)
+            {
+                TeamID = team.Key;
+                int count = 0;
+                string result = API.Battle.StartTrial(userData.GameAccount, TeamID.ToString());
+                switch (Response.Check(userData.GameAccount, ref result, "StartTrial_Pro", true))
+                {
+                    case 1:
+                        {
+                            return true;
+                        }
+                    case 0:
+                        {
+                            if (count++ > userData.config.ErrorCount)
+                            {
+                                continue;
+                            }
+                            break;
+                        }
+                    case -1:
+                        {
+                            if (count++ > userData.config.ErrorCount)
+                            {
+                                continue;
+                            }
+                            break;
+                        }
+                    default:
+                        break;
+                }
+            }
+            new Log().userInit(userData.GameAccount.Base.GameAccountID, "开始无限防御 Error TeamID = {0}",TeamID.ToString()).userInfo();
+            return false;
+        }
+        private bool EndBattle()
+        {
+            TrialExercise_Battle_Sent tbs = new TrialExercise_Battle_Sent(userData.Teams[TeamID]);
+            int count = 0;
+            while (true)
+            {
+                string result = API.Battle.EndTrial(userData.GameAccount,tbs.BattleResult);
+                switch (Response.Check(userData.GameAccount,ref result, "EndTrial_Pro", true))
+                {
+                    case 1:
+                        {
+                            return true;
+                        }
+                    case 0:
+                        {
+                            break;
+                        }
+                    case -1:
+                        {
+                            if (count++ > userData.config.ErrorCount)
+                            {
+                                new Log().userInit(userData.GameAccount.Base.GameAccountID, "开始无限防御 Error TeamID = {0}", TeamID.ToString()).userInfo();
+                                return false;
+                            }
+                            continue;
+                        }
+                    default:
+                        break;
+                }
             }
         }
-
-
-        public void WriteDamageData(JsonWriter writer)
-        {
-            writer.WritePropertyName("1000");
-            writer.WriteObjectStart();
-            writer.WritePropertyName("11");
-            writer.Write(149);
-            writer.WritePropertyName("12");
-            writer.Write(0);
-            writer.WritePropertyName("13");
-            writer.Write(0);
-            writer.WritePropertyName("15");
-            writer.Write(22644);
-            writer.WritePropertyName("17");
-            writer.Write(0);
-            writer.WritePropertyName("18");
-            writer.Write(0);
-            writer.WritePropertyName("19");
-            writer.Write(0);
-            writer.WritePropertyName("20");
-            writer.Write(0);
-            writer.WritePropertyName("21");
-            writer.Write(0);
-            writer.WritePropertyName("22");
-            writer.Write(0);
-            writer.WritePropertyName("23");
-            writer.Write(0);
-            writer.WritePropertyName("24");
-            writer.Write(0);
-            writer.WritePropertyName("25");
-            writer.Write(0);
-            writer.WritePropertyName("26");
-            writer.Write(24520);
-            writer.WritePropertyName("27");
-            writer.Write(3);
-            writer.WriteObjectEnd();
-            writer.WritePropertyName("1001");
-            writer.WriteObjectStart();
-            writer.WriteObjectEnd();
-            writer.WritePropertyName("1002");
-            writer.WriteObjectStart();
-            writer.WriteObjectEnd();
-            writer.WritePropertyName("1003");
-            writer.WriteObjectStart();
-            writer.WriteObjectEnd();
-        }
-
-
-
-
+        public int TeamID;
+        private UserData userData;
     }
+
+
+
+
+
+
+
 
     /// <summary>
     /// 

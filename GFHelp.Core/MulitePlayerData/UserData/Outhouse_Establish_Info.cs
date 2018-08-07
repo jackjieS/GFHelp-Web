@@ -1,43 +1,51 @@
 ﻿using GFHelp.Core.Helper;
+using GFHelp.Core.Management;
+using LitJson;
 using System;
 using System.Collections.Generic;
 using System.Text;
+using System.Threading;
 
 namespace GFHelp.Core.MulitePlayerData
 {
     public class Outhouse_Establish_Info
     {
-        private static Dictionary<int, Outhouse_Establish_Info> dicEstablish = new Dictionary<int, Outhouse_Establish_Info>();
+        public Outhouse_Establish_Info(UserData userData)
+        {
+            this.userData = userData;
+        }
+        private UserData userData;
 
-        public int id;
-        public int user_id;
-        public int room_id;
-        public int establish_id;
-        public int establish_type;
-        public int furniture_id;
-        public int upgrade_establish_id;
-        public int upgrade_starttime;
-        public int build_starttime;
-        public int build_num;
-        public string build_tmp_data;
-        public int build_get_time;
-        public int update_furniture_id;
-        public int furniture_postion;
-        public int establish_lv;
-        public int upgrade_coin;
-        public int upgrade_time;
-        public int upgrade_condition;
-        public int parameter_1;
-        public int parameter_2;
-        public int parameter_3;
-
+        class Data
+        {
+            public int id;
+            public int user_id;
+            public int room_id;
+            public int establish_id;
+            public int establish_type;
+            public int furniture_id;
+            public int upgrade_establish_id;
+            public int upgrade_starttime;
+            public int build_starttime;
+            public int build_num;
+            public string build_tmp_data;
+            public int build_get_time;
+            public int update_furniture_id;
+            public int furniture_postion;
+            public int establish_lv;
+            public int upgrade_coin;
+            public int upgrade_time;
+            public int upgrade_condition;
+            public int parameter_1;
+            public int parameter_2;
+            public int parameter_3;
+        }
         public bool Read(dynamic jsonobj)
         {
             dicEstablish.Clear();
-
             foreach (var item in jsonobj.outhouse_establish_info)
             {
-                Outhouse_Establish_Info oei = new Outhouse_Establish_Info();
+                Data oei = new Data();
                 try
                 {
                     oei.id = Convert.ToInt32(item.id);
@@ -69,14 +77,177 @@ namespace GFHelp.Core.MulitePlayerData
                 catch (Exception e)
                 {
                     new Log().systemInit("读取UserData_Establish", e.ToString()).coreError();
-
-                    continue;
                 }
-                dicEstablish.Add(oei.establish_type, oei);
+                finally
+                {
+                    dicEstablish.Add(oei.establish_type, oei);
+                }
+
             }
+            setWriteReport();
             return true;
         }
+        private void setWriteReport()
+        {
+            this.continuedTime = Furniture_server;
+            if (string.IsNullOrEmpty(dicEstablish[201].build_tmp_data))
+            {
+                Using = false;
+            }
+            if (!string.IsNullOrEmpty(dicEstablish[201].build_tmp_data))
+            {
+                StartTime = dicEstablish[201].build_starttime;
+                Using = true;
+            }
+        }
 
+        public void AutoRun()
+        {
+            BattleReportStart();
+            BattleReportFinish();
+        }
+        private void BattleReportStart()
+        {
+            if (userData.item_With_User_Info.Battery < 1000) return;
+            if (userData.item_With_User_Info.globalFreeExp < Furniture_database) return;
+            if (time>0) return;
+            if (Using) return;
+            if (Establish_Build_Start())
+            {
+                userData.item_With_User_Info.Battery -= Furniture_printer * 3;
+                userData.item_With_User_Info.globalFreeExp -= Furniture_printer * 3000;
+                this.StartTime =Helper.Decrypt.ConvertDateTime_China_Int(DateTime.Now);
+                Using = true;
+            }
+
+
+
+        }
+        private void BattleReportFinish()
+        {
+            if (time > 0) return;
+            if (Using== false) return;
+
+            if (Establish_Build_Finish())
+            {
+                Using = false;
+            }
+        }
+
+
+
+
+        private bool Establish_Build_Start()
+        {
+
+            Thread.Sleep(10000);
+
+            //Gun_Retire
+            int count = 0;
+
+            StringBuilder sb = new StringBuilder();
+            JsonWriter jsonWriter = new JsonWriter(sb);
+
+            jsonWriter.WriteObjectStart();
+
+            jsonWriter.WritePropertyName("establish_type");
+            jsonWriter.Write(201);
+            jsonWriter.WritePropertyName("num");
+            jsonWriter.Write(userData.outhouse_Establish_Info.Furniture_printer);
+            jsonWriter.WritePropertyName("payway");
+            jsonWriter.Write("build_coin");
+
+            jsonWriter.WriteObjectEnd();
+
+            while (true)
+            {
+                string result = API.Dorm.Establish_Build(userData.GameAccount, sb.ToString());
+
+                switch (Response.Check(userData.GameAccount, ref result, "Establish_Build", true))
+                {
+                    case 1:
+                        {
+                            return true;
+                        }
+                    case 0:
+                        {
+                            continue;
+                        }
+                    case -1:
+                        {
+                            if (count++ > userData.config.ErrorCount)
+                            {
+                                new Log().userInit(userData.GameAccount.Base.GameAccountID, "Establish_Build_Start ERROR", result).userInfo();
+                                return false;
+                            }
+                            continue;
+                        }
+                    default:
+                        break;
+                }
+
+            }
+        }
+        private bool Establish_Build_Finish()
+        {
+
+            Thread.Sleep(5000);
+
+            //Gun_Retire
+            int count = 0;
+
+            StringBuilder sb = new StringBuilder();
+            JsonWriter jsonWriter = new JsonWriter(sb);
+
+            jsonWriter.WriteObjectStart();
+
+            jsonWriter.WritePropertyName("establish_type");
+            jsonWriter.Write(201);
+            jsonWriter.WritePropertyName("payway");
+            jsonWriter.Write("build_coin");
+
+            jsonWriter.WriteObjectEnd();
+
+            while (true)
+            {
+                string result = API.Dorm.Establish_Build_Finish(userData.GameAccount, sb.ToString());
+
+                switch (Response.Check(userData.GameAccount, ref result, "Establish_Build_Finish", true))
+                {
+                    case 1:
+                        {
+                            return true;
+                        }
+                    case 0:
+                        {
+                            continue;
+                        }
+                    case -1:
+                        {
+                            if (count++ > userData.config.ErrorCount)
+                            {
+
+                                new Log().userInit(userData.GameAccount.Base.GameAccountID, "Establish_Build_Finish ERROR", result).userInfo();
+                                return false;
+                            }
+                            continue;
+                        }
+                    default:
+                        break;
+                }
+
+            }
+        }
+
+
+
+
+
+
+
+
+
+        private static Dictionary<int, Data> dicEstablish = new Dictionary<int, Data>();
         public int Furniture_database
         {
             get
@@ -84,7 +255,6 @@ namespace GFHelp.Core.MulitePlayerData
                 return dicEstablish[204].parameter_1;
             }
         }
-
         public int Furniture_printer
         {
             get
@@ -100,5 +270,17 @@ namespace GFHelp.Core.MulitePlayerData
             }
         }
 
+        public bool Using=true;
+        public int StartTime;//utx
+        public int continuedTime;
+        public int time
+        {
+            get
+            {
+                DateTime t = new DateTime(1970, 1, 1);
+                double second = (DateTime.UtcNow - t).TotalSeconds;
+                return StartTime + continuedTime - (int)second;
+            }
+        }
     }
 }

@@ -87,7 +87,8 @@ namespace GFHelp.Mission
             Normal,
             Emergency,
             Night,
-            Activity
+            Activity,
+            Simulation
         };
         public class map0_1
         {
@@ -2506,7 +2507,35 @@ namespace GFHelp.Mission
 
         }
 
+        public class mapcorridor
+        {
+            public mapcorridor(Normal_MissionInfo ubti)
+            {
+                dic_TeamMove = new Dictionary<int, TeamMove>();
+                dic_TeamMove.Add(dic_TeamMove.Count, teammove1);
+                dic_TeamMove.Add(dic_TeamMove.Count, teammove2);
+                dic_TeamMove.Add(dic_TeamMove.Count, teammove3);
+                dic_TeamMove.Add(dic_TeamMove.Count, teammove4);
+                dic_TeamMove.Add(dic_TeamMove.Count, teammove5);
+                Spots.Add(Spots.Count, spots1);
+                Mission_Start_spots = new Spot[] { spots1 };
+                Function.init(dic_TeamMove, Spots, ubti);
+            }
+            public mapcorridor() { }
+            public int mission_id = 1503;
+            public static MissionType missionType = MissionType.Simulation;
+            public Dictionary<int, Spot> Spots = new Dictionary<int, Spot>();
+            public Spot spots1 = new Spot(5523, 0);//主力
+            public Spot[] Mission_Start_spots;
+            public TeamMove teammove1 = new TeamMove(5523, 5521, 1,0);
+            public TeamMove teammove2 = new TeamMove(5521, 5522, 1,0);
+            public TeamMove teammove3 = new TeamMove(5522, 5519, 1,0);
+            public TeamMove teammove4 = new TeamMove(5519, 5524, 1,0);
+            public TeamMove teammove5 = new TeamMove(5524, 5520, 1,0);
 
+
+            public Dictionary<int, TeamMove> dic_TeamMove;
+        }
 
 
 

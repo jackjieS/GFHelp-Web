@@ -1,4 +1,5 @@
-﻿using System;
+﻿using GFHelp.Core.Management;
+using System;
 using System.Collections.Generic;
 using System.Text;
 
@@ -6,6 +7,15 @@ namespace GFHelp.Core.MulitePlayerData
 {
     public class BattleReport
     {
+        public BattleReport(UserData userData)
+        {
+            this.userData = userData;
+        }
+
+
+
+        private UserData userData;
+
         public int StartTime;//utx
         public int continuedTime;
         public int time

@@ -60,11 +60,9 @@ namespace GFHelp.Core.Action
 
             try
             {
-                //Invoke()
+ 
                 MethodInfo methodInfo = data.type.GetMethod(userData.normal_MissionInfo.TaskMap);
-                Task methodTask = new Task(() => methodInfo.Invoke(data.instance, new Object[] { userData, userData.normal_MissionInfo }));
-                methodTask.Start();
-                Task.WaitAll(methodTask);
+                methodInfo.Invoke(data.instance, new Object[] { userData, userData.normal_MissionInfo });
             }
             catch (Exception e)
             {
@@ -73,6 +71,41 @@ namespace GFHelp.Core.Action
                 userData.normal_MissionInfo.Loop = false;
             }
         }
+        public void corridor(UserData userData)
+        {
+            userData.battle.Check_Equip_Gun_FULL();
+            Data data = null;
+            try
+            {
+                data = new Data().init("mapcorridor");
+
+            }
+            catch (Exception e)
+            {
+                new Log().userInit(userData.GameAccount.Base.GameAccountID, "初始化战斗任务 ERROR", e.ToString());
+                return;
+            }
+
+            try
+            {
+                //Invoke()
+                MethodInfo methodInfo = data.type.GetMethod("mapcorridor");
+                methodInfo.Invoke(data.instance, new Object[] { userData });
+                //Task methodTask = new Task(() => );
+                //methodTask.Start();
+                //Task.WaitAll(methodTask);
+            }
+            catch (Exception e)
+            {
+                new Log().systemInit("调用作战dll文件出错", e.ToString()).coreError();
+                new Log().userInit(userData.GameAccount.Base.GameAccountID, "调用作战dll文件出错", e.ToString()).coreError();
+
+            }
+        }
+
+
+
+
 
         public void End_At_Battle(Normal_MissionInfo ubti)
         {
