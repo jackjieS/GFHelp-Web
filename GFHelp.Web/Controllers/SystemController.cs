@@ -13,7 +13,7 @@ namespace GFHelp.Web.Controllers
     /// <summary>
     /// 系统运行的情况
     /// </summary>
-    [Authorize]
+
     public class SystemController : Controller
     {
         private appContext context;
@@ -42,6 +42,7 @@ namespace GFHelp.Web.Controllers
         /// <returns></returns>
         [Route("/System/GetLogs")]
         [HttpGet]
+        [Authorize]
         public IActionResult GetLogs()
         {
             string username = User.FindFirst(ClaimTypes.NameIdentifier)?.Value;
@@ -76,6 +77,7 @@ namespace GFHelp.Web.Controllers
         /// <returns></returns>
         [Route("/System/RemoveALLSystemNotice")]
         [HttpGet]
+        [Authorize]
         public IActionResult RemoveALLSystemNotice()
         {
             string username = User.FindFirst(ClaimTypes.NameIdentifier)?.Value;
@@ -113,6 +115,7 @@ namespace GFHelp.Web.Controllers
         /// <returns></returns>
         [Route("/System/GetOperationInfo")]
         [HttpGet]
+        [Authorize]
         public IActionResult GetOperationInfo()
         {
             var temp = new
@@ -133,15 +136,21 @@ namespace GFHelp.Web.Controllers
         /// 获取系统信息
         /// </summary>
         /// <returns></returns>
-        [Route("/System/News")]
+        [Route("/System/UpgradeInfo")]
         [HttpGet]
-        public IActionResult GetNews()
+        public IActionResult UpgradeInfo()
         {
+            string data="";
+            foreach (var item in ConfigManager.UpgradeInfo)
+            {
+                data += "<p>"+item+ "</p>";
+            }
+
             return Ok(new
             {
                 code = 1,
-                data = "系统信息",
-                message = "系统信息"
+                data = data,
+                message = ""
             });
         }
 
@@ -151,6 +160,7 @@ namespace GFHelp.Web.Controllers
         /// <returns></returns>
         [Route("/System/TestInitSystemNotice")]
         [HttpPost]
+        [Authorize]
         public  IActionResult TestInitSystemNotice()
         {
             Log log = new Log().systemInit(DateTime.Now.ToString()).coreInfo();
@@ -173,6 +183,7 @@ namespace GFHelp.Web.Controllers
         /// <returns></returns>
         [Route("/System/GetCountOfGame")]
         [HttpGet]
+        [Authorize]
         public IActionResult GetCountOfGame()
         {
             int count = Core.Management.Data.data.Count;

@@ -35,6 +35,18 @@ namespace GFHelp.Core.MulitePlayerData
                         userData.home.GetUserInfo();
                         break;
                     }
+                case 3:
+                    {
+                        Action.MissionData.Reload();
+                        break;
+                    }
+                case 4:
+                    {
+                        userData.mission.Test();
+                        userData.mission.Test();
+                        userData.mission.Test();
+                        break;
+                    }
                 case 21:
                     {
                         userData.home.Click_Kalina();
@@ -68,7 +80,7 @@ namespace GFHelp.Core.MulitePlayerData
                     }
                 case 41:
                     {
-                        userData.mission.Test(userData);
+                        userData.mission.Test();
                         userData.mission.End_At_Battle(userData.normal_MissionInfo);
                         break;
                     }

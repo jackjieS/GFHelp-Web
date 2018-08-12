@@ -12,7 +12,25 @@
   </PropertyGroup>
 
   <ItemGroup>
+    <Compile Remove="wwwroot\**" />
+    <Content Remove="wwwroot\**" />
+    <EmbeddedResource Remove="wwwroot\**" />
+    <None Remove="wwwroot\**" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <Content Remove="stc\catchdata.json" />
+  </ItemGroup>
+
+  <ItemGroup>
     <None Remove="config.cfg" />
+    <None Remove="stc\5000.stc" />
+    <None Remove="stc\5001.stc" />
+    <None Remove="stc\5002.stc" />
+    <None Remove="stc\5003.stc" />
+    <None Remove="stc\5004.stc" />
+    <None Remove="stc\5005.stc" />
+    <None Remove="stc\catchdata.dat" />
   </ItemGroup>
 
   <ItemGroup>
@@ -37,9 +55,13 @@
   </ItemGroup>
 
   <ItemGroup>
-    <Content Update="wwwroot\index.html">
-      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
-    </Content>
+    <Folder Include="stc\" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <None Update="UpgradeInfo.txt">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
   </ItemGroup>
 
   <ProjectExtensions><VisualStudio><UserProperties wwwroot_4lib_4bootstrap_4dist_4css_4bootstrap_1css_1map__JSONSchema="" /></VisualStudio></ProjectExtensions>

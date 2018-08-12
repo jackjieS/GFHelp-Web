@@ -8,6 +8,7 @@ using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
+using System.Threading;
 using System.Threading.Tasks;
 //向網頁傳輸數據一個錯誤窗口之類的
 namespace GFHelp.Core.Action
@@ -51,7 +52,6 @@ namespace GFHelp.Core.Action
             userData.webData.StatusBarText = "查询新邮件";
             Mail();
             userData.battle.Abort_Mission_login();
-            userData.config.AutoRelogin = true;
             userData.config.LoginSuccessful = true;//开始自动任务循环
             return true;
         }
@@ -91,7 +91,11 @@ namespace GFHelp.Core.Action
                     case -1:
                         {
 
-                            if (count++ >= userData.config.ErrorCount) return "error";
+                            if (count++ >= userData.config.ErrorCount)
+                            {
+                                userData.webData.StatusBarText = "登陆失败";
+                                return "error";
+                            }
                             continue;
                         }
                     default:
@@ -505,10 +509,10 @@ namespace GFHelp.Core.Action
         {
             if (userData.GameAccount.tomorrow_zero == 0) return;
 
-            if (userData.config.AutoRelogin && DateTime.Now.Minute == 35 && DateTime.Now.Second == 1)
+            if (DateTime.Now.Minute == 35 && DateTime.Now.Second == 1)
             {
                 userData.GameAccount.tomorrow_zero = 2101948800;
-                userData.config.AutoRelogin = false;
+                Thread.Sleep(1000);
                 userData.eventAction.Login();
             }
             return;

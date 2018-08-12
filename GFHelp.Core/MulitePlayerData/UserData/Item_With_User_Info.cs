@@ -99,9 +99,59 @@ namespace GFHelp.Core.MulitePlayerData
 
             }
         }
+        public int originalData
+        {
+            get
+            {
+                if (dicItem.ContainsKey(14))
+                {
+                    return dicItem[14].number;
+                }
+                return 0;
+            }
+            set
+            {
+                if (dicItem.ContainsKey(14))
+                {
+                    dicItem[14].number = value;
+                }
+                else
+                {
+                    Data iwui = new Data();
+                    iwui.number = value;
+                    iwui.item_id = 14;
+                    dicItem.Add(14, iwui);
+                }
 
+            }
 
+        }
+        public int PureData
+        {
+            get
+            {
+                if (dicItem.ContainsKey(15))
+                {
+                    return dicItem[15].number;
+                }
+                return 0;
+            }
+            set
+            {
+                if (dicItem.ContainsKey(15))
+                {
+                    dicItem[15].number = value;
+                }
+                else
+                {
+                    Data iwui = new Data();
+                    iwui.number = value;
+                    iwui.item_id = 15;
+                    dicItem.Add(15, iwui);
+                }
 
+            }
+        }
 
 
     }

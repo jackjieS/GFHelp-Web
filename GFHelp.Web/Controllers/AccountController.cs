@@ -47,7 +47,11 @@ namespace GFHelp.Web.Controllers
         private bool delGameAccount(GameAccountBase gameAccountBase)
         {
             var list = context.GameAccount.Where(p => p.GameAccountID == gameAccountBase.GameAccountID && p.WebUsername == gameAccountBase.WebUsername).ToList();
-            if (list.Count == 0) return false;
+            if (list.Count == 0)
+            {
+                return false;
+            }
+
             bool result = true;
             foreach (var item in list)
             {

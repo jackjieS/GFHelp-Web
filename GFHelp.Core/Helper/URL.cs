@@ -104,6 +104,10 @@ namespace GFHelp.Core.Helper
         public const string missionGroupReset = "Mission/missionGroupReset";
         public const string allyTeamAi = "Mission/allyTeamAi";
         public const string saveHostage = "Mission/saveHostage";
+        public const string getDataCell = "Dorm/get_data_cell";
+
+
+
     }
 
     class GameHost

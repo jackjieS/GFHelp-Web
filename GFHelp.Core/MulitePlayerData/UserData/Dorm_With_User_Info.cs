@@ -305,7 +305,7 @@ namespace GFHelp.Core.MulitePlayerData
                 {
                     string result = API.Dorm.Get_Build_Coin(userData.GameAccount, userData.dorm_with_user_info.info.user_id, userData.dorm_with_user_info.info.dorm_id);
 
-                    switch (Helper.Response.Check(userData.GameAccount, ref result, "Get_Friend_Build_Coin_Pro", true))
+                    switch (Response.Check(userData.GameAccount, ref result, "Get_Friend_Build_Coin_Pro", true))
                     {
                         case 1:
                             {
@@ -343,7 +343,57 @@ namespace GFHelp.Core.MulitePlayerData
         }
 
 
+        private void GetOandPData()
+        {
 
+            int count = 0;
+            while (true)
+            {
+                string result = API.Dorm.getDataCell(userData.GameAccount);
+
+                switch (Response.Check(userData.GameAccount, ref result, "getDataCell_Pro", true))
+                {
+                    case 1:
+                        {
+                            return;
+                        }
+                    case 0:
+                        {
+                            if (count++ >= userData.config.ErrorCount)
+                            {
+                                new Log().userInit(userData.GameAccount.Base.GameAccountID, " 获取数据样本出错", result.ToString()).userInfo();
+                                return;
+                            }
+                            break;
+                        }
+                    case -1:
+                        {
+                            if (count++ >= userData.config.ErrorCount)
+                            {
+                                new Log().userInit(userData.GameAccount.Base.GameAccountID, " 获取数据样本出错", result.ToString()).userInfo();
+                                return;
+                            }
+                            break;
+                        }
+                    default:
+                        break;
+                }
+
+
+
+
+
+
+
+
+            }
+
+
+
+
+
+
+        }
 
 
 

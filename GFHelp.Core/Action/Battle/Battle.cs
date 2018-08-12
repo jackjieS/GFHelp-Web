@@ -713,7 +713,7 @@ namespace GFHelp.Core.Action
                 try
                 {
                     JsonData jsonEquip = jsonData["battle_get_equip"];
-                    Equip equip = new Equip(jsonEquip);
+                    Equip.Data equip = new Equip.Data(jsonEquip);
                     userData.equip_With_User_Info.listEquip.Add(equip);
                     
                     if ((int)equip.info.rank==5)

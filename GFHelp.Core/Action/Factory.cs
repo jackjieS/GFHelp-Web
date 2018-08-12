@@ -355,6 +355,7 @@ namespace GFHelp.Core.Action
         /// <returns></returns>
         public static bool Gun_retire(UserData userData,int type)
         {
+            int count = 0;
             while (true)
             {
                 userData.gun_With_User_Info.Get_Gun_Retire();
@@ -393,7 +394,7 @@ namespace GFHelp.Core.Action
 
                 jsonWriter.WriteArrayEnd();
                 Thread.Sleep(2000);
-                int count = 0;
+
 
                 string result = API.Factory.Retire_Gun(userData.GameAccount,sb.ToString());
 
@@ -416,7 +417,7 @@ namespace GFHelp.Core.Action
                                 return false;
                             }
                             userData.webData.StatusBarText = "Get_Set_UserInfo";
-                           userData.home.GetUserInfo();
+                            userData.home.GetUserInfo();
                             break;
                         }
                     default:

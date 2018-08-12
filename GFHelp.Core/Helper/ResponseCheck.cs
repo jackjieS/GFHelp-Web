@@ -412,6 +412,12 @@ namespace GFHelp.Core.Helper
                     {
                         return result.Contains("title") ? 1 : 0;
                     }
+                case "getDataCell_Pro":
+                    {
+                        return result.Contains("base_cell") ? 1 : 0;
+                    }
+
+                    
 
                 default:
                     break;

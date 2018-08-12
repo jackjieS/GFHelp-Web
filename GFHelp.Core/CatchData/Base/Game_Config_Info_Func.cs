@@ -1,4 +1,6 @@
 ﻿using GFHelp.Core.CatchData.Base.CMD;
+using GFHelp.Core.Helper;
+using GFHelp.Core.MulitePlayerData;
 using LitJson;
 using System;
 using System.Collections.Generic;
@@ -233,6 +235,161 @@ namespace GFHelp.Core.CatchData.Base
             return Data.GetDataFromStringArray<int>("gun_max_level", stageNum, ',');
         }
 
+        public static int SquadCategory(int type)
+        {
+
+            int result = 0;
+            if (GameData.dictSquadCategoryToType.Count == 0)
+            {
+                string[] array = Data.GetString("squad_type_classify").Split(new char[]
+                {
+                '|'
+                });
+                for (int i = 0; i < array.Length; i++)
+                {
+                    List<int> list = new List<int>();
+                    string[] array2 = array[i].Split(new char[]
+                    {
+                    ':'
+                    });
+                    if (array2.Length > 1)
+                    {
+                        string[] array3 = array2[1].Split(new char[]
+                        {
+                        ','
+                        });
+                        for (int j = 0; j < array3.Length; j++)
+                        {
+                            try
+                            {
+                                list.Add(Convert.ToInt32(array3[j]));
+                            }
+                            catch (Exception)
+                            {
+                            }
+                        }
+                    }
+                    GameData.dictSquadCategoryToType[Convert.ToInt32(array2[0])] = list;
+                }
+
+            }
+            return result;
+        }
+
+        //public static float GetDataCellDailyRatio()
+        //{
+
+        //    Establish establishWithType = Data.GetEstablishWithType(EstablishType.SquadBaseScanner_502);
+        //    if (establishWithType != null)
+        //    {
+        //        return Convert.ToSingle(establishWithType.info.parameter[0]);
+        //    }
+        //    return 1f;
+        //}
+
+        public static int CurrentSquadLevelExp(int level, int exp)
+        {
+            return exp - GameData.listSquadExp.GetDataById((long)level).exp;
+        }
+
+        public static int SquadExpToLevel(int _exp)
+        {
+            int num = 1;
+            while (GameData.listSquadExp.ContainsKey((long)num) && _exp >= GameData.listSquadExp.GetDataById((long)num).exp)
+            {
+                num++;
+            }
+            return num - 1;
+        }
+        public static int GetSquadPoint(Squad_With_User_Info.Data squad, bool isAssist = true)
+        {
+            float num = 0f;
+            float num2 = (float)squad.dictPanelAttrByAttrType[SquadAttriType.assist_def_break] * (float)squad.info.display_assist_area_coef / 100f * (float)squad.dictPanelAttrByAttrType[SquadAttriType.assist_hit] / ((float)squad.dictPanelAttrByAttrType[SquadAttriType.assist_hit] + (float)Data.GetInt("squad_dodge_coef") * Data.GetFloat("precise_coef")) * ((float)Data.GetInt("reload_coef2") + (float)squad.dictPanelAttrByAttrType[SquadAttriType.assist_reload]) / (float)Data.GetInt("reload_coef1") * (float)Data.GetInt("def_break_efficien");
+            float num3 = ((float)squad.dictPanelAttrByAttrType[SquadAttriType.assist_damage] + (float)squad.info.armor_piercing / (float)Data.GetInt("assist_armor_piercing_coef")) * (float)squad.dictPanelAttrByAttrType[SquadAttriType.assist_hit] / ((float)squad.dictPanelAttrByAttrType[SquadAttriType.assist_hit] + (float)Data.GetInt("squad_dodge_coef") * Data.GetFloat("precise_coef")) * ((float)Data.GetInt("reload_coef2") + (float)squad.dictPanelAttrByAttrType[SquadAttriType.assist_reload]) / (float)Data.GetInt("reload_coef1") * (float)squad.info.display_assist_area_coef / 100f * (((float)squad.info.crit_damage / 100f - 1f) * (float)squad.info.crit_rate / 100f + 1f) * (float)Data.GetInt("assist_damage_efficien");
+            float num4 = 0f;
+            float num5 = (float)Data.GetInt("skill_efficien1") + (float)Data.GetInt("skill_lv_efficien1") * (float)(squad.skill1 - 1) + (float)Data.GetInt("skill_efficien1") + (float)Data.GetInt("skill_lv_efficien1") * (float)(squad.skill2 - 1) + (float)Data.GetInt("skill_efficien1") + (float)Data.GetInt("skill_lv_efficien1") * (float)(squad.skill3 - 1);
+            if (isAssist)
+            {
+                return global::Mathf.CeilToInt(num2 + num3 + num5);
+            }
+            return global::Mathf.CeilToInt(num + num4 + num5);
+        }
+
+        public static int CurrentSquadLevelUpNeedExp(int level)
+        {
+            int count = GameData.listSquadExp.Count;
+            if (level < count)
+            {
+                return GameData.listSquadExp.GetDataById((long)(level + 1)).exp - GameData.listSquadExp.GetDataById((long)level).exp;
+            }
+            return GameData.listSquadExp.GetDataById((long)level).exp;
+        }
+
+        // Token: 0x06001D93 RID: 7571 RVA: 0x000B133C File Offset: 0x000AF53C
+        public static int SquadChipLevelWithExp(int exp, int rank)
+        {
+            if (exp <= 0)
+            {
+                return 0;
+            }
+            float num = Data.SquadChipExpCoefWithRank(rank);
+            int i = 1;
+            int count = GameData.listSquadChipExp.Count;
+            while (i <= count)
+            {
+                int num2 = global::Mathf.CeilToInt((float)GameData.listSquadChipExp.GetDataById((long)i).exp * num);
+                if (exp < num2)
+                {
+                    return i - 1;
+                }
+                i++;
+            }
+            return GameData.listSquadChipExp.Count;
+        }
+        // Token: 0x06001D91 RID: 7569 RVA: 0x000B121C File Offset: 0x000AF41C
+        public static float SquadChipExpCoefWithRank(int rank)
+        {
+            string[] array = Data.GetString("squad_chip_exp_indeed_ratio").Split(new char[]
+            {
+            ','
+            });
+            for (int i = 0; i < array.Length; i++)
+            {
+                string[] array2 = array[i].Split(new char[]
+                {
+                ':'
+                });
+                int num;
+                float result;
+                if (array2.Length >= 2 && int.TryParse(array2[0], out num) && float.TryParse(array2[1], out result) && num == rank)
+                {
+                    return result;
+                }
+            }
+            new Log().systemInit("squad_chip_exp_indeed_ratio格式错误").coreInfo();
+            return 1f;
+        }  
+        // Token: 0x06001D96 RID: 7574 RVA: 0x000B1484 File Offset: 0x000AF684
+        public static float SquadChipStrengthenLevelCoef(int level)
+        {
+            if (!GameData.listSquadChipExp.ContainsKey((long)level))
+            {
+                return 1f;
+            }
+            return (float)GameData.listSquadChipExp.GetDataById((long)level).strength_coef / 100f;
+        }
+        // Token: 0x06001D8F RID: 7567 RVA: 0x000B1104 File Offset: 0x000AF304
+        public static SquadBaseAttribution GetSquadBasicAttribute(SquadAttriType attriType)
+        {
+            return GameData.listSquadBaseAttriInfo.GetDataById((long)attriType);
+        }
+
+
+
+
+
+
+
 
 
 
@@ -365,11 +522,33 @@ namespace GFHelp.Core.CatchData.Base
             }
         }
 
-
+        public static Dictionary<int, List<int>> dictSquadCategoryToType;
         public static Dictionary<int, int> dictGunUpLevelExp;
         public static Dictionary<int, int> dictLevelToSumExp = new Dictionary<int, int>();
         public static tBaseDatas<EquipInfo> listEquipInfo;
         public static tBaseDatas<Gun_Info> listGunInfo = new tBaseDatas<Gun_Info>();
+        public static tBaseDatas<ItemInfo> listItemInfo = new tBaseDatas<ItemInfo>();
+        public static tBaseDatas<SquadChipInfo> listSquadChipInfo = new tBaseDatas<SquadChipInfo>();
+        public static tBaseDatas<SquadInfo> listSquadInfo = new tBaseDatas<SquadInfo>();
+        public static tBaseDatas<SquadTypeInfo> listSquadTypeInfo = new tBaseDatas<SquadTypeInfo>();
+        public static tBaseDatas<SquadRankInfo> listSquadRankInfo = new tBaseDatas<SquadRankInfo>();
+        public static tBaseDatas<SquadExp> listSquadExp = new tBaseDatas<SquadExp>();
+        public static tBaseDatas<SquadChipExp> listSquadChipExp = new tBaseDatas<SquadChipExp>();
+        public static tBaseDatas<SquadDailyQuestInfo> listSquadDailyQuestInfo = new tBaseDatas<SquadDailyQuestInfo>();
+        public static tBaseDatas<BattleSkillCfg> listBTSkillCfg = new tBaseDatas<BattleSkillCfg>();
+        public static tBaseDatas<SquadBaseAttribution> listSquadBaseAttriInfo = new tBaseDatas<SquadBaseAttribution>();
+        public static tBaseDatas<SquadAdvancedBonus> listSquadAdvancedBonus = new tBaseDatas<SquadAdvancedBonus>();
+        public static tBaseDatas<SquadCPUInfo> listSquadCPUInfo = new tBaseDatas<SquadCPUInfo>();
+        public static tBaseDatas<SquadCPUColor> listSquadCPUColor = new tBaseDatas<SquadCPUColor>();
+        public static tBaseDatas<SquadCPUGrid> listSquadCPUGrid = new tBaseDatas<SquadCPUGrid>();
+        public static tBaseDatas<SquadCPUCompletion> listSquadCPUCompletion = new tBaseDatas<SquadCPUCompletion>();
+
+
+
+
+
+
+
         public static Dictionary<int, int> dictEquipmentExpInfo;
         public static int ExpToLevel(int exp, bool isUser = false)
         {

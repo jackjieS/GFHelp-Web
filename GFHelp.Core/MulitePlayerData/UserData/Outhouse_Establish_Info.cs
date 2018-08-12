@@ -128,10 +128,8 @@ namespace GFHelp.Core.MulitePlayerData
             if (time > 0) return;
             if (Using== false) return;
 
-            if (Establish_Build_Finish())
-            {
-                Using = false;
-            }
+            Establish_Build_Finish();
+            Using = false;
         }
 
 
@@ -156,7 +154,8 @@ namespace GFHelp.Core.MulitePlayerData
             jsonWriter.Write(userData.outhouse_Establish_Info.Furniture_printer);
             jsonWriter.WritePropertyName("payway");
             jsonWriter.Write("build_coin");
-
+            jsonWriter.WritePropertyName("special_report");
+            jsonWriter.Write(1);//1是普通的
             jsonWriter.WriteObjectEnd();
 
             while (true)
@@ -226,7 +225,6 @@ namespace GFHelp.Core.MulitePlayerData
                         {
                             if (count++ > userData.config.ErrorCount)
                             {
-
                                 new Log().userInit(userData.GameAccount.Base.GameAccountID, "Establish_Build_Finish ERROR", result).userInfo();
                                 return false;
                             }
@@ -269,6 +267,19 @@ namespace GFHelp.Core.MulitePlayerData
                 return dicEstablish[205].parameter_1;
             }
         }
+        public int ChipsWhareHouse
+        {
+            get
+            {
+                if (dicEstablish.ContainsKey(601))
+                {
+                    return dicEstablish[601].parameter_1;
+                }
+                return 0;
+            }
+        }
+
+
 
         public bool Using=true;
         public int StartTime;//utx

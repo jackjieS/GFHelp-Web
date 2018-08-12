@@ -34,10 +34,10 @@ namespace GFHelp.Web
         // This method gets called by the runtime. Use this method to add services to the container.
         public void ConfigureServices(IServiceCollection services)
         {
-
+            services.AddCors();
             services.AddMvc();
             services.AddSignalR();
-            
+
             string con = "Data Source=" + currentDirectory+ @"\database.db";
             services.AddDbContext<appContext>(options =>
             options.UseSqlite(con));
@@ -128,7 +128,11 @@ namespace GFHelp.Web
             staticfile.FileProvider = new PhysicalFileProvider(currentDirectory + @"\wwwroot");//指定目录 这里指定C盘,也可以是其它目录
             app.UseStaticFiles(staticfile);
 
-
+            app.UseCors(builder => builder
+                .AllowAnyOrigin()
+                .AllowAnyMethod()
+                .AllowAnyHeader()
+                .AllowCredentials());
 
 
 
@@ -144,6 +148,7 @@ namespace GFHelp.Web
 
 
             app.UseSignalR(u => u.MapHub<Chat>("/chathub"));
+            app.UseDefaultFiles();
             app.UseStaticFiles();
 
             app.UseMvc(routes =>
@@ -165,6 +170,21 @@ namespace GFHelp.Web
             {
                 c.SwaggerEndpoint("/swagger/v1/swagger.json", "My API V1");
             });
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
             Core.SystemOthers.ConfigData.Initialize();
             Core.SignaIRClient.seed();

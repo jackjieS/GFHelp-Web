@@ -8,9 +8,14 @@ using System.Threading;
 
 namespace GFHelp.Core.Management
 {
-    public class Loop
+    public class cdLoop
     {
-        public static void CountDown(UserData userData)//倒计时
+        public cdLoop(UserData userData)
+        {
+            this.userData = userData;
+        }
+        private UserData userData;
+        public void CountDown()//倒计时
         {
             while (true)
             {
@@ -54,21 +59,6 @@ namespace GFHelp.Core.Management
             }
 
         }
-
-        /// <summary>
-        /// 每隔一小时登陆一次
-        /// </summary>
-
-
-
-
-
-
-
-
-
-
-
 
     }
 

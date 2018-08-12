@@ -34,6 +34,8 @@ namespace GFHelp.Core.CatchData.Base
         private static string weeklyfilename = currentDirectory + "\\textRes\\weekly.csv";
         private static string equipfilename = currentDirectory + "\\textRes\\equip.csv";
         private static string gunfilename = currentDirectory + "\\textRes\\gun.csv";
+        private static string squadtypename = currentDirectory + "\\textRes\\squad_type.csv";
+        private static string squadname = currentDirectory + "\\textRes\\squad.csv";
         private static Dictionary<int, ConfigNode> csvdata = new Dictionary<int, ConfigNode>();
         private static int maxline = 0;
 
@@ -51,6 +53,8 @@ namespace GFHelp.Core.CatchData.Base
                 ReadCsv(weeklyfilename, ref csvdata);
                 ReadCsv(equipfilename, ref csvdata);
                 ReadCsv(gunfilename, ref csvdata);
+                ReadCsv(squadtypename, ref csvdata);
+                ReadCsv(squadname, ref csvdata);
             }
             catch (Exception e)
             {

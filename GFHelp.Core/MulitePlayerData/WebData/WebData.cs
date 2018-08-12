@@ -15,6 +15,7 @@ namespace GFHelp.Core.MulitePlayerData.WebData
         public string StatusBarText;
         //public Dictionary<int, Dictionary<int, Gun>> WebTeams = new Dictionary<int, Dictionary<int, Gun>>();
         public List<Team> WebTeams = new List<Team>();
+        public List<Squad> WebSquads = new List<Squad>();
         public WebUser_Info webUser_Info = new WebUser_Info();
         //public Dictionary<int, WebOperation> webOperation = new Dictionary<int, WebOperation>();
         public List<WebOperation> webOperation = new List<WebOperation>();
@@ -27,6 +28,7 @@ namespace GFHelp.Core.MulitePlayerData.WebData
             Initialize.GetWebOperation(userData,ref webOperation);
             Initialize.GetWebStatus(userData, ref webStatus);
             Initialize.GetWebBattle(userData, ref webBattle);
+            Initialize.GetWebSquads(userData, ref WebSquads);
         }
     }
     public class Initialize
@@ -51,6 +53,15 @@ namespace GFHelp.Core.MulitePlayerData.WebData
                 }
                 Team Tteam = new Team(teamID, Leader, guns);
                 Teams.Add(Tteam);
+            }
+        }
+        public static void GetWebSquads(UserData userData,ref List<Squad> squads)
+        {
+            squads.Clear();
+            foreach (var squad in userData.squad_With_User_Info.listSquad)
+            {
+                Squad s = new Squad(squad);
+                squads.Add(s);
             }
         }
         public static void GetWebUser_Info(UserData ud,ref WebUser_Info ui)
@@ -84,12 +95,20 @@ namespace GFHelp.Core.MulitePlayerData.WebData
             ui.BatteryNum = ud.item_With_User_Info.Battery.ToString();
 
             ui.GlobalEXP = ud.item_With_User_Info.globalFreeExp > 0 ? ud.item_With_User_Info.globalFreeExp.ToString():0.ToString();
-            ui.TimeOfReport = ud.outhouse_Establish_Info.time.ToString();
+            ui.TimeOfReport = ud.outhouse_Establish_Info.time > 0 ? ud.outhouse_Establish_Info.time.ToString() : 0.ToString();
             ui.BPnum = ud.user_Info.bp.ToString();
             ui.BP_PayNUM = ud.user_Info.bp_pay.ToString();
             ui.FurnitureCoinNum = getItemNumFromID(ud, 41);
             ui.ExchangeCoinNum = getItemNumFromID(ud, 42);
             ui.Core = ud.user_Info.core.ToString();
+
+
+            ui.OrginalDataNum = ud.item_With_User_Info.originalData > 0 ? ud.item_With_User_Info.originalData.ToString() : 0.ToString();
+            ui.PureDataNum = ud.item_With_User_Info.PureData > 0 ? ud.item_With_User_Info.PureData.ToString() : 0.ToString();
+
+            ui.ChipNum = ud.chip_With_User_Info.listSquadChip.Count.ToString();
+            ui.ChipRank5Num = ud.chip_With_User_Info.listSquadChipRank5.Count.ToString();
+            ui.ChipMaxNum = ud.outhouse_Establish_Info.ChipsWhareHouse.ToString();
         }
         public static void GetWebOperation(UserData ud, ref List<WebOperation> dic)
         {
@@ -145,25 +164,10 @@ namespace GFHelp.Core.MulitePlayerData.WebData
         public int TeamID;
         public string Leader;
         public List<Gun> Guns;
-
-
     }
 
     public class Gun
     {
-        private string padRightEx(string str, int totalByteCount)
-        {
-            int dcount = 0;
-            foreach (var s in str)
-            {
-                if (s>= 0x7F)
-                {
-                    dcount++;
-                }
-            }
-            string w = str.PadRight(totalByteCount - dcount);
-            return w;
-        }
 
         public Gun(Gun_With_User_Info gun_With_User_Info)
         {
@@ -230,6 +234,11 @@ namespace GFHelp.Core.MulitePlayerData.WebData
         public string ExchangeCoinNum;//兑换卷
         public string Core;//核心
         public string TimeOfReport;
+        public string ChipNum;
+        public string ChipMaxNum;
+        public string ChipRank5Num;
+        public string OrginalDataNum;
+        public string PureDataNum;
     }
 
     public class WebOperation
@@ -257,6 +266,22 @@ namespace GFHelp.Core.MulitePlayerData.WebData
         public string Times;//已执行次数
         public string Parm;//参数
         public List<int> Teams;//参与的梯队
+    }
+    public class Squad
+    {
+        public Squad(Squad_With_User_Info.Data squad)
+        {
+            this.Name = Asset_Textes.ChangeCodeFromeCSV(squad.info.enName);
+            this.Type = Asset_Textes.ChangeCodeFromeCSV(squad.info.typeEnName);
+            this.Lv = squad.level.ToString();
+            this.Exp = squad.exp.ToString();
+            this.Rank = squad.rank.ToString();
+        }
+        public string Name;
+        public string Type;
+        public string Lv;
+        public string Exp;
+        public string Rank;
     }
 
 

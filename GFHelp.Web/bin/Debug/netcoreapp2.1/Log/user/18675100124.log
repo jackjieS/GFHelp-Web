@@ -1,1 +1,20 @@
 【13:10:01】      message = 获取宿舍信息出错 , exception = error:1
+【09:41:13】      message = 数字天空登陆 , exception = 
+【09:41:14】      message = 获取时间信息 , exception = 
+【09:41:15】      message = 获取Sign , exception = 
+【09:41:16】      message = 获取UserInfo , exception = 
+【09:41:20】      message = 签到 , exception = 
+【09:41:20】      message = 查询新邮件 , exception = 
+【22:43:40】      message = 数字天空登陆 , exception = 
+【22:43:41】      message = 获取时间信息 , exception = 
+【22:43:41】      message = 获取Sign , exception = 
+【22:43:45】      message = 获取UserInfo , exception = 
+【22:43:55】      message = 签到 , exception = 
+【22:43:55】      message = 查询新邮件 , exception = 
+【23:17:05】      message = 数字天空登陆 , exception = 
+【23:17:06】      message = 获取时间信息 , exception = 
+【23:17:07】      message = 获取Sign , exception = 
+【23:17:07】      message = 获取UserInfo , exception = 
+【23:17:14】      message = 签到 , exception = 
+【23:17:14】      message = 查询新邮件 , exception = 
+【23:17:16】      message =  开始后勤任务出错 , exception = error:3

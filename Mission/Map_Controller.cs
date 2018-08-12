@@ -120,7 +120,10 @@ namespace GFHelp.Mission
             public int withdrawSpot = 3033;//撤离
         }
 
-
+        public class maptest
+        {
+            public static MissionType missionType = MissionType.Normal;
+        }
         public class mapnormal
         {
             public static MissionType missionType = MissionType.Normal;

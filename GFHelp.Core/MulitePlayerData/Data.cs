@@ -98,7 +98,7 @@ namespace GFHelp.Core.Management
                 data.Add(userData);
             }
 
-            userData.cd = new Task(() => Loop.CountDown(userData));
+            userData.cd = new Task(() => userData.cdloop.CountDown());
             userData.cd.Start();
             userData.cd.ContinueWith(t =>
             {
@@ -169,6 +169,12 @@ namespace GFHelp.Core.Management
             this.outhouse_Establish_Info = new Outhouse_Establish_Info(this);
             this.item_With_User_Info = new Item_With_User_Info(this);
             this.config = new Config(this);
+            this.equip_With_User_Info = new Equip(this);
+            this.squadDataAnalysisAction = new SquadDataAnalysisAction(this);
+            this.squadDailyQuestAction = new SquadDailyQuestAction(this);
+            this.squad_With_User_Info = new Squad_With_User_Info(this);
+            this.chip_With_User_Info = new Chip_With_User_Info(this);
+            this.cdloop = new cdLoop(this);
         }
         public void CreatGameAccount(GameAccountBase gameAccountBase)
         {
@@ -190,24 +196,49 @@ namespace GFHelp.Core.Management
         public void Read(dynamic jsonobj,LitJson.JsonData jsonData)
         {
             Clear();
+
             Dorm_Rest_Friend_Build_Coin_Count = -1;
             user_Info.Read(jsonobj);
+
             user_Record.Read(jsonobj);
+
             equip_With_User_Info.Read(jsonData);
+
             operation_Act_Info.Read(jsonobj);
+
             kalina_with_user_info.Read(jsonobj);
+
             friend_with_user_info.Read(jsonobj);
+
             Dorm_Rest_Friend_Build_Coin_Count = Convert.ToInt32(jsonobj.dorm_rest_friend_build_coin_count);
+
             auto_Mission_Act_Info.Read(jsonobj);
+
             ReadUserData_mission_act_info(jsonobj);
             upgrade_Act_Info.Read(jsonobj);
+
             outhouse_Establish_Info.Read(jsonobj);
+
             fairy_With_User_Info.Read(jsonobj);
             //装备开发暂时不写
             item_With_User_Info.Read(jsonobj);
+
             gun_With_User_Info.Read(jsonData);
+
             others.Read(jsonobj);
+
+
+
+            squadDataAnalysisAction.Read(jsonData);
+            squadDailyQuestAction.Read(jsonData);
+            squad_With_User_Info.Read(jsonData);
+            chip_With_User_Info.Read(jsonData);
+
+
+
+
             Function.SetTeamInfo(this);
+
         }
         private void ReadUserData_mission_act_info(dynamic jsonobj)
         {
@@ -227,6 +258,7 @@ namespace GFHelp.Core.Management
         }
 
         public Task cd;
+        public cdLoop cdloop;
         public bool taskDispose = false;
 
         public Auto_Summery auto_Summery;
@@ -246,7 +278,7 @@ namespace GFHelp.Core.Management
 
         public Operation_Act_Info operation_Act_Info;
 
-        public Equip equip_With_User_Info = new Equip();
+        public Equip equip_With_User_Info;
 
         public Kalina_With_User_Info kalina_with_user_info = new Kalina_With_User_Info();
         public Dorm_With_User_Info dorm_with_user_info;
@@ -285,6 +317,21 @@ namespace GFHelp.Core.Management
 
         public logWriter log = new logWriter();
         public EventAction eventAction;
+
+
+
+
+        public SquadDataAnalysisAction squadDataAnalysisAction;
+        public SquadDailyQuestAction squadDailyQuestAction;
+        public Squad_With_User_Info squad_With_User_Info;
+        public Chip_With_User_Info chip_With_User_Info;
+
+
+
+
+
+
+
     }
 
     public class Config
@@ -298,7 +345,7 @@ namespace GFHelp.Core.Management
         }
         public int ErrorCount = 1;
         public bool LoginSuccessful = false;
-        public bool AutoRelogin = false;
+
         public bool NeedAuto_Loop_Operation_Act = true;
         public bool NeedAuto_Click_Girls_In_Dorm = true;//这些都需要 read userinfo 重置
         public bool AutoSimulation = true;
@@ -306,6 +353,7 @@ namespace GFHelp.Core.Management
         public bool AutoStrengthen = true;
         private void ParmConfiuge(UserData userData)
         {
+            if (string.IsNullOrEmpty(userData.GameAccount.Base.Parm)) return;
             List<string> Parm = userData.GameAccount.Base.Parm.ToLower().Split(' ').ToList();
             foreach (var item in Parm)
             {
@@ -449,6 +497,16 @@ namespace GFHelp.Core.Management
         public void Login()
         {
             invoke(new ActionEventArgs(TaskList.Login));
+        }
+
+
+        public void ReloadMissionDll()
+        {
+            invoke(new ActionEventArgs(TaskList.ReloadMissionDll));
+        }
+        public void Test()
+        {
+            invoke(new ActionEventArgs(TaskList.Test));
         }
         public void GetUserInfo()
         {

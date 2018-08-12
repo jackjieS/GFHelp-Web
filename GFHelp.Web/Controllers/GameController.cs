@@ -27,7 +27,11 @@ namespace GFHelp.Web.Controllers
             this.context = context;
         }
 
-
+        private bool isAdmin(string username)
+        {
+            var list = context.AccountInfo.Where(p => p.Username == username && p.Policy == "1").ToList();
+            return list.Count > 0 ? true : false;
+        }
 
         /// <summary>
         /// 获取游戏实例的详细信息
@@ -73,7 +77,7 @@ namespace GFHelp.Web.Controllers
         /// <summary>
         /// 游戏登陆
         /// </summary>
-        /// <param name="Accountid"> 游戏账户id</param>
+        /// <param name="account"></param>
         /// <returns></returns>
         [Route("/Game/Login")]
         [HttpPost]
@@ -89,6 +93,59 @@ namespace GFHelp.Web.Controllers
 
             });
         }
+        /// <summary>
+        /// ReloadMissionDll
+        /// </summary>
+        /// <param name="account"></param>
+        /// <returns></returns>
+        [Route("/Game/ReloadMissionDll")]
+        [HttpPost]
+        public IActionResult ReloadMissionDll([FromBody] Account account)
+        {
+
+            if (!isAdmin(account.username))
+            {
+                return Ok(new
+                {
+                    code = -1,
+                    //data = result,
+                    message = string.Format("没有权限")
+                });
+            }
+
+
+
+            Core.Action.MissionData.Reload();
+            GC.Collect();
+            return Ok(new
+            {
+                code = 1,
+                //data = result,
+                message = string.Format("完成")
+            });
+
+
+        }
+        /// <summary>
+        /// Test
+        /// </summary>
+        /// <param name="account"></param>
+        /// <returns></returns>
+        [Route("/Game/Test")]
+        [HttpPost]
+        public IActionResult Test([FromBody] Account account)
+        {
+            //加入控制符
+            Core.Management.Data.data.getDataByID(account.GameID).eventAction.Test();
+            return Ok(new
+            {
+                code = 1,
+                //data = result,
+                message = string.Format("正在登陆 {0}", account.GameID)
+
+            });
+        }
+
 
         /// <summary>
         /// [josn] accountID,后勤KEY, 后勤ID,后勤梯队ID sample:{"accountID":"13201546359",,"operationID":5,"TeamID":1}

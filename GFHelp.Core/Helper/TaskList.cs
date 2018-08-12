@@ -23,7 +23,8 @@ namespace GFHelp.Core.Helper
         public static TaskListInfo taskfree = new TaskListInfo("空闲", 0);
         public static TaskListInfo Login = new TaskListInfo("登陆", 1);
         public static TaskListInfo GetuserInfo = new TaskListInfo("读取用户信息", 2);
-
+        public static TaskListInfo ReloadMissionDll = new TaskListInfo("ReloadMissionDll", 3);
+        public static TaskListInfo Test = new TaskListInfo("Test", 4);
         public static TaskListInfo Click_Kalina = new TaskListInfo("格琳娜好感上升", 21);
         public static TaskListInfo Click_Girls_In_Dorm = new TaskListInfo("宿舍少女好感上升", 22);
         public static TaskListInfo Get_Battary_Friend = new TaskListInfo("获取好友电池", 23);

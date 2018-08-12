@@ -40,8 +40,9 @@ namespace GFHelp.Core.MulitePlayerData
             {
                 for (int i = 0; i < dicOperation.Count; i++)
                 {
-                    if (dicOperation[i].start_time == (int)DateTime.MinValue.Ticks) continue;
+
                     dicOperation[i].remaining_time = dicOperation[i].start_time + /*任务时间*/ CatachData.operation_info[dicOperation[i].operation_id - 1].duration - Decrypt.ConvertDateTime_China_Int(DateTime.Now);
+                    if (dicOperation[i].start_time == (int)DateTime.MinValue.Ticks) continue;
                     if (dicOperation[i].remaining_time < 0)
                     {
                         Data data = dicOperation[i];

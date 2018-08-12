@@ -1,0 +1,8 @@
+C:\Users\jack\Desktop\CS\GFHelp-Web\DLLreload\bin\Debug\netcoreapp2.1\DLLreload.deps.json
+C:\Users\jack\Desktop\CS\GFHelp-Web\DLLreload\bin\Debug\netcoreapp2.1\DLLreload.dll
+C:\Users\jack\Desktop\CS\GFHelp-Web\DLLreload\bin\Debug\netcoreapp2.1\DLLreload.pdb
+C:\Users\jack\Desktop\CS\GFHelp-Web\DLLreload\obj\Debug\netcoreapp2.1\DLLreload.csproj.CoreCompileInputs.cache
+C:\Users\jack\Desktop\CS\GFHelp-Web\DLLreload\obj\Debug\netcoreapp2.1\DLLreload.AssemblyInfoInputs.cache
+C:\Users\jack\Desktop\CS\GFHelp-Web\DLLreload\obj\Debug\netcoreapp2.1\DLLreload.AssemblyInfo.cs
+C:\Users\jack\Desktop\CS\GFHelp-Web\DLLreload\obj\Debug\netcoreapp2.1\DLLreload.dll
+C:\Users\jack\Desktop\CS\GFHelp-Web\DLLreload\obj\Debug\netcoreapp2.1\DLLreload.pdb

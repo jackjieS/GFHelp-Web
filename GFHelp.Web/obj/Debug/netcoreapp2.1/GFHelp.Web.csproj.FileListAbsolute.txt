@@ -47,7 +47,6 @@ C:\Users\jack\Desktop\CS\GFHelp-Web\GFHelp.Web\obj\Debug\netcoreapp2.1\GFHelp.We
 C:\Users\jack\Desktop\CS\GFHelp-Web\GFHelp.Web\obj\Debug\netcoreapp2.1\GFHelp.Web.RazorAssemblyInfo.cs
 C:\Users\jack\Desktop\CS\GFHelp-Web\GFHelp.Web\obj\Debug\netcoreapp2.1\GFHelp.Web.AssemblyInfoInputs.cache
 C:\Users\jack\Desktop\CS\GFHelp-Web\GFHelp.Web\obj\Debug\netcoreapp2.1\GFHelp.Web.AssemblyInfo.cs
-C:\Users\jack\Desktop\CS\GFHelp-Web\GFHelp.Web\bin\Debug\netcoreapp2.1\wwwroot\index.html
 C:\Users\jack\Desktop\CS\GFHelp-Web\GFHelp.Web\bin\Debug\netcoreapp2.1\GFHelpapi.xml
 C:\Users\jack\Desktop\CS\GFHelp-Web\GFHelp.Web\bin\Debug\netcoreapp2.1\GFHelp.Web.deps.json
 C:\Users\jack\Desktop\CS\GFHelp-Web\GFHelp.Web\bin\Debug\netcoreapp2.1\GFHelp.Web.runtimeconfig.json
@@ -82,3 +81,4 @@ C:\Users\jack\Desktop\CS\GFHelp-Web\GFHelp.Web\obj\Debug\netcoreapp2.1\GFHelp.We
 C:\Users\jack\Desktop\CS\GFHelp-Web\GFHelp.Web\obj\Debug\netcoreapp2.1\GFHelp.Web.csproj.CopyComplete
 C:\Users\jack\Desktop\CS\GFHelp-Web\GFHelp.Web\obj\Debug\netcoreapp2.1\GFHelp.Web.dll
 C:\Users\jack\Desktop\CS\GFHelp-Web\GFHelp.Web\obj\Debug\netcoreapp2.1\GFHelp.Web.pdb
+C:\Users\jack\Desktop\CS\GFHelp-Web\GFHelp.Web\bin\Debug\netcoreapp2.1\UpgradeInfo.txt

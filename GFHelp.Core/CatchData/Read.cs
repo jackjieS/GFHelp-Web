@@ -32,7 +32,7 @@ namespace GFHelp.Core
         public static Dictionary<int, int> Furniture_server = new Dictionary<int, int>();
         public static Dictionary<int, int> Furniture_printer = new Dictionary<int, int>();
 
-        public static tBaseDatas<ItemInfo> listItemInfo = new tBaseDatas<ItemInfo>();
+
         public static void Seed()
         {
             ClearCatchData();
@@ -76,8 +76,7 @@ namespace GFHelp.Core
             ReadCatchData_equip_info(jsonobj);
             ReadCatchData_fairy_type_info(jsonobj);
             ReadCatchData_Fairy_Info(jsonobj);
-            ReadCatchData_gun_info();
-            ReadCatchDATA_Item_Info();
+            LoadStcTable();
             ReadCatchData_gun_type_info(jsonobj);
             ReadCatchData_game_config_info(jsonobj);
             GetFurniture_database(jsonobj);
@@ -367,15 +366,196 @@ namespace GFHelp.Core
             }
             return true;
         }
+
+        private static bool LoadStcTable()
+        {
+            if (TableHelper.LoadTable<SquadBaseAttribution>(ref GameData.listSquadBaseAttriInfo, CmdDef.stcSquad_standard_attributionList, true))
+            {
+                new Log().systemInit("stcSquad_standard_attributionList 解析完成：" + GameData.listSquadBaseAttriInfo.Count).coreInfo();
+            }
+            else
+            {
+                new Log().systemInit("stcSquad_standard_attributionList 解析失败：" + GameData.listSquadBaseAttriInfo.Count).coreInfo();
+            }
+
+
+
+            if (TableHelper.LoadTable<ItemInfo>(ref GameData.listItemInfo, CmdDef.stcItemList, true))
+            {
+                new Log().systemInit("stcItemList 解析完成：" + GameData.listItemInfo.Count).coreInfo();
+            }
+            else
+            {
+                new Log().systemInit("stcItemList 解析失败：" + GameData.listItemInfo.Count).coreInfo();
+            }
+
+            if (TableHelper.LoadTable<Gun_Info>(ref GameData.listGunInfo, CmdDef.stcGunList, true))
+            {
+                new Log().systemInit("stcGunList 解析完成：" + GameData.listGunInfo.Count).coreInfo();
+            }
+            else
+            {
+                new Log().systemInit("stcGunList 解析完成：" + GameData.listGunInfo.Count).coreInfo();
+            }
+
+            if (TableHelper.LoadTable<SquadInfo>(ref GameData.listSquadInfo, CmdDef.stcSquadList, true))
+            {
+                new Log().systemInit("stcSquadList 解析完成：" + GameData.listSquadInfo.Count).coreInfo();
+            }
+            else
+            {
+                new Log().systemInit("stcSquadList 解析失败：" + GameData.listSquadInfo.Count).coreInfo();
+            }
+
+
+
+
+
+            if (TableHelper.LoadTable<SquadChipInfo>(ref GameData.listSquadChipInfo, CmdDef.stcSquad_chipList, true))
+            {
+                new Log().systemInit("stcSquad_chipList 解析完成：" + GameData.listSquadChipInfo.Count).coreInfo();
+            }
+            else
+            {
+                new Log().systemInit("stcSquad_chipList 解析失败:" + GameData.listSquadChipInfo.Count).coreInfo();
+            }
+
+
+
+            if (TableHelper.LoadTable<SquadTypeInfo>(ref GameData.listSquadTypeInfo, CmdDef.stcSquad_typeList, true))
+            {
+                new Log().systemInit("stcSquad_typeList 解析完成：" + GameData.listSquadTypeInfo.Count).coreInfo();
+
+            }
+            else
+            {
+                new Log().systemInit("stcSquad_typeList 解析失败:" + GameData.listSquadTypeInfo.Count).coreInfo();
+            }
+
+
+            if (TableHelper.LoadTable<SquadRankInfo>(ref GameData.listSquadRankInfo, CmdDef.stcSquad_rankList, true))
+            {
+                new Log().systemInit("stcSquad_rankList 解析完成：" + GameData.listSquadRankInfo.Count).coreInfo();
+            }
+            else
+            {
+                new Log().systemInit("stcSquad_rankList 解析失败：" + GameData.listSquadRankInfo.Count).coreInfo();
+            }
+
+            if (TableHelper.LoadTable<SquadExp>(ref GameData.listSquadExp, CmdDef.stcSquad_expList, true))
+            {
+                new Log().systemInit("stcSquad_expList 解析完成：" + GameData.listSquadExp.Count).coreInfo();
+
+            }
+            else
+            {
+                new Log().systemInit("stcSquad_expList 解析失败：" + GameData.listSquadExp.Count).coreInfo();
+            }
+
+            if (TableHelper.LoadTable<SquadChipExp>(ref GameData.listSquadChipExp, CmdDef.stcSquad_chip_expList, true))
+            {
+                new Log().systemInit("stcSquad_chip_expList 解析完成：" + GameData.listSquadChipExp.Count).coreInfo();
+            }
+            else
+            {
+                new Log().systemInit("stcSquad_chip_expList 解析失败：" + GameData.listSquadChipExp.Count).coreInfo();
+            }
+
+            if (TableHelper.LoadTable<SquadDailyQuestInfo>(ref GameData.listSquadDailyQuestInfo, CmdDef.stcSquad_data_dailyList, true))
+            {
+                new Log().systemInit("stcSquad_data_dailyList 解析完成：" + GameData.listSquadDailyQuestInfo.Count).coreInfo();
+            }
+            else
+            {
+                new Log().systemInit("stcSquad_data_dailyList 解析失败：" + GameData.listSquadDailyQuestInfo.Count).coreInfo();
+            }
+
+            if (TableHelper.LoadTable<BattleSkillCfg>(ref GameData.listBTSkillCfg, CmdDef.stcBattle_skill_configList, true))
+            {
+                new Log().systemInit("stcBattle_skill_configList 解析完成：" + GameData.listBTSkillCfg.Count).coreInfo();
+
+            }
+            else
+            {
+                new Log().systemInit("stcBattle_skill_configList 解析失败:" + GameData.listSquadDailyQuestInfo.Count).coreInfo();
+            }
+
+            if (TableHelper.LoadTable<SquadAdvancedBonus>(ref GameData.listSquadAdvancedBonus, CmdDef.stcSquad_advanced_bonusList, true))
+            {
+                new Log().systemInit("stcSquad_advanced_bonusList 解析完成：" + GameData.listSquadAdvancedBonus.Count).coreInfo();
+            }
+            else
+            {
+                new Log().systemInit("stcSquad_advanced_bonusList 解析失败:" + GameData.listSquadAdvancedBonus.Count).coreInfo();
+
+            }
+
+
+            if (TableHelper.LoadTable<SquadCPUInfo>(ref GameData.listSquadCPUInfo, CmdDef.stcSquad_cpuList, true))
+            {
+                new Log().systemInit("stcSquad_cpuList 解析完成：" + GameData.listSquadCPUInfo.Count).coreInfo();
+            }
+            else
+            {
+                new Log().systemInit("stcSquad_cpuList 解析失败:" + GameData.listSquadCPUInfo.Count).coreInfo();
+            }
+
+            if (TableHelper.LoadTable<SquadCPUColor>(ref GameData.listSquadCPUColor, CmdDef.stcSquad_colorList, true))
+            {
+                new Log().systemInit("stcSquad_colorList 解析完成：" + GameData.listSquadCPUColor.Count).coreInfo();
+            }
+            else
+            {
+                new Log().systemInit("stcSquad_colorList 解析失败：" + GameData.listSquadCPUColor.Count).coreInfo();
+
+            }
+            if (TableHelper.LoadTable<SquadCPUGrid>(ref GameData.listSquadCPUGrid, CmdDef.stcSquad_gridList, true))
+            {
+                new Log().systemInit("stcSquad_gridList 解析完成：" + GameData.listSquadCPUGrid.Count).coreInfo();
+            }
+            else
+            {
+                new Log().systemInit("stcSquad_gridList 解析失败：" + GameData.listSquadCPUGrid.Count).coreInfo();
+
+            }
+            if (TableHelper.LoadTable<SquadCPUCompletion>(ref GameData.listSquadCPUCompletion, CmdDef.stcSquad_cpu_completionList, true))
+            {
+                new Log().systemInit("stcSquad_cpu_completionList 解析完成：" + GameData.listSquadCPUCompletion.Count).coreInfo();
+            }
+            else
+            {
+                new Log().systemInit("stcSquad_cpu_completionList 解析失败：" + GameData.listSquadCPUCompletion.Count).coreInfo();
+            }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+            return true;
+        }
+
+
+
+
+
         private static void ReadCatchData_gun_info()
         {
             TableHelper.LoadTable<Gun_Info>(ref GameData.listGunInfo, CmdDef.stcGunList, true);
         }
 
-        private static void ReadCatchDATA_Item_Info()
-        {
-            TableHelper.LoadTable<ItemInfo>(ref listItemInfo, CmdDef.stcItemList, true);
-        }
+        //private static void ReadCatchDATA_Item_Info()
+        //{
+        //    TableHelper.LoadTable<ItemInfo>(ref listItemInfo, CmdDef.stcItemList, true);
+        //}
         private static bool ReadCatchData_gun_type_info(dynamic jsonobj)
         {
             try

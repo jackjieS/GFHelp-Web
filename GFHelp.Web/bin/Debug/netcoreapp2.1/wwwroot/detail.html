@@ -1,0 +1,941 @@
+﻿<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>zui-admin</title>
+    <!-- zui css -->
+    <link rel="stylesheet" href="dist/css/zui.min.css">
+    <link rel="stylesheet" href="dist/theme/blue.css">
+    <!-- app css -->
+    <link rel="stylesheet" href="css/app.css">
+    <link rel="stylesheet" href="css/new.css">
+    <!-- jquery js -->
+    <script src="dist/lib/jquery/jquery.js"></script>
+    
+</head>
+<body>
+    <div class="wrapper">
+        <header class="main-header">
+            <nav class="navbar navbar-fixed-top bg-primary">
+                <div class="navbar-header">
+                    <a class="navbar-toggle" href="javascript:;" data-toggle="collapse" data-target=".navbar-collapse"><i class="icon icon-th-large"></i></a>
+                    <a class="sidebar-toggle" href="javascript:;" data-toggle="push-menu"><i class="icon icon-bars"></i></a>
+                    <a class="navbar-brand" href="#">
+                        <span class="logo">Fenglin0721</span>
+                        <span class="logo-mini">F</span> 
+                    </a>
+                </div>
+                <div class="collapse navbar-collapse">
+                    <div class="container-fluid">
+                        <ul class="nav navbar-nav">
+                            <li><a href="javascript:;" data-toggle="push-menu"><i class="icon icon-bars"></i></a></li>
+                        </ul>
+                        <ul class="nav navbar-nav navbar-right">
+                            <li>
+                                <a href="javascript:;">
+                                    <span>
+                                        <i class="icon icon-bell-alt"></i>
+                                        <span class="label label-danger label-pill up">5</span>
+                                    </span>
+                                </a>
+                            </li>
+                            <li>
+                                <a href="javascript:;">
+                                    <span>
+                                        <i class="icon icon-envelope-alt"></i>
+                                        <span class="label label-success label-pill up">2</span>
+                                    </span>
+                                </a>
+                            </li>
+                            <li class="dropdown">
+                                <a href="javascript:;" data-toggle="dropdown">
+                                    <i class="icon icon-user"></i> 
+                                    <span class="username">管理员</span> 
+                                    <span class="caret"></span></a>
+                                <ul class="dropdown-menu">
+                                    <li><a href="#">资料设置</a></li>
+                                    <li><a href="#">清除缓存</a></li>
+                                    <li class="divider"></li>
+                                    <li><a onclick="logout()" href="#">注销</a></li>
+                                </ul>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+            </nav>
+        </header>
+        <aside class="main-sidebar">
+            <section class="sidebar">
+                <ul class="sidebar-menu" data-widget="tree">
+                    <li class="header">主要菜单</li>
+                    <li class="active">
+                        <a href="index.html">
+                            <i class="icon icon-dashboard"></i> 
+                            <span>账号管理</span>
+                            <span class="pull-right-container">
+                            </span>
+                        </a>
+                    </li>
+                    <li>
+                        <a href="systemMessage.html">
+                            <i class="icon icon-dashboard"></i> 
+                            <span>系统消息</span>
+                            <span class="pull-right-container">
+                            </span>
+                        </a>
+                    </li>
+                    <li class="treeview">
+                        <a href="javascript:;">
+                            <i class="icon icon-file"></i> 
+                            <span>页面演示</span>
+                            <span class="pull-right-container">
+                                <i class="icon icon-angle-left"></i>
+                            </span>
+                        </a>
+                        <ul class="treeview-menu">
+                            <li><a href="layout.html"><i class="icon icon-circle-blank"></i> 空白页</a></li>
+                            <li><a href="login.html"><i class="icon icon-circle-blank"></i> 登录</a></li>
+                            <li><a href="error-404.html"><i class="icon icon-circle-blank"></i> 404页</a></li>
+                            <li><a href="config.html"><i class="icon icon-circle-blank"></i> 系统设置</a></li>
+                            <li><a href="list.html"><i class="icon icon-circle-blank"></i> 用户列表</a></li>
+                        </ul>
+                    </li>
+                    <li class="treeview">
+                        <a href="javascript:;">
+                            <i class="icon icon-columns"></i> 
+                            <span>基础组件</span>
+                            <span class="pull-right-container">
+                                <i class="icon icon-angle-left"></i>
+                            </span>
+                        </a>
+                        <ul class="treeview-menu">
+                            <li><a href="component-checkbox-radio.html"><i class="icon icon-circle-blank"></i> 多选和单选框</a></li>
+                            <li><a href="component-step.html"><i class="icon icon-circle-blank"></i> 步骤条</a></li>
+                        </ul>
+                    </li>
+                    <li class="treeview">
+                        <a href="javascript:;">
+                            <i class="icon icon-sign-blank"></i> 
+                            <span>扩展插件</span>
+                            <span class="pull-right-container">
+                                <i class="icon icon-angle-left"></i>
+                            </span>
+                        </a>
+                        <ul class="treeview-menu">
+                            <li><a href="plugin-toastr.html"><i class="icon icon-circle-blank"></i> Toastr</a></li>
+                            <li><a href="plugin-notify.html"><i class="icon icon-circle-blank"></i> Notify</a></li>
+                        </ul>
+                    </li>
+                </ul>
+            </section>
+        </aside>
+        <div class="content-wrapper">
+            <div class="content-header">
+                <ul class="breadcrumb">
+                    <li><a href="#"><i class="icon icon-home"></i></a></li>
+                    <li id="gameDetail" class="active">实例详情</li>
+                </ul>
+            </div>
+            <div class="content-body">
+                <div class="container-fluid">
+                    <ul class="nav nav-tabs">
+                        <li class="active">
+                            <a data-tab href="#xxyl">信息一览</a>
+                        </li>
+                        <li>
+                            <a data-tab href="#rxjz">人形建造</a>
+                        </li>
+                        <li>
+                            <a data-tab href="#bdyl">编队一览</a>
+                        </li>
+                        <li>
+                            <a data-tab href="#zd">战斗</a>
+                        </li>
+                        <li>
+                            <a data-tab href="#zbjz">装备建造</a>
+                        </li>
+                        <li>
+                            <a data-tab href="#hqrw">后勤任务</a>
+                        </li>
+                        <li>
+                            <a data-tab href="#jmts">解密调试</a>
+                        </li>
+                         <li>
+                            <a data-tab href="#message">消息记录</a>
+                        </li>
+                    </ul>
+                    <div class="tab-content">
+                        <div class="tab-pane active" style="padding: 20px;" id="xxyl">
+                            <div class="user-title">
+                                <p>
+                                    <label for="">指挥官名称:</label>
+                                    <span id="commander">Admin</span>  
+                                </p>
+                                <p>
+                                    <label for="">等级(Level):</label>
+                                    <span id="level">5级</span>
+                                </p>
+                            </div>
+                            <div id="xxyl-warpper">
+                                <div>
+                                    <ul>
+                                        <li>
+                                            <p>
+                                                <label for="">人力:</label>
+                                                <span id="mp"></span>
+                                            </p>
+                                            <p>
+                                                <label for="">口粮:</label>
+                                                <span id="mre"></span>
+                                            </p>
+                                        </li>
+                                        <li>
+                                            <p>
+                                                <label for="">弹药:</label>
+                                                <span id="ammo"></span>
+                                            </p>
+                                            <p>
+                                                <label for="">零件:</label>
+                                                <span id="part"></span>
+                                            </p>
+                                        </li>
+                                        <li>
+                                            <p>
+                                                <label for="">核心:</label>
+                                                <span id="Core"></span>
+                                            </p>
+                                            <p>
+                                                <label for="">快速制造契约:</label>
+                                                <span id="Quick_Develop"></span>
+                                            </p>
+                                        </li>
+                                        <li>
+                                            <p>
+                                                <label for="">快速修复契约:</label>
+                                                <span id="Quick_Reinforce"></span>
+                                            </p>
+                                            <p>
+                                                <label for="">快速锻造契约:</label>
+                                                <span id="EQUIP_Contract"></span>
+                                            </p>
+                                        </li>
+                                        <li>
+                                            <p>
+                                                <label for="">钻石:</label>
+                                                <span id="GemNum"></span>
+                                            </p>
+                                            <p>
+                                                <label for="">电池:</label>
+                                                <span id="BatteryNum"></span>
+                                            </p>
+                                        </li>
+                                        <li>
+                                            <p>
+                                                <label for="">基础动能:</label>
+                                                <span id="BPnum"></span>
+                                            </p>
+                                            <p>
+                                                <label for="">超导动能:</label>
+                                                <span id="BP_PayNUM"></span>
+                                            </p>
+                                        </li>
+                                        <li>
+                                            <p>
+                                                <label for="">采购币:</label>
+                                                <span id="FurnitureCoinNum"></span>
+                                            </p>
+                                            <p>
+                                                <label for="">兑换券:</label>
+                                                <span id="ExchangeCoinNum"></span>
+                                            </p>
+                                        </li>
+                                        
+                                    </ul>
+                                </div>
+                                <div class="col-sm-3">
+                                    <ul>
+                                        <li>枪娘信息:</li>
+                                        <li>
+                                            <p>
+                                                <label for="">战术人形拥有数:</label>
+                                                <span id="GunNum"></span>
+                                            </p>
+                                            <p>
+                                                <label for="">梯队待命数:</label>
+                                                <span id="maxteam"></span>
+                                            </p>
+                                             <p>
+                                                <label for="">图鉴解锁率:</label>
+                                                <span id="UnlockRatio"></span>
+                                            </p>
+                                        </li>
+                                    </ul>
+                                </div>
+                                <div class="col-sm-3">
+                                    <ul>
+                                        <li>工厂信息:</li>
+                                        <li>
+                                            <p>
+                                                <label for="">建造位置数:</label>
+                                                <span id="max_build_slot"></span>
+                                            </p>
+                                            <p>
+                                                <label for="">修理位置数 :</label>
+                                                <span id="max_fix_slot"></span>
+                                            </p>
+                                            <p>
+                                                <label for="">人形建造契约 :</label>
+                                                <span id="IOP_Contract"></span>
+                                            </p>
+                                        </li>
+                                    </ul>
+                                </div>  
+                                <div class="col-sm-3">
+                                    <ul>
+                                        <li>格林娜信息:</li>
+                                        <li>
+                                            <p>
+                                                <label for="">等级:</label>
+                                                <span id="KalinaLevel"></span>
+                                            </p>
+                                            <p>
+                                                <label for="">好感度:</label>
+                                                <span id="KalinaFavor"></span>
+                                            </p>
+                                        </li>
+                                    </ul>
+                                </div>
+                                <div class="col-sm-3">
+                                    <ul>
+                                        <li>装备信息:</li>
+                                        <li>
+                                            <p>
+                                                <label for="">装备拥有数:</label>
+                                                <span id="EquipNum"></span>
+                                            </p>
+                                            <p>
+                                                <label for="">五级装备数:</label>
+                                                <span>XXXX</span>
+                                            </p>
+                                            <p>
+                                                <label for="">装备制造契约:</label>
+                                                <span id="EQUIP_Contract"></span>
+                                            </p>
+                                        </li>
+                                    </ul>
+                                </div>
+                                <div class="col-sm-3">
+                                    <ul>
+                                        <li>好友信息:</li>
+                                        <li>
+                                            <p>
+                                                <label for="">好友拥有数:</label>
+                                                <span id=""></span>
+                                            </p>
+                                            <p>
+                                                <label for="">平均等级:</label>
+                                                <span id=""></span>
+                                            </p>
+                                        </li>
+                                    </ul>
+                                </div>
+                                <div class="col-sm-3">
+                                    <ul>
+                                        <li>研发信息:</li>
+                                        <li>
+                                            <p>
+                                                <label for="">初级:</label>
+                                                <span id="Coin1"></span>
+                                            </p>
+                                            <p>
+                                                <label for="">中级:</label>
+                                                <span id="Coin2"></span>
+                                            </p>
+                                            <p>
+                                                <label for="">高级:</label>
+                                                <span id="Coin3"></span>
+                                            </p>
+                                        </li>
+                                    </ul>
+                                </div>
+                                <div class="col-sm-3">
+                                    <ul>
+                                        <li>资料室:</li>
+                                        <li>
+                                            <p>
+                                                <label for="">全局经验:</label>
+                                                <span id="GlobalEXP"></span>
+                                                </p>
+                                            <p>
+                                                <label for="">生产时间:</label>
+                                                <span id="TimeOfReport"></span>
+                                            </p>
+                                        </li>
+                                    </ul>
+                                </div>
+                                <div class="col-sm-12">
+                                    <button class="btn btn-primary">初始化</button>
+                                    <button onclick="gameLogin()" class="btn btn-primary">登录</button>
+                                    <button class="btn btn-primary">好友电池</button>
+                                    <button class="btn btn-primary">好友点赞</button>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="tab-pane" id="rxjz">
+                            <div id="rxjz-warpper">
+                                <div><label>建造槽1</label><span>00:00:00</span></div>
+                                <div><label>建造槽2</label><span>00:00:00</span></div>
+                                <div><label>建造槽3</label><span>00:00:00</span></div>
+                            </div>
+                        </div>
+                        <div class="tab-pane" id="bdyl">
+                            <div id="bdyl-warpper">
+                            </div>
+                        </div>
+                        <div class="tab-pane" id="zd">
+                            <div id="zd-warpper">
+                                <div class="zd-left col-sm-5">
+                                    <div>
+                                        <label for="">地图:</label>
+                                        <span>
+                                            <select class="form-control" name="map" id="map">
+                                                <option value="">地图1</option>
+                                                <option value="">地图2</option>
+                                            </select>
+                                        </span>
+                                    </div>
+                                    <div>
+                                        <label for="">梯队:</label>
+                                        <span>
+                                            <select class="form-control" name="team2" id="team2">
+                                                <option value="">梯队1</option>
+                                                <option value="">梯队2</option>
+                                            </select>
+                                        </span>
+                                    </div>
+                                    <div>
+                                        <label for="">梯队效能:</label>
+                                        <span>
+                                            <input class="form-control" name="skt" />
+                                        </span>
+                                    </div>
+                                    <div>
+                                        <label for="">参数:</label>
+                                        <span>
+                                            <input class="form-control" name="parm" id="parm"/>
+                                        </span>
+                                    </div>
+                                    <div>
+                                        <label for="">循环次数:  </label>
+                                        <span>
+                                            <label  name="times" id="times"/>
+                                        </span>
+                                    </div>
+                                    <div>
+                                        <button onclick="joinTeam()" class="btn btn-primary btn-block">
+                                            加入
+                                        </button>
+                                    </div>
+                                </div>
+                                <div class="zd-right col-sm-5">
+                                    <div class="panel">
+                                        <div class="panel-heading">
+                                            已选择
+                                            <span class="clear-list">清空</span>
+                                        </div>
+                                        <ul class="list-group team-list">
+                                        </ul>
+                                    </div>
+                                </div>
+                                <div class="zd-bottom">
+                                    <button onclick="startBattle()" class="btn btn-primary btn-block">开始</button>
+                                    <button onclick="abortBattle()" class="btn btn-primary btn-block">终止</button>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="tab-pane" id="zbjz">
+                            <div id="zbjz-warpper">
+                                <div>
+                                    <label>建造槽1</label>
+                                    <span>00:00:00</span>
+                                </div>
+                                <div>
+                                    <label>建造槽2</label>
+                                    <span>00:00:00</span>
+                                </div>
+                                <div>
+                                    <label>建造槽3</label>
+                                    <span>00:00:00</span>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="tab-pane" id="hqrw">
+                            <div id="hqrw-warpper">
+                               <div class="hq-list">
+                                   <div class="hqrw-item-list">
+                                       <input type="hidden" name="teamID" value="">
+                                       <input type="hidden" name="accountID" value="">
+                                       <input type="hidden" name="operationID" value="">
+                                       <div class="hqrw-item">
+                                           <span class="hqrw-item-title">后勤任务:</span>
+                                           <span>
+                                               <select name="" id="" class="select1">
+                                                   <option>123</option>
+                                                   <option>123</option>
+                                                   <option>123</option>
+                                                   <option>123</option>
+                                               </select>
+                                           </span>
+                                           <span>
+                                               <select name="" id="" class="select2"></select>
+                                           </span>
+                                           <span class="time">
+                                               00:00:00
+                                           </span>
+                                           <span>
+                                               <button onclick="startOperation(this)" class="btn btn-primary">开始任务</button>
+                                           </span>
+                                           <span>
+                                               <button onclick="abortOperation(this)" class="btn btn-primary">终止任务</button>
+                                           </span>
+                                       </div>
+                                   </div>
+                                    <div class="hqrw-item-list">
+                                        <div class="hqrw-item">
+                                            <span class="hqrw-item-title">后勤任务:</span>
+                                            <span>
+                                                <select name="team_id" id="" class="select1">
+                                                    <option></option>
+                                                </select>
+                                            </span>
+                                            <span>
+                                                <select name="operation_id" id="" class="select2">
+                                                </select>
+                                            </span>
+                                            <span class="time">
+                                                00:00:00
+                                            </span>
+                                            <span>
+                                                <button onclick="startOperation(this)" class="btn btn-primary">开始任务</button>
+                                            </span>
+                                            <span>
+                                                <button onclick="abortOperation(this)" class="btn btn-primary">终止任务</button>
+                                            </span>
+                                        </div>
+                                    </div>
+                                    <div class="hqrw-item-list">
+                                        <div class="hqrw-item">
+                                            <span class="hqrw-item-title">后勤任务:</span>
+                                            <span>
+                                                <select name="" id="" class="select1">
+                                                    <option></option>
+                                                </select>
+                                            </span>
+                                            <span>
+                                                <select name="" id="" class="select2">
+                                                </select>
+                                            </span>
+                                            <span class="time">
+                                                00:00:00
+                                            </span>
+                                            <span>
+                                                <button onclick="startOperation(this)" class="btn btn-primary">开始任务</button>
+                                            </span>
+                                            <span>
+                                                <button onclick="abortOperation(this)" class="btn btn-primary">终止任务</button>
+                                            </span>
+                                        </div>
+                                    </div>
+                                    <div class="hqrw-item-list">
+                                        <div class="hqrw-item">
+                                            <span class="hqrw-item-title">后勤任务:</span>
+                                            <span>
+                                                <select name="" id="" class="select1">
+                                                    <option></option>
+                                                </select>
+                                            </span>
+                                            <span>
+                                                <select name="" id="" class="select2">
+                                                </select>
+                                            </span>
+                                            <span class="time">
+                                                00:00:00
+                                            </span>
+                                            <span>
+                                                <button onclick="startOperation(this)" class="btn btn-primary">开始任务</button>
+                                            </span>
+                                            <span>
+                                                <button onclick="abortOperation(this)" class="btn btn-primary">终止任务</button>
+                                            </span>
+                                        </div>
+                                    </div>
+                               </div>
+                                
+                            </div>
+                        </div>
+                        <div class="tab-pane" id="jmts">
+                            <p>解密调试</p>
+                        </div>
+                        <div class="tab-pane" id="message">
+                            <div id="message-warpper" style="overflow: scroll;height: 600px;padding: 10px;border: 1px solid #e5e6e7;margin-top: 20px;">
+                            </div>
+                            <button  style="margin-top: 10px;" class="clean-massage btn btn-primary btn-block">清空消息</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div> 
+    </div>
+    <!-- zui js -->
+    <script src="dist/js/zui.min.js"></script>
+    <script src="../lib/SingnlR/signalr.js"></script>
+    <!-- app js -->
+    <script src="js/app.js"></script>
+    <script type="text/javascript">
+        var  gameStatus = true;
+        var param = GetRequest();
+        $(function () {
+            checkToken();
+            GetGamesDetail();
+        });
+
+        function checkToken() {
+            var token = sessionStorage.getItem('token');
+            if(token==null || !token){
+                alert('您尚未登录游戏，请先登录');
+                location.href='login.html';
+            }else{
+                return token;
+            }
+        }
+
+        function getOperationInfo() {
+            var token = checkToken();
+            var html_o='';
+            $.ajax({
+                url: 'http://127.0.0.1:7777/System/GetOperationInfo',
+                type:'get',
+                async: false,
+                dataType: 'json',
+                headers: { 'Authorization': 'Bearer ' + token },
+                success:function (res) {
+                    if(res.code==1){
+                        html_o = res;
+                        return html_o;
+                    }
+                }
+            });
+            return html_o;
+        }
+
+
+        var param = GetRequest();
+        const Gameuser = param.gid;
+        const conGamesDetails = new signalR.HubConnectionBuilder().withUrl("http://127.0.0.1:7777/chatHub?name="+Gameuser).build();
+        conGamesDetails.start().catch(err => console.error(err.toString()));
+        function GetGamesDetail() {
+            conGamesDetails.on("ReceiveGamesDetails", (message) => {
+                message = $.parseJSON(message);
+                var operationInfo = null;
+                $('#commander').html(message[0].webUser_Info.UserName);
+                $('#level').html(message[0].webUser_Info.Level);
+                $('#Core').html(message[0].webUser_Info.Core);
+                $('#ammo').html(message[0].webUser_Info.ammo);
+                $('#IOP_Contract').html(message[0].webUser_Info.IOP_Contract);
+                $('#mre').html(message[0].webUser_Info.mre);
+                $('#mp').html(message[0].webUser_Info.mp);
+                $('#part').html(message[0].webUser_Info.part);
+                $('#Quick_Develop').html(message[0].webUser_Info.Quick_Develop);
+                $('#Quick_Reinforce').html(message[0].webUser_Info.Quick_Reinforce);
+                $('#Quick_Training').html(message[0].webUser_Info.Quick_Training);
+                $('#Quick_Develop').html(message[0].webUser_Info.Quick_Develop);
+                $('#GemNum').html(message[0].webUser_Info.GemNum);
+                $('#BatteryNum').html(message[0].webUser_Info.BatteryNum);
+                $('#BPnum').html(message[0].webUser_Info.BPnum);
+                $('#BP_PayNUM').html(message[0].webUser_Info.BP_PayNUM);
+                $('#FurnitureCoinNum').html(message[0].webUser_Info.FurnitureCoinNum);
+                $('#ExchangeCoinNum').html(message[0].webUser_Info.ExchangeCoinNum);
+                $('#GunNum').html(message[0].webUser_Info.GunNum);
+                $('#maxteam').html(message[0].webUser_Info.maxteam);
+                $('#max_build_slot').html(message[0].webUser_Info.max_build_slot);
+                $('#max_fix_slot').html(message[0].webUser_Info.max_fix_slot);
+                $('#KalinaLevel').html(message[0].webUser_Info.KalinaLevel);
+                $('#KalinaFavor').html(message[0].webUser_Info.KalinaFavor);
+                $('#EquipNum').html(message[0].webUser_Info.EquipNum);
+                $('#EQUIP_Contract').html(message[0].webUser_Info.EQUIP_Contract);
+                $('#Coin1').html(message[0].webUser_Info.Coin1);
+                $('#Coin2').html(message[0].webUser_Info.Coin2);
+                $('#Coin3').html(message[0].webUser_Info.Coin3);
+                $('#GlobalEXP').html(message[0].webUser_Info.GlobalEXP);
+
+                $('#gameDetail').html(message[0].webStatus.Name + " | " + message[0].webStatus.statusBarText);
+                if (true) {
+                    $('#GlobalEXP').html(message[0].webUser_Info.GlobalEXP);
+                    $('#TimeOfReport').html(formatSeconds(message[0].webUser_Info.TimeOfReport));
+                    
+                }
+                if (message[0].webBattle.Using == true) {
+                    $('#times').html(message[0].webBattle.Times);
+                    $('#parm').html(message[0].webBattle.Parm);
+                }
+
+                if (true) {
+                    $('ul.Guns').html("");
+                    var teamHtml = '';
+                    $(message[0].WebTeams).each(function(index, el) {
+                        select1_option += '<option value="'+el.TeamID+'">第'+(index+1)+'梯队('+el.Leader+')</option>';
+                        var person = '';
+                        $(el.Guns).each(function (index2, el2) {
+                            person += '<li><div id="gun"><span id="gunName">' + el2.Name + '</span><span id="gunLv">' + " | " + "LV: " + el2.Lv + '</span><span id ="gunHp">' + " | " + "HP: " + el2.Hp + '</span><span id = "gunExp">' + " | " + "Exp: " + el2.Exp + '</span><span id="Number">' + " | " + el2.number + "扩" + '</span></div></li> ';
+                        });
+
+                        teamHtml += '<div class=""><div><h3>第' + (index + 1) + '梯队</h3></div><ul>' + person + '</ul></div>';
+
+
+                    });
+                    if (gameStatus)
+                    {
+                        $('#zd-warpper #team2').html(select1_option);
+                    }
+                    $('#bdyl-warpper').html(teamHtml);
+                    //$('#zd-warpper #team2').html(select1_option);
+
+                }
+
+                for (var i = 0; i < message[0].webOperation.length; i++) {
+                    var obj = $('.hqrw-item-list')[i];
+                    if (gameStatus){
+                        var select2_res = getOperationInfo();
+                        var select1_option = '';
+                        $(message[0].WebTeams).each(function(index, el) {
+                            if(el.TeamID==message[0].webOperation[i].team_id){
+                                select1_option += '<option selected="selected" value="'+el.TeamID+'">梯队'+el.TeamID+'('+el.Leader+')</option>';
+                            }else{
+                                select1_option += '<option value="'+el.TeamID+'">梯队'+el.TeamID+'('+el.Leader+')</option>';
+                            }
+                        });
+
+                        var select2_option = '';
+                        $.each(select2_res.data.operationInfo, function(index, el) {
+                            if(el.id==message[0].webOperation[i].operation_id){
+                                select2_option += '<option selected="selected" value="'+el.id+'">'+el.name+'</option>';
+                            }else{
+                                select2_option += '<option value="'+el.id +'">'+el.name+'</option>';
+                            }
+                        });
+
+                        $(obj).find('.select2').html(select2_option);
+                        $(obj).find('.select1').html(select1_option);
+                    }
+                    $(obj).find('.time').html(formatSeconds(message[0].webOperation[i].remaining_time));
+                    if(message[0].webOperation[i].Using){
+                        $(obj).find('.select1').attr('disabled','disabled');
+                        $(obj).find('.select2').attr('disabled','disabled');
+                    }else{
+                        $(obj).find('.select1').attr('disabled',false);
+                        $(obj).find('.select2').attr('disabled',false);
+                    }
+                }
+
+                gameStatus = null;
+            });
+            
+            conGamesDetails.on("ReceiveGameNotification", (message) => {
+                message = $.parseJSON(message);
+                html_msg = '<div class="alert alert-info">'+message.ID+':'+message.message+'<span style="float:right;">'+message.timestamp+'</span></div>';
+                if($('#message-warpper').find('html_msg')){
+                    $('#message-warpper').prepend(html_msg);
+                }
+            });
+        };
+
+        function formatSeconds(value) {
+            var secondTime = parseInt(value);// 秒
+            var minuteTime = 0;// 分
+            var hourTime = 0;// 小时
+            if (secondTime > 60) {//如果秒数大于60，将秒数转换成整数
+                //获取分钟，除以60取整数，得到整数分钟
+                minuteTime = parseInt(secondTime / 60);
+                //获取秒数，秒数取佘，得到整数秒数
+                secondTime = parseInt(secondTime % 60);
+                //如果分钟大于60，将分钟转换成小时
+                if (minuteTime > 60) {
+                    //获取小时，获取分钟除以60，得到整数小时
+                    hourTime = parseInt(minuteTime / 60);
+                    //获取小时后取佘的分，获取分钟除以60取佘的分
+                    minuteTime = parseInt(minuteTime % 60);
+                }
+            }
+            return result = hourTime + ":" + minuteTime + ":" +secondTime;
+        }
+
+
+        function checkToken() {
+            var token = sessionStorage.getItem('token');
+            if(!token){
+                alert('您尚未登录游戏，请先登录');
+                window.location.href='login.html';
+            }else{
+                return token;
+            }
+        }
+
+        function startOperation(Obj) {
+            var token = checkToken();
+            var teamID = $(Obj).parents('.hqrw-item-list').find('.select1').val();
+            var operationID = $(Obj).parents('.hqrw-item-list').find('.select2').val();
+            var accountID = param.gid;
+            $.ajax({
+                url: 'http://127.0.0.1:7777/Game/StartOperation',
+                type: 'post',
+                dataType: 'json',
+                contentType : 'application/json;charset=UTF-8',
+                data:JSON.stringify({accountID:accountID,operationID:operationID,teamID:teamID}),
+                headers: { 'Authorization': 'Bearer ' + token },
+                success: function (res) {
+                    alert(res.message);  
+                }
+            });
+        }
+
+
+        function abortOperation(Obj) {
+            var token = checkToken();
+            var teamID = $(Obj).parents('.hqrw-item-list').find('.select1').val();
+            var operationID = $(Obj).parents('.hqrw-item-list').find('.select2').val();
+            var accountID = param.gid;
+            $.ajax({
+                url: 'http://127.0.0.1:7777/Game/AbortOperation',
+                type: 'post',
+                dataType: 'json',
+                contentType : 'application/json;charset=UTF-8',
+                data:JSON.stringify({accountID:accountID,operationID:operationID,teamID:teamID}),
+                headers: { 'Authorization': 'Bearer ' + token },
+                success: function (res) {
+                    alert(res.message);  
+                }
+            });
+        }
+
+
+        function GetRequest() {  
+            var url = location.search; //获取url中"?"符后的字串  
+            var theRequest = new Object();  
+            if (url.indexOf("?") != -1) {  
+                var str = url.substr(1);  
+                strs = str.split("&");  
+                for(var i = 0; i < strs.length; i ++) {  
+                    theRequest[strs[i].split("=")[0]]=unescape(strs[i].split("=")[1]);  
+                }  
+            }  
+            return theRequest;  
+        }  
+
+        function logout(){
+            sessionStorage.setItem('token',null);
+            window.location.href='login.html';
+        }
+
+        function gameLogin(){
+            var token = checkToken();
+            var username = sessionStorage.getItem('username');
+            $.ajax({
+                url: 'http://127.0.0.1:7777/Game/Login',
+                type: 'post',
+                dataType: 'json',
+                contentType : 'application/json;charset=UTF-8',
+                data:JSON.stringify({gameID:param.gid,username:username}),
+                headers: { 'Authorization': 'Bearer ' + token },
+                success: function (res) {
+                    alert(res.message);  
+                }
+            });
+        }
+
+        $('.clean-massage').click(function() {
+            conGamesDetails.invoke("RemoveGameNotice", window.Gameuser).catch(err => console.error(err.toString()));
+            $('#message-warpper').html('');
+        });
+
+
+        var operation_info = getOperationInfo();
+        var map_list = operation_info.data.battleMap;
+        console.log(operation_info);
+        var html_map = '';
+        $.each(map_list, function(index, val) {
+            html_map += '<option value="'+val+'">'+val+'</option>';
+        });
+        
+        $('#zd-warpper select[name=map]').html(html_map);
+
+        function joinTeam(){
+            var values = $('#team2').val();
+            var names = $('#team2 option:selected').html();
+            var skt = $('input[name=skt]').val();
+            var team_list = '<li class="list-group-item">'+
+                                '<span class="team-title">'+names+'</span>'+
+                                '<input type="hidden" name="team_id" value="'+values+'">'+
+                                '<input type="hidden" name="skt" value="'+skt+'">'+
+                                '<span style="float: right;">梯队效能:'+skt+'</span>'+
+                            '</li>'
+            
+            console.log($('.team-list').find('input[value='+values+']'));
+            if($('.team-list').find('input[value='+values+']').length>=1){
+                alert('已存在梯队，不能重复添加');
+            }else{
+                $('.team-list').append(team_list);
+            }
+        }
+
+        function startBattle(){
+            var token = checkToken();
+            var username = sessionStorage.getItem('username');
+            var team_data = [];
+            for(i=0;$('.team-list input[name=team_id]').length>i;i++){
+                var teamid = '';
+                var skt = '';
+                console.log($($('input[name=team_id]')[i]).val());
+                teamid = $($('input[name=team_id]')[i]).val();
+                skt = $($('input[name=skt]')[i]).val();
+                team_data.push({"teamid":teamid,"skt":skt,"key":i});
+            }
+            var data = {
+                          "accountID": param.gid,
+                          "map": $('#map').val(),
+                          "teams": team_data,
+                          "parm":$('#parm').val()
+                        };
+            $.ajax({
+                url: 'http://127.0.0.1:7777/Game/StartBattle',
+                type: 'post',
+                dataType: 'json',
+                contentType : 'application/json;charset=UTF-8',
+                data:JSON.stringify(data),
+                headers: { 'Authorization': 'Bearer ' + token },
+                success: function (res) {
+                    console.log(res);
+                    alert(res.message);  
+                }
+            });
+        }
+
+        function abortBattle(){
+            var token = checkToken();
+            $.ajax({
+                url: 'http://127.0.0.1:7777/Game/AbortBattle',
+                type: 'post',
+                dataType: 'json',
+                contentType : 'application/json;charset=UTF-8',
+                data:JSON.stringify({accountId:param.gid}),
+                headers: { 'Authorization': 'Bearer ' + token },
+                success: function (res) {
+                    alert(res.message);  
+                }
+            });
+        }
+
+    </script>
+</body>
+</html>

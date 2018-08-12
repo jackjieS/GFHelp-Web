@@ -3,6 +3,7 @@ using GFHelp.Core.Helper;
 using GFHelp.Core.Management;
 using System;
 using System.Collections.Generic;
+using System.IO;
 using System.Reflection;
 using System.Text;
 using System.Threading;
@@ -10,46 +11,42 @@ using System.Threading.Tasks;
 
 namespace GFHelp.Core.Action
 {
+    public class MissionData
+    {
+        public static Assembly assembly = null;
+        public static void Reload()
+        {
+            byte[] by = File.ReadAllBytes(AppDomain.CurrentDomain.BaseDirectory + "GFHelp.Mission.dll");
+            Action.MissionData.assembly = Assembly.Load(by);
+        }
+    }
     public class Mission
     {
+
         private UserData userData;
         public Mission(UserData userData)
         {
+            this.data = new Data();
+            init();
             this.userData = userData;
         }
-        class Data
+        public void init()
         {
-            public Data()
+            if (Action.MissionData.assembly == null)
             {
-                assembly = Assembly.LoadFile(AppDomain.CurrentDomain.BaseDirectory + "GFHelp.Mission.dll");
-                typeMap_Controller = assembly.GetType("GFHelp.Mission.Map_Controller");
-            }
-            public Assembly assembly;
-            public Type typeMap_Controller;
-            public Type type = null;
-            public Type neededType;
-            public object missionType;
-            public object instance;
-            public Data init(string taskMap)
-            {
-
-                neededType = typeMap_Controller.GetNestedType(taskMap);
-                missionType = neededType.GetField("missionType").GetValue(null);
-                instance = assembly.CreateInstance("GFHelp.Mission." + missionType.ToString());
-                type = assembly.GetType("GFHelp.Mission." + missionType.ToString());
-                return this;
+                byte[] by = File.ReadAllBytes(AppDomain.CurrentDomain.BaseDirectory + "GFHelp.Mission.dll");
+                Action.MissionData.assembly = Assembly.Load(by);
             }
         }
 
 
-        public void Test(UserData userData)
+        public void Test()
         {
             userData.battle.Check_Equip_Gun_FULL();
             Data data=null;
             try
             {
                 data = new Data().init(userData.normal_MissionInfo.TaskMap);
-
             }
             catch (Exception e)
             {
@@ -60,7 +57,6 @@ namespace GFHelp.Core.Action
 
             try
             {
- 
                 MethodInfo methodInfo = data.type.GetMethod(userData.normal_MissionInfo.TaskMap);
                 methodInfo.Invoke(data.instance, new Object[] { userData, userData.normal_MissionInfo });
             }
@@ -158,10 +154,32 @@ namespace GFHelp.Core.Action
 
             }
         }
-
         public void ContinueLoopBattle()
         {
             userData.eventAction.TaskBattle_1();
+        }
+        Data data;
+        class Data
+        {
+            public Data()
+            {
+
+            }
+
+            public Type typeMap_Controller;
+            public Type type = null;
+            public Type neededType;
+            public object missionType;
+            public object instance;
+            public Data init(string taskMap)
+            {
+                typeMap_Controller = Action.MissionData.assembly.GetType("GFHelp.Mission.Map_Controller");
+                neededType = typeMap_Controller.GetNestedType(taskMap);
+                missionType = neededType.GetField("missionType").GetValue(null);
+                instance = Action.MissionData.assembly.CreateInstance("GFHelp.Mission." + missionType.ToString());
+                type = Action.MissionData.assembly.GetType("GFHelp.Mission." + missionType.ToString());
+                return this;
+            }
         }
     }
 }

@@ -26,17 +26,18 @@ namespace GFHelp.Core.Helper
         }
 
         public static string fileName = SystemOthers.ConfigData.currentDirectory + @"\config.cfg";
+        public static string UpgradeInfoFile = SystemOthers.ConfigData.currentDirectory + @"\UpgradeInfo.txt";
         public static Dictionary<string, object> defultValue = new Dictionary<string, object>();
-
+        public static string[] UpgradeInfo;
 
         private static Dictionary<int, ConfigNode> config = new Dictionary<int, ConfigNode>();
         private static int maxline = 0;
 
         public static bool Load()
         {
-
+            if (String.IsNullOrEmpty(UpgradeInfoFile) || !File.Exists(UpgradeInfoFile)) return false;
             if (String.IsNullOrEmpty(fileName) || !File.Exists(fileName)) return false;
-
+            UpgradeInfo = File.ReadAllLines(UpgradeInfoFile);
             string[] con = File.ReadAllLines(fileName);
 
             try

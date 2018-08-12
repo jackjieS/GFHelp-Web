@@ -3,6 +3,7 @@ using GFHelp.Core.Helper;
 using GFHelp.Core.Management;
 using System;
 using System.Text.RegularExpressions;
+using System.Threading;
 using static GFHelp.Mission.Map_Controller;
 
 namespace GFHelp.Mission
@@ -75,6 +76,15 @@ namespace GFHelp.Mission
         }
 
 
+        public void maptest(UserData userData, Normal_MissionInfo ubti)
+        {
+
+            for (int i = 0; i < 10; i++)
+            {
+                Console.WriteLine(DateTime.Now.ToString());
+                Thread.Sleep(1000);
+            }
+        }
 
         public void map0_2(UserData userData, Normal_MissionInfo ubti)
         {
