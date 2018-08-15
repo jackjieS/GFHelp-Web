@@ -4,6 +4,7 @@ using System.Linq;
 using System.Security.Claims;
 using System.Threading.Tasks;
 using GFHelp.Core.Helper;
+using GFHelp.Core.Helper.Configer;
 using GFHelp.Web.Data;
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
@@ -196,7 +197,38 @@ namespace GFHelp.Web.Controllers
             });
         }
 
+        /// <summary>
+        /// 获取当前游戏实例个数
+        /// </summary>
+        /// <returns></returns>
+        [Route("/System/LoadHostAddress")]
+        [HttpGet]
+        [Authorize]
+        public IActionResult LoadHostAddress()
+        {
+            bool result = HostAddress.Load();
+            if(result == true)
+            {
+                return Ok(new
+                {
+                    code = 1,
+                    data = 1,
+                    message = string.Format("LoadHostAddress Success ")
+                });
+            }
+            else
+            {
+                return Ok(new
+                {
+                    code = 1,
+                    data = 1,
+                    message = string.Format("LoadHostAddress failed ")
+                });
+            }
 
+
+
+        }
 
 
 

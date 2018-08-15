@@ -25,7 +25,7 @@ namespace GFHelp.Core.MulitePlayerData
                 JsonData jsonData16 = jsonData["chip_with_user_info"];
                 for (int num8 = 0; num8 < jsonData16.Count; num8++)
                 {
-                    Data data2;
+                    Data data2=null;
                     try
                     {
                         data2 = new Data(jsonData16[num8],this.UserData);
@@ -33,7 +33,6 @@ namespace GFHelp.Core.MulitePlayerData
                     catch (Exception e)
                     {
                         new Log().systemInit("chip_with_user_info Error ", e.ToString()).coreInfo();
-                        throw;
                     }
                     if (data2.chipInfo.rank == 5)
                     {
@@ -63,14 +62,24 @@ namespace GFHelp.Core.MulitePlayerData
             // Token: 0x060023BE RID: 9150 RVA: 0x000EAFE4 File Offset: 0x000E91E4
             public Data(JsonData jsonData,UserData userData)
             {
+
                 this.UserData = userData;
                 this.id = jsonData["id"].Long;
                 this.infoId = jsonData["chip_id"].Int;
-                this.exp = jsonData["chip_exp"].Int;
+                if (jsonData.Contains("chip_exp"))
+                {
+                    this.exp = jsonData["chip_exp"].Int;
+                }
                 this.colorId = jsonData["color_id"].Int;
                 this.gridId = jsonData["grid_id"].Int;
-                this.squadId = (long)jsonData["squad_with_user_id"].Int;
-                this.position = new BoardVector(jsonData["position"].String);
+                if (jsonData.Contains("squad_with_user_id"))
+                {
+                    this.squadId = (long)jsonData["squad_with_user_id"].Int;
+                }
+                if (jsonData.Contains("position"))
+                {
+                    this.position = new BoardVector(jsonData["position"].String);
+                }
                 this.rotation = new ChipRotation(jsonData["shape_info"].String);
                 this.assist_damage = jsonData["assist_damage"].Int;
                 this.assist_reload = jsonData["assist_reload"].Int;
@@ -80,9 +89,15 @@ namespace GFHelp.Core.MulitePlayerData
                 this.atk_speed = jsonData["atk_speed"].Int;
                 this.hit = jsonData["hit"].Int;
                 this.def = jsonData["def"].Int;
-                this.isLock = (jsonData["is_locked"].Int != 0);
+                if (jsonData.Contains("is_locked"))
+                {
+                    this.isLock = (jsonData["is_locked"].Int != 0);//
+                }
+
                 this.ResetShape();
                 this.UpdateData();
+
+
             }
 
             // Token: 0x060023BF RID: 9151 RVA: 0x000EB1C0 File Offset: 0x000E93C0

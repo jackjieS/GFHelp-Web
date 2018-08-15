@@ -16,54 +16,54 @@ namespace GFHelp.Core.CatchData.Base
         {
             return (long)this.id;
         }
-        public new string name
-        {
-            get
-            {
-                return this.name;
-            }
-            set
-            {
-                this.name = value;
-            }
-        }
-        public string enName
-        {
-            get
-            {
-                return this.en_name;
-            }
-        }
-        public string typeName
-        {
-            get
-            {
-                return this.typeInfo.name;
-            }
-        }
-        public string typeEnName
-        {
-            get
-            {
+        //public string name;
+        //{
+        //    get
+        //    {
+        //        return this.name;
+        //    }
+        //    set
+        //    {
+        //        this.name = value;
+        //    }
+        //}
+        //public string enName
+        //{
+        //    get
+        //    {
+        //        return this.en_name;
+        //    }
+        //}
+        //public string typeName;
+        //{
+        //    get
+        //    {
+        //        return this.typeInfo.name;
+        //    }
+        //}
+        //public string typeEnName;
+        //{
+        //    get
+        //    {
 
-                return this.typeInfo.en_name;
-            }
-        }
+        //        return this.typeInfo.en_name;
+        //    }
+        //}
 
-        public string categoryName
-        {
-            get
-            {
-                return this.typeInfo.class_name;
-            }
-        }
-        public string categoryEnName
-        {
-            get
-            {
-                return this.typeInfo.class_en_name;
-            }
-        }
+        //public string categoryName;
+        //{
+        //    get
+        //    {
+        //        return this.typeInfo.class_name;
+        //    }
+        //}
+        //public string categoryEnName;
+        //{
+        //    get
+        //    {
+        //        return this.typeInfo.class_en_name;
+        //    }
+        //}
         public override void InitData()
         {
             try

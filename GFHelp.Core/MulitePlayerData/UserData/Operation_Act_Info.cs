@@ -64,7 +64,12 @@ namespace GFHelp.Core.MulitePlayerData
                                 dicOperation[i].remaining_time = 0;
                             }
                         });
-                        Task.WaitAll(taskStart);
+
+                        if (taskFinish.Result == 1)
+                        {
+                            Task.WaitAll(taskStart);
+                        }
+
                     }
                     else
                     {

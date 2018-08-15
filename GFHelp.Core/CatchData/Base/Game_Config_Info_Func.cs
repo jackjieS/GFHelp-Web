@@ -522,7 +522,7 @@ namespace GFHelp.Core.CatchData.Base
             }
         }
 
-        public static Dictionary<int, List<int>> dictSquadCategoryToType;
+        public static Dictionary<int, List<int>> dictSquadCategoryToType = new Dictionary<int, List<int>>();
         public static Dictionary<int, int> dictGunUpLevelExp;
         public static Dictionary<int, int> dictLevelToSumExp = new Dictionary<int, int>();
         public static tBaseDatas<EquipInfo> listEquipInfo;

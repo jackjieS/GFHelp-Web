@@ -30,7 +30,7 @@ namespace GFHelp.Web
 
         public IConfiguration Configuration { get; }
 
-        static string  currentDirectory = Core.SystemOthers.ConfigData.currentDirectory;
+        static string currentDirectory = Core.SystemOthers.ConfigData.currentDirectory;
         // This method gets called by the runtime. Use this method to add services to the container.
         public void ConfigureServices(IServiceCollection services)
         {
@@ -38,7 +38,7 @@ namespace GFHelp.Web
             services.AddMvc();
             services.AddSignalR();
 
-            string con = "Data Source=" + currentDirectory+ @"\database.db";
+            string con = "Data Source=" + currentDirectory + @"\database.db";
             services.AddDbContext<appContext>(options =>
             options.UseSqlite(con));
 
@@ -82,12 +82,12 @@ namespace GFHelp.Web
 
 
             services.AddAuthentication(options =>
-{
-    options.DefaultAuthenticateScheme = JwtBearerDefaults.AuthenticationScheme;
-    options.DefaultChallengeScheme = JwtBearerDefaults.AuthenticationScheme;
-    options.DefaultScheme = JwtBearerDefaults.AuthenticationScheme;
+            {
+                options.DefaultAuthenticateScheme = JwtBearerDefaults.AuthenticationScheme;
+                options.DefaultChallengeScheme = JwtBearerDefaults.AuthenticationScheme;
+                options.DefaultScheme = JwtBearerDefaults.AuthenticationScheme;
 
-})
+            })
 .AddJwtBearer(options =>
 {
     options.SaveToken = true;

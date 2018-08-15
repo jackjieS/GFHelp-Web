@@ -16,270 +16,270 @@ namespace GFHelp.Core.CatchData.Base.CMD
         // Token: 0x17000522 RID: 1314
         // (get) Token: 0x06001BC3 RID: 7107 RVA: 0x000A3F78 File Offset: 0x000A2178
         // (set) Token: 0x06001BC4 RID: 7108 RVA: 0x000A3FB4 File Offset: 0x000A21B4
-        public new string name
-        {
-            get
-            {
+        //public new string name
+        //{
+        //    get
+        //    {
 
-                return this.name;
-            }
-            set
-            {
-                this.name = value;
-            }
-        }
+        //        return this.name;
+        //    }
+        //    set
+        //    {
+        //        this.name = value;
+        //    }
+        //}
 
-        // Token: 0x17000523 RID: 1315
-        // (get) Token: 0x06001BC5 RID: 7109 RVA: 0x000A3FE8 File Offset: 0x000A21E8
-        public int skillGroupId
-        {
-            get
-            {
+        //// Token: 0x17000523 RID: 1315
+        //// (get) Token: 0x06001BC5 RID: 7109 RVA: 0x000A3FE8 File Offset: 0x000A21E8
+        //public int skillGroupId
+        //{
+        //    get
+        //    {
 
-                return this.skill_group_id;
-            }
-        }
+        //        return this.skill_group_id;
+        //    }
+        //}
 
-        // Token: 0x17000524 RID: 1316
-        // (get) Token: 0x06001BC6 RID: 7110 RVA: 0x000A4018 File Offset: 0x000A2218
-        public int skillPriority
-        {
-            get
-            {
+        //// Token: 0x17000524 RID: 1316
+        //// (get) Token: 0x06001BC6 RID: 7110 RVA: 0x000A4018 File Offset: 0x000A2218
+        //public int skillPriority
+        //{
+        //    get
+        //    {
 
-                return this.skill_priority;
-            }
-        }
+        //        return this.skill_priority;
+        //    }
+        //}
 
-        // Token: 0x17000525 RID: 1317
-        // (get) Token: 0x06001BC7 RID: 7111 RVA: 0x000A4048 File Offset: 0x000A2248
-        // (set) Token: 0x06001BC8 RID: 7112 RVA: 0x000A4084 File Offset: 0x000A2284
-        public new string description
-        {
-            get
-            {
+        //// Token: 0x17000525 RID: 1317
+        //// (get) Token: 0x06001BC7 RID: 7111 RVA: 0x000A4048 File Offset: 0x000A2248
+        //// (set) Token: 0x06001BC8 RID: 7112 RVA: 0x000A4084 File Offset: 0x000A2284
+        //public new string description
+        //{
+        //    get
+        //    {
 
-                return this.description;
-            }
-            set
-            {
-                this.description = value;
-            }
-        }
+        //        return this.description;
+        //    }
+        //    set
+        //    {
+        //        this.description = value;
+        //    }
+        //}
 
-        // Token: 0x17000526 RID: 1318
-        // (get) Token: 0x06001BC9 RID: 7113 RVA: 0x000A40B8 File Offset: 0x000A22B8
-        public int trainCoinType
-        {
-            get
-            {
-                return this.train_coin_type;
-            }
-        }
+        //// Token: 0x17000526 RID: 1318
+        //// (get) Token: 0x06001BC9 RID: 7113 RVA: 0x000A40B8 File Offset: 0x000A22B8
+        //public int trainCoinType
+        //{
+        //    get
+        //    {
+        //        return this.train_coin_type;
+        //    }
+        //}
 
-        // Token: 0x17000527 RID: 1319
-        // (get) Token: 0x06001BCA RID: 7114 RVA: 0x000A40E8 File Offset: 0x000A22E8
-        public int trainCoinNumber
-        {
-            get
-            {
-                return this.train_coin_number;
-            }
-        }
+        //// Token: 0x17000527 RID: 1319
+        //// (get) Token: 0x06001BCA RID: 7114 RVA: 0x000A40E8 File Offset: 0x000A22E8
+        //public int trainCoinNumber
+        //{
+        //    get
+        //    {
+        //        return this.train_coin_number;
+        //    }
+        //}
 
-        // Token: 0x17000528 RID: 1320
-        // (get) Token: 0x06001BCB RID: 7115 RVA: 0x000A4118 File Offset: 0x000A2318
-        public int trainTime
-        {
-            get
-            {
-                return this.skill_up_time;
-            }
-        }
+        //// Token: 0x17000528 RID: 1320
+        //// (get) Token: 0x06001BCB RID: 7115 RVA: 0x000A4118 File Offset: 0x000A2318
+        //public int trainTime
+        //{
+        //    get
+        //    {
+        //        return this.skill_up_time;
+        //    }
+        //}
 
-        // Token: 0x17000529 RID: 1321
-        // (get) Token: 0x06001BCC RID: 7116 RVA: 0x000A4148 File Offset: 0x000A2348
-        public int daynightOnly
-        {
-            get
-            {
-                return this.daynight_only;
-            }
-        }
+        //// Token: 0x17000529 RID: 1321
+        //// (get) Token: 0x06001BCC RID: 7116 RVA: 0x000A4148 File Offset: 0x000A2348
+        //public int daynightOnly
+        //{
+        //    get
+        //    {
+        //        return this.daynight_only;
+        //    }
+        //}
 
-        // Token: 0x1700052A RID: 1322
-        // (get) Token: 0x06001BCD RID: 7117 RVA: 0x000A4178 File Offset: 0x000A2378
-        public int interruptType
-        {
-            get
-            {
-                return this.interrupt_type;
-            }
-        }
+        //// Token: 0x1700052A RID: 1322
+        //// (get) Token: 0x06001BCD RID: 7117 RVA: 0x000A4178 File Offset: 0x000A2378
+        //public int interruptType
+        //{
+        //    get
+        //    {
+        //        return this.interrupt_type;
+        //    }
+        //}
 
-        // Token: 0x1700052B RID: 1323
-        // (get) Token: 0x06001BCE RID: 7118 RVA: 0x000A41A8 File Offset: 0x000A23A8
-        public int interruptDamageLimit
-        {
-            get
-            {
+        //// Token: 0x1700052B RID: 1323
+        //// (get) Token: 0x06001BCE RID: 7118 RVA: 0x000A41A8 File Offset: 0x000A23A8
+        //public int interruptDamageLimit
+        //{
+        //    get
+        //    {
 
-                return this.interrupt_damage_limit;
-            }
-        }
+        //        return this.interrupt_damage_limit;
+        //    }
+        //}
 
-        // Token: 0x1700052C RID: 1324
-        // (get) Token: 0x06001BCF RID: 7119 RVA: 0x000A41D8 File Offset: 0x000A23D8
-        public int cdType
-        {
-            get
-            {
+        //// Token: 0x1700052C RID: 1324
+        //// (get) Token: 0x06001BCF RID: 7119 RVA: 0x000A41D8 File Offset: 0x000A23D8
+        //public int cdType
+        //{
+        //    get
+        //    {
 
-                return this.cd_type;
-            }
-        }
+        //        return this.cd_type;
+        //    }
+        //}
 
-        // Token: 0x1700052D RID: 1325
-        // (get) Token: 0x06001BD0 RID: 7120 RVA: 0x000A4208 File Offset: 0x000A2408
-        public int cdTime
-        {
-            get
-            {
-                return this.cd_time;
-            }
-        }
+        //// Token: 0x1700052D RID: 1325
+        //// (get) Token: 0x06001BD0 RID: 7120 RVA: 0x000A4208 File Offset: 0x000A2408
+        //public int cdTime
+        //{
+        //    get
+        //    {
+        //        return this.cd_time;
+        //    }
+        //}
 
-        // Token: 0x1700052E RID: 1326
-        // (get) Token: 0x06001BD1 RID: 7121 RVA: 0x000A4238 File Offset: 0x000A2438
-        public int startCdTime
-        {
-            get
-            {
-                return this.start_cd_time;
-            }
-        }
+        //// Token: 0x1700052E RID: 1326
+        //// (get) Token: 0x06001BD1 RID: 7121 RVA: 0x000A4238 File Offset: 0x000A2438
+        //public int startCdTime
+        //{
+        //    get
+        //    {
+        //        return this.start_cd_time;
+        //    }
+        //}
 
-        // Token: 0x1700052F RID: 1327
-        // (get) Token: 0x06001BD2 RID: 7122 RVA: 0x000A4268 File Offset: 0x000A2468
-        public int targetSelectAi
-        {
-            get
-            {
-                return this.target_select_ai;
-            }
-        }
+        //// Token: 0x1700052F RID: 1327
+        //// (get) Token: 0x06001BD2 RID: 7122 RVA: 0x000A4268 File Offset: 0x000A2468
+        //public int targetSelectAi
+        //{
+        //    get
+        //    {
+        //        return this.target_select_ai;
+        //    }
+        //}
 
-        // Token: 0x17000530 RID: 1328
-        // (get) Token: 0x06001BD3 RID: 7123 RVA: 0x000A4298 File Offset: 0x000A2498
-        public int targetLost
-        {
-            get
-            {
-                return this.target_lost;
-            }
-        }
+        //// Token: 0x17000530 RID: 1328
+        //// (get) Token: 0x06001BD3 RID: 7123 RVA: 0x000A4298 File Offset: 0x000A2498
+        //public int targetLost
+        //{
+        //    get
+        //    {
+        //        return this.target_lost;
+        //    }
+        //}
 
-        // Token: 0x17000531 RID: 1329
-        // (get) Token: 0x06001BD4 RID: 7124 RVA: 0x000A42C8 File Offset: 0x000A24C8
-        public int actionId
-        {
-            get
-            {
-                return this.action_id;
-            }
-        }
+        //// Token: 0x17000531 RID: 1329
+        //// (get) Token: 0x06001BD4 RID: 7124 RVA: 0x000A42C8 File Offset: 0x000A24C8
+        //public int actionId
+        //{
+        //    get
+        //    {
+        //        return this.action_id;
+        //    }
+        //}
 
-        // Token: 0x17000532 RID: 1330
-        // (get) Token: 0x06001BD5 RID: 7125 RVA: 0x000A42F8 File Offset: 0x000A24F8
-        public int fairyConsumption
-        {
-            get
-            {
+        //// Token: 0x17000532 RID: 1330
+        //// (get) Token: 0x06001BD5 RID: 7125 RVA: 0x000A42F8 File Offset: 0x000A24F8
+        //public int fairyConsumption
+        //{
+        //    get
+        //    {
 
-                return this.consumption;
-            }
-        }
+        //        return this.consumption;
+        //    }
+        //}
 
-        // Token: 0x17000533 RID: 1331
-        // (get) Token: 0x06001BD6 RID: 7126 RVA: 0x000A4328 File Offset: 0x000A2528
-        public int buffDelay
-        {
-            get
-            {
-                return this.buff_delay;
-            }
-        }
+        //// Token: 0x17000533 RID: 1331
+        //// (get) Token: 0x06001BD6 RID: 7126 RVA: 0x000A4328 File Offset: 0x000A2528
+        //public int buffDelay
+        //{
+        //    get
+        //    {
+        //        return this.buff_delay;
+        //    }
+        //}
 
-        // Token: 0x17000534 RID: 1332
-        // (get) Token: 0x06001BD7 RID: 7127 RVA: 0x000A4358 File Offset: 0x000A2558
-        public bool isFormAction
-        {
-            get
-            {
-                return (int)this.is_form_action == 1;
-            }
-        }
+        //// Token: 0x17000534 RID: 1332
+        //// (get) Token: 0x06001BD7 RID: 7127 RVA: 0x000A4358 File Offset: 0x000A2558
+        //public bool isFormAction
+        //{
+        //    get
+        //    {
+        //        return (int)this.is_form_action == 1;
+        //    }
+        //}
 
-        // Token: 0x17000535 RID: 1333
-        // (get) Token: 0x06001BD8 RID: 7128 RVA: 0x000A438C File Offset: 0x000A258C
-        public bool isSwitch
-        {
-            get
-            {
-                return (int)this.is_switch == 1;
-            }
-        }
+        //// Token: 0x17000535 RID: 1333
+        //// (get) Token: 0x06001BD8 RID: 7128 RVA: 0x000A438C File Offset: 0x000A258C
+        //public bool isSwitch
+        //{
+        //    get
+        //    {
+        //        return (int)this.is_switch == 1;
+        //    }
+        //}
 
-        // Token: 0x17000536 RID: 1334
-        // (get) Token: 0x06001BD9 RID: 7129 RVA: 0x000A43C0 File Offset: 0x000A25C0
-        public bool isReTarget
-        {
-            get
-            {
-                return (int)this.is_re_target == 1;
-            }
-        }
+        //// Token: 0x17000536 RID: 1334
+        //// (get) Token: 0x06001BD9 RID: 7129 RVA: 0x000A43C0 File Offset: 0x000A25C0
+        //public bool isReTarget
+        //{
+        //    get
+        //    {
+        //        return (int)this.is_re_target == 1;
+        //    }
+        //}
 
-        // Token: 0x17000537 RID: 1335
-        // (get) Token: 0x06001BDA RID: 7130 RVA: 0x000A43F4 File Offset: 0x000A25F4
-        public bool isMindupdate
-        {
-            get
-            {
-                return (int)this.is_mindupdate == 1;
-            }
-        }
+        //// Token: 0x17000537 RID: 1335
+        //// (get) Token: 0x06001BDA RID: 7130 RVA: 0x000A43F4 File Offset: 0x000A25F4
+        //public bool isMindupdate
+        //{
+        //    get
+        //    {
+        //        return (int)this.is_mindupdate == 1;
+        //    }
+        //}
 
-        // Token: 0x17000538 RID: 1336
-        // (get) Token: 0x06001BDB RID: 7131 RVA: 0x000A4428 File Offset: 0x000A2628
-        public bool isRare
-        {
-            get
-            {
-                return (int)this.is_rare == 1;
-            }
-        }
+        //// Token: 0x17000538 RID: 1336
+        //// (get) Token: 0x06001BDB RID: 7131 RVA: 0x000A4428 File Offset: 0x000A2628
+        //public bool isRare
+        //{
+        //    get
+        //    {
+        //        return (int)this.is_rare == 1;
+        //    }
+        //}
 
-        // Token: 0x17000539 RID: 1337
-        // (get) Token: 0x06001BDC RID: 7132 RVA: 0x000A445C File Offset: 0x000A265C
-        public string prefixName
-        {
-            get
-            {
+        //// Token: 0x17000539 RID: 1337
+        //// (get) Token: 0x06001BDC RID: 7132 RVA: 0x000A445C File Offset: 0x000A265C
+        //public string prefixName
+        //{
+        //    get
+        //    {
 
-                return this.passive_name;
-            }
-        }
+        //        return this.passive_name;
+        //    }
+        //}
 
-        // Token: 0x1700053A RID: 1338
-        // (get) Token: 0x06001BDD RID: 7133 RVA: 0x000A4498 File Offset: 0x000A2698
-        public string prefixNameColored
-        {
-            get
-            {
-                return (!this.isRare) ? this.passive_name : ("<color=#FFB400FF>" + this.passive_name + "</color>");
-            }
-        }
+        //// Token: 0x1700053A RID: 1338
+        //// (get) Token: 0x06001BDD RID: 7133 RVA: 0x000A4498 File Offset: 0x000A2698
+        //public string prefixNameColored
+        //{
+        //    get
+        //    {
+        //        return (!this.isRare) ? this.passive_name : ("<color=#FFB400FF>" + this.passive_name + "</color>");
+        //    }
+        //}
 
         // Token: 0x06001BDE RID: 7134 RVA: 0x000A4504 File Offset: 0x000A2704
         public override void InitData()
@@ -516,46 +516,46 @@ namespace GFHelp.Core.CatchData.Base.CMD
         // Token: 0x1700053B RID: 1339
         // (get) Token: 0x06001BDF RID: 7135 RVA: 0x000A4BD0 File Offset: 0x000A2DD0
         // (set) Token: 0x06001BE0 RID: 7136 RVA: 0x000A4C0C File Offset: 0x000A2E0C
-        public string lvupDescription
-        {
-            get
-            {
+        //public string lvupDescription
+        //{
+        //    get
+        //    {
 
-                return this.lvup_description;
-            }
-            set
-            {
-                this.lvup_description = value;
-            }
-        }
+        //        return this.lvup_description;
+        //    }
+        //    set
+        //    {
+        //        this.lvup_description = value;
+        //    }
+        //}
 
-        // Token: 0x1700053C RID: 1340
-        // (get) Token: 0x06001BE1 RID: 7137 RVA: 0x000A4C40 File Offset: 0x000A2E40
-        public string skillCd
-        {
-            get
-            {
-                return cdTime.ToString();
-            }
-        }
+        //// Token: 0x1700053C RID: 1340
+        //// (get) Token: 0x06001BE1 RID: 7137 RVA: 0x000A4C40 File Offset: 0x000A2E40
+        //public string skillCd
+        //{
+        //    get
+        //    {
+        //        return cdTime.ToString();
+        //    }
+        //}
 
-        // Token: 0x06001BE2 RID: 7138 RVA: 0x000A4C8C File Offset: 0x000A2E8C
+        //// Token: 0x06001BE2 RID: 7138 RVA: 0x000A4C8C File Offset: 0x000A2E8C
         public long GetID()
         {
             return (long)this.id;
         }
 
-        // Token: 0x06001BE3 RID: 7139 RVA: 0x000A4CC0 File Offset: 0x000A2EC0
-        public bool IsActiveSkill()
-        {
-            return this.type == 1;
-        }
+        //// Token: 0x06001BE3 RID: 7139 RVA: 0x000A4CC0 File Offset: 0x000A2EC0
+        //public bool IsActiveSkill()
+        //{
+        //    return this.type == 1;
+        //}
 
-        // Token: 0x06001BE4 RID: 7140 RVA: 0x000A4CF4 File Offset: 0x000A2EF4
-        public bool IsCommonSkill()
-        {
-            return this.type == 3;
-        }
+        //// Token: 0x06001BE4 RID: 7140 RVA: 0x000A4CF4 File Offset: 0x000A2EF4
+        //public bool IsCommonSkill()
+        //{
+        //    return this.type == 3;
+        //}
 
         // Token: 0x06001BE5 RID: 7141 RVA: 0x000A4D28 File Offset: 0x000A2F28
 

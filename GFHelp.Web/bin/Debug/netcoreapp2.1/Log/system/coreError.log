@@ -533,3 +533,7 @@ Parameter name: buffer
    at GFHelp.Core.Action.Mission.Test() in C:\Users\jack\Desktop\CS\GFHelp-Web\GFHelp.Core\Action\Battle\Loop.cs:line 49
 【16:51:26】      message = 调用作战dll文件出错 , exception = System.NullReferenceException: Object reference not set to an instance of an object.
    at GFHelp.Core.Action.Mission.Test() in C:\Users\jack\Desktop\CS\GFHelp-Web\GFHelp.Core\Action\Battle\Loop.cs:line 49
+【18:07:55】      message = 读取UserData_kalina_with_user_info , exception = Microsoft.CSharp.RuntimeBinder.RuntimeBinderException: 'Codeplex.Data.DynamicJson' does not contain a definition for 'user_id'
+   at CallSite.Target(Closure , CallSite , Object )
+   at System.Dynamic.UpdateDelegates.UpdateAndExecute1[T0,TRet](CallSite site, T0 arg0)
+   at GFHelp.Core.MulitePlayerData.Kalina_With_User_Info.Read(Object jsonobj) in C:\Users\jack\Desktop\CS\GFHelp-Web\GFHelp.Core\MulitePlayerData\UserData\Kalina_With_User_Info.cs:line 23

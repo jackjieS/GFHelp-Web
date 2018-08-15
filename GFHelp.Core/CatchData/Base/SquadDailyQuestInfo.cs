@@ -22,24 +22,24 @@ namespace GFHelp.Core.CatchData.Base
 
         // Token: 0x1700077C RID: 1916
         // (get) Token: 0x06002439 RID: 9273 RVA: 0x000EE288 File Offset: 0x000EC488
-        public new string title
-        {
-            get
-            {
+        //public new string title
+        //{
+        //    get
+        //    {
 
-                return this.title;
-            }
-        }
+        //        return this.title;
+        //    }
+        //}
 
-        // Token: 0x1700077D RID: 1917
-        // (get) Token: 0x0600243A RID: 9274 RVA: 0x000EE2C4 File Offset: 0x000EC4C4
-        public new string content
-        {
-            get
-            {
-                return this.content;
-            }
-        }
+        //// Token: 0x1700077D RID: 1917
+        //// (get) Token: 0x0600243A RID: 9274 RVA: 0x000EE2C4 File Offset: 0x000EC4C4
+        //public new string content
+        //{
+        //    get
+        //    {
+        //        return this.content;
+        //    }
+        //}
 
         // Token: 0x0600243B RID: 9275 RVA: 0x000EE300 File Offset: 0x000EC500
         public override void InitData()

@@ -102,7 +102,9 @@ namespace GFHelp.Core.Management
             userData.cd.Start();
             userData.cd.ContinueWith(t =>
             {
+
                 string id = userData.GameAccount.Base.GameAccountID;
+                new Log().userInit(id, "程序已注销 请重新创建实例").userInfo();
                 userData = null;
                 data.RemoveByID(id);
             });
@@ -141,12 +143,7 @@ namespace GFHelp.Core.Management
             return WebStatus;
         }
 
-        public static void AddAccountBaseInDictionary(GameAccountBase accountBase)
-        {
-            UserData userdata = new UserData();
-            userdata.CreatGameAccount(accountBase);
-            Seed(userdata);
-        }
+
 
 
 
@@ -166,7 +163,7 @@ namespace GFHelp.Core.Management
             this.auto_Summery = new Auto_Summery(this);
             this.simulation = new Simulation(this);
             this.BattleReport = new BattleReport(this);
-            this.outhouse_Establish_Info = new Outhouse_Establish_Info(this);
+            this.outhouse_Establish_Info = new Outhouse_BattleReport(this);
             this.item_With_User_Info = new Item_With_User_Info(this);
             this.config = new Config(this);
             this.equip_With_User_Info = new Equip(this);
@@ -181,7 +178,7 @@ namespace GFHelp.Core.Management
             GameAccount.Base = gameAccountBase;
             GameAccount.Base.AndroidID = Guid.NewGuid().ToString("N");
             GameAccount.Base.MAC = M.GetNewMac();
-            GameAccount.GameHost = GameHost.Get(GameAccount.Base.Platform, GameAccount.Base.ChannelID, GameAccount.Base.WorldID);
+            GameAccount.GameHost = Helper.Configer.HostAddress.GetAddressByName(GameAccount.Base.ChannelID);
         }
 
         private void Clear()
@@ -290,7 +287,7 @@ namespace GFHelp.Core.Management
 
         public Upgrade_Act_Info upgrade_Act_Info = new Upgrade_Act_Info();
 
-        public Outhouse_Establish_Info outhouse_Establish_Info; 
+        public Outhouse_BattleReport outhouse_Establish_Info; 
 
         public Fairy_With_User_info fairy_With_User_Info = new Fairy_With_User_info();
 

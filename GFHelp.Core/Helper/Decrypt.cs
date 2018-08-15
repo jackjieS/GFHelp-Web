@@ -38,7 +38,7 @@ namespace GFHelp.Core.Helper
 
                 var t = (time.Ticks - startTime.Ticks) / 10000000;
 
-                    return (int)t;
+                return (int)t;
             }
             catch (Exception e)
             {
@@ -50,7 +50,7 @@ namespace GFHelp.Core.Helper
 
 
 
-        public static string DecodeAndMapJson(GameAccount gameAccount,string wwwText)
+        public static string DecodeAndMapJson(GameAccount gameAccount, string wwwText)
         {
             JsonData result = new JsonData();
             try
@@ -81,7 +81,7 @@ namespace GFHelp.Core.Helper
             return result.ToJson();
         }
 
-        public static void DecodeSign(GameAccount gameAccount,string result)
+        public static void DecodeSign(GameAccount gameAccount, string result)
         {
             JsonData jsonData2 = null;
             gameAccount.realtimeSinceLogin = Convert.ToInt32((DateTime.UtcNow - new DateTime(1970, 1, 1, 0, 0, 0, 0)).TotalSeconds);

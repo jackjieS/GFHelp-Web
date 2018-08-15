@@ -4,6 +4,7 @@ using GFHelp.Core.CatchData.Base.CMD;
 using GFHelp.Core.Helper;
 using LitJson;
 using Microsoft.VisualStudio.Web.CodeGeneration.Design;
+using Newtonsoft.Json;
 using System;
 using System.Collections.Generic;
 using System.IO;
@@ -366,12 +367,38 @@ namespace GFHelp.Core
             }
             return true;
         }
+        static string fileName = SystemOthers.ConfigData.currentDirectory + @"\test.json";
+        static StreamWriter file = new StreamWriter(fileName, true);
+        private static void Write<T>(string name,List<T> abc)
+        {
+            return;
+            StringBuilder sb = new StringBuilder();
+            LitJson.JsonWriter jsonWriter = new LitJson.JsonWriter(sb);
+            jsonWriter.WriteObjectStart();
+            
+            jsonWriter.WritePropertyName(name);
+            jsonWriter.WriteArrayStart();
+            foreach (var item in abc)
+            {
+                jsonWriter.Write(JsonConvert.SerializeObject(item));
+            }
+            jsonWriter.WriteArrayEnd();
+            jsonWriter.WriteObjectEnd();
+
+            file.WriteLine(sb.ToString());
+            file.Flush();
+        }
 
         private static bool LoadStcTable()
         {
+
+
+
             if (TableHelper.LoadTable<SquadBaseAttribution>(ref GameData.listSquadBaseAttriInfo, CmdDef.stcSquad_standard_attributionList, true))
             {
                 new Log().systemInit("stcSquad_standard_attributionList 解析完成：" + GameData.listSquadBaseAttriInfo.Count).coreInfo();
+                Write("listSquadBaseAttriInfo", GameData.listSquadBaseAttriInfo.GetList());
+
             }
             else
             {
@@ -383,6 +410,7 @@ namespace GFHelp.Core
             if (TableHelper.LoadTable<ItemInfo>(ref GameData.listItemInfo, CmdDef.stcItemList, true))
             {
                 new Log().systemInit("stcItemList 解析完成：" + GameData.listItemInfo.Count).coreInfo();
+                Write("listItemInfo", GameData.listItemInfo.GetList());
             }
             else
             {
@@ -392,6 +420,7 @@ namespace GFHelp.Core
             if (TableHelper.LoadTable<Gun_Info>(ref GameData.listGunInfo, CmdDef.stcGunList, true))
             {
                 new Log().systemInit("stcGunList 解析完成：" + GameData.listGunInfo.Count).coreInfo();
+                Write("listGunInfo", GameData.listGunInfo.GetList());
             }
             else
             {
@@ -401,6 +430,7 @@ namespace GFHelp.Core
             if (TableHelper.LoadTable<SquadInfo>(ref GameData.listSquadInfo, CmdDef.stcSquadList, true))
             {
                 new Log().systemInit("stcSquadList 解析完成：" + GameData.listSquadInfo.Count).coreInfo();
+                Write("listSquadInfo", GameData.listSquadInfo.GetList());
             }
             else
             {
@@ -414,6 +444,7 @@ namespace GFHelp.Core
             if (TableHelper.LoadTable<SquadChipInfo>(ref GameData.listSquadChipInfo, CmdDef.stcSquad_chipList, true))
             {
                 new Log().systemInit("stcSquad_chipList 解析完成：" + GameData.listSquadChipInfo.Count).coreInfo();
+                Write("listSquadChipInfo", GameData.listSquadChipInfo.GetList());
             }
             else
             {
@@ -425,6 +456,7 @@ namespace GFHelp.Core
             if (TableHelper.LoadTable<SquadTypeInfo>(ref GameData.listSquadTypeInfo, CmdDef.stcSquad_typeList, true))
             {
                 new Log().systemInit("stcSquad_typeList 解析完成：" + GameData.listSquadTypeInfo.Count).coreInfo();
+                Write("listSquadTypeInfo", GameData.listSquadTypeInfo.GetList());
 
             }
             else
@@ -436,6 +468,7 @@ namespace GFHelp.Core
             if (TableHelper.LoadTable<SquadRankInfo>(ref GameData.listSquadRankInfo, CmdDef.stcSquad_rankList, true))
             {
                 new Log().systemInit("stcSquad_rankList 解析完成：" + GameData.listSquadRankInfo.Count).coreInfo();
+                Write("listSquadRankInfo", GameData.listSquadRankInfo.GetList());
             }
             else
             {
@@ -445,6 +478,7 @@ namespace GFHelp.Core
             if (TableHelper.LoadTable<SquadExp>(ref GameData.listSquadExp, CmdDef.stcSquad_expList, true))
             {
                 new Log().systemInit("stcSquad_expList 解析完成：" + GameData.listSquadExp.Count).coreInfo();
+                Write("listSquadExp", GameData.listSquadExp.GetList());
 
             }
             else
@@ -455,6 +489,7 @@ namespace GFHelp.Core
             if (TableHelper.LoadTable<SquadChipExp>(ref GameData.listSquadChipExp, CmdDef.stcSquad_chip_expList, true))
             {
                 new Log().systemInit("stcSquad_chip_expList 解析完成：" + GameData.listSquadChipExp.Count).coreInfo();
+                Write("listSquadChipExp", GameData.listSquadChipExp.GetList());
             }
             else
             {
@@ -464,6 +499,7 @@ namespace GFHelp.Core
             if (TableHelper.LoadTable<SquadDailyQuestInfo>(ref GameData.listSquadDailyQuestInfo, CmdDef.stcSquad_data_dailyList, true))
             {
                 new Log().systemInit("stcSquad_data_dailyList 解析完成：" + GameData.listSquadDailyQuestInfo.Count).coreInfo();
+                Write("listSquadDailyQuestInfo", GameData.listSquadDailyQuestInfo.GetList());
             }
             else
             {
@@ -473,16 +509,17 @@ namespace GFHelp.Core
             if (TableHelper.LoadTable<BattleSkillCfg>(ref GameData.listBTSkillCfg, CmdDef.stcBattle_skill_configList, true))
             {
                 new Log().systemInit("stcBattle_skill_configList 解析完成：" + GameData.listBTSkillCfg.Count).coreInfo();
-
+                Write("listBTSkillCfg", GameData.listBTSkillCfg.GetList());
             }
             else
             {
-                new Log().systemInit("stcBattle_skill_configList 解析失败:" + GameData.listSquadDailyQuestInfo.Count).coreInfo();
+                new Log().systemInit("stcBattle_skill_configList 解析失败:" + GameData.listBTSkillCfg.Count).coreInfo();
             }
 
             if (TableHelper.LoadTable<SquadAdvancedBonus>(ref GameData.listSquadAdvancedBonus, CmdDef.stcSquad_advanced_bonusList, true))
             {
                 new Log().systemInit("stcSquad_advanced_bonusList 解析完成：" + GameData.listSquadAdvancedBonus.Count).coreInfo();
+                Write("listSquadAdvancedBonus", GameData.listSquadAdvancedBonus.GetList());
             }
             else
             {
@@ -494,6 +531,7 @@ namespace GFHelp.Core
             if (TableHelper.LoadTable<SquadCPUInfo>(ref GameData.listSquadCPUInfo, CmdDef.stcSquad_cpuList, true))
             {
                 new Log().systemInit("stcSquad_cpuList 解析完成：" + GameData.listSquadCPUInfo.Count).coreInfo();
+                Write("listSquadCPUInfo", GameData.listSquadCPUInfo.GetList());
             }
             else
             {
@@ -503,6 +541,7 @@ namespace GFHelp.Core
             if (TableHelper.LoadTable<SquadCPUColor>(ref GameData.listSquadCPUColor, CmdDef.stcSquad_colorList, true))
             {
                 new Log().systemInit("stcSquad_colorList 解析完成：" + GameData.listSquadCPUColor.Count).coreInfo();
+                Write("listSquadCPUColor", GameData.listSquadCPUColor.GetList());
             }
             else
             {
@@ -512,6 +551,7 @@ namespace GFHelp.Core
             if (TableHelper.LoadTable<SquadCPUGrid>(ref GameData.listSquadCPUGrid, CmdDef.stcSquad_gridList, true))
             {
                 new Log().systemInit("stcSquad_gridList 解析完成：" + GameData.listSquadCPUGrid.Count).coreInfo();
+                Write("listSquadCPUGrid", GameData.listSquadCPUGrid.GetList());
             }
             else
             {
@@ -521,6 +561,7 @@ namespace GFHelp.Core
             if (TableHelper.LoadTable<SquadCPUCompletion>(ref GameData.listSquadCPUCompletion, CmdDef.stcSquad_cpu_completionList, true))
             {
                 new Log().systemInit("stcSquad_cpu_completionList 解析完成：" + GameData.listSquadCPUCompletion.Count).coreInfo();
+                Write("listSquadCPUCompletion", GameData.listSquadCPUCompletion.GetList());
             }
             else
             {
@@ -539,7 +580,7 @@ namespace GFHelp.Core
 
 
 
-
+            file.Close();
             return true;
         }
 

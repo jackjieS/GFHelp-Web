@@ -128,6 +128,7 @@ namespace GFHelp.Core.CatchData.Base
             }
             catch (Exception ex)
             {
+                new Log().systemInit("读取" + text + "失败:" + ex.Message, string.Empty).coreInfo();
                 //NDebug.Log("读取" + text + "失败:" + ex.Message, string.Empty);
             }
             return true;

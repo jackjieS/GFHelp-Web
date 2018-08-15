@@ -20,7 +20,7 @@ namespace GFHelp.Web.Data
         {
 
             //var directory = System.IO.Directory.GetCurrentDirectory();
-            //string con = "Data Source=" +  @"\database.db";
+            //string con = "Data Source=" +  @"\database.db,
             //optionsBuilder.UseSqlite(con);
             //this.app
         }

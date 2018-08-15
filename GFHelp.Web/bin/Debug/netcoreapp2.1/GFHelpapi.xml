@@ -202,6 +202,12 @@
             </summary>
             <returns></returns>
         </member>
+        <member name="M:GFHelp.Web.Controllers.SystemController.LoadHostAddress">
+            <summary>
+            获取当前游戏实例个数
+            </summary>
+            <returns></returns>
+        </member>
         <member name="T:GFHelp.Web.Data.AccountInfo">
             <summary>
             网站账户信息

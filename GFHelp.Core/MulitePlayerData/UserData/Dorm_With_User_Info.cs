@@ -1,9 +1,11 @@
 ﻿using Codeplex.Data;
 using GFHelp.Core.Helper;
 using GFHelp.Core.Management;
+using LitJson;
 using System;
 using System.Collections.Generic;
 using System.Text;
+using System.Threading;
 using System.Threading.Tasks;
 
 namespace GFHelp.Core.MulitePlayerData
@@ -112,9 +114,36 @@ namespace GFHelp.Core.MulitePlayerData
                 is17PMswitchMineStart = false;
             }
 
+            //0点
+            if (BeijingTimeNow.Hour==0 &&  BeijingTimeNow.Minute==10 && BeijingTimeNow.Second ==1)
+            {
+                Thread.Sleep(1000);
+                Task getdata = new Task(() => GetOandPDataHandle());
+                getdata.Start();
 
 
 
+            }
+            //8点
+            if (BeijingTimeNow.Hour == 8 && BeijingTimeNow.Minute == 10 && BeijingTimeNow.Second == 1)
+            {
+                Thread.Sleep(1000);
+                Task getdata = new Task(() => GetOandPDataHandle());
+                getdata.Start();
+
+
+
+            }
+            //16点
+            if (BeijingTimeNow.Hour == 16 && BeijingTimeNow.Minute == 10 && BeijingTimeNow.Second == 1)
+            {
+                Thread.Sleep(1000);
+                Task getdata = new Task(() => GetOandPDataHandle());
+                getdata.Start();
+
+
+
+            }
         }
 
         public void ClickGirlsFavor()
@@ -229,7 +258,6 @@ namespace GFHelp.Core.MulitePlayerData
                 {
                     case 1:
                         {
-                            userData.Dorm_Rest_Friend_Build_Coin_Count--;
                             return true;
                         }
                     case 0:
@@ -342,27 +370,42 @@ namespace GFHelp.Core.MulitePlayerData
             }
         }
 
-
-        private void GetOandPData()
+        private void GetOandPDataHandle()
         {
+            string result = "";
+            if(GetOandPData(ref result))
+            {
+                JsonData jsonData = JsonMapper.ToObject(result);
+                this.userData.item_With_User_Info.originalData+= jsonData["base_cell"].Int;
+                this.userData.item_With_User_Info.PureData += jsonData["senior_cell"].Int;
+            }
 
+
+
+
+        }
+
+        private bool GetOandPData(ref string result)
+        {
+            new Log().userInit(userData.GameAccount.Base.GameAccountID, "收集数据 数据监测枢纽 ").userInfo();
             int count = 0;
             while (true)
             {
-                string result = API.Dorm.getDataCell(userData.GameAccount);
+                result = API.Dorm.getDataCell(userData.GameAccount);
 
                 switch (Response.Check(userData.GameAccount, ref result, "getDataCell_Pro", true))
                 {
                     case 1:
                         {
-                            return;
+                            new Log().userInit(userData.GameAccount.Base.GameAccountID, "收集数据 数据监测枢纽 完成").userInfo();
+                            return true;
                         }
                     case 0:
                         {
                             if (count++ >= userData.config.ErrorCount)
                             {
                                 new Log().userInit(userData.GameAccount.Base.GameAccountID, " 获取数据样本出错", result.ToString()).userInfo();
-                                return;
+                                return false;
                             }
                             break;
                         }
@@ -371,7 +414,7 @@ namespace GFHelp.Core.MulitePlayerData
                             if (count++ >= userData.config.ErrorCount)
                             {
                                 new Log().userInit(userData.GameAccount.Base.GameAccountID, " 获取数据样本出错", result.ToString()).userInfo();
-                                return;
+                                return false;
                             }
                             break;
                         }

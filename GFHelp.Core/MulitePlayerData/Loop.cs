@@ -53,6 +53,7 @@ namespace GFHelp.Core.Management
                 userData.battle.BP_Recover();
                 userData.simulation.Run();
                 userData.outhouse_Establish_Info.AutoRun();
+                userData.squadDataAnalysisAction.AutoRun();
                 //WriteReport_Start(userData);
                 //WriteReport_Finish(userData);
 

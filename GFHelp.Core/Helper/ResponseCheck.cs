@@ -231,6 +231,15 @@ namespace GFHelp.Core.Helper
                         return result.Contains("title") ? 1 : 0;
                     }
 
+                case "DataAnalysisFinishAll":
+                    {
+                        return result.Contains("piece") ? 1 : 0;
+                    }
+                case "DataAnalysisStart":
+                    {
+                        return result.Contains("data") ? 1 : 0;
+                    }
+
                 default:
                     break;
             }

@@ -22,7 +22,7 @@ namespace GFHelp.Core.CatchData
                 updata.Wait();
                 updata.ContinueWith(p =>
                 {
-                    Helper.ConfigManager.SetConfig("catchdata", DataVersion);
+                    Helper.Configer.ConfigManager.SetConfig("catchdata", DataVersion);
                     CatachData.Seed();
                 });
             }

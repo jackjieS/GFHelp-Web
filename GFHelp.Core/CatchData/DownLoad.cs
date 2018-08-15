@@ -85,7 +85,7 @@ namespace GFHelp.Core.CatchData
         private static void SavezipDataTojosn()
         {
 
-            var str1 =SystemOthers.ConfigData.currentDirectory  + @"\stc_data.dat";
+            var str1 = SystemOthers.ConfigData.currentDirectory + @"\stc_data.dat";
             var str2 = SystemOthers.ConfigData.currentDirectory + @"\stc";
             System.IO.Compression.ZipFile.ExtractToDirectory(str1, str2,true); //解压
             using (Stream stream = new FileStream(str2 + @"\catchdata.dat", FileMode.Open))

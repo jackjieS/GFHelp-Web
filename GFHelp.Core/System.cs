@@ -1,4 +1,5 @@
 ﻿using GFHelp.Core.Helper;
+using GFHelp.Core.Helper.Configer;
 using GFHelp.Core.Management;
 using Microsoft.VisualStudio.Web.CodeGeneration.Design;
 using System;
@@ -36,6 +37,7 @@ namespace GFHelp.Core.SystemOthers
         {
             logWriter.initLogWriter();
             ConfigManager.getConfig();
+            HostAddress.Load();
             new Log().systemInit("读取config配置").coreInfo();
             new Log().systemInit("读取文字解析").coreInfo();
             CatchData.Base.Asset_Textes.Read_ALL_CSV();
