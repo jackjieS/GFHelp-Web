@@ -220,8 +220,8 @@ namespace GFHelp.Web.Controllers
             {
                 return Ok(new
                 {
-                    code = 1,
-                    data = 1,
+                    code = 0,
+                    data = 0,
                     message = string.Format("LoadHostAddress failed ")
                 });
             }

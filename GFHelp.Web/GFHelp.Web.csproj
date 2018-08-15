@@ -59,6 +59,9 @@
   </ItemGroup>
 
   <ItemGroup>
+    <None Update="HostAddress.cfg">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
     <None Update="UpgradeInfo.txt">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </None>
