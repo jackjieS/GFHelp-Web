@@ -18,19 +18,18 @@ namespace GFHelp.Web.Controllers
     public class GameController : Controller
     {
 
-        private appContext context;
+
         /// <summary>
         /// Game控制器
         /// </summary>
-        public GameController(appContext context)
+        public GameController()
         {
-            this.context = context;
+
         }
 
         private bool isAdmin(string username)
         {
-            var list = context.AccountInfo.Where(p => p.Username == username && p.Policy == "1").ToList();
-            return list.Count > 0 ? true : false;
+            return DataBase.DataBase.isUserAdmin(username);
         }
 
         /// <summary>

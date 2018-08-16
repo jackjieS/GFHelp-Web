@@ -17,24 +17,17 @@ namespace GFHelp.Web.Controllers
 
     public class SystemController : Controller
     {
-        private appContext context;
+
         /// <summary>
         /// 系统控制器
         /// </summary>
-        public SystemController(appContext context)
+        public SystemController()
         {
-            this.context = context;
+
         }
         private bool isAdmin(string username)
         {
-            foreach (var item in context.AccountInfo.ToList())
-            {
-                if (item.Username == username && item.Policy == "1")
-                {
-                    return true;
-                }
-            }
-            return false;
+            return DataBase.DataBase.isUserAdmin(username);
         }
 
         /// <summary>

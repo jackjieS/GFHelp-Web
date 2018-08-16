@@ -38,12 +38,10 @@ namespace GFHelp.Web
             services.AddMvc();
             services.AddSignalR();
 
-            string con = "Data Source=" + currentDirectory + @"\database.db";
-            services.AddDbContext<appContext>(options =>
-            options.UseSqlite(con));
+
+
 
             services.AddIdentity<ApplicationUser, IdentityRole>()
-            .AddEntityFrameworkStores<appContext>()
             .AddDefaultTokenProviders();
 
             services.AddSwaggerGen(c =>
@@ -185,10 +183,10 @@ namespace GFHelp.Web
 
 
 
-
+            DataBase.DataBase.isMulteAccount("admin");
             Core.SystemOthers.ConfigData.Initialize();
             Core.SignaIRClient.seed();
-            SeedDatabase.Initialize(app.ApplicationServices.GetRequiredService<IServiceScopeFactory>().CreateScope().ServiceProvider);
+            Core.Init.InitFromDatabase();
         }
     }
 }

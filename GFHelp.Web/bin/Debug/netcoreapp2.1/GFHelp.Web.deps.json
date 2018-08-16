@@ -25,6 +25,7 @@
       "GFHelp.Web/1.0.0": {
         "dependencies": {
           "GFHelp.Core": "1.0.0",
+          "GFHelp.DataBase": "1.0.0",
           "Microsoft.AspNetCore.All": "2.1.0",
           "Microsoft.AspNetCore.SignalR.Client": "1.0.0",
           "Microsoft.EntityFrameworkCore.Sqlite": "2.1.0",
@@ -637,6 +638,7 @@
       },
       "GFHelp.Core/1.0.0": {
         "dependencies": {
+          "GFHelp.DataBase": "1.0.0",
           "Microsoft.AspNetCore.SignalR.Client": "1.0.0",
           "Newtonsoft.Json": "11.0.2",
           "LitJson": "1.0.0.0",
@@ -649,6 +651,14 @@
         },
         "compile": {
           "GFHelp.Core.dll": {}
+        }
+      },
+      "GFHelp.DataBase/1.0.0": {
+        "runtime": {
+          "GFHelp.DataBase.dll": {}
+        },
+        "compile": {
+          "GFHelp.DataBase.dll": {}
         }
       },
       "LitJson.Reference/1.0.0.0": {
@@ -4411,6 +4421,11 @@
       "hashPath": "system.linq.parallel.4.3.0.nupkg.sha512"
     },
     "GFHelp.Core/1.0.0": {
+      "type": "project",
+      "serviceable": false,
+      "sha512": ""
+    },
+    "GFHelp.DataBase/1.0.0": {
       "type": "project",
       "serviceable": false,
       "sha512": ""

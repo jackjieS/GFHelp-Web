@@ -31,7 +31,7 @@ namespace GFHelp.Core.SystemOthers
         public static int UpdateCache = 5;
         public static int BL_ReLogin_num = 20;
         public static int ListStoreNum = 500;
-        public static List<AccountInfo> WebUserData = new List<AccountInfo>();
+        public static List<DataBase.AccountInfo> WebUserData = new List<DataBase.AccountInfo>();
         public static int LogID;
         public static void Initialize()
         {
@@ -48,25 +48,7 @@ namespace GFHelp.Core.SystemOthers
 
     }
 
-    /// <summary>
-    /// 网站账户信息
-    /// </summary>
-    public class AccountInfo
-    {
-        /// <summary>
-        /// 用户名
-        /// </summary>
-        [Key]
-        public string Username { get; set; }
-        /// <summary>
-        /// 密码
-        /// </summary>
-        public string Password { get; set; }
-        /// <summary>
-        /// 权限
-        /// </summary>
-        public string Policy { get; set; }
-    }
+
 
 
 

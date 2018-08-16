@@ -88,6 +88,7 @@ namespace GFHelp.Core.MulitePlayerData
                             if (count++ > userData.config.ErrorCount)
                             {
                                 new Log().userInit(userData.GameAccount.Base.GameAccountID, "DataAnalysisFinishAll ERROR", result).userInfo();
+                                this.AutoRunning = false;
                                 return false;
                             }
                             continue;

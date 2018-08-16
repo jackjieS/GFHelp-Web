@@ -86,7 +86,10 @@ namespace GFHelp.Core.Management
         /// </summary>
         /// 
         public static gameDatas data = new gameDatas();
-        //public static Dictionary<string, UserData> data = new Dictionary<string, UserData>();
+        private static void delDataBaseGameAccount()
+        {
+            
+        }
         public static void Seed(UserData userData)
         {
             if (data.ContainsKey(userData.GameAccount.Base.GameAccountID))
@@ -102,7 +105,7 @@ namespace GFHelp.Core.Management
             userData.cd.Start();
             userData.cd.ContinueWith(t =>
             {
-
+                DataBase.DataBase.DelGameAccount(userData.GameAccount.Base);
                 string id = userData.GameAccount.Base.GameAccountID;
                 new Log().userInit(id, "程序已注销 请重新创建实例").userInfo();
                 userData = null;
@@ -173,11 +176,11 @@ namespace GFHelp.Core.Management
             this.chip_With_User_Info = new Chip_With_User_Info(this);
             this.cdloop = new cdLoop(this);
         }
-        public void CreatGameAccount(GameAccountBase gameAccountBase)
+        public void CreatGameAccount(DataBase.GameAccount gameAccount)
         {
-            GameAccount.Base = gameAccountBase;
-            GameAccount.Base.AndroidID = Guid.NewGuid().ToString("N");
-            GameAccount.Base.MAC = M.GetNewMac();
+            GameAccount.Base = gameAccount;
+            GameAccount.AndroidID = Guid.NewGuid().ToString("N");
+            GameAccount.MAC = M.GetNewMac();
             GameAccount.GameHost = Helper.Configer.HostAddress.GetAddressByName(GameAccount.Base.ChannelID);
         }
 
@@ -381,57 +384,10 @@ namespace GFHelp.Core.Management
 
 
 
-    public class GameAccountBase
-    {
-        /// <summary>
-        /// 网站用户名字
-        /// </summary>
-        //[Required(ErrorMessage = "Username is required.")]
-        public string WebUsername { get; set; }
-        /// <summary>
-        /// 游戏账号
-        /// </summary>
-        [Required(ErrorMessage = "Username is required.")]
-        [Key]
-        public string GameAccountID { get; set; }
-        /// <summary>
-        /// 密码
-        /// </summary>
-        public string GamePassword { get; set; }
 
-        ///AndroidID
-        public string AndroidID { get; set; }
-        public string MAC { get; set; }
-        /// <summary>
-        /// 平台 安卓苹果
-        /// </summary>
-        public string Platform { get; set; }
-        /// <summary>
-        /// 渠道 官服B服腾讯服
-        /// </summary>
-        public string ChannelID { get; set; }
-        /// <summary>
-        /// 服
-        /// </summary>
-        public string WorldID { get; set; }
-
-        /// <summary>
-        /// 不必要 后端自动生成
-        /// </summary>
-
-
-        /// <summary>
-        /// 
-        /// </summary>
-        public string YunDouDou;
-        /// <summary>
-        /// 
-        /// </summary>
-        public string Parm { get; set; }
-    }
     public class GameAccount
     {
-        public GameAccountBase Base = new GameAccountBase();
+        public DataBase.GameAccount Base = new DataBase.GameAccount();
         public int GetCurrentTimeStamp()
         {
             return Convert.ToInt32((DateTime.UtcNow - new DateTime(1970, 1, 1, 0, 0, 0, 0)).TotalSeconds - realtimeSinceLogin + loginTime);
@@ -447,8 +403,8 @@ namespace GFHelp.Core.Management
 
         public int timeoffset;
         public long req_id;
-
-
+        public string AndroidID;
+        public string MAC;
         public string CatchDataVersion;
         public int tomorrow_zero;
         public int weekday;

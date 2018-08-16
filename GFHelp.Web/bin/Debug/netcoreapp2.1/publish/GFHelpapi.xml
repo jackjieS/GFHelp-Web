@@ -9,7 +9,7 @@
             网站用户相关操作
             </summary>
         </member>
-        <member name="M:GFHelp.Web.Controllers.AccountController.#ctor(GFHelp.Web.Data.appContext)">
+        <member name="M:GFHelp.Web.Controllers.AccountController.#ctor">
             <summary>
             构造器
             </summary>
@@ -21,7 +21,7 @@
             </summary>
             <returns></returns>
         </member>
-        <member name="M:GFHelp.Web.Controllers.AccountController.CreatGame(GFHelp.Core.Management.GameAccountBase)">
+        <member name="M:GFHelp.Web.Controllers.AccountController.CreatGame(GFHelp.DataBase.GameAccount)">
             <summary>
             创建一个游戏实例
             Username 网站用户名字
@@ -45,7 +45,7 @@
             <param name9="accountbaseYunDouDou">默认为空(这是备用登陆游戏登陆方案)</param>
             <returns></returns>
         </member>
-        <member name="M:GFHelp.Web.Controllers.AccountController.DeleteGame(GFHelp.Core.Management.GameAccountBase)">
+        <member name="M:GFHelp.Web.Controllers.AccountController.DeleteGame(GFHelp.DataBase.GameAccount)">
             <summary>
             删除一个游戏实例
             </summary>
@@ -57,7 +57,7 @@
             认证与登陆
             </summary>
         </member>
-        <member name="M:GFHelp.Web.Controllers.AuthController.WebLogin(GFHelp.Web.Models.LoginModel)">
+        <member name="M:GFHelp.Web.Controllers.AuthController.WebLogin(GFHelp.DataBase.LoginModel)">
             <summary>
             网站登陆
             Username
@@ -66,7 +66,7 @@
             <param name="model.Username.Username"> 123 </param>
             <returns>123</returns>
         </member>
-        <member name="M:GFHelp.Web.Controllers.AuthController.WebRegister(GFHelp.Web.Models.LoginModel)">
+        <member name="M:GFHelp.Web.Controllers.AuthController.WebRegister(GFHelp.DataBase.LoginModel)">
             <summary>
             网站注册
             Username
@@ -80,7 +80,7 @@
             游戏操作的
             </summary>
         </member>
-        <member name="M:GFHelp.Web.Controllers.GameController.#ctor(GFHelp.Web.Data.appContext)">
+        <member name="M:GFHelp.Web.Controllers.GameController.#ctor">
             <summary>
             Game控制器
             </summary>
@@ -161,7 +161,7 @@
             系统运行的情况
             </summary>
         </member>
-        <member name="M:GFHelp.Web.Controllers.SystemController.#ctor(GFHelp.Web.Data.appContext)">
+        <member name="M:GFHelp.Web.Controllers.SystemController.#ctor">
             <summary>
             系统控制器
             </summary>
@@ -207,22 +207,6 @@
             获取当前游戏实例个数
             </summary>
             <returns></returns>
-        </member>
-        <member name="T:GFHelp.Web.Data.AccountInfo">
-            <summary>
-            网站账户信息
-            </summary>
-        </member>
-        <member name="T:GFHelp.Web.Data.SeedDatabase">
-            <summary>
-            数据库初始化
-            </summary>
-        </member>
-        <member name="M:GFHelp.Web.Data.SeedDatabase.Initialize(System.IServiceProvider)">
-            <summary>
-            数据库初始化
-            </summary>
-            <param name="serviceProvider"></param>
         </member>
         <member name="M:GFHelp.Web.Chat.Send(System.String)">
             <summary>

@@ -21,49 +21,24 @@ namespace GFHelp.Web.Controllers
     public class AuthController : Controller
     {
         private UserManager<ApplicationUser> userManager;
-        private appContext context;
-        public AuthController(UserManager<ApplicationUser> userManager, appContext context)
-        {
-            this.userManager = userManager;
-            this.context = context;
 
+        public AuthController(/*UserManager<ApplicationUser> userManager*/)
+        {
+            //this.userManager = userManager;
         }
 
         private async Task<bool>isUserNameExist(string username)
         {
-
-            foreach (var item in context.AccountInfo.ToList())
-            {
-                if (item.Username == username) { return true; }
-            }
-            return false;
+            return DataBase.DataBase.isUserNameExist(username);
         }
 
         private async Task<bool> CheckUser(string username,string password)
         {
-
-            foreach (var item in context.AccountInfo.ToList())
-            {
-                if (item.Username == username && item.Password == password) { return true; }
-            }
-            return false;
-
+            return DataBase.DataBase.CheckUser(username, password);
         }
-        private bool creatWebAccount(LoginModel accInfo)
+        private bool creatWebAccount(DataBase.LoginModel accInfo)
         {
-            context.AccountInfo.Add(new Data.AccountInfo
-            {
-                Username = accInfo.Username,
-                Password = accInfo.Password,
-                Policy="2"
-            });
-            var count = context.SaveChanges();
-
-            if (count != 0)
-            {
-                return true;
-            }
-            return false;
+            return DataBase.DataBase.creatWebAccount(accInfo);
         }
         private JwtSecurityToken CreateToken(string username)
         {
@@ -96,7 +71,8 @@ namespace GFHelp.Web.Controllers
         /// <returns>123</returns>
         [Route("[action]")]
         [HttpPost]
-        public async Task<IActionResult> WebLogin([FromBody]LoginModel model)
+
+        public async Task<IActionResult> WebLogin([FromBody]DataBase.LoginModel model)
         {
             if (string.IsNullOrEmpty(model.Username) || string.IsNullOrEmpty(model.Password))
                 return Ok(new
@@ -138,7 +114,7 @@ namespace GFHelp.Web.Controllers
         /// <returns>123</returns>
         [Route("[action]")]
         [HttpPost]
-        public async Task<IActionResult> WebRegister([FromBody]LoginModel model)
+        public async Task<IActionResult> WebRegister([FromBody]DataBase.LoginModel model)
         {
             if (string.IsNullOrEmpty(model.Username) || string.IsNullOrEmpty(model.Password))
                 return Ok(new

@@ -488,6 +488,16 @@
         "runtime": {
           "lib/netstandard2.0/System.Threading.Tasks.Extensions.dll": {}
         }
+      },
+      "GFHelp.DataBase/1.0.0": {
+        "type": "project",
+        "framework": ".NETCoreApp,Version=v2.0",
+        "compile": {
+          "bin/placeholder/GFHelp.DataBase.dll": {}
+        },
+        "runtime": {
+          "bin/placeholder/GFHelp.DataBase.dll": {}
+        }
       }
     }
   },
@@ -1349,10 +1359,16 @@
         "useSharedDesignerContext.txt",
         "version.txt"
       ]
+    },
+    "GFHelp.DataBase/1.0.0": {
+      "type": "project",
+      "path": "../GFHelp.DataBase/GFHelp.DataBase.csproj",
+      "msbuildProject": "../GFHelp.DataBase/GFHelp.DataBase.csproj"
     }
   },
   "projectFileDependencyGroups": {
     ".NETCoreApp,Version=v2.0": [
+      "GFHelp.DataBase >= 1.0.0",
       "Microsoft.AspNetCore.SignalR.Client >= 1.0.0",
       "Microsoft.NETCore.App >= 2.0.0",
       "Newtonsoft.Json >= 11.0.2"
@@ -1387,7 +1403,11 @@
       },
       "frameworks": {
         "netcoreapp2.0": {
-          "projectReferences": {}
+          "projectReferences": {
+            "C:\\Users\\jack\\Desktop\\CS\\GFHelp-Web\\GFHelp.DataBase\\GFHelp.DataBase.csproj": {
+              "projectPath": "C:\\Users\\jack\\Desktop\\CS\\GFHelp-Web\\GFHelp.DataBase\\GFHelp.DataBase.csproj"
+            }
+          }
         }
       },
       "warningProperties": {

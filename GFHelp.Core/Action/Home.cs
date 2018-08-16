@@ -253,8 +253,8 @@ namespace GFHelp.Core.Action
             parameters.Add("app_id", "0002000100021001");
             parameters.Add("channelid", userData.GameAccount.Base.ChannelID);
             parameters.Add("idfa", "");
-            parameters.Add("androidid", userData.GameAccount.Base.AndroidID);
-            parameters.Add("mac", userData.GameAccount.Base.MAC);
+            parameters.Add("androidid", userData.GameAccount.AndroidID);
+            parameters.Add("mac", userData.GameAccount.MAC);
             parameters.Add("req_id", userData.GameAccount.req_id++.ToString());
 
             string data = StringBuilder_(parameters);

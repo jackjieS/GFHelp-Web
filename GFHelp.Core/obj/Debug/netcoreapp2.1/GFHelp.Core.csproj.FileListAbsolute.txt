@@ -1,0 +1,4 @@
+C:\Users\jack\Desktop\CS\GFHelp-Web\GFHelp.Core\obj\Debug\netcoreapp2.1\GFHelp.Core.csprojAssemblyReference.cache
+C:\Users\jack\Desktop\CS\GFHelp-Web\GFHelp.Core\obj\Debug\netcoreapp2.1\GFHelp.Core.csproj.CoreCompileInputs.cache
+C:\Users\jack\Desktop\CS\GFHelp-Web\GFHelp.Core\obj\Debug\netcoreapp2.1\GFHelp.Core.AssemblyInfoInputs.cache
+C:\Users\jack\Desktop\CS\GFHelp-Web\GFHelp.Core\obj\Debug\netcoreapp2.1\GFHelp.Core.AssemblyInfo.cs

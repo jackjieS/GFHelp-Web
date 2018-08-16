@@ -13,6 +13,10 @@
   </ItemGroup>
 
   <ItemGroup>
+    <ProjectReference Include="..\GFHelp.DataBase\GFHelp.DataBase.csproj" />
+  </ItemGroup>
+
+  <ItemGroup>
     <Reference Include="AuthCode">
       <HintPath>..\packages\AuthCode.dll</HintPath>
     </Reference>

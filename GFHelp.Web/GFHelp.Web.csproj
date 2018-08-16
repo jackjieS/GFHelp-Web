@@ -52,6 +52,7 @@
     <ProjectReference Include="..\GFHelp.Core\GFHelp.Core.csproj">
       <Private>true</Private>
     </ProjectReference>
+    <ProjectReference Include="..\GFHelp.DataBase\GFHelp.DataBase.csproj" />
   </ItemGroup>
 
   <ItemGroup>

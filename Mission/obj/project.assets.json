@@ -482,6 +482,7 @@
         "type": "project",
         "framework": ".NETCoreApp,Version=v2.0",
         "dependencies": {
+          "GFHelp.DataBase": "1.0.0",
           "Microsoft.AspNetCore.SignalR.Client": "1.0.0",
           "Newtonsoft.Json": "11.0.2"
         },
@@ -490,6 +491,16 @@
         },
         "runtime": {
           "bin/placeholder/GFHelp.Core.dll": {}
+        }
+      },
+      "GFHelp.DataBase/1.0.0": {
+        "type": "project",
+        "framework": ".NETCoreApp,Version=v2.0",
+        "compile": {
+          "bin/placeholder/GFHelp.DataBase.dll": {}
+        },
+        "runtime": {
+          "bin/placeholder/GFHelp.DataBase.dll": {}
         }
       }
     }
@@ -1335,6 +1346,11 @@
       "type": "project",
       "path": "../GFHelp.Core/GFHelp.Core.csproj",
       "msbuildProject": "../GFHelp.Core/GFHelp.Core.csproj"
+    },
+    "GFHelp.DataBase/1.0.0": {
+      "type": "project",
+      "path": "../GFHelp.DataBase/GFHelp.DataBase.csproj",
+      "msbuildProject": "../GFHelp.DataBase/GFHelp.DataBase.csproj"
     }
   },
   "projectFileDependencyGroups": {
