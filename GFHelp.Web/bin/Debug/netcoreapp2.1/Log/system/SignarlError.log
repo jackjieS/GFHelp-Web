@@ -5846,3 +5846,26 @@ Parameter name: index
 Parameter name: index
    at System.Collections.Generic.List`1.get_Item(Int32 index)
    at GFHelp.Core.SignaIRClient.LoopGameMessage() in C:\Users\jack\Desktop\CS\GFHelp-Web\GFHelp.Core\SignaIRClient.cs:line 178
+【11:49:44】      message = SendGameDetails Error , exception = System.ArgumentOutOfRangeException: Index was out of range. Must be non-negative and less than the size of the collection.
+Parameter name: index
+   at System.Collections.Generic.List`1.get_Item(Int32 index)
+   at GFHelp.Core.SignaIRClient.LoopGameMessage() in C:\Users\jack\Desktop\CS\GFHelp-Web\GFHelp.Core\SignaIRClient.cs:line 178
+【23:51:55】      message = SendGamesStatus Error , exception = System.InvalidOperationException: Websocket closed with error: InvalidPayloadData.
+   at Microsoft.AspNetCore.Http.Connections.Client.Internal.WebSocketsTransport.StartReceiving(WebSocket socket)
+   at System.IO.Pipelines.PipeCompletion.ThrowLatchedException()
+   at System.IO.Pipelines.Pipe.GetReadResult(ReadResult& result)
+   at System.IO.Pipelines.Pipe.GetReadAsyncResult()
+   at System.IO.Pipelines.Pipe.DefaultPipeReader.GetResult(Int16 token)
+   at Microsoft.AspNetCore.SignalR.Client.HubConnection.ReceiveLoop(ConnectionState connectionState)
+   at Microsoft.AspNetCore.SignalR.Client.HubConnection.InvokeCoreAsyncCore(String methodName, Type returnType, Object[] args, CancellationToken cancellationToken)
+   at Microsoft.AspNetCore.SignalR.Client.HubConnection.InvokeCoreAsync(String methodName, Type returnType, Object[] args, CancellationToken cancellationToken)
+   at GFHelp.Core.SignaIRClient.LoopGameMessage() in C:\Users\jack\Desktop\CS\GFHelp-Web\GFHelp.Core\SignaIRClient.cs:line 166
+【23:51:55】      message = SendGameDetails Error , exception = System.InvalidOperationException: The 'InvokeCoreAsync' method cannot be called if the connection is not active
+   at Microsoft.AspNetCore.SignalR.Client.HubConnection.CheckConnectionActive(String methodName)
+   at Microsoft.AspNetCore.SignalR.Client.HubConnection.InvokeCoreAsyncCore(String methodName, Type returnType, Object[] args, CancellationToken cancellationToken)
+   at Microsoft.AspNetCore.SignalR.Client.HubConnection.InvokeCoreAsync(String methodName, Type returnType, Object[] args, CancellationToken cancellationToken)
+   at GFHelp.Core.SignaIRClient.LoopGameMessage() in C:\Users\jack\Desktop\CS\GFHelp-Web\GFHelp.Core\SignaIRClient.cs:line 180
+【00:08:44】      message = OnDisconnectedAsync ERROR , exception = System.NullReferenceException: Object reference not set to an instance of an object.
+   at GFHelp.Web.Chat.<OnDisconnectedAsync>b__11_0() in C:\Users\jack\Desktop\CS\GFHelp-Web\GFHelp.Web\Hub\ChatHub.cs:line 171
+【00:08:44】      message = OnDisconnectedAsync ERROR , exception = System.NullReferenceException: Object reference not set to an instance of an object.
+   at GFHelp.Web.Chat.<OnDisconnectedAsync>b__11_0() in C:\Users\jack\Desktop\CS\GFHelp-Web\GFHelp.Web\Hub\ChatHub.cs:line 171

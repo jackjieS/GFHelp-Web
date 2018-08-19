@@ -99,10 +99,12 @@ namespace GFHelp.Core.MulitePlayerData
                 StartTime = dicEstablish[201].build_starttime;
                 Using = true;
             }
+            this.AutoRunning = true;
         }
 
         public void AutoRun()
         {
+            if (AutoRunning == false) return;
             BattleReportStart();
             BattleReportFinish();
         }
@@ -177,6 +179,7 @@ namespace GFHelp.Core.MulitePlayerData
                             if (count++ > userData.config.ErrorCount)
                             {
                                 new Log().userInit(userData.GameAccount.Base.GameAccountID, "Establish_Build_Start ERROR", result).userInfo();
+                                AutoRunning = false;
                                 return false;
                             }
                             continue;
@@ -226,6 +229,7 @@ namespace GFHelp.Core.MulitePlayerData
                             if (count++ > userData.config.ErrorCount)
                             {
                                 new Log().userInit(userData.GameAccount.Base.GameAccountID, "Establish_Build_Finish ERROR", result).userInfo();
+                                AutoRunning = false;
                                 return false;
                             }
                             continue;
@@ -289,7 +293,7 @@ namespace GFHelp.Core.MulitePlayerData
                 return 0;
             }
         }
-
+        public bool AutoRunning = true;
 
         public bool Using=true;
         public int StartTime;//utx

@@ -54,6 +54,7 @@ namespace GFHelp.Web.Controllers
                     if (Core.Management.Data.data.ContainsKey(gameAccount.GameAccountID))
                     {
                         Core.Management.Data.data.getDataByID(gameAccount.GameAccountID).taskDispose = true;
+                        Core.Management.Data.data.RemoveByID(gameAccount.GameAccountID);
                         result = true;
                     }
 

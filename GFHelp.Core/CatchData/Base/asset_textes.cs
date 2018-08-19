@@ -7,7 +7,7 @@ using System.Text;
 
 namespace GFHelp.Core.CatchData.Base
 {
-    class Asset_Textes
+    public class Asset_Textes
     {
         struct ConfigNode
         {
@@ -43,7 +43,7 @@ namespace GFHelp.Core.CatchData.Base
 
         static public bool Read_ALL_CSV()
         {
-
+            csvdata.Clear();
             try
             {
                 ReadCsv(operationfileName, ref csvdata);

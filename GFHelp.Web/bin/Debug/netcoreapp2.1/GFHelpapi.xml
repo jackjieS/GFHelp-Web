@@ -104,13 +104,6 @@
             <param name="account"></param>
             <returns></returns>
         </member>
-        <member name="M:GFHelp.Web.Controllers.GameController.ReloadMissionDll(GFHelp.Web.Controllers.GameController.Account)">
-            <summary>
-            ReloadMissionDll
-            </summary>
-            <param name="account"></param>
-            <returns></returns>
-        </member>
         <member name="M:GFHelp.Web.Controllers.GameController.Test(GFHelp.Web.Controllers.GameController.Account)">
             <summary>
             Test
@@ -205,6 +198,12 @@
         <member name="M:GFHelp.Web.Controllers.SystemController.LoadHostAddress">
             <summary>
             获取当前游戏实例个数
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:GFHelp.Web.Controllers.SystemController.ReloadLibeary">
+            <summary>
+            ReloadMissionDll
             </summary>
             <returns></returns>
         </member>

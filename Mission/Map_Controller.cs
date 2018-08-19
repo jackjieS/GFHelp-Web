@@ -2540,6 +2540,727 @@ namespace GFHelp.Mission
             public Dictionary<int, TeamMove> dic_TeamMove;
         }
 
+        public class mapcte1_1
+        {
+            public static MissionType missionType = MissionType.Activity;
+            public mapcte1_1(Normal_MissionInfo ubti)
+            {
+                dic_TeamMove = new Dictionary<int, TeamMove>();
+                dic_TeamMove.Add(dic_TeamMove.Count, teammove1);
+                dic_TeamMove.Add(dic_TeamMove.Count, teammove2);
+
+                Spots.Add(Spots.Count, spots1);
+
+                Mission_Start_spots = new Spot[] { spots1 };
+                Function.init(dic_TeamMove, Spots, ubti);
+            }
+            public int mission_id = 10106;
+            public Dictionary<int, Spot> Spots = new Dictionary<int, Spot>();
+            public Spot spots1 = new Spot(7246, 0);//主力
+            public Spot[] Mission_Start_spots;
+
+            public TeamMove teammove1 = new TeamMove(7246, 7245, 1, 0);//注意两个点哦
+            public TeamMove teammove2 = new TeamMove(7245, 7239, 1, 0);
+            public Dictionary<int, TeamMove> dic_TeamMove;
+        }
+
+        public class mapcte1_2
+        {
+            public static MissionType missionType = MissionType.Activity;
+            public mapcte1_2(Normal_MissionInfo ubti)
+            {
+                dic_TeamMove = new Dictionary<int, TeamMove>();
+                dic_TeamMove.Add(dic_TeamMove.Count, teammove1);
+                dic_TeamMove.Add(dic_TeamMove.Count, teammove2);
+                dic_TeamMove.Add(dic_TeamMove.Count, teammove3);
+                dic_TeamMove.Add(dic_TeamMove.Count, teammove4);
+                dic_TeamMove.Add(dic_TeamMove.Count, teammove5);
+                dic_TeamMove.Add(dic_TeamMove.Count, teammove6);
+
+                dic_TeamMove.Add(dic_TeamMove.Count, teammove7);
+                dic_TeamMove.Add(dic_TeamMove.Count, teammove8);
+                dic_TeamMove.Add(dic_TeamMove.Count, teammove9);
+                dic_TeamMove.Add(dic_TeamMove.Count, teammove10);
+                dic_TeamMove.Add(dic_TeamMove.Count, teammove11);
+                dic_TeamMove.Add(dic_TeamMove.Count, teammove12);
+
+                dic_TeamMove.Add(dic_TeamMove.Count, teammove13);
+                dic_TeamMove.Add(dic_TeamMove.Count, teammove14);
+                Spots.Add(Spots.Count, spots1);
+                Spots.Add(Spots.Count, spots2);
+
+                Mission_Start_spots = new Spot[] { spots1 };
+                Function.init(dic_TeamMove, Spots, ubti);
+            }
+            public int mission_id = 10108;
+            public Dictionary<int, Spot> Spots = new Dictionary<int, Spot>();
+            public Spot spots1 = new Spot(7255, 0);//主力
+            public Spot spots2 = new Spot(7255, 1);//主力
+            public Spot[] Mission_Start_spots;
+
+            public TeamMove teammove1 = new TeamMove(7255, 7256, 1, 0);//注意两个点哦
+            public TeamMove teammove2 = new TeamMove(7256, 7257, 1, 0);
+
+            public TeamMove teammove3 = new TeamMove(7257, 7256, 1, 0);//注意两个点哦
+            public TeamMove teammove4 = new TeamMove(7256, 7262, 1, 0);
+
+            public TeamMove teammove5 = new TeamMove(7262, 7256, 1, 0);//注意两个点哦
+            public TeamMove teammove6 = new TeamMove(7256, 7260, 1, 0);
+
+            public TeamMove teammove7 = new TeamMove(7260, 7264, 1, 0);//注意两个点哦
+            public TeamMove teammove8 = new TeamMove(7264, 7260, 1, 0);
+
+            public TeamMove teammove9 = new TeamMove(7260, 7256, 1, 0);//注意两个点哦
+            public TeamMove teammove10 = new TeamMove(7256, 7255, 2, 0);
+
+
+            public TeamMove teammove11 = new TeamMove(7255, 7259, 1, 0);//注意两个点哦
+            public TeamMove teammove12 = new TeamMove(7259, 7255, 1, 0);
+
+            public TeamMove teammove13 = new TeamMove(7255, 7263, 1, 0);//注意两个点哦
+            public TeamMove teammove14 = new TeamMove(7263, 7258, 1, 0);
+
+
+
+            public Dictionary<int, TeamMove> dic_TeamMove;
+        }
+
+
+        public class mapcte1_3
+        {
+            public static MissionType missionType = MissionType.Activity;
+            public mapcte1_3(Normal_MissionInfo ubti)
+            {
+                dic_TeamMove = new Dictionary<int, TeamMove>();
+                dic_TeamMove.Add(dic_TeamMove.Count, teammove1);
+                dic_TeamMove.Add(dic_TeamMove.Count, teammove2);
+                dic_TeamMove.Add(dic_TeamMove.Count, teammove3);
+                dic_TeamMove.Add(dic_TeamMove.Count, teammove4);
+                dic_TeamMove.Add(dic_TeamMove.Count, teammove5);
+                dic_TeamMove.Add(dic_TeamMove.Count, teammove6);
+
+                Spots.Add(Spots.Count, spots1);
+                Spots.Add(Spots.Count, spots2);
+
+                Mission_Start_spots = new Spot[] { spots1 };
+                Function.init(dic_TeamMove, Spots, ubti);
+            }
+            public int mission_id = 10109;
+            public Dictionary<int, Spot> Spots = new Dictionary<int, Spot>();
+            public Spot spots1 = new Spot(7277, 0);//主力
+            public Spot spots2 = new Spot(7255, 1);//主力
+            public Spot[] Mission_Start_spots;
+
+            public TeamMove teammove1 = new TeamMove(7277, 7265, 1, 0);//注意两个点哦
+            public TeamMove teammove2 = new TeamMove(7265, 7276, 1, 0);
+
+            public TeamMove teammove3 = new TeamMove(7276, 7274, 1, 0);//注意两个点哦
+            public TeamMove teammove4 = new TeamMove(7274, 7273, 1, 0);
+
+            public TeamMove teammove5 = new TeamMove(7273, 7280, 1, 0);//注意两个点哦
+            public TeamMove teammove6 = new TeamMove(7280, 7281, 1, 0);
+            
+
+
+
+            public Dictionary<int, TeamMove> dic_TeamMove;
+        }
+
+        public class mapcte1_4type1
+        {
+            public static MissionType missionType = MissionType.Activity;
+            public mapcte1_4type1(Normal_MissionInfo ubti)
+            {
+                dic_TeamMove = new Dictionary<int, TeamMove>();
+                dic_TeamMove.Add(dic_TeamMove.Count, teammove1);
+                dic_TeamMove.Add(dic_TeamMove.Count, teammove2);
+                dic_TeamMove.Add(dic_TeamMove.Count, teammove3);
+                dic_TeamMove.Add(dic_TeamMove.Count, teammove4);
+
+
+                Spots.Add(Spots.Count, spots1);
+                Spots.Add(Spots.Count, spots2);
+
+                Mission_Start_spots = new Spot[] { spots1 };
+                Function.init(dic_TeamMove, Spots, ubti);
+            }
+            public int mission_id = 10110;
+            public Dictionary<int, Spot> Spots = new Dictionary<int, Spot>();
+            public Spot spots1 = new Spot(7282, 0);//主力
+            public Spot spots2 = new Spot(7282, 1);//主力
+            public Spot[] Mission_Start_spots;
+
+            public TeamMove teammove1 = new TeamMove(7282, 7285, 1, 0);//注意两个点哦
+            public TeamMove teammove2 = new TeamMove(7285, 7286, 1, 0);
+
+            public TeamMove teammove3 = new TeamMove(7286, 7287, 1, 0);//注意两个点哦
+            public TeamMove teammove4 = new TeamMove(7287, 7296, 1, 0);
+
+
+
+
+
+
+            public Dictionary<int, TeamMove> dic_TeamMove;
+        }
+
+        public class mapcte1_4type2//这个乱序不知道怎么写
+        {
+            public static MissionType missionType = MissionType.Activity;
+            public mapcte1_4type2(Normal_MissionInfo ubti)
+            {
+                dic_TeamMove = new Dictionary<int, TeamMove>();
+                dic_TeamMove.Add(dic_TeamMove.Count, teammove1);
+                dic_TeamMove.Add(dic_TeamMove.Count, teammove2);
+                dic_TeamMove.Add(dic_TeamMove.Count, teammove3);
+                dic_TeamMove.Add(dic_TeamMove.Count, teammove4);
+
+
+                Spots.Add(Spots.Count, spots1);
+                Spots.Add(Spots.Count, spots2);
+
+                Mission_Start_spots = new Spot[] { spots1 };
+                Function.init(dic_TeamMove, Spots, ubti);
+            }
+            public int mission_id = 10110;
+            public Dictionary<int, Spot> Spots = new Dictionary<int, Spot>();
+            public Spot spots1 = new Spot(7282, 0);//主力
+            public Spot spots2 = new Spot(7282, 1);//主力
+            public Spot[] Mission_Start_spots;
+
+            public TeamMove teammove1 = new TeamMove(7282, 7285, 1, 0);//注意两个点哦
+            public TeamMove teammove2 = new TeamMove(7285, 7286, 1, 0);
+
+            public TeamMove teammove3 = new TeamMove(7286, 7287, 1, 0);//注意两个点哦
+            public TeamMove teammove4 = new TeamMove(7287, 7296, 1, 0);
+
+
+
+
+
+
+            public Dictionary<int, TeamMove> dic_TeamMove;
+        }
+
+
+
+
+        /// <summary>
+        /// 别了稻草人 物资箱
+        /// </summary>
+        public class mapcte1_5
+        {
+            public static MissionType missionType = MissionType.Activity;
+            public mapcte1_5(Normal_MissionInfo ubti)
+            {
+                dic_TeamMove = new Dictionary<int, TeamMove>();
+                dic_TeamMove.Add(dic_TeamMove.Count, teammove1);
+                dic_TeamMove.Add(dic_TeamMove.Count, teammove2);
+                dic_TeamMove.Add(dic_TeamMove.Count, teammove3);
+                dic_TeamMove.Add(dic_TeamMove.Count, teammove4);
+
+
+                Spots.Add(Spots.Count, spots1);
+                Spots.Add(Spots.Count, spots2);
+
+                Mission_Start_spots = new Spot[] { spots1 };
+                Function.init(dic_TeamMove, Spots, ubti);
+            }
+            public int mission_id = 10111;
+            public Dictionary<int, Spot> Spots = new Dictionary<int, Spot>();
+            public Spot spots1 = new Spot(7302, 0);//主力
+            public Spot spots2 = new Spot(7302, 1);//主力
+            public Spot[] Mission_Start_spots;
+
+            public TeamMove teammove1 = new TeamMove(7302, 7305, 1, 0);//注意两个点哦
+            public TeamMove teammove2 = new TeamMove(7305, 7307, 1, 0);
+
+            public TeamMove teammove3 = new TeamMove(7307, 7313, 1, 0);//注意两个点哦
+            public TeamMove teammove4 = new TeamMove(7313, 7312, 1, 0);
+
+
+
+
+
+
+            public Dictionary<int, TeamMove> dic_TeamMove;
+        }
+
+        public class mapcte1_6
+        {
+            public static MissionType missionType = MissionType.Activity;
+            public mapcte1_6(Normal_MissionInfo ubti)
+            {
+                dic_TeamMove = new Dictionary<int, TeamMove>();
+                dic_TeamMove.Add(dic_TeamMove.Count, teammove1);
+                dic_TeamMove.Add(dic_TeamMove.Count, teammove2);
+                dic_TeamMove.Add(dic_TeamMove.Count, teammove3);
+                dic_TeamMove.Add(dic_TeamMove.Count, teammove4);
+
+
+                Spots.Add(Spots.Count, spots1);
+                Spots.Add(Spots.Count, spots2);
+
+                Mission_Start_spots = new Spot[] { spots1 };
+                Function.init(dic_TeamMove, Spots, ubti);
+            }
+            public int mission_id = 10110;
+            public Dictionary<int, Spot> Spots = new Dictionary<int, Spot>();
+            public Spot spots1 = new Spot(7282, 0);//主力
+            public Spot spots2 = new Spot(7282, 1);//主力
+            public Spot[] Mission_Start_spots;
+
+            public TeamMove teammove1 = new TeamMove(7282, 7285, 1, 0);//注意两个点哦
+            public TeamMove teammove2 = new TeamMove(7285, 7286, 1, 0);
+
+            public TeamMove teammove3 = new TeamMove(7286, 7287, 1, 0);//注意两个点哦
+            public TeamMove teammove4 = new TeamMove(7287, 7296, 1, 0);
+
+
+
+
+
+
+            public Dictionary<int, TeamMove> dic_TeamMove;
+        }
+
+        public class mapcte1_7
+        {
+            public static MissionType missionType = MissionType.Activity;
+            public mapcte1_7(Normal_MissionInfo ubti)
+            {
+                dic_TeamMove = new Dictionary<int, TeamMove>();
+                dic_TeamMove.Add(dic_TeamMove.Count, teammove1);
+                dic_TeamMove.Add(dic_TeamMove.Count, teammove2);
+                dic_TeamMove.Add(dic_TeamMove.Count, teammove3);
+                dic_TeamMove.Add(dic_TeamMove.Count, teammove4);
+
+                dic_TeamMove.Add(dic_TeamMove.Count, teammove5);
+                dic_TeamMove.Add(dic_TeamMove.Count, teammove6);
+                dic_TeamMove.Add(dic_TeamMove.Count, teammove7);
+                dic_TeamMove.Add(dic_TeamMove.Count, teammove8);
+                dic_TeamMove.Add(dic_TeamMove.Count, teammove9);
+                dic_TeamMove.Add(dic_TeamMove.Count, teammove10);
+                dic_TeamMove.Add(dic_TeamMove.Count, teammove11);
+                dic_TeamMove.Add(dic_TeamMove.Count, teammove12);
+                dic_TeamMove.Add(dic_TeamMove.Count, teammove13);
+                dic_TeamMove.Add(dic_TeamMove.Count, teammove14);
+                dic_TeamMove.Add(dic_TeamMove.Count, teammove15);
+                dic_TeamMove.Add(dic_TeamMove.Count, teammove16);
+                dic_TeamMove.Add(dic_TeamMove.Count, teammove17);
+                dic_TeamMove.Add(dic_TeamMove.Count, teammove18);
+                dic_TeamMove.Add(dic_TeamMove.Count, teammove19);
+                dic_TeamMove.Add(dic_TeamMove.Count, teammove20);
+
+                dic_TeamMove.Add(dic_TeamMove.Count, teammove21);
+                dic_TeamMove.Add(dic_TeamMove.Count, teammove22);
+                dic_TeamMove.Add(dic_TeamMove.Count, teammove23);
+                dic_TeamMove.Add(dic_TeamMove.Count, teammove24);
+                dic_TeamMove.Add(dic_TeamMove.Count, teammove25);
+                Spots.Add(Spots.Count, spots1);
+                Spots.Add(Spots.Count, spots2);
+
+                Mission_Start_spots = new Spot[] { spots1 };
+                Function.init(dic_TeamMove, Spots, ubti);
+            }
+            public int mission_id = 10113;
+            public Dictionary<int, Spot> Spots = new Dictionary<int, Spot>();
+            public Spot spots1 = new Spot(7326, 0);//主力
+            public Spot spots2 = new Spot(7326, 1);//主力
+            public Spot[] Mission_Start_spots;
+
+            public TeamMove teammove1 = new TeamMove(7326, 7335, 1, 0);//注意两个点哦
+            public TeamMove teammove2 = new TeamMove(7335, 7334, 1, 0);
+
+            public TeamMove teammove3 = new TeamMove(7334, 7336, 1, 0);//注意两个点哦
+            public TeamMove teammove4 = new TeamMove(7336, 7333, 1, 0);
+
+            public TeamMove teammove5 = new TeamMove(7333, 7328, 1, 0);//注意两个点哦
+            public TeamMove teammove6 = new TeamMove(7328, 7337, 1, 0);
+
+            public TeamMove teammove7 = new TeamMove(7337, 7328, 1, 0);//注意两个点哦
+            public TeamMove teammove8 = new TeamMove(7328, 7330, 1, 0);
+
+            public TeamMove teammove9 = new TeamMove(7330, 7343, 1, 0);//注意两个点哦
+            public TeamMove teammove10 = new TeamMove(7343, 7342, 1, 0);
+
+
+            public TeamMove teammove11 = new TeamMove(7342, 7343, 1, 0);//注意两个点哦
+            public TeamMove teammove12 = new TeamMove(7343, 7330, 1, 0);
+            public TeamMove teammove13 = new TeamMove(7330, 7328, 1, 0);//注意两个点哦
+            public TeamMove teammove14 = new TeamMove(7328, 7330, 1, 0);
+
+            public TeamMove teammove15 = new TeamMove(7330, 7332, 1, 0);//注意两个点哦
+            public TeamMove teammove16 = new TeamMove(7332, 7338, 1, 0);
+            public TeamMove teammove17 = new TeamMove(7338, 7341, 1, 0);//注意两个点哦
+            public TeamMove teammove18 = new TeamMove(7341, 7339, 1, 0);
+
+            public TeamMove teammove19 = new TeamMove(7339, 7340, 1, 0);
+            public TeamMove teammove20 = new TeamMove(7340, 7339, 1, 0);//注意两个点哦
+            public TeamMove teammove21 = new TeamMove(7339, 7341, 1, 0);
+
+            public TeamMove teammove22 = new TeamMove(7341, 7338, 1, 0);
+            public TeamMove teammove23 = new TeamMove(7338, 7332, 1, 0);
+            public TeamMove teammove24 = new TeamMove(7332, 7330, 1, 0);//注意两个点哦
+            public TeamMove teammove25 = new TeamMove(7330, 7328, 1, 0);
+
+            public Dictionary<int, TeamMove> dic_TeamMove;
+        }
+
+        /// <summary>
+        /// 和平谈判
+        /// </summary>
+        public class mapcte1_8
+        {
+            public static MissionType missionType = MissionType.Activity;
+            public mapcte1_8(Normal_MissionInfo ubti)
+            {
+                dic_TeamMove = new Dictionary<int, TeamMove>();
+                dic_TeamMove.Add(dic_TeamMove.Count, teammove1);
+                dic_TeamMove.Add(dic_TeamMove.Count, teammove2);
+                dic_TeamMove.Add(dic_TeamMove.Count, teammove3);
+                dic_TeamMove.Add(dic_TeamMove.Count, teammove4);
+
+                dic_TeamMove.Add(dic_TeamMove.Count, teammove5);
+                dic_TeamMove.Add(dic_TeamMove.Count, teammove6);
+                dic_TeamMove.Add(dic_TeamMove.Count, teammove7);
+
+                Spots.Add(Spots.Count, spots1);
+                Spots.Add(Spots.Count, spots2);
+
+                Mission_Start_spots = new Spot[] { spots1 };
+                Function.init(dic_TeamMove, Spots, ubti);
+            }
+            public int mission_id = 10114;
+            public Dictionary<int, Spot> Spots = new Dictionary<int, Spot>();
+            public Spot spots1 = new Spot(7377, 0);//主力
+            public Spot spots2 = new Spot(7377, 1);//主力
+            public Spot[] Mission_Start_spots;
+
+            public TeamMove teammove1 = new TeamMove(7377, 7351, 1, 0);//注意两个点哦
+            public TeamMove teammove2 = new TeamMove(7351, 7379, 1, 0);
+
+            public TeamMove teammove3 = new TeamMove(7379, 7402, 1, 0);//注意两个点哦
+            public TeamMove teammove4 = new TeamMove(7402, 7397, 1, 0);
+
+            public TeamMove teammove5 = new TeamMove(7397, 7378, 1, 0);//注意两个点哦
+            public TeamMove teammove6 = new TeamMove(7378, 7398, 1, 0);
+            public TeamMove teammove7 = new TeamMove(7398, 7354, 1, 0);//注意两个点哦
+
+
+
+
+            public Dictionary<int, TeamMove> dic_TeamMove;
+        }
+
+        /// <summary>
+        /// 幸运
+        /// </summary>
+        public class mapcte1_11
+        {
+            public static MissionType missionType = MissionType.Activity;
+            public mapcte1_11(Normal_MissionInfo ubti)
+            {
+                dic_TeamMove = new Dictionary<int, TeamMove>();
+                dic_TeamMove.Add(dic_TeamMove.Count, teammove1);
+                dic_TeamMove.Add(dic_TeamMove.Count, teammove2);
+
+                Spots.Add(Spots.Count, spots1);
+                Spots.Add(Spots.Count, spots2);
+
+                Mission_Start_spots = new Spot[] { spots1 };
+                Function.init(dic_TeamMove, Spots, ubti);
+            }
+            public int mission_id = 10115;
+            public Dictionary<int, Spot> Spots = new Dictionary<int, Spot>();
+            public Spot spots1 = new Spot(7403, 0);//主力
+            public Spot spots2 = new Spot(7403, 1);//主力
+            public Spot[] Mission_Start_spots;
+
+            public TeamMove teammove1 = new TeamMove(7403, 7416, 1, 0);//注意两个点哦
+            public TeamMove teammove2 = new TeamMove(7416, 7403, 1, 0);
+
+            public Dictionary<int, TeamMove> dic_TeamMove;
+        }
+
+
+        public class mapcte1_11mp7
+        {
+            public static MissionType missionType = MissionType.Activity;
+            public mapcte1_11mp7(Normal_MissionInfo ubti)
+            {
+                dic_TeamMove = new Dictionary<int, TeamMove>();
+                dic_TeamMove.Add(dic_TeamMove.Count, teammove1);
+                dic_TeamMove.Add(dic_TeamMove.Count, teammove2);
+                dic_TeamMove.Add(dic_TeamMove.Count, teammove3);
+                dic_TeamMove.Add(dic_TeamMove.Count, teammove4);
+
+                dic_TeamMove.Add(dic_TeamMove.Count, teammove5);
+                dic_TeamMove.Add(dic_TeamMove.Count, teammove6);
+                dic_TeamMove.Add(dic_TeamMove.Count, teammove7);
+                dic_TeamMove.Add(dic_TeamMove.Count, teammove8);
+                Spots.Add(Spots.Count, spots1);
+                Spots.Add(Spots.Count, spots2);
+
+                Mission_Start_spots = new Spot[] { spots1 };
+                Function.init(dic_TeamMove, Spots, ubti);
+            }
+            public int mission_id = 10115;
+            public Dictionary<int, Spot> Spots = new Dictionary<int, Spot>();
+            public Spot spots1 = new Spot(7403, 0);//主力
+            public Spot spots2 = new Spot(7403, 1);//主力
+            public Spot[] Mission_Start_spots;
+
+            public TeamMove teammove1 = new TeamMove(7403, 7414, 1, 0);//注意两个点哦
+            public TeamMove teammove2 = new TeamMove(7414, 7403, 2, 0);
+            public TeamMove teammove3 = new TeamMove(7403, 7411, 1, 0);
+            public TeamMove teammove4 = new TeamMove(7411, 7412, 1, 0);
+
+            public TeamMove teammove5 = new TeamMove(7412, 7424, 1, 0);//注意两个点哦
+            public TeamMove teammove6 = new TeamMove(7424, 7407, 1, 0);
+            public TeamMove teammove7 = new TeamMove(7407, 7411, 1, 0);
+            public TeamMove teammove8 = new TeamMove(7411, 7403, 1, 0);
+            public Dictionary<int, TeamMove> dic_TeamMove;
+            public int withdrawTeam = 7403;
+        }
+
+
+        /// <summary>
+        /// 铁血精英
+        /// </summary>
+        public class mapcte1_12
+        {
+            public static MissionType missionType = MissionType.Activity;
+            public mapcte1_12(Normal_MissionInfo ubti)
+            {
+                dic_TeamMove = new Dictionary<int, TeamMove>();
+                dic_TeamMove.Add(dic_TeamMove.Count, teammove1);
+                dic_TeamMove.Add(dic_TeamMove.Count, teammove2);
+                dic_TeamMove.Add(dic_TeamMove.Count, teammove3);
+                dic_TeamMove.Add(dic_TeamMove.Count, teammove4);
+                dic_TeamMove.Add(dic_TeamMove.Count, teammove5);
+                dic_TeamMove.Add(dic_TeamMove.Count, teammove6);
+                dic_TeamMove.Add(dic_TeamMove.Count, teammove7);
+                dic_TeamMove.Add(dic_TeamMove.Count, teammove8);
+                Spots.Add(Spots.Count, spots1);
+
+                Mission_Start_spots = new Spot[] { spots1 };
+                Function.init(dic_TeamMove, Spots, ubti);
+            }
+            public int mission_id = 10116;
+            public Dictionary<int, Spot> Spots = new Dictionary<int, Spot>();
+            public Spot spots1 = new Spot(7425, 0);//主力
+
+            public Spot[] Mission_Start_spots;
+
+            public TeamMove teammove1 = new TeamMove(7425, 7436, 1, 0);//注意两个点哦
+            public TeamMove teammove2 = new TeamMove(7436, 7447, 1, 0);
+            public TeamMove teammove3 = new TeamMove(7447, 7430, 1, 0);//注意两个点哦
+            public TeamMove teammove4 = new TeamMove(7430, 7448, 1, 0);
+
+            public TeamMove teammove5 = new TeamMove(7448, 7445, 1, 0);//注意两个点哦
+            public TeamMove teammove6 = new TeamMove(7445, 7431, 1, 0);
+            public TeamMove teammove7 = new TeamMove(7431, 7442, 1, 0);//注意两个点哦
+            public TeamMove teammove8 = new TeamMove(7442, 7444, 1, 0);
+
+            public Dictionary<int, TeamMove> dic_TeamMove;
+        }
+
+
+        /// <summary>
+        /// 铁血精英
+        /// </summary>
+        public class mapcte1_13
+        {
+            public static MissionType missionType = MissionType.Activity;
+            public mapcte1_13(Normal_MissionInfo ubti)
+            {
+                dic_TeamMove = new Dictionary<int, TeamMove>();
+                dic_TeamMove.Add(dic_TeamMove.Count, teammove1);
+                dic_TeamMove.Add(dic_TeamMove.Count, teammove2);
+                dic_TeamMove.Add(dic_TeamMove.Count, teammove3);
+                dic_TeamMove.Add(dic_TeamMove.Count, teammove4);
+                dic_TeamMove.Add(dic_TeamMove.Count, teammove5);
+                dic_TeamMove.Add(dic_TeamMove.Count, teammove6);
+                dic_TeamMove.Add(dic_TeamMove.Count, teammove7);
+                dic_TeamMove.Add(dic_TeamMove.Count, teammove8);
+
+                dic_TeamMove.Add(dic_TeamMove.Count, teammove9);
+                dic_TeamMove.Add(dic_TeamMove.Count, teammove10);
+                dic_TeamMove.Add(dic_TeamMove.Count, teammove11);
+                dic_TeamMove.Add(dic_TeamMove.Count, teammove12);
+                dic_TeamMove.Add(dic_TeamMove.Count, teammove13);
+                Spots.Add(Spots.Count, spots1);
+                Spots.Add(Spots.Count, spots2);
+                Mission_Start_spots = new Spot[] { spots1 };
+                Function.init(dic_TeamMove, Spots, ubti);
+            }
+            public int mission_id = 10117;
+            public Dictionary<int, Spot> Spots = new Dictionary<int, Spot>();
+            public Spot spots1 = new Spot(7455, 0);
+            public Spot spots2 = new Spot(7461, 1);//
+            public Spot[] Mission_Start_spots;
+
+            public TeamMove teammove1 = new TeamMove(7455, 7456, 1, 0);
+            public TeamMove teammove2 = new TeamMove(7456, 7457, 1, 0);
+            public TeamMove teammove3 = new TeamMove(7457, 7458, 1, 0);
+            public TeamMove teammove4 = new TeamMove(7458, 7459, 1, 0);
+
+            public TeamMove teammove5 = new TeamMove(7459, 7461, 1, 0);//注意两个点哦
+            public TeamMove teammove6 = new TeamMove(7461, 7463, 1, 0);
+            public TeamMove teammove7 = new TeamMove(7463, 7462, 1, 0);//注意两个点哦
+            public TeamMove teammove8 = new TeamMove(7462, 7439, 1, 0);
+
+            public TeamMove teammove9 = new TeamMove(7439, 7434, 1, 0);//注意两个点哦
+            public TeamMove teammove10 = new TeamMove(7434, 7439, 1, 0);
+            public TeamMove teammove11 = new TeamMove(7439, 7462, 1, 0);//注意两个点哦
+            public TeamMove teammove12 = new TeamMove(7462, 7463, 1, 0);
+
+            public TeamMove teammove13 = new TeamMove(7463, 7461, 2, 0);
+            public Dictionary<int, TeamMove> dic_TeamMove;
+
+            public int withdrawTeam = 7461;
+        }
+
+        /// <summary>
+        /// 最卑鄙的愿望 打捞
+        /// </summary>
+        public class mapcte1_14
+        {
+            public static MissionType missionType = MissionType.Activity;
+            public mapcte1_14(Normal_MissionInfo ubti)
+            {
+                dic_TeamMove = new Dictionary<int, TeamMove>();
+                dic_TeamMove.Add(dic_TeamMove.Count, teammove1);
+                dic_TeamMove.Add(dic_TeamMove.Count, teammove2);
+                dic_TeamMove.Add(dic_TeamMove.Count, teammove3);
+                dic_TeamMove.Add(dic_TeamMove.Count, teammove4);
+                dic_TeamMove.Add(dic_TeamMove.Count, teammove5);
+                dic_TeamMove.Add(dic_TeamMove.Count, teammove6);
+                dic_TeamMove.Add(dic_TeamMove.Count, teammove7);
+                Spots.Add(Spots.Count, spots1);
+                Spots.Add(Spots.Count, spots2);
+                Mission_Start_spots = new Spot[] { spots1, spots2};
+                Function.init(dic_TeamMove, Spots, ubti);
+            }
+            public int mission_id = 10118;
+            public Dictionary<int, Spot> Spots = new Dictionary<int, Spot>();
+            public Spot spots1 = new Spot(7904, 0);
+            public Spot spots2 = new Spot(7464, 1);//
+            public Spot[] Mission_Start_spots;
+
+            public TeamMove teammove1 = new TeamMove(7904, 7476, 1, 0);
+            public TeamMove teammove2 = new TeamMove(7476, 7477, 1, 0);
+            public TeamMove teammove3 = new TeamMove(7477, 7475, 1, 0);
+            public TeamMove teammove4 = new TeamMove(7475, 7492, 1, 0);
+
+            public TeamMove teammove5 = new TeamMove(7492, 7491, 1, 0);
+            public TeamMove teammove6 = new TeamMove(7491, 7479, 1, 0);
+            public TeamMove teammove7 = new TeamMove(7479, 7494, 1, 0);
+
+            public Dictionary<int, TeamMove> dic_TeamMove;
+
+            public int withdrawTeam = 7461;
+        }
+
+        /// <summary>
+        /// 格里芬敢死队
+        /// </summary>
+        public class mapcte2_4
+        {
+            public static MissionType missionType = MissionType.Activity;
+            public mapcte2_4(Normal_MissionInfo ubti)
+            {
+                dic_TeamMove = new Dictionary<int, TeamMove>();
+                dic_TeamMove.Add(dic_TeamMove.Count, teammove1);
+                dic_TeamMove.Add(dic_TeamMove.Count, teammove2);
+                dic_TeamMove.Add(dic_TeamMove.Count, teammove3);
+                dic_TeamMove.Add(dic_TeamMove.Count, teammove4);
+                Spots.Add(Spots.Count, spots1);
+                Spots.Add(Spots.Count, spots2);
+
+
+                Mission_Start_spots = new Spot[] { spots1, spots2 };
+                Function.init(dic_TeamMove, Spots, ubti);
+            }
+            public int mission_id = 10122;
+            public Dictionary<int, Spot> Spots = new Dictionary<int, Spot>();
+            public Spot spots1 = new Spot(8337, 0);//主力
+            public Spot spots2 = new Spot(7530, 1);//主力
+
+
+            public Spot[] Mission_Start_spots;
+
+            public TeamMove teammove1 = new TeamMove(8337, 7528, 1, 0);//注意两个点哦
+            public TeamMove teammove2 = new TeamMove(7528, 7531, 1, 0);
+
+            public TeamMove teammove3 = new TeamMove(7531, 7536, 1, 0);//注意两个点哦
+            public TeamMove teammove4 = new TeamMove(7536, 7526, 1, 0);
+
+            public Dictionary<int, TeamMove> dic_TeamMove;
+        }
+
+
+        public class mapcte2_9
+        {
+            public static MissionType missionType = MissionType.Activity;
+            public mapcte2_9(Normal_MissionInfo ubti)
+            {
+                dic_TeamMove = new Dictionary<int, TeamMove>();
+                dic_TeamMove.Add(dic_TeamMove.Count, teammove1);
+                dic_TeamMove.Add(dic_TeamMove.Count, teammove2);
+                dic_TeamMove.Add(dic_TeamMove.Count, teammove3);
+                dic_TeamMove.Add(dic_TeamMove.Count, teammove4);
+
+                dic_TeamMove.Add(dic_TeamMove.Count, teammove5);
+                dic_TeamMove.Add(dic_TeamMove.Count, teammove6);
+                dic_TeamMove.Add(dic_TeamMove.Count, teammove7);
+
+                dic_TeamMove.Add(dic_TeamMove.Count, teammove8);
+                dic_TeamMove.Add(dic_TeamMove.Count, teammove9);
+                Spots.Add(Spots.Count, spots1);
+                Spots.Add(Spots.Count, spots2);
+                Spots.Add(Spots.Count, spots3);
+                Spots.Add(Spots.Count, spots4);
+
+                Mission_Start_spots = new Spot[] { spots1, spots2, spots3, spots4 };
+                Function.init(dic_TeamMove, Spots, ubti);
+            }
+            public int mission_id = 10129;
+            public Dictionary<int, Spot> Spots = new Dictionary<int, Spot>();
+            public Spot spots1 = new Spot(7716, 0);//主力
+            public Spot spots2 = new Spot(7713, 1);//主力
+            public Spot spots3 = new Spot(7715, 2);//主力
+            public Spot spots4 = new Spot(7714, 3);//主力
+
+            public Spot[] Mission_Start_spots;
+
+            public TeamMove teammove1 = new TeamMove(7716, 7732, 1, 0);//注意两个点哦
+            public TeamMove teammove2 = new TeamMove(7732, 7719, 1, 0);
+
+            public TeamMove teammove3 = new TeamMove(7719, 8532, 1, 0);//注意两个点哦
+            public TeamMove teammove4 = new TeamMove(8532, 8552, 1, 0);
+
+            public TeamMove teammove5 = new TeamMove(8552, 8554, 1, 0);//注意两个点哦
+            public TeamMove teammove6 = new TeamMove(8554, 7718, 1, 0);
+            public TeamMove teammove7 = new TeamMove(7718, 8531, 1, 0);//注意两个点哦
+
+            public TeamMove teammove8 = new TeamMove(8531, 8551, 1, 0);
+            public TeamMove teammove9 = new TeamMove(8551, 7733, 1, 0);//注意两个点哦
+
+
+            public Dictionary<int, TeamMove> dic_TeamMove;
+        }
+
+        public class mapcte1start
+        {
+            public static MissionType missionType = MissionType.Activity;
+        }
+
+        public class mapctbox
+        {
+            public static MissionType missionType = MissionType.Activity;
+        }
 
 
 

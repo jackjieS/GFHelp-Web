@@ -184,7 +184,7 @@
                             <label for="">Parm:</label>
                             <input type="text" class="form-control" name="parm">
                         </div>
-                        <div class="form-group">
+                        <!--<div class="form-group">
                             <label for="">平台:</label>
                             <p>
                                 <label class="radio-inline">
@@ -194,12 +194,15 @@
                                     <input type="radio" name="platform" value="android"> 安卓
                                 </label>
                             </p>
-                        </div>
+                        </div>-->
                         <div class="form-group">
-                            <label for="">渠道:</label>
+                            <label for="">平台:</label>
                             <p>
                                 <label class="radio-inline">
-                                    <input onclick="other(this)" type="radio" checked name="channelid" value="gwpz"> 官方
+                                    <input onclick="other(this)" type="radio" checked name="channelid" value="ios"> 官方iOS
+                                </label>
+                                <label class="radio-inline">
+                                    <input onclick="other(this)" type="radio" checked name="channelid" value="gwpz"> 官方安卓
                                 </label>
                                 <label class="radio-inline">
                                     <input onclick="other(this)" type="radio" name="channelid" value="bili"> B站
@@ -241,6 +244,7 @@
     <script src="../lib/SingnlR/signalr.js"></script>
     <!-- app js -->
     <script src="js/app.js"></script>
+    <script src="js/cookie.js"></script>
     <script type="text/javascript">
         $(function () {
             programInit()
@@ -248,7 +252,8 @@
 
         function programInit() {
 
-            const Webuser = sessionStorage.getItem('username')
+            // const Webuser = sessionStorage.getItem('username')
+            const Webuser = getCookie('username');
             const conGamesStatus = new signalR.HubConnectionBuilder().withUrl("http://127.0.0.1:7777/chatHub?name=" + Webuser).build();
             $('#titleName0').html(Webuser);
             $('#titleName1').html(Webuser);
@@ -323,7 +328,8 @@
             });
         }
         function checkToken() {
-            var token = sessionStorage.getItem('token');
+            // var token = sessionStorage.getItem('token');
+            var token = getCookie('token');
             if(!token){
                 alert('您尚未登录游戏，请先登录');
                 location.href='login.html';
@@ -332,7 +338,7 @@
             }
         }
         function del_game(accountid) {
-            if (confirm('确认删除实例吗?')) {
+            if (confirm('确认删除实例吗？')) {
                 var token = checkToken();
                 var data = JSON.stringify({
                     gameAccountID: accountid,
@@ -353,14 +359,13 @@
                     headers: { 'Authorization': 'Bearer ' + token },
                     contentType: "application/json",
                     data: data,
-                    //success: function (res) {
-                    //    alert(res.message);
-                    //}
+                    success: function (res) {
+                        alert(res.message);
+                    }
                 });
             } else {
-                //alert('已取消');
+                alert('已取消');
             }
-            //return false;
         }
         function startOperation(Obj) {
             var token = checkToken();
@@ -376,7 +381,8 @@
             });
         }
         function logout(){
-            sessionStorage.setItem('token',null);
+            // sessionStorage.setItem('token',null);
+            setCookie('token',null);
             window.location.href='login.html';
         }
         /** 创建游戏实例 */
@@ -385,7 +391,7 @@
             var password = $('input[name=password]').val();
             var yunDouDou = $('input[name=yunDouDou]').val();
             var parm = $('input[name=parm]').val();
-            var platform = $('input:checked[name=platform]').val();
+            var platform = 'iOS';
             var channelid = $('input:checked[name=channelid]').val();
             if(channelid=='other'){
                 channelid = $('input[name=channelid_input]').val();
@@ -441,7 +447,8 @@
 
         function gameLogin(gameid){
             var token = checkToken();
-            var username = sessionStorage.getItem('username');
+            // var username = sessionStorage.getItem('username');
+            var username = getCookie('username');
             $.ajax({
                 url: 'http://127.0.0.1:7777/Game/Login',
                 type: 'post',

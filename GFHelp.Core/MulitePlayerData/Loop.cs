@@ -1,4 +1,5 @@
-﻿using GFHelp.Core.Management;
+﻿using GFHelp.Core.Helper;
+using GFHelp.Core.Management;
 using GFHelp.Core.MulitePlayerData;
 using System;
 using System.Collections.Generic;
@@ -24,9 +25,18 @@ namespace GFHelp.Core.Management
                 {
                     return;
                 }
-                userData.operation_Act_Info.TimeReduce();
-                userData.dorm_with_user_info.TimeReduce();
-                userData.auto_Summery.Auto_Act_Summery();
+                try
+                {
+                    userData.operation_Act_Info.TimeReduce();
+                    userData.dorm_with_user_info.TimeReduce();
+                    userData.auto_Summery.Auto_Act_Summery();
+                }
+                catch (Exception e)
+                {
+                    new Log().userInit(userData.GameAccount.Base.GameAccountID, "循环倒计时 出现错误 ", e.ToString()).userInfo();
+                    return;
+                }
+
             }
         }
     }

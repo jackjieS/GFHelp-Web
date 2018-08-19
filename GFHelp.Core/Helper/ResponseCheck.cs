@@ -239,6 +239,10 @@ namespace GFHelp.Core.Helper
                     {
                         return result.Contains("data") ? 1 : 0;
                     }
+                case "reinforceTeam":
+                    {
+                        return result.Contains("ap") ? 1 : 0;
+                    }
 
                 default:
                     break;

@@ -96,7 +96,12 @@ hr{
 	padding: 10px;
 	background: #e5e6e7;
 }
-
+#zzbd-warpper>div{
+	margin-top:20px; 
+	margin-right: 20px;
+	padding: 10px;
+	background: #e5e6e7;
+}
 #bdyl-warpper ul li{
 	margin-top:15px; 
 }

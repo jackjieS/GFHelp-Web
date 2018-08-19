@@ -10,3 +10,61 @@
 【18:09:30】      message = 获取UserInfo , exception = 
 【18:09:35】      message = 签到 , exception = 
 【18:09:35】      message = 查询新邮件 , exception = 
+【01:53:44】      message = 数字天空登陆 , exception = 
+【01:53:45】      message = 获取时间信息 , exception = 
+【01:53:46】      message = 获取Sign , exception = 
+【01:53:47】      message = 获取UserInfo , exception = 
+【01:53:51】      message = 签到 , exception = 
+【01:53:51】      message = 查询新邮件 , exception = 
+【01:53:52】      message = 终止作战 , exception = 
+【01:53:58】      message = 没有2级枪 ERROR , exception = 
+【01:54:23】      message = 没有2级枪 ERROR , exception = 
+【01:57:59】      message = 数字天空登陆 , exception = 
+【01:58:00】      message = 获取时间信息 , exception = 
+【01:58:01】      message = 获取Sign , exception = 
+【01:58:02】      message = 获取UserInfo , exception = 
+【01:58:10】      message = 签到 , exception = 
+【01:58:10】      message = 查询新邮件 , exception = 
+【01:58:19】      message = 终止作战 , exception = 
+【01:58:34】      message = 没有2级枪 ERROR , exception = 
+【02:10:02】      message = 收集数据 数据监测枢纽  
+【02:10:04】      message =  获取数据样本出错 , exception = error:0
+【02:13:04】      message = 数字天空登陆 , exception = 
+【02:13:04】      message = 获取时间信息 , exception = 
+【02:13:05】      message = 获取Sign , exception = 
+【02:13:06】      message = 获取UserInfo , exception = 
+【02:13:10】      message = 签到 , exception = 
+【02:13:10】      message = 查询新邮件 , exception = 
+【02:13:53】      message = 没有2级枪 ERROR , exception = 
+【02:15:35】      message = 数字天空登陆 , exception = 
+【02:15:36】      message = 获取时间信息 , exception = 
+【02:15:36】      message = 获取Sign , exception = 
+【02:15:37】      message = 获取UserInfo , exception = 
+【02:15:41】      message = 签到 , exception = 
+【02:15:41】      message = 查询新邮件 , exception = 
+【02:15:42】      message = 终止作战 , exception = 
+【02:35:02】      message = 数字天空登陆 , exception = 
+【02:35:05】      message = LoginDigitalSKY , exception = false System.Net.WebException: 由于目标计算机积极拒绝，无法连接。 由于目标计算机积极拒绝，无法连接。 ---> System.Net.Http.HttpRequestException: 由于目标计算机积极拒绝，无法连接。 ---> System.Net.Sockets.SocketException: 由于目标计算机积极拒绝，无法连接。
+   at System.Net.Http.ConnectHelper.ConnectAsync(String host, Int32 port, CancellationToken cancellationToken)
+   --- End of inner exception stack trace ---
+   at System.Net.Http.ConnectHelper.ConnectAsync(String host, Int32 port, CancellationToken cancellationToken)
+   at System.Threading.Tasks.ValueTask`1.get_Result()
+   at System.Net.Http.HttpConnectionPool.CreateConnectionAsync(HttpRequestMessage request, CancellationToken cancellationToken)
+   at System.Threading.Tasks.ValueTask`1.get_Result()
+   at System.Net.Http.HttpConnectionPool.WaitForCreatedConnectionAsync(ValueTask`1 creationTask)
+   at System.Threading.Tasks.ValueTask`1.get_Result()
+   at System.Net.Http.HttpConnectionPool.SendWithRetryAsync(HttpRequestMessage request, Boolean doRequestAuth, CancellationToken cancellationToken)
+   at System.Net.Http.RedirectHandler.SendAsync(HttpRequestMessage request, CancellationToken cancellationToken)
+   at System.Net.Http.HttpClient.FinishSendAsyncUnbuffered(Task`1 sendTask, HttpRequestMessage request, CancellationTokenSource cts, Boolean disposeCts)
+   at System.Net.HttpWebRequest.SendRequest()
+   at System.Net.HttpWebRequest.GetResponse()
+   --- End of inner exception stack trace ---
+   at System.Net.HttpWebRequest.GetResponse()
+   at System.Net.WebClient.GetWebResponse(WebRequest request)
+   at System.Net.WebClient.DownloadBits(WebRequest request, Stream writeStream)
+   at System.Net.WebClient.UploadBits(WebRequest request, Stream readStream, Byte[] buffer, Int32 chunkSize, Byte[] header, Byte[] footer)
+   at System.Net.WebClient.UploadDataInternal(Uri address, String method, Byte[] data, WebRequest& request)
+   at System.Net.WebClient.UploadData(Uri address, String method, Byte[] data)
+   at System.Net.WebClient.UploadData(String address, String method, Byte[] data)
+   at GFHelp.Core.API.BaseRequset.DoPost(String url, Byte[] postData) in C:\Users\jack\Desktop\CS\GFHelp-Web\GFHelp.Core\API\BaseRequset.cs:line 40
+【23:45:34】      message = 程序已注销 请重新创建实例 

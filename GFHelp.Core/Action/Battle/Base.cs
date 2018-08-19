@@ -248,11 +248,7 @@ namespace GFHelp.Core.Action.BattleBase
                 //循环次数
                 if (item.Contains("-t"))
                 {
-                    if (int.TryParse(item.Remove(0, 2), out this.MaxLoopTime) == false)
-                    {
-                        this.MaxLoopTime = 0;
-                    }
-
+                    this.MaxLoopTime = Convert.ToInt32(item.Remove(0, 2));
                 }
                 //自动扩编
                 if (item.Contains("-c"))
@@ -358,6 +354,10 @@ namespace GFHelp.Core.Action.BattleBase
             }
             writer.WriteArrayEnd();
 
+            writer.WritePropertyName("use_skill_squads");
+            writer.WriteArrayStart();
+            writer.WriteArrayEnd();
+
             writer.WritePropertyName("user_rec");
             StringBuilder stringBuilder1 = new StringBuilder();
             JsonWriter jsonWriter1 = new JsonWriter(stringBuilder1);
@@ -456,7 +456,9 @@ namespace GFHelp.Core.Action.BattleBase
             writer.WritePropertyName("1003");
             writer.WriteObjectStart();
             writer.WriteObjectEnd();
-
+            writer.WritePropertyName("1005");
+            writer.WriteObjectStart();
+            writer.WriteObjectEnd();
             writer.WritePropertyName("battle_damage");
             writer.WriteObjectStart();
             writer.WriteObjectEnd();

@@ -25,6 +25,10 @@
                         <input type="password" name="Password" class="form-control" placeholder="Password">
                     </div>
                     <button type="button" onclick="login()" class="btn btn-lg btn-primary btn-block">Login</button>
+                    <span onclick="getUpgradeInfo()" data-toggle="modal" data-target="#myModal" style="cursor: pointer;float: right;">
+                        <i class="icon icon-plus"></i> 更新记录
+                    </span>
+
                 </form>
             </div>
         </div>
@@ -32,9 +36,38 @@
             <p>WEBSITE BY OGQ</p>
             <p>© 2018. All RIGHT RESERVED.</p>
         </footer>
-    </div>    
+    </div>
+    <!-- 对话框HTML -->
+    <div class="modal fade" id="myModal">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <button type="button" class="close" data-dismiss="modal">
+                        <span aria-hidden="true">×</span>
+                        <span class="sr-only">关闭</span>
+                    </button>
+                    <h2 class="modal-title" style="color:#000000">更新记录</h2>
+                </div>
+                <div class="modal-body">
+                    <div id="upgradeinfo" style='color:#000000;display:block;word-break: break-all;word-wrap: break-word;'>
+                            upgradeinfo
+                        </div>
+                    </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-default" data-dismiss="modal">关闭</button>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- 弹窗 -->
+
+
+
+
+
     <script src="dist/js/zui.min.js"></script>
     <script src="js/app.js"></script>
+    <script src="js/cookie.js"></script>
     <script type="text/javascript">
         function login() {
             var UsernameObj = $('input[name=Username]');
@@ -42,22 +75,39 @@
             var username = UsernameObj.val();
             var password = PasswordObj.val();
             console.log(PasswordObj.val());
-            if(!UsernameObj.val()){alert('请输入用户名');UsernameObj.focus();return false;}
-            if(!PasswordObj.val()){alert('请输入密码');PasswordObj.focus();return false;}
+            if (!UsernameObj.val()) { alert('请输入用户名'); UsernameObj.focus(); return false; }
+            if (!PasswordObj.val()) { alert('请输入密码'); PasswordObj.focus(); return false; }
             $.ajax({
-                url:'http://127.0.0.1:7777/Auth/WebLogin',
-                type:'post',
-                data:"{'username':'"+UsernameObj.val()+"','password':'"+PasswordObj.val()+"'}",
-                dataType:'json',
+                url: 'http://127.0.0.1:7777/Auth/WebLogin',
+                type: 'post',
+                data: "{'username':'" + UsernameObj.val() + "','password':'" + PasswordObj.val() + "'}",
+                dataType: 'json',
                 contentType: "application/json",
-                success:function (res) {
-                    if(res.code==1){
-                        sessionStorage.setItem('token',res.data);
-                        sessionStorage.setItem('username',username);
+                success: function (res) {
+                    if (res.code == 1) {
+                        sessionStorage.setItem('token', res.data);
+                        setCookie('token', res.data);
+                        sessionStorage.setItem('username', username);
+                        setCookie('username', username);
                         alert('登录成功');
-                        location.href="index.html";
-                    }else{
+                        location.href = "index.html";
+                    } else {
                         alert('登录失败');
+                    }
+                }
+            });
+        }
+        function getUpgradeInfo() {
+
+            var html_o = '';
+            $.ajax({
+                url: 'http://127.0.0.1:7777/System/UpgradeInfo',
+                type: 'get',
+                async: false,
+                dataType: 'json',
+                success: function (res) {
+                    if (res.code == 1) {
+                        $('#upgradeinfo').html(res.data);
                     }
                 }
             });

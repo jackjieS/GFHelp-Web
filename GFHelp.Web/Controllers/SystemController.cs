@@ -8,6 +8,7 @@ using GFHelp.Core.Helper.Configer;
 using GFHelp.Web.Data;
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
+using static GFHelp.Web.Controllers.GameController;
 
 namespace GFHelp.Web.Controllers
 {
@@ -218,12 +219,39 @@ namespace GFHelp.Web.Controllers
                     message = string.Format("LoadHostAddress failed ")
                 });
             }
+        }
+        /// <summary>
+        /// ReloadMissionDll
+        /// </summary>
+        /// <returns></returns>
+        [Route("/Game/ReloadLibeary")]
+        [HttpGet]
+        public IActionResult ReloadLibeary()
+        {
+            string username = User.FindFirst(ClaimTypes.NameIdentifier)?.Value;
+            if (!isAdmin(username))
+            {
+                return Ok(new
+                {
+                    code = -1,
+                    //data = result,
+                    message = string.Format("没有权限")
+                });
+            }
 
+            Core.CatchData.Base.Asset_Textes.Read_ALL_CSV();
+            HostAddress.Load();
+            Core.Action.MissionData.Reload();
+            GC.Collect();
+            return Ok(new
+            {
+                code = 1,
+                //data = result,
+                message = string.Format("完成")
+            });
 
 
         }
-
-
 
 
 

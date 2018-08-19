@@ -114,7 +114,7 @@ namespace GFHelp.Core.MulitePlayerData
                 for (int num8 = 0; num8 < jsonData.Count; num8++)
                 {
                     if (jsonData["piece"].Int == 1) continue;
-                    Chip_With_User_Info.Data data = null;
+                    Chip_With_User_Info.Data data = new Chip_With_User_Info.Data();
                     try
                     {
                         JsonData temp = jsonData[num8]["chip"];
@@ -124,14 +124,11 @@ namespace GFHelp.Core.MulitePlayerData
                     {
                         new Log().systemInit("chip_with_user_info Error ", e.ToString()).coreInfo();
                     }
-                    if (data.chipInfo.rank == 5)
-                    {
-                        this.userData.chip_With_User_Info.listSquadChipRank5.Add(data);
-                    }
-                    this.userData.chip_With_User_Info.listSquadChip.Add(data);
+
                 }
                 this.listSquadDataAnalysisAction.Clear();
             }
+            this.userData.home.Login();
         }
 
 

@@ -120,7 +120,7 @@ namespace GFHelp.Core.Action
             {
                 string result =API.Battle.reinforceTeam(userData.GameAccount,newjson.ToString());
 
-                if (night == false) k = Response.Check(userData.GameAccount, ref result, "GUN_OUTandIN_Team_PRO", false);
+                if (night == false) k = Response.Check(userData.GameAccount, ref result, "reinforceTeam",true);
                 if (night == true) k = Response.Check(userData.GameAccount, ref result, "night_reinforceTeam", true);
 
                 switch (k)

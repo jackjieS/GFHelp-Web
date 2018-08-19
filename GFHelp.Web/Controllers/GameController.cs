@@ -92,39 +92,7 @@ namespace GFHelp.Web.Controllers
 
             });
         }
-        /// <summary>
-        /// ReloadMissionDll
-        /// </summary>
-        /// <param name="account"></param>
-        /// <returns></returns>
-        [Route("/Game/ReloadMissionDll")]
-        [HttpPost]
-        public IActionResult ReloadMissionDll([FromBody] Account account)
-        {
-
-            if (!isAdmin(account.username))
-            {
-                return Ok(new
-                {
-                    code = -1,
-                    //data = result,
-                    message = string.Format("没有权限")
-                });
-            }
-
-
-
-            Core.Action.MissionData.Reload();
-            GC.Collect();
-            return Ok(new
-            {
-                code = 1,
-                //data = result,
-                message = string.Format("完成")
-            });
-
-
-        }
+       
         /// <summary>
         /// Test
         /// </summary>

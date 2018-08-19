@@ -2641,3 +2641,1113 @@ Parameter name: buffer
 【21:01:13】      message = stcSquad_cpu_completionList 解析完成：15 
 【21:01:14】      message = 引用作战dll 
 【21:01:14】      message = 没有对应的HostName 无法返回HostAddress 
+【21:42:12】      message = 读取config配置 
+【21:42:12】      message = 读取文字解析 
+【21:42:12】      message = updataCatchData 
+【21:43:12】      message = 读取config配置 
+【21:43:12】      message = 读取文字解析 
+【21:43:12】      message = updataCatchData 
+【21:43:48】      message = 读取config配置 
+【21:43:48】      message = 读取文字解析 
+【21:43:48】      message = updataCatchData 
+【21:44:23】      message = 读取config配置 
+【21:44:23】      message = 读取文字解析 
+【21:44:23】      message = updataCatchData 
+【21:44:46】      message = 读取config配置 
+【21:44:46】      message = 读取文字解析 
+【21:44:46】      message = updataCatchData 
+【21:45:30】      message = 读取config配置 
+【21:45:30】      message = 读取文字解析 
+【21:45:30】      message = updataCatchData 
+【21:45:49】      message = 引用作战dll 
+【21:45:49】      message = 没有对应的HostName 无法返回HostAddress 
+【21:45:52】      message = stcSquad_standard_attributionList 解析完成：9 
+【21:45:53】      message = stcItemList 解析完成：411 
+【21:45:53】      message = stcGunList 解析完成：283 
+【21:45:53】      message = stcSquadList 解析完成：3 
+【21:45:53】      message = stcSquad_chipList 解析完成：28 
+【21:45:53】      message = stcSquad_typeList 解析完成：3 
+【21:45:53】      message = stcSquad_rankList 解析完成：5 
+【21:45:53】      message = stcSquad_expList 解析完成：100 
+【21:45:53】      message = stcSquad_chip_expList 解析完成：20 
+【21:45:53】      message = stcSquad_data_dailyList 解析完成：14 
+【21:45:53】      message = stcBattle_skill_configList 解析完成：4454 
+【21:45:53】      message = stcSquad_advanced_bonusList 解析完成：30 
+【21:45:53】      message = stcSquad_cpuList 解析完成：3 
+【21:45:53】      message = stcSquad_colorList 解析完成：2 
+【21:45:53】      message = stcSquad_gridList 解析完成：59 
+【21:45:53】      message = stcSquad_cpu_completionList 解析完成：15 
+【21:49:34】      message = 没有对应的HostName 无法返回HostAddress 
+【21:55:28】      message = 读取config配置 
+【21:55:28】      message = 读取文字解析 
+【21:55:28】      message = updataCatchData 
+【21:55:30】      message = stcSquad_standard_attributionList 解析完成：9 
+【21:55:31】      message = stcItemList 解析完成：411 
+【21:55:31】      message = stcGunList 解析完成：283 
+【21:55:31】      message = stcSquadList 解析完成：3 
+【21:55:31】      message = stcSquad_chipList 解析完成：28 
+【21:55:31】      message = stcSquad_typeList 解析完成：3 
+【21:55:31】      message = stcSquad_rankList 解析完成：5 
+【21:55:31】      message = stcSquad_expList 解析完成：100 
+【21:55:31】      message = stcSquad_chip_expList 解析完成：20 
+【21:55:31】      message = stcSquad_data_dailyList 解析完成：14 
+【21:55:31】      message = stcBattle_skill_configList 解析完成：4454 
+【21:55:31】      message = stcSquad_advanced_bonusList 解析完成：30 
+【21:55:31】      message = stcSquad_cpuList 解析完成：3 
+【21:55:31】      message = stcSquad_colorList 解析完成：2 
+【21:55:31】      message = stcSquad_gridList 解析完成：59 
+【21:55:31】      message = stcSquad_cpu_completionList 解析完成：15 
+【21:55:31】      message = 引用作战dll 
+【21:55:31】      message = 没有对应的HostName 无法返回HostAddress 
+【21:55:31】      message = 没有对应的HostName 无法返回HostAddress 
+【21:59:44】      message = 读取config配置 
+【21:59:44】      message = 读取文字解析 
+【21:59:44】      message = updataCatchData 
+【21:59:46】      message = stcSquad_standard_attributionList 解析完成：9 
+【21:59:46】      message = stcItemList 解析完成：411 
+【21:59:46】      message = stcGunList 解析完成：283 
+【21:59:46】      message = stcSquadList 解析完成：3 
+【21:59:46】      message = stcSquad_chipList 解析完成：28 
+【21:59:46】      message = stcSquad_typeList 解析完成：3 
+【21:59:46】      message = stcSquad_rankList 解析完成：5 
+【21:59:46】      message = stcSquad_expList 解析完成：100 
+【21:59:46】      message = stcSquad_chip_expList 解析完成：20 
+【21:59:46】      message = stcSquad_data_dailyList 解析完成：14 
+【21:59:46】      message = stcBattle_skill_configList 解析完成：4454 
+【21:59:46】      message = stcSquad_advanced_bonusList 解析完成：30 
+【21:59:46】      message = stcSquad_cpuList 解析完成：3 
+【21:59:46】      message = stcSquad_colorList 解析完成：2 
+【21:59:46】      message = stcSquad_gridList 解析完成：59 
+【21:59:46】      message = stcSquad_cpu_completionList 解析完成：15 
+【21:59:46】      message = 引用作战dll 
+【21:59:46】      message = 没有对应的HostName 无法返回HostAddress 
+【21:59:46】      message = 没有对应的HostName 无法返回HostAddress 
+【22:10:58】      message = 读取config配置 
+【22:10:58】      message = 读取文字解析 
+【22:10:58】      message = updataCatchData 
+【22:11:02】      message = stcSquad_standard_attributionList 解析完成：9 
+【22:11:02】      message = stcItemList 解析完成：411 
+【22:11:02】      message = stcGunList 解析完成：283 
+【22:11:02】      message = stcSquadList 解析完成：3 
+【22:11:02】      message = stcSquad_chipList 解析完成：28 
+【22:11:02】      message = stcSquad_typeList 解析完成：3 
+【22:11:02】      message = stcSquad_rankList 解析完成：5 
+【22:11:02】      message = stcSquad_expList 解析完成：100 
+【22:11:02】      message = stcSquad_chip_expList 解析完成：20 
+【22:11:02】      message = stcSquad_data_dailyList 解析完成：14 
+【22:11:02】      message = stcBattle_skill_configList 解析完成：4454 
+【22:11:02】      message = stcSquad_advanced_bonusList 解析完成：30 
+【22:11:02】      message = stcSquad_cpuList 解析完成：3 
+【22:11:02】      message = stcSquad_colorList 解析完成：2 
+【22:11:02】      message = stcSquad_gridList 解析完成：59 
+【22:11:02】      message = stcSquad_cpu_completionList 解析完成：15 
+【22:11:02】      message = 引用作战dll 
+【09:10:44】      message = 读取config配置 
+【09:10:44】      message = 读取文字解析 
+【09:10:44】      message = updataCatchData 
+【09:10:50】      message = 引用作战dll 
+【09:10:51】      message = stcSquad_standard_attributionList 解析完成：9 
+【09:10:51】      message = stcItemList 解析完成：411 
+【09:10:51】      message = stcGunList 解析完成：283 
+【09:10:51】      message = stcSquadList 解析完成：3 
+【09:10:51】      message = stcSquad_chipList 解析完成：28 
+【09:10:51】      message = stcSquad_typeList 解析完成：3 
+【09:10:51】      message = stcSquad_rankList 解析完成：5 
+【09:10:51】      message = stcSquad_expList 解析完成：100 
+【09:10:51】      message = stcSquad_chip_expList 解析完成：20 
+【09:10:51】      message = stcSquad_data_dailyList 解析完成：14 
+【09:10:52】      message = stcBattle_skill_configList 解析完成：4454 
+【09:10:52】      message = stcSquad_advanced_bonusList 解析完成：30 
+【09:10:52】      message = stcSquad_cpuList 解析完成：3 
+【09:10:52】      message = stcSquad_colorList 解析完成：2 
+【09:10:52】      message = stcSquad_gridList 解析完成：59 
+【09:10:52】      message = stcSquad_cpu_completionList 解析完成：15 
+【09:15:47】      message = 读取config配置 
+【09:15:47】      message = 读取文字解析 
+【09:15:47】      message = updataCatchData 
+【09:15:49】      message = stcSquad_standard_attributionList 解析完成：9 
+【09:15:49】      message = stcItemList 解析完成：411 
+【09:15:49】      message = stcGunList 解析完成：283 
+【09:15:49】      message = stcSquadList 解析完成：3 
+【09:15:49】      message = stcSquad_chipList 解析完成：28 
+【09:15:49】      message = stcSquad_typeList 解析完成：3 
+【09:15:49】      message = stcSquad_rankList 解析完成：5 
+【09:15:49】      message = stcSquad_expList 解析完成：100 
+【09:15:49】      message = stcSquad_chip_expList 解析完成：20 
+【09:15:49】      message = stcSquad_data_dailyList 解析完成：14 
+【09:15:49】      message = stcBattle_skill_configList 解析完成：4454 
+【09:15:49】      message = stcSquad_advanced_bonusList 解析完成：30 
+【09:15:49】      message = stcSquad_cpuList 解析完成：3 
+【09:15:49】      message = stcSquad_colorList 解析完成：2 
+【09:15:49】      message = stcSquad_gridList 解析完成：59 
+【09:15:49】      message = stcSquad_cpu_completionList 解析完成：15 
+【09:15:49】      message = 引用作战dll 
+【09:24:01】      message = 读取config配置 
+【09:24:01】      message = 读取文字解析 
+【09:24:01】      message = updataCatchData 
+【09:24:04】      message = stcSquad_standard_attributionList 解析完成：9 
+【09:24:04】      message = stcItemList 解析完成：411 
+【09:24:04】      message = stcGunList 解析完成：283 
+【09:24:04】      message = stcSquadList 解析完成：3 
+【09:24:04】      message = stcSquad_chipList 解析完成：28 
+【09:24:04】      message = stcSquad_typeList 解析完成：3 
+【09:24:04】      message = stcSquad_rankList 解析完成：5 
+【09:24:04】      message = stcSquad_expList 解析完成：100 
+【09:24:04】      message = stcSquad_chip_expList 解析完成：20 
+【09:24:04】      message = stcSquad_data_dailyList 解析完成：14 
+【09:24:04】      message = stcBattle_skill_configList 解析完成：4454 
+【09:24:04】      message = stcSquad_advanced_bonusList 解析完成：30 
+【09:24:04】      message = stcSquad_cpuList 解析完成：3 
+【09:24:04】      message = stcSquad_colorList 解析完成：2 
+【09:24:04】      message = stcSquad_gridList 解析完成：59 
+【09:24:04】      message = stcSquad_cpu_completionList 解析完成：15 
+【09:24:04】      message = 引用作战dll 
+【09:35:44】      message = 读取config配置 
+【09:35:44】      message = 读取文字解析 
+【09:35:44】      message = updataCatchData 
+【09:35:55】      message = 读取config配置 
+【09:35:55】      message = 读取文字解析 
+【09:35:55】      message = updataCatchData 
+【09:35:57】      message = stcSquad_standard_attributionList 解析完成：9 
+【09:35:57】      message = stcItemList 解析完成：411 
+【09:35:57】      message = stcGunList 解析完成：283 
+【09:35:57】      message = stcSquadList 解析完成：3 
+【09:35:57】      message = stcSquad_chipList 解析完成：28 
+【09:35:57】      message = stcSquad_typeList 解析完成：3 
+【09:35:57】      message = stcSquad_rankList 解析完成：5 
+【09:35:57】      message = stcSquad_expList 解析完成：100 
+【09:35:57】      message = stcSquad_chip_expList 解析完成：20 
+【09:35:57】      message = stcSquad_data_dailyList 解析完成：14 
+【09:35:57】      message = stcBattle_skill_configList 解析完成：4454 
+【09:35:57】      message = stcSquad_advanced_bonusList 解析完成：30 
+【09:35:57】      message = stcSquad_cpuList 解析完成：3 
+【09:35:57】      message = stcSquad_colorList 解析完成：2 
+【09:35:57】      message = stcSquad_gridList 解析完成：59 
+【09:35:57】      message = stcSquad_cpu_completionList 解析完成：15 
+【09:35:58】      message = 引用作战dll 
+【09:36:20】      message = 读取config配置 
+【09:36:20】      message = 读取文字解析 
+【09:36:20】      message = updataCatchData 
+【09:36:22】      message = stcSquad_standard_attributionList 解析完成：9 
+【09:36:22】      message = stcItemList 解析完成：411 
+【09:36:22】      message = stcGunList 解析完成：283 
+【09:36:22】      message = stcSquadList 解析完成：3 
+【09:36:22】      message = stcSquad_chipList 解析完成：28 
+【09:36:22】      message = stcSquad_typeList 解析完成：3 
+【09:36:22】      message = stcSquad_rankList 解析完成：5 
+【09:36:22】      message = stcSquad_expList 解析完成：100 
+【09:36:22】      message = stcSquad_chip_expList 解析完成：20 
+【09:36:22】      message = stcSquad_data_dailyList 解析完成：14 
+【09:36:22】      message = stcBattle_skill_configList 解析完成：4454 
+【09:36:22】      message = stcSquad_advanced_bonusList 解析完成：30 
+【09:36:22】      message = stcSquad_cpuList 解析完成：3 
+【09:36:22】      message = stcSquad_colorList 解析完成：2 
+【09:36:22】      message = stcSquad_gridList 解析完成：59 
+【09:36:22】      message = stcSquad_cpu_completionList 解析完成：15 
+【09:36:22】      message = 引用作战dll 
+【09:36:34】      message = 读取config配置 
+【09:36:34】      message = 读取文字解析 
+【09:36:34】      message = updataCatchData 
+【09:36:37】      message = stcSquad_standard_attributionList 解析完成：9 
+【09:36:37】      message = stcItemList 解析完成：411 
+【09:36:37】      message = stcGunList 解析完成：283 
+【09:36:37】      message = stcSquadList 解析完成：3 
+【09:36:37】      message = stcSquad_chipList 解析完成：28 
+【09:36:37】      message = stcSquad_typeList 解析完成：3 
+【09:36:37】      message = stcSquad_rankList 解析完成：5 
+【09:36:37】      message = stcSquad_expList 解析完成：100 
+【09:36:37】      message = stcSquad_chip_expList 解析完成：20 
+【09:36:37】      message = stcSquad_data_dailyList 解析完成：14 
+【09:36:37】      message = stcBattle_skill_configList 解析完成：4454 
+【09:36:37】      message = stcSquad_advanced_bonusList 解析完成：30 
+【09:36:37】      message = stcSquad_cpuList 解析完成：3 
+【09:36:37】      message = stcSquad_colorList 解析完成：2 
+【09:36:37】      message = stcSquad_gridList 解析完成：59 
+【09:36:37】      message = stcSquad_cpu_completionList 解析完成：15 
+【09:36:37】      message = 引用作战dll 
+【00:50:07】      message = 读取config配置 
+【00:50:07】      message = 读取文字解析 
+【00:50:07】      message = updataCatchData 
+【00:50:15】      message = 引用作战dll 
+【00:50:17】      message = stcSquad_standard_attributionList 解析完成：9 
+【00:50:17】      message = stcItemList 解析完成：411 
+【00:50:17】      message = stcGunList 解析完成：283 
+【00:50:17】      message = stcSquadList 解析完成：3 
+【00:50:17】      message = stcSquad_chipList 解析完成：28 
+【00:50:17】      message = stcSquad_typeList 解析完成：3 
+【00:50:17】      message = stcSquad_rankList 解析完成：5 
+【00:50:17】      message = stcSquad_expList 解析完成：100 
+【00:50:17】      message = stcSquad_chip_expList 解析完成：20 
+【00:50:17】      message = stcSquad_data_dailyList 解析完成：14 
+【00:50:17】      message = stcBattle_skill_configList 解析完成：4454 
+【00:50:17】      message = stcSquad_advanced_bonusList 解析完成：30 
+【00:50:17】      message = stcSquad_cpuList 解析完成：3 
+【00:50:17】      message = stcSquad_colorList 解析完成：2 
+【00:50:17】      message = stcSquad_gridList 解析完成：59 
+【00:50:17】      message = stcSquad_cpu_completionList 解析完成：15 
+【00:58:26】      message = 读取config配置 
+【00:58:26】      message = 读取文字解析 
+【00:58:26】      message = updataCatchData 
+【00:58:36】      message = stcSquad_standard_attributionList 解析完成：9 
+【00:58:36】      message = stcItemList 解析完成：411 
+【00:58:36】      message = stcGunList 解析完成：283 
+【00:58:36】      message = stcSquadList 解析完成：3 
+【00:58:36】      message = stcSquad_chipList 解析完成：28 
+【00:58:36】      message = stcSquad_typeList 解析完成：3 
+【00:58:36】      message = stcSquad_rankList 解析完成：5 
+【00:58:36】      message = stcSquad_expList 解析完成：100 
+【00:58:36】      message = stcSquad_chip_expList 解析完成：20 
+【00:58:36】      message = stcSquad_data_dailyList 解析完成：14 
+【00:58:36】      message = stcBattle_skill_configList 解析完成：4454 
+【00:58:36】      message = stcSquad_advanced_bonusList 解析完成：30 
+【00:58:36】      message = stcSquad_cpuList 解析完成：3 
+【00:58:36】      message = stcSquad_colorList 解析完成：2 
+【00:58:36】      message = stcSquad_gridList 解析完成：59 
+【00:58:36】      message = stcSquad_cpu_completionList 解析完成：15 
+【00:58:36】      message = 引用作战dll 
+【01:00:35】      message = 读取config配置 
+【01:00:35】      message = 读取文字解析 
+【01:00:35】      message = updataCatchData 
+【01:00:38】      message = stcSquad_standard_attributionList 解析完成：9 
+【01:00:38】      message = stcItemList 解析完成：411 
+【01:00:38】      message = stcGunList 解析完成：283 
+【01:00:38】      message = stcSquadList 解析完成：3 
+【01:00:38】      message = stcSquad_chipList 解析完成：28 
+【01:00:38】      message = stcSquad_typeList 解析完成：3 
+【01:00:38】      message = stcSquad_rankList 解析完成：5 
+【01:00:38】      message = stcSquad_expList 解析完成：100 
+【01:00:38】      message = stcSquad_chip_expList 解析完成：20 
+【01:00:38】      message = stcSquad_data_dailyList 解析完成：14 
+【01:00:38】      message = stcBattle_skill_configList 解析完成：4454 
+【01:00:38】      message = stcSquad_advanced_bonusList 解析完成：30 
+【01:00:38】      message = stcSquad_cpuList 解析完成：3 
+【01:00:38】      message = stcSquad_colorList 解析完成：2 
+【01:00:38】      message = stcSquad_gridList 解析完成：59 
+【01:00:38】      message = stcSquad_cpu_completionList 解析完成：15 
+【01:00:38】      message = 引用作战dll 
+【01:01:44】      message = chip_with_user_info Error  , exception = System.InvalidOperationException: Instance of JsonData is not a dictionary
+   at LitJson.JsonData.EnsureDictionary()
+   at LitJson.JsonData.get_Item(String prop_name)
+   at GFHelp.Core.MulitePlayerData.Chip_With_User_Info.Data..ctor(JsonData jsonData, UserData userData) in C:\Users\jack\Desktop\CS\GFHelp-Web\GFHelp.Core\MulitePlayerData\UserData\chip_with_user_info.cs:line 67
+   at GFHelp.Core.MulitePlayerData.SquadDataAnalysisAction.DataAnalysisFinishRead(String result) in C:\Users\jack\Desktop\CS\GFHelp-Web\GFHelp.Core\MulitePlayerData\UserData\SquadDataAnalysisAction.cs:line 121
+【01:06:25】      message = 读取config配置 
+【01:06:25】      message = 读取文字解析 
+【01:06:25】      message = updataCatchData 
+【01:06:31】      message = stcSquad_standard_attributionList 解析完成：9 
+【01:06:31】      message = stcItemList 解析完成：411 
+【01:06:31】      message = stcGunList 解析完成：283 
+【01:06:31】      message = stcSquadList 解析完成：3 
+【01:06:31】      message = stcSquad_chipList 解析完成：28 
+【01:06:31】      message = stcSquad_typeList 解析完成：3 
+【01:06:31】      message = stcSquad_rankList 解析完成：5 
+【01:06:31】      message = stcSquad_expList 解析完成：100 
+【01:06:31】      message = stcSquad_chip_expList 解析完成：20 
+【01:06:31】      message = stcSquad_data_dailyList 解析完成：14 
+【01:06:31】      message = stcBattle_skill_configList 解析完成：4454 
+【01:06:31】      message = stcSquad_advanced_bonusList 解析完成：30 
+【01:06:31】      message = stcSquad_cpuList 解析完成：3 
+【01:06:31】      message = stcSquad_colorList 解析完成：2 
+【01:06:31】      message = stcSquad_gridList 解析完成：59 
+【01:06:31】      message = stcSquad_cpu_completionList 解析完成：15 
+【01:06:31】      message = 引用作战dll 
+【01:10:37】      message = 读取config配置 
+【01:10:37】      message = 读取文字解析 
+【01:10:37】      message = updataCatchData 
+【01:10:40】      message = stcSquad_standard_attributionList 解析完成：9 
+【01:10:40】      message = stcItemList 解析完成：411 
+【01:10:40】      message = stcGunList 解析完成：283 
+【01:10:40】      message = stcSquadList 解析完成：3 
+【01:10:40】      message = stcSquad_chipList 解析完成：28 
+【01:10:40】      message = stcSquad_typeList 解析完成：3 
+【01:10:40】      message = stcSquad_rankList 解析完成：5 
+【01:10:40】      message = stcSquad_expList 解析完成：100 
+【01:10:40】      message = stcSquad_chip_expList 解析完成：20 
+【01:10:40】      message = stcSquad_data_dailyList 解析完成：14 
+【01:10:40】      message = stcBattle_skill_configList 解析完成：4454 
+【01:10:40】      message = stcSquad_advanced_bonusList 解析完成：30 
+【01:10:40】      message = stcSquad_cpuList 解析完成：3 
+【01:10:40】      message = stcSquad_colorList 解析完成：2 
+【01:10:40】      message = stcSquad_gridList 解析完成：59 
+【01:10:40】      message = stcSquad_cpu_completionList 解析完成：15 
+【01:10:40】      message = 引用作战dll 
+【23:34:48】      message = 读取config配置 
+【23:34:48】      message = 读取文字解析 
+【23:34:48】      message = updataCatchData 
+【23:35:02】      message = 读取config配置 
+【23:35:02】      message = 读取文字解析 
+【23:35:02】      message = updataCatchData 
+【23:35:04】      message = stcSquad_standard_attributionList 解析完成：9 
+【23:35:04】      message = stcItemList 解析完成：411 
+【23:35:04】      message = stcGunList 解析完成：283 
+【23:35:04】      message = stcSquadList 解析完成：3 
+【23:35:04】      message = stcSquad_chipList 解析完成：28 
+【23:35:04】      message = stcSquad_typeList 解析完成：3 
+【23:35:04】      message = stcSquad_rankList 解析完成：5 
+【23:35:04】      message = stcSquad_expList 解析完成：100 
+【23:35:04】      message = stcSquad_chip_expList 解析完成：20 
+【23:35:04】      message = stcSquad_data_dailyList 解析完成：14 
+【23:35:04】      message = stcBattle_skill_configList 解析完成：4454 
+【23:35:04】      message = stcSquad_advanced_bonusList 解析完成：30 
+【23:35:04】      message = stcSquad_cpuList 解析完成：3 
+【23:35:04】      message = stcSquad_colorList 解析完成：2 
+【23:35:04】      message = stcSquad_gridList 解析完成：59 
+【23:35:04】      message = stcSquad_cpu_completionList 解析完成：15 
+【23:35:04】      message = 引用作战dll 
+【23:35:44】      message = 调用作战dll文件出错 , exception = System.Reflection.TargetInvocationException: Exception has been thrown by the target of an invocation. ---> System.NullReferenceException: Object reference not set to an instance of an object.
+   at GFHelp.Mission.Simulation.seedmap(UserData userData, Int32 teamID)
+   at GFHelp.Mission.Simulation.Startmap(UserData userData, mapcorridor& map, Normal_MissionInfo& normal_MissionInfo)
+   at GFHelp.Mission.Simulation.mapcorridor(UserData userData)
+   --- End of inner exception stack trace ---
+   at System.RuntimeMethodHandle.InvokeMethod(Object target, Object[] arguments, Signature sig, Boolean constructor, Boolean wrapExceptions)
+   at System.Reflection.RuntimeMethodInfo.Invoke(Object obj, BindingFlags invokeAttr, Binder binder, Object[] parameters, CultureInfo culture)
+   at System.Reflection.MethodBase.Invoke(Object obj, Object[] parameters)
+   at GFHelp.Core.Action.Mission.corridor(UserData userData) in C:\Users\jack\Desktop\CS\GFHelp-Web\GFHelp.Core\Action\Battle\Loop.cs:line 89
+【23:35:44】      message = 调用作战dll文件出错 , exception = System.Reflection.TargetInvocationException: Exception has been thrown by the target of an invocation. ---> System.NullReferenceException: Object reference not set to an instance of an object.
+   at GFHelp.Mission.Simulation.seedmap(UserData userData, Int32 teamID)
+   at GFHelp.Mission.Simulation.Startmap(UserData userData, mapcorridor& map, Normal_MissionInfo& normal_MissionInfo)
+   at GFHelp.Mission.Simulation.mapcorridor(UserData userData)
+   --- End of inner exception stack trace ---
+   at System.RuntimeMethodHandle.InvokeMethod(Object target, Object[] arguments, Signature sig, Boolean constructor, Boolean wrapExceptions)
+   at System.Reflection.RuntimeMethodInfo.Invoke(Object obj, BindingFlags invokeAttr, Binder binder, Object[] parameters, CultureInfo culture)
+   at System.Reflection.MethodBase.Invoke(Object obj, Object[] parameters)
+   at GFHelp.Core.Action.Mission.corridor(UserData userData) in C:\Users\jack\Desktop\CS\GFHelp-Web\GFHelp.Core\Action\Battle\Loop.cs:line 89
+【23:35:47】      message = 调用作战dll文件出错 , exception = System.Reflection.TargetInvocationException: Exception has been thrown by the target of an invocation. ---> System.NullReferenceException: Object reference not set to an instance of an object.
+   at GFHelp.Mission.Simulation.seedmap(UserData userData, Int32 teamID)
+   at GFHelp.Mission.Simulation.Startmap(UserData userData, mapcorridor& map, Normal_MissionInfo& normal_MissionInfo)
+   at GFHelp.Mission.Simulation.mapcorridor(UserData userData)
+   --- End of inner exception stack trace ---
+   at System.RuntimeMethodHandle.InvokeMethod(Object target, Object[] arguments, Signature sig, Boolean constructor, Boolean wrapExceptions)
+   at System.Reflection.RuntimeMethodInfo.Invoke(Object obj, BindingFlags invokeAttr, Binder binder, Object[] parameters, CultureInfo culture)
+   at System.Reflection.MethodBase.Invoke(Object obj, Object[] parameters)
+   at GFHelp.Core.Action.Mission.corridor(UserData userData) in C:\Users\jack\Desktop\CS\GFHelp-Web\GFHelp.Core\Action\Battle\Loop.cs:line 89
+【23:35:47】      message = 调用作战dll文件出错 , exception = System.Reflection.TargetInvocationException: Exception has been thrown by the target of an invocation. ---> System.NullReferenceException: Object reference not set to an instance of an object.
+   at GFHelp.Mission.Simulation.seedmap(UserData userData, Int32 teamID)
+   at GFHelp.Mission.Simulation.Startmap(UserData userData, mapcorridor& map, Normal_MissionInfo& normal_MissionInfo)
+   at GFHelp.Mission.Simulation.mapcorridor(UserData userData)
+   --- End of inner exception stack trace ---
+   at System.RuntimeMethodHandle.InvokeMethod(Object target, Object[] arguments, Signature sig, Boolean constructor, Boolean wrapExceptions)
+   at System.Reflection.RuntimeMethodInfo.Invoke(Object obj, BindingFlags invokeAttr, Binder binder, Object[] parameters, CultureInfo culture)
+   at System.Reflection.MethodBase.Invoke(Object obj, Object[] parameters)
+   at GFHelp.Core.Action.Mission.corridor(UserData userData) in C:\Users\jack\Desktop\CS\GFHelp-Web\GFHelp.Core\Action\Battle\Loop.cs:line 89
+【23:42:03】      message = 读取config配置 
+【23:42:03】      message = 读取文字解析 
+【23:42:03】      message = updataCatchData 
+【23:42:05】      message = stcSquad_standard_attributionList 解析完成：9 
+【23:42:05】      message = stcItemList 解析完成：411 
+【23:42:05】      message = stcGunList 解析完成：283 
+【23:42:05】      message = stcSquadList 解析完成：3 
+【23:42:05】      message = stcSquad_chipList 解析完成：28 
+【23:42:05】      message = stcSquad_typeList 解析完成：3 
+【23:42:05】      message = stcSquad_rankList 解析完成：5 
+【23:42:05】      message = stcSquad_expList 解析完成：100 
+【23:42:05】      message = stcSquad_chip_expList 解析完成：20 
+【23:42:05】      message = stcSquad_data_dailyList 解析完成：14 
+【23:42:05】      message = stcBattle_skill_configList 解析完成：4454 
+【23:42:05】      message = stcSquad_advanced_bonusList 解析完成：30 
+【23:42:05】      message = stcSquad_cpuList 解析完成：3 
+【23:42:05】      message = stcSquad_colorList 解析完成：2 
+【23:42:05】      message = stcSquad_gridList 解析完成：59 
+【23:42:05】      message = stcSquad_cpu_completionList 解析完成：15 
+【23:42:05】      message = 引用作战dll 
+【23:42:24】      message = 调用作战dll文件出错 , exception = System.Reflection.TargetInvocationException: Exception has been thrown by the target of an invocation. ---> System.NullReferenceException: Object reference not set to an instance of an object.
+   at GFHelp.Mission.Simulation.seedmap(UserData userData, Int32 teamID)
+   at GFHelp.Mission.Simulation.Startmap(UserData userData, mapcorridor& map, Normal_MissionInfo& normal_MissionInfo)
+   at GFHelp.Mission.Simulation.mapcorridor(UserData userData)
+   --- End of inner exception stack trace ---
+   at System.RuntimeMethodHandle.InvokeMethod(Object target, Object[] arguments, Signature sig, Boolean constructor, Boolean wrapExceptions)
+   at System.Reflection.RuntimeMethodInfo.Invoke(Object obj, BindingFlags invokeAttr, Binder binder, Object[] parameters, CultureInfo culture)
+   at System.Reflection.MethodBase.Invoke(Object obj, Object[] parameters)
+   at GFHelp.Core.Action.Mission.corridor(UserData userData) in C:\Users\jack\Desktop\CS\GFHelp-Web\GFHelp.Core\Action\Battle\Loop.cs:line 89
+【23:42:24】      message = 调用作战dll文件出错 , exception = System.Reflection.TargetInvocationException: Exception has been thrown by the target of an invocation. ---> System.NullReferenceException: Object reference not set to an instance of an object.
+   at GFHelp.Mission.Simulation.seedmap(UserData userData, Int32 teamID)
+   at GFHelp.Mission.Simulation.Startmap(UserData userData, mapcorridor& map, Normal_MissionInfo& normal_MissionInfo)
+   at GFHelp.Mission.Simulation.mapcorridor(UserData userData)
+   --- End of inner exception stack trace ---
+   at System.RuntimeMethodHandle.InvokeMethod(Object target, Object[] arguments, Signature sig, Boolean constructor, Boolean wrapExceptions)
+   at System.Reflection.RuntimeMethodInfo.Invoke(Object obj, BindingFlags invokeAttr, Binder binder, Object[] parameters, CultureInfo culture)
+   at System.Reflection.MethodBase.Invoke(Object obj, Object[] parameters)
+   at GFHelp.Core.Action.Mission.corridor(UserData userData) in C:\Users\jack\Desktop\CS\GFHelp-Web\GFHelp.Core\Action\Battle\Loop.cs:line 89
+【23:42:26】      message = 调用作战dll文件出错 , exception = System.Reflection.TargetInvocationException: Exception has been thrown by the target of an invocation. ---> System.NullReferenceException: Object reference not set to an instance of an object.
+   at GFHelp.Mission.Simulation.seedmap(UserData userData, Int32 teamID)
+   at GFHelp.Mission.Simulation.Startmap(UserData userData, mapcorridor& map, Normal_MissionInfo& normal_MissionInfo)
+   at GFHelp.Mission.Simulation.mapcorridor(UserData userData)
+   --- End of inner exception stack trace ---
+   at System.RuntimeMethodHandle.InvokeMethod(Object target, Object[] arguments, Signature sig, Boolean constructor, Boolean wrapExceptions)
+   at System.Reflection.RuntimeMethodInfo.Invoke(Object obj, BindingFlags invokeAttr, Binder binder, Object[] parameters, CultureInfo culture)
+   at System.Reflection.MethodBase.Invoke(Object obj, Object[] parameters)
+   at GFHelp.Core.Action.Mission.corridor(UserData userData) in C:\Users\jack\Desktop\CS\GFHelp-Web\GFHelp.Core\Action\Battle\Loop.cs:line 89
+【23:42:26】      message = 调用作战dll文件出错 , exception = System.Reflection.TargetInvocationException: Exception has been thrown by the target of an invocation. ---> System.NullReferenceException: Object reference not set to an instance of an object.
+   at GFHelp.Mission.Simulation.seedmap(UserData userData, Int32 teamID)
+   at GFHelp.Mission.Simulation.Startmap(UserData userData, mapcorridor& map, Normal_MissionInfo& normal_MissionInfo)
+   at GFHelp.Mission.Simulation.mapcorridor(UserData userData)
+   --- End of inner exception stack trace ---
+   at System.RuntimeMethodHandle.InvokeMethod(Object target, Object[] arguments, Signature sig, Boolean constructor, Boolean wrapExceptions)
+   at System.Reflection.RuntimeMethodInfo.Invoke(Object obj, BindingFlags invokeAttr, Binder binder, Object[] parameters, CultureInfo culture)
+   at System.Reflection.MethodBase.Invoke(Object obj, Object[] parameters)
+   at GFHelp.Core.Action.Mission.corridor(UserData userData) in C:\Users\jack\Desktop\CS\GFHelp-Web\GFHelp.Core\Action\Battle\Loop.cs:line 89
+【01:52:54】      message = 读取config配置 
+【01:52:54】      message = 读取文字解析 
+【01:52:54】      message = updataCatchData 
+【01:52:56】      message = stcSquad_standard_attributionList 解析完成：9 
+【01:52:57】      message = stcItemList 解析完成：411 
+【01:52:57】      message = stcGunList 解析完成：283 
+【01:52:57】      message = stcSquadList 解析完成：3 
+【01:52:57】      message = stcSquad_chipList 解析完成：28 
+【01:52:57】      message = stcSquad_typeList 解析完成：3 
+【01:52:57】      message = stcSquad_rankList 解析完成：5 
+【01:52:57】      message = stcSquad_expList 解析完成：100 
+【01:52:57】      message = stcSquad_chip_expList 解析完成：20 
+【01:52:57】      message = stcSquad_data_dailyList 解析完成：14 
+【01:52:57】      message = stcBattle_skill_configList 解析完成：4454 
+【01:52:57】      message = stcSquad_advanced_bonusList 解析完成：30 
+【01:52:57】      message = stcSquad_cpuList 解析完成：3 
+【01:52:57】      message = stcSquad_colorList 解析完成：2 
+【01:52:57】      message = stcSquad_gridList 解析完成：59 
+【01:52:57】      message = stcSquad_cpu_completionList 解析完成：15 
+【01:52:57】      message = 引用作战dll 
+【01:54:01】      message = 调用作战dll文件出错 , exception = System.Reflection.TargetInvocationException: Exception has been thrown by the target of an invocation. ---> System.NullReferenceException: Object reference not set to an instance of an object.
+   at GFHelp.Mission.Simulation.seedmap(UserData userData, Int32 teamID)
+   at GFHelp.Mission.Simulation.Startmap(UserData userData, mapcorridor& map, Normal_MissionInfo& normal_MissionInfo)
+   at GFHelp.Mission.Simulation.mapcorridor(UserData userData)
+   --- End of inner exception stack trace ---
+   at System.RuntimeMethodHandle.InvokeMethod(Object target, Object[] arguments, Signature sig, Boolean constructor, Boolean wrapExceptions)
+   at System.Reflection.RuntimeMethodInfo.Invoke(Object obj, BindingFlags invokeAttr, Binder binder, Object[] parameters, CultureInfo culture)
+   at System.Reflection.MethodBase.Invoke(Object obj, Object[] parameters)
+   at GFHelp.Core.Action.Mission.corridor(UserData userData) in C:\Users\jack\Desktop\CS\GFHelp-Web\GFHelp.Core\Action\Battle\Loop.cs:line 89
+【01:54:01】      message = 调用作战dll文件出错 , exception = System.Reflection.TargetInvocationException: Exception has been thrown by the target of an invocation. ---> System.NullReferenceException: Object reference not set to an instance of an object.
+   at GFHelp.Mission.Simulation.seedmap(UserData userData, Int32 teamID)
+   at GFHelp.Mission.Simulation.Startmap(UserData userData, mapcorridor& map, Normal_MissionInfo& normal_MissionInfo)
+   at GFHelp.Mission.Simulation.mapcorridor(UserData userData)
+   --- End of inner exception stack trace ---
+   at System.RuntimeMethodHandle.InvokeMethod(Object target, Object[] arguments, Signature sig, Boolean constructor, Boolean wrapExceptions)
+   at System.Reflection.RuntimeMethodInfo.Invoke(Object obj, BindingFlags invokeAttr, Binder binder, Object[] parameters, CultureInfo culture)
+   at System.Reflection.MethodBase.Invoke(Object obj, Object[] parameters)
+   at GFHelp.Core.Action.Mission.corridor(UserData userData) in C:\Users\jack\Desktop\CS\GFHelp-Web\GFHelp.Core\Action\Battle\Loop.cs:line 89
+【01:54:07】      message = 调用作战dll文件出错 , exception = System.Reflection.TargetInvocationException: Exception has been thrown by the target of an invocation. ---> System.NullReferenceException: Object reference not set to an instance of an object.
+   at GFHelp.Mission.Simulation.seedmap(UserData userData, Int32 teamID)
+   at GFHelp.Mission.Simulation.Startmap(UserData userData, mapcorridor& map, Normal_MissionInfo& normal_MissionInfo)
+   at GFHelp.Mission.Simulation.mapcorridor(UserData userData)
+   --- End of inner exception stack trace ---
+   at System.RuntimeMethodHandle.InvokeMethod(Object target, Object[] arguments, Signature sig, Boolean constructor, Boolean wrapExceptions)
+   at System.Reflection.RuntimeMethodInfo.Invoke(Object obj, BindingFlags invokeAttr, Binder binder, Object[] parameters, CultureInfo culture)
+   at System.Reflection.MethodBase.Invoke(Object obj, Object[] parameters)
+   at GFHelp.Core.Action.Mission.corridor(UserData userData) in C:\Users\jack\Desktop\CS\GFHelp-Web\GFHelp.Core\Action\Battle\Loop.cs:line 89
+【01:54:07】      message = 调用作战dll文件出错 , exception = System.Reflection.TargetInvocationException: Exception has been thrown by the target of an invocation. ---> System.NullReferenceException: Object reference not set to an instance of an object.
+   at GFHelp.Mission.Simulation.seedmap(UserData userData, Int32 teamID)
+   at GFHelp.Mission.Simulation.Startmap(UserData userData, mapcorridor& map, Normal_MissionInfo& normal_MissionInfo)
+   at GFHelp.Mission.Simulation.mapcorridor(UserData userData)
+   --- End of inner exception stack trace ---
+   at System.RuntimeMethodHandle.InvokeMethod(Object target, Object[] arguments, Signature sig, Boolean constructor, Boolean wrapExceptions)
+   at System.Reflection.RuntimeMethodInfo.Invoke(Object obj, BindingFlags invokeAttr, Binder binder, Object[] parameters, CultureInfo culture)
+   at System.Reflection.MethodBase.Invoke(Object obj, Object[] parameters)
+   at GFHelp.Core.Action.Mission.corridor(UserData userData) in C:\Users\jack\Desktop\CS\GFHelp-Web\GFHelp.Core\Action\Battle\Loop.cs:line 89
+【01:58:22】      message = 调用作战dll文件出错 , exception = System.Reflection.TargetInvocationException: Exception has been thrown by the target of an invocation. ---> System.NullReferenceException: Object reference not set to an instance of an object.
+   at GFHelp.Mission.Simulation.seedmap(UserData userData, Int32 teamID)
+   at GFHelp.Mission.Simulation.Startmap(UserData userData, mapcorridor& map, Normal_MissionInfo& normal_MissionInfo)
+   at GFHelp.Mission.Simulation.mapcorridor(UserData userData)
+   --- End of inner exception stack trace ---
+   at System.RuntimeMethodHandle.InvokeMethod(Object target, Object[] arguments, Signature sig, Boolean constructor, Boolean wrapExceptions)
+   at System.Reflection.RuntimeMethodInfo.Invoke(Object obj, BindingFlags invokeAttr, Binder binder, Object[] parameters, CultureInfo culture)
+   at System.Reflection.MethodBase.Invoke(Object obj, Object[] parameters)
+   at GFHelp.Core.Action.Mission.corridor(UserData userData) in C:\Users\jack\Desktop\CS\GFHelp-Web\GFHelp.Core\Action\Battle\Loop.cs:line 89
+【01:58:22】      message = 调用作战dll文件出错 , exception = System.Reflection.TargetInvocationException: Exception has been thrown by the target of an invocation. ---> System.NullReferenceException: Object reference not set to an instance of an object.
+   at GFHelp.Mission.Simulation.seedmap(UserData userData, Int32 teamID)
+   at GFHelp.Mission.Simulation.Startmap(UserData userData, mapcorridor& map, Normal_MissionInfo& normal_MissionInfo)
+   at GFHelp.Mission.Simulation.mapcorridor(UserData userData)
+   --- End of inner exception stack trace ---
+   at System.RuntimeMethodHandle.InvokeMethod(Object target, Object[] arguments, Signature sig, Boolean constructor, Boolean wrapExceptions)
+   at System.Reflection.RuntimeMethodInfo.Invoke(Object obj, BindingFlags invokeAttr, Binder binder, Object[] parameters, CultureInfo culture)
+   at System.Reflection.MethodBase.Invoke(Object obj, Object[] parameters)
+   at GFHelp.Core.Action.Mission.corridor(UserData userData) in C:\Users\jack\Desktop\CS\GFHelp-Web\GFHelp.Core\Action\Battle\Loop.cs:line 89
+【01:58:29】      message = 调用作战dll文件出错 , exception = System.Reflection.TargetInvocationException: Exception has been thrown by the target of an invocation. ---> System.NullReferenceException: Object reference not set to an instance of an object.
+   at GFHelp.Mission.Simulation.seedmap(UserData userData, Int32 teamID)
+   at GFHelp.Mission.Simulation.Startmap(UserData userData, mapcorridor& map, Normal_MissionInfo& normal_MissionInfo)
+   at GFHelp.Mission.Simulation.mapcorridor(UserData userData)
+   --- End of inner exception stack trace ---
+   at System.RuntimeMethodHandle.InvokeMethod(Object target, Object[] arguments, Signature sig, Boolean constructor, Boolean wrapExceptions)
+   at System.Reflection.RuntimeMethodInfo.Invoke(Object obj, BindingFlags invokeAttr, Binder binder, Object[] parameters, CultureInfo culture)
+   at System.Reflection.MethodBase.Invoke(Object obj, Object[] parameters)
+   at GFHelp.Core.Action.Mission.corridor(UserData userData) in C:\Users\jack\Desktop\CS\GFHelp-Web\GFHelp.Core\Action\Battle\Loop.cs:line 89
+【01:58:29】      message = 调用作战dll文件出错 , exception = System.Reflection.TargetInvocationException: Exception has been thrown by the target of an invocation. ---> System.NullReferenceException: Object reference not set to an instance of an object.
+   at GFHelp.Mission.Simulation.seedmap(UserData userData, Int32 teamID)
+   at GFHelp.Mission.Simulation.Startmap(UserData userData, mapcorridor& map, Normal_MissionInfo& normal_MissionInfo)
+   at GFHelp.Mission.Simulation.mapcorridor(UserData userData)
+   --- End of inner exception stack trace ---
+   at System.RuntimeMethodHandle.InvokeMethod(Object target, Object[] arguments, Signature sig, Boolean constructor, Boolean wrapExceptions)
+   at System.Reflection.RuntimeMethodInfo.Invoke(Object obj, BindingFlags invokeAttr, Binder binder, Object[] parameters, CultureInfo culture)
+   at System.Reflection.MethodBase.Invoke(Object obj, Object[] parameters)
+   at GFHelp.Core.Action.Mission.corridor(UserData userData) in C:\Users\jack\Desktop\CS\GFHelp-Web\GFHelp.Core\Action\Battle\Loop.cs:line 89
+【02:15:07】      message = 读取config配置 
+【02:15:07】      message = 读取文字解析 
+【02:15:07】      message = updataCatchData 
+【02:15:14】      message = stcSquad_standard_attributionList 解析完成：9 
+【02:15:14】      message = stcItemList 解析完成：411 
+【02:15:14】      message = stcGunList 解析完成：283 
+【02:15:14】      message = stcSquadList 解析完成：3 
+【02:15:14】      message = stcSquad_chipList 解析完成：28 
+【02:15:14】      message = stcSquad_typeList 解析完成：3 
+【02:15:14】      message = stcSquad_rankList 解析完成：5 
+【02:15:14】      message = stcSquad_expList 解析完成：100 
+【02:15:14】      message = stcSquad_chip_expList 解析完成：20 
+【02:15:14】      message = stcSquad_data_dailyList 解析完成：14 
+【02:15:14】      message = stcBattle_skill_configList 解析完成：4454 
+【02:15:14】      message = stcSquad_advanced_bonusList 解析完成：30 
+【02:15:14】      message = stcSquad_cpuList 解析完成：3 
+【02:15:14】      message = stcSquad_colorList 解析完成：2 
+【02:15:14】      message = stcSquad_gridList 解析完成：59 
+【02:15:14】      message = stcSquad_cpu_completionList 解析完成：15 
+【02:15:14】      message = 引用作战dll 
+【02:15:26】      message = 读取config配置 
+【02:15:26】      message = 读取文字解析 
+【02:15:26】      message = updataCatchData 
+【02:15:28】      message = stcSquad_standard_attributionList 解析完成：9 
+【02:15:28】      message = stcItemList 解析完成：411 
+【02:15:29】      message = stcGunList 解析完成：283 
+【02:15:29】      message = stcSquadList 解析完成：3 
+【02:15:29】      message = stcSquad_chipList 解析完成：28 
+【02:15:29】      message = stcSquad_typeList 解析完成：3 
+【02:15:29】      message = stcSquad_rankList 解析完成：5 
+【02:15:29】      message = stcSquad_expList 解析完成：100 
+【02:15:29】      message = stcSquad_chip_expList 解析完成：20 
+【02:15:29】      message = stcSquad_data_dailyList 解析完成：14 
+【02:15:29】      message = stcBattle_skill_configList 解析完成：4454 
+【02:15:29】      message = stcSquad_advanced_bonusList 解析完成：30 
+【02:15:29】      message = stcSquad_cpuList 解析完成：3 
+【02:15:29】      message = stcSquad_colorList 解析完成：2 
+【02:15:29】      message = stcSquad_gridList 解析完成：59 
+【02:15:29】      message = stcSquad_cpu_completionList 解析完成：15 
+【02:15:29】      message = 引用作战dll 
+【02:35:05】      message = LoginDigitalSKY , exception = false System.Net.WebException: 由于目标计算机积极拒绝，无法连接。 由于目标计算机积极拒绝，无法连接。 ---> System.Net.Http.HttpRequestException: 由于目标计算机积极拒绝，无法连接。 ---> System.Net.Sockets.SocketException: 由于目标计算机积极拒绝，无法连接。
+   at System.Net.Http.ConnectHelper.ConnectAsync(String host, Int32 port, CancellationToken cancellationToken)
+   --- End of inner exception stack trace ---
+   at System.Net.Http.ConnectHelper.ConnectAsync(String host, Int32 port, CancellationToken cancellationToken)
+   at System.Threading.Tasks.ValueTask`1.get_Result()
+   at System.Net.Http.HttpConnectionPool.CreateConnectionAsync(HttpRequestMessage request, CancellationToken cancellationToken)
+   at System.Threading.Tasks.ValueTask`1.get_Result()
+   at System.Net.Http.HttpConnectionPool.WaitForCreatedConnectionAsync(ValueTask`1 creationTask)
+   at System.Threading.Tasks.ValueTask`1.get_Result()
+   at System.Net.Http.HttpConnectionPool.SendWithRetryAsync(HttpRequestMessage request, Boolean doRequestAuth, CancellationToken cancellationToken)
+   at System.Net.Http.RedirectHandler.SendAsync(HttpRequestMessage request, CancellationToken cancellationToken)
+   at System.Net.Http.HttpClient.FinishSendAsyncUnbuffered(Task`1 sendTask, HttpRequestMessage request, CancellationTokenSource cts, Boolean disposeCts)
+   at System.Net.HttpWebRequest.SendRequest()
+   at System.Net.HttpWebRequest.GetResponse()
+   --- End of inner exception stack trace ---
+   at System.Net.HttpWebRequest.GetResponse()
+   at System.Net.WebClient.GetWebResponse(WebRequest request)
+   at System.Net.WebClient.DownloadBits(WebRequest request, Stream writeStream)
+   at System.Net.WebClient.UploadBits(WebRequest request, Stream readStream, Byte[] buffer, Int32 chunkSize, Byte[] header, Byte[] footer)
+   at System.Net.WebClient.UploadDataInternal(Uri address, String method, Byte[] data, WebRequest& request)
+   at System.Net.WebClient.UploadData(Uri address, String method, Byte[] data)
+   at System.Net.WebClient.UploadData(String address, String method, Byte[] data)
+   at GFHelp.Core.API.BaseRequset.DoPost(String url, Byte[] postData) in C:\Users\jack\Desktop\CS\GFHelp-Web\GFHelp.Core\API\BaseRequset.cs:line 40
+【02:35:05】      message = LoginDigitalSKY , exception = false System.Net.WebException: 由于目标计算机积极拒绝，无法连接。 由于目标计算机积极拒绝，无法连接。 ---> System.Net.Http.HttpRequestException: 由于目标计算机积极拒绝，无法连接。 ---> System.Net.Sockets.SocketException: 由于目标计算机积极拒绝，无法连接。
+   at System.Net.Http.ConnectHelper.ConnectAsync(String host, Int32 port, CancellationToken cancellationToken)
+   --- End of inner exception stack trace ---
+   at System.Net.Http.ConnectHelper.ConnectAsync(String host, Int32 port, CancellationToken cancellationToken)
+   at System.Threading.Tasks.ValueTask`1.get_Result()
+   at System.Net.Http.HttpConnectionPool.CreateConnectionAsync(HttpRequestMessage request, CancellationToken cancellationToken)
+   at System.Threading.Tasks.ValueTask`1.get_Result()
+   at System.Net.Http.HttpConnectionPool.WaitForCreatedConnectionAsync(ValueTask`1 creationTask)
+   at System.Threading.Tasks.ValueTask`1.get_Result()
+   at System.Net.Http.HttpConnectionPool.SendWithRetryAsync(HttpRequestMessage request, Boolean doRequestAuth, CancellationToken cancellationToken)
+   at System.Net.Http.RedirectHandler.SendAsync(HttpRequestMessage request, CancellationToken cancellationToken)
+   at System.Net.Http.HttpClient.FinishSendAsyncUnbuffered(Task`1 sendTask, HttpRequestMessage request, CancellationTokenSource cts, Boolean disposeCts)
+   at System.Net.HttpWebRequest.SendRequest()
+   at System.Net.HttpWebRequest.GetResponse()
+   --- End of inner exception stack trace ---
+   at System.Net.HttpWebRequest.GetResponse()
+   at System.Net.WebClient.GetWebResponse(WebRequest request)
+   at System.Net.WebClient.DownloadBits(WebRequest request, Stream writeStream)
+   at System.Net.WebClient.UploadBits(WebRequest request, Stream readStream, Byte[] buffer, Int32 chunkSize, Byte[] header, Byte[] footer)
+   at System.Net.WebClient.UploadDataInternal(Uri address, String method, Byte[] data, WebRequest& request)
+   at System.Net.WebClient.UploadData(Uri address, String method, Byte[] data)
+   at System.Net.WebClient.UploadData(String address, String method, Byte[] data)
+   at GFHelp.Core.API.BaseRequset.DoPost(String url, Byte[] postData) in C:\Users\jack\Desktop\CS\GFHelp-Web\GFHelp.Core\API\BaseRequset.cs:line 40
+【09:58:36】      message = 读取config配置 
+【09:58:36】      message = 读取文字解析 
+【09:58:36】      message = updataCatchData 
+【09:59:12】      message = 读取config配置 
+【09:59:12】      message = 读取文字解析 
+【09:59:12】      message = updataCatchData 
+【09:59:22】      message = 读取config配置 
+【09:59:22】      message = 读取文字解析 
+【09:59:22】      message = updataCatchData 
+【09:59:52】      message = 读取config配置 
+【09:59:52】      message = 读取文字解析 
+【09:59:52】      message = updataCatchData 
+【10:00:22】      message = 读取config配置 
+【10:00:22】      message = 读取文字解析 
+【10:00:22】      message = updataCatchData 
+【10:00:40】      message = 读取config配置 
+【10:00:40】      message = 读取文字解析 
+【10:00:40】      message = updataCatchData 
+【10:01:17】      message = 读取config配置 
+【10:01:17】      message = 读取文字解析 
+【10:01:17】      message = updataCatchData 
+【10:01:40】      message = 读取config配置 
+【10:01:40】      message = 读取文字解析 
+【10:01:40】      message = updataCatchData 
+【10:02:54】      message = 读取config配置 
+【10:02:54】      message = 读取文字解析 
+【10:02:54】      message = updataCatchData 
+【10:03:32】      message = 读取config配置 
+【10:03:32】      message = 读取文字解析 
+【10:03:32】      message = updataCatchData 
+【10:03:56】      message = 读取config配置 
+【10:03:56】      message = 读取文字解析 
+【10:03:56】      message = updataCatchData 
+【10:04:22】      message = 读取config配置 
+【10:04:22】      message = 读取文字解析 
+【10:04:22】      message = updataCatchData 
+【10:04:24】      message = stcSquad_standard_attributionList 解析完成：9 
+【10:04:24】      message = stcItemList 解析完成：411 
+【10:04:24】      message = stcGunList 解析完成：283 
+【10:04:24】      message = stcSquadList 解析完成：3 
+【10:04:24】      message = stcSquad_chipList 解析完成：28 
+【10:04:24】      message = stcSquad_typeList 解析完成：3 
+【10:04:24】      message = stcSquad_rankList 解析完成：5 
+【10:04:24】      message = stcSquad_expList 解析完成：100 
+【10:04:24】      message = stcSquad_chip_expList 解析完成：20 
+【10:04:24】      message = stcSquad_data_dailyList 解析完成：14 
+【10:04:24】      message = stcBattle_skill_configList 解析完成：4454 
+【10:04:24】      message = stcSquad_advanced_bonusList 解析完成：30 
+【10:04:24】      message = stcSquad_cpuList 解析完成：3 
+【10:04:24】      message = stcSquad_colorList 解析完成：2 
+【10:04:24】      message = stcSquad_gridList 解析完成：59 
+【10:04:24】      message = stcSquad_cpu_completionList 解析完成：15 
+【10:04:30】      message = 引用作战dll 
+【10:05:00】      message = LoginDigitalSKY , exception = false System.Net.WebException: 由于目标计算机积极拒绝，无法连接。 由于目标计算机积极拒绝，无法连接。 ---> System.Net.Http.HttpRequestException: 由于目标计算机积极拒绝，无法连接。 ---> System.Net.Sockets.SocketException: 由于目标计算机积极拒绝，无法连接。
+   at System.Net.Http.ConnectHelper.ConnectAsync(String host, Int32 port, CancellationToken cancellationToken)
+   --- End of inner exception stack trace ---
+   at System.Net.Http.ConnectHelper.ConnectAsync(String host, Int32 port, CancellationToken cancellationToken)
+   at System.Threading.Tasks.ValueTask`1.get_Result()
+   at System.Net.Http.HttpConnectionPool.CreateConnectionAsync(HttpRequestMessage request, CancellationToken cancellationToken)
+   at System.Threading.Tasks.ValueTask`1.get_Result()
+   at System.Net.Http.HttpConnectionPool.WaitForCreatedConnectionAsync(ValueTask`1 creationTask)
+   at System.Threading.Tasks.ValueTask`1.get_Result()
+   at System.Net.Http.HttpConnectionPool.SendWithRetryAsync(HttpRequestMessage request, Boolean doRequestAuth, CancellationToken cancellationToken)
+   at System.Net.Http.RedirectHandler.SendAsync(HttpRequestMessage request, CancellationToken cancellationToken)
+   at System.Net.Http.HttpClient.FinishSendAsyncUnbuffered(Task`1 sendTask, HttpRequestMessage request, CancellationTokenSource cts, Boolean disposeCts)
+   at System.Net.HttpWebRequest.SendRequest()
+   at System.Net.HttpWebRequest.GetResponse()
+   --- End of inner exception stack trace ---
+   at System.Net.HttpWebRequest.GetResponse()
+   at System.Net.WebClient.GetWebResponse(WebRequest request)
+   at System.Net.WebClient.DownloadBits(WebRequest request, Stream writeStream)
+   at System.Net.WebClient.UploadBits(WebRequest request, Stream readStream, Byte[] buffer, Int32 chunkSize, Byte[] header, Byte[] footer)
+   at System.Net.WebClient.UploadDataInternal(Uri address, String method, Byte[] data, WebRequest& request)
+   at System.Net.WebClient.UploadData(Uri address, String method, Byte[] data)
+   at System.Net.WebClient.UploadData(String address, String method, Byte[] data)
+   at GFHelp.Core.API.BaseRequset.DoPost(String url, Byte[] postData) in C:\Users\jack\Desktop\CS\GFHelp-Web\GFHelp.Core\API\BaseRequset.cs:line 40
+【10:05:19】      message = 读取config配置 
+【10:05:19】      message = 读取文字解析 
+【10:05:19】      message = updataCatchData 
+【10:08:26】      message = 读取config配置 
+【10:08:26】      message = 读取文字解析 
+【10:08:26】      message = updataCatchData 
+【10:49:46】      message = 读取config配置 
+【10:49:46】      message = 读取文字解析 
+【10:49:46】      message = updataCatchData 
+【10:52:45】      message = stcSquad_standard_attributionList 解析完成：9 
+【10:52:45】      message = stcItemList 解析完成：411 
+【10:52:45】      message = stcGunList 解析完成：283 
+【10:52:45】      message = stcSquadList 解析完成：3 
+【10:52:45】      message = stcSquad_chipList 解析完成：28 
+【10:52:45】      message = stcSquad_typeList 解析完成：3 
+【10:52:45】      message = stcSquad_rankList 解析完成：5 
+【10:52:45】      message = stcSquad_expList 解析完成：100 
+【10:52:45】      message = stcSquad_chip_expList 解析完成：20 
+【10:52:45】      message = stcSquad_data_dailyList 解析完成：14 
+【10:52:45】      message = stcBattle_skill_configList 解析完成：4454 
+【10:52:45】      message = stcSquad_advanced_bonusList 解析完成：30 
+【10:52:45】      message = stcSquad_cpuList 解析完成：3 
+【10:52:45】      message = stcSquad_colorList 解析完成：2 
+【10:52:45】      message = stcSquad_gridList 解析完成：59 
+【10:52:45】      message = stcSquad_cpu_completionList 解析完成：15 
+【10:52:45】      message = 引用作战dll 
+【10:53:21】      message = 读取config配置 
+【10:53:21】      message = 读取文字解析 
+【10:53:21】      message = updataCatchData 
+【10:53:55】      message = 读取config配置 
+【10:53:55】      message = 读取文字解析 
+【10:53:55】      message = updataCatchData 
+【10:59:17】      message = 读取config配置 
+【10:59:17】      message = 读取文字解析 
+【10:59:17】      message = updataCatchData 
+【10:59:46】      message = 读取config配置 
+【10:59:46】      message = 读取文字解析 
+【10:59:46】      message = updataCatchData 
+【11:02:27】      message = 读取config配置 
+【11:02:27】      message = 读取文字解析 
+【11:02:27】      message = updataCatchData 
+【11:05:23】      message = 读取config配置 
+【11:05:23】      message = 读取文字解析 
+【11:05:23】      message = updataCatchData 
+【11:05:32】      message = stcSquad_standard_attributionList 解析完成：9 
+【11:05:32】      message = stcItemList 解析完成：411 
+【11:05:32】      message = stcGunList 解析完成：283 
+【11:05:32】      message = stcSquadList 解析完成：3 
+【11:05:32】      message = stcSquad_chipList 解析完成：28 
+【11:05:32】      message = stcSquad_typeList 解析完成：3 
+【11:05:32】      message = stcSquad_rankList 解析完成：5 
+【11:05:32】      message = stcSquad_expList 解析完成：100 
+【11:05:32】      message = stcSquad_chip_expList 解析完成：20 
+【11:05:32】      message = stcSquad_data_dailyList 解析完成：14 
+【11:05:32】      message = stcBattle_skill_configList 解析完成：4454 
+【11:05:32】      message = stcSquad_advanced_bonusList 解析完成：30 
+【11:05:32】      message = stcSquad_cpuList 解析完成：3 
+【11:05:32】      message = stcSquad_colorList 解析完成：2 
+【11:05:32】      message = stcSquad_gridList 解析完成：59 
+【11:05:32】      message = stcSquad_cpu_completionList 解析完成：15 
+【11:05:40】      message = 引用作战dll 
+【11:08:58】      message = 读取config配置 
+【11:08:58】      message = 读取文字解析 
+【11:08:58】      message = updataCatchData 
+【11:09:03】      message = stcSquad_standard_attributionList 解析完成：9 
+【11:09:03】      message = stcItemList 解析完成：411 
+【11:09:03】      message = stcGunList 解析完成：283 
+【11:09:03】      message = stcSquadList 解析完成：3 
+【11:09:03】      message = stcSquad_chipList 解析完成：28 
+【11:09:03】      message = stcSquad_typeList 解析完成：3 
+【11:09:03】      message = stcSquad_rankList 解析完成：5 
+【11:09:03】      message = stcSquad_expList 解析完成：100 
+【11:09:03】      message = stcSquad_chip_expList 解析完成：20 
+【11:09:03】      message = stcSquad_data_dailyList 解析完成：14 
+【11:09:03】      message = stcBattle_skill_configList 解析完成：4454 
+【11:09:04】      message = stcSquad_advanced_bonusList 解析完成：30 
+【11:09:04】      message = stcSquad_cpuList 解析完成：3 
+【11:09:04】      message = stcSquad_colorList 解析完成：2 
+【11:09:04】      message = stcSquad_gridList 解析完成：59 
+【11:09:04】      message = stcSquad_cpu_completionList 解析完成：15 
+【11:09:04】      message = 引用作战dll 
+【11:22:38】      message = 读取config配置 
+【11:22:38】      message = 读取文字解析 
+【11:22:38】      message = updataCatchData 
+【11:22:45】      message = stcSquad_standard_attributionList 解析完成：9 
+【11:22:45】      message = stcItemList 解析完成：411 
+【11:22:45】      message = stcGunList 解析完成：283 
+【11:22:45】      message = stcSquadList 解析完成：3 
+【11:22:45】      message = stcSquad_chipList 解析完成：28 
+【11:22:45】      message = stcSquad_typeList 解析完成：3 
+【11:22:45】      message = stcSquad_rankList 解析完成：5 
+【11:22:45】      message = stcSquad_expList 解析完成：100 
+【11:22:45】      message = stcSquad_chip_expList 解析完成：20 
+【11:22:45】      message = stcSquad_data_dailyList 解析完成：14 
+【11:22:45】      message = stcBattle_skill_configList 解析完成：4454 
+【11:22:45】      message = stcSquad_advanced_bonusList 解析完成：30 
+【11:22:45】      message = stcSquad_cpuList 解析完成：3 
+【11:22:45】      message = stcSquad_colorList 解析完成：2 
+【11:22:45】      message = stcSquad_gridList 解析完成：59 
+【11:22:45】      message = stcSquad_cpu_completionList 解析完成：15 
+【11:22:45】      message = 引用作战dll 
+【11:49:19】      message = 读取config配置 
+【11:49:19】      message = 读取文字解析 
+【11:49:19】      message = updataCatchData 
+【11:49:22】      message = stcSquad_standard_attributionList 解析完成：9 
+【11:49:22】      message = stcItemList 解析完成：411 
+【11:49:22】      message = stcGunList 解析完成：283 
+【11:49:22】      message = stcSquadList 解析完成：3 
+【11:49:22】      message = stcSquad_chipList 解析完成：28 
+【11:49:22】      message = stcSquad_typeList 解析完成：3 
+【11:49:22】      message = stcSquad_rankList 解析完成：5 
+【11:49:22】      message = stcSquad_expList 解析完成：100 
+【11:49:22】      message = stcSquad_chip_expList 解析完成：20 
+【11:49:22】      message = stcSquad_data_dailyList 解析完成：14 
+【11:49:22】      message = stcBattle_skill_configList 解析完成：4454 
+【11:49:22】      message = stcSquad_advanced_bonusList 解析完成：30 
+【11:49:22】      message = stcSquad_cpuList 解析完成：3 
+【11:49:22】      message = stcSquad_colorList 解析完成：2 
+【11:49:22】      message = stcSquad_gridList 解析完成：59 
+【11:49:22】      message = stcSquad_cpu_completionList 解析完成：15 
+【11:49:23】      message = 引用作战dll 
+【12:16:12】      message = 读取config配置 
+【12:16:12】      message = 读取文字解析 
+【12:16:12】      message = updataCatchData 
+【12:16:15】      message = stcSquad_standard_attributionList 解析完成：9 
+【12:16:15】      message = stcItemList 解析完成：411 
+【12:16:15】      message = stcGunList 解析完成：283 
+【12:16:15】      message = stcSquadList 解析完成：3 
+【12:16:15】      message = stcSquad_chipList 解析完成：28 
+【12:16:15】      message = stcSquad_typeList 解析完成：3 
+【12:16:15】      message = stcSquad_rankList 解析完成：5 
+【12:16:15】      message = stcSquad_expList 解析完成：100 
+【12:16:15】      message = stcSquad_chip_expList 解析完成：20 
+【12:16:15】      message = stcSquad_data_dailyList 解析完成：14 
+【12:16:15】      message = stcBattle_skill_configList 解析完成：4454 
+【12:16:15】      message = stcSquad_advanced_bonusList 解析完成：30 
+【12:16:15】      message = stcSquad_cpuList 解析完成：3 
+【12:16:15】      message = stcSquad_colorList 解析完成：2 
+【12:16:15】      message = stcSquad_gridList 解析完成：59 
+【12:16:15】      message = stcSquad_cpu_completionList 解析完成：15 
+【12:16:15】      message = 引用作战dll 
+【12:19:01】      message = 读取config配置 
+【12:19:01】      message = 读取文字解析 
+【12:19:01】      message = updataCatchData 
+【12:19:04】      message = stcSquad_standard_attributionList 解析完成：9 
+【12:19:04】      message = stcItemList 解析完成：411 
+【12:19:04】      message = stcGunList 解析完成：283 
+【12:19:04】      message = stcSquadList 解析完成：3 
+【12:19:04】      message = stcSquad_chipList 解析完成：28 
+【12:19:04】      message = stcSquad_typeList 解析完成：3 
+【12:19:04】      message = stcSquad_rankList 解析完成：5 
+【12:19:04】      message = stcSquad_expList 解析完成：100 
+【12:19:04】      message = stcSquad_chip_expList 解析完成：20 
+【12:19:04】      message = stcSquad_data_dailyList 解析完成：14 
+【12:19:04】      message = stcBattle_skill_configList 解析完成：4454 
+【12:19:04】      message = stcSquad_advanced_bonusList 解析完成：30 
+【12:19:04】      message = stcSquad_cpuList 解析完成：3 
+【12:19:04】      message = stcSquad_colorList 解析完成：2 
+【12:19:04】      message = stcSquad_gridList 解析完成：59 
+【12:19:04】      message = stcSquad_cpu_completionList 解析完成：15 
+【12:19:04】      message = 引用作战dll 
+【12:21:35】      message = 读取config配置 
+【12:21:35】      message = 读取文字解析 
+【12:21:35】      message = updataCatchData 
+【12:21:52】      message = 读取config配置 
+【12:21:52】      message = 读取文字解析 
+【12:21:52】      message = updataCatchData 
+【12:21:54】      message = stcSquad_standard_attributionList 解析完成：9 
+【12:21:54】      message = stcItemList 解析完成：411 
+【12:21:54】      message = stcGunList 解析完成：283 
+【12:21:54】      message = stcSquadList 解析完成：3 
+【12:21:54】      message = stcSquad_chipList 解析完成：28 
+【12:21:54】      message = stcSquad_typeList 解析完成：3 
+【12:21:54】      message = stcSquad_rankList 解析完成：5 
+【12:21:54】      message = stcSquad_expList 解析完成：100 
+【12:21:54】      message = stcSquad_chip_expList 解析完成：20 
+【12:21:54】      message = stcSquad_data_dailyList 解析完成：14 
+【12:21:55】      message = stcBattle_skill_configList 解析完成：4454 
+【12:21:55】      message = stcSquad_advanced_bonusList 解析完成：30 
+【12:21:55】      message = stcSquad_cpuList 解析完成：3 
+【12:21:55】      message = stcSquad_colorList 解析完成：2 
+【12:21:55】      message = stcSquad_gridList 解析完成：59 
+【12:21:55】      message = stcSquad_cpu_completionList 解析完成：15 
+【12:21:55】      message = 引用作战dll 
+【15:14:51】      message = 读取config配置 
+【15:14:51】      message = 读取文字解析 
+【15:14:51】      message = updataCatchData 
+【15:14:55】      message = stcSquad_standard_attributionList 解析完成：9 
+【15:14:55】      message = stcItemList 解析完成：411 
+【15:14:55】      message = stcGunList 解析完成：283 
+【15:14:55】      message = stcSquadList 解析完成：3 
+【15:14:55】      message = stcSquad_chipList 解析完成：28 
+【15:14:55】      message = stcSquad_typeList 解析完成：3 
+【15:14:55】      message = stcSquad_rankList 解析完成：5 
+【15:14:55】      message = stcSquad_expList 解析完成：100 
+【15:14:55】      message = stcSquad_chip_expList 解析完成：20 
+【15:14:55】      message = stcSquad_data_dailyList 解析完成：14 
+【15:14:55】      message = stcBattle_skill_configList 解析完成：4454 
+【15:14:55】      message = stcSquad_advanced_bonusList 解析完成：30 
+【15:14:55】      message = stcSquad_cpuList 解析完成：3 
+【15:14:55】      message = stcSquad_colorList 解析完成：2 
+【15:14:55】      message = stcSquad_gridList 解析完成：59 
+【15:14:55】      message = stcSquad_cpu_completionList 解析完成：15 
+【15:14:55】      message = 引用作战dll 
+【15:20:43】      message = 读取config配置 
+【15:20:43】      message = 读取文字解析 
+【15:20:43】      message = updataCatchData 
+【15:20:46】      message = stcSquad_standard_attributionList 解析完成：9 
+【15:20:46】      message = stcItemList 解析完成：411 
+【15:20:46】      message = stcGunList 解析完成：283 
+【15:20:46】      message = stcSquadList 解析完成：3 
+【15:20:46】      message = stcSquad_chipList 解析完成：28 
+【15:20:46】      message = stcSquad_typeList 解析完成：3 
+【15:20:46】      message = stcSquad_rankList 解析完成：5 
+【15:20:46】      message = stcSquad_expList 解析完成：100 
+【15:20:46】      message = stcSquad_chip_expList 解析完成：20 
+【15:20:46】      message = stcSquad_data_dailyList 解析完成：14 
+【15:20:46】      message = stcBattle_skill_configList 解析完成：4454 
+【15:20:46】      message = stcSquad_advanced_bonusList 解析完成：30 
+【15:20:46】      message = stcSquad_cpuList 解析完成：3 
+【15:20:46】      message = stcSquad_colorList 解析完成：2 
+【15:20:46】      message = stcSquad_gridList 解析完成：59 
+【15:20:46】      message = stcSquad_cpu_completionList 解析完成：15 
+【15:20:46】      message = 引用作战dll 
+【16:06:02】      message = 读取config配置 
+【16:06:02】      message = 读取文字解析 
+【16:06:02】      message = updataCatchData 
+【16:06:05】      message = stcSquad_standard_attributionList 解析完成：9 
+【16:06:05】      message = stcItemList 解析完成：411 
+【16:06:05】      message = stcGunList 解析完成：283 
+【16:06:05】      message = stcSquadList 解析完成：3 
+【16:06:05】      message = stcSquad_chipList 解析完成：28 
+【16:06:05】      message = stcSquad_typeList 解析完成：3 
+【16:06:05】      message = stcSquad_rankList 解析完成：5 
+【16:06:05】      message = stcSquad_expList 解析完成：100 
+【16:06:05】      message = stcSquad_chip_expList 解析完成：20 
+【16:06:05】      message = stcSquad_data_dailyList 解析完成：14 
+【16:06:05】      message = stcBattle_skill_configList 解析完成：4454 
+【16:06:05】      message = stcSquad_advanced_bonusList 解析完成：30 
+【16:06:05】      message = stcSquad_cpuList 解析完成：3 
+【16:06:05】      message = stcSquad_colorList 解析完成：2 
+【16:06:05】      message = stcSquad_gridList 解析完成：59 
+【16:06:05】      message = stcSquad_cpu_completionList 解析完成：15 
+【16:06:05】      message = 引用作战dll 
+【16:13:07】      message = 读取config配置 
+【16:13:07】      message = 读取文字解析 
+【16:13:07】      message = updataCatchData 
+【16:13:10】      message = stcSquad_standard_attributionList 解析完成：9 
+【16:13:10】      message = stcItemList 解析完成：411 
+【16:13:10】      message = stcGunList 解析完成：283 
+【16:13:10】      message = stcSquadList 解析完成：3 
+【16:13:10】      message = stcSquad_chipList 解析完成：28 
+【16:13:10】      message = stcSquad_typeList 解析完成：3 
+【16:13:10】      message = stcSquad_rankList 解析完成：5 
+【16:13:10】      message = stcSquad_expList 解析完成：100 
+【16:13:10】      message = stcSquad_chip_expList 解析完成：20 
+【16:13:10】      message = stcSquad_data_dailyList 解析完成：14 
+【16:13:10】      message = stcBattle_skill_configList 解析完成：4454 
+【16:13:10】      message = stcSquad_advanced_bonusList 解析完成：30 
+【16:13:10】      message = stcSquad_cpuList 解析完成：3 
+【16:13:10】      message = stcSquad_colorList 解析完成：2 
+【16:13:10】      message = stcSquad_gridList 解析完成：59 
+【16:13:10】      message = stcSquad_cpu_completionList 解析完成：15 
+【16:13:10】      message = 引用作战dll 
+【16:40:06】      message = 读取config配置 
+【16:40:06】      message = 读取文字解析 
+【16:40:06】      message = updataCatchData 
+【16:40:09】      message = stcSquad_standard_attributionList 解析完成：9 
+【16:40:09】      message = stcItemList 解析完成：411 
+【16:40:09】      message = stcGunList 解析完成：283 
+【16:40:09】      message = stcSquadList 解析完成：3 
+【16:40:09】      message = stcSquad_chipList 解析完成：28 
+【16:40:09】      message = stcSquad_typeList 解析完成：3 
+【16:40:09】      message = stcSquad_rankList 解析完成：5 
+【16:40:09】      message = stcSquad_expList 解析完成：100 
+【16:40:09】      message = stcSquad_chip_expList 解析完成：20 
+【16:40:09】      message = stcSquad_data_dailyList 解析完成：14 
+【16:40:09】      message = stcBattle_skill_configList 解析完成：4454 
+【16:40:09】      message = stcSquad_advanced_bonusList 解析完成：30 
+【16:40:09】      message = stcSquad_cpuList 解析完成：3 
+【16:40:09】      message = stcSquad_colorList 解析完成：2 
+【16:40:09】      message = stcSquad_gridList 解析完成：59 
+【16:40:09】      message = stcSquad_cpu_completionList 解析完成：15 
+【16:40:09】      message = 引用作战dll 
+【18:32:59】      message = 读取config配置 
+【18:32:59】      message = 读取文字解析 
+【18:32:59】      message = updataCatchData 
+【18:33:02】      message = stcSquad_standard_attributionList 解析完成：9 
+【18:33:02】      message = stcItemList 解析完成：411 
+【18:33:02】      message = stcGunList 解析完成：283 
+【18:33:02】      message = stcSquadList 解析完成：3 
+【18:33:02】      message = stcSquad_chipList 解析完成：28 
+【18:33:02】      message = stcSquad_typeList 解析完成：3 
+【18:33:02】      message = stcSquad_rankList 解析完成：5 
+【18:33:02】      message = stcSquad_expList 解析完成：100 
+【18:33:02】      message = stcSquad_chip_expList 解析完成：20 
+【18:33:02】      message = stcSquad_data_dailyList 解析完成：14 
+【18:33:02】      message = stcBattle_skill_configList 解析完成：4454 
+【18:33:02】      message = stcSquad_advanced_bonusList 解析完成：30 
+【18:33:02】      message = stcSquad_cpuList 解析完成：3 
+【18:33:02】      message = stcSquad_colorList 解析完成：2 
+【18:33:02】      message = stcSquad_gridList 解析完成：59 
+【18:33:02】      message = stcSquad_cpu_completionList 解析完成：15 
+【18:33:02】      message = 引用作战dll 
+【18:40:55】      message = 读取config配置 
+【18:40:55】      message = 读取文字解析 
+【18:40:55】      message = updataCatchData 
+【18:40:57】      message = stcSquad_standard_attributionList 解析完成：9 
+【18:40:57】      message = stcItemList 解析完成：411 
+【18:40:57】      message = stcGunList 解析完成：283 
+【18:40:57】      message = stcSquadList 解析完成：3 
+【18:40:57】      message = stcSquad_chipList 解析完成：28 
+【18:40:57】      message = stcSquad_typeList 解析完成：3 
+【18:40:57】      message = stcSquad_rankList 解析完成：5 
+【18:40:57】      message = stcSquad_expList 解析完成：100 
+【18:40:57】      message = stcSquad_chip_expList 解析完成：20 
+【18:40:57】      message = stcSquad_data_dailyList 解析完成：14 
+【18:40:57】      message = stcBattle_skill_configList 解析完成：4454 
+【18:40:57】      message = stcSquad_advanced_bonusList 解析完成：30 
+【18:40:57】      message = stcSquad_cpuList 解析完成：3 
+【18:40:57】      message = stcSquad_colorList 解析完成：2 
+【18:40:57】      message = stcSquad_gridList 解析完成：59 
+【18:40:57】      message = stcSquad_cpu_completionList 解析完成：15 
+【18:40:57】      message = 引用作战dll 
+【18:42:24】      message = 读取config配置 
+【18:42:24】      message = 读取文字解析 
+【18:42:24】      message = updataCatchData 
+【18:42:27】      message = stcSquad_standard_attributionList 解析完成：9 
+【18:42:27】      message = stcItemList 解析完成：411 
+【18:42:27】      message = stcGunList 解析完成：283 
+【18:42:27】      message = stcSquadList 解析完成：3 
+【18:42:27】      message = stcSquad_chipList 解析完成：28 
+【18:42:27】      message = stcSquad_typeList 解析完成：3 
+【18:42:27】      message = stcSquad_rankList 解析完成：5 
+【18:42:27】      message = stcSquad_expList 解析完成：100 
+【18:42:27】      message = stcSquad_chip_expList 解析完成：20 
+【18:42:27】      message = stcSquad_data_dailyList 解析完成：14 
+【18:42:27】      message = stcBattle_skill_configList 解析完成：4454 
+【18:42:27】      message = stcSquad_advanced_bonusList 解析完成：30 
+【18:42:27】      message = stcSquad_cpuList 解析完成：3 
+【18:42:27】      message = stcSquad_colorList 解析完成：2 
+【18:42:27】      message = stcSquad_gridList 解析完成：59 
+【18:42:27】      message = stcSquad_cpu_completionList 解析完成：15 
+【18:42:27】      message = 引用作战dll 
+【23:45:04】      message = 读取config配置 
+【23:45:04】      message = 读取文字解析 
+【23:45:04】      message = updataCatchData 
+【23:45:07】      message = stcSquad_standard_attributionList 解析完成：9 
+【23:45:07】      message = stcItemList 解析完成：411 
+【23:45:07】      message = stcGunList 解析完成：283 
+【23:45:07】      message = stcSquadList 解析完成：3 
+【23:45:07】      message = stcSquad_chipList 解析完成：28 
+【23:45:07】      message = stcSquad_typeList 解析完成：3 
+【23:45:07】      message = stcSquad_rankList 解析完成：5 
+【23:45:07】      message = stcSquad_expList 解析完成：100 
+【23:45:07】      message = stcSquad_chip_expList 解析完成：20 
+【23:45:07】      message = stcSquad_data_dailyList 解析完成：14 
+【23:45:07】      message = stcBattle_skill_configList 解析完成：4454 
+【23:45:07】      message = stcSquad_advanced_bonusList 解析完成：30 
+【23:45:07】      message = stcSquad_cpuList 解析完成：3 
+【23:45:07】      message = stcSquad_colorList 解析完成：2 
+【23:45:07】      message = stcSquad_gridList 解析完成：59 
+【23:45:07】      message = stcSquad_cpu_completionList 解析完成：15 
+【23:45:07】      message = 引用作战dll 
+【23:48:42】      message = 读取config配置 
+【23:48:42】      message = 读取文字解析 
+【23:48:42】      message = updataCatchData 
+【23:48:44】      message = stcSquad_standard_attributionList 解析完成：9 
+【23:48:44】      message = stcItemList 解析完成：411 
+【23:48:44】      message = stcGunList 解析完成：283 
+【23:48:44】      message = stcSquadList 解析完成：3 
+【23:48:44】      message = stcSquad_chipList 解析完成：28 
+【23:48:44】      message = stcSquad_typeList 解析完成：3 
+【23:48:44】      message = stcSquad_rankList 解析完成：5 
+【23:48:44】      message = stcSquad_expList 解析完成：100 
+【23:48:44】      message = stcSquad_chip_expList 解析完成：20 
+【23:48:44】      message = stcSquad_data_dailyList 解析完成：14 
+【23:48:45】      message = stcBattle_skill_configList 解析完成：4454 
+【23:48:45】      message = stcSquad_advanced_bonusList 解析完成：30 
+【23:48:45】      message = stcSquad_cpuList 解析完成：3 
+【23:48:45】      message = stcSquad_colorList 解析完成：2 
+【23:48:45】      message = stcSquad_gridList 解析完成：59 
+【23:48:45】      message = stcSquad_cpu_completionList 解析完成：15 
+【23:48:45】      message = 引用作战dll 
+【00:00:17】      message = LoginDigitalSKY , exception = {"result":60118,"msg":"telphone doesnot exsit."}
+【00:00:55】      message = LoginDigitalSKY , exception = {"result":60118,"msg":"telphone doesnot exsit."}
+【00:01:42】      message = LoginDigitalSKY , exception = {"result":60118,"msg":"telphone doesnot exsit."}
+【00:08:54】      message = 读取config配置 
+【00:08:54】      message = 读取文字解析 
+【00:08:54】      message = updataCatchData 
+【00:08:56】      message = stcSquad_standard_attributionList 解析完成：9 
+【00:08:56】      message = stcItemList 解析完成：411 
+【00:08:56】      message = stcGunList 解析完成：283 
+【00:08:56】      message = stcSquadList 解析完成：3 
+【00:08:56】      message = stcSquad_chipList 解析完成：28 
+【00:08:56】      message = stcSquad_typeList 解析完成：3 
+【00:08:56】      message = stcSquad_rankList 解析完成：5 
+【00:08:56】      message = stcSquad_expList 解析完成：100 
+【00:08:56】      message = stcSquad_chip_expList 解析完成：20 
+【00:08:56】      message = stcSquad_data_dailyList 解析完成：14 
+【00:08:56】      message = stcBattle_skill_configList 解析完成：4454 
+【00:08:56】      message = stcSquad_advanced_bonusList 解析完成：30 
+【00:08:56】      message = stcSquad_cpuList 解析完成：3 
+【00:08:56】      message = stcSquad_colorList 解析完成：2 
+【00:08:56】      message = stcSquad_gridList 解析完成：59 
+【00:08:56】      message = stcSquad_cpu_completionList 解析完成：15 
+【00:08:56】      message = 引用作战dll 
+【00:54:00】      message = chip_with_user_info Error  , exception = System.InvalidOperationException: Instance of JsonData is not a dictionary
+   at LitJson.JsonData.EnsureDictionary()
+   at LitJson.JsonData.get_Item(String prop_name)
+   at GFHelp.Core.MulitePlayerData.Chip_With_User_Info.Data..ctor(JsonData jsonData, UserData userData) in C:\Users\jack\Desktop\CS\GFHelp-Web\GFHelp.Core\MulitePlayerData\UserData\chip_with_user_info.cs:line 67
+   at GFHelp.Core.MulitePlayerData.SquadDataAnalysisAction.DataAnalysisFinishRead(String result) in C:\Users\jack\Desktop\CS\GFHelp-Web\GFHelp.Core\MulitePlayerData\UserData\SquadDataAnalysisAction.cs:line 121

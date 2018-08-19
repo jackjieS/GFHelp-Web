@@ -560,3 +560,189 @@
 【10:34:14】      message = 获取UserInfo , exception = 
 【10:34:22】      message = 签到 , exception = 
 【10:34:22】      message = 查询新邮件 , exception = 
+【09:12:44】      message = 数字天空登陆 , exception = 
+【09:12:45】      message = 获取时间信息 , exception = 
+【09:12:46】      message = 获取Sign , exception = 
+【09:12:47】      message = 获取UserInfo , exception = 
+【09:12:51】      message = 签到 , exception = 
+【09:12:51】      message = 查询新邮件 , exception = 
+【09:15:55】      message = 数字天空登陆 , exception = 
+【09:15:57】      message = 获取时间信息 , exception = 
+【09:15:57】      message = 获取Sign , exception = 
+【09:15:58】      message = 获取UserInfo , exception = 
+【09:16:08】      message = 签到 , exception = 
+【09:16:08】      message = 查询新邮件 , exception = 
+【09:16:57】      message = jackjieS 无法部署梯队，请登陆游戏检查 , exception = error:2
+【09:17:47】      message = jackjieS 无法部署梯队，请登陆游戏检查 , exception = error:2
+【09:19:12】      message = jackjieS 无法部署梯队，请登陆游戏检查 , exception = error:2
+【09:24:11】      message = 数字天空登陆 , exception = 
+【09:24:12】      message = 获取时间信息 , exception = 
+【09:24:13】      message = 获取Sign , exception = 
+【09:24:14】      message = 获取UserInfo , exception = 
+【09:24:18】      message = 签到 , exception = 
+【09:24:18】      message = 查询新邮件 , exception = 
+【09:24:27】      message = 终止作战 , exception = 
+【09:26:06】      message = jackjieS 无法部署梯队，请登陆游戏检查 , exception = error:2
+【09:36:51】      message = 数字天空登陆 , exception = 
+【09:36:53】      message = 获取时间信息 , exception = 
+【09:36:55】      message = 获取Sign , exception = 
+【09:36:56】      message = 获取UserInfo , exception = 
+【09:37:04】      message = 签到 , exception = 
+【09:37:04】      message = 查询新邮件 , exception = 
+【09:38:16】      message = jackjieS 无法部署梯队，请登陆游戏检查 , exception = error:2
+【23:35:25】      message = 数字天空登陆 , exception = 
+【23:35:26】      message = 获取时间信息 , exception = 
+【23:35:27】      message = 获取Sign , exception = 
+【23:35:28】      message = 获取UserInfo , exception = 
+【23:35:35】      message = 签到 , exception = 
+【23:35:35】      message = 查询新邮件 , exception = 
+【23:42:11】      message = 数字天空登陆 , exception = 
+【23:42:12】      message = 获取时间信息 , exception = 
+【23:42:12】      message = 获取Sign , exception = 
+【23:42:13】      message = 获取UserInfo , exception = 
+【23:42:17】      message = 签到 , exception = 
+【23:42:17】      message = 查询新邮件 , exception = 
+【23:42:18】      message = 终止作战 , exception = 
+【23:49:57】      message = endEnemyTurn Error , exception = error:2
+【23:50:00】      message = startTurn Error , exception = error:2
+【02:10:02】      message = 收集数据 数据监测枢纽  
+【02:10:03】      message =  获取数据样本出错 , exception = error:1
+【10:04:57】      message = 数字天空登陆 , exception = 
+【10:05:00】      message = LoginDigitalSKY , exception = false System.Net.WebException: 由于目标计算机积极拒绝，无法连接。 由于目标计算机积极拒绝，无法连接。 ---> System.Net.Http.HttpRequestException: 由于目标计算机积极拒绝，无法连接。 ---> System.Net.Sockets.SocketException: 由于目标计算机积极拒绝，无法连接。
+   at System.Net.Http.ConnectHelper.ConnectAsync(String host, Int32 port, CancellationToken cancellationToken)
+   --- End of inner exception stack trace ---
+   at System.Net.Http.ConnectHelper.ConnectAsync(String host, Int32 port, CancellationToken cancellationToken)
+   at System.Threading.Tasks.ValueTask`1.get_Result()
+   at System.Net.Http.HttpConnectionPool.CreateConnectionAsync(HttpRequestMessage request, CancellationToken cancellationToken)
+   at System.Threading.Tasks.ValueTask`1.get_Result()
+   at System.Net.Http.HttpConnectionPool.WaitForCreatedConnectionAsync(ValueTask`1 creationTask)
+   at System.Threading.Tasks.ValueTask`1.get_Result()
+   at System.Net.Http.HttpConnectionPool.SendWithRetryAsync(HttpRequestMessage request, Boolean doRequestAuth, CancellationToken cancellationToken)
+   at System.Net.Http.RedirectHandler.SendAsync(HttpRequestMessage request, CancellationToken cancellationToken)
+   at System.Net.Http.HttpClient.FinishSendAsyncUnbuffered(Task`1 sendTask, HttpRequestMessage request, CancellationTokenSource cts, Boolean disposeCts)
+   at System.Net.HttpWebRequest.SendRequest()
+   at System.Net.HttpWebRequest.GetResponse()
+   --- End of inner exception stack trace ---
+   at System.Net.HttpWebRequest.GetResponse()
+   at System.Net.WebClient.GetWebResponse(WebRequest request)
+   at System.Net.WebClient.DownloadBits(WebRequest request, Stream writeStream)
+   at System.Net.WebClient.UploadBits(WebRequest request, Stream readStream, Byte[] buffer, Int32 chunkSize, Byte[] header, Byte[] footer)
+   at System.Net.WebClient.UploadDataInternal(Uri address, String method, Byte[] data, WebRequest& request)
+   at System.Net.WebClient.UploadData(Uri address, String method, Byte[] data)
+   at System.Net.WebClient.UploadData(String address, String method, Byte[] data)
+   at GFHelp.Core.API.BaseRequset.DoPost(String url, Byte[] postData) in C:\Users\jack\Desktop\CS\GFHelp-Web\GFHelp.Core\API\BaseRequset.cs:line 40
+【11:09:22】      message = 数字天空登陆 , exception = 
+【11:09:25】      message = 获取时间信息 , exception = 
+【11:09:27】      message = 获取Sign , exception = 
+【11:09:31】      message = 获取UserInfo , exception = 
+【11:09:43】      message = 签到 , exception = 
+【11:09:43】      message = 查询新邮件 , exception = 
+【11:09:45】      message = 终止作战 , exception = 
+【11:18:36】      message = teamMove Error , exception = error:2
+【11:18:40】      message = teamMove Error , exception = error:2
+【11:23:05】      message = 数字天空登陆 , exception = 
+【11:23:06】      message = 获取时间信息 , exception = 
+【11:23:07】      message = 获取Sign , exception = 
+【11:23:08】      message = 获取UserInfo , exception = 
+【11:23:20】      message = 签到 , exception = 
+【11:23:20】      message = 查询新邮件 , exception = 
+【11:23:26】      message = 终止作战 , exception = 
+【11:49:45】      message = 数字天空登陆 , exception = 
+【11:49:46】      message = 获取时间信息 , exception = 
+【11:49:47】      message = 获取Sign , exception = 
+【11:49:48】      message = 获取UserInfo , exception = 
+【11:49:53】      message = 签到 , exception = 
+【11:49:53】      message = 查询新邮件 , exception = 
+【11:49:53】      message = 终止作战 , exception = 
+【12:16:25】      message = 数字天空登陆 , exception = 
+【12:16:28】      message = 获取时间信息 , exception = 
+【12:16:29】      message = 获取Sign , exception = 
+【12:16:31】      message = 获取UserInfo , exception = 
+【12:16:46】      message = 签到 , exception = 
+【12:16:46】      message = 查询新邮件 , exception = 
+【12:16:47】      message = 终止作战 , exception = 
+【12:19:22】      message = 数字天空登陆 , exception = 
+【12:19:23】      message = 获取时间信息 , exception = 
+【12:19:24】      message = 获取Sign , exception = 
+【12:19:25】      message = 获取UserInfo , exception = 
+【12:19:34】      message = 签到 , exception = 
+【12:19:34】      message = 查询新邮件 , exception = 
+【12:19:34】      message = 终止作战 , exception = 
+【12:22:08】      message = 数字天空登陆 , exception = 
+【12:22:09】      message = 获取时间信息 , exception = 
+【12:22:10】      message = 获取Sign , exception = 
+【12:22:11】      message = 获取UserInfo , exception = 
+【12:22:17】      message = 签到 , exception = 
+【12:22:17】      message = 查询新邮件 , exception = 
+【12:22:18】      message = 终止作战 , exception = 
+【12:23:20】      message = 程序已注销 请重新创建实例 
+【12:23:28】      message = 数字天空登陆 , exception = 
+【12:23:29】      message = 获取时间信息 , exception = 
+【12:23:30】      message = 获取Sign , exception = 
+【12:23:30】      message = 获取UserInfo , exception = 
+【12:23:38】      message = 签到 , exception = 
+【12:23:38】      message = 查询新邮件 , exception = 
+【15:15:14】      message = 数字天空登陆 , exception = 
+【15:15:15】      message = 获取时间信息 , exception = 
+【15:15:16】      message = 获取Sign , exception = 
+【15:15:17】      message = 获取UserInfo , exception = 
+【15:15:22】      message = 签到 , exception = 
+【15:15:22】      message = 查询新邮件 , exception = 
+【15:16:41】      message = endTurn Error , exception = error:2
+【15:20:57】      message = 数字天空登陆 , exception = 
+【15:20:58】      message = 获取时间信息 , exception = 
+【15:20:58】      message = 获取Sign , exception = 
+【15:20:59】      message = 获取UserInfo , exception = 
+【15:21:04】      message = 签到 , exception = 
+【15:21:04】      message = 查询新邮件 , exception = 
+【16:06:17】      message = 数字天空登陆 , exception = 
+【16:06:18】      message = 获取时间信息 , exception = 
+【16:06:19】      message = 获取Sign , exception = 
+【16:06:20】      message = 获取UserInfo , exception = 
+【16:06:30】      message = 签到 , exception = 
+【16:06:30】      message = 查询新邮件 , exception = 
+【16:13:19】      message = 数字天空登陆 , exception = 
+【16:13:23】      message = 获取时间信息 , exception = 
+【16:13:24】      message = 获取Sign , exception = 
+【16:13:25】      message = 获取UserInfo , exception = 
+【16:13:44】      message = 签到 , exception = 
+【16:13:44】      message = 查询新邮件 , exception = 
+【16:15:31】      message = 数字天空登陆 , exception = 
+【16:15:32】      message = 获取时间信息 , exception = 
+【16:15:33】      message = 获取Sign , exception = 
+【16:15:34】      message = 获取UserInfo , exception = 
+【16:16:05】      message = 签到 , exception = 
+【16:16:05】      message = 查询新邮件 , exception = 
+【18:33:13】      message = 数字天空登陆 , exception = 
+【18:33:15】      message = 获取时间信息 , exception = 
+【18:33:15】      message = 获取Sign , exception = 
+【18:33:16】      message = 获取UserInfo , exception = 
+【18:33:25】      message = 签到 , exception = 
+【18:33:25】      message = 查询新邮件 , exception = 
+【18:42:37】      message = 数字天空登陆 , exception = 
+【18:42:38】      message = 获取时间信息 , exception = 
+【18:42:39】      message = 获取Sign , exception = 
+【18:42:40】      message = 获取UserInfo , exception = 
+【18:42:53】      message = 签到 , exception = 
+【18:42:53】      message = 查询新邮件 , exception = 
+【18:42:54】      message = 终止作战 , exception = 
+【23:45:40】      message = 程序已注销 请重新创建实例 
+【00:03:55】      message = 数字天空登陆 , exception = 
+【00:03:56】      message = 获取时间信息 , exception = 
+【00:03:56】      message = 获取Sign , exception = 
+【00:03:57】      message = 获取UserInfo , exception = 
+【00:04:01】      message = 签到 , exception = 
+【00:04:01】      message = 查询新邮件 , exception = 
+【00:04:02】      message = 终止作战 , exception = 
+【00:04:07】      message = 数字天空登陆 , exception = 
+【00:04:07】      message = 获取时间信息 , exception = 
+【00:04:08】      message = 获取Sign , exception = 
+【00:04:09】      message = 获取UserInfo , exception = 
+【00:04:12】      message = 签到 , exception = 
+【00:04:12】      message = 查询新邮件 , exception = 
+【00:04:14】      message = #c9Iw7qc3NBH6fA7uj4zCgHEJVMRbEfUxjr0Gudph0PNsgr1VG9vYUMB4mi0vV6nkAtjHV2H/higTIO/10/h7wP3fsjAMRleG4TqyKWqUsUhofnEBRTpS7Nk9qPfjaU2NBgNI 
+【00:07:03】      message = endEnemyTurn Error , exception = error:2
+【00:07:06】      message = startTurn Error , exception = error:2
+【00:08:04】      message = endEnemyTurn Error , exception = error:2
+【00:08:08】      message = startTurn Error , exception = error:2
+【00:08:35】      message = mapctbox 完成 
