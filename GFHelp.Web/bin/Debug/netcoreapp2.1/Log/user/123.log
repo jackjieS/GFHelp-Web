@@ -1424,3 +1424,29 @@
 【02:36:40】      message = 签到 , exception = 
 【02:36:40】      message = 查询新邮件 , exception = 
 【18:16:58】      message = 获取UserInfo , exception = 
+【00:48:47】      message = 获取UserInfo , exception = 
+【00:48:54】      message = 签到 , exception = 
+【00:48:54】      message = 查询新邮件 , exception = 
+【00:49:10】      message = 没有2级枪 ERROR , exception = 
+【00:49:14】      message = 没有2级枪 ERROR , exception = 
+【00:54:26】      message = mapctbox 完成 
+【00:54:44】      message = 程序已注销 请重新创建实例 
+【01:17:11】      message = 获取UserInfo , exception = 
+【01:17:16】      message = 签到 , exception = 
+【01:17:16】      message = 查询新邮件 , exception = 
+【01:17:24】      message = 获取UserInfo , exception = 
+【01:17:32】      message = 签到 , exception = 
+【01:17:32】      message = 查询新邮件 , exception = 
+【01:17:33】      message = #9gdKtn/mzMuUliCKIWc+d5T2qMI9cf/TMGMzdjF92R70bpwnR6/XHJ/eehixlzofSTpn0Zn9FIrYlIQ4Uk+wIYEm+oOuHg4loG+8R70cPeTz364iZ1rj7l/0 
+【01:18:09】      message = 程序已注销 请重新创建实例 
+【01:18:09】      message = 小奏 无法部署梯队，请登陆游戏检查 , exception = error:0
+【01:18:12】      message = endTurn Error , exception = error:0
+【01:18:18】      message = endEnemyTurn Error , exception = error:0
+【01:18:21】      message = startTurn Error , exception = error:0
+【01:18:24】      message = teamMove Error , exception = error:0
+【01:18:31】      message = teamMove Error , exception = error:0
+【01:18:34】      message = teamMove Error , exception = error:0
+【01:18:43】      message = 获取UserInfo , exception = 
+【01:18:45】      message = 获取UserInfo , exception = 
+【01:18:47】      message = 小奏 无法开始作战任务，请登陆游戏检查 
+【01:18:47】      message = mapctbox 完成 

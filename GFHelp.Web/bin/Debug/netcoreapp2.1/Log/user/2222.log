@@ -1,0 +1,33 @@
+【00:58:15】      message = 获取UserInfo , exception = 
+【00:58:24】      message = 签到 , exception = 
+【00:58:24】      message = 查询新邮件 , exception = 
+【00:59:28】      message = endTurn Error , exception = error:2
+【00:59:34】      message = endEnemyTurn Error , exception = error:2
+【00:59:49】      message = startTurn Error , exception = error:2
+【00:59:52】      message = teamMove Error , exception = error:203|行动点数计算有误
+【01:00:03】      message = teamMove Error , exception = error:203|行动点数计算有误
+【01:00:33】      message = teamMove Error , exception = false System.Net.WebException: An error occurred while sending the request. The server returned an invalid or unrecognized response. ---> System.Net.Http.HttpRequestException: An error occurred while sending the request. ---> System.IO.IOException: The server returned an invalid or unrecognized response.
+   at System.Net.Http.HttpConnection.FillAsync()
+   at System.Net.Http.HttpConnection.ReadNextResponseHeaderLineAsync(Boolean foldedHeadersAllowed)
+   at System.Net.Http.HttpConnection.SendAsyncCore(HttpRequestMessage request, CancellationToken cancellationToken)
+   --- End of inner exception stack trace ---
+   at System.Net.Http.HttpConnection.SendAsyncCore(HttpRequestMessage request, CancellationToken cancellationToken)
+   at System.Net.Http.HttpConnectionPool.SendWithRetryAsync(HttpRequestMessage request, Boolean doRequestAuth, CancellationToken cancellationToken)
+   at System.Net.Http.RedirectHandler.SendAsync(HttpRequestMessage request, CancellationToken cancellationToken)
+   at System.Net.Http.HttpClient.FinishSendAsyncUnbuffered(Task`1 sendTask, HttpRequestMessage request, CancellationTokenSource cts, Boolean disposeCts)
+   at System.Net.HttpWebRequest.SendRequest()
+   at System.Net.HttpWebRequest.GetResponse()
+   --- End of inner exception stack trace ---
+   at System.Net.HttpWebRequest.GetResponse()
+   at System.Net.WebClient.GetWebResponse(WebRequest request)
+   at System.Net.WebClient.DownloadBits(WebRequest request, Stream writeStream)
+   at System.Net.WebClient.UploadBits(WebRequest request, Stream readStream, Byte[] buffer, Int32 chunkSize, Byte[] header, Byte[] footer)
+   at System.Net.WebClient.UploadDataInternal(Uri address, String method, Byte[] data, WebRequest& request)
+   at System.Net.WebClient.UploadData(Uri address, String method, Byte[] data)
+   at System.Net.WebClient.UploadData(String address, String method, Byte[] data)
+   at GFHelp.Core.API.BaseRequset.DoPost(String url, String data) in C:\Users\jack\Desktop\CS\GFHelp-Web\GFHelp.Core\API\BaseRequset.cs:line 24
+【01:00:57】      message = 获取UserInfo , exception = 
+【01:01:12】      message = 签到 , exception = 
+【01:01:12】      message = 查询新邮件 , exception = 
+【01:01:13】      message = 终止作战 , exception = 
+【17:52:48】      message = 程序已注销 请重新创建实例 

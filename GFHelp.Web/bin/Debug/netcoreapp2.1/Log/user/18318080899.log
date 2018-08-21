@@ -746,3 +746,37 @@
 【00:08:04】      message = endEnemyTurn Error , exception = error:2
 【00:08:08】      message = startTurn Error , exception = error:2
 【00:08:35】      message = mapctbox 完成 
+【21:10:57】      message = 数字天空登陆 , exception = 
+【21:10:58】      message = 获取时间信息 , exception = 
+【21:10:59】      message = 获取Sign , exception = 
+【21:10:59】      message = 获取UserInfo , exception = 
+【21:11:04】      message = 签到 , exception = 
+【21:11:04】      message = 查询新邮件 , exception = 
+【21:11:32】      message = 数字天空登陆 , exception = 
+【21:11:33】      message = 获取时间信息 , exception = 
+【21:11:33】      message = 获取Sign , exception = 
+【21:11:34】      message = 获取UserInfo , exception = 
+【21:11:42】      message = 签到 , exception = 
+【21:11:42】      message = 查询新邮件 , exception = 
+【21:16:43】      message = 数字天空登陆 , exception = 
+【21:16:45】      message = 获取时间信息 , exception = 
+【21:16:46】      message = 获取Sign , exception = 
+【21:16:47】      message = 获取UserInfo , exception = 
+【21:16:52】      message = 签到 , exception = 
+【21:16:52】      message = 查询新邮件 , exception = 
+【21:16:55】      message = #alQTvCKyw1NUZ2eeGXCGlAD4IffAeeTI0u43yrRTi1jXkpyPHnzShC4VW33F3jGimz/atMhKAQ2WQ67CYjRlkY0AflEm71blMiutq6bKcsMyGnTSghq35nwpOOSDZTsG9Aru 
+【21:35:19】      message = 数字天空登陆 , exception = 
+【21:35:20】      message = 获取时间信息 , exception = 
+【21:35:20】      message = 获取Sign , exception = 
+【21:35:21】      message = 获取UserInfo , exception = 
+【21:35:26】      message = 签到 , exception = 
+【21:35:26】      message = 查询新邮件 , exception = 
+【00:26:28】      message = 程序已注销 请重新创建实例 
+【01:27:56】      message = 数字天空登陆 , exception = 
+【01:27:56】      message = 获取时间信息 , exception = 
+【01:27:57】      message = 获取Sign , exception = 
+【01:27:58】      message = 获取UserInfo , exception = 
+【01:28:05】      message = 签到 , exception = 
+【01:28:05】      message = 查询新邮件 , exception = 
+【01:28:25】      message = #fJYdZhbtjmef8w7sy/FBIo5MMHeHzG5M8I3IBWKo9XzWY8aIGnyzelgW13hOcAFVZW7yK/2TNk3M4VjzWGi7W1DFuKgPJBuX/jC3+bBhANXEFifUxy3g 
+【01:32:07】      message = mapctbox 完成 

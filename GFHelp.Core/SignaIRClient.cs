@@ -28,11 +28,11 @@ namespace GFHelp.Core
         public async static Task seed()
         {
             build();
-            Task MessageTask = new Task(() => LoopGameMessage());
+            Task MessageTask = new Task(() => Loop());
             MessageTask.Start();
 
         }
-        public static Dictionary<string,List<WebStatus>> GamesStatus = new Dictionary<string, List<WebStatus>>();
+        public static Dictionary<string, List<WebStatus>> GamesStatus = new Dictionary<string, List<WebStatus>>();
         public static Dictionary<string, List<WebData>> GameDetails = new Dictionary<string, List<WebData>>();
 
 
@@ -95,7 +95,17 @@ namespace GFHelp.Core
             }
 
         }
+        public static void Loop()
+        {
+            while (true)
+            {
+                Task MessageTask = new Task(() => LoopGameMessage());
+                MessageTask.Start();
+                //Task.WaitAll(MessageTask);
+                Thread.Sleep(1000);
+            }
 
+        }
 
 
 
@@ -111,9 +121,9 @@ namespace GFHelp.Core
                 {
                     if (k.taskDispose == true) continue;
                     k.webData.Get(k);
-                    if(!GamesStatus.ContainsKey(k.GameAccount.Base.WebUsername))
+                    if (!GamesStatus.ContainsKey(k.GameAccount.Base.WebUsername))
                     {
-                        GamesStatus.Add(k.GameAccount.Base.WebUsername,new List<WebStatus>());
+                        GamesStatus.Add(k.GameAccount.Base.WebUsername, new List<WebStatus>());
                     }
                     GamesStatus[k.GameAccount.Base.WebUsername].Add(k.webData.webStatus);
 
@@ -136,58 +146,45 @@ namespace GFHelp.Core
             }
         }
 
-        private async static Task LoopGameMessage()
+        private static void LoopGameMessage()
         {
             //检查是否有客户端 如果没有的话就不发送了
-            await connection.StartAsync();
-            while (true)
+
+            getWebData();
+            for (int i = 0; i < userList.Count; i++)
             {
-                Thread.Sleep(1000);
-                if (userList.Count == 0)
+                connection.StartAsync();
+                if (userList[i].SignalRName == "LocalClient") continue;
+                if (GamesStatus.Count != 0 || GameDetails.Count != 0)
                 {
-                    continue;
-                }
-                if (userList.Count == 1 && userList[0].SignalRName == "LocalClient")
-                {
-                    await connection.StopAsync();
-                    continue;
-                }
-                getWebData();
-                for (int i = 0; i < userList.Count; i++)
-                {
-                    await connection.StartAsync();
-                    if (userList[i].SignalRName == "LocalClient") continue;
-                    if (GamesStatus.Count != 0 || GameDetails.Count != 0)
+                    try
                     {
-                        try
+                        if (GamesStatus.ContainsKey(userList[i].SignalRName))
                         {
-                            if (GamesStatus.ContainsKey(userList[i].SignalRName))
-                            {
-                                await connection.InvokeAsync("SendGamesStatus", userList[i].SignalRID, JsonConvert.SerializeObject(GamesStatus[userList[i].SignalRName]));
-                            }
-
-
+                            connection.InvokeAsync("SendGamesStatus", userList[i].SignalRID, JsonConvert.SerializeObject(GamesStatus[userList[i].SignalRName]));
                         }
-                        catch (Exception e)
+                    }
+                    catch (Exception e)
+                    {
+                        new Log().systemInit("SendGamesStatus Error", e.ToString()).signarlError();
+
+                    }
+                    try
+                    {
+                        if (GameDetails.ContainsKey(userList[i].SignalRName))
                         {
-                            new Log().systemInit("SendGamesStatus Error", e.ToString()).signarlError();
+                            connection.InvokeAsync("SendGameDetails", userList[i].SignalRID, JsonConvert.SerializeObject(GameDetails[userList[i].SignalRName]));
+                        }
 
-                        }
-                        try
-                        {
-                            if (GameDetails.ContainsKey(userList[i].SignalRName))
-                            {
-                                await connection.InvokeAsync("SendGameDetails", userList[i].SignalRID, JsonConvert.SerializeObject(GameDetails[userList[i].SignalRName]));
-                            }
-
-                        }
-                        catch (Exception e)
-                        {
-                            new Log().systemInit("SendGameDetails Error", e.ToString()).signarlError();
-                        }
+                    }
+                    catch (Exception e)
+                    {
+                        new Log().systemInit("SendGameDetails Error", e.ToString()).signarlError();
                     }
                 }
             }
+            return;
+
         }
 
         private static void build()
@@ -197,18 +194,7 @@ namespace GFHelp.Core
             .WithUrl("http://localhost:7777/chathub?name=LocalClient")
             .Build();
         }
-        private async static Task connectStart()
-        {
-            try
-            {
-                await connection.StartAsync();
 
-            }
-            catch (Exception ex)
-            {
-                Console.WriteLine(ex.ToString());
-            }
-        }
 
 
 

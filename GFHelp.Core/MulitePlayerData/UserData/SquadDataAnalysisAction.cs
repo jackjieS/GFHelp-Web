@@ -175,7 +175,7 @@ namespace GFHelp.Core.MulitePlayerData
                     DataAnalysisStartRead(result);
                     return;
                 }
-                if (num == 0)
+                if (resultCheck(result) == -1)
                 {
                     AutoRunning = false;
                     return;
@@ -186,7 +186,7 @@ namespace GFHelp.Core.MulitePlayerData
 
         private int resultCheck(string result)
         {
-            if (result.Contains("max build_slot error")) return -1;
+            if (result.Contains("max build_slot error")|| result.Contains("error")) return -1;
             if (result.StartsWith('#')) return 1;
             return 0;
         }
@@ -217,8 +217,8 @@ namespace GFHelp.Core.MulitePlayerData
         {
             //300
             if (this.listSquadDataAnalysisAction.Count != 0) return -1;
-            if (userData.item_With_User_Info.originalData > userData.outhouse_Establish_Info.DataAnalysisMaxSolt * 20) return 0;
-            if (userData.item_With_User_Info.PureData > userData.outhouse_Establish_Info.DataAnalysisMaxSolt * 20) return 1;
+            if (userData.item_With_User_Info.originalData > userData.outhouse_Establish_Info.DataAnalysisMaxSolt * 20 && userData.item_With_User_Info.originalData > userData.item_With_User_Info.PureData) return 0;
+            if (userData.item_With_User_Info.PureData > userData.outhouse_Establish_Info.DataAnalysisMaxSolt * 20 && userData.item_With_User_Info.PureData > userData.item_With_User_Info.originalData) return 1;
             return -1;
         }
         private void DataAnalysisStartRead(string result)
@@ -227,7 +227,7 @@ namespace GFHelp.Core.MulitePlayerData
             JsonData jsonData = JsonMapper.ToObject(result);
             jsonData = jsonData["data"];
             int id = 1000;
-            for(int i = 0; i < jsonData.Count; i++)
+            for (int i = 0; i < jsonData.Count; i++)
             {
                 Read(id++,jsonData[i].Int);
             }

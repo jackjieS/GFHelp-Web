@@ -753,3 +753,248 @@ Parameter name: buffer
 【00:00:17】      message = LoginDigitalSKY , exception = {"result":60118,"msg":"telphone doesnot exsit."}
 【00:00:55】      message = LoginDigitalSKY , exception = {"result":60118,"msg":"telphone doesnot exsit."}
 【00:01:42】      message = LoginDigitalSKY , exception = {"result":60118,"msg":"telphone doesnot exsit."}
+【21:11:48】      message = 调用作战dll文件出错 , exception = System.Reflection.TargetInvocationException: Exception has been thrown by the target of an invocation. ---> System.NullReferenceException: Object reference not set to an instance of an object.
+   at GFHelp.Mission.Simulation.seedmap(UserData userData, Int32 teamID)
+   at GFHelp.Mission.Simulation.Startmap(UserData userData, mapcorridor& map, Normal_MissionInfo& normal_MissionInfo)
+   at GFHelp.Mission.Simulation.mapcorridor(UserData userData)
+   --- End of inner exception stack trace ---
+   at System.RuntimeMethodHandle.InvokeMethod(Object target, Object[] arguments, Signature sig, Boolean constructor, Boolean wrapExceptions)
+   at System.Reflection.RuntimeMethodInfo.Invoke(Object obj, BindingFlags invokeAttr, Binder binder, Object[] parameters, CultureInfo culture)
+   at System.Reflection.MethodBase.Invoke(Object obj, Object[] parameters)
+   at GFHelp.Core.Action.Mission.corridor(UserData userData) in C:\Users\jack\Desktop\CS\GFHelp-Web\GFHelp.Core\Action\Battle\Loop.cs:line 89
+【21:11:48】      message = 调用作战dll文件出错 , exception = System.Reflection.TargetInvocationException: Exception has been thrown by the target of an invocation. ---> System.NullReferenceException: Object reference not set to an instance of an object.
+   at GFHelp.Mission.Simulation.seedmap(UserData userData, Int32 teamID)
+   at GFHelp.Mission.Simulation.Startmap(UserData userData, mapcorridor& map, Normal_MissionInfo& normal_MissionInfo)
+   at GFHelp.Mission.Simulation.mapcorridor(UserData userData)
+   --- End of inner exception stack trace ---
+   at System.RuntimeMethodHandle.InvokeMethod(Object target, Object[] arguments, Signature sig, Boolean constructor, Boolean wrapExceptions)
+   at System.Reflection.RuntimeMethodInfo.Invoke(Object obj, BindingFlags invokeAttr, Binder binder, Object[] parameters, CultureInfo culture)
+   at System.Reflection.MethodBase.Invoke(Object obj, Object[] parameters)
+   at GFHelp.Core.Action.Mission.corridor(UserData userData) in C:\Users\jack\Desktop\CS\GFHelp-Web\GFHelp.Core\Action\Battle\Loop.cs:line 89
+【21:11:51】      message = 调用作战dll文件出错 , exception = System.Reflection.TargetInvocationException: Exception has been thrown by the target of an invocation. ---> System.NullReferenceException: Object reference not set to an instance of an object.
+   at GFHelp.Mission.Simulation.seedmap(UserData userData, Int32 teamID)
+   at GFHelp.Mission.Simulation.Startmap(UserData userData, mapcorridor& map, Normal_MissionInfo& normal_MissionInfo)
+   at GFHelp.Mission.Simulation.mapcorridor(UserData userData)
+   --- End of inner exception stack trace ---
+   at System.RuntimeMethodHandle.InvokeMethod(Object target, Object[] arguments, Signature sig, Boolean constructor, Boolean wrapExceptions)
+   at System.Reflection.RuntimeMethodInfo.Invoke(Object obj, BindingFlags invokeAttr, Binder binder, Object[] parameters, CultureInfo culture)
+   at System.Reflection.MethodBase.Invoke(Object obj, Object[] parameters)
+   at GFHelp.Core.Action.Mission.corridor(UserData userData) in C:\Users\jack\Desktop\CS\GFHelp-Web\GFHelp.Core\Action\Battle\Loop.cs:line 89
+【21:11:51】      message = 调用作战dll文件出错 , exception = System.Reflection.TargetInvocationException: Exception has been thrown by the target of an invocation. ---> System.NullReferenceException: Object reference not set to an instance of an object.
+   at GFHelp.Mission.Simulation.seedmap(UserData userData, Int32 teamID)
+   at GFHelp.Mission.Simulation.Startmap(UserData userData, mapcorridor& map, Normal_MissionInfo& normal_MissionInfo)
+   at GFHelp.Mission.Simulation.mapcorridor(UserData userData)
+   --- End of inner exception stack trace ---
+   at System.RuntimeMethodHandle.InvokeMethod(Object target, Object[] arguments, Signature sig, Boolean constructor, Boolean wrapExceptions)
+   at System.Reflection.RuntimeMethodInfo.Invoke(Object obj, BindingFlags invokeAttr, Binder binder, Object[] parameters, CultureInfo culture)
+   at System.Reflection.MethodBase.Invoke(Object obj, Object[] parameters)
+   at GFHelp.Core.Action.Mission.corridor(UserData userData) in C:\Users\jack\Desktop\CS\GFHelp-Web\GFHelp.Core\Action\Battle\Loop.cs:line 89
+【21:16:47】      message = DecodeAndMapJson , exception = System.FormatException: Input string was not in a correct format.
+   at System.Number.StringToNumber(ReadOnlySpan`1 str, NumberStyles options, NumberBuffer& number, NumberFormatInfo info, Boolean parseDecimal)
+   at System.Number.ParseInt64(ReadOnlySpan`1 value, NumberStyles options, NumberFormatInfo numfmt)
+   at System.Int64.Parse(String s)
+   at AC.AuthCode.DecodeWithGzip(String source, String key, Int32 expiry)
+   at AC.AuthCode.DecodeWithGzip(String source, String key)
+   at GFHelp.Core.Helper.Decrypt.DecodeAndMapJson(GameAccount gameAccount, String wwwText) in C:\Users\jack\Desktop\CS\GFHelp-Web\GFHelp.Core\Helper\Decrypt.cs:line 60
+【21:17:08】      message = 调用作战dll文件出错 , exception = System.Reflection.TargetInvocationException: Exception has been thrown by the target of an invocation. ---> System.NullReferenceException: Object reference not set to an instance of an object.
+   at GFHelp.Mission.Simulation.seedmap(UserData userData, Int32 teamID)
+   at GFHelp.Mission.Simulation.Startmap(UserData userData, mapcorridor& map, Normal_MissionInfo& normal_MissionInfo)
+   at GFHelp.Mission.Simulation.mapcorridor(UserData userData)
+   --- End of inner exception stack trace ---
+   at System.RuntimeMethodHandle.InvokeMethod(Object target, Object[] arguments, Signature sig, Boolean constructor, Boolean wrapExceptions)
+   at System.Reflection.RuntimeMethodInfo.Invoke(Object obj, BindingFlags invokeAttr, Binder binder, Object[] parameters, CultureInfo culture)
+   at System.Reflection.MethodBase.Invoke(Object obj, Object[] parameters)
+   at GFHelp.Core.Action.Mission.corridor(UserData userData) in C:\Users\jack\Desktop\CS\GFHelp-Web\GFHelp.Core\Action\Battle\Loop.cs:line 89
+【21:17:08】      message = 调用作战dll文件出错 , exception = System.Reflection.TargetInvocationException: Exception has been thrown by the target of an invocation. ---> System.NullReferenceException: Object reference not set to an instance of an object.
+   at GFHelp.Mission.Simulation.seedmap(UserData userData, Int32 teamID)
+   at GFHelp.Mission.Simulation.Startmap(UserData userData, mapcorridor& map, Normal_MissionInfo& normal_MissionInfo)
+   at GFHelp.Mission.Simulation.mapcorridor(UserData userData)
+   --- End of inner exception stack trace ---
+   at System.RuntimeMethodHandle.InvokeMethod(Object target, Object[] arguments, Signature sig, Boolean constructor, Boolean wrapExceptions)
+   at System.Reflection.RuntimeMethodInfo.Invoke(Object obj, BindingFlags invokeAttr, Binder binder, Object[] parameters, CultureInfo culture)
+   at System.Reflection.MethodBase.Invoke(Object obj, Object[] parameters)
+   at GFHelp.Core.Action.Mission.corridor(UserData userData) in C:\Users\jack\Desktop\CS\GFHelp-Web\GFHelp.Core\Action\Battle\Loop.cs:line 89
+【21:17:49】      message = 调用作战dll文件出错 , exception = System.Reflection.TargetInvocationException: Exception has been thrown by the target of an invocation. ---> System.NullReferenceException: Object reference not set to an instance of an object.
+   at GFHelp.Mission.Simulation.seedmap(UserData userData, Int32 teamID)
+   at GFHelp.Mission.Simulation.Startmap(UserData userData, mapcorridor& map, Normal_MissionInfo& normal_MissionInfo)
+   at GFHelp.Mission.Simulation.mapcorridor(UserData userData)
+   --- End of inner exception stack trace ---
+   at System.RuntimeMethodHandle.InvokeMethod(Object target, Object[] arguments, Signature sig, Boolean constructor, Boolean wrapExceptions)
+   at System.Reflection.RuntimeMethodInfo.Invoke(Object obj, BindingFlags invokeAttr, Binder binder, Object[] parameters, CultureInfo culture)
+   at System.Reflection.MethodBase.Invoke(Object obj, Object[] parameters)
+   at GFHelp.Core.Action.Mission.corridor(UserData userData) in C:\Users\jack\Desktop\CS\GFHelp-Web\GFHelp.Core\Action\Battle\Loop.cs:line 89
+【21:17:49】      message = 调用作战dll文件出错 , exception = System.Reflection.TargetInvocationException: Exception has been thrown by the target of an invocation. ---> System.NullReferenceException: Object reference not set to an instance of an object.
+   at GFHelp.Mission.Simulation.seedmap(UserData userData, Int32 teamID)
+   at GFHelp.Mission.Simulation.Startmap(UserData userData, mapcorridor& map, Normal_MissionInfo& normal_MissionInfo)
+   at GFHelp.Mission.Simulation.mapcorridor(UserData userData)
+   --- End of inner exception stack trace ---
+   at System.RuntimeMethodHandle.InvokeMethod(Object target, Object[] arguments, Signature sig, Boolean constructor, Boolean wrapExceptions)
+   at System.Reflection.RuntimeMethodInfo.Invoke(Object obj, BindingFlags invokeAttr, Binder binder, Object[] parameters, CultureInfo culture)
+   at System.Reflection.MethodBase.Invoke(Object obj, Object[] parameters)
+   at GFHelp.Core.Action.Mission.corridor(UserData userData) in C:\Users\jack\Desktop\CS\GFHelp-Web\GFHelp.Core\Action\Battle\Loop.cs:line 89
+【21:24:09】      message = 调用作战dll文件出错 , exception = System.Reflection.TargetInvocationException: Exception has been thrown by the target of an invocation. ---> System.NullReferenceException: Object reference not set to an instance of an object.
+   at GFHelp.Mission.Simulation.seedmap(UserData userData, Int32 teamID)
+   at GFHelp.Mission.Simulation.Startmap(UserData userData, mapcorridor& map, Normal_MissionInfo& normal_MissionInfo)
+   at GFHelp.Mission.Simulation.mapcorridor(UserData userData)
+   --- End of inner exception stack trace ---
+   at System.RuntimeMethodHandle.InvokeMethod(Object target, Object[] arguments, Signature sig, Boolean constructor, Boolean wrapExceptions)
+   at System.Reflection.RuntimeMethodInfo.Invoke(Object obj, BindingFlags invokeAttr, Binder binder, Object[] parameters, CultureInfo culture)
+   at System.Reflection.MethodBase.Invoke(Object obj, Object[] parameters)
+   at GFHelp.Core.Action.Mission.corridor(UserData userData) in C:\Users\jack\Desktop\CS\GFHelp-Web\GFHelp.Core\Action\Battle\Loop.cs:line 89
+【21:24:09】      message = 调用作战dll文件出错 , exception = System.Reflection.TargetInvocationException: Exception has been thrown by the target of an invocation. ---> System.NullReferenceException: Object reference not set to an instance of an object.
+   at GFHelp.Mission.Simulation.seedmap(UserData userData, Int32 teamID)
+   at GFHelp.Mission.Simulation.Startmap(UserData userData, mapcorridor& map, Normal_MissionInfo& normal_MissionInfo)
+   at GFHelp.Mission.Simulation.mapcorridor(UserData userData)
+   --- End of inner exception stack trace ---
+   at System.RuntimeMethodHandle.InvokeMethod(Object target, Object[] arguments, Signature sig, Boolean constructor, Boolean wrapExceptions)
+   at System.Reflection.RuntimeMethodInfo.Invoke(Object obj, BindingFlags invokeAttr, Binder binder, Object[] parameters, CultureInfo culture)
+   at System.Reflection.MethodBase.Invoke(Object obj, Object[] parameters)
+   at GFHelp.Core.Action.Mission.corridor(UserData userData) in C:\Users\jack\Desktop\CS\GFHelp-Web\GFHelp.Core\Action\Battle\Loop.cs:line 89
+【21:24:11】      message = 调用作战dll文件出错 , exception = System.Reflection.TargetInvocationException: Exception has been thrown by the target of an invocation. ---> System.NullReferenceException: Object reference not set to an instance of an object.
+   at GFHelp.Mission.Simulation.seedmap(UserData userData, Int32 teamID)
+   at GFHelp.Mission.Simulation.Startmap(UserData userData, mapcorridor& map, Normal_MissionInfo& normal_MissionInfo)
+   at GFHelp.Mission.Simulation.mapcorridor(UserData userData)
+   --- End of inner exception stack trace ---
+   at System.RuntimeMethodHandle.InvokeMethod(Object target, Object[] arguments, Signature sig, Boolean constructor, Boolean wrapExceptions)
+   at System.Reflection.RuntimeMethodInfo.Invoke(Object obj, BindingFlags invokeAttr, Binder binder, Object[] parameters, CultureInfo culture)
+   at System.Reflection.MethodBase.Invoke(Object obj, Object[] parameters)
+   at GFHelp.Core.Action.Mission.corridor(UserData userData) in C:\Users\jack\Desktop\CS\GFHelp-Web\GFHelp.Core\Action\Battle\Loop.cs:line 89
+【21:24:11】      message = 调用作战dll文件出错 , exception = System.Reflection.TargetInvocationException: Exception has been thrown by the target of an invocation. ---> System.NullReferenceException: Object reference not set to an instance of an object.
+   at GFHelp.Mission.Simulation.seedmap(UserData userData, Int32 teamID)
+   at GFHelp.Mission.Simulation.Startmap(UserData userData, mapcorridor& map, Normal_MissionInfo& normal_MissionInfo)
+   at GFHelp.Mission.Simulation.mapcorridor(UserData userData)
+   --- End of inner exception stack trace ---
+   at System.RuntimeMethodHandle.InvokeMethod(Object target, Object[] arguments, Signature sig, Boolean constructor, Boolean wrapExceptions)
+   at System.Reflection.RuntimeMethodInfo.Invoke(Object obj, BindingFlags invokeAttr, Binder binder, Object[] parameters, CultureInfo culture)
+   at System.Reflection.MethodBase.Invoke(Object obj, Object[] parameters)
+   at GFHelp.Core.Action.Mission.corridor(UserData userData) in C:\Users\jack\Desktop\CS\GFHelp-Web\GFHelp.Core\Action\Battle\Loop.cs:line 89
+【21:33:23】      message = 调用作战dll文件出错 , exception = System.Reflection.TargetInvocationException: Exception has been thrown by the target of an invocation. ---> System.NullReferenceException: Object reference not set to an instance of an object.
+   at GFHelp.Mission.Simulation.seedmap(UserData userData, Int32 teamID)
+   at GFHelp.Mission.Simulation.Startmap(UserData userData, mapcorridor& map, Normal_MissionInfo& normal_MissionInfo)
+   at GFHelp.Mission.Simulation.mapcorridor(UserData userData)
+   --- End of inner exception stack trace ---
+   at System.RuntimeMethodHandle.InvokeMethod(Object target, Object[] arguments, Signature sig, Boolean constructor, Boolean wrapExceptions)
+   at System.Reflection.RuntimeMethodInfo.Invoke(Object obj, BindingFlags invokeAttr, Binder binder, Object[] parameters, CultureInfo culture)
+   at System.Reflection.MethodBase.Invoke(Object obj, Object[] parameters)
+   at GFHelp.Core.Action.Mission.corridor(UserData userData) in C:\Users\jack\Desktop\CS\GFHelp-Web\GFHelp.Core\Action\Battle\Loop.cs:line 89
+【21:33:23】      message = 调用作战dll文件出错 , exception = System.Reflection.TargetInvocationException: Exception has been thrown by the target of an invocation. ---> System.NullReferenceException: Object reference not set to an instance of an object.
+   at GFHelp.Mission.Simulation.seedmap(UserData userData, Int32 teamID)
+   at GFHelp.Mission.Simulation.Startmap(UserData userData, mapcorridor& map, Normal_MissionInfo& normal_MissionInfo)
+   at GFHelp.Mission.Simulation.mapcorridor(UserData userData)
+   --- End of inner exception stack trace ---
+   at System.RuntimeMethodHandle.InvokeMethod(Object target, Object[] arguments, Signature sig, Boolean constructor, Boolean wrapExceptions)
+   at System.Reflection.RuntimeMethodInfo.Invoke(Object obj, BindingFlags invokeAttr, Binder binder, Object[] parameters, CultureInfo culture)
+   at System.Reflection.MethodBase.Invoke(Object obj, Object[] parameters)
+   at GFHelp.Core.Action.Mission.corridor(UserData userData) in C:\Users\jack\Desktop\CS\GFHelp-Web\GFHelp.Core\Action\Battle\Loop.cs:line 89
+【21:33:32】      message = 调用作战dll文件出错 , exception = System.Reflection.TargetInvocationException: Exception has been thrown by the target of an invocation. ---> System.NullReferenceException: Object reference not set to an instance of an object.
+   at GFHelp.Mission.Simulation.seedmap(UserData userData, Int32 teamID)
+   at GFHelp.Mission.Simulation.Startmap(UserData userData, mapcorridor& map, Normal_MissionInfo& normal_MissionInfo)
+   at GFHelp.Mission.Simulation.mapcorridor(UserData userData)
+   --- End of inner exception stack trace ---
+   at System.RuntimeMethodHandle.InvokeMethod(Object target, Object[] arguments, Signature sig, Boolean constructor, Boolean wrapExceptions)
+   at System.Reflection.RuntimeMethodInfo.Invoke(Object obj, BindingFlags invokeAttr, Binder binder, Object[] parameters, CultureInfo culture)
+   at System.Reflection.MethodBase.Invoke(Object obj, Object[] parameters)
+   at GFHelp.Core.Action.Mission.corridor(UserData userData) in C:\Users\jack\Desktop\CS\GFHelp-Web\GFHelp.Core\Action\Battle\Loop.cs:line 89
+【21:33:32】      message = 调用作战dll文件出错 , exception = System.Reflection.TargetInvocationException: Exception has been thrown by the target of an invocation. ---> System.NullReferenceException: Object reference not set to an instance of an object.
+   at GFHelp.Mission.Simulation.seedmap(UserData userData, Int32 teamID)
+   at GFHelp.Mission.Simulation.Startmap(UserData userData, mapcorridor& map, Normal_MissionInfo& normal_MissionInfo)
+   at GFHelp.Mission.Simulation.mapcorridor(UserData userData)
+   --- End of inner exception stack trace ---
+   at System.RuntimeMethodHandle.InvokeMethod(Object target, Object[] arguments, Signature sig, Boolean constructor, Boolean wrapExceptions)
+   at System.Reflection.RuntimeMethodInfo.Invoke(Object obj, BindingFlags invokeAttr, Binder binder, Object[] parameters, CultureInfo culture)
+   at System.Reflection.MethodBase.Invoke(Object obj, Object[] parameters)
+   at GFHelp.Core.Action.Mission.corridor(UserData userData) in C:\Users\jack\Desktop\CS\GFHelp-Web\GFHelp.Core\Action\Battle\Loop.cs:line 89
+【21:36:00】      message = 调用作战dll文件出错 , exception = System.Reflection.TargetInvocationException: Exception has been thrown by the target of an invocation. ---> System.NullReferenceException: Object reference not set to an instance of an object.
+   at GFHelp.Mission.Simulation.seedmap(UserData userData, Int32 teamID)
+   at GFHelp.Mission.Simulation.Startmap(UserData userData, mapcorridor& map, Normal_MissionInfo& normal_MissionInfo)
+   at GFHelp.Mission.Simulation.mapcorridor(UserData userData)
+   --- End of inner exception stack trace ---
+   at System.RuntimeMethodHandle.InvokeMethod(Object target, Object[] arguments, Signature sig, Boolean constructor, Boolean wrapExceptions)
+   at System.Reflection.RuntimeMethodInfo.Invoke(Object obj, BindingFlags invokeAttr, Binder binder, Object[] parameters, CultureInfo culture)
+   at System.Reflection.MethodBase.Invoke(Object obj, Object[] parameters)
+   at GFHelp.Core.Action.Mission.corridor(UserData userData) in C:\Users\jack\Desktop\CS\GFHelp-Web\GFHelp.Core\Action\Battle\Loop.cs:line 89
+【21:36:00】      message = 调用作战dll文件出错 , exception = System.Reflection.TargetInvocationException: Exception has been thrown by the target of an invocation. ---> System.NullReferenceException: Object reference not set to an instance of an object.
+   at GFHelp.Mission.Simulation.seedmap(UserData userData, Int32 teamID)
+   at GFHelp.Mission.Simulation.Startmap(UserData userData, mapcorridor& map, Normal_MissionInfo& normal_MissionInfo)
+   at GFHelp.Mission.Simulation.mapcorridor(UserData userData)
+   --- End of inner exception stack trace ---
+   at System.RuntimeMethodHandle.InvokeMethod(Object target, Object[] arguments, Signature sig, Boolean constructor, Boolean wrapExceptions)
+   at System.Reflection.RuntimeMethodInfo.Invoke(Object obj, BindingFlags invokeAttr, Binder binder, Object[] parameters, CultureInfo culture)
+   at System.Reflection.MethodBase.Invoke(Object obj, Object[] parameters)
+   at GFHelp.Core.Action.Mission.corridor(UserData userData) in C:\Users\jack\Desktop\CS\GFHelp-Web\GFHelp.Core\Action\Battle\Loop.cs:line 89
+【21:36:03】      message = 调用作战dll文件出错 , exception = System.Reflection.TargetInvocationException: Exception has been thrown by the target of an invocation. ---> System.NullReferenceException: Object reference not set to an instance of an object.
+   at GFHelp.Mission.Simulation.seedmap(UserData userData, Int32 teamID)
+   at GFHelp.Mission.Simulation.Startmap(UserData userData, mapcorridor& map, Normal_MissionInfo& normal_MissionInfo)
+   at GFHelp.Mission.Simulation.mapcorridor(UserData userData)
+   --- End of inner exception stack trace ---
+   at System.RuntimeMethodHandle.InvokeMethod(Object target, Object[] arguments, Signature sig, Boolean constructor, Boolean wrapExceptions)
+   at System.Reflection.RuntimeMethodInfo.Invoke(Object obj, BindingFlags invokeAttr, Binder binder, Object[] parameters, CultureInfo culture)
+   at System.Reflection.MethodBase.Invoke(Object obj, Object[] parameters)
+   at GFHelp.Core.Action.Mission.corridor(UserData userData) in C:\Users\jack\Desktop\CS\GFHelp-Web\GFHelp.Core\Action\Battle\Loop.cs:line 89
+【21:36:03】      message = 调用作战dll文件出错 , exception = System.Reflection.TargetInvocationException: Exception has been thrown by the target of an invocation. ---> System.NullReferenceException: Object reference not set to an instance of an object.
+   at GFHelp.Mission.Simulation.seedmap(UserData userData, Int32 teamID)
+   at GFHelp.Mission.Simulation.Startmap(UserData userData, mapcorridor& map, Normal_MissionInfo& normal_MissionInfo)
+   at GFHelp.Mission.Simulation.mapcorridor(UserData userData)
+   --- End of inner exception stack trace ---
+   at System.RuntimeMethodHandle.InvokeMethod(Object target, Object[] arguments, Signature sig, Boolean constructor, Boolean wrapExceptions)
+   at System.Reflection.RuntimeMethodInfo.Invoke(Object obj, BindingFlags invokeAttr, Binder binder, Object[] parameters, CultureInfo culture)
+   at System.Reflection.MethodBase.Invoke(Object obj, Object[] parameters)
+   at GFHelp.Core.Action.Mission.corridor(UserData userData) in C:\Users\jack\Desktop\CS\GFHelp-Web\GFHelp.Core\Action\Battle\Loop.cs:line 89
+【00:28:27】      message = 调用作战dll文件出错 , exception = System.Reflection.TargetInvocationException: Exception has been thrown by the target of an invocation. ---> System.NullReferenceException: Object reference not set to an instance of an object.
+   at GFHelp.Mission.Simulation.seedmap(UserData userData, Int32 teamID)
+   at GFHelp.Mission.Simulation.Startmap(UserData userData, mapcorridor& map, Normal_MissionInfo& normal_MissionInfo)
+   at GFHelp.Mission.Simulation.mapcorridor(UserData userData)
+   --- End of inner exception stack trace ---
+   at System.RuntimeMethodHandle.InvokeMethod(Object target, Object[] arguments, Signature sig, Boolean constructor, Boolean wrapExceptions)
+   at System.Reflection.RuntimeMethodInfo.Invoke(Object obj, BindingFlags invokeAttr, Binder binder, Object[] parameters, CultureInfo culture)
+   at System.Reflection.MethodBase.Invoke(Object obj, Object[] parameters)
+   at GFHelp.Core.Action.Mission.corridor(UserData userData) in C:\Users\jack\Desktop\CS\GFHelp-Web\GFHelp.Core\Action\Battle\Loop.cs:line 89
+【00:28:27】      message = 调用作战dll文件出错 , exception = System.Reflection.TargetInvocationException: Exception has been thrown by the target of an invocation. ---> System.NullReferenceException: Object reference not set to an instance of an object.
+   at GFHelp.Mission.Simulation.seedmap(UserData userData, Int32 teamID)
+   at GFHelp.Mission.Simulation.Startmap(UserData userData, mapcorridor& map, Normal_MissionInfo& normal_MissionInfo)
+   at GFHelp.Mission.Simulation.mapcorridor(UserData userData)
+   --- End of inner exception stack trace ---
+   at System.RuntimeMethodHandle.InvokeMethod(Object target, Object[] arguments, Signature sig, Boolean constructor, Boolean wrapExceptions)
+   at System.Reflection.RuntimeMethodInfo.Invoke(Object obj, BindingFlags invokeAttr, Binder binder, Object[] parameters, CultureInfo culture)
+   at System.Reflection.MethodBase.Invoke(Object obj, Object[] parameters)
+   at GFHelp.Core.Action.Mission.corridor(UserData userData) in C:\Users\jack\Desktop\CS\GFHelp-Web\GFHelp.Core\Action\Battle\Loop.cs:line 89
+【00:29:17】      message = 调用作战dll文件出错 , exception = System.Reflection.TargetInvocationException: Exception has been thrown by the target of an invocation. ---> System.NullReferenceException: Object reference not set to an instance of an object.
+   at GFHelp.Mission.Simulation.seedmap(UserData userData, Int32 teamID)
+   at GFHelp.Mission.Simulation.Startmap(UserData userData, mapcorridor& map, Normal_MissionInfo& normal_MissionInfo)
+   at GFHelp.Mission.Simulation.mapcorridor(UserData userData)
+   --- End of inner exception stack trace ---
+   at System.RuntimeMethodHandle.InvokeMethod(Object target, Object[] arguments, Signature sig, Boolean constructor, Boolean wrapExceptions)
+   at System.Reflection.RuntimeMethodInfo.Invoke(Object obj, BindingFlags invokeAttr, Binder binder, Object[] parameters, CultureInfo culture)
+   at System.Reflection.MethodBase.Invoke(Object obj, Object[] parameters)
+   at GFHelp.Core.Action.Mission.corridor(UserData userData) in C:\Users\jack\Desktop\CS\GFHelp-Web\GFHelp.Core\Action\Battle\Loop.cs:line 89
+【00:29:17】      message = 调用作战dll文件出错 , exception = System.Reflection.TargetInvocationException: Exception has been thrown by the target of an invocation. ---> System.NullReferenceException: Object reference not set to an instance of an object.
+   at GFHelp.Mission.Simulation.seedmap(UserData userData, Int32 teamID)
+   at GFHelp.Mission.Simulation.Startmap(UserData userData, mapcorridor& map, Normal_MissionInfo& normal_MissionInfo)
+   at GFHelp.Mission.Simulation.mapcorridor(UserData userData)
+   --- End of inner exception stack trace ---
+   at System.RuntimeMethodHandle.InvokeMethod(Object target, Object[] arguments, Signature sig, Boolean constructor, Boolean wrapExceptions)
+   at System.Reflection.RuntimeMethodInfo.Invoke(Object obj, BindingFlags invokeAttr, Binder binder, Object[] parameters, CultureInfo culture)
+   at System.Reflection.MethodBase.Invoke(Object obj, Object[] parameters)
+   at GFHelp.Core.Action.Mission.corridor(UserData userData) in C:\Users\jack\Desktop\CS\GFHelp-Web\GFHelp.Core\Action\Battle\Loop.cs:line 89
+【00:29:34】      message = 调用作战dll文件出错 , exception = System.Reflection.TargetInvocationException: Exception has been thrown by the target of an invocation. ---> System.NullReferenceException: Object reference not set to an instance of an object.
+   at GFHelp.Mission.Simulation.seedmap(UserData userData, Int32 teamID)
+   at GFHelp.Mission.Simulation.Startmap(UserData userData, mapcorridor& map, Normal_MissionInfo& normal_MissionInfo)
+   at GFHelp.Mission.Simulation.mapcorridor(UserData userData)
+   --- End of inner exception stack trace ---
+   at System.RuntimeMethodHandle.InvokeMethod(Object target, Object[] arguments, Signature sig, Boolean constructor, Boolean wrapExceptions)
+   at System.Reflection.RuntimeMethodInfo.Invoke(Object obj, BindingFlags invokeAttr, Binder binder, Object[] parameters, CultureInfo culture)
+   at System.Reflection.MethodBase.Invoke(Object obj, Object[] parameters)
+   at GFHelp.Core.Action.Mission.corridor(UserData userData) in C:\Users\jack\Desktop\CS\GFHelp-Web\GFHelp.Core\Action\Battle\Loop.cs:line 89
+【00:29:34】      message = 调用作战dll文件出错 , exception = System.Reflection.TargetInvocationException: Exception has been thrown by the target of an invocation. ---> System.NullReferenceException: Object reference not set to an instance of an object.
+   at GFHelp.Mission.Simulation.seedmap(UserData userData, Int32 teamID)
+   at GFHelp.Mission.Simulation.Startmap(UserData userData, mapcorridor& map, Normal_MissionInfo& normal_MissionInfo)
+   at GFHelp.Mission.Simulation.mapcorridor(UserData userData)
+   --- End of inner exception stack trace ---
+   at System.RuntimeMethodHandle.InvokeMethod(Object target, Object[] arguments, Signature sig, Boolean constructor, Boolean wrapExceptions)
+   at System.Reflection.RuntimeMethodInfo.Invoke(Object obj, BindingFlags invokeAttr, Binder binder, Object[] parameters, CultureInfo culture)
+   at System.Reflection.MethodBase.Invoke(Object obj, Object[] parameters)
+   at GFHelp.Core.Action.Mission.corridor(UserData userData) in C:\Users\jack\Desktop\CS\GFHelp-Web\GFHelp.Core\Action\Battle\Loop.cs:line 89
+【18:37:30】      message = 解析sign出现错误 , exception = System.ArgumentNullException: Buffer cannot be null.
+Parameter name: buffer
+   at System.IO.MemoryStream..ctor(Byte[] buffer, Boolean writable)
+   at GFHelp.Core.Helper.Response.Check(GameAccount gameAccount, String& result, String type, Boolean need_decode) in C:\Users\jack\Desktop\CS\GFHelp-Web\GFHelp.Core\Helper\ResponseCheck.cs:line 50

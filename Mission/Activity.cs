@@ -1183,7 +1183,7 @@ namespace GFHelp.Mission
             Random random = new Random();
             int stepNum = 0; string result = "";
             string battledata;
-            Map_Controller.mapcte2_4 map = new Map_Controller.mapcte2_4(ubti);
+            mapcte2_4 map = new mapcte2_4(ubti);
 
 
             if (userData.battle.startMission(map.mission_id, map.Mission_Start_spots) == -1)
@@ -1192,6 +1192,7 @@ namespace GFHelp.Mission
                 //这里该怎么办呢
                 return;
             }
+            userData.battle.allyTeamAi(1, 0);
             userData.battle.teamMove(map.dic_TeamMove[stepNum++]);
             userData.battle.teamMove(map.dic_TeamMove[stepNum++]);
             userData.battle.teamMove(map.dic_TeamMove[stepNum++]);

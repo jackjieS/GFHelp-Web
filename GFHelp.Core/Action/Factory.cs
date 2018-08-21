@@ -342,7 +342,7 @@ namespace GFHelp.Core.Action
                 userData.gun_With_User_Info.dicGun_PowerUP[i].UpdateData();
                 return true;
             }
-
+            userData.normal_MissionInfo.AutoStrengthen = false;
             return false;
         }
 

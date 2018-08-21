@@ -119,3 +119,88 @@
    at System.Net.WebClient.UploadData(String address, String method, Byte[] data)
    at GFHelp.Core.API.BaseRequset.DoPost(String url, Byte[] postData) in C:\Users\jack\Desktop\CS\GFHelp-Web\GFHelp.Core\API\BaseRequset.cs:line 40
 【23:45:38】      message = 程序已注销 请重新创建实例 
+【01:11:12】      message = 数字天空登陆 , exception = 
+【01:11:13】      message = 获取时间信息 , exception = 
+【01:11:14】      message = 获取Sign , exception = 
+【01:11:15】      message = 获取UserInfo , exception = 
+【01:11:20】      message = 签到 , exception = 
+【01:11:20】      message = 查询新邮件 , exception = 
+【01:11:31】      message = 数字天空登陆 , exception = 
+【01:11:31】      message = 获取时间信息 , exception = 
+【01:11:32】      message = 获取Sign , exception = 
+【01:11:33】      message = 获取UserInfo , exception = 
+【01:11:41】      message = 签到 , exception = 
+【01:11:41】      message = 查询新邮件 , exception = 
+【01:11:43】      message = 数字天空登陆 , exception = 
+【01:11:43】      message = 获取时间信息 , exception = 
+【01:11:44】      message = 获取Sign , exception = 
+【01:11:45】      message = 获取UserInfo , exception = 
+【01:11:47】      message = #JrrZJv3KEKcWH71kaKUdEH9oQbnHuqmyNi5h6x/xNdJvw7s+zcabMza4u0lNwy4lPbuI+VNxPSnACtPu2a4PG4vhD25j9d4b7fSTooDFCF+9FXeqLskrQkvkAXqmkYZYybI 
+【01:11:53】      message = 签到 , exception = 
+【01:11:53】      message = 查询新邮件 , exception = 
+【01:11:55】      message = 数字天空登陆 , exception = 
+【01:11:55】      message = error:203|build_slot exceed error 
+【01:11:55】      message = 获取时间信息 , exception = 
+【01:11:56】      message = error:203|build_slot exceed error 
+【01:11:56】      message = 获取Sign , exception = 
+【01:11:56】      message = error:203|build_slot exceed error 
+【01:11:57】      message = 获取UserInfo , exception = 
+【01:11:57】      message = error:0 
+【01:11:58】      message = error:203|build_slot exceed error 
+【01:11:58】      message = error:203|build_slot exceed error 
+【01:11:59】      message = error:203|build_slot exceed error 
+【01:11:59】      message = 克羅諾 无法开始作战任务，请登陆游戏检查 
+【01:11:59】      message = mapctbox 完成 
+【01:12:00】      message = error:203|build_slot exceed error 
+【01:12:00】      message = error:203|build_slot exceed error 
+【01:12:01】      message = error:203|build_slot exceed error 
+【01:12:02】      message = error:203|param error 
+【01:12:02】      message = error:203|param error 
+【01:12:03】      message = error:203|param error 
+【01:12:04】      message = error:203|param error 
+【01:12:04】      message = error:203|param error 
+【01:12:05】      message = error:203|param error 
+【01:12:30】      message = error:203|param error 
+【01:12:39】      message = error:203|param error 
+【01:12:42】      message = error:203|param error 
+【01:13:16】      message = 数字天空登陆 , exception = 
+【01:13:18】      message = 获取时间信息 , exception = 
+【01:13:19】      message = 获取Sign , exception = 
+【01:13:20】      message = 获取UserInfo , exception = 
+【01:13:24】      message = 签到 , exception = 
+【01:13:24】      message = 查询新邮件 , exception = 
+【01:13:46】      message = 数字天空登陆 , exception = 
+【01:13:47】      message = 获取时间信息 , exception = 
+【01:13:47】      message = 获取Sign , exception = 
+【01:13:48】      message = 获取UserInfo , exception = 
+【01:13:57】      message = 签到 , exception = 
+【01:13:57】      message = 查询新邮件 , exception = 
+【01:13:58】      message = 数字天空登陆 , exception = 
+【01:13:59】      message = 获取时间信息 , exception = 
+【01:13:59】      message = 获取Sign , exception = 
+【01:14:00】      message = 获取UserInfo , exception = 
+【01:14:05】      message = 签到 , exception = 
+【01:14:05】      message = 查询新邮件 , exception = 
+【01:14:06】      message = 克羅諾 无法开始作战任务，请登陆游戏检查 
+【01:14:06】      message = mapctbox 完成 
+【01:26:03】      message = 数字天空登陆 , exception = 
+【01:26:05】      message = 获取时间信息 , exception = 
+【01:26:06】      message = 获取Sign , exception = 
+【01:26:07】      message = 获取UserInfo , exception = 
+【01:26:18】      message = 签到 , exception = 
+【01:26:18】      message = 查询新邮件 , exception = 
+【01:29:09】      message = 数字天空登陆 , exception = 
+【01:29:10】      message = 获取时间信息 , exception = 
+【01:29:10】      message = 获取Sign , exception = 
+【01:29:11】      message = 获取UserInfo , exception = 
+【01:29:21】      message = 签到 , exception = 
+【01:29:21】      message = 查询新邮件 , exception = 
+【01:29:38】      message = 数字天空登陆 , exception = 
+【01:29:38】      message = 获取时间信息 , exception = 
+【01:29:39】      message = 获取Sign , exception = 
+【01:29:40】      message = 获取UserInfo , exception = 
+【01:29:46】      message = 签到 , exception = 
+【01:29:46】      message = 查询新邮件 , exception = 
+【01:29:47】      message = 克羅諾 无法开始作战任务，请登陆游戏检查 
+【01:29:47】      message = mapctbox 完成 
+【01:30:19】      message = 程序已注销 请重新创建实例 

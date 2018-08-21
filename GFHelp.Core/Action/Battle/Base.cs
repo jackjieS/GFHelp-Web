@@ -172,6 +172,7 @@ namespace GFHelp.Core.Action.BattleBase
         public bool StopLoopinGetNew = true;
         public bool AutoCombine = true;
         public string Parm;
+        public bool AutoStrengthen = true;
         public Normal_MissionInfo()
         {
             this.Using = false;
@@ -638,7 +639,7 @@ namespace GFHelp.Core.Action.BattleBase
                 }
                 if (Day == 1 || Day == 6)
                 {
-                    return 3;
+                    return 1;
                 }
                 return 1;
             }

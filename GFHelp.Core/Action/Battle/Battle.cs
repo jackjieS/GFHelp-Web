@@ -64,7 +64,7 @@ namespace GFHelp.Core.Action
         public int startMission(int mission_id, Spot[] spots)
         {
             userData.webData.StatusBarText = "回合开始";
-
+            if (userData.normal_MissionInfo.Loop == false) return -1;
             Thread.Sleep(3000);
             int count = 0;
             dynamic newjson = new DynamicJson();
@@ -914,7 +914,7 @@ namespace GFHelp.Core.Action
             {
                 if (userData.gun_With_User_Info.dicGun.Count + SystemOthers.ConfigData.UpdateCache >= userData.user_Info.maxgun)
                 {
-                    if (userData.config.AutoStrengthen)
+                    if (userData.normal_MissionInfo.AutoStrengthen)
                     {
                         Factory.EatGunHandle(userData);
                         if (userData.others.Check_Equip_GUN_FULL())
@@ -925,7 +925,7 @@ namespace GFHelp.Core.Action
                         }
                         return;
                     }
-                    if (!userData.config.AutoStrengthen)
+                    if (!userData.normal_MissionInfo.AutoStrengthen)
                     {
                         Factory.Gun_retire(userData, 2);
                         Factory.Gun_retire(userData, 3);
