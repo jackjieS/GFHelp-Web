@@ -22,7 +22,7 @@ namespace GFHelp.Core.Helper
         public static int Check(GameAccount gameAccount,ref string result, string type, bool need_decode)
         {
             if (result == "") { return 0; }//
-            if (result.ToLower().Contains("error") ) { return -1; }//我也不知道return 什么好
+            if (result.ToLower().Contains("error") && result.Length < 20) { return -1; }//我也不知道return 什么好
             if (result.ToLower().Contains("err_msg") || result.ToLower().Contains("err_no")) return -1;
             if (need_decode)
             {
@@ -353,7 +353,7 @@ namespace GFHelp.Core.Helper
                 //GetUserInfo
                 case "GetUserInfo":
                     {
-                        return result.Contains("id") && result.Contains("gun") && result.Contains("user") ? 1 : 0;
+                        return result.Contains("id") && result.Contains("gem") ? 1 : 0;
                     }
 
                 case "endEnemyTurn_PRO":

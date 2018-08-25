@@ -3252,6 +3252,55 @@ namespace GFHelp.Mission
             public Dictionary<int, TeamMove> dic_TeamMove;
         }
 
+        public class mapcte2_15
+        {
+            public static MissionType missionType = MissionType.Activity;
+            public mapcte2_15(Normal_MissionInfo ubti)
+            {
+                dic_TeamMove = new Dictionary<int, TeamMove>();
+                dic_TeamMove.Add(dic_TeamMove.Count, teammove1);
+                dic_TeamMove.Add(dic_TeamMove.Count, teammove2);
+                dic_TeamMove.Add(dic_TeamMove.Count, teammove3);
+                dic_TeamMove.Add(dic_TeamMove.Count, teammove4);
+
+                dic_TeamMove.Add(dic_TeamMove.Count, teammove5);
+                dic_TeamMove.Add(dic_TeamMove.Count, teammove6);
+                dic_TeamMove.Add(dic_TeamMove.Count, teammove7);
+
+                dic_TeamMove.Add(dic_TeamMove.Count, teammove8);
+                dic_TeamMove.Add(dic_TeamMove.Count, teammove9);
+                Spots.Add(Spots.Count, spots1);
+                Spots.Add(Spots.Count, spots2);
+
+
+                Mission_Start_spots = new Spot[] { spots1, spots2 };
+                Function.init(dic_TeamMove, Spots, ubti);
+            }
+            public int mission_id = 10128;
+            public Dictionary<int, Spot> Spots = new Dictionary<int, Spot>();
+            public Spot spots1 = new Spot(7686, 0);//主力
+            public Spot spots2 = new Spot(7711, 1);//主力
+
+
+            public Spot[] Mission_Start_spots;
+
+            public TeamMove teammove1 = new TeamMove(7686, 7698, 1, 0);//注意两个点哦
+            public TeamMove teammove2 = new TeamMove(7698, 7687, 1, 0);
+            public TeamMove teammove3 = new TeamMove(7687, 7701, 1, 0);//注意两个点哦
+            public TeamMove teammove4 = new TeamMove(7701, 7696, 1, 0);
+
+            public TeamMove teammove5 = new TeamMove(7696, 7708, 1, 0);//注意两个点哦
+            public TeamMove teammove6 = new TeamMove(7708, 7688, 1, 0);
+
+            public TeamMove teammove7 = new TeamMove(7688, 8504, 1, 0);//注意两个点哦
+            public TeamMove teammove8 = new TeamMove(8504, 8519, 1, 0);
+
+            public TeamMove teammove9 = new TeamMove(8519, 7693, 1, 0);//注意两个点哦
+
+
+            public Dictionary<int, TeamMove> dic_TeamMove;
+        }
+
         public class mapcte1start
         {
             public static MissionType missionType = MissionType.Activity;

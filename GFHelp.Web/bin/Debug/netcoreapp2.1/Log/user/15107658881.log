@@ -155,3 +155,144 @@
 【01:09:17】      message = 鹿乃桑 无法开始作战任务，请登陆游戏检查 
 【01:09:17】      message = mapctbox 完成 
 【01:11:01】      message = 程序已注销 请重新创建实例 
+【01:31:39】      message = 数字天空登陆 , exception = 
+【01:31:39】      message = 获取时间信息 , exception = 
+【01:31:41】      message = 获取Sign , exception = 
+【01:31:42】      message = 获取UserInfo , exception = 
+【01:31:47】      message = 签到 , exception = 
+【01:31:48】      message = 查询新邮件 , exception = 
+【01:32:15】      message = 数字天空登陆 , exception = 
+【01:32:17】      message = 获取时间信息 , exception = 
+【01:32:17】      message = 获取Sign , exception = 
+【01:32:18】      message = 获取UserInfo , exception = 
+【01:32:22】      message = 签到 , exception = 
+【01:32:22】      message = 查询新邮件 , exception = 
+【01:32:23】      message = 终止作战 , exception = 
+【01:32:27】      message = #GOHZ6NrCpmTvO/lIxUvi84R2XEGTndPBcjx3wLKj1utkwIIpLnNHfNeiLiFG1tmTPIJAYNQP6YmZMBlZvwUhhWyF92VEVC8 
+【01:32:38】      message = 鹿乃桑 无法部署梯队，请登陆游戏检查 , exception = error:3
+【01:32:41】      message = endTurn Error , exception = error:3
+【01:32:46】      message = endEnemyTurn Error , exception = error:3
+【01:32:48】      message = startTurn Error , exception = error:3
+【01:32:51】      message = teamMove Error , exception = error:3
+【01:32:59】      message = teamMove Error , exception = error:3
+【01:33:02】      message = teamMove Error , exception = error:3
+【01:35:00】      message = 数字天空登陆 , exception = 
+【01:35:01】      message = 获取时间信息 , exception = 
+【01:35:02】      message = 获取Sign , exception = 
+【01:35:02】      message = 获取UserInfo , exception = 
+【01:35:05】      message = 签到 , exception = 
+【01:35:05】      message = 查询新邮件 , exception = 
+【01:35:15】      message = 数字天空登陆 , exception = 
+【01:35:15】      message = 获取时间信息 , exception = 
+【01:35:16】      message = 获取Sign , exception = 
+【01:35:17】      message = 获取UserInfo , exception = 
+【01:35:19】      message = Establish_Build_Start ERROR , exception = error:202|全局经验不够
+【01:35:20】      message = 签到 , exception = 
+【01:35:20】      message = 查询新邮件 , exception = 
+【01:35:24】      message = 鹿乃桑 无法开始作战任务，请登陆游戏检查 
+【01:35:24】      message = mapctbox 完成 
+【01:35:28】      message = 开始无限防御 Error TeamID = {0} , exception = 5
+【01:35:32】      message = 开始无限防御 Error TeamID = {0} , exception = 5
+【01:35:33】      message = 数字天空登陆 , exception = 
+【01:35:34】      message = 获取时间信息 , exception = 
+【01:35:35】      message = 获取Sign , exception = 
+【01:35:37】      message = 获取UserInfo , exception = 
+【01:35:40】      message = 签到 , exception = 
+【01:35:40】      message = 查询新邮件 , exception = 
+【01:35:45】      message = 开始无限防御 Error TeamID = {0} , exception = 5
+【01:35:50】      message = 开始无限防御 Error TeamID = {0} , exception = 5
+【01:35:54】      message = 开始无限防御 Error TeamID = {0} , exception = 5
+【01:44:23】      message = 数字天空登陆 , exception = 
+【01:44:24】      message = 获取时间信息 , exception = 
+【01:44:24】      message = 获取Sign , exception = 
+【01:44:25】      message = 获取UserInfo , exception = 
+【01:44:28】      message = 签到 , exception = 
+【01:44:28】      message = 查询新邮件 , exception = 
+【01:44:34】      message = 数字天空登陆 , exception = 
+【01:44:34】      message = 获取时间信息 , exception = 
+【01:44:35】      message = 获取Sign , exception = 
+【01:44:36】      message = 获取UserInfo , exception = 
+【01:44:40】      message = 签到 , exception = 
+【01:44:40】      message = 查询新邮件 , exception = 
+【01:44:41】      message = 鹿乃桑 无法开始作战任务，请登陆游戏检查 
+【01:44:41】      message = mapctbox 完成 
+【01:44:44】      message = 人形 : 5152798 扩编 
+【01:44:48】      message = 开始无限防御 Error TeamID = {0} , exception = 5
+【01:44:52】      message = 开始无限防御 Error TeamID = {0} , exception = 5
+【01:47:14】      message = 程序已注销 请重新创建实例 
+【00:39:58】      message = 数字天空登陆 , exception = 
+【00:40:02】      message = 获取时间信息 , exception = 
+【00:40:03】      message = 获取Sign , exception = 
+【00:40:07】      message = 获取UserInfo , exception = 
+【00:40:12】      message = 签到 , exception = 
+【00:40:12】      message = 查询新邮件 , exception = 
+【00:40:28】      message = 终止作战 , exception = 
+【00:40:40】      message = 数字天空登陆 , exception = 
+【00:40:41】      message = 获取时间信息 , exception = 
+【00:40:42】      message = 获取Sign , exception = 
+【00:40:43】      message = 获取UserInfo , exception = 
+【00:40:47】      message = 签到 , exception = 
+【00:40:47】      message = 查询新邮件 , exception = 
+【00:41:17】      message = endTurn Error , exception = error:2
+【00:41:22】      message = endEnemyTurn Error , exception = error:2
+【00:41:25】      message = startTurn Error , exception = error:2
+【00:41:28】      message = teamMove Error , exception = error:203|行动点数计算有误
+【00:41:36】      message = teamMove Error , exception = error:203|行动点数计算有误
+【00:41:39】      message = teamMove Error , exception = error:203|行动点数计算有误
+【00:41:55】      message = 数字天空登陆 , exception = 
+【00:41:56】      message = 获取时间信息 , exception = 
+【00:41:57】      message = 获取Sign , exception = 
+【00:41:58】      message = 获取UserInfo , exception = 
+【00:43:14】      message = 程序已注销 请重新创建实例 
+【00:46:28】      message = 数字天空登陆 , exception = 
+【00:46:29】      message = 获取时间信息 , exception = 
+【00:46:29】      message = 获取Sign , exception = 
+【00:46:30】      message = 获取UserInfo , exception = 
+【00:46:38】      message = 签到 , exception = 
+【00:46:38】      message = 查询新邮件 , exception = 
+【00:46:39】      message = 终止作战 , exception = 
+【00:46:46】      message = 开始无限防御 Error TeamID = {0} , exception = 5
+【00:49:42】      message = 数字天空登陆 , exception = 
+【00:49:44】      message = 获取时间信息 , exception = 
+【00:49:45】      message = 获取Sign , exception = 
+【00:49:46】      message = 获取UserInfo , exception = 
+【00:49:51】      message = 签到 , exception = 
+【00:49:51】      message = 查询新邮件 , exception = 
+【00:50:10】      message = 数字天空登陆 , exception = 
+【00:50:10】      message = 获取时间信息 , exception = 
+【00:50:11】      message = 获取Sign , exception = 
+【00:50:12】      message = 获取UserInfo , exception = 
+【00:50:18】      message = 签到 , exception = 
+【00:50:18】      message = 查询新邮件 , exception = 
+【00:50:19】      message = 鹿乃桑 无法开始作战任务，请登陆游戏检查 
+【00:50:19】      message = mapctbox 完成 
+【00:50:24】      message = 开始无限防御 Error TeamID = {0} , exception = 5
+【00:50:29】      message = 开始无限防御 Error TeamID = {0} , exception = 5
+【00:53:06】      message = 程序已注销 请重新创建实例 
+【01:31:33】      message = 数字天空登陆 , exception = 
+【01:31:34】      message = 获取时间信息 , exception = 
+【01:31:34】      message = 获取Sign , exception = 
+【01:31:44】      message = 获取UserInfo , exception = 
+【01:31:48】      message = 签到 , exception = 
+【01:31:48】      message = 查询新邮件 , exception = 
+【01:34:58】      message = 数字天空登陆 , exception = 
+【01:34:59】      message = 获取时间信息 , exception = 
+【01:34:59】      message = 获取Sign , exception = 
+【01:35:00】      message = 获取UserInfo , exception = 
+【01:35:03】      message = 签到 , exception = 
+【01:35:03】      message = 查询新邮件 , exception = 
+【01:35:15】      message = 数字天空登陆 , exception = 
+【01:35:17】      message = 获取时间信息 , exception = 
+【01:35:17】      message = 获取Sign , exception = 
+【01:35:18】      message = 获取UserInfo , exception = 
+【01:35:21】      message = 签到 , exception = 
+【01:35:21】      message = 查询新邮件 , exception = 
+【01:35:22】      message = 鹿乃桑 无法开始作战任务，请登陆游戏检查 
+【01:35:22】      message = mapctbox 完成 
+【01:35:23】      message = 数字天空登陆 , exception = 
+【01:35:24】      message = 获取时间信息 , exception = 
+【01:35:25】      message = 获取Sign , exception = 
+【01:35:25】      message = 获取UserInfo , exception = 
+【01:35:28】      message = 签到 , exception = 
+【01:35:28】      message = 查询新邮件 , exception = 
+【01:43:10】      message = 程序已注销 请重新创建实例 

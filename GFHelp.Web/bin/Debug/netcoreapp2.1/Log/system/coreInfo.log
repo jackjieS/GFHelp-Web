@@ -4261,3 +4261,370 @@ Parameter name: buffer
    at LitJson.JsonData.get_Item(String prop_name)
    at GFHelp.Core.MulitePlayerData.Chip_With_User_Info.Data..ctor(JsonData jsonData, UserData userData) in C:\Users\jack\Desktop\CS\GFHelp-Web\GFHelp.Core\MulitePlayerData\UserData\chip_with_user_info.cs:line 67
    at GFHelp.Core.MulitePlayerData.SquadDataAnalysisAction.DataAnalysisFinishRead(String result) in C:\Users\jack\Desktop\CS\GFHelp-Web\GFHelp.Core\MulitePlayerData\UserData\SquadDataAnalysisAction.cs:line 121
+【00:59:11】      message = 读取config配置 
+【00:59:11】      message = 读取文字解析 
+【00:59:11】      message = updataCatchData 
+【00:59:14】      message = stcSquad_standard_attributionList 解析完成：9 
+【00:59:14】      message = stcItemList 解析完成：411 
+【00:59:14】      message = stcGunList 解析完成：283 
+【00:59:14】      message = stcSquadList 解析完成：3 
+【00:59:14】      message = stcSquad_chipList 解析完成：28 
+【00:59:14】      message = stcSquad_typeList 解析完成：3 
+【00:59:14】      message = stcSquad_rankList 解析完成：5 
+【00:59:14】      message = stcSquad_expList 解析完成：100 
+【00:59:14】      message = stcSquad_chip_expList 解析完成：20 
+【00:59:14】      message = stcSquad_data_dailyList 解析完成：14 
+【00:59:14】      message = stcBattle_skill_configList 解析完成：4454 
+【00:59:14】      message = stcSquad_advanced_bonusList 解析完成：30 
+【00:59:14】      message = stcSquad_cpuList 解析完成：3 
+【00:59:14】      message = stcSquad_colorList 解析完成：2 
+【00:59:14】      message = stcSquad_gridList 解析完成：59 
+【00:59:14】      message = stcSquad_cpu_completionList 解析完成：15 
+【00:59:14】      message = 引用作战dll 
+【01:28:03】      message = chip_with_user_info Error  , exception = System.InvalidOperationException: Instance of JsonData is not a dictionary
+   at LitJson.JsonData.EnsureDictionary()
+   at LitJson.JsonData.get_Item(String prop_name)
+   at GFHelp.Core.MulitePlayerData.Chip_With_User_Info.Data..ctor(JsonData jsonData, UserData userData) in C:\Users\jack\Desktop\CS\GFHelp-Web\GFHelp.Core\MulitePlayerData\UserData\chip_with_user_info.cs:line 67
+   at GFHelp.Core.MulitePlayerData.SquadDataAnalysisAction.DataAnalysisFinishRead(String result) in C:\Users\jack\Desktop\CS\GFHelp-Web\GFHelp.Core\MulitePlayerData\UserData\SquadDataAnalysisAction.cs:line 121
+【21:13:42】      message = 读取config配置 
+【21:13:42】      message = 读取文字解析 
+【21:13:42】      message = updataCatchData 
+【21:15:05】      message = 读取config配置 
+【21:15:05】      message = 读取文字解析 
+【21:15:05】      message = updataCatchData 
+【21:15:09】      message = 引用作战dll 
+【21:15:11】      message = stcSquad_standard_attributionList 解析完成：9 
+【21:15:11】      message = stcItemList 解析完成：423 
+【21:15:11】      message = stcGunList 解析完成：284 
+【21:15:11】      message = stcSquadList 解析完成：3 
+【21:15:11】      message = stcSquad_chipList 解析完成：28 
+【21:15:11】      message = stcSquad_typeList 解析完成：3 
+【21:15:11】      message = stcSquad_rankList 解析完成：5 
+【21:15:11】      message = stcSquad_expList 解析完成：100 
+【21:15:11】      message = stcSquad_chip_expList 解析完成：20 
+【21:15:11】      message = stcSquad_data_dailyList 解析完成：14 
+【21:15:11】      message = stcBattle_skill_configList 解析完成：4454 
+【21:15:11】      message = stcSquad_advanced_bonusList 解析完成：30 
+【21:15:11】      message = stcSquad_cpuList 解析完成：3 
+【21:15:11】      message = stcSquad_colorList 解析完成：2 
+【21:15:11】      message = stcSquad_gridList 解析完成：59 
+【21:15:11】      message = stcSquad_cpu_completionList 解析完成：15 
+【21:19:59】      message = 读取config配置 
+【21:19:59】      message = 读取文字解析 
+【21:19:59】      message = updataCatchData 
+【21:20:02】      message = stcSquad_standard_attributionList 解析完成：9 
+【21:20:02】      message = stcItemList 解析完成：423 
+【21:20:02】      message = stcGunList 解析完成：284 
+【21:20:02】      message = stcSquadList 解析完成：3 
+【21:20:02】      message = stcSquad_chipList 解析完成：28 
+【21:20:02】      message = stcSquad_typeList 解析完成：3 
+【21:20:02】      message = stcSquad_rankList 解析完成：5 
+【21:20:02】      message = stcSquad_expList 解析完成：100 
+【21:20:02】      message = stcSquad_chip_expList 解析完成：20 
+【21:20:02】      message = stcSquad_data_dailyList 解析完成：14 
+【21:20:02】      message = stcBattle_skill_configList 解析完成：4454 
+【21:20:02】      message = stcSquad_advanced_bonusList 解析完成：30 
+【21:20:02】      message = stcSquad_cpuList 解析完成：3 
+【21:20:02】      message = stcSquad_colorList 解析完成：2 
+【21:20:02】      message = stcSquad_gridList 解析完成：59 
+【21:20:02】      message = stcSquad_cpu_completionList 解析完成：15 
+【21:20:02】      message = 引用作战dll 
+【23:00:14】      message = 读取config配置 
+【23:00:14】      message = 读取文字解析 
+【23:00:14】      message = updataCatchData 
+【23:00:17】      message = stcSquad_standard_attributionList 解析完成：9 
+【23:00:17】      message = stcItemList 解析完成：423 
+【23:00:17】      message = stcGunList 解析完成：284 
+【23:00:17】      message = stcSquadList 解析完成：3 
+【23:00:17】      message = stcSquad_chipList 解析完成：28 
+【23:00:17】      message = stcSquad_typeList 解析完成：3 
+【23:00:17】      message = stcSquad_rankList 解析完成：5 
+【23:00:17】      message = stcSquad_expList 解析完成：100 
+【23:00:17】      message = stcSquad_chip_expList 解析完成：20 
+【23:00:17】      message = stcSquad_data_dailyList 解析完成：14 
+【23:00:17】      message = stcBattle_skill_configList 解析完成：4454 
+【23:00:17】      message = stcSquad_advanced_bonusList 解析完成：30 
+【23:00:17】      message = stcSquad_cpuList 解析完成：3 
+【23:00:17】      message = stcSquad_colorList 解析完成：2 
+【23:00:17】      message = stcSquad_gridList 解析完成：59 
+【23:00:17】      message = stcSquad_cpu_completionList 解析完成：15 
+【23:00:17】      message = 引用作战dll 
+【23:04:44】      message = 调用作战dll文件出错 , exception = System.Reflection.TargetInvocationException: Exception has been thrown by the target of an invocation. ---> System.ArgumentOutOfRangeException: Index was out of range. Must be non-negative and less than the size of the collection.
+Parameter name: index
+   at System.Collections.Generic.List`1.get_Item(Int32 index)
+   at GFHelp.Mission.Map_Controller.Function.init(Dictionary`2 dic_TeamMove, Dictionary`2 spots, Normal_MissionInfo ubti)
+   at GFHelp.Mission.Map_Controller.mapcte2_9..ctor(Normal_MissionInfo ubti)
+   at GFHelp.Mission.Activity.mapcte2_9(UserData userData, Normal_MissionInfo ubti)
+   --- End of inner exception stack trace ---
+   at System.RuntimeMethodHandle.InvokeMethod(Object target, Object[] arguments, Signature sig, Boolean constructor, Boolean wrapExceptions)
+   at System.Reflection.RuntimeMethodInfo.Invoke(Object obj, BindingFlags invokeAttr, Binder binder, Object[] parameters, CultureInfo culture)
+   at System.Reflection.MethodBase.Invoke(Object obj, Object[] parameters)
+   at GFHelp.Core.Action.Mission.Test() in C:\Users\jack\Desktop\CS\GFHelp-Web\GFHelp.Core\Action\Battle\Loop.cs:line 61
+【23:04:44】      message = 调用作战dll文件出错 , exception = System.Reflection.TargetInvocationException: Exception has been thrown by the target of an invocation. ---> System.ArgumentOutOfRangeException: Index was out of range. Must be non-negative and less than the size of the collection.
+Parameter name: index
+   at System.Collections.Generic.List`1.get_Item(Int32 index)
+   at GFHelp.Mission.Map_Controller.Function.init(Dictionary`2 dic_TeamMove, Dictionary`2 spots, Normal_MissionInfo ubti)
+   at GFHelp.Mission.Map_Controller.mapcte2_9..ctor(Normal_MissionInfo ubti)
+   at GFHelp.Mission.Activity.mapcte2_9(UserData userData, Normal_MissionInfo ubti)
+   --- End of inner exception stack trace ---
+   at System.RuntimeMethodHandle.InvokeMethod(Object target, Object[] arguments, Signature sig, Boolean constructor, Boolean wrapExceptions)
+   at System.Reflection.RuntimeMethodInfo.Invoke(Object obj, BindingFlags invokeAttr, Binder binder, Object[] parameters, CultureInfo culture)
+   at System.Reflection.MethodBase.Invoke(Object obj, Object[] parameters)
+   at GFHelp.Core.Action.Mission.Test() in C:\Users\jack\Desktop\CS\GFHelp-Web\GFHelp.Core\Action\Battle\Loop.cs:line 61
+【23:04:58】      message = 调用作战dll文件出错 , exception = System.Reflection.TargetInvocationException: Exception has been thrown by the target of an invocation. ---> System.ArgumentOutOfRangeException: Index was out of range. Must be non-negative and less than the size of the collection.
+Parameter name: index
+   at System.Collections.Generic.List`1.get_Item(Int32 index)
+   at GFHelp.Mission.Map_Controller.Function.init(Dictionary`2 dic_TeamMove, Dictionary`2 spots, Normal_MissionInfo ubti)
+   at GFHelp.Mission.Map_Controller.mapcte2_9..ctor(Normal_MissionInfo ubti)
+   at GFHelp.Mission.Activity.mapcte2_9(UserData userData, Normal_MissionInfo ubti)
+   --- End of inner exception stack trace ---
+   at System.RuntimeMethodHandle.InvokeMethod(Object target, Object[] arguments, Signature sig, Boolean constructor, Boolean wrapExceptions)
+   at System.Reflection.RuntimeMethodInfo.Invoke(Object obj, BindingFlags invokeAttr, Binder binder, Object[] parameters, CultureInfo culture)
+   at System.Reflection.MethodBase.Invoke(Object obj, Object[] parameters)
+   at GFHelp.Core.Action.Mission.Test() in C:\Users\jack\Desktop\CS\GFHelp-Web\GFHelp.Core\Action\Battle\Loop.cs:line 61
+【23:04:58】      message = 调用作战dll文件出错 , exception = System.Reflection.TargetInvocationException: Exception has been thrown by the target of an invocation. ---> System.ArgumentOutOfRangeException: Index was out of range. Must be non-negative and less than the size of the collection.
+Parameter name: index
+   at System.Collections.Generic.List`1.get_Item(Int32 index)
+   at GFHelp.Mission.Map_Controller.Function.init(Dictionary`2 dic_TeamMove, Dictionary`2 spots, Normal_MissionInfo ubti)
+   at GFHelp.Mission.Map_Controller.mapcte2_9..ctor(Normal_MissionInfo ubti)
+   at GFHelp.Mission.Activity.mapcte2_9(UserData userData, Normal_MissionInfo ubti)
+   --- End of inner exception stack trace ---
+   at System.RuntimeMethodHandle.InvokeMethod(Object target, Object[] arguments, Signature sig, Boolean constructor, Boolean wrapExceptions)
+   at System.Reflection.RuntimeMethodInfo.Invoke(Object obj, BindingFlags invokeAttr, Binder binder, Object[] parameters, CultureInfo culture)
+   at System.Reflection.MethodBase.Invoke(Object obj, Object[] parameters)
+   at GFHelp.Core.Action.Mission.Test() in C:\Users\jack\Desktop\CS\GFHelp-Web\GFHelp.Core\Action\Battle\Loop.cs:line 61
+【23:05:38】      message = 调用作战dll文件出错 , exception = System.Reflection.TargetInvocationException: Exception has been thrown by the target of an invocation. ---> System.ArgumentOutOfRangeException: Index was out of range. Must be non-negative and less than the size of the collection.
+Parameter name: index
+   at System.Collections.Generic.List`1.get_Item(Int32 index)
+   at GFHelp.Mission.Map_Controller.Function.init(Dictionary`2 dic_TeamMove, Dictionary`2 spots, Normal_MissionInfo ubti)
+   at GFHelp.Mission.Map_Controller.mapcte2_9..ctor(Normal_MissionInfo ubti)
+   at GFHelp.Mission.Activity.mapcte2_9(UserData userData, Normal_MissionInfo ubti)
+   --- End of inner exception stack trace ---
+   at System.RuntimeMethodHandle.InvokeMethod(Object target, Object[] arguments, Signature sig, Boolean constructor, Boolean wrapExceptions)
+   at System.Reflection.RuntimeMethodInfo.Invoke(Object obj, BindingFlags invokeAttr, Binder binder, Object[] parameters, CultureInfo culture)
+   at System.Reflection.MethodBase.Invoke(Object obj, Object[] parameters)
+   at GFHelp.Core.Action.Mission.Test() in C:\Users\jack\Desktop\CS\GFHelp-Web\GFHelp.Core\Action\Battle\Loop.cs:line 61
+【23:05:38】      message = 调用作战dll文件出错 , exception = System.Reflection.TargetInvocationException: Exception has been thrown by the target of an invocation. ---> System.ArgumentOutOfRangeException: Index was out of range. Must be non-negative and less than the size of the collection.
+Parameter name: index
+   at System.Collections.Generic.List`1.get_Item(Int32 index)
+   at GFHelp.Mission.Map_Controller.Function.init(Dictionary`2 dic_TeamMove, Dictionary`2 spots, Normal_MissionInfo ubti)
+   at GFHelp.Mission.Map_Controller.mapcte2_9..ctor(Normal_MissionInfo ubti)
+   at GFHelp.Mission.Activity.mapcte2_9(UserData userData, Normal_MissionInfo ubti)
+   --- End of inner exception stack trace ---
+   at System.RuntimeMethodHandle.InvokeMethod(Object target, Object[] arguments, Signature sig, Boolean constructor, Boolean wrapExceptions)
+   at System.Reflection.RuntimeMethodInfo.Invoke(Object obj, BindingFlags invokeAttr, Binder binder, Object[] parameters, CultureInfo culture)
+   at System.Reflection.MethodBase.Invoke(Object obj, Object[] parameters)
+   at GFHelp.Core.Action.Mission.Test() in C:\Users\jack\Desktop\CS\GFHelp-Web\GFHelp.Core\Action\Battle\Loop.cs:line 61
+【23:05:55】      message = 调用作战dll文件出错 , exception = System.Reflection.TargetInvocationException: Exception has been thrown by the target of an invocation. ---> System.ArgumentOutOfRangeException: Index was out of range. Must be non-negative and less than the size of the collection.
+Parameter name: index
+   at System.Collections.Generic.List`1.get_Item(Int32 index)
+   at GFHelp.Mission.Map_Controller.Function.init(Dictionary`2 dic_TeamMove, Dictionary`2 spots, Normal_MissionInfo ubti)
+   at GFHelp.Mission.Map_Controller.mapcte2_9..ctor(Normal_MissionInfo ubti)
+   at GFHelp.Mission.Activity.mapcte2_9(UserData userData, Normal_MissionInfo ubti)
+   --- End of inner exception stack trace ---
+   at System.RuntimeMethodHandle.InvokeMethod(Object target, Object[] arguments, Signature sig, Boolean constructor, Boolean wrapExceptions)
+   at System.Reflection.RuntimeMethodInfo.Invoke(Object obj, BindingFlags invokeAttr, Binder binder, Object[] parameters, CultureInfo culture)
+   at System.Reflection.MethodBase.Invoke(Object obj, Object[] parameters)
+   at GFHelp.Core.Action.Mission.Test() in C:\Users\jack\Desktop\CS\GFHelp-Web\GFHelp.Core\Action\Battle\Loop.cs:line 61
+【23:05:55】      message = 调用作战dll文件出错 , exception = System.Reflection.TargetInvocationException: Exception has been thrown by the target of an invocation. ---> System.ArgumentOutOfRangeException: Index was out of range. Must be non-negative and less than the size of the collection.
+Parameter name: index
+   at System.Collections.Generic.List`1.get_Item(Int32 index)
+   at GFHelp.Mission.Map_Controller.Function.init(Dictionary`2 dic_TeamMove, Dictionary`2 spots, Normal_MissionInfo ubti)
+   at GFHelp.Mission.Map_Controller.mapcte2_9..ctor(Normal_MissionInfo ubti)
+   at GFHelp.Mission.Activity.mapcte2_9(UserData userData, Normal_MissionInfo ubti)
+   --- End of inner exception stack trace ---
+   at System.RuntimeMethodHandle.InvokeMethod(Object target, Object[] arguments, Signature sig, Boolean constructor, Boolean wrapExceptions)
+   at System.Reflection.RuntimeMethodInfo.Invoke(Object obj, BindingFlags invokeAttr, Binder binder, Object[] parameters, CultureInfo culture)
+   at System.Reflection.MethodBase.Invoke(Object obj, Object[] parameters)
+   at GFHelp.Core.Action.Mission.Test() in C:\Users\jack\Desktop\CS\GFHelp-Web\GFHelp.Core\Action\Battle\Loop.cs:line 61
+【23:06:08】      message = 调用作战dll文件出错 , exception = System.Reflection.TargetInvocationException: Exception has been thrown by the target of an invocation. ---> System.ArgumentOutOfRangeException: Index was out of range. Must be non-negative and less than the size of the collection.
+Parameter name: index
+   at System.Collections.Generic.List`1.get_Item(Int32 index)
+   at GFHelp.Mission.Map_Controller.Function.init(Dictionary`2 dic_TeamMove, Dictionary`2 spots, Normal_MissionInfo ubti)
+   at GFHelp.Mission.Map_Controller.mapcte2_9..ctor(Normal_MissionInfo ubti)
+   at GFHelp.Mission.Activity.mapcte2_9(UserData userData, Normal_MissionInfo ubti)
+   --- End of inner exception stack trace ---
+   at System.RuntimeMethodHandle.InvokeMethod(Object target, Object[] arguments, Signature sig, Boolean constructor, Boolean wrapExceptions)
+   at System.Reflection.RuntimeMethodInfo.Invoke(Object obj, BindingFlags invokeAttr, Binder binder, Object[] parameters, CultureInfo culture)
+   at System.Reflection.MethodBase.Invoke(Object obj, Object[] parameters)
+   at GFHelp.Core.Action.Mission.Test() in C:\Users\jack\Desktop\CS\GFHelp-Web\GFHelp.Core\Action\Battle\Loop.cs:line 61
+【23:06:08】      message = 调用作战dll文件出错 , exception = System.Reflection.TargetInvocationException: Exception has been thrown by the target of an invocation. ---> System.ArgumentOutOfRangeException: Index was out of range. Must be non-negative and less than the size of the collection.
+Parameter name: index
+   at System.Collections.Generic.List`1.get_Item(Int32 index)
+   at GFHelp.Mission.Map_Controller.Function.init(Dictionary`2 dic_TeamMove, Dictionary`2 spots, Normal_MissionInfo ubti)
+   at GFHelp.Mission.Map_Controller.mapcte2_9..ctor(Normal_MissionInfo ubti)
+   at GFHelp.Mission.Activity.mapcte2_9(UserData userData, Normal_MissionInfo ubti)
+   --- End of inner exception stack trace ---
+   at System.RuntimeMethodHandle.InvokeMethod(Object target, Object[] arguments, Signature sig, Boolean constructor, Boolean wrapExceptions)
+   at System.Reflection.RuntimeMethodInfo.Invoke(Object obj, BindingFlags invokeAttr, Binder binder, Object[] parameters, CultureInfo culture)
+   at System.Reflection.MethodBase.Invoke(Object obj, Object[] parameters)
+   at GFHelp.Core.Action.Mission.Test() in C:\Users\jack\Desktop\CS\GFHelp-Web\GFHelp.Core\Action\Battle\Loop.cs:line 61
+【00:35:18】      message = 读取config配置 
+【00:35:18】      message = 读取文字解析 
+【00:35:18】      message = updataCatchData 
+【00:35:21】      message = stcSquad_standard_attributionList 解析完成：9 
+【00:35:21】      message = stcItemList 解析完成：423 
+【00:35:21】      message = stcGunList 解析完成：284 
+【00:35:21】      message = stcSquadList 解析完成：3 
+【00:35:21】      message = stcSquad_chipList 解析完成：28 
+【00:35:21】      message = stcSquad_typeList 解析完成：3 
+【00:35:21】      message = stcSquad_rankList 解析完成：5 
+【00:35:21】      message = stcSquad_expList 解析完成：100 
+【00:35:21】      message = stcSquad_chip_expList 解析完成：20 
+【00:35:21】      message = stcSquad_data_dailyList 解析完成：14 
+【00:35:21】      message = stcBattle_skill_configList 解析完成：4454 
+【00:35:21】      message = stcSquad_advanced_bonusList 解析完成：30 
+【00:35:21】      message = stcSquad_cpuList 解析完成：3 
+【00:35:21】      message = stcSquad_colorList 解析完成：2 
+【00:35:21】      message = stcSquad_gridList 解析完成：59 
+【00:35:21】      message = stcSquad_cpu_completionList 解析完成：15 
+【00:35:21】      message = 引用作战dll 
+【00:42:38】      message = 读取config配置 
+【00:42:38】      message = 读取文字解析 
+【00:42:38】      message = updataCatchData 
+【00:42:40】      message = stcSquad_standard_attributionList 解析完成：9 
+【00:42:40】      message = stcItemList 解析完成：423 
+【00:42:40】      message = stcGunList 解析完成：284 
+【00:42:40】      message = stcSquadList 解析完成：3 
+【00:42:40】      message = stcSquad_chipList 解析完成：28 
+【00:42:40】      message = stcSquad_typeList 解析完成：3 
+【00:42:40】      message = stcSquad_rankList 解析完成：5 
+【00:42:40】      message = stcSquad_expList 解析完成：100 
+【00:42:40】      message = stcSquad_chip_expList 解析完成：20 
+【00:42:40】      message = stcSquad_data_dailyList 解析完成：14 
+【00:42:40】      message = stcBattle_skill_configList 解析完成：4454 
+【00:42:40】      message = stcSquad_advanced_bonusList 解析完成：30 
+【00:42:40】      message = stcSquad_cpuList 解析完成：3 
+【00:42:40】      message = stcSquad_colorList 解析完成：2 
+【00:42:40】      message = stcSquad_gridList 解析完成：59 
+【00:42:40】      message = stcSquad_cpu_completionList 解析完成：15 
+【00:42:41】      message = 引用作战dll 
+【00:52:10】      message = DecodeAndMapJson , exception = System.FormatException: Input string was not in a correct format.
+   at System.Number.StringToNumber(ReadOnlySpan`1 str, NumberStyles options, NumberBuffer& number, NumberFormatInfo info, Boolean parseDecimal)
+   at System.Number.ParseInt64(ReadOnlySpan`1 value, NumberStyles options, NumberFormatInfo numfmt)
+   at System.Int64.Parse(String s)
+   at AC.AuthCode.DecodeWithGzip(String source, String key, Int32 expiry)
+   at AC.AuthCode.DecodeWithGzip(String source, String key)
+   at GFHelp.Core.Helper.Decrypt.DecodeAndMapJson(GameAccount gameAccount, String wwwText) in C:\Users\jack\Desktop\CS\GFHelp-Web\GFHelp.Core\Helper\Decrypt.cs:line 60
+【01:29:46】      message = 读取config配置 
+【01:29:46】      message = 读取文字解析 
+【01:29:46】      message = updataCatchData 
+【01:29:55】      message = 引用作战dll 
+【01:29:57】      message = stcSquad_standard_attributionList 解析完成：9 
+【01:29:57】      message = stcItemList 解析完成：423 
+【01:29:57】      message = stcGunList 解析完成：284 
+【01:29:57】      message = stcSquadList 解析完成：3 
+【01:29:57】      message = stcSquad_chipList 解析完成：28 
+【01:29:57】      message = stcSquad_typeList 解析完成：3 
+【01:29:57】      message = stcSquad_rankList 解析完成：5 
+【01:29:57】      message = stcSquad_expList 解析完成：100 
+【01:29:57】      message = stcSquad_chip_expList 解析完成：20 
+【01:29:57】      message = stcSquad_data_dailyList 解析完成：14 
+【01:29:57】      message = stcBattle_skill_configList 解析完成：4454 
+【01:29:57】      message = stcSquad_advanced_bonusList 解析完成：30 
+【01:29:57】      message = stcSquad_cpuList 解析完成：3 
+【01:29:57】      message = stcSquad_colorList 解析完成：2 
+【01:29:57】      message = stcSquad_gridList 解析完成：59 
+【01:29:57】      message = stcSquad_cpu_completionList 解析完成：15 
+【01:30:38】      message = LoginDigitalSKY , exception = {"result":60113,"msg":"login_pwd not match."}
+【01:30:49】      message = LoginDigitalSKY , exception = {"result":60113,"msg":"login_pwd not match."}
+【13:29:53】      message = 读取config配置 
+【13:29:53】      message = 读取文字解析 
+【13:29:53】      message = updataCatchData 
+【13:29:55】      message = stcSquad_standard_attributionList 解析完成：9 
+【13:29:55】      message = stcItemList 解析完成：423 
+【13:29:55】      message = stcGunList 解析完成：284 
+【13:29:55】      message = stcSquadList 解析完成：3 
+【13:29:55】      message = stcSquad_chipList 解析完成：28 
+【13:29:55】      message = stcSquad_typeList 解析完成：3 
+【13:29:55】      message = stcSquad_rankList 解析完成：5 
+【13:29:55】      message = stcSquad_expList 解析完成：100 
+【13:29:55】      message = stcSquad_chip_expList 解析完成：20 
+【13:29:55】      message = stcSquad_data_dailyList 解析完成：14 
+【13:29:55】      message = stcBattle_skill_configList 解析完成：4454 
+【13:29:55】      message = stcSquad_advanced_bonusList 解析完成：30 
+【13:29:55】      message = stcSquad_cpuList 解析完成：3 
+【13:29:55】      message = stcSquad_colorList 解析完成：2 
+【13:29:55】      message = stcSquad_gridList 解析完成：59 
+【13:29:55】      message = stcSquad_cpu_completionList 解析完成：15 
+【13:29:56】      message = 引用作战dll 
+【13:33:14】      message = 读取config配置 
+【13:33:14】      message = 读取文字解析 
+【13:33:14】      message = updataCatchData 
+【13:33:17】      message = stcSquad_standard_attributionList 解析完成：9 
+【13:33:17】      message = stcItemList 解析完成：423 
+【13:33:17】      message = stcGunList 解析完成：284 
+【13:33:17】      message = stcSquadList 解析完成：3 
+【13:33:17】      message = stcSquad_chipList 解析完成：28 
+【13:33:17】      message = stcSquad_typeList 解析完成：3 
+【13:33:17】      message = stcSquad_rankList 解析完成：5 
+【13:33:17】      message = stcSquad_expList 解析完成：100 
+【13:33:17】      message = stcSquad_chip_expList 解析完成：20 
+【13:33:17】      message = stcSquad_data_dailyList 解析完成：14 
+【13:33:17】      message = stcBattle_skill_configList 解析完成：4454 
+【13:33:17】      message = stcSquad_advanced_bonusList 解析完成：30 
+【13:33:17】      message = stcSquad_cpuList 解析完成：3 
+【13:33:17】      message = stcSquad_colorList 解析完成：2 
+【13:33:17】      message = stcSquad_gridList 解析完成：59 
+【13:33:17】      message = stcSquad_cpu_completionList 解析完成：15 
+【13:33:17】      message = 引用作战dll 
+【13:34:37】      message = 读取config配置 
+【13:34:37】      message = 读取文字解析 
+【13:34:37】      message = updataCatchData 
+【13:34:39】      message = stcSquad_standard_attributionList 解析完成：9 
+【13:34:39】      message = stcItemList 解析完成：423 
+【13:34:39】      message = stcGunList 解析完成：284 
+【13:34:39】      message = stcSquadList 解析完成：3 
+【13:34:39】      message = stcSquad_chipList 解析完成：28 
+【13:34:39】      message = stcSquad_typeList 解析完成：3 
+【13:34:39】      message = stcSquad_rankList 解析完成：5 
+【13:34:39】      message = stcSquad_expList 解析完成：100 
+【13:34:39】      message = stcSquad_chip_expList 解析完成：20 
+【13:34:39】      message = stcSquad_data_dailyList 解析完成：14 
+【13:34:39】      message = stcBattle_skill_configList 解析完成：4454 
+【13:34:39】      message = stcSquad_advanced_bonusList 解析完成：30 
+【13:34:39】      message = stcSquad_cpuList 解析完成：3 
+【13:34:39】      message = stcSquad_colorList 解析完成：2 
+【13:34:39】      message = stcSquad_gridList 解析完成：59 
+【13:34:39】      message = stcSquad_cpu_completionList 解析完成：15 
+【13:34:39】      message = 引用作战dll 
+【13:40:12】      message = 读取config配置 
+【13:40:12】      message = 读取文字解析 
+【13:40:12】      message = updataCatchData 
+【13:40:14】      message = stcSquad_standard_attributionList 解析完成：9 
+【13:40:14】      message = stcItemList 解析完成：423 
+【13:40:14】      message = stcGunList 解析完成：284 
+【13:40:14】      message = stcSquadList 解析完成：3 
+【13:40:14】      message = stcSquad_chipList 解析完成：28 
+【13:40:14】      message = stcSquad_typeList 解析完成：3 
+【13:40:14】      message = stcSquad_rankList 解析完成：5 
+【13:40:14】      message = stcSquad_expList 解析完成：100 
+【13:40:14】      message = stcSquad_chip_expList 解析完成：20 
+【13:40:14】      message = stcSquad_data_dailyList 解析完成：14 
+【13:40:14】      message = stcBattle_skill_configList 解析完成：4454 
+【13:40:14】      message = stcSquad_advanced_bonusList 解析完成：30 
+【13:40:14】      message = stcSquad_cpuList 解析完成：3 
+【13:40:14】      message = stcSquad_colorList 解析完成：2 
+【13:40:14】      message = stcSquad_gridList 解析完成：59 
+【13:40:14】      message = stcSquad_cpu_completionList 解析完成：15 
+【13:40:15】      message = 引用作战dll 
+【13:41:30】      message = 读取config配置 
+【13:41:30】      message = 读取文字解析 
+【13:41:30】      message = updataCatchData 
+【13:41:32】      message = stcSquad_standard_attributionList 解析完成：9 
+【13:41:32】      message = stcItemList 解析完成：423 
+【13:41:32】      message = stcGunList 解析完成：284 
+【13:41:32】      message = stcSquadList 解析完成：3 
+【13:41:32】      message = stcSquad_chipList 解析完成：28 
+【13:41:32】      message = stcSquad_typeList 解析完成：3 
+【13:41:32】      message = stcSquad_rankList 解析完成：5 
+【13:41:32】      message = stcSquad_expList 解析完成：100 
+【13:41:32】      message = stcSquad_chip_expList 解析完成：20 
+【13:41:32】      message = stcSquad_data_dailyList 解析完成：14 
+【13:41:32】      message = stcBattle_skill_configList 解析完成：4454 
+【13:41:32】      message = stcSquad_advanced_bonusList 解析完成：30 
+【13:41:32】      message = stcSquad_cpuList 解析完成：3 
+【13:41:32】      message = stcSquad_colorList 解析完成：2 
+【13:41:32】      message = stcSquad_gridList 解析完成：59 
+【13:41:32】      message = stcSquad_cpu_completionList 解析完成：15 
+【13:41:33】      message = 引用作战dll 

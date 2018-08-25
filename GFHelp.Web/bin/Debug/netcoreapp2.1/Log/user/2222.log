@@ -31,3 +31,14 @@
 【01:01:12】      message = 查询新邮件 , exception = 
 【01:01:13】      message = 终止作战 , exception = 
 【17:52:48】      message = 程序已注销 请重新创建实例 
+【00:49:21】      message = 获取UserInfo , exception = 
+【00:49:27】      message = 签到 , exception = 
+【00:49:27】      message = 查询新邮件 , exception = 
+【00:49:39】      message = 终止作战 , exception = 
+【00:52:18】      message = teamMove Error , exception = error:0
+【00:52:21】      message = teamMove Error , exception = error:0
+【00:52:30】      message = 获取UserInfo , exception = 
+【00:52:31】      message = 获取UserInfo , exception = 
+【00:52:33】      message = 小奏 无法开始作战任务，请登陆游戏检查 
+【00:52:33】      message = mapctbox 完成 
+【00:52:42】      message = 程序已注销 请重新创建实例 

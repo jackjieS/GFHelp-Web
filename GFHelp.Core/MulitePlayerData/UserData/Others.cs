@@ -16,7 +16,7 @@ namespace GFHelp.Core.MulitePlayerData
         }
         public bool Mission_S;
         public bool ClickGrilsFavor;
-
+        public bool isWaveTechOpen = false;
         public void Read(dynamic jsonobj)
         {
             ClickGrilsFavor = true;

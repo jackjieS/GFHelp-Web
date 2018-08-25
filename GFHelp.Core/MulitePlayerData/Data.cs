@@ -174,6 +174,7 @@ namespace GFHelp.Core.Management
             this.squadDailyQuestAction = new SquadDailyQuestAction(this);
             this.squad_With_User_Info = new Squad_With_User_Info(this);
             this.chip_With_User_Info = new Chip_With_User_Info(this);
+            this.mission_With_User_Info = new Mission_With_User_Info(this);
             this.cdloop = new cdLoop(this);
         }
         public void CreatGameAccount(DataBase.GameAccount gameAccount)
@@ -233,7 +234,7 @@ namespace GFHelp.Core.Management
             squadDailyQuestAction.Read(jsonData);
             squad_With_User_Info.Read(jsonData);
             chip_With_User_Info.Read(jsonData);
-
+            mission_With_User_Info.Read(jsonData);
 
 
 
@@ -297,7 +298,7 @@ namespace GFHelp.Core.Management
         public Item_With_User_Info item_With_User_Info;
 
         public Gun_With_User_Info gun_With_User_Info = new Gun_With_User_Info();
-
+        public Mission_With_User_Info mission_With_User_Info;
         public Others others;
 
         public Mission mission;

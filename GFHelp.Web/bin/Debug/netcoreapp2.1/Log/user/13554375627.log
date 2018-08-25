@@ -68,3 +68,24 @@
    at System.Net.WebClient.UploadData(String address, String method, Byte[] data)
    at GFHelp.Core.API.BaseRequset.DoPost(String url, Byte[] postData) in C:\Users\jack\Desktop\CS\GFHelp-Web\GFHelp.Core\API\BaseRequset.cs:line 40
 【23:45:34】      message = 程序已注销 请重新创建实例 
+【01:37:59】      message = 数字天空登陆 , exception = 
+【01:38:00】      message = 获取时间信息 , exception = 
+【01:38:01】      message = 获取Sign , exception = 
+【01:38:02】      message = 获取UserInfo , exception = 
+【01:38:10】      message = 签到 , exception = 
+【01:38:10】      message = 查询新邮件 , exception = 
+【01:42:31】      message = 数字天空登陆 , exception = 
+【01:42:32】      message = 获取时间信息 , exception = 
+【01:42:32】      message = 获取Sign , exception = 
+【01:42:33】      message = 获取UserInfo , exception = 
+【01:42:42】      message = 签到 , exception = 
+【01:42:42】      message = 查询新邮件 , exception = 
+【01:42:51】      message = 数字天空登陆 , exception = 
+【01:42:52】      message = 获取时间信息 , exception = 
+【01:42:52】      message = 获取Sign , exception = 
+【01:42:54】      message = 获取UserInfo , exception = 
+【01:42:57】      message = 签到 , exception = 
+【01:42:57】      message = 查询新邮件 , exception = 
+【01:43:05】      message = Judas 无法开始作战任务，请登陆游戏检查 
+【01:43:05】      message = mapctbox 完成 
+【01:43:31】      message = 程序已注销 请重新创建实例 

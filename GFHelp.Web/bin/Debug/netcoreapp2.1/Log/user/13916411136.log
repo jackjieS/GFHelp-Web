@@ -204,3 +204,63 @@
 【01:29:47】      message = 克羅諾 无法开始作战任务，请登陆游戏检查 
 【01:29:47】      message = mapctbox 完成 
 【01:30:19】      message = 程序已注销 请重新创建实例 
+【01:43:46】      message = 数字天空登陆 , exception = 
+【01:43:47】      message = 获取时间信息 , exception = 
+【01:43:47】      message = 获取Sign , exception = 
+【01:43:48】      message = 获取UserInfo , exception = 
+【01:43:54】      message = 签到 , exception = 
+【01:43:54】      message = 查询新邮件 , exception = 
+【01:44:14】      message = 数字天空登陆 , exception = 
+【01:44:15】      message = 获取时间信息 , exception = 
+【01:44:15】      message = 获取Sign , exception = 
+【01:44:16】      message = 获取UserInfo , exception = 
+【01:44:47】      message = 签到 , exception = 
+【01:44:47】      message = 查询新邮件 , exception = 
+【01:44:48】      message = 数字天空登陆 , exception = 
+【01:44:49】      message = 获取时间信息 , exception = 
+【01:44:50】      message = 获取Sign , exception = 
+【01:44:51】      message = 获取UserInfo , exception = 
+【01:44:58】      message = #IwUepClIPntEkE/SmED1RCVtnERcT5h15W5w0Fm/bwdJfTyzFU84xasdXNitwR/22OZbgj1UQcaKtjLU8BZGkGyjr4Hs7oEaQQDiLWH89Jd/2bfUCh84sBLUUTtW9R/0fFY 
+【01:44:58】      message = 签到 , exception = 
+【01:44:58】      message = 查询新邮件 , exception = 
+【01:44:59】      message = 克羅諾 无法开始作战任务，请登陆游戏检查 
+【01:44:59】      message = mapctbox 完成 
+【01:44:59】      message = error:203|build_slot exceed error 
+【01:45:31】      message = 克羅諾 无法部署梯队，请登陆游戏检查 , exception = error:2
+【01:46:10】      message = 克羅諾 无法部署梯队，请登陆游戏检查 , exception = error:2
+【01:46:38】      message = mapctbox 完成 
+【01:50:32】      message = mapctbox 完成 
+【01:53:32】      message = 程序已注销 请重新创建实例 
+【00:41:29】      message = 数字天空登陆 , exception = 
+【00:41:30】      message = 获取时间信息 , exception = 
+【00:41:31】      message = 获取Sign , exception = 
+【00:41:31】      message = 获取UserInfo , exception = 
+【00:41:36】      message = 签到 , exception = 
+【00:41:36】      message = 查询新邮件 , exception = 
+【00:43:16】      message = 程序已注销 请重新创建实例 
+【00:43:34】      message = 数字天空登陆 , exception = 
+【00:43:35】      message = 获取时间信息 , exception = 
+【00:43:36】      message = 获取Sign , exception = 
+【00:43:37】      message = 获取UserInfo , exception = 
+【00:43:47】      message = 签到 , exception = 
+【00:43:47】      message = 查询新邮件 , exception = 
+【00:44:18】      message = endTurn Error , exception = error:2
+【00:44:23】      message = endEnemyTurn Error , exception = error:2
+【00:44:26】      message = startTurn Error , exception = error:2
+【00:44:29】      message = teamMove Error , exception = error:203|行动点数计算有误
+【00:44:40】      message = teamMove Error , exception = error:203|行动点数计算有误
+【00:44:43】      message = teamMove Error , exception = error:203|行动点数计算有误
+【00:44:51】      message = 数字天空登陆 , exception = 
+【00:44:52】      message = 获取时间信息 , exception = 
+【00:44:53】      message = 获取Sign , exception = 
+【00:44:54】      message = 获取UserInfo , exception = 
+【00:45:05】      message = 签到 , exception = 
+【00:45:05】      message = 查询新邮件 , exception = 
+【00:45:06】      message = 终止作战 , exception = 
+【00:48:47】      message = mapctbox 完成 
+【00:50:05】      message = 程序已注销 请重新创建实例 
+【01:30:37】      message = 数字天空登陆 , exception = 
+【01:30:38】      message = LoginDigitalSKY , exception = {"result":60113,"msg":"login_pwd not match."}
+【01:30:47】      message = 数字天空登陆 , exception = 
+【01:30:49】      message = LoginDigitalSKY , exception = {"result":60113,"msg":"login_pwd not match."}
+【01:31:01】      message = 程序已注销 请重新创建实例 

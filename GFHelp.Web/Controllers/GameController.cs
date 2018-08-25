@@ -182,6 +182,18 @@ namespace GFHelp.Web.Controllers
         public IActionResult StartBattle([FromBody] Core.Action.BattleBase.Battle bs)
         {
             //加入控制符
+            if (bs.Teams.Count() == 0)
+            {
+                return Ok(new
+                {
+                    code = -1,
+                    data = "error",
+                    message = string.Format("0 梯队", bs.accountID)
+
+                });
+                
+            }
+
 
             if (!Core.Management.Data.data.ContainsKey(bs.accountID))
             {
