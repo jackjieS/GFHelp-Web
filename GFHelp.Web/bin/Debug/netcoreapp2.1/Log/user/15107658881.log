@@ -296,3 +296,27 @@
 【01:35:28】      message = 签到 , exception = 
 【01:35:28】      message = 查询新邮件 , exception = 
 【01:43:10】      message = 程序已注销 请重新创建实例 
+【01:27:17】      message = 数字天空登陆 , exception = 
+【01:27:17】      message = 获取时间信息 , exception = 
+【01:27:18】      message = 获取Sign , exception = 
+【01:27:19】      message = 获取UserInfo , exception = 
+【01:27:22】      message = 签到 , exception = 
+【01:27:22】      message = 查询新邮件 , exception = 
+【01:27:37】      message = 开始无限防御 Error TeamID = {0} , exception = 5
+【01:30:31】      message = 数字天空登陆 , exception = 
+【01:30:31】      message = 获取时间信息 , exception = 
+【01:30:32】      message = 获取Sign , exception = 
+【01:30:36】      message = 获取UserInfo , exception = 
+【01:30:38】      message = 签到 , exception = 
+【01:30:38】      message = 查询新邮件 , exception = 
+【01:30:59】      message = 数字天空登陆 , exception = 
+【01:31:00】      message = 获取时间信息 , exception = 
+【01:31:01】      message = 获取Sign , exception = 
+【01:31:01】      message = 获取UserInfo , exception = 
+【01:31:06】      message = 签到 , exception = 
+【01:31:06】      message = 查询新邮件 , exception = 
+【01:31:07】      message = 鹿乃桑 无法开始作战任务，请登陆游戏检查 
+【01:31:07】      message = mapctbox 完成 
+【01:31:14】      message = 开始无限防御 Error TeamID = {0} , exception = 5
+【01:31:19】      message = 开始无限防御 Error TeamID = {0} , exception = 5
+【01:31:52】      message = 程序已注销 请重新创建实例 

@@ -4628,3 +4628,78 @@ Parameter name: index
 【13:41:32】      message = stcSquad_gridList 解析完成：59 
 【13:41:32】      message = stcSquad_cpu_completionList 解析完成：15 
 【13:41:33】      message = 引用作战dll 
+【01:10:09】      message = 读取config配置 
+【01:10:09】      message = 读取文字解析 
+【01:10:09】      message = updataCatchData 
+【01:10:11】      message = stcSquad_standard_attributionList 解析完成：9 
+【01:10:11】      message = stcItemList 解析完成：423 
+【01:10:11】      message = stcGunList 解析完成：284 
+【01:10:11】      message = stcSquadList 解析完成：3 
+【01:10:11】      message = stcSquad_chipList 解析完成：28 
+【01:10:11】      message = stcSquad_typeList 解析完成：3 
+【01:10:11】      message = stcSquad_rankList 解析完成：5 
+【01:10:11】      message = stcSquad_expList 解析完成：100 
+【01:10:11】      message = stcSquad_chip_expList 解析完成：20 
+【01:10:11】      message = stcSquad_data_dailyList 解析完成：14 
+【01:10:11】      message = stcBattle_skill_configList 解析完成：4454 
+【01:10:11】      message = stcSquad_advanced_bonusList 解析完成：30 
+【01:10:11】      message = stcSquad_cpuList 解析完成：3 
+【01:10:11】      message = stcSquad_colorList 解析完成：2 
+【01:10:11】      message = stcSquad_gridList 解析完成：59 
+【01:10:11】      message = stcSquad_cpu_completionList 解析完成：15 
+【01:10:12】      message = 引用作战dll 
+【01:14:26】      message = 读取config配置 
+【01:14:26】      message = 读取文字解析 
+【01:14:26】      message = updataCatchData 
+【01:14:29】      message = stcSquad_standard_attributionList 解析完成：9 
+【01:14:29】      message = stcItemList 解析完成：423 
+【01:14:29】      message = stcGunList 解析完成：284 
+【01:14:29】      message = stcSquadList 解析完成：3 
+【01:14:29】      message = stcSquad_chipList 解析完成：28 
+【01:14:29】      message = stcSquad_typeList 解析完成：3 
+【01:14:29】      message = stcSquad_rankList 解析完成：5 
+【01:14:29】      message = stcSquad_expList 解析完成：100 
+【01:14:29】      message = stcSquad_chip_expList 解析完成：20 
+【01:14:29】      message = stcSquad_data_dailyList 解析完成：14 
+【01:14:29】      message = stcBattle_skill_configList 解析完成：4454 
+【01:14:29】      message = stcSquad_advanced_bonusList 解析完成：30 
+【01:14:29】      message = stcSquad_cpuList 解析完成：3 
+【01:14:29】      message = stcSquad_colorList 解析完成：2 
+【01:14:29】      message = stcSquad_gridList 解析完成：59 
+【01:14:29】      message = stcSquad_cpu_completionList 解析完成：15 
+【01:14:29】      message = 引用作战dll 
+【01:25:53】      message = 读取config配置 
+【01:25:53】      message = 读取文字解析 
+【01:25:53】      message = updataCatchData 
+【01:25:56】      message = stcSquad_standard_attributionList 解析完成：9 
+【01:25:56】      message = stcItemList 解析完成：423 
+【01:25:56】      message = stcGunList 解析完成：284 
+【01:25:56】      message = stcSquadList 解析完成：3 
+【01:25:56】      message = stcSquad_chipList 解析完成：28 
+【01:25:56】      message = stcSquad_typeList 解析完成：3 
+【01:25:56】      message = stcSquad_rankList 解析完成：5 
+【01:25:56】      message = stcSquad_expList 解析完成：100 
+【01:25:56】      message = stcSquad_chip_expList 解析完成：20 
+【01:25:56】      message = stcSquad_data_dailyList 解析完成：14 
+【01:25:56】      message = stcBattle_skill_configList 解析完成：4454 
+【01:25:56】      message = stcSquad_advanced_bonusList 解析完成：30 
+【01:25:56】      message = stcSquad_cpuList 解析完成：3 
+【01:25:56】      message = stcSquad_colorList 解析完成：2 
+【01:25:56】      message = stcSquad_gridList 解析完成：59 
+【01:25:56】      message = stcSquad_cpu_completionList 解析完成：15 
+【01:25:56】      message = 引用作战dll 
+【01:38:05】      message = chip_with_user_info Error  , exception = System.InvalidOperationException: Instance of JsonData is not a dictionary
+   at LitJson.JsonData.EnsureDictionary()
+   at LitJson.JsonData.get_Item(String prop_name)
+   at GFHelp.Core.MulitePlayerData.Chip_With_User_Info.Data..ctor(JsonData jsonData, UserData userData) in C:\Users\jack\Desktop\CS\GFHelp-Web\GFHelp.Core\MulitePlayerData\UserData\chip_with_user_info.cs:line 67
+   at GFHelp.Core.MulitePlayerData.SquadDataAnalysisAction.DataAnalysisFinishRead(String result) in C:\Users\jack\Desktop\CS\GFHelp-Web\GFHelp.Core\MulitePlayerData\UserData\SquadDataAnalysisAction.cs:line 123
+【01:38:05】      message = chip_with_user_info Error  , exception = System.InvalidOperationException: Instance of JsonData is not a dictionary
+   at LitJson.JsonData.EnsureDictionary()
+   at LitJson.JsonData.get_Item(String prop_name)
+   at GFHelp.Core.MulitePlayerData.Chip_With_User_Info.Data..ctor(JsonData jsonData, UserData userData) in C:\Users\jack\Desktop\CS\GFHelp-Web\GFHelp.Core\MulitePlayerData\UserData\chip_with_user_info.cs:line 67
+   at GFHelp.Core.MulitePlayerData.SquadDataAnalysisAction.DataAnalysisFinishRead(String result) in C:\Users\jack\Desktop\CS\GFHelp-Web\GFHelp.Core\MulitePlayerData\UserData\SquadDataAnalysisAction.cs:line 123
+【01:38:05】      message = chip_with_user_info Error  , exception = System.InvalidOperationException: Instance of JsonData is not a dictionary
+   at LitJson.JsonData.EnsureDictionary()
+   at LitJson.JsonData.get_Item(String prop_name)
+   at GFHelp.Core.MulitePlayerData.Chip_With_User_Info.Data..ctor(JsonData jsonData, UserData userData) in C:\Users\jack\Desktop\CS\GFHelp-Web\GFHelp.Core\MulitePlayerData\UserData\chip_with_user_info.cs:line 67
+   at GFHelp.Core.MulitePlayerData.SquadDataAnalysisAction.DataAnalysisFinishRead(String result) in C:\Users\jack\Desktop\CS\GFHelp-Web\GFHelp.Core\MulitePlayerData\UserData\SquadDataAnalysisAction.cs:line 123

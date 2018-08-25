@@ -23,3 +23,17 @@
 【03:35:19】      message = 终止作战 , exception = 
 【04:27:19】      message = 后勤结束失败 , exception = error:0
 【13:30:09】      message = 程序已注销 请重新创建实例 
+【01:30:07】      message = 数字天空登陆 , exception = 
+【01:30:10】      message = 获取时间信息 , exception = 
+【01:30:14】      message = 获取Sign , exception = 
+【01:30:15】      message = 获取UserInfo , exception = 
+【01:30:19】      message = 签到 , exception = 
+【01:30:19】      message = 查询新邮件 , exception = 
+【01:34:57】      message = mapctbox 完成 
+【01:35:02】      message = 数字天空登陆 , exception = 
+【01:35:03】      message = 获取时间信息 , exception = 
+【01:35:04】      message = 获取Sign , exception = 
+【01:35:04】      message = 程序已注销 请重新创建实例 
+【01:35:04】      message = 获取UserInfo , exception = 
+【01:35:11】      message = 签到 , exception = 
+【01:35:11】      message = 查询新邮件 , exception = 

@@ -65,3 +65,12 @@
 【01:40:09】      message = mapctbox 完成 
 【01:40:12】      message = 人形 : 36438786 扩编 
 【01:42:40】      message = 程序已注销 请重新创建实例 
+【01:26:48】      message = 数字天空登陆 , exception = 
+【01:26:48】      message = 获取时间信息 , exception = 
+【01:26:50】      message = 获取Sign , exception = 
+【01:26:50】      message = 获取UserInfo , exception = 
+【01:26:55】      message = 签到 , exception = 
+【01:26:55】      message = 查询新邮件 , exception = 
+【01:26:56】      message = 终止作战 , exception = 
+【01:31:26】      message = mapctbox 完成 
+【01:31:57】      message = 程序已注销 请重新创建实例 

@@ -1405,7 +1405,71 @@ namespace GFHelp.Mission
             ubti.Loop = false;
         }
 
+        public void mapequip_ump(UserData userData, Normal_MissionInfo ubti)
+        {
+            Random random = new Random();
+            int stepNum = 0; string result = "";
+            mapequip_ump map = new mapequip_ump(ubti);
+            string battledata;
 
+            if (userData.battle.startMission(map.mission_id, map.Mission_Start_spots) == -1)
+            {
+                ubti.Loop = false;
+                //这里该怎么办呢
+                return;
+            }
+
+
+
+            userData.battle.teamMove(map.dic_TeamMove[stepNum++]);//右移一步
+            userData.battle.teamMove(map.dic_TeamMove[stepNum++]);//右移一步
+            userData.battle.teamMove(map.dic_TeamMove[stepNum++]);//右移一步
+
+
+
+
+            
+            battledata = new BattleData(ubti.Teams).setData(4573, 0, 0, random.Next(5, 7), 14993, 21581, 10008, userData.user_Info.experience);
+            if (userData.battle.Normal_battleFinish(battledata, ref result))
+            {
+               userData.battle.Battle_Result_PRO(ref ubti, 0, ref result);
+            }
+
+            userData.battle.teamMove(map.dic_TeamMove[stepNum++]);//右移一步
+
+            
+            battledata = new BattleData(ubti.Teams).setData(4583, 0, 0, random.Next(5, 7), 14993, 21581, 10008, userData.user_Info.experience);
+            if (userData.battle.Normal_battleFinish(battledata, ref result))
+            {
+               userData.battle.Battle_Result_PRO(ref ubti, 0, ref result);
+            }
+
+
+            userData.battle.teamMove(map.dic_TeamMove[stepNum++]);//右移一步
+            userData.battle.teamMove(map.dic_TeamMove[stepNum++]);//右移一步
+            userData.battle.withdrawTeam(map.withdrawSpot1);//撤离
+            string EndTurnresult = userData.battle.endTurn();
+
+            userData.battle.endEnemyTurn();
+
+            userData.battle.startTurn();
+
+            userData.battle.teamMove(map.dic_TeamMove[stepNum++]);//右移一步
+
+            //战斗结算 经验，装备，指挥官经验
+            
+            battledata = new BattleData(ubti.Teams).setData(4603, 0, 0, random.Next(5, 7), 14993, 21581, 10008, userData.user_Info.experience);
+            if (userData.battle.Normal_battleFinish(battledata, ref result))
+            {
+               userData.battle.Battle_Result_PRO(ref ubti, 0, ref result);
+            }
+
+            userData.battle.teamMove(map.dic_TeamMove[stepNum++]);//右移一步
+
+            userData.battle.withdrawTeam(map.withdrawSpot2);//撤离
+
+            userData.battle.abortMission();//终止作战
+        }
 
 
 

@@ -2145,7 +2145,7 @@ namespace GFHelp.Mission
 
         public class map2_4n
         {
-            public static MissionType missionType = MissionType.Night;
+            public static MissionType missionType = MissionType.Normal;
             public map2_4n(Normal_MissionInfo ubti)
             {
                 dic_TeamMove = new Dictionary<int, TeamMove>();
@@ -2193,7 +2193,7 @@ namespace GFHelp.Mission
 
         public class map3_4n
         {
-            public static MissionType missionType = MissionType.Night;
+            public static MissionType missionType = MissionType.Normal;
             public map3_4n(Normal_MissionInfo ubti)
             {
                 dic_TeamMove = new Dictionary<int, TeamMove>();
@@ -2303,7 +2303,7 @@ namespace GFHelp.Mission
 
         public class map5_2n
         {
-            public static MissionType missionType = MissionType.Night;
+            public static MissionType missionType = MissionType.Normal;
             public map5_2n(Normal_MissionInfo ubti)
             {
                 dic_TeamMove = new Dictionary<int, TeamMove>();
@@ -2344,7 +2344,7 @@ namespace GFHelp.Mission
 
         public class map6_4n
         {
-            public static MissionType missionType = MissionType.Night;
+            public static MissionType missionType = MissionType.Normal;
             public map6_4n(Normal_MissionInfo ubti)
             {
                 dic_TeamMove = new Dictionary<int, TeamMove>();
@@ -2418,7 +2418,56 @@ namespace GFHelp.Mission
 
         }
 
+        public class mapequip_ump
+        {
+            //要给spots1 2 赋值 梯队ID
+            //要给teammove 赋值 梯队ID
 
+
+            public mapequip_ump(Normal_MissionInfo ubti)
+            {
+                dic_TeamMove = new Dictionary<int, TeamMove>();
+                dic_TeamMove.Add(dic_TeamMove.Count, teammove1);
+                dic_TeamMove.Add(dic_TeamMove.Count, teammove2);
+                dic_TeamMove.Add(dic_TeamMove.Count, teammove3);
+                dic_TeamMove.Add(dic_TeamMove.Count, teammove4);
+                dic_TeamMove.Add(dic_TeamMove.Count, teammove5);
+                dic_TeamMove.Add(dic_TeamMove.Count, teammove6);
+                dic_TeamMove.Add(dic_TeamMove.Count, teammove7);
+                dic_TeamMove.Add(dic_TeamMove.Count, teammove8);
+                Spots.Add(Spots.Count, spots1);
+                Spots.Add(Spots.Count, spots2);
+                Spots.Add(Spots.Count, spots3);
+                Mission_Start_spots = new Spot[] { spots1, spots2, spots3 };
+                Function.init(dic_TeamMove, Spots, ubti);
+            }
+
+
+            public static MissionType missionType = MissionType.Activity;
+
+            public Dictionary<int, Spot> Spots = new Dictionary<int, Spot>();
+            public int mission_id = 10040;
+            //[{"spot_id":3033,"team_id":6},{"spot_id":3057,"team_id":7}]
+            public Spot spots1 = new Spot(4574,0);//主力
+            public Spot spots2 = new Spot(4559,1);//辅助
+            public Spot spots3 = new Spot(4567,2);//辅助
+
+
+            public TeamMove teammove1 = new TeamMove(4574, 4572, 1,0);
+            public TeamMove teammove2 = new TeamMove(4572, 4582, 1,0);
+            public TeamMove teammove3 = new TeamMove(4582, 4573, 1,0);
+            public TeamMove teammove4 = new TeamMove(4573, 4583, 1,0);
+            public TeamMove teammove5 = new TeamMove(4583, 4555, 1,0);
+
+            public TeamMove teammove6 = new TeamMove(4555, 4568, 1,0);
+            public TeamMove teammove7 = new TeamMove(4568, 4603, 1,0);
+            public TeamMove teammove8 = new TeamMove(4603, 4568, 1,0);
+            public Spot[] Mission_Start_spots;
+            public Dictionary<int, TeamMove> dic_TeamMove;
+
+            public int withdrawSpot1 = 4559;//撤离
+            public int withdrawSpot2 = 4568;//撤离
+        }
 
         public class mapcubee1_4
         {
