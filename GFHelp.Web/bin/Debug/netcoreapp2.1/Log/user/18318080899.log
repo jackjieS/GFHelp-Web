@@ -858,3 +858,238 @@
 【02:01:52】      message = 查询新邮件 , exception = 
 【02:06:37】      message = mapctbox 完成 
 【02:07:28】      message = 程序已注销 请重新创建实例 
+【16:12:10】      message = 数字天空登陆 , exception = 
+【16:12:11】      message = 获取时间信息 , exception = 
+【16:12:11】      message = 获取Sign , exception = 
+【16:12:12】      message = 获取UserInfo , exception = 
+【16:12:21】      message = 签到 , exception = 
+【16:12:21】      message = 查询新邮件 , exception = 
+【16:14:11】      message = 数字天空登陆 , exception = 
+【16:14:13】      message = 获取时间信息 , exception = 
+【16:14:13】      message = 获取Sign , exception = 
+【16:14:14】      message = 获取UserInfo , exception = 
+【16:14:34】      message = 签到 , exception = 
+【16:14:34】      message = 查询新邮件 , exception = 
+【16:14:34】      message = 终止作战 , exception = 
+【16:37:23】      message = 数字天空登陆 , exception = 
+【16:37:25】      message = 获取时间信息 , exception = 
+【16:37:28】      message = 获取Sign , exception = 
+【16:37:29】      message = 获取UserInfo , exception = 
+【16:37:44】      message = 签到 , exception = 
+【16:37:44】      message = 查询新邮件 , exception = 
+【16:39:46】      message = endTurn Error , exception = error:2
+【16:39:52】      message = endEnemyTurn Error , exception = error:2
+【16:39:56】      message = startTurn Error , exception = error:2
+【16:40:01】      message = teamMove Error , exception = error:203|行动点数计算有误
+【16:45:12】      message = 数字天空登陆 , exception = 
+【16:45:13】      message = 获取时间信息 , exception = 
+【16:45:13】      message = 获取Sign , exception = 
+【16:45:14】      message = 获取UserInfo , exception = 
+【16:45:24】      message = 签到 , exception = 
+【16:45:24】      message = 查询新邮件 , exception = 
+【16:45:25】      message = 终止作战 , exception = 
+【16:54:07】      message = 数字天空登陆 , exception = 
+【16:54:33】      message = 获取时间信息 , exception = 
+【16:54:33】      message = 获取Sign , exception = 
+【16:54:41】      message = 获取UserInfo , exception = 
+【16:54:58】      message = 签到 , exception = 
+【16:54:58】      message = 查询新邮件 , exception = 
+【16:54:59】      message = 终止作战 , exception = 
+【16:57:44】      message = teamMove Error , exception = error:2
+【16:57:47】      message = teamMove Error , exception = error:2
+【16:57:51】      message = teamMove Error , exception = error:2
+【16:58:24】      message = 数字天空登陆 , exception = 
+【16:58:26】      message = 获取时间信息 , exception = 
+【16:58:26】      message = 获取Sign , exception = 
+【16:58:27】      message = 获取UserInfo , exception = 
+【16:58:36】      message = 签到 , exception = 
+【16:58:36】      message = 查询新邮件 , exception = 
+【16:58:37】      message = 终止作战 , exception = 
+【17:03:18】      message = 数字天空登陆 , exception = 
+【17:03:20】      message = 获取时间信息 , exception = 
+【17:03:20】      message = 获取Sign , exception = 
+【17:03:21】      message = 获取UserInfo , exception = 
+【17:03:29】      message = 签到 , exception = 
+【17:03:29】      message = 查询新邮件 , exception = 
+【17:03:30】      message = 终止作战 , exception = 
+【17:05:19】      message = endEnemyTurn Error , exception = error:2
+【17:05:22】      message = startTurn Error , exception = error:2
+【17:05:25】      message = teamMove Error , exception = error:203|行动点数计算有误
+【17:05:28】      message = teamMove Error , exception = error:203|行动点数计算有误
+【17:05:37】      message = teamMove Error , exception = error:203|行动点数计算有误
+【17:05:56】      message = 数字天空登陆 , exception = 
+【17:05:57】      message = 获取时间信息 , exception = 
+【17:05:58】      message = 获取Sign , exception = 
+【17:05:59】      message = 获取UserInfo , exception = 
+【17:06:09】      message = 签到 , exception = 
+【17:06:09】      message = 查询新邮件 , exception = 
+【17:06:09】      message = 终止作战 , exception = 
+【17:10:03】      message =  s3.NorthAdmiral 宿舍 电池数 -5 剩余 46 
+【17:10:30】      message =  siguld 宿舍 电池数 0 剩余 45 
+【17:10:36】      message =  KP31 宿舍 电池数 -5 剩余 44 
+【17:10:53】      message = 数字天空登陆 , exception = 
+【17:11:02】      message = 获取时间信息 , exception = 
+【17:11:02】      message = 获取Sign , exception = 
+【17:11:45】      message = 数字天空登陆 , exception = 
+【17:11:50】      message = 获取时间信息 , exception = 
+【17:11:52】      message = 获取Sign , exception = 
+【17:12:02】      message = 获取UserInfo , exception = 
+【17:13:03】      message = 签到 , exception = 
+【17:13:03】      message = 查询新邮件 , exception = 
+【17:13:04】      message = 终止作战 , exception = 
+【17:14:13】      message = teamMove Error , exception = error:2
+【17:14:21】      message = teamMove Error , exception = error:2
+【17:14:27】      message = teamMove Error , exception = error:2
+【17:15:15】      message = 数字天空登陆 , exception = 
+【17:15:57】      message = 获取时间信息 , exception = 
+【17:15:59】      message = 获取Sign , exception = 
+【17:16:01】      message = 获取UserInfo , exception = 
+【17:17:44】      message = 数字天空登陆 , exception = 
+【17:17:49】      message = 获取时间信息 , exception = 
+【17:18:01】      message = 获取Sign , exception = 
+【17:18:24】      message = 获取UserInfo , exception = 
+【17:19:24】      message = 数字天空登陆 , exception = 
+【17:19:36】      message = 获取时间信息 , exception = 
+【17:19:40】      message = 获取Sign , exception = 
+【17:19:42】      message = 获取UserInfo , exception = 
+【17:20:44】      message = 签到 , exception = 
+【17:20:44】      message = 查询新邮件 , exception = 
+【17:20:54】      message = 终止作战 , exception = 
+【17:36:16】      message = 数字天空登陆 , exception = 
+【17:36:20】      message = 获取时间信息 , exception = 
+【17:36:20】      message = 获取Sign , exception = 
+【17:36:21】      message = 获取UserInfo , exception = 
+【17:36:31】      message = 签到 , exception = 
+【17:36:31】      message = 查询新邮件 , exception = 
+【17:45:43】      message = 数字天空登陆 , exception = 
+【17:46:02】      message = 获取时间信息 , exception = 
+【17:46:58】      message = 数字天空登陆 , exception = 
+【17:47:02】      message = 获取时间信息 , exception = 
+【17:47:18】      message = 获取Sign , exception = 
+【17:47:40】      message = 获取UserInfo , exception = 
+【17:48:34】      message = 数字天空登陆 , exception = 
+【17:49:07】      message = 获取时间信息 , exception = 
+【17:49:10】      message = 获取Sign , exception = 
+【17:49:10】      message = 获取UserInfo , exception = 
+【18:39:26】      message = 数字天空登陆 , exception = 
+【18:39:29】      message = 获取时间信息 , exception = 
+【18:39:32】      message = 获取Sign , exception = 
+【18:39:36】      message = 获取UserInfo , exception = 
+【18:39:56】      message = 签到 , exception = 
+【18:39:56】      message = 查询新邮件 , exception = 
+【18:44:44】      message = teamMove Error , exception = error:2
+【18:44:58】      message = teamMove Error , exception = error:2
+【18:49:14】      message = 数字天空登陆 , exception = 
+【18:49:16】      message = 获取时间信息 , exception = 
+【18:49:16】      message = 获取Sign , exception = 
+【18:49:17】      message = 获取UserInfo , exception = 
+【18:49:26】      message = 签到 , exception = 
+【18:49:26】      message = 查询新邮件 , exception = 
+【18:49:28】      message = 终止作战 , exception = 
+【19:00:33】      message = endEnemyTurn Error , exception = error:2
+【19:00:36】      message = startTurn Error , exception = error:2
+【19:00:39】      message = teamMove Error , exception = error:203|行动点数计算有误
+【19:00:42】      message = teamMove Error , exception = error:203|行动点数计算有误
+【19:00:49】      message = teamMove Error , exception = error:203|行动点数计算有误
+【19:00:57】      message = teamMove Error , exception = error:203|行动点数计算有误
+【19:01:00】      message = teamMove Error , exception = error:203|行动点数计算有误
+【19:01:02】      message = endTurn Error , exception = error:2
+【19:01:07】      message = endEnemyTurn Error , exception = error:2
+【19:01:10】      message = startTurn Error , exception = error:2
+【19:01:18】      message = jackjieS 无法部署梯队，请登陆游戏检查 , exception = error:202|该点不可回收人质
+【19:01:20】      message = teamMove Error , exception = error:203|行动点数计算有误
+【19:01:23】      message = teamMove Error , exception = error:203|行动点数计算有误
+【19:01:26】      message = teamMove Error , exception = error:203|行动点数计算有误
+【19:01:29】      message = teamMove Error , exception = error:203|行动点数计算有误
+【19:01:32】      message = teamMove Error , exception = error:203|行动点数计算有误
+【19:01:35】      message = teamMove Error , exception = error:203|行动点数计算有误
+【19:01:42】      message = teamMove Error , exception = error:203|行动点数计算有误
+【19:08:20】      message = 数字天空登陆 , exception = 
+【19:08:21】      message = 获取时间信息 , exception = 
+【19:08:22】      message = 获取Sign , exception = 
+【19:08:22】      message = 获取UserInfo , exception = 
+【19:08:31】      message = 签到 , exception = 
+【19:08:31】      message = 查询新邮件 , exception = 
+【19:08:31】      message = 终止作战 , exception = 
+【19:10:21】      message = endEnemyTurn Error , exception = error:2
+【19:10:24】      message = startTurn Error , exception = error:2
+【19:10:27】      message = teamMove Error , exception = error:203|行动点数计算有误
+【19:10:30】      message = teamMove Error , exception = error:203|行动点数计算有误
+【19:10:37】      message = teamMove Error , exception = error:203|行动点数计算有误
+【19:10:45】      message = teamMove Error , exception = error:203|行动点数计算有误
+【19:10:48】      message = teamMove Error , exception = error:203|行动点数计算有误
+【19:10:51】      message = endTurn Error , exception = error:2
+【19:10:55】      message = endEnemyTurn Error , exception = error:2
+【19:10:58】      message = startTurn Error , exception = error:2
+【19:11:05】      message = jackjieS 无法部署梯队，请登陆游戏检查 , exception = error:202|该点不可回收人质
+【19:11:08】      message = teamMove Error , exception = error:203|行动点数计算有误
+【19:11:10】      message = teamMove Error , exception = error:203|行动点数计算有误
+【19:11:13】      message = teamMove Error , exception = error:203|行动点数计算有误
+【19:11:16】      message = teamMove Error , exception = error:203|行动点数计算有误
+【19:11:19】      message = teamMove Error , exception = error:203|行动点数计算有误
+【19:11:22】      message = teamMove Error , exception = error:203|行动点数计算有误
+【19:11:29】      message = teamMove Error , exception = error:203|行动点数计算有误
+【19:11:37】      message = teamMove Error , exception = error:203|行动点数计算有误
+【19:11:44】      message = endTurn Error , exception = error:2
+【19:11:49】      message = endEnemyTurn Error , exception = error:2
+【19:11:52】      message = startTurn Error , exception = error:2
+【19:11:55】      message = teamMove Error , exception = error:203|行动点数计算有误
+【19:11:58】      message = teamMove Error , exception = error:203|行动点数计算有误
+【19:12:00】      message = teamMove Error , exception = error:203|行动点数计算有误
+【19:12:03】      message = teamMove Error , exception = error:203|行动点数计算有误
+【19:12:09】      message = teamMove Error , exception = error:203|行动点数计算有误
+【19:12:12】      message = endTurn Error , exception = error:2
+【19:12:18】      message = 数字天空登陆 , exception = 
+【19:12:19】      message = 获取时间信息 , exception = 
+【19:12:20】      message = 获取Sign , exception = 
+【19:12:20】      message = 获取UserInfo , exception = 
+【19:12:24】      message = 签到 , exception = 
+【19:12:24】      message = 查询新邮件 , exception = 
+【19:12:25】      message = 终止作战 , exception = 
+【19:13:26】      message = teamMove Error , exception = error:2
+【19:13:29】      message = teamMove Error , exception = error:2
+【19:13:37】      message = teamMove Error , exception = error:2
+【19:13:39】      message = teamMove Error , exception = error:2
+【19:13:47】      message = endTurn Error , exception = error:2
+【19:13:52】      message = endEnemyTurn Error , exception = error:2
+【19:13:55】      message = startTurn Error , exception = error:2
+【19:13:58】      message = teamMove Error , exception = error:2
+【19:14:01】      message = teamMove Error , exception = error:2
+【19:14:04】      message = teamMove Error , exception = error:2
+【19:14:06】      message = teamMove Error , exception = error:2
+【19:14:09】      message = teamMove Error , exception = error:2
+【19:14:12】      message = endTurn Error , exception = error:2
+【19:14:17】      message = endEnemyTurn Error , exception = error:2
+【19:14:20】      message = startTurn Error , exception = error:2
+【19:14:26】      message = jackjieS 无法部署梯队，请登陆游戏检查 , exception = error:202|该点不可回收人质
+【19:14:29】      message = teamMove Error , exception = error:2
+【19:14:32】      message = teamMove Error , exception = error:2
+【19:14:34】      message = teamMove Error , exception = error:2
+【19:14:37】      message = teamMove Error , exception = error:2
+【19:14:40】      message = teamMove Error , exception = error:2
+【19:14:43】      message = teamMove Error , exception = error:2
+【19:14:51】      message = teamMove Error , exception = error:2
+【19:14:58】      message = teamMove Error , exception = error:2
+【19:15:06】      message = endTurn Error , exception = error:2
+【19:15:11】      message = endEnemyTurn Error , exception = error:2
+【19:15:13】      message = startTurn Error , exception = error:2
+【19:15:16】      message = teamMove Error , exception = error:2
+【19:15:19】      message = teamMove Error , exception = error:2
+【19:15:22】      message = teamMove Error , exception = error:2
+【19:15:25】      message = teamMove Error , exception = error:2
+【19:15:30】      message = teamMove Error , exception = error:2
+【19:15:38】      message = endTurn Error , exception = error:2
+【19:15:42】      message = 数字天空登陆 , exception = 
+【19:15:44】      message = 获取时间信息 , exception = 
+【19:15:45】      message = 获取Sign , exception = 
+【19:15:45】      message = 获取UserInfo , exception = 
+【19:15:54】      message = 签到 , exception = 
+【19:15:54】      message = 查询新邮件 , exception = 
+【19:15:54】      message = 终止作战 , exception = 
+【19:20:40】      message = 数字天空登陆 , exception = 
+【19:20:41】      message = 获取时间信息 , exception = 
+【19:20:42】      message = 获取Sign , exception = 
+【19:20:42】      message = 获取UserInfo , exception = 
+【19:20:47】      message = 签到 , exception = 
+【19:20:47】      message = 查询新邮件 , exception = 
+【19:20:47】      message = 终止作战 , exception = 

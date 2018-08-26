@@ -3350,6 +3350,188 @@ namespace GFHelp.Mission
             public Dictionary<int, TeamMove> dic_TeamMove;
         }
 
+
+
+        public class mapcte3_3
+        {
+            public static MissionType missionType = MissionType.Activity;
+            public mapcte3_3(Normal_MissionInfo ubti)
+            {
+                dic_TeamMove = new Dictionary<int, TeamMove>();
+                dic_TeamMove.Add(dic_TeamMove.Count, teammove1);
+                dic_TeamMove.Add(dic_TeamMove.Count, teammove2);
+                dic_TeamMove.Add(dic_TeamMove.Count, teammove3);
+
+                Spots.Add(Spots.Count, spots1);
+                Spots.Add(Spots.Count, spots2);
+
+                Mission_Start_spots = new Spot[] { spots1, spots2};
+                Function.init(dic_TeamMove, Spots, ubti);
+            }
+            public int mission_id = 10133;
+            public Dictionary<int, Spot> Spots = new Dictionary<int, Spot>();
+            public Spot spots1 = new Spot(7840, 0);//主力
+            public Spot spots2 = new Spot(7815, 1);//主力
+
+
+            public Spot[] Mission_Start_spots;
+
+            public TeamMove teammove1 = new TeamMove(7840, 7841, 1, 0);//注意两个点哦
+            public TeamMove teammove2 = new TeamMove(7841, 7842, 1, 0);
+
+            public TeamMove teammove3 = new TeamMove(7842, 7838, 1, 0);//注意两个点哦
+
+
+            public Dictionary<int, TeamMove> dic_TeamMove;
+        }
+
+
+
+
+
+
+
+        public class mapcte3_14
+        {
+            public static MissionType missionType = MissionType.Activity;
+            public mapcte3_14(Normal_MissionInfo ubti)
+            {
+                dic_TeamMove = new Dictionary<int, TeamMove>();
+                dic_TeamMove.Add(dic_TeamMove.Count, teammove1);
+                dic_TeamMove.Add(dic_TeamMove.Count, teammove2);
+                dic_TeamMove.Add(dic_TeamMove.Count, teammove3);
+                dic_TeamMove.Add(dic_TeamMove.Count, teammove4);
+                dic_TeamMove.Add(dic_TeamMove.Count, teammove5);
+                dic_TeamMove.Add(dic_TeamMove.Count, teammove6);
+                dic_TeamMove.Add(dic_TeamMove.Count, teammove7);
+                dic_TeamMove.Add(dic_TeamMove.Count, teammove8);
+                dic_TeamMove.Add(dic_TeamMove.Count, teammove9);
+                dic_TeamMove.Add(dic_TeamMove.Count, teammove10);
+                dic_TeamMove.Add(dic_TeamMove.Count, teammove11);
+                dic_TeamMove.Add(dic_TeamMove.Count, teammove12);
+                dic_TeamMove.Add(dic_TeamMove.Count, teammove13);
+                dic_TeamMove.Add(dic_TeamMove.Count, teammove14);
+                dic_TeamMove.Add(dic_TeamMove.Count, teammove15);
+                dic_TeamMove.Add(dic_TeamMove.Count, teammove16);
+                dic_TeamMove.Add(dic_TeamMove.Count, teammove17);
+                dic_TeamMove.Add(dic_TeamMove.Count, teammove18);
+                dic_TeamMove.Add(dic_TeamMove.Count, teammove19);
+                dic_TeamMove.Add(dic_TeamMove.Count, teammove20);
+                dic_TeamMove.Add(dic_TeamMove.Count, teammove21);
+                dic_TeamMove.Add(dic_TeamMove.Count, teammove22);
+                dic_TeamMove.Add(dic_TeamMove.Count, teammove23);
+                dic_TeamMove.Add(dic_TeamMove.Count, teammove24);
+                dic_TeamMove.Add(dic_TeamMove.Count, teammove25);
+                dic_TeamMove.Add(dic_TeamMove.Count, teammove26);
+                dic_TeamMove.Add(dic_TeamMove.Count, teammove27);
+                dic_TeamMove.Add(dic_TeamMove.Count, teammove28);
+                dic_TeamMove.Add(dic_TeamMove.Count, teammove29);
+                dic_TeamMove.Add(dic_TeamMove.Count, teammove30);
+                dic_TeamMove.Add(dic_TeamMove.Count, teammove31);
+                dic_TeamMove.Add(dic_TeamMove.Count, teammove32);
+                dic_TeamMove.Add(dic_TeamMove.Count, teammove33);
+                dic_TeamMove.Add(dic_TeamMove.Count, teammove34);
+                dic_TeamMove.Add(dic_TeamMove.Count, teammove35);
+                dic_TeamMove.Add(dic_TeamMove.Count, teammove36);
+                dic_TeamMove.Add(dic_TeamMove.Count, teammove37);
+                dic_TeamMove.Add(dic_TeamMove.Count, teammove38);
+                dic_TeamMove.Add(dic_TeamMove.Count, teammove39);
+                Spots.Add(Spots.Count, spots1);
+                Spots.Add(Spots.Count, spots2);
+                Spots.Add(Spots.Count, spots3);
+                Spots.Add(Spots.Count, spots4);
+                Spots.Add(Spots.Count, spots5);
+                Mission_Start_spots = new Spot[] { spots1, spots2, spots3, spots4 };
+                Function.init(dic_TeamMove, Spots, ubti);
+            }
+            public int mission_id = 10144;
+            public Dictionary<int, Spot> Spots = new Dictionary<int, Spot>();
+            public Spot spots1 = new Spot(8027, 0);//开始基地 主力上方
+            public Spot spots2 = new Spot(8250, 1);//开始基地 主力下方
+            public Spot spots3 = new Spot(8031, 2);
+            public Spot spots4 = new Spot(8037, 3);
+            public Spot spots5 = new Spot(8253, 0);
+            public Spot[] Mission_Start_spots;
+
+            public TeamMove teammove1 = new TeamMove(8027, 8249, 1, 0);
+            public TeamMove teammove2 = new TeamMove(8249, 8593, 1, 0);
+            public TeamMove teammove3 = new TeamMove(8593, 8594, 1, 0);
+            public TeamMove teammove4 = new TeamMove(8594, 8592, 1, 0);
+            public TeamMove teammove5 = new TeamMove(8592, 8600, 1, 0);
+            public TeamMove teammove6 = new TeamMove(8600, 8597, 1, 0);
+            public TeamMove teammove7 = new TeamMove(8597, 8596, 1, 0);//第一回合结束
+
+            public TeamMove teammove8 = new TeamMove(8596, 8608, 1, 0);
+            public TeamMove teammove9 = new TeamMove(8608, 8607, 1, 0);
+            public TeamMove teammove10 = new TeamMove(8607, 8606, 1, 0);
+            public TeamMove teammove11 = new TeamMove(8606, 8605, 1, 0);
+            public TeamMove teammove12 = new TeamMove(8605, 8603, 1, 0);
+            public TeamMove teammove13 = new TeamMove(8250, 8028, 1, 1);//第二回合结束 注意这里事第二梯队
+
+            public TeamMove teammove14 = new TeamMove(8603, 8602, 1, 0);
+            public TeamMove teammove15 = new TeamMove(8602, 8243, 1, 0);//上方任务完成
+            public TeamMove teammove16 = new TeamMove(8028, 8620, 1, 1);
+            public TeamMove teammove17 = new TeamMove(8620, 8040, 1, 1);
+            public TeamMove teammove18 = new TeamMove(8040, 8025, 1, 1);
+            public TeamMove teammove19 = new TeamMove(8025, 8032, 1, 1);
+            public TeamMove teammove20 = new TeamMove(8032, 8247, 1, 1);
+            public TeamMove teammove21 = new TeamMove(8247, 8035, 1, 1);//第三回合结束
+
+
+            public TeamMove teammove22 = new TeamMove(8035, 8613, 1, 1);
+            public TeamMove teammove23 = new TeamMove(8613, 8614, 1, 1);
+            public TeamMove teammove24 = new TeamMove(8614, 8617, 1, 1);
+            public TeamMove teammove25 = new TeamMove(8617, 8616, 1, 1);
+            public TeamMove teammove26 = new TeamMove(8616, 8039, 1, 1);//第四回合结束
+
+            public TeamMove teammove27 = new TeamMove(8253, 8619, 1, 0);
+            public TeamMove teammove28 = new TeamMove(8619, 8649, 1, 0);
+            public TeamMove teammove29 = new TeamMove(8649, 8630, 1, 0);
+            public TeamMove teammove30 = new TeamMove(8630, 8629, 1, 0);
+            public TeamMove teammove31 = new TeamMove(8629, 8631, 1, 0);
+            public TeamMove teammove32 = new TeamMove(8631, 8637, 1, 0);
+            public TeamMove teammove33 = new TeamMove(8637, 8636, 1, 0);
+            public TeamMove teammove34 = new TeamMove(8636, 8628, 1, 0);//第五回合结束
+
+            public TeamMove teammove35 = new TeamMove(8628, 8640, 1, 0);
+            public TeamMove teammove36 = new TeamMove(8640, 8644, 1, 0);
+            public TeamMove teammove37 = new TeamMove(8644, 8645, 1, 0);//
+            public TeamMove teammove38 = new TeamMove(8645, 8646, 1, 0);
+            public TeamMove teammove39 = new TeamMove(8646, 8647, 1, 0);
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+            public int withdrawSpot = 8243;
+            public Dictionary<int, TeamMove> dic_TeamMove;
+        }
+
+
+
+
+
+
+
+
+
+
+
+
         public class mapcte1start
         {
             public static MissionType missionType = MissionType.Activity;

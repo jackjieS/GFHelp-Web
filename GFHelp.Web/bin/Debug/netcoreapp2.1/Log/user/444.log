@@ -71,3 +71,27 @@
 【01:57:31】      message = 人形强化 ERROR , exception = error:3
 【01:58:38】      message = mapctbox 完成 
 【01:59:36】      message = 程序已注销 请重新创建实例 
+【01:49:59】      message = 获取UserInfo , exception = 
+【01:50:03】      message = 签到 , exception = 
+【01:50:03】      message = 查询新邮件 , exception = 
+【01:50:31】      message = 获取UserInfo , exception = 
+【01:50:35】      message = 签到 , exception = 
+【01:50:35】      message = 查询新邮件 , exception = 
+【01:53:02】      message = 获取UserInfo , exception = 
+【01:53:06】      message = 签到 , exception = 
+【01:53:06】      message = 查询新邮件 , exception = 
+【01:53:08】      message = 获取UserInfo , exception = 
+【01:53:12】      message = 签到 , exception = 
+【01:53:12】      message = 查询新邮件 , exception = 
+【01:53:13】      message = KNIght 无法开始作战任务，请登陆游戏检查 
+【01:53:13】      message = mapctbox 完成 
+【02:04:33】      message = 获取UserInfo , exception = 
+【02:04:37】      message = 签到 , exception = 
+【02:04:39】      message = 查询新邮件 , exception = 
+【02:05:02】      message = 获取UserInfo , exception = 
+【02:05:06】      message = 签到 , exception = 
+【02:05:06】      message = 查询新邮件 , exception = 
+【02:05:12】      message = KNIght 无法开始作战任务，请登陆游戏检查 
+【02:05:12】      message = mapctbox 完成 
+【03:28:50】      message = Establish_Build_Finish ERROR , exception = error:0
+【03:41:48】      message = 后勤结束失败 , exception = error:0

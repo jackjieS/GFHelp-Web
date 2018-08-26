@@ -544,3 +544,62 @@
 【01:33:10】      message = 爱睡觉的兔子 无法开始作战任务，请登陆游戏检查 
 【01:33:10】      message = mapctbox 完成 
 【01:34:29】      message = 程序已注销 请重新创建实例 
+【01:12:08】      message = 数字天空登陆 , exception = 
+【01:12:09】      message = 获取时间信息 , exception = 
+【01:12:10】      message = 获取Sign , exception = 
+【01:12:10】      message = 获取UserInfo , exception = 
+【01:12:13】      message = 签到 , exception = 
+【01:12:13】      message = 查询新邮件 , exception = 
+【01:12:44】      message = endTurn Error , exception = error:2
+【01:12:49】      message = endEnemyTurn Error , exception = error:2
+【01:12:51】      message = startTurn Error , exception = error:2
+【01:12:54】      message = teamMove Error , exception = error:203|行动点数计算有误
+【01:13:02】      message = teamMove Error , exception = error:203|行动点数计算有误
+【01:13:05】      message = teamMove Error , exception = error:203|行动点数计算有误
+【01:13:14】      message = 数字天空登陆 , exception = 
+【01:13:14】      message = 获取时间信息 , exception = 
+【01:13:15】      message = 获取Sign , exception = 
+【01:13:16】      message = 获取UserInfo , exception = 
+【01:13:19】      message = 签到 , exception = 
+【01:13:19】      message = 查询新邮件 , exception = 
+【01:13:19】      message = 终止作战 , exception = 
+【01:14:56】      message = 数字天空登陆 , exception = 
+【01:14:57】      message = 获取时间信息 , exception = 
+【01:14:58】      message = 获取Sign , exception = 
+【01:14:58】      message = 获取UserInfo , exception = 
+【01:15:02】      message = 签到 , exception = 
+【01:15:02】      message = 查询新邮件 , exception = 
+【01:15:08】      message = 数字天空登陆 , exception = 
+【01:15:09】      message = 获取时间信息 , exception = 
+【01:15:09】      message = 获取Sign , exception = 
+【01:15:10】      message = 获取UserInfo , exception = 
+【01:15:14】      message = 签到 , exception = 
+【01:15:14】      message = 查询新邮件 , exception = 
+【01:15:16】      message = 爱睡觉的兔子 无法开始作战任务，请登陆游戏检查 
+【01:15:16】      message = mapctbox 完成 
+【02:05:47】      message = 数字天空登陆 , exception = 
+【02:05:48】      message = 获取时间信息 , exception = 
+【02:05:49】      message = 获取Sign , exception = 
+【02:05:50】      message = 获取UserInfo , exception = 
+【02:05:54】      message = 签到 , exception = 
+【02:05:54】      message = 查询新邮件 , exception = 
+【02:06:28】      message = 数字天空登陆 , exception = 
+【02:06:29】      message = 获取时间信息 , exception = 
+【02:06:29】      message = 获取Sign , exception = 
+【02:06:32】      message = 获取UserInfo , exception = 
+【02:06:35】      message = 签到 , exception = 
+【02:06:35】      message = 查询新邮件 , exception = 
+【02:06:36】      message = 爱睡觉的兔子 无法开始作战任务，请登陆游戏检查 
+【02:06:36】      message = mapctbox 完成 
+【02:35:02】      message = 数字天空登陆 , exception = 
+【02:35:04】      message = 获取时间信息 , exception = 
+【02:35:04】      message = 获取Sign , exception = 
+【02:35:05】      message = 获取UserInfo , exception = 
+【02:35:08】      message = 签到 , exception = 
+【02:35:08】      message = 查询新邮件 , exception = 
+【03:35:02】      message = 数字天空登陆 , exception = 
+【03:35:03】      message = 获取时间信息 , exception = 
+【03:35:04】      message = 获取Sign , exception = 
+【03:35:05】      message = 获取UserInfo , exception = 
+【03:35:08】      message = 签到 , exception = 
+【03:35:08】      message = 查询新邮件 , exception = 
