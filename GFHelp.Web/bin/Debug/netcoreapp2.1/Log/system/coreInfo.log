@@ -5225,6 +5225,7 @@ Parameter name: buffer
    at GFHelp.Core.Helper.Decrypt.DecodeAndMapJson(GameAccount gameAccount, String wwwText) in C:\Users\jack\Desktop\CS\GFHelp-Web\GFHelp.Core\Helper\Decrypt.cs:line 60
 <<<<<<< HEAD
 <<<<<<< HEAD
+<<<<<<< HEAD
 【01:47:50】      message = 读取config配置 
 【01:47:50】      message = 读取文字解析 
 【01:47:50】      message = updataCatchData 
@@ -5432,6 +5433,8 @@ Parameter name: buffer
    at GFHelp.Core.Helper.Decrypt.DecodeAndMapJson(GameAccount gameAccount, String wwwText) in C:\Users\jack\Desktop\CS\GFHelp-Web\GFHelp.Core\Helper\Decrypt.cs:line 60
 =======
 >>>>>>> parent of 8929ed9... 889
+=======
+>>>>>>> parent of 409d437... 2312321321
 =======
 >>>>>>> parent of 409d437... 2312321321
 =======
