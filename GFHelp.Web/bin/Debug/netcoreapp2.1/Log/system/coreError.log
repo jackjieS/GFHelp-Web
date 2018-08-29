@@ -1174,6 +1174,7 @@ Parameter name: buffer
    at AC.AuthCode.DecodeWithGzip(String source, String key, Int32 expiry)
    at AC.AuthCode.DecodeWithGzip(String source, String key)
    at GFHelp.Core.Helper.Decrypt.DecodeAndMapJson(GameAccount gameAccount, String wwwText) in C:\Users\jack\Desktop\CS\GFHelp-Web\GFHelp.Core\Helper\Decrypt.cs:line 60
+<<<<<<< HEAD
 【01:24:46】      message = LoginDigitalSKY , exception = {"result":60113,"msg":"login_pwd not match."}
 【01:24:52】      message = LoginDigitalSKY , exception = {"result":60113,"msg":"login_pwd not match."}
 【02:26:43】      message = DecodeAndMapJson , exception = System.FormatException: Input string was not in a correct format.
@@ -1221,3 +1222,5 @@ Parameter name: buffer
    at GFHelp.Core.Helper.Decrypt.DecodeAndMapJson(GameAccount gameAccount, String wwwText) in C:\Users\jack\Desktop\CS\GFHelp-Web\GFHelp.Core\Helper\Decrypt.cs:line 60
 =======
 >>>>>>> parent of 8929ed9... 889
+=======
+>>>>>>> parent of 409d437... 2312321321

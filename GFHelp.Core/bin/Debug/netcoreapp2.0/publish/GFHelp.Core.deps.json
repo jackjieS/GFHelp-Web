@@ -286,6 +286,7 @@
       },
       "GFHelp.DataBase/1.0.0": {
         "dependencies": {
+          "Microsoft.EntityFrameworkCore.Reference": "2.1.0.0",
           "Microsoft.Data.Sqlite": "2.1.0.0"
         },
         "runtime": {

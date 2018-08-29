@@ -6001,6 +6001,7 @@ Parameter name: index
    at GFHelp.Web.Chat.<OnDisconnectedAsync>b__11_0() in C:\Users\jack\Desktop\CS\GFHelp-Web\GFHelp.Web\Hub\ChatHub.cs:line 171
 【19:01:45】      message = OnDisconnectedAsync ERROR , exception = System.NullReferenceException: Object reference not set to an instance of an object.
    at GFHelp.Web.Chat.<OnDisconnectedAsync>b__11_0() in C:\Users\jack\Desktop\CS\GFHelp-Web\GFHelp.Web\Hub\ChatHub.cs:line 171
+<<<<<<< HEAD
 【15:16:01】      message = getGamesStatus Error , exception = System.NullReferenceException: Object reference not set to an instance of an object.
    at System.Collections.Generic.Dictionary`2.FindEntry(TKey key)
    at System.Collections.Generic.Dictionary`2.ContainsKey(TKey key)
@@ -6011,3 +6012,5 @@ Parameter name: index
    at GFHelp.Core.SignaIRClient.getWebData() in C:\Users\jack\Desktop\CS\GFHelp-Web\GFHelp.Core\SignaIRClient.cs:line 132
 =======
 >>>>>>> parent of 8929ed9... 889
+=======
+>>>>>>> parent of 409d437... 2312321321

@@ -100,10 +100,6 @@ namespace GFHelp.Core.Management
             {
                 data.Add(userData);
             }
-            userData.config.ParmConfiuge();
-
-
-
 
             userData.cd = new Task(() => userData.cdloop.CountDown());
             userData.cd.Start();
@@ -115,19 +111,6 @@ namespace GFHelp.Core.Management
                 userData = null;
                 data.RemoveByID(id);
             });
-        }
-
-        public static void SetUserConfig(UserData userData,string parm)
-        {
-            List<string> Parm = parm.ToLower().Split(' ').ToList();
-            foreach (var item in Parm)
-            {
-                if (item.Contains("-s"))
-                {
-                    userData.config.AutoSimulation = false;
-                }
-            }
-
         }
 
         public static WebData GetWebData(string AccountId)
@@ -199,14 +182,7 @@ namespace GFHelp.Core.Management
             GameAccount.AndroidID = Guid.NewGuid().ToString("N");
             GameAccount.MAC = M.GetNewMac();
             GameAccount.GameHost = Helper.Configer.HostAddress.GetAddressByName(GameAccount.Base.ChannelID);
-
-            //userData.config.AutoSimulation
-
-
-
         }
-
-
 
         private void Clear()
         {
@@ -362,26 +338,28 @@ namespace GFHelp.Core.Management
     {
         public Config(UserData userData)
         {
-            this.userData = userData;
+            ParmConfiuge(userData);
+
+
+
         }
-        private UserData userData;
         public int ErrorCount = 1;
         public bool LoginSuccessful = false;
 
         public bool NeedAuto_Loop_Operation_Act = true;
         public bool NeedAuto_Click_Girls_In_Dorm = true;//这些都需要 read userinfo 重置
-        public bool AutoSimulation = false;
+        public bool AutoSimulation = true;
         public bool NewGun_Report_Stop = true;
         public bool AutoStrengthen = true;
-        public void ParmConfiuge()
+        private void ParmConfiuge(UserData userData)
         {
             if (string.IsNullOrEmpty(userData.GameAccount.Base.Parm)) return;
             List<string> Parm = userData.GameAccount.Base.Parm.ToLower().Split(' ').ToList();
             foreach (var item in Parm)
             {
-                if (item.Contains("-s"))
+                if (item.Contains("-sf"))
                 {
-                    this.AutoSimulation = true;
+                    this.AutoSimulation = false;
                 }
                 if (item.Contains("-st"))
                 {

@@ -137,6 +137,7 @@
 【02:35:06】      message = 获取UserInfo , exception = 
 【02:35:11】      message = 签到 , exception = 
 【02:35:11】      message = 查询新邮件 , exception = 
+<<<<<<< HEAD
 【01:51:27】      message = 程序已注销 请重新创建实例 
 【01:17:36】      message = 数字天空登陆 , exception = 
 【01:17:38】      message = 获取时间信息 , exception = 
@@ -160,3 +161,5 @@
 【02:35:09】      message = 查询新邮件 , exception = 
 =======
 >>>>>>> parent of 8929ed9... 889
+=======
+>>>>>>> parent of 409d437... 2312321321

@@ -96,6 +96,9 @@
 【02:05:12】      message = mapctbox 完成 
 【03:28:50】      message = Establish_Build_Finish ERROR , exception = error:0
 【03:41:48】      message = 后勤结束失败 , exception = error:0
+<<<<<<< HEAD
 【01:51:34】      message = 程序已注销 请重新创建实例 
 =======
 >>>>>>> parent of 8929ed9... 889
+=======
+>>>>>>> parent of 409d437... 2312321321

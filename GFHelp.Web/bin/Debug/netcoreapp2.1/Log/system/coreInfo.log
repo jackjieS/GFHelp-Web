@@ -5223,6 +5223,7 @@ Parameter name: buffer
    at AC.AuthCode.DecodeWithGzip(String source, String key, Int32 expiry)
    at AC.AuthCode.DecodeWithGzip(String source, String key)
    at GFHelp.Core.Helper.Decrypt.DecodeAndMapJson(GameAccount gameAccount, String wwwText) in C:\Users\jack\Desktop\CS\GFHelp-Web\GFHelp.Core\Helper\Decrypt.cs:line 60
+<<<<<<< HEAD
 【01:47:50】      message = 读取config配置 
 【01:47:50】      message = 读取文字解析 
 【01:47:50】      message = updataCatchData 
@@ -5430,3 +5431,5 @@ Parameter name: buffer
    at GFHelp.Core.Helper.Decrypt.DecodeAndMapJson(GameAccount gameAccount, String wwwText) in C:\Users\jack\Desktop\CS\GFHelp-Web\GFHelp.Core\Helper\Decrypt.cs:line 60
 =======
 >>>>>>> parent of 8929ed9... 889
+=======
+>>>>>>> parent of 409d437... 2312321321

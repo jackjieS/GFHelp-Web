@@ -254,7 +254,6 @@
           "Microsoft.AspNetCore.SignalR.Client": "1.0.0",
           "Newtonsoft.Json": "11.0.2",
           "UnityEngine": "0.0.0.0",
-          "dotnet-aspnet-codegenerator-design": "2.1.0.0",
           "AuthCode": "1.0.0.0",
           "ICSharpCode.SharpZipLib": "0.86.0.518"
         },
@@ -264,6 +263,7 @@
       },
       "GFHelp.DataBase/1.0.0": {
         "dependencies": {
+          "dotnet-aspnet-codegenerator-design": "2.1.0.0",
           "Microsoft.EntityFrameworkCore": "2.1.0.0",
           "Microsoft.Data.Sqlite": "2.1.0.0"
         },
