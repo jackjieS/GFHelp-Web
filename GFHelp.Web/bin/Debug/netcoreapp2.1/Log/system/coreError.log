@@ -1173,3 +1173,48 @@ Parameter name: buffer
    at AC.AuthCode.DecodeWithGzip(String source, String key, Int32 expiry)
    at AC.AuthCode.DecodeWithGzip(String source, String key)
    at GFHelp.Core.Helper.Decrypt.DecodeAndMapJson(GameAccount gameAccount, String wwwText) in C:\Users\jack\Desktop\CS\GFHelp-Web\GFHelp.Core\Helper\Decrypt.cs:line 60
+【01:24:46】      message = LoginDigitalSKY , exception = {"result":60113,"msg":"login_pwd not match."}
+【01:24:52】      message = LoginDigitalSKY , exception = {"result":60113,"msg":"login_pwd not match."}
+【02:26:43】      message = DecodeAndMapJson , exception = System.FormatException: Input string was not in a correct format.
+   at System.Number.StringToNumber(ReadOnlySpan`1 str, NumberStyles options, NumberBuffer& number, NumberFormatInfo info, Boolean parseDecimal)
+   at System.Number.ParseInt64(ReadOnlySpan`1 value, NumberStyles options, NumberFormatInfo numfmt)
+   at System.Int64.Parse(String s)
+   at AC.AuthCode.DecodeWithGzip(String source, String key, Int32 expiry)
+   at AC.AuthCode.DecodeWithGzip(String source, String key)
+   at GFHelp.Core.Helper.Decrypt.DecodeAndMapJson(GameAccount gameAccount, String wwwText) in C:\Users\jack\Desktop\CS\GFHelp-Web\GFHelp.Core\Helper\Decrypt.cs:line 60
+【02:27:40】      message = Mail , exception = error:0
+【02:31:27】      message = DecodeAndMapJson , exception = System.FormatException: Input string was not in a correct format.
+   at System.Number.StringToNumber(ReadOnlySpan`1 str, NumberStyles options, NumberBuffer& number, NumberFormatInfo info, Boolean parseDecimal)
+   at System.Number.ParseInt64(ReadOnlySpan`1 value, NumberStyles options, NumberFormatInfo numfmt)
+   at System.Int64.Parse(String s)
+   at AC.AuthCode.DecodeWithGzip(String source, String key, Int32 expiry)
+   at AC.AuthCode.DecodeWithGzip(String source, String key)
+   at GFHelp.Core.Helper.Decrypt.DecodeAndMapJson(GameAccount gameAccount, String wwwText) in C:\Users\jack\Desktop\CS\GFHelp-Web\GFHelp.Core\Helper\Decrypt.cs:line 60
+【02:31:31】      message = DecodeAndMapJson , exception = System.FormatException: Input string was not in a correct format.
+   at System.Number.StringToNumber(ReadOnlySpan`1 str, NumberStyles options, NumberBuffer& number, NumberFormatInfo info, Boolean parseDecimal)
+   at System.Number.ParseInt64(ReadOnlySpan`1 value, NumberStyles options, NumberFormatInfo numfmt)
+   at System.Int64.Parse(String s)
+   at AC.AuthCode.DecodeWithGzip(String source, String key, Int32 expiry)
+   at AC.AuthCode.DecodeWithGzip(String source, String key)
+   at GFHelp.Core.Helper.Decrypt.DecodeAndMapJson(GameAccount gameAccount, String wwwText) in C:\Users\jack\Desktop\CS\GFHelp-Web\GFHelp.Core\Helper\Decrypt.cs:line 60
+【02:32:39】      message = DecodeAndMapJson , exception = System.FormatException: Input string was not in a correct format.
+   at System.Number.StringToNumber(ReadOnlySpan`1 str, NumberStyles options, NumberBuffer& number, NumberFormatInfo info, Boolean parseDecimal)
+   at System.Number.ParseInt64(ReadOnlySpan`1 value, NumberStyles options, NumberFormatInfo numfmt)
+   at System.Int64.Parse(String s)
+   at AC.AuthCode.DecodeWithGzip(String source, String key, Int32 expiry)
+   at AC.AuthCode.DecodeWithGzip(String source, String key)
+   at GFHelp.Core.Helper.Decrypt.DecodeAndMapJson(GameAccount gameAccount, String wwwText) in C:\Users\jack\Desktop\CS\GFHelp-Web\GFHelp.Core\Helper\Decrypt.cs:line 60
+【02:34:19】      message = DecodeAndMapJson , exception = System.FormatException: Input string was not in a correct format.
+   at System.Number.StringToNumber(ReadOnlySpan`1 str, NumberStyles options, NumberBuffer& number, NumberFormatInfo info, Boolean parseDecimal)
+   at System.Number.ParseInt64(ReadOnlySpan`1 value, NumberStyles options, NumberFormatInfo numfmt)
+   at System.Int64.Parse(String s)
+   at AC.AuthCode.DecodeWithGzip(String source, String key, Int32 expiry)
+   at AC.AuthCode.DecodeWithGzip(String source, String key)
+   at GFHelp.Core.Helper.Decrypt.DecodeAndMapJson(GameAccount gameAccount, String wwwText) in C:\Users\jack\Desktop\CS\GFHelp-Web\GFHelp.Core\Helper\Decrypt.cs:line 60
+【02:34:19】      message = DecodeAndMapJson , exception = System.FormatException: Input string was not in a correct format.
+   at System.Number.StringToNumber(ReadOnlySpan`1 str, NumberStyles options, NumberBuffer& number, NumberFormatInfo info, Boolean parseDecimal)
+   at System.Number.ParseInt64(ReadOnlySpan`1 value, NumberStyles options, NumberFormatInfo numfmt)
+   at System.Int64.Parse(String s)
+   at AC.AuthCode.DecodeWithGzip(String source, String key, Int32 expiry)
+   at AC.AuthCode.DecodeWithGzip(String source, String key)
+   at GFHelp.Core.Helper.Decrypt.DecodeAndMapJson(GameAccount gameAccount, String wwwText) in C:\Users\jack\Desktop\CS\GFHelp-Web\GFHelp.Core\Helper\Decrypt.cs:line 60

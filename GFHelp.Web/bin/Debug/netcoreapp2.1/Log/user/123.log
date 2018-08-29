@@ -1515,3 +1515,14 @@
 【05:11:57】      message =  妹猫饼 宿舍 电池数 10 剩余 3 
 【05:12:03】      message =  江浙闽 宿舍 电池数 2 剩余 2 
 【16:11:54】      message = 程序已注销 请重新创建实例 
+【01:52:05】      message = 获取UserInfo , exception = 
+【01:53:38】      message = 程序已注销 请重新创建实例 
+【01:53:54】      message = 获取UserInfo , exception = 
+【01:53:57】      message = 签到 , exception = 
+【01:53:57】      message = 查询新邮件 , exception = 
+【01:54:06】      message = 终止作战 , exception = 
+【01:54:13】      message = 开始无限防御 Error TeamID = {0} , exception = 7
+【02:02:51】      message = 后勤结束失败 , exception = error:7
+【02:39:51】      message = 后勤结束失败 , exception = error:7
+【15:30:28】      message = 程序已注销 请重新创建实例 
+【01:59:16】      message = 程序已注销 请重新创建实例 

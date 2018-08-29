@@ -1,0 +1,54 @@
+【01:33:55】      message = 数字天空登陆 , exception = 
+【01:33:56】      message = 获取时间信息 , exception = 
+【01:33:56】      message = 获取Sign , exception = 
+【01:34:01】      message = 获取UserInfo , exception = 
+【01:34:09】      message = 签到 , exception = 
+【01:34:09】      message = 查询新邮件 , exception = 
+【01:34:43】      message = endTurn Error , exception = error:2
+【01:34:48】      message = endEnemyTurn Error , exception = error:2
+【01:34:50】      message = startTurn Error , exception = error:2
+【01:35:14】      message = teamMove Error , exception = error:203|行动点数计算有误
+【01:35:25】      message = teamMove Error , exception = error:203|行动点数计算有误
+【01:35:29】      message = teamMove Error , exception = error:203|行动点数计算有误
+【01:35:34】      message = mapctbox 完成 
+【01:35:35】      message = 数字天空登陆 , exception = 
+【01:35:35】      message = 获取时间信息 , exception = 
+【01:35:36】      message = 获取Sign , exception = 
+【01:35:37】      message = 获取UserInfo , exception = 
+【01:35:41】      message = 签到 , exception = 
+【01:35:41】      message = 查询新邮件 , exception = 
+【01:35:42】      message = 终止作战 , exception = 
+【01:47:22】      message = 数字天空登陆 , exception = 
+【01:47:24】      message = 获取时间信息 , exception = 
+【01:47:24】      message = 获取Sign , exception = 
+【01:47:25】      message = 获取UserInfo , exception = 
+【01:47:32】      message = 签到 , exception = 
+【01:47:32】      message = 查询新邮件 , exception = 
+【01:47:45】      message = 数字天空登陆 , exception = 
+【01:47:46】      message = 获取时间信息 , exception = 
+【01:47:47】      message = 获取Sign , exception = 
+【01:47:47】      message = 获取UserInfo , exception = 
+【01:47:52】      message = 签到 , exception = 
+【01:47:52】      message = 查询新邮件 , exception = 
+【01:47:53】      message = s4.JOEEEY 无法开始作战任务，请登陆游戏检查 
+【01:47:53】      message = mapctbox 完成 
+【02:29:53】      message = 数字天空登陆 , exception = 
+【02:29:54】      message = 获取时间信息 , exception = 
+【02:29:55】      message = 获取Sign , exception = 
+【02:29:55】      message = 获取UserInfo , exception = 
+【02:30:02】      message = 签到 , exception = 
+【02:30:03】      message = 查询新邮件 , exception = 
+【02:30:31】      message = 数字天空登陆 , exception = 
+【02:30:32】      message = 获取时间信息 , exception = 
+【02:30:33】      message = 获取Sign , exception = 
+【02:30:33】      message = 获取UserInfo , exception = 
+【02:30:40】      message = 签到 , exception = 
+【02:30:40】      message = 查询新邮件 , exception = 
+【02:30:41】      message = s4.JOEEEY 无法开始作战任务，请登陆游戏检查 
+【02:30:41】      message = mapctbox 完成 
+【02:35:02】      message = 数字天空登陆 , exception = 
+【02:35:03】      message = 获取时间信息 , exception = 
+【02:35:03】      message = 获取Sign , exception = 
+【02:35:04】      message = 获取UserInfo , exception = 
+【02:35:07】      message = 签到 , exception = 
+【02:35:07】      message = 查询新邮件 , exception = 

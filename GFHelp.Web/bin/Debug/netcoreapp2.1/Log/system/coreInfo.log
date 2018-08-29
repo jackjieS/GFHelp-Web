@@ -5222,3 +5222,208 @@ Parameter name: buffer
    at AC.AuthCode.DecodeWithGzip(String source, String key, Int32 expiry)
    at AC.AuthCode.DecodeWithGzip(String source, String key)
    at GFHelp.Core.Helper.Decrypt.DecodeAndMapJson(GameAccount gameAccount, String wwwText) in C:\Users\jack\Desktop\CS\GFHelp-Web\GFHelp.Core\Helper\Decrypt.cs:line 60
+【01:47:50】      message = 读取config配置 
+【01:47:50】      message = 读取文字解析 
+【01:47:50】      message = updataCatchData 
+【01:47:54】      message = stcSquad_standard_attributionList 解析完成：9 
+【01:47:54】      message = stcItemList 解析完成：423 
+【01:47:54】      message = stcGunList 解析完成：284 
+【01:47:54】      message = stcSquadList 解析完成：3 
+【01:47:54】      message = stcSquad_chipList 解析完成：28 
+【01:47:54】      message = stcSquad_typeList 解析完成：3 
+【01:47:54】      message = stcSquad_rankList 解析完成：5 
+【01:47:54】      message = stcSquad_expList 解析完成：100 
+【01:47:54】      message = stcSquad_chip_expList 解析完成：20 
+【01:47:54】      message = stcSquad_data_dailyList 解析完成：14 
+【01:47:54】      message = stcBattle_skill_configList 解析完成：4454 
+【01:47:54】      message = stcSquad_advanced_bonusList 解析完成：30 
+【01:47:54】      message = stcSquad_cpuList 解析完成：3 
+【01:47:54】      message = stcSquad_colorList 解析完成：2 
+【01:47:54】      message = stcSquad_gridList 解析完成：59 
+【01:47:54】      message = stcSquad_cpu_completionList 解析完成：15 
+【01:47:54】      message = 引用作战dll 
+【15:13:35】      message = 读取config配置 
+【15:13:35】      message = 读取文字解析 
+【15:13:35】      message = updataCatchData 
+【15:13:39】      message = stcSquad_standard_attributionList 解析完成：9 
+【15:13:39】      message = stcItemList 解析完成：423 
+【15:13:39】      message = stcGunList 解析完成：284 
+【15:13:39】      message = stcSquadList 解析完成：3 
+【15:13:39】      message = stcSquad_chipList 解析完成：28 
+【15:13:39】      message = stcSquad_typeList 解析完成：3 
+【15:13:39】      message = stcSquad_rankList 解析完成：5 
+【15:13:39】      message = stcSquad_expList 解析完成：100 
+【15:13:39】      message = stcSquad_chip_expList 解析完成：20 
+【15:13:39】      message = stcSquad_data_dailyList 解析完成：14 
+【15:13:39】      message = stcBattle_skill_configList 解析完成：4454 
+【15:13:39】      message = stcSquad_advanced_bonusList 解析完成：30 
+【15:13:39】      message = stcSquad_cpuList 解析完成：3 
+【15:13:39】      message = stcSquad_colorList 解析完成：2 
+【15:13:39】      message = stcSquad_gridList 解析完成：59 
+【15:13:39】      message = stcSquad_cpu_completionList 解析完成：15 
+【15:13:39】      message = 引用作战dll 
+【15:15:17】      message = 读取config配置 
+【15:15:17】      message = 读取文字解析 
+【15:15:17】      message = updataCatchData 
+【15:15:19】      message = stcSquad_standard_attributionList 解析完成：9 
+【15:15:19】      message = stcItemList 解析完成：423 
+【15:15:19】      message = stcGunList 解析完成：284 
+【15:15:19】      message = stcSquadList 解析完成：3 
+【15:15:19】      message = stcSquad_chipList 解析完成：28 
+【15:15:19】      message = stcSquad_typeList 解析完成：3 
+【15:15:19】      message = stcSquad_rankList 解析完成：5 
+【15:15:19】      message = stcSquad_expList 解析完成：100 
+【15:15:19】      message = stcSquad_chip_expList 解析完成：20 
+【15:15:19】      message = stcSquad_data_dailyList 解析完成：14 
+【15:15:19】      message = stcBattle_skill_configList 解析完成：4454 
+【15:15:19】      message = stcSquad_advanced_bonusList 解析完成：30 
+【15:15:19】      message = stcSquad_cpuList 解析完成：3 
+【15:15:19】      message = stcSquad_colorList 解析完成：2 
+【15:15:19】      message = stcSquad_gridList 解析完成：59 
+【15:15:19】      message = stcSquad_cpu_completionList 解析完成：15 
+【15:15:19】      message = 引用作战dll 
+【15:16:52】      message = 读取config配置 
+【15:16:52】      message = 读取文字解析 
+【15:16:52】      message = updataCatchData 
+【15:16:55】      message = stcSquad_standard_attributionList 解析完成：9 
+【15:16:55】      message = stcItemList 解析完成：423 
+【15:16:55】      message = stcGunList 解析完成：284 
+【15:16:55】      message = stcSquadList 解析完成：3 
+【15:16:55】      message = stcSquad_chipList 解析完成：28 
+【15:16:55】      message = stcSquad_typeList 解析完成：3 
+【15:16:55】      message = stcSquad_rankList 解析完成：5 
+【15:16:55】      message = stcSquad_expList 解析完成：100 
+【15:16:55】      message = stcSquad_chip_expList 解析完成：20 
+【15:16:55】      message = stcSquad_data_dailyList 解析完成：14 
+【15:16:55】      message = stcBattle_skill_configList 解析完成：4454 
+【15:16:55】      message = stcSquad_advanced_bonusList 解析完成：30 
+【15:16:55】      message = stcSquad_cpuList 解析完成：3 
+【15:16:55】      message = stcSquad_colorList 解析完成：2 
+【15:16:55】      message = stcSquad_gridList 解析完成：59 
+【15:16:55】      message = stcSquad_cpu_completionList 解析完成：15 
+【15:16:55】      message = 引用作战dll 
+【15:25:32】      message = 读取config配置 
+【15:25:32】      message = 读取文字解析 
+【15:25:32】      message = updataCatchData 
+【15:25:34】      message = stcSquad_standard_attributionList 解析完成：9 
+【15:25:34】      message = stcItemList 解析完成：423 
+【15:25:34】      message = stcGunList 解析完成：284 
+【15:25:34】      message = stcSquadList 解析完成：3 
+【15:25:34】      message = stcSquad_chipList 解析完成：28 
+【15:25:34】      message = stcSquad_typeList 解析完成：3 
+【15:25:34】      message = stcSquad_rankList 解析完成：5 
+【15:25:34】      message = stcSquad_expList 解析完成：100 
+【15:25:34】      message = stcSquad_chip_expList 解析完成：20 
+【15:25:34】      message = stcSquad_data_dailyList 解析完成：14 
+【15:25:34】      message = stcBattle_skill_configList 解析完成：4454 
+【15:25:34】      message = stcSquad_advanced_bonusList 解析完成：30 
+【15:25:34】      message = stcSquad_cpuList 解析完成：3 
+【15:25:34】      message = stcSquad_colorList 解析完成：2 
+【15:25:34】      message = stcSquad_gridList 解析完成：59 
+【15:25:34】      message = stcSquad_cpu_completionList 解析完成：15 
+【15:25:34】      message = 引用作战dll 
+【15:29:42】      message = 读取config配置 
+【15:29:42】      message = 读取文字解析 
+【15:29:42】      message = updataCatchData 
+【15:29:44】      message = stcSquad_standard_attributionList 解析完成：9 
+【15:29:44】      message = stcItemList 解析完成：423 
+【15:29:44】      message = stcGunList 解析完成：284 
+【15:29:44】      message = stcSquadList 解析完成：3 
+【15:29:44】      message = stcSquad_chipList 解析完成：28 
+【15:29:44】      message = stcSquad_typeList 解析完成：3 
+【15:29:44】      message = stcSquad_rankList 解析完成：5 
+【15:29:44】      message = stcSquad_expList 解析完成：100 
+【15:29:44】      message = stcSquad_chip_expList 解析完成：20 
+【15:29:44】      message = stcSquad_data_dailyList 解析完成：14 
+【15:29:44】      message = stcBattle_skill_configList 解析完成：4454 
+【15:29:44】      message = stcSquad_advanced_bonusList 解析完成：30 
+【15:29:44】      message = stcSquad_cpuList 解析完成：3 
+【15:29:44】      message = stcSquad_colorList 解析完成：2 
+【15:29:44】      message = stcSquad_gridList 解析完成：59 
+【15:29:44】      message = stcSquad_cpu_completionList 解析完成：15 
+【15:29:44】      message = 引用作战dll 
+【15:29:59】      message = 读取config配置 
+【15:29:59】      message = 读取文字解析 
+【15:29:59】      message = updataCatchData 
+【15:30:02】      message = stcSquad_standard_attributionList 解析完成：9 
+【15:30:02】      message = stcItemList 解析完成：423 
+【15:30:02】      message = stcGunList 解析完成：284 
+【15:30:02】      message = stcSquadList 解析完成：3 
+【15:30:02】      message = stcSquad_chipList 解析完成：28 
+【15:30:02】      message = stcSquad_typeList 解析完成：3 
+【15:30:02】      message = stcSquad_rankList 解析完成：5 
+【15:30:02】      message = stcSquad_expList 解析完成：100 
+【15:30:02】      message = stcSquad_chip_expList 解析完成：20 
+【15:30:02】      message = stcSquad_data_dailyList 解析完成：14 
+【15:30:02】      message = stcBattle_skill_configList 解析完成：4454 
+【15:30:02】      message = stcSquad_advanced_bonusList 解析完成：30 
+【15:30:02】      message = stcSquad_cpuList 解析完成：3 
+【15:30:02】      message = stcSquad_colorList 解析完成：2 
+【15:30:02】      message = stcSquad_gridList 解析完成：59 
+【15:30:02】      message = stcSquad_cpu_completionList 解析完成：15 
+【15:30:02】      message = 引用作战dll 
+【01:16:16】      message = 读取config配置 
+【01:16:16】      message = 读取文字解析 
+【01:16:16】      message = updataCatchData 
+【01:16:18】      message = stcSquad_standard_attributionList 解析完成：9 
+【01:16:18】      message = stcItemList 解析完成：423 
+【01:16:18】      message = stcGunList 解析完成：284 
+【01:16:18】      message = stcSquadList 解析完成：3 
+【01:16:18】      message = stcSquad_chipList 解析完成：28 
+【01:16:18】      message = stcSquad_typeList 解析完成：3 
+【01:16:18】      message = stcSquad_rankList 解析完成：5 
+【01:16:18】      message = stcSquad_expList 解析完成：100 
+【01:16:18】      message = stcSquad_chip_expList 解析完成：20 
+【01:16:18】      message = stcSquad_data_dailyList 解析完成：14 
+【01:16:18】      message = stcBattle_skill_configList 解析完成：4454 
+【01:16:18】      message = stcSquad_advanced_bonusList 解析完成：30 
+【01:16:18】      message = stcSquad_cpuList 解析完成：3 
+【01:16:18】      message = stcSquad_colorList 解析完成：2 
+【01:16:18】      message = stcSquad_gridList 解析完成：59 
+【01:16:18】      message = stcSquad_cpu_completionList 解析完成：15 
+【01:16:18】      message = 引用作战dll 
+【01:24:46】      message = LoginDigitalSKY , exception = {"result":60113,"msg":"login_pwd not match."}
+【01:24:52】      message = LoginDigitalSKY , exception = {"result":60113,"msg":"login_pwd not match."}
+【02:26:43】      message = DecodeAndMapJson , exception = System.FormatException: Input string was not in a correct format.
+   at System.Number.StringToNumber(ReadOnlySpan`1 str, NumberStyles options, NumberBuffer& number, NumberFormatInfo info, Boolean parseDecimal)
+   at System.Number.ParseInt64(ReadOnlySpan`1 value, NumberStyles options, NumberFormatInfo numfmt)
+   at System.Int64.Parse(String s)
+   at AC.AuthCode.DecodeWithGzip(String source, String key, Int32 expiry)
+   at AC.AuthCode.DecodeWithGzip(String source, String key)
+   at GFHelp.Core.Helper.Decrypt.DecodeAndMapJson(GameAccount gameAccount, String wwwText) in C:\Users\jack\Desktop\CS\GFHelp-Web\GFHelp.Core\Helper\Decrypt.cs:line 60
+【02:27:40】      message = Mail , exception = error:0
+【02:31:27】      message = DecodeAndMapJson , exception = System.FormatException: Input string was not in a correct format.
+   at System.Number.StringToNumber(ReadOnlySpan`1 str, NumberStyles options, NumberBuffer& number, NumberFormatInfo info, Boolean parseDecimal)
+   at System.Number.ParseInt64(ReadOnlySpan`1 value, NumberStyles options, NumberFormatInfo numfmt)
+   at System.Int64.Parse(String s)
+   at AC.AuthCode.DecodeWithGzip(String source, String key, Int32 expiry)
+   at AC.AuthCode.DecodeWithGzip(String source, String key)
+   at GFHelp.Core.Helper.Decrypt.DecodeAndMapJson(GameAccount gameAccount, String wwwText) in C:\Users\jack\Desktop\CS\GFHelp-Web\GFHelp.Core\Helper\Decrypt.cs:line 60
+【02:31:31】      message = DecodeAndMapJson , exception = System.FormatException: Input string was not in a correct format.
+   at System.Number.StringToNumber(ReadOnlySpan`1 str, NumberStyles options, NumberBuffer& number, NumberFormatInfo info, Boolean parseDecimal)
+   at System.Number.ParseInt64(ReadOnlySpan`1 value, NumberStyles options, NumberFormatInfo numfmt)
+   at System.Int64.Parse(String s)
+   at AC.AuthCode.DecodeWithGzip(String source, String key, Int32 expiry)
+   at AC.AuthCode.DecodeWithGzip(String source, String key)
+   at GFHelp.Core.Helper.Decrypt.DecodeAndMapJson(GameAccount gameAccount, String wwwText) in C:\Users\jack\Desktop\CS\GFHelp-Web\GFHelp.Core\Helper\Decrypt.cs:line 60
+【02:32:39】      message = DecodeAndMapJson , exception = System.FormatException: Input string was not in a correct format.
+   at System.Number.StringToNumber(ReadOnlySpan`1 str, NumberStyles options, NumberBuffer& number, NumberFormatInfo info, Boolean parseDecimal)
+   at System.Number.ParseInt64(ReadOnlySpan`1 value, NumberStyles options, NumberFormatInfo numfmt)
+   at System.Int64.Parse(String s)
+   at AC.AuthCode.DecodeWithGzip(String source, String key, Int32 expiry)
+   at AC.AuthCode.DecodeWithGzip(String source, String key)
+   at GFHelp.Core.Helper.Decrypt.DecodeAndMapJson(GameAccount gameAccount, String wwwText) in C:\Users\jack\Desktop\CS\GFHelp-Web\GFHelp.Core\Helper\Decrypt.cs:line 60
+【02:34:19】      message = DecodeAndMapJson , exception = System.FormatException: Input string was not in a correct format.
+   at System.Number.StringToNumber(ReadOnlySpan`1 str, NumberStyles options, NumberBuffer& number, NumberFormatInfo info, Boolean parseDecimal)
+   at System.Number.ParseInt64(ReadOnlySpan`1 value, NumberStyles options, NumberFormatInfo numfmt)
+   at System.Int64.Parse(String s)
+   at AC.AuthCode.DecodeWithGzip(String source, String key, Int32 expiry)
+   at AC.AuthCode.DecodeWithGzip(String source, String key)
+   at GFHelp.Core.Helper.Decrypt.DecodeAndMapJson(GameAccount gameAccount, String wwwText) in C:\Users\jack\Desktop\CS\GFHelp-Web\GFHelp.Core\Helper\Decrypt.cs:line 60
+【02:34:19】      message = DecodeAndMapJson , exception = System.FormatException: Input string was not in a correct format.
+   at System.Number.StringToNumber(ReadOnlySpan`1 str, NumberStyles options, NumberBuffer& number, NumberFormatInfo info, Boolean parseDecimal)
+   at System.Number.ParseInt64(ReadOnlySpan`1 value, NumberStyles options, NumberFormatInfo numfmt)
+   at System.Int64.Parse(String s)
+   at AC.AuthCode.DecodeWithGzip(String source, String key, Int32 expiry)
+   at AC.AuthCode.DecodeWithGzip(String source, String key)
+   at GFHelp.Core.Helper.Decrypt.DecodeAndMapJson(GameAccount gameAccount, String wwwText) in C:\Users\jack\Desktop\CS\GFHelp-Web\GFHelp.Core\Helper\Decrypt.cs:line 60

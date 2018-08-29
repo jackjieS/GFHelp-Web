@@ -59,3 +59,32 @@
 【03:35:05】      message = 获取UserInfo , exception = 
 【03:35:09】      message = 签到 , exception = 
 【03:35:09】      message = 查询新邮件 , exception = 
+【01:51:31】      message = 程序已注销 请重新创建实例 
+【01:32:09】      message = 数字天空登陆 , exception = 
+【01:32:10】      message = 获取时间信息 , exception = 
+【01:32:11】      message = 获取Sign , exception = 
+【01:32:12】      message = 获取UserInfo , exception = 
+【01:32:16】      message = 签到 , exception = 
+【01:32:16】      message = 查询新邮件 , exception = 
+【01:33:07】      message = 终止作战 , exception = 
+【01:35:02】      message = 数字天空登陆 , exception = 
+【01:35:03】      message = 获取时间信息 , exception = 
+【01:35:03】      message = 获取Sign , exception = 
+【01:35:04】      message = 获取UserInfo , exception = 
+【01:35:12】      message = 签到 , exception = 
+【01:35:12】      message = 查询新邮件 , exception = 
+【02:10:02】      message = 收集数据 数据监测枢纽  
+【02:10:03】      message = 收集数据 数据监测枢纽 完成 
+【02:23:51】      message = 数字天空登陆 , exception = 
+【02:23:52】      message = 获取时间信息 , exception = 
+【02:23:52】      message = 获取Sign , exception = 
+【02:23:53】      message = 获取UserInfo , exception = 
+【02:24:00】      message = 签到 , exception = 
+【02:24:01】      message = 查询新邮件 , exception = 
+【02:30:08】      message = mapctbox 完成 
+【02:35:03】      message = 数字天空登陆 , exception = 
+【02:35:03】      message = 获取时间信息 , exception = 
+【02:35:04】      message = 获取Sign , exception = 
+【02:35:05】      message = 获取UserInfo , exception = 
+【02:35:10】      message = 签到 , exception = 
+【02:35:10】      message = 查询新邮件 , exception = 
