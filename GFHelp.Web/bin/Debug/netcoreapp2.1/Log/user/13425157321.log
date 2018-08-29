@@ -419,6 +419,7 @@
 【01:06:42】      message = 爱睡觉的兔子 无法开始作战任务，请登陆游戏检查 
 【01:06:42】      message = mapctbox 完成 
 【01:10:59】      message = 程序已注销 请重新创建实例 
+<<<<<<< HEAD
 【01:25:07】      message = 数字天空登陆 , exception = 
 【01:25:09】      message = 获取时间信息 , exception = 
 【01:25:10】      message = 获取Sign , exception = 
@@ -650,3 +651,5 @@
 【02:35:05】      message = 获取UserInfo , exception = 
 【02:35:08】      message = 签到 , exception = 
 【02:35:08】      message = 查询新邮件 , exception = 
+=======
+>>>>>>> parent of 8929ed9... 889

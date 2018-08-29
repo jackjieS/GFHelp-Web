@@ -37,7 +37,6 @@ namespace GFHelp.Core.MulitePlayerData
 
         public void AutoRun()
         {
-            
             DataAnalysisFinishHandel();
             DataAnalysisStartHandel();
         }
@@ -55,7 +54,6 @@ namespace GFHelp.Core.MulitePlayerData
         }
         private void DataAnalysisFinishHandel()
         {
-            if (!userData.others.isWaveTechOpen) return;
             if (AutoRunning == false) return;
             if (!isAllDataAnalysisFinish()) return;
             new Log().userInit(userData.GameAccount.Base.GameAccountID, "情报解析 准备 完成");
@@ -136,7 +134,7 @@ namespace GFHelp.Core.MulitePlayerData
 
         private void DataAnalysisStartHandel()
         {
-            if (!userData.others.isWaveTechOpen) return;
+            //检查是否足够资源
             if (AutoRunning == false) return;
             int inputLevel = isReadyDataAnalysisStart();
             if (inputLevel == -1) return;

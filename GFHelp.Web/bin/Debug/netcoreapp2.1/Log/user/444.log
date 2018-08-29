@@ -39,6 +39,7 @@
 【01:18:30】      message = 终止作战 , exception = 
 【01:22:45】      message = mapctbox 完成 
 【01:23:44】      message = 程序已注销 请重新创建实例 
+<<<<<<< HEAD
 【01:52:05】      message = 获取UserInfo , exception = 
 【01:52:11】      message = 签到 , exception = 
 【01:52:11】      message = 查询新邮件 , exception = 
@@ -96,3 +97,5 @@
 【03:28:50】      message = Establish_Build_Finish ERROR , exception = error:0
 【03:41:48】      message = 后勤结束失败 , exception = error:0
 【01:51:34】      message = 程序已注销 请重新创建实例 
+=======
+>>>>>>> parent of 8929ed9... 889

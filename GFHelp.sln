@@ -9,7 +9,7 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "GFHelp.Core", "GFHelp.Core\
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "GFHelp.Mission", "Mission\GFHelp.Mission.csproj", "{2FFF7EB6-A34D-4143-BD3D-DAFFAB10667D}"
 EndProject
-Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "GFHelp.DataBase", "GFHelp.DataBase\GFHelp.DataBase.csproj", "{DEB88056-8FED-4E45-BA65-0B1504E35545}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "GFHelp.DataBase", "GFHelp.DataBase\GFHelp.DataBase.csproj", "{DEB88056-8FED-4E45-BA65-0B1504E35545}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution

@@ -1450,6 +1450,7 @@
 【01:18:45】      message = 获取UserInfo , exception = 
 【01:18:47】      message = 小奏 无法开始作战任务，请登陆游戏检查 
 【01:18:47】      message = mapctbox 完成 
+<<<<<<< HEAD
 【01:53:39】      message = 获取UserInfo , exception = 
 【01:53:42】      message = 签到 , exception = 
 【01:53:42】      message = 查询新邮件 , exception = 
@@ -1526,3 +1527,5 @@
 【02:39:51】      message = 后勤结束失败 , exception = error:7
 【15:30:28】      message = 程序已注销 请重新创建实例 
 【01:59:16】      message = 程序已注销 请重新创建实例 
+=======
+>>>>>>> parent of 8929ed9... 889

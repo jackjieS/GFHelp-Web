@@ -387,7 +387,6 @@ namespace GFHelp.Core.MulitePlayerData
 
         private bool GetOandPData(ref string result)
         {
-            if (!userData.others.isWaveTechOpen) return false;
             new Log().userInit(userData.GameAccount.Base.GameAccountID, "收集数据 数据监测枢纽 ").userInfo();
             int count = 0;
             while (true)

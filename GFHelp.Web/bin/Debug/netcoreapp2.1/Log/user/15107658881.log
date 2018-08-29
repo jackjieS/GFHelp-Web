@@ -155,6 +155,7 @@
 【01:09:17】      message = 鹿乃桑 无法开始作战任务，请登陆游戏检查 
 【01:09:17】      message = mapctbox 完成 
 【01:11:01】      message = 程序已注销 请重新创建实例 
+<<<<<<< HEAD
 【01:31:39】      message = 数字天空登陆 , exception = 
 【01:31:39】      message = 获取时间信息 , exception = 
 【01:31:41】      message = 获取Sign , exception = 
@@ -320,3 +321,5 @@
 【01:31:14】      message = 开始无限防御 Error TeamID = {0} , exception = 5
 【01:31:19】      message = 开始无限防御 Error TeamID = {0} , exception = 5
 【01:31:52】      message = 程序已注销 请重新创建实例 
+=======
+>>>>>>> parent of 8929ed9... 889

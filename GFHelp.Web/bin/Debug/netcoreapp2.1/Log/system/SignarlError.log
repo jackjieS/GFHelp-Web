@@ -5908,6 +5908,7 @@ Parameter name: index
    at Newtonsoft.Json.JsonConvert.SerializeObjectInternal(Object value, Type type, JsonSerializer jsonSerializer)
    at Newtonsoft.Json.JsonConvert.SerializeObject(Object value)
    at GFHelp.Core.SignaIRClient.LoopGameMessage() in C:\Users\jack\Desktop\CS\GFHelp-Web\GFHelp.Core\SignaIRClient.cs:line 176
+<<<<<<< HEAD
 【23:03:07】      message = SendGameDetails Error , exception = System.InvalidOperationException: Collection was modified; enumeration operation may not execute.
    at System.Collections.Generic.List`1.Enumerator.MoveNextRare()
    at Newtonsoft.Json.Serialization.JsonSerializerInternalWriter.SerializeList(JsonWriter writer, IEnumerable values, JsonArrayContract contract, JsonProperty member, JsonContainerContract collectionContract, JsonProperty containerProperty)
@@ -6008,3 +6009,5 @@ Parameter name: index
    at System.Collections.Generic.Dictionary`2.TryInsert(TKey key, TValue value, InsertionBehavior behavior)
    at System.Collections.Generic.Dictionary`2.Add(TKey key, TValue value)
    at GFHelp.Core.SignaIRClient.getWebData() in C:\Users\jack\Desktop\CS\GFHelp-Web\GFHelp.Core\SignaIRClient.cs:line 132
+=======
+>>>>>>> parent of 8929ed9... 889

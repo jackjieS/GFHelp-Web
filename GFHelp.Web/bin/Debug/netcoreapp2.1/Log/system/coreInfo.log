@@ -4261,6 +4261,7 @@ Parameter name: buffer
    at LitJson.JsonData.get_Item(String prop_name)
    at GFHelp.Core.MulitePlayerData.Chip_With_User_Info.Data..ctor(JsonData jsonData, UserData userData) in C:\Users\jack\Desktop\CS\GFHelp-Web\GFHelp.Core\MulitePlayerData\UserData\chip_with_user_info.cs:line 67
    at GFHelp.Core.MulitePlayerData.SquadDataAnalysisAction.DataAnalysisFinishRead(String result) in C:\Users\jack\Desktop\CS\GFHelp-Web\GFHelp.Core\MulitePlayerData\UserData\SquadDataAnalysisAction.cs:line 121
+<<<<<<< HEAD
 【00:59:11】      message = 读取config配置 
 【00:59:11】      message = 读取文字解析 
 【00:59:11】      message = updataCatchData 
@@ -5427,3 +5428,5 @@ Parameter name: buffer
    at AC.AuthCode.DecodeWithGzip(String source, String key, Int32 expiry)
    at AC.AuthCode.DecodeWithGzip(String source, String key)
    at GFHelp.Core.Helper.Decrypt.DecodeAndMapJson(GameAccount gameAccount, String wwwText) in C:\Users\jack\Desktop\CS\GFHelp-Web\GFHelp.Core\Helper\Decrypt.cs:line 60
+=======
+>>>>>>> parent of 8929ed9... 889

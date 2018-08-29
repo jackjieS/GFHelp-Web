@@ -42,6 +42,7 @@
 【10:49:01】      message = 查询新邮件 , exception = 
 【10:50:21】      message = DataAnalysisStart ERROR , exception = error:203|max build_slot error
 【21:01:53】      message = 程序已注销 请重新创建实例 
+<<<<<<< HEAD
 【23:01:00】      message = 数字天空登陆 , exception = 
 【23:01:01】      message = 获取时间信息 , exception = 
 【23:01:02】      message = 获取Sign , exception = 
@@ -157,3 +158,5 @@
 【02:35:05】      message = 获取UserInfo , exception = 
 【02:35:08】      message = 签到 , exception = 
 【02:35:09】      message = 查询新邮件 , exception = 
+=======
+>>>>>>> parent of 8929ed9... 889
