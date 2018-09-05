@@ -3301,7 +3301,7 @@ namespace GFHelp.Mission
             public Dictionary<int, TeamMove> dic_TeamMove;
         }
 
-<<<<<<< HEAD
+
         public class mapcte2_15
         {
             public static MissionType missionType = MissionType.Activity;
@@ -3533,8 +3533,7 @@ namespace GFHelp.Mission
 
 
 
-=======
->>>>>>> parent of 8929ed9... 889
+
         public class mapcte1start
         {
             public static MissionType missionType = MissionType.Activity;

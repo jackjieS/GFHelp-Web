@@ -348,22 +348,35 @@ namespace GFHelp.Core.Management
 
         public bool NeedAuto_Loop_Operation_Act = true;
         public bool NeedAuto_Click_Girls_In_Dorm = true;//这些都需要 read userinfo 重置
-        public bool AutoSimulation = true;
         public bool NewGun_Report_Stop = true;
-        public bool AutoStrengthen = true;
+
+        public bool AutoSimulation = false;
+        public bool DataAnalysis = false;
+        public bool AutoStrengthen = false;
+
         private void ParmConfiuge(UserData userData)
         {
             if (string.IsNullOrEmpty(userData.GameAccount.Base.Parm)) return;
             List<string> Parm = userData.GameAccount.Base.Parm.ToLower().Split(' ').ToList();
             foreach (var item in Parm)
             {
-                if (item.Contains("-sf"))
+                if (item.Contains("-d"))
                 {
-                    this.AutoSimulation = false;
+                    this.DataAnalysis = true;
+                }
+                if (item.Contains("-s"))
+                {
+                    this.AutoSimulation = true;
                 }
                 if (item.Contains("-st"))
                 {
-                    this.AutoStrengthen = false;
+                    this.AutoStrengthen = true;
+                }
+                if (item.Contains("-all"))
+                {
+                    this.AutoSimulation = true;
+                    this.AutoStrengthen = true;
+                    this.DataAnalysis = true;
                 }
             }
         }

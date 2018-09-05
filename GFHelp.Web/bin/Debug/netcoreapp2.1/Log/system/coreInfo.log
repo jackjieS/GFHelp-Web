@@ -5439,3 +5439,250 @@ Parameter name: buffer
 >>>>>>> parent of 409d437... 2312321321
 =======
 >>>>>>> parent of 409d437... 2312321321
+【20:19:56】      message = 读取config配置 
+【20:19:56】      message = 读取文字解析 
+【20:19:56】      message = updataCatchData 
+【20:20:04】      message = 引用作战dll 
+【20:20:26】      message = 读取config配置 
+【20:20:26】      message = 读取文字解析 
+【20:20:26】      message = updataCatchData 
+【20:20:30】      message = 引用作战dll 
+【20:20:31】      message = stcSquad_standard_attributionList 解析完成：9 
+【20:20:31】      message = stcItemList 解析完成：423 
+【20:20:31】      message = stcGunList 解析完成：284 
+【20:20:31】      message = stcSquadList 解析完成：3 
+【20:20:31】      message = stcSquad_chipList 解析完成：28 
+【20:20:31】      message = stcSquad_typeList 解析完成：3 
+【20:20:31】      message = stcSquad_rankList 解析完成：5 
+【20:20:31】      message = stcSquad_expList 解析完成：100 
+【20:20:31】      message = stcSquad_chip_expList 解析完成：20 
+【20:20:31】      message = stcSquad_data_dailyList 解析完成：14 
+【20:20:31】      message = stcBattle_skill_configList 解析完成：4454 
+【20:20:31】      message = stcSquad_advanced_bonusList 解析完成：30 
+【20:20:31】      message = stcSquad_cpuList 解析完成：3 
+【20:20:31】      message = stcSquad_colorList 解析完成：2 
+【20:20:31】      message = stcSquad_gridList 解析完成：59 
+【20:20:31】      message = stcSquad_cpu_completionList 解析完成：15 
+【20:43:57】      message = 读取UserData_gun_with_user_info遇到错误 , exception = System.NullReferenceException: Object reference not set to an instance of an object.
+   at GFHelp.Core.MulitePlayerData.Gun_With_User_Info.UpdateData() in C:\Users\jack\Desktop\CS\GFHelp-Web\GFHelp.Core\MulitePlayerData\UserData\Gun_With_User_Info.cs:line 694
+   at GFHelp.Core.MulitePlayerData.Gun_With_User_Info.Read(JsonData jsonobj) in C:\Users\jack\Desktop\CS\GFHelp-Web\GFHelp.Core\MulitePlayerData\UserData\Gun_With_User_Info.cs:line 105
+【20:55:40】      message = 读取UserData_gun_with_user_info遇到错误 , exception = System.NullReferenceException: Object reference not set to an instance of an object.
+   at GFHelp.Core.MulitePlayerData.Gun_With_User_Info.UpdateData() in C:\Users\jack\Desktop\CS\GFHelp-Web\GFHelp.Core\MulitePlayerData\UserData\Gun_With_User_Info.cs:line 694
+   at GFHelp.Core.MulitePlayerData.Gun_With_User_Info.Read(JsonData jsonobj) in C:\Users\jack\Desktop\CS\GFHelp-Web\GFHelp.Core\MulitePlayerData\UserData\Gun_With_User_Info.cs:line 105
+【21:06:55】      message = 读取UserData_gun_with_user_info遇到错误 , exception = System.NullReferenceException: Object reference not set to an instance of an object.
+   at GFHelp.Core.MulitePlayerData.Gun_With_User_Info.UpdateData() in C:\Users\jack\Desktop\CS\GFHelp-Web\GFHelp.Core\MulitePlayerData\UserData\Gun_With_User_Info.cs:line 694
+   at GFHelp.Core.MulitePlayerData.Gun_With_User_Info.Read(JsonData jsonobj) in C:\Users\jack\Desktop\CS\GFHelp-Web\GFHelp.Core\MulitePlayerData\UserData\Gun_With_User_Info.cs:line 105
+【21:18:07】      message = 读取UserData_gun_with_user_info遇到错误 , exception = System.NullReferenceException: Object reference not set to an instance of an object.
+   at GFHelp.Core.MulitePlayerData.Gun_With_User_Info.UpdateData() in C:\Users\jack\Desktop\CS\GFHelp-Web\GFHelp.Core\MulitePlayerData\UserData\Gun_With_User_Info.cs:line 694
+   at GFHelp.Core.MulitePlayerData.Gun_With_User_Info.Read(JsonData jsonobj) in C:\Users\jack\Desktop\CS\GFHelp-Web\GFHelp.Core\MulitePlayerData\UserData\Gun_With_User_Info.cs:line 105
+【21:30:12】      message = 读取UserData_gun_with_user_info遇到错误 , exception = System.NullReferenceException: Object reference not set to an instance of an object.
+   at GFHelp.Core.MulitePlayerData.Gun_With_User_Info.UpdateData() in C:\Users\jack\Desktop\CS\GFHelp-Web\GFHelp.Core\MulitePlayerData\UserData\Gun_With_User_Info.cs:line 694
+   at GFHelp.Core.MulitePlayerData.Gun_With_User_Info.Read(JsonData jsonobj) in C:\Users\jack\Desktop\CS\GFHelp-Web\GFHelp.Core\MulitePlayerData\UserData\Gun_With_User_Info.cs:line 105
+【21:41:47】      message = 读取UserData_gun_with_user_info遇到错误 , exception = System.NullReferenceException: Object reference not set to an instance of an object.
+   at GFHelp.Core.MulitePlayerData.Gun_With_User_Info.UpdateData() in C:\Users\jack\Desktop\CS\GFHelp-Web\GFHelp.Core\MulitePlayerData\UserData\Gun_With_User_Info.cs:line 694
+   at GFHelp.Core.MulitePlayerData.Gun_With_User_Info.Read(JsonData jsonobj) in C:\Users\jack\Desktop\CS\GFHelp-Web\GFHelp.Core\MulitePlayerData\UserData\Gun_With_User_Info.cs:line 105
+【21:53:15】      message = 读取UserData_gun_with_user_info遇到错误 , exception = System.NullReferenceException: Object reference not set to an instance of an object.
+   at GFHelp.Core.MulitePlayerData.Gun_With_User_Info.UpdateData() in C:\Users\jack\Desktop\CS\GFHelp-Web\GFHelp.Core\MulitePlayerData\UserData\Gun_With_User_Info.cs:line 694
+   at GFHelp.Core.MulitePlayerData.Gun_With_User_Info.Read(JsonData jsonobj) in C:\Users\jack\Desktop\CS\GFHelp-Web\GFHelp.Core\MulitePlayerData\UserData\Gun_With_User_Info.cs:line 105
+【22:05:00】      message = 读取UserData_gun_with_user_info遇到错误 , exception = System.NullReferenceException: Object reference not set to an instance of an object.
+   at GFHelp.Core.MulitePlayerData.Gun_With_User_Info.UpdateData() in C:\Users\jack\Desktop\CS\GFHelp-Web\GFHelp.Core\MulitePlayerData\UserData\Gun_With_User_Info.cs:line 694
+   at GFHelp.Core.MulitePlayerData.Gun_With_User_Info.Read(JsonData jsonobj) in C:\Users\jack\Desktop\CS\GFHelp-Web\GFHelp.Core\MulitePlayerData\UserData\Gun_With_User_Info.cs:line 105
+【22:16:47】      message = 读取UserData_gun_with_user_info遇到错误 , exception = System.NullReferenceException: Object reference not set to an instance of an object.
+   at GFHelp.Core.MulitePlayerData.Gun_With_User_Info.UpdateData() in C:\Users\jack\Desktop\CS\GFHelp-Web\GFHelp.Core\MulitePlayerData\UserData\Gun_With_User_Info.cs:line 694
+   at GFHelp.Core.MulitePlayerData.Gun_With_User_Info.Read(JsonData jsonobj) in C:\Users\jack\Desktop\CS\GFHelp-Web\GFHelp.Core\MulitePlayerData\UserData\Gun_With_User_Info.cs:line 105
+【22:28:09】      message = 读取UserData_gun_with_user_info遇到错误 , exception = System.NullReferenceException: Object reference not set to an instance of an object.
+   at GFHelp.Core.MulitePlayerData.Gun_With_User_Info.UpdateData() in C:\Users\jack\Desktop\CS\GFHelp-Web\GFHelp.Core\MulitePlayerData\UserData\Gun_With_User_Info.cs:line 694
+   at GFHelp.Core.MulitePlayerData.Gun_With_User_Info.Read(JsonData jsonobj) in C:\Users\jack\Desktop\CS\GFHelp-Web\GFHelp.Core\MulitePlayerData\UserData\Gun_With_User_Info.cs:line 105
+【22:39:43】      message = 读取UserData_gun_with_user_info遇到错误 , exception = System.NullReferenceException: Object reference not set to an instance of an object.
+   at GFHelp.Core.MulitePlayerData.Gun_With_User_Info.UpdateData() in C:\Users\jack\Desktop\CS\GFHelp-Web\GFHelp.Core\MulitePlayerData\UserData\Gun_With_User_Info.cs:line 694
+   at GFHelp.Core.MulitePlayerData.Gun_With_User_Info.Read(JsonData jsonobj) in C:\Users\jack\Desktop\CS\GFHelp-Web\GFHelp.Core\MulitePlayerData\UserData\Gun_With_User_Info.cs:line 105
+【22:51:11】      message = 读取UserData_gun_with_user_info遇到错误 , exception = System.NullReferenceException: Object reference not set to an instance of an object.
+   at GFHelp.Core.MulitePlayerData.Gun_With_User_Info.UpdateData() in C:\Users\jack\Desktop\CS\GFHelp-Web\GFHelp.Core\MulitePlayerData\UserData\Gun_With_User_Info.cs:line 694
+   at GFHelp.Core.MulitePlayerData.Gun_With_User_Info.Read(JsonData jsonobj) in C:\Users\jack\Desktop\CS\GFHelp-Web\GFHelp.Core\MulitePlayerData\UserData\Gun_With_User_Info.cs:line 105
+【23:02:40】      message = 读取UserData_gun_with_user_info遇到错误 , exception = System.NullReferenceException: Object reference not set to an instance of an object.
+   at GFHelp.Core.MulitePlayerData.Gun_With_User_Info.UpdateData() in C:\Users\jack\Desktop\CS\GFHelp-Web\GFHelp.Core\MulitePlayerData\UserData\Gun_With_User_Info.cs:line 694
+   at GFHelp.Core.MulitePlayerData.Gun_With_User_Info.Read(JsonData jsonobj) in C:\Users\jack\Desktop\CS\GFHelp-Web\GFHelp.Core\MulitePlayerData\UserData\Gun_With_User_Info.cs:line 105
+【23:07:54】      message = 调用作战dll文件出错 , exception = System.Reflection.TargetInvocationException: Exception has been thrown by the target of an invocation. ---> LitJson.JsonException: Invalid character 'e' in input string
+   at LitJson.Lexer.NextToken()
+   at LitJson.JsonReader.ReadToken()
+   at LitJson.JsonReader.Read()
+   at LitJson.JsonMapper.ReadValue(WrapperFactory factory, JsonReader reader)
+   at LitJson.JsonMapper.ToObject(String json)
+   at GFHelp.Mission.Map_Controller.map3_4n.BossPos(String result)
+   at GFHelp.Mission.Normal.map3_4n(UserData userData, Normal_MissionInfo ubti)
+   --- End of inner exception stack trace ---
+   at System.RuntimeMethodHandle.InvokeMethod(Object target, Object[] arguments, Signature sig, Boolean constructor, Boolean wrapExceptions)
+   at System.Reflection.RuntimeMethodInfo.Invoke(Object obj, BindingFlags invokeAttr, Binder binder, Object[] parameters, CultureInfo culture)
+   at System.Reflection.MethodBase.Invoke(Object obj, Object[] parameters)
+   at GFHelp.Core.Action.Mission.Test() in C:\Users\jack\Desktop\CS\GFHelp-Web\GFHelp.Core\Action\Battle\Loop.cs:line 61
+【23:07:54】      message = 调用作战dll文件出错 , exception = System.Reflection.TargetInvocationException: Exception has been thrown by the target of an invocation. ---> LitJson.JsonException: Invalid character 'e' in input string
+   at LitJson.Lexer.NextToken()
+   at LitJson.JsonReader.ReadToken()
+   at LitJson.JsonReader.Read()
+   at LitJson.JsonMapper.ReadValue(WrapperFactory factory, JsonReader reader)
+   at LitJson.JsonMapper.ToObject(String json)
+   at GFHelp.Mission.Map_Controller.map3_4n.BossPos(String result)
+   at GFHelp.Mission.Normal.map3_4n(UserData userData, Normal_MissionInfo ubti)
+   --- End of inner exception stack trace ---
+   at System.RuntimeMethodHandle.InvokeMethod(Object target, Object[] arguments, Signature sig, Boolean constructor, Boolean wrapExceptions)
+   at System.Reflection.RuntimeMethodInfo.Invoke(Object obj, BindingFlags invokeAttr, Binder binder, Object[] parameters, CultureInfo culture)
+   at System.Reflection.MethodBase.Invoke(Object obj, Object[] parameters)
+   at GFHelp.Core.Action.Mission.Test() in C:\Users\jack\Desktop\CS\GFHelp-Web\GFHelp.Core\Action\Battle\Loop.cs:line 61
+【23:57:13】      message = 读取config配置 
+【23:57:13】      message = 读取文字解析 
+【23:57:13】      message = updataCatchData 
+【23:57:30】      message = 引用作战dll 
+【23:57:31】      message = stcSquad_standard_attributionList 解析完成：9 
+【23:57:31】      message = stcItemList 解析完成：423 
+【23:57:31】      message = stcGunList 解析完成：284 
+【23:57:31】      message = stcSquadList 解析完成：3 
+【23:57:31】      message = stcSquad_chipList 解析完成：28 
+【23:57:31】      message = stcSquad_typeList 解析完成：3 
+【23:57:31】      message = stcSquad_rankList 解析完成：5 
+【23:57:31】      message = stcSquad_expList 解析完成：100 
+【23:57:31】      message = stcSquad_chip_expList 解析完成：20 
+【23:57:31】      message = stcSquad_data_dailyList 解析完成：14 
+【23:57:31】      message = stcBattle_skill_configList 解析完成：4454 
+【23:57:31】      message = stcSquad_advanced_bonusList 解析完成：30 
+【23:57:31】      message = stcSquad_cpuList 解析完成：3 
+【23:57:31】      message = stcSquad_colorList 解析完成：2 
+【23:57:31】      message = stcSquad_gridList 解析完成：59 
+【23:57:31】      message = stcSquad_cpu_completionList 解析完成：15 
+【00:00:11】      message = 读取config配置 
+【00:00:11】      message = 读取文字解析 
+【00:00:11】      message = updataCatchData 
+【00:01:05】      message = 读取config配置 
+【00:01:05】      message = 读取文字解析 
+【00:01:05】      message = updataCatchData 
+【00:02:17】      message = 引用作战dll 
+【00:02:19】      message = stcSquad_standard_attributionList 解析完成：9 
+【00:02:19】      message = stcItemList 解析完成：423 
+【00:02:19】      message = stcGunList 解析完成：284 
+【00:02:19】      message = stcSquadList 解析完成：3 
+【00:02:19】      message = stcSquad_chipList 解析完成：28 
+【00:02:19】      message = stcSquad_typeList 解析完成：3 
+【00:02:19】      message = stcSquad_rankList 解析完成：5 
+【00:02:19】      message = stcSquad_expList 解析完成：100 
+【00:02:19】      message = stcSquad_chip_expList 解析完成：20 
+【00:02:19】      message = stcSquad_data_dailyList 解析完成：14 
+【00:02:19】      message = stcBattle_skill_configList 解析完成：4454 
+【00:02:19】      message = stcSquad_advanced_bonusList 解析完成：30 
+【00:02:19】      message = stcSquad_cpuList 解析完成：3 
+【00:02:19】      message = stcSquad_colorList 解析完成：2 
+【00:02:19】      message = stcSquad_gridList 解析完成：59 
+【00:02:19】      message = stcSquad_cpu_completionList 解析完成：15 
+【00:07:05】      message = 读取config配置 
+【00:07:05】      message = 读取文字解析 
+【00:07:05】      message = updataCatchData 
+【00:07:17】      message = 引用作战dll 
+【00:07:18】      message = stcSquad_standard_attributionList 解析完成：9 
+【00:07:18】      message = stcItemList 解析完成：423 
+【00:07:18】      message = stcGunList 解析完成：284 
+【00:07:18】      message = stcSquadList 解析完成：3 
+【00:07:18】      message = stcSquad_chipList 解析完成：28 
+【00:07:18】      message = stcSquad_typeList 解析完成：3 
+【00:07:18】      message = stcSquad_rankList 解析完成：5 
+【00:07:18】      message = stcSquad_expList 解析完成：100 
+【00:07:18】      message = stcSquad_chip_expList 解析完成：20 
+【00:07:18】      message = stcSquad_data_dailyList 解析完成：14 
+【00:07:18】      message = stcBattle_skill_configList 解析完成：4454 
+【00:07:18】      message = stcSquad_advanced_bonusList 解析完成：30 
+【00:07:18】      message = stcSquad_cpuList 解析完成：3 
+【00:07:18】      message = stcSquad_colorList 解析完成：2 
+【00:07:18】      message = stcSquad_gridList 解析完成：59 
+【00:07:18】      message = stcSquad_cpu_completionList 解析完成：15 
+【00:56:23】      message = chip_with_user_info Error  , exception = System.InvalidOperationException: Instance of JsonData is not a dictionary
+   at LitJson.JsonData.EnsureDictionary()
+   at LitJson.JsonData.get_Item(String prop_name)
+   at GFHelp.Core.MulitePlayerData.Chip_With_User_Info.Data..ctor(JsonData jsonData, UserData userData) in C:\Users\jack\Desktop\CS\GFHelp-Web\GFHelp.Core\MulitePlayerData\UserData\chip_with_user_info.cs:line 67
+   at GFHelp.Core.MulitePlayerData.SquadDataAnalysisAction.DataAnalysisFinishRead(String result) in C:\Users\jack\Desktop\CS\GFHelp-Web\GFHelp.Core\MulitePlayerData\UserData\SquadDataAnalysisAction.cs:line 121
+【00:57:54】      message = 解析sign出现错误 , exception = System.ArgumentNullException: Buffer cannot be null.
+Parameter name: buffer
+   at System.IO.MemoryStream..ctor(Byte[] buffer, Boolean writable)
+   at GFHelp.Core.Helper.Response.Check(GameAccount gameAccount, String& result, String type, Boolean need_decode) in C:\Users\jack\Desktop\CS\GFHelp-Web\GFHelp.Core\Helper\ResponseCheck.cs:line 50
+【00:59:05】      message = 解析sign出现错误 , exception = System.ArgumentNullException: Buffer cannot be null.
+Parameter name: buffer
+   at System.IO.MemoryStream..ctor(Byte[] buffer, Boolean writable)
+   at GFHelp.Core.Helper.Response.Check(GameAccount gameAccount, String& result, String type, Boolean need_decode) in C:\Users\jack\Desktop\CS\GFHelp-Web\GFHelp.Core\Helper\ResponseCheck.cs:line 50
+【00:59:40】      message = 解析sign出现错误 , exception = System.ArgumentNullException: Buffer cannot be null.
+Parameter name: buffer
+   at System.IO.MemoryStream..ctor(Byte[] buffer, Boolean writable)
+   at GFHelp.Core.Helper.Response.Check(GameAccount gameAccount, String& result, String type, Boolean need_decode) in C:\Users\jack\Desktop\CS\GFHelp-Web\GFHelp.Core\Helper\ResponseCheck.cs:line 50
+【01:00:15】      message = 读取config配置 
+【01:00:15】      message = 读取文字解析 
+【01:00:15】      message = updataCatchData 
+【01:00:34】      message = 引用作战dll 
+【01:00:35】      message = stcSquad_standard_attributionList 解析完成：9 
+【01:00:35】      message = stcItemList 解析完成：423 
+【01:00:35】      message = stcGunList 解析完成：284 
+【01:00:35】      message = stcSquadList 解析完成：3 
+【01:00:35】      message = stcSquad_chipList 解析完成：28 
+【01:00:35】      message = stcSquad_typeList 解析完成：3 
+【01:00:35】      message = stcSquad_rankList 解析完成：5 
+【01:00:35】      message = stcSquad_expList 解析完成：100 
+【01:00:35】      message = stcSquad_chip_expList 解析完成：20 
+【01:00:35】      message = stcSquad_data_dailyList 解析完成：14 
+【01:00:35】      message = stcBattle_skill_configList 解析完成：4454 
+【01:00:35】      message = stcSquad_advanced_bonusList 解析完成：30 
+【01:00:35】      message = stcSquad_cpuList 解析完成：3 
+【01:00:35】      message = stcSquad_colorList 解析完成：2 
+【01:00:35】      message = stcSquad_gridList 解析完成：59 
+【01:00:35】      message = stcSquad_cpu_completionList 解析完成：15 
+【01:41:03】      message = 解析sign出现错误 , exception = System.ArgumentNullException: Buffer cannot be null.
+Parameter name: buffer
+   at System.IO.MemoryStream..ctor(Byte[] buffer, Boolean writable)
+   at GFHelp.Core.Helper.Response.Check(GameAccount gameAccount, String& result, String type, Boolean need_decode) in C:\Users\jack\Desktop\CS\GFHelp-Web\GFHelp.Core\Helper\ResponseCheck.cs:line 50
+【03:15:59】      message = 读取config配置 
+【03:15:59】      message = 读取文字解析 
+【03:15:59】      message = updataCatchData 
+【03:18:34】      message = 读取config配置 
+【03:18:34】      message = 读取文字解析 
+【03:18:34】      message = updataCatchData 
+【03:19:19】      message = 读取config配置 
+【03:19:19】      message = 读取文字解析 
+【03:19:19】      message = updataCatchData 
+【03:19:23】      message = 引用作战dll 
+【03:19:25】      message = stcSquad_standard_attributionList 解析完成：9 
+【03:19:25】      message = stcItemList 解析完成：423 
+【03:19:25】      message = stcGunList 解析完成：284 
+【03:19:25】      message = stcSquadList 解析完成：3 
+【03:19:25】      message = stcSquad_chipList 解析完成：28 
+【03:19:25】      message = stcSquad_typeList 解析完成：3 
+【03:19:25】      message = stcSquad_rankList 解析完成：5 
+【03:19:25】      message = stcSquad_expList 解析完成：100 
+【03:19:25】      message = stcSquad_chip_expList 解析完成：20 
+【03:19:25】      message = stcSquad_data_dailyList 解析完成：14 
+【03:19:25】      message = stcBattle_skill_configList 解析完成：4454 
+【03:19:25】      message = stcSquad_advanced_bonusList 解析完成：30 
+【03:19:25】      message = stcSquad_cpuList 解析完成：3 
+【03:19:25】      message = stcSquad_colorList 解析完成：2 
+【03:19:25】      message = stcSquad_gridList 解析完成：59 
+【03:19:25】      message = stcSquad_cpu_completionList 解析完成：15 
+【04:18:31】      message = 解析sign出现错误 , exception = System.ArgumentNullException: Buffer cannot be null.
+Parameter name: buffer
+   at System.IO.MemoryStream..ctor(Byte[] buffer, Boolean writable)
+   at GFHelp.Core.Helper.Response.Check(GameAccount gameAccount, String& result, String type, Boolean need_decode) in C:\Users\jack\Desktop\CS\GFHelp-Web\GFHelp.Core\Helper\ResponseCheck.cs:line 50
+【04:20:38】      message = 解析sign出现错误 , exception = System.ArgumentNullException: Buffer cannot be null.
+Parameter name: buffer
+   at System.IO.MemoryStream..ctor(Byte[] buffer, Boolean writable)
+   at GFHelp.Core.Helper.Response.Check(GameAccount gameAccount, String& result, String type, Boolean need_decode) in C:\Users\jack\Desktop\CS\GFHelp-Web\GFHelp.Core\Helper\ResponseCheck.cs:line 50
+【04:22:05】      message = 解析sign出现错误 , exception = System.ArgumentNullException: Buffer cannot be null.
+Parameter name: buffer
+   at System.IO.MemoryStream..ctor(Byte[] buffer, Boolean writable)
+   at GFHelp.Core.Helper.Response.Check(GameAccount gameAccount, String& result, String type, Boolean need_decode) in C:\Users\jack\Desktop\CS\GFHelp-Web\GFHelp.Core\Helper\ResponseCheck.cs:line 50
+【04:23:36】      message = 解析sign出现错误 , exception = System.ArgumentNullException: Buffer cannot be null.
+Parameter name: buffer
+   at System.IO.MemoryStream..ctor(Byte[] buffer, Boolean writable)
+   at GFHelp.Core.Helper.Response.Check(GameAccount gameAccount, String& result, String type, Boolean need_decode) in C:\Users\jack\Desktop\CS\GFHelp-Web\GFHelp.Core\Helper\ResponseCheck.cs:line 50
+【04:25:06】      message = 解析sign出现错误 , exception = System.ArgumentNullException: Buffer cannot be null.
+Parameter name: buffer
+   at System.IO.MemoryStream..ctor(Byte[] buffer, Boolean writable)
+   at GFHelp.Core.Helper.Response.Check(GameAccount gameAccount, String& result, String type, Boolean need_decode) in C:\Users\jack\Desktop\CS\GFHelp-Web\GFHelp.Core\Helper\ResponseCheck.cs:line 50
+【04:25:52】      message = 解析sign出现错误 , exception = System.ArgumentNullException: Buffer cannot be null.
+Parameter name: buffer
+   at System.IO.MemoryStream..ctor(Byte[] buffer, Boolean writable)
+   at GFHelp.Core.Helper.Response.Check(GameAccount gameAccount, String& result, String type, Boolean need_decode) in C:\Users\jack\Desktop\CS\GFHelp-Web\GFHelp.Core\Helper\ResponseCheck.cs:line 50
+【05:11:52】      message = 解析sign出现错误 , exception = System.ArgumentNullException: Buffer cannot be null.
+Parameter name: buffer
+   at System.IO.MemoryStream..ctor(Byte[] buffer, Boolean writable)
+   at GFHelp.Core.Helper.Response.Check(GameAccount gameAccount, String& result, String type, Boolean need_decode) in C:\Users\jack\Desktop\CS\GFHelp-Web\GFHelp.Core\Helper\ResponseCheck.cs:line 50

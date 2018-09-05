@@ -87,3 +87,25 @@
 【03:35:05】      message = 获取UserInfo , exception = 
 【03:35:10】      message = 签到 , exception = 
 【03:35:10】      message = 查询新邮件 , exception = 
+【20:41:27】      message = 程序已注销 请重新创建实例 
+【00:53:30】      message = 数字天空登陆 , exception = 
+【00:53:31】      message = 获取时间信息 , exception = 
+【00:53:31】      message = 获取Sign , exception = 
+【00:53:32】      message = 获取UserInfo , exception = 
+【00:53:35】      message = 签到 , exception = 
+【00:53:35】      message = 查询新邮件 , exception = 
+【00:53:53】      message = 数字天空登陆 , exception = 
+【00:53:53】      message = 获取时间信息 , exception = 
+【00:53:54】      message = 获取Sign , exception = 
+【00:53:55】      message = 获取UserInfo , exception = 
+【00:54:00】      message = 签到 , exception = 
+【00:54:00】      message = 查询新邮件 , exception = 
+【00:54:05】      message = error:203|max build_slot error 
+【00:55:39】      message = 数字天空登陆 , exception = 
+【00:55:40】      message = 获取时间信息 , exception = 
+【00:55:40】      message = 获取Sign , exception = 
+【00:55:41】      message = 获取UserInfo , exception = 
+【00:55:50】      message = 签到 , exception = 
+【00:55:50】      message = 查询新邮件 , exception = 
+【00:55:51】      message = error:3 
+【01:41:12】      message = 程序已注销 请重新创建实例 

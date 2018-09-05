@@ -372,6 +372,7 @@ namespace GFHelp.Core.MulitePlayerData
 
         private void GetOandPDataHandle()
         {
+            if (userData.config.DataAnalysis == false) return;
             string result = "";
             if(GetOandPData(ref result))
             {

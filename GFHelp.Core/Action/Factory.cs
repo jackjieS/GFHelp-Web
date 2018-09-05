@@ -303,6 +303,7 @@ namespace GFHelp.Core.Action
             userData.webData.StatusBarText = "准备人形强化";
 
             string result = "";
+            userData.home.Login();
             userData.others.Get_dicGun_PowerUP();
 
             if (userData.gun_With_User_Info.dicGun_PowerUP.Count == 0) return false;

@@ -20,6 +20,21 @@ namespace GFHelp.Core.MulitePlayerData
         public Equip(UserData userData)
         {
             this.userData = userData;
+            Equip_SortList.Clear();
+            Set_Equip_SortList();
+
+        }
+        public List<int> Equip_SortList = new List<int>();
+        private void Set_Equip_SortList()
+        {
+            this.Equip_SortList.Add(4);
+            this.Equip_SortList.Add(20);
+            this.Equip_SortList.Add(32);
+            this.Equip_SortList.Add(40);
+            this.Equip_SortList.Add(58);
+            this.Equip_SortList.Add(68);
+            this.Equip_SortList.Add(66);
+            this.Equip_SortList.Add(90);
         }
         public void Read(JsonData jsonData)
         {
@@ -52,6 +67,8 @@ namespace GFHelp.Core.MulitePlayerData
                 //5级装备等级小于10 没有被人形装备
                 if(item.info.id==16) continue;
                 if (item.info.id == 59) continue;
+                if (item.info.id == 117) continue;
+                if (item.info.id == 118) continue;
                 if (item.equip_level < 10 && item.gunId == 0 && (int)item.info.rank==5)
                 {
                     Equip.Data ewui_upgrade = new Equip.Data();
@@ -59,23 +76,47 @@ namespace GFHelp.Core.MulitePlayerData
                     dicUpgrade.Add(dicUpgrade.Count, ewui_upgrade);
                 }
             }
+            SortEquipment_Upgrade();
         }
 
+        private void SortEquipment_Upgrade()
+        {
+            Dictionary<int, Data> temp = new Dictionary<int, Data>();
+            foreach (var ID in Equip_SortList)
+            {
+                foreach (var item in dicUpgrade)
+                {
+                    if (ID == item.Value.info.id)
+                    {
+                        Data data = item.Value;
+                        temp.Add(temp.Count, data);
+                    }
+                }
+            }
+            foreach (var item in dicUpgrade)
+            {
+                if (!Equip_SortList.Contains(item.Value.info.id))
+                {
+                    Data data = item.Value;
+                    temp.Add(temp.Count, data);
+                }
+            }
+        }
         public List<long> Get_Equipment_Food()
         {
             //string[] strFood =new string[24];
             List<long> list = new List<long>();
             int rankLevel = 2;
-            while (list.Count<=24)
+            while (list.Count <= 24)
             {
                 if (rankLevel == 5) return list;
                 foreach (var item in listEquip)
                 {
-                    if ((int)item.info.rank == rankLevel && item.gunId==0)
+                    if ((int)item.info.rank == rankLevel && item.gunId == 0)
                     {
                         list.Add(item.id);
                     }
-                    if (list.Count >24)
+                    if (list.Count > 24)
                     {
                         return list;
                     }
