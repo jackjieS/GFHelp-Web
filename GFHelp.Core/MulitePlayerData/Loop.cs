@@ -64,6 +64,7 @@ namespace GFHelp.Core.Management
                 userData.simulation.Run();
                 userData.outhouse_Establish_Info.AutoRun();
                 userData.squadDataAnalysisAction.AutoRun();
+                userData.equip_Built.AutoRun();
                 //WriteReport_Start(userData);
                 //WriteReport_Finish(userData);
 

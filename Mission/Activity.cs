@@ -1596,7 +1596,82 @@ namespace GFHelp.Mission
         }
 
 
+        public void mapcte2_15(UserData userData, Normal_MissionInfo ubti)
+        {
+            Random random = new Random();
+            int stepNum = 0; string result = "";
+            string battledata;
+            Map_Controller.mapcte2_15 map = new Map_Controller.mapcte2_15(ubti);
 
+
+            if (userData.battle.startMission(map.mission_id, map.Mission_Start_spots) == -1)
+            {
+                ubti.Loop = false;
+                //这里该怎么办呢
+                return;
+            }
+
+            userData.battle.teamMove(map.dic_TeamMove[stepNum++]);
+            battledata = new BattleData(ubti.Teams).setData(7698, 0, 0, random.Next(8, 10), 11268, 31500, 10034, userData.user_Info.experience);
+            if (userData.battle.Normal_battleFinish(battledata, ref result))
+            {
+                userData.battle.Battle_Result_PRO(ref ubti, 0, ref result);
+            }
+            userData.battle.teamMove(map.dic_TeamMove[stepNum++]);
+            userData.battle.teamMove(map.dic_TeamMove[stepNum++]);
+            userData.battle.teamMove(map.dic_TeamMove[stepNum++]);
+            battledata = new BattleData(ubti.Teams).setData(7696, 0, 0, random.Next(8, 10), 11268, 31500, 10034, userData.user_Info.experience);
+            if (userData.battle.Normal_battleFinish(battledata, ref result))
+            {
+                userData.battle.Battle_Result_PRO(ref ubti, 0, ref result);
+            }
+
+            userData.battle.teamMove(map.dic_TeamMove[stepNum++]);
+            battledata = new BattleData(ubti.Teams).setData(7708, 0, 0, random.Next(8, 10), 12319, 31850, 10035, userData.user_Info.experience);
+            if (userData.battle.Normal_battleFinish(battledata, ref result))
+            {
+                userData.battle.Battle_Result_PRO(ref ubti, 0, ref result);
+            }
+
+            userData.battle.teamMove(map.dic_TeamMove[stepNum++]);
+            battledata = new BattleData(ubti.Teams).setData(7688, 0, 0, random.Next(8, 10), 12319, 31850, 10035, userData.user_Info.experience);
+            if (userData.battle.Normal_battleFinish(battledata, ref result))
+            {
+                userData.battle.Battle_Result_PRO(ref ubti, 0, ref result);
+            }
+
+
+
+            userData.battle.allyMySideMove();
+            string battleRessult = userData.battle.endTurn();
+            if (Function.Normal_PosCheck_type2(battleRessult, 7688) == 1)
+            {
+                battledata = new BattleData(ubti.Teams).setData(7688, 0, 0, random.Next(8, 10), 11268, 31500, 10034, userData.user_Info.experience);
+                if (userData.battle.Normal_battleFinish(battledata, ref result))
+                {
+                    userData.battle.Battle_Result_PRO(ref ubti, 0, ref result);
+                }
+            }
+            userData.battle.endEnemyTurn();
+            userData.battle.startTurn();
+
+            userData.battle.teamMove(map.dic_TeamMove[stepNum++]);
+            userData.battle.teamMove(map.dic_TeamMove[stepNum++]);
+            battledata = new BattleData(ubti.Teams).setData(8519, 0, 0, random.Next(8, 10), 11268, 31500, 10034, userData.user_Info.experience);
+            if (userData.battle.Normal_battleFinish(battledata, ref result))
+            {
+                userData.battle.Battle_Result_PRO(ref ubti, 0, ref result);
+            }
+
+
+            userData.battle.teamMove(map.dic_TeamMove[stepNum++]);
+            battledata = new BattleData(ubti.Teams).setData(7693, 0, 0, random.Next(8, 10), 67097, 150000, 900127, userData.user_Info.experience);
+            if (userData.battle.Normal_battleFinish(battledata, ref result))
+            {
+                userData.battle.Battle_Result_PRO(ref ubti, 0, ref result);
+            }
+
+        }
 
 
         public void mapcte1start(UserData userData, Normal_MissionInfo ubti)

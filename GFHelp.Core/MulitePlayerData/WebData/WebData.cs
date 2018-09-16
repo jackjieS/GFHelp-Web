@@ -19,6 +19,7 @@ namespace GFHelp.Core.MulitePlayerData.WebData
         public WebUser_Info webUser_Info = new WebUser_Info();
         //public Dictionary<int, WebOperation> webOperation = new Dictionary<int, WebOperation>();
         public List<WebOperation> webOperation = new List<WebOperation>();
+        public List<WebEquip_Build> webEquip_Build = new List<WebEquip_Build>();
         public WebStatus webStatus = new WebStatus();
         public WebBattle webBattle = new WebBattle();
         public void Get(UserData userData)
@@ -29,6 +30,7 @@ namespace GFHelp.Core.MulitePlayerData.WebData
             Initialize.GetWebStatus(userData, ref webStatus);
             Initialize.GetWebBattle(userData, ref webBattle);
             Initialize.GetWebSquads(userData, ref WebSquads);
+            Initialize.GetWebEquip_Build(userData, ref webEquip_Build);
         }
     }
     public class Initialize
@@ -151,6 +153,18 @@ namespace GFHelp.Core.MulitePlayerData.WebData
             webBattle.Map = userData.normal_MissionInfo.TaskMap;
             webBattle.Parm = userData.normal_MissionInfo.Parm;
         }
+        public static void GetWebEquip_Build(UserData ud, ref List<WebEquip_Build> dic)
+        {
+            dic.Clear();
+            foreach (var item in ud.equip_Built.Built_Slot)
+            {
+                WebEquip_Build webOperation = new WebEquip_Build(item.Value);
+                dic.Add(webOperation);
+            }
+
+        }
+
+
     }
 
     public class Team
@@ -243,6 +257,7 @@ namespace GFHelp.Core.MulitePlayerData.WebData
 
     public class WebOperation
     {
+
         public bool Using;//开关
         public string key;//后勤Key 不用显示
         public string id;//后期 id 不用显示
@@ -283,7 +298,24 @@ namespace GFHelp.Core.MulitePlayerData.WebData
         public string Exp;
         public string Rank;
     }
+    public class WebEquip_Build
+    {
+        public WebEquip_Build(Equip_Built.Data data)
+        {
+            this.Build_Slot = data.build_slot.ToString();
+            if (data.durationTime < 0)
+            {
+                this.remaining_time = "0";
+            }
+            else
+            {
+                this.remaining_time = data.durationTime.ToString();
+            }
 
+        }
+        public string Build_Slot;//后勤Key 不用显示
+        public string remaining_time;//后期剩余时间
+    }
 
 }
 

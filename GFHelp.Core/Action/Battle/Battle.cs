@@ -67,10 +67,11 @@ namespace GFHelp.Core.Action
             if (userData.normal_MissionInfo.Loop == false) return -1;
             Thread.Sleep(3000);
             int count = 0;
+            int[] squad_spots= { };
             dynamic newjson = new DynamicJson();
             newjson.mission_id /*这是节点*/ = mission_id;/* 这是值*/
             newjson.spots = spots;
-
+            newjson.squad_spots = squad_spots;
             newjson.ally_id = Decrypt.ConvertDateTime_China_Int(DateTime.Now);
             while (true)
             {

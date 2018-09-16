@@ -174,6 +174,7 @@ namespace GFHelp.Core.Management
             this.squadDailyQuestAction = new SquadDailyQuestAction(this);
             this.squad_With_User_Info = new Squad_With_User_Info(this);
             this.chip_With_User_Info = new Chip_With_User_Info(this);
+            this.equip_Built = new Equip_Built(this);
             this.cdloop = new cdLoop(this);
         }
         public void CreatGameAccount(DataBase.GameAccount gameAccount)
@@ -219,8 +220,8 @@ namespace GFHelp.Core.Management
 
             outhouse_Establish_Info.Read(jsonobj);
 
-            fairy_With_User_Info.Read(jsonobj);
-            //装备开发暂时不写
+            fairy_With_User_Info.Read(jsonData);
+
             item_With_User_Info.Read(jsonobj);
 
             gun_With_User_Info.Read(jsonData);
@@ -233,7 +234,7 @@ namespace GFHelp.Core.Management
             squadDailyQuestAction.Read(jsonData);
             squad_With_User_Info.Read(jsonData);
             chip_With_User_Info.Read(jsonData);
-
+            equip_Built.Read(jsonData);
 
 
 
@@ -325,7 +326,7 @@ namespace GFHelp.Core.Management
         public SquadDailyQuestAction squadDailyQuestAction;
         public Squad_With_User_Info squad_With_User_Info;
         public Chip_With_User_Info chip_With_User_Info;
-
+        public Equip_Built equip_Built;
 
 
 
@@ -349,10 +350,12 @@ namespace GFHelp.Core.Management
         public bool NeedAuto_Loop_Operation_Act = true;
         public bool NeedAuto_Click_Girls_In_Dorm = true;//这些都需要 read userinfo 重置
         public bool NewGun_Report_Stop = true;
+        public bool AutoStrengthen = true;
+
 
         public bool AutoSimulation = false;
         public bool DataAnalysis = false;
-        public bool AutoStrengthen = false;
+
 
         private void ParmConfiuge(UserData userData)
         {
@@ -367,10 +370,6 @@ namespace GFHelp.Core.Management
                 if (item.Contains("-s"))
                 {
                     this.AutoSimulation = true;
-                }
-                if (item.Contains("-st"))
-                {
-                    this.AutoStrengthen = true;
                 }
                 if (item.Contains("-all"))
                 {

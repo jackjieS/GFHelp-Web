@@ -6,6 +6,8 @@ namespace GFHelp.Core.CatchData.Base
 {
     public class Fairy_Info
     {
+
+
         public int id;
         public string name;
         public string code;

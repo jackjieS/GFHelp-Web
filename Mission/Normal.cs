@@ -49,6 +49,27 @@ namespace GFHelp.Mission
             map6_6(userData, ubti); userData.battle.Check_Equip_Gun_FULL();
             ubti.Loop = false;
         }
+
+        public void mapnormal_boss(UserData userData, Normal_MissionInfo ubti)
+        {
+
+            map1_6(userData, ubti); userData.battle.Check_Equip_Gun_FULL();
+            map1_6(userData, ubti); userData.battle.Check_Equip_Gun_FULL();
+            map1_6(userData, ubti); userData.battle.Check_Equip_Gun_FULL();
+
+            map2_6(userData, ubti); userData.battle.Check_Equip_Gun_FULL();
+
+            map3_6(userData, ubti); userData.battle.Check_Equip_Gun_FULL();
+
+            map4_6(userData, ubti); userData.battle.Check_Equip_Gun_FULL();
+
+            map5_6(userData, ubti); userData.battle.Check_Equip_Gun_FULL();
+
+            map6_6(userData, ubti); userData.battle.Check_Equip_Gun_FULL();
+
+            ubti.Loop = false;
+        }
+
         public void mapemergency(UserData userData, Normal_MissionInfo ubti)
         {
             map1_1e(userData, ubti); userData.battle.Check_Equip_Gun_FULL();
@@ -171,9 +192,6 @@ namespace GFHelp.Mission
                 return;
             }
 
-            userData.battle.SupplyTeam(ubti.Teams[0].TeamID, ubti.needSupply);
-
-
             userData.battle.teamMove(map.dic_TeamMove[stepNum++]);
             userData.battle.teamMove(map.dic_TeamMove[stepNum++]);
 
@@ -184,54 +202,52 @@ namespace GFHelp.Mission
                 userData.battle.Battle_Result_PRO(ref ubti, 0, ref result);
             }
 
-            userData.battle.endTurn();
+            string endTurnResult= userData.battle.endTurn();
             userData.battle.endEnemyTurn();
             userData.battle.startTurn();
 
             userData.battle.teamMove_Random(map.dic_TeamMove[stepNum++]);
             userData.battle.teamMove(map.dic_TeamMove[stepNum++]);
 
-
-            battledata = new BattleData(ubti.Teams).setData(136, 0, 0, random.Next(8, 10), 435, 519, 20002, userData.user_Info.experience);
-
-            if (userData.battle.Normal_battleFinish(battledata, ref result))
+            if (Function.Normal_PosCheck_type2(endTurnResult, 136) == 1)
             {
-                userData.battle.Battle_Result_PRO(ref ubti, 0, ref result);
+                battledata = new BattleData(ubti.Teams).setData(136, 0, 0, random.Next(8, 10), 435, 519, 20002, userData.user_Info.experience);
+                if (userData.battle.Normal_battleFinish(battledata, ref result))
+                {
+                    userData.battle.Battle_Result_PRO(ref ubti, 0, ref result);
+                }
             }
 
-            userData.battle.endTurn();
+            endTurnResult = userData.battle.endTurn();
+            if (Function.Normal_PosCheck_type2(endTurnResult, 136) == 1)
+            {
+                battledata = new BattleData(ubti.Teams).setData(136, 0, 0, random.Next(8, 10), 435, 519, 20002, userData.user_Info.experience);
+                if (userData.battle.Normal_battleFinish(battledata, ref result))
+                {
+                    userData.battle.Battle_Result_PRO(ref ubti, 0, ref result);
+                }
+            }
+
             userData.battle.endEnemyTurn();
             userData.battle.startTurn();
 
             userData.battle.teamMove(map.dic_TeamMove[stepNum++]);
 
-
-            battledata = new BattleData(ubti.Teams).setData(144, 0, 0, random.Next(8, 10), 480, 415, 20002, userData.user_Info.experience);
-
-            if (userData.battle.Normal_battleFinish(battledata, ref result))
+            if (Function.Normal_PosCheck_type2(endTurnResult, 144) == 1)
             {
-                userData.battle.Battle_Result_PRO(ref ubti, 0, ref result);
+                battledata = new BattleData(ubti.Teams).setData(144, 0, 0, random.Next(8, 10), 480, 415, 20002, userData.user_Info.experience);
+
+                if (userData.battle.Normal_battleFinish(battledata, ref result))
+                {
+                    userData.battle.Battle_Result_PRO(ref ubti, 0, ref result);
+                }
             }
 
-            userData.battle.teamMove(map.dic_TeamMove[stepNum++]);
             userData.battle.teamMove_Random(map.dic_TeamMove[stepNum++]);
 
-            battledata = new BattleData(ubti.Teams).setData(149, 0, 0, random.Next(8, 10), 519, 764, 90002, userData.user_Info.experience);
-
-            if (userData.battle.Normal_battleFinish(battledata, ref result))
+            if (Function.Normal_PosCheck_type2(endTurnResult, 148) == 1)
             {
-                userData.battle.Battle_Result_PRO(ref ubti, 0, ref result);
-            }
-
-            result = userData.battle.endTurn();
-            userData.battle.endEnemyTurn();
-            userData.battle.startTurn();
-
-            userData.battle.teamMove(map.dic_TeamMove[stepNum++]);
-            if (map.HomePos2(result) == 1)
-            {
-
-                battledata = new BattleData(ubti.Teams).setData(146, 0, 0, random.Next(8, 10), 380, 800, 20004, userData.user_Info.experience);
+                battledata = new BattleData(ubti.Teams).setData(148, 0, 0, random.Next(8, 10), 480, 415, 20002, userData.user_Info.experience);
 
                 if (userData.battle.Normal_battleFinish(battledata, ref result))
                 {
@@ -243,10 +259,54 @@ namespace GFHelp.Mission
 
             userData.battle.teamMove(map.dic_TeamMove[stepNum++]);
 
+            if (Function.Normal_PosCheck_type2(endTurnResult, 149) == 1)
+            {
+                battledata = new BattleData(ubti.Teams).setData(149, 0, 0, random.Next(8, 10), 480, 415, 20002, userData.user_Info.experience);
+
+                if (userData.battle.Normal_battleFinish(battledata, ref result))
+                {
+                    userData.battle.Battle_Result_PRO(ref ubti, 0, ref result);
+                }
+            }
+
+
+
+            endTurnResult = userData.battle.endTurn();
+            if (Function.Normal_PosCheck_type2(endTurnResult, 149) == 1)
+            {
+                battledata = new BattleData(ubti.Teams).setData(149, 0, 0, random.Next(8, 10), 480, 415, 20002, userData.user_Info.experience);
+
+                if (userData.battle.Normal_battleFinish(battledata, ref result))
+                {
+                    userData.battle.Battle_Result_PRO(ref ubti, 0, ref result);
+                }
+            }
+            userData.battle.endEnemyTurn();
+            userData.battle.startTurn();
+
+            userData.battle.teamMove(map.dic_TeamMove[stepNum++]);
+
+            if (Function.Normal_PosCheck_type2(endTurnResult, 146) == 1)
+            {
+                battledata = new BattleData(ubti.Teams).setData(146, 0, 0, random.Next(8, 10), 480, 415, 20002, userData.user_Info.experience);
+
+                if (userData.battle.Normal_battleFinish(battledata, ref result))
+                {
+                    userData.battle.Battle_Result_PRO(ref ubti, 0, ref result);
+                }
+            }
+
+            userData.battle.teamMove(map.dic_TeamMove[stepNum++]);
+            battledata = new BattleData(ubti.Teams).setData(147, 0, 0, random.Next(8, 10), 480, 415, 20002, userData.user_Info.experience);
+            if (userData.battle.Normal_battleFinish(battledata, ref result))
+            {
+                userData.battle.Battle_Result_PRO(ref ubti, 0, ref result);
+            }
+
             string endTrun = userData.battle.endTurn();
             if (endTrun.Contains("rank"))
             {
-                //new Log().userInit(userData.GameAccount.Base.GameAccountID, "1_6BOSS 成功").userInfo();
+                new Log().userInit(userData.GameAccount.Base.GameAccountID, "1_6BOSS 成功").userInfo();
             }
             else
             {
@@ -523,7 +583,7 @@ namespace GFHelp.Mission
                 return;
             }
 
-            userData.battle.SupplyTeam(ubti.Teams[0].TeamID, ubti.needSupply);
+
 
             userData.battle.teamMove(map2_6.dic_TeamMove[stepNum++]);
             userData.battle.teamMove(map2_6.dic_TeamMove[stepNum++]);
@@ -886,7 +946,7 @@ namespace GFHelp.Mission
                 return;
             }
 
-            userData.battle.SupplyTeam(ubti.Teams[0].TeamID, ubti.needSupply);
+
 
             userData.battle.teamMove(map3_6.dic_TeamMove[stepNum++]);
 
@@ -1185,7 +1245,7 @@ namespace GFHelp.Mission
                 return;
             }
 
-            userData.battle.SupplyTeam(ubti.Teams[0].TeamID, ubti.needSupply);
+
 
             userData.battle.teamMove(map4_6.dic_TeamMove[stepNum++]);
 
@@ -1675,7 +1735,7 @@ namespace GFHelp.Mission
                 return;
             }
 
-            userData.battle.SupplyTeam(ubti.Teams[0].TeamID, ubti.needSupply);
+
 
 
             //右移一步
@@ -2069,7 +2129,7 @@ namespace GFHelp.Mission
                 return;
             }
 
-            userData.battle.SupplyTeam(ubti.Teams[0].TeamID, ubti.needSupply);
+
 
             userData.battle.teamMove(map6_6.dic_TeamMove[stepNum++]);
 
@@ -2215,7 +2275,7 @@ namespace GFHelp.Mission
                 return;
             }
 
-            userData.battle.SupplyTeam(ubti.Teams[0].TeamID, ubti.needSupply);
+
 
             userData.battle.teamMove(map7_6boss.dic_TeamMove[stepNum++]);
 
@@ -2227,7 +2287,7 @@ namespace GFHelp.Mission
             }
 
             userData.battle.reinforceTeam(map7_6boss.spots2);
-            userData.battle.SupplyTeam(ubti.Teams[1].TeamID, ubti.needSupply);
+
 
             userData.battle.endTurn();
 
@@ -2249,7 +2309,7 @@ namespace GFHelp.Mission
             userData.battle.startTurn();
 
             userData.battle.teamMove(map7_6boss.dic_TeamMove[stepNum++]);
-            userData.battle.SupplyTeam(ubti.Teams[1].TeamID, ubti.needSupply);
+
 
             userData.battle.teamMove(map7_6boss.dic_TeamMove[stepNum++]);
             userData.battle.teamMove(map7_6boss.dic_TeamMove[stepNum++]);
@@ -2315,10 +2375,10 @@ namespace GFHelp.Mission
                 return;
             }
 
-            userData.battle.SupplyTeam(ubti.Teams[0].TeamID, ubti.needSupply);
+
             userData.battle.teamMove(map8_6.dic_TeamMove[stepNum++]);
             userData.battle.reinforceTeam(map8_6.spots2);
-            userData.battle.SupplyTeam(ubti.Teams[1].TeamID, ubti.needSupply);
+
 
             string endTurn = userData.battle.endTurn();
             int pos1 = Function.Normal_PosCheck_type2(endTurn, 3789);
@@ -2397,7 +2457,7 @@ namespace GFHelp.Mission
 
             userData.battle.endEnemyTurn();
             userData.battle.startTurn();
-            userData.battle.SupplyTeam(ubti.Teams[0].TeamID, ubti.needSupply);
+
 
             userData.battle.teamMove(map8_6.dic_TeamMove[stepNum++]);
 
@@ -2538,7 +2598,7 @@ namespace GFHelp.Mission
                 ubti.Loop = false;
                 return;
             }
-            userData.battle.SupplyTeam(ubti.Teams[0].TeamID);
+
             userData.battle.teamMove(map10_6.dic_TeamMove[stepNum++]);
 
             battledata = new BattleData(ubti.Teams).setData(5360, 0, 0, random.Next(8, 10), 22672, 21562, 10017, userData.user_Info.experience);

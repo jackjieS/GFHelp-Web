@@ -97,7 +97,6 @@ namespace GFHelp.Core.MulitePlayerData
                     default:
                         break;
                 }
-
             }
 
 

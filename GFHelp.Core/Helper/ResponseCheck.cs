@@ -243,7 +243,15 @@ namespace GFHelp.Core.Helper
                     {
                         return result.Contains("ap") ? 1 : 0;
                     }
+                case "finishDevelop":
+                    {
+                        return result.Contains("id") ? 1 : 0;
+                    }
 
+                case "startDevelop":
+                    {
+                        return result.Contains("id") ? 1 : 0;
+                    }
                 default:
                     break;
             }
@@ -429,8 +437,12 @@ namespace GFHelp.Core.Helper
                     {
                         return result.Contains("base_cell") ? 1 : 0;
                     }
+                case "finishDevelop":
+                    {
+                        return result.Contains("user_id") ? 1 : 0;
+                    }
 
-                    
+
 
                 default:
                     break;

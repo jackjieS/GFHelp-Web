@@ -92,23 +92,47 @@ namespace GFHelp.Web.Controllers
 
             });
         }
-       
+
         /// <summary>
-        /// Test
+        /// Heavy_Equip_Build
         /// </summary>
         /// <param name="account"></param>
         /// <returns></returns>
-        [Route("/Game/Test")]
+        [Route("/Game/Heavy_Equip_Build")]
         [HttpPost]
-        public IActionResult Test([FromBody] Account account)
+        public IActionResult Heavy_Equip_Build([FromBody] Account account)
         {
+            if(Core.Management.Data.data.getDataByID(account.GameID).equip_Built.Heavy_Auto == true)
+            {
+                Core.Management.Data.data.getDataByID(account.GameID).equip_Built.Heavy_Auto = false;
+                return Ok(new
+                {
+                    code = 1,
+                    data = 1,
+                    message = string.Format("关闭自动重型建造", account.GameID)
+
+                });
+            }
+
+            if (Core.Management.Data.data.getDataByID(account.GameID).equip_Built.Heavy_Auto == false)
+            {
+                Core.Management.Data.data.getDataByID(account.GameID).equip_Built.Heavy_Auto = true;
+                return Ok(new
+                {
+                    code = 1,
+                    data = 1,
+                    message = string.Format("开启自动重型建造", account.GameID)
+
+                });
+            }
+
             //加入控制符
-            Core.Management.Data.data.getDataByID(account.GameID).eventAction.Test();
+            Core.Management.Data.data.getDataByID(account.GameID).equip_Built.Heavy_Auto=true;
             return Ok(new
             {
-                code = 1,
-                //data = result,
-                message = string.Format("正在登陆 {0}", account.GameID)
+                code = -1,
+                data = -1,
+                message = string.Format("未知错误呢 ", account.GameID)
 
             });
         }

@@ -259,7 +259,6 @@ namespace GFHelp.Core.Action.BattleBase
 
             }
             this.TaskMap = TaskMap.Remove(0, 1);
-            this.MaxLoopTime = this.LoopTime;
         }
 
     }

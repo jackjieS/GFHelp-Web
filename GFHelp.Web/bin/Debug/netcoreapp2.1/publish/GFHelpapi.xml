@@ -104,9 +104,9 @@
             <param name="account"></param>
             <returns></returns>
         </member>
-        <member name="M:GFHelp.Web.Controllers.GameController.Test(GFHelp.Web.Controllers.GameController.Account)">
+        <member name="M:GFHelp.Web.Controllers.GameController.Heavy_Equip_Build(GFHelp.Web.Controllers.GameController.Account)">
             <summary>
-            Test
+            Heavy_Equip_Build
             </summary>
             <param name="account"></param>
             <returns></returns>

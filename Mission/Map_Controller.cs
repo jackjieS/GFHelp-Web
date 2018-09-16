@@ -124,10 +124,18 @@ namespace GFHelp.Mission
         {
             public static MissionType missionType = MissionType.Normal;
         }
+
         public class mapnormal
         {
             public static MissionType missionType = MissionType.Normal;
         }
+        public class mapnormal_boss
+        {
+            public static MissionType missionType = MissionType.Normal;
+        }
+
+
+
         public class mapemergency
         {
             public static MissionType missionType = MissionType.Normal;
@@ -200,7 +208,7 @@ namespace GFHelp.Mission
             public TeamMove teammove9 = new TeamMove(146, 147, 1, 0);
             public Dictionary<int, TeamMove> dic_TeamMove;
 
-            public Spot spots1 = new Spot(1330, 0);
+            public Spot spots1 = new Spot(133, 0);
             public Spot spots2 = new Spot(133, 1);
 
 

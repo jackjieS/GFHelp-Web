@@ -25,15 +25,30 @@ namespace GFHelp.Core.Action
 
             if (string.IsNullOrEmpty(userData.GameAccount.Base.YunDouDou))
             {
-                new Log().userInit(userData.GameAccount.Base.GameAccountID, "数字天空登陆", "").userInfo();
+
                 userData.webData.StatusBarText = "数字天空登陆";
-                if (!LoginDigitalSKY()) return false;
-                new Log().userInit(userData.GameAccount.Base.GameAccountID, "获取时间信息", "").userInfo();
+                if (!LoginDigitalSKY())
+                {
+                    new Log().userInit(userData.GameAccount.Base.GameAccountID, "数字天空登陆失败", "").userInfo();
+                    return false;
+                }
+
+
+
                 userData.webData.StatusBarText = "获取时间信息";
-                if (!Index_version()) return false;
-                new Log().userInit(userData.GameAccount.Base.GameAccountID, "获取Sign", "").userInfo();
+                if (!Index_version())
+                {
+                    new Log().userInit(userData.GameAccount.Base.GameAccountID, "获取时间信息失败", "").userInfo();
+                    return false;
+                }
+
                 userData.webData.StatusBarText = "获取Sign";
-                if (!GetDigitalUid()) return false;
+                if (!GetDigitalUid())
+                {
+                    new Log().userInit(userData.GameAccount.Base.GameAccountID, "获取Sign失败", "").userInfo();
+                    return false;
+                }
+
             }
             else
             {
@@ -41,14 +56,25 @@ namespace GFHelp.Core.Action
                 userData.GameAccount.req_id = Decrypt.ConvertDateTime_China_Int(DateTime.Now);
                 if (Response.Check(userData.GameAccount, ref userData.GameAccount.Base.YunDouDou, "GetDigitalUid_Pro", false) != 1) return false;
             }
-            new Log().userInit(userData.GameAccount.Base.GameAccountID, "获取UserInfo", "").userInfo();
+
             userData.webData.StatusBarText = "获取UserInfo";
-            if (!GetUserInfo()) return false;
-            new Log().userInit(userData.GameAccount.Base.GameAccountID, "签到", "").userInfo();
+            if (!GetUserInfo())
+            {
+                new Log().userInit(userData.GameAccount.Base.GameAccountID, "获取UserInfo失败", "").userInfo();
+                return false;
+            }
+
+
+
+
             userData.webData.StatusBarText = "签到";
 
-            if (!Attendance()) return false;
-            new Log().userInit(userData.GameAccount.Base.GameAccountID, "查询新邮件", "").userInfo();
+            if (!Attendance())
+            {
+                new Log().userInit(userData.GameAccount.Base.GameAccountID, "签到失败", "").userInfo();
+                return false;
+            } 
+
             userData.webData.StatusBarText = "查询新邮件";
             Mail();
             userData.battle.Abort_Mission_login();

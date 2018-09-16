@@ -272,7 +272,7 @@ namespace GFHelp.Core
                         EquipInfo data13 = new EquipInfo(jsonData32[num25]);
                         GameData.listEquipInfo.Add(data13);
                     }
-                    catch(Exception e)
+                    catch (Exception e)
                     {
                         new Log().systemInit("读取CatchData_equip_info遇到错误", e.ToString()).coreError();
                     }
@@ -302,12 +302,12 @@ namespace GFHelp.Core
         }
         private static bool ReadCatchData_Fairy_Info(dynamic jsonobj)
         {
-            try
+
+            foreach (var item in jsonobj.fairy_info)
             {
-                foreach (var item in jsonobj.fairy_info)
+                try
                 {
                     Fairy_Info fi = new Fairy_Info();
-
                     fi.id = Convert.ToInt32(item.id);
                     fi.name = item.name.ToString();
                     fi.code = item.code.ToString();
@@ -357,14 +357,15 @@ namespace GFHelp.Core
                     fi.category = Convert.ToInt32(item.category);
                     fi.ai = Convert.ToInt32(item.ai);
 
-
+                    fairy_info.Add(fairy_info.Count, fi);
+                }
+                catch (Exception e)
+                {
+                    new Log().systemInit("读取CatchDdat_Fairy_Info遇到错误", e.ToString()).coreError();
+                    continue;
                 }
             }
-            catch (Exception e)
-            {
-                new Log().systemInit("读取CatchDdat_Fairy_Info遇到错误", e.ToString()).coreError();
-                return false;
-            }
+
             return true;
         }
         static string fileName = SystemOthers.ConfigData.currentDirectory + @"\test.json";
@@ -766,8 +767,18 @@ namespace GFHelp.Core
             return true;
         }
 
-
-        public static int getFairyDevTimeFromID(int id)
+        public static int getEquipDevTimeByID(int id)
+        {
+            foreach (var item in GameData.listEquipInfo)
+            {
+                if (item.id == id)
+                {
+                    return item.developDuration;
+                }
+            }
+            return 999999999;
+        }
+        public static int getFairyDevTimeByID(int id)
         {
             foreach (var item in fairy_info)
             {
