@@ -65,6 +65,7 @@ namespace GFHelp.Core.Management
                 userData.outhouse_Establish_Info.AutoRun();
                 userData.squadDataAnalysisAction.AutoRun();
                 userData.equip_Built.AutoRun();
+                userData.doll_Build.AutoRun();
                 //WriteReport_Start(userData);
                 //WriteReport_Finish(userData);
 

@@ -174,7 +174,8 @@ namespace GFHelp.Core.Management
             this.squadDailyQuestAction = new SquadDailyQuestAction(this);
             this.squad_With_User_Info = new Squad_With_User_Info(this);
             this.chip_With_User_Info = new Chip_With_User_Info(this);
-            this.equip_Built = new Equip_Built(this);
+            this.equip_Built = new Equip_Build(this);
+            this.doll_Build = new Doll_Build(this);
             this.cdloop = new cdLoop(this);
         }
         public void CreatGameAccount(DataBase.GameAccount gameAccount)
@@ -183,6 +184,7 @@ namespace GFHelp.Core.Management
             GameAccount.AndroidID = Guid.NewGuid().ToString("N");
             GameAccount.MAC = M.GetNewMac();
             GameAccount.GameHost = Helper.Configer.HostAddress.GetAddressByName(GameAccount.Base.ChannelID);
+            config.ParmConfiuge(this);
         }
 
         private void Clear()
@@ -235,7 +237,7 @@ namespace GFHelp.Core.Management
             squad_With_User_Info.Read(jsonData);
             chip_With_User_Info.Read(jsonData);
             equip_Built.Read(jsonData);
-
+            doll_Build.Read(jsonData);
 
 
             Function.SetTeamInfo(this);
@@ -303,7 +305,7 @@ namespace GFHelp.Core.Management
 
         public Mission mission;
         public Simulation simulation;
-        public Normal_MissionInfo normal_MissionInfo = new Normal_MissionInfo();
+        public MissionInfo MissionInfo = new MissionInfo();
         public Dictionary<int, Dictionary<int, Gun_With_User_Info>> Teams = new Dictionary<int, Dictionary<int, Gun_With_User_Info>>();//没读一次user_info都需要刷新
 
         public BattleReport BattleReport;
@@ -326,8 +328,8 @@ namespace GFHelp.Core.Management
         public SquadDailyQuestAction squadDailyQuestAction;
         public Squad_With_User_Info squad_With_User_Info;
         public Chip_With_User_Info chip_With_User_Info;
-        public Equip_Built equip_Built;
-
+        public Equip_Build equip_Built;
+        public Doll_Build doll_Build;
 
 
 
@@ -340,9 +342,6 @@ namespace GFHelp.Core.Management
         public Config(UserData userData)
         {
             ParmConfiuge(userData);
-
-
-
         }
         public int ErrorCount = 1;
         public bool LoginSuccessful = false;
@@ -357,7 +356,7 @@ namespace GFHelp.Core.Management
         public bool DataAnalysis = false;
 
 
-        private void ParmConfiuge(UserData userData)
+        public void ParmConfiuge(UserData userData)
         {
             if (string.IsNullOrEmpty(userData.GameAccount.Base.Parm)) return;
             List<string> Parm = userData.GameAccount.Base.Parm.ToLower().Split(' ').ToList();

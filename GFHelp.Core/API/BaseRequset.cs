@@ -46,15 +46,7 @@ namespace GFHelp.Core.API
             }
         }
 
-        public static string GetDigitalUid(GameAccount gameAccount,string data)
-        {
-            string result = "";
-            while (string.IsNullOrEmpty(result) == true)
-            {
-                result = DoPost(gameAccount.GameHost + URL.GetDigitalUid, data.ToString());
-            }
-            return result;
-        }
+
 
 
 

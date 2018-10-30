@@ -38,6 +38,7 @@ namespace GFHelp.Core.MulitePlayerData
         public void AutoRun()
         {
             if (userData.config.DataAnalysis == false) return;
+            if (AutoRunning == false) return;
             DataAnalysisFinishHandel();
             DataAnalysisStartHandel();
         }
@@ -56,6 +57,7 @@ namespace GFHelp.Core.MulitePlayerData
         private void DataAnalysisFinishHandel()
         {
             if (userData.config.DataAnalysis == false) return;
+            if (AutoRunning == false) return;
             if (!isAllDataAnalysisFinish()) return;
             new Log().userInit(userData.GameAccount.Base.GameAccountID, "情报解析 准备 完成");
             DataAnalysisFinish();
@@ -77,6 +79,7 @@ namespace GFHelp.Core.MulitePlayerData
                 {
                     case 1:
                         {
+                            listSquadDataAnalysisAction.Clear();
                             DataAnalysisFinishRead(result);
                             return true;
                         }
@@ -124,9 +127,7 @@ namespace GFHelp.Core.MulitePlayerData
                     {
                         new Log().systemInit("chip_with_user_info Error ", e.ToString()).coreInfo();
                     }
-
                 }
-                this.listSquadDataAnalysisAction.Clear();
             }
             this.userData.home.Login();
         }
@@ -136,6 +137,7 @@ namespace GFHelp.Core.MulitePlayerData
         {
             //检查是否足够资源
             if (userData.config.DataAnalysis == false) return;
+            if (AutoRunning == false) return;
             int inputLevel = isReadyDataAnalysisStart();
             if (inputLevel == -1) return;
             if (userData.chip_With_User_Info.listSquadChip.Count + userData.outhouse_Establish_Info.DataAnalysisMaxSolt >= userData.outhouse_Establish_Info.ChipsWhareHouse) return;

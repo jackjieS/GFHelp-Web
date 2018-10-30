@@ -24,7 +24,7 @@
                     <a class="sidebar-toggle" href="javascript:;" data-toggle="push-menu"><i class="icon icon-bars"></i></a>
                     <a class="navbar-brand" href="#">
                         <span id="Name" class="logo"></span>
-                        <span class="logo-mini">F</span> 
+                        <span class="logo-mini">F</span>
                     </a>
                 </div>
                 <div class="collapse navbar-collapse">
@@ -51,9 +51,10 @@
                             </li>
                             <li class="dropdown">
                                 <a href="javascript:;" data-toggle="dropdown">
-                                    <i class="icon icon-user"></i> 
-                                    <span class="username">管理员</span> 
-                                    <span class="caret"></span></a>
+                                    <i class="icon icon-user"></i>
+                                    <span class="username">管理员</span>
+                                    <span class="caret"></span>
+                                </a>
                                 <ul class="dropdown-menu">
                                     <li><a href="#">资料设置</a></li>
                                     <li><a href="#">清除缓存</a></li>
@@ -72,7 +73,7 @@
                     <li class="header">主要菜单</li>
                     <li class="active">
                         <a href="index.html">
-                            <i class="icon icon-dashboard"></i> 
+                            <i class="icon icon-dashboard"></i>
                             <span>账号管理</span>
                             <span class="pull-right-container">
                             </span>
@@ -80,7 +81,7 @@
                     </li>
                     <li>
                         <a href="systemMessage.html">
-                            <i class="icon icon-dashboard"></i> 
+                            <i class="icon icon-dashboard"></i>
                             <span>系统消息</span>
                             <span class="pull-right-container">
                             </span>
@@ -88,7 +89,7 @@
                     </li>
                     <li class="treeview">
                         <a href="javascript:;">
-                            <i class="icon icon-file"></i> 
+                            <i class="icon icon-file"></i>
                             <span>页面演示</span>
                             <span class="pull-right-container">
                                 <i class="icon icon-angle-left"></i>
@@ -104,7 +105,7 @@
                     </li>
                     <li class="treeview">
                         <a href="javascript:;">
-                            <i class="icon icon-columns"></i> 
+                            <i class="icon icon-columns"></i>
                             <span>基础组件</span>
                             <span class="pull-right-container">
                                 <i class="icon icon-angle-left"></i>
@@ -117,7 +118,7 @@
                     </li>
                     <li class="treeview">
                         <a href="javascript:;">
-                            <i class="icon icon-sign-blank"></i> 
+                            <i class="icon icon-sign-blank"></i>
                             <span>扩展插件</span>
                             <span class="pull-right-container">
                                 <i class="icon icon-angle-left"></i>
@@ -134,7 +135,7 @@
         <div class="content-wrapper">
             <div class="content-header">
                 <ul class="breadcrumb">
-                    <li><a href="#"><i class="icon icon-home"></i></a></li>
+                    <li><i class="icon icon-home"></i><span id="NetWorkS">网络连接: Online</span></li>
                     <li id="gameDetail" class="active">实例详情</li>
                 </ul>
             </div>
@@ -148,21 +149,22 @@
                             <a data-tab href="#rxjz">人形建造</a>
                         </li>
                         <li>
+                            <a data-tab href="#zbjz">装备建造</a>
+                        </li>
+                        <li>
                             <a data-tab href="#bdyl">编队一览</a>
                         </li>
                         <li>
                             <a data-tab href="#zd">战斗</a>
                         </li>
-                        <li>
-                            <a data-tab href="#zbjz">装备建造</a>
-                        </li>
+
                         <li>
                             <a data-tab href="#hqrw">后勤任务</a>
                         </li>
                         <li>
                             <a data-tab href="#jmts">解密调试</a>
                         </li>
-                         <li>
+                        <li>
                             <a data-tab href="#message">消息记录</a>
                         </li>
                     </ul>
@@ -414,25 +416,34 @@
                             </div>
                         </div>
                         <div class="tab-pane" id="rxjz">
-                            <div id="rxjz-warpper">
-                                <div><label>建造槽1</label><span>00:00:00</span></div>
-                                <div><label>建造槽2</label><span>00:00:00</span></div>
-                                <div><label>建造槽3</label><span>00:00:00</span></div>
+                            <div id="main">
+                                <div id="left" style="float:left ; width:50%; height:100%;text-align:center">
+                                    <div style="margin:0 auto;"><h1>普通建造</h1></div>
+                                    <div class="zd-bottom"><button onclick="AutoNormalDollBuild()" class="btn btn-primary btn-block">开关</button></div>
+                                    <div id="NormalDollBuild-warpper">
+                                    </div>
+                                </div>
+                                <div id="right" style="float:left ; width:50%; height:100%;text-align:center">
+                                    <div style="margin:0 auto;"><h1>重型建造</h1></div>
+                                    <div class="zd-bottom"><button onclick="AutoHeavyDollBuild()" class="btn btn-primary btn-block">开关</button></div>
+                                    <div id="HeavyDollBuild-warpper">
+                                    </div>
+                                </div>
                             </div>
                         </div>
                         <div class="tab-pane" id="bdyl">
-                            <ul class="nav nav-tabs">
-                                <li>
-                                    <a data-tab href="#rxbd">人形部队</a>
+                            <div id="main">
+                                <div id="left" style="float:left ; width:50%; height:100%;text-align:center">
+                                    <div style="margin:0 auto;"><h1>人形部队</h1></div>
                                     <div id="bdyl-warpper">
                                     </div>
-                                </li>
-                                <li>
-                                    <a data-tab href="#zzbd">重装部队</a>
+                                </div>
+                                <div id="right" style="float:left ; width:50%; height:100%;text-align:center">
+                                    <div style="margin:0 auto;"><h1>重装部队</h1></div>
                                     <div id="zzbd-warpper">
                                     </div>
-                                </li>
-                            </ul>
+                                </div>
+                            </div>
                         </div>
                         <div class="tab-pane" id="zd">
                             <div id="zd-warpper">
@@ -466,12 +477,7 @@
                                         <span>
                                             <input class="form-control" name="parm" id="parm" />
                                         </span>
-                                    </div>
-                                    <div>
-                                        <label for="">循环次数:  </label>
-                                        <span>
-                                            <label name="times" id="times" />
-                                        </span>
+                                        <i data-toggle="modal" data-target="#informationModel" class="icon icon-question"></i>
                                     </div>
                                     <div>
                                         <button onclick="joinTeam()" class="btn btn-primary btn-block">
@@ -491,24 +497,34 @@
                                 <div class="zd-bottom">
                                     <button onclick="startBattle()" class="btn btn-primary btn-block">开始</button>
                                     <button onclick="abortBattle()" class="btn btn-primary btn-block">终止</button>
+                                    <button class="btn btn-primary btn-block" data-toggle="modal" data-target="#MissionInfoModel">详细</button>
                                 </div>
                             </div>
                         </div>
                         <div class="tab-pane" id="zbjz">
-                            <div id="zbjz-warpper">
-                                <div>
-                                    <label>建造槽1</label>
-                                    <span>00:00:00</span>
+                            <div id="main">
+                                <div id="left" style="float:left ; width:50%; height:100%;text-align:center">
+                                    <div style="margin:0 auto;"><h1>普通建造</h1></div>
+                                    <div class="zd-bottom"><button onclick="AutoNormalEquipBuild()" class="btn btn-primary btn-block">开关</button></div>
+                                    <div id="NormalEquipBuild-warpper">
+                                    </div>
                                 </div>
-                                <div>
-                                    <label>建造槽2</label>
-                                    <span>00:00:00</span>
-                                </div>
-                                <div>
-                                    <label>建造槽3</label>
-                                    <span>00:00:00</span>
+                                <div id="right" style="float:left ; width:50%; height:100%;text-align:center">
+                                    <div style="margin:0 auto;"><h1>重型建造</h1></div>
+                                    <div class="zd-bottom"><button onclick="AutoHeavyEquipBuild()" class="btn btn-primary btn-block">开关</button></div>
+                                    <div id="HeavyEquipBuild-warpper">
+                                    </div>
                                 </div>
                             </div>
+
+
+
+
+
+
+
+
+
                         </div>
                         <div class="tab-pane" id="hqrw">
                             <div id="hqrw-warpper">
@@ -622,8 +638,68 @@
                     </div>
                 </div>
             </div>
-        </div> 
+        </div>
     </div>
+    <!-- 对话框HTML -->
+    <div class="modal fade" id="informationModel">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <button type="button" class="close" data-dismiss="modal">
+                        <span aria-hidden="true">×</span>
+                        <span class="sr-only">关闭</span>
+                    </button>
+                    <h2 class="modal-title" style="color:#000000">参数说明</h2>
+                </div>
+                <div class="modal-body">
+                    <div id="information" style='color:#000000;display:block;word-break: break-all;word-wrap: break-word;'>
+                        <br>-map 指定地图
+                        <br>
+                        <br>停止条件 -lv等级 -t次数 -e五星装备
+                        <br>
+                        <br>停止条件 -s3 3星 -s4 4星 -s5 5星 -n核心数
+                        <br>
+                        <br>-p奖励停止
+                        <br>
+                        <br>-c取消扩编 -a取消强化 -qf取消修复 -ns取消补给
+                        <br>
+                        <br>捞专属例子 -map3_4n -c -a -e -t300
+                        <br>
+                        <br>圣捞日例子 -map1_6 -t200 -p
+                        <br>
+                        <br>打核心例子 -map1_6 -n300 -c
+                        <br>
+                    </div>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-default" data-dismiss="modal">关闭</button>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- 弹窗 -->
+    <!-- 对话框HTML -->
+    <div class="modal fade" id="MissionInfoModel">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <button type="button" class="close" data-dismiss="modal">
+                        <span aria-hidden="true">×</span>
+                        <span class="sr-only">关闭</span>
+                    </button>
+                    <h2 class="modal-title" style="color:#000000">MissionInfo</h2>
+                </div>
+                <div class="modal-body">
+                    <div id="MissionInfo"style='color:#000000;display:block;word-break: break-all;word-wrap: break-word;'>
+                    </div>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-default" data-dismiss="modal">关闭</button>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- 弹窗 -->
     <!-- zui js -->
     <script src="dist/js/zui.min.js"></script>
     <script src="../lib/SingnlR/signalr.js"></script>
@@ -631,7 +707,7 @@
     <script src="js/app.js"></script>
     <script src="js/cookie.js"></script>
     <script type="text/javascript">
-        var  gameStatus = true;
+        var gameStatus = true;
         var param = GetRequest();
         $(function () {
             checkToken();
@@ -641,25 +717,28 @@
         function checkToken() {
             var token = getCookie('token');
             // var token = sessionStorage.getItem('token');
-            if(token==null || !token){
+            if (token == null || !token) {
                 alert('您尚未登录游戏，请先登录');
-                location.href='login.html';
-            }else{
+                location.href = 'login.html';
+            } else {
                 return token;
             }
         }
+        function InformationShows() {
 
+            $('#informationModel').modal('show');
+        }
         function getOperationInfo() {
             var token = checkToken();
-            var html_o='';
+            var html_o = '';
             $.ajax({
                 url: 'http://127.0.0.1:7777/System/GetOperationInfo',
-                type:'get',
+                type: 'get',
                 async: false,
                 dataType: 'json',
                 headers: { 'Authorization': 'Bearer ' + token },
-                success:function (res) {
-                    if(res.code==1){
+                success: function (res) {
+                    if (res.code == 1) {
                         html_o = res;
                         return html_o;
                     }
@@ -671,8 +750,14 @@
 
         var param = GetRequest();
         const Gameuser = param.gid;
-        const conGamesDetails = new signalR.HubConnectionBuilder().withUrl("http://127.0.0.1:7777/chatHub?name="+Gameuser).build();
-        conGamesDetails.start().catch(err => console.error(err.toString()));
+        const conGamesDetails = new signalR.HubConnectionBuilder().withUrl("http://127.0.0.1:7777/chatHub?name=" + Gameuser).build();
+        conGamesDetails.start().catch(err => {
+            $('#NetWorkS').html('网络连接: Offline');
+            console.error(err.toString());
+
+
+
+        });
         function GetGamesDetail() {
             conGamesDetails.on("ReceiveGamesDetails", (message) => {
                 message = $.parseJSON(message);
@@ -720,18 +805,14 @@
                 if (true) {
                     $('#GlobalEXP').html(message[0].webUser_Info.GlobalEXP);
                     $('#TimeOfReport').html(formatSeconds(message[0].webUser_Info.TimeOfReport));
-                    
-                }
-                if (message[0].webBattle.Using == true) {
-                    $('#times').html(message[0].webBattle.Times);
-                    $('#parm').html(message[0].webBattle.Parm);
+
                 }
 
                 if (true) {
                     $('ul.Guns').html("");
                     var teamHtml = '';
-                    $(message[0].WebTeams).each(function(index, el) {
-                        select1_option += '<option value="'+el.TeamID+'">第'+(index+1)+'梯队('+el.Leader+')</option>';
+                    $(message[0].WebTeams).each(function (index, el) {
+                        select1_option += '<option value="' + el.TeamID + '">第' + (index + 1) + '梯队(' + el.Leader + ')</option>';
                         var person = '';
                         $(el.Guns).each(function (index2, el2) {
                             person += '<li><div id="gun"><span id="gunName">' + el2.Name + '</span><span id="gunLv">' + " | " + "LV: " + el2.Lv + '</span><span id ="gunHp">' + " | " + "HP: " + el2.Hp + '</span><span id = "gunExp">' + " | " + "Exp: " + el2.Exp + '</span><span id="Number">' + " | " + el2.number + "扩" + '</span></div></li> ';
@@ -751,36 +832,87 @@
                     });
 
                     $('#zzbd-warpper').html(squadHtml);
-
-
-                    if (gameStatus)
-                    {
+                    if (gameStatus) {
                         $('#zd-warpper #team2').html(select1_option);
                     }
 
 
 
                 }
+                var HeavyEquip_Build = '';
+                var NormalEquip_Build = '';
+                var Equip_Build_Slot = '';
+                $(message[0].webEquip_Build).each(function (index, el) {
+                    Equip_Build_Slot = '<div><label>建造槽' + el.Build_Slot + '</label><span>' + formatSeconds(el.remaining_time) + '</span></div>';
+                    if (parseInt(el.Build_Slot) % 2 == 0) {
+                        HeavyEquip_Build += Equip_Build_Slot;
+                    }
+                    else {
+                        NormalEquip_Build += Equip_Build_Slot;
+                    }
+
+                });
+                $('#HeavyEquipBuild-warpper').html(HeavyEquip_Build);
+                $('#NormalEquipBuild-warpper').html(NormalEquip_Build);
+
+
+                var HeavyDoll_Build = '';
+                var NormalDoll_Build = '';
+                var Doll_Build_Slot = '';
+                $(message[0].webDoll_Builds).each(function (index, el) {
+                    Doll_Build_Slot = '<div><label>建造槽' + el.Build_Slot + '</label><span>' + formatSeconds(el.remaining_time) + '</span></div>';
+                    if (parseInt(el.Build_Slot) % 2 == 0) {
+                        HeavyDoll_Build += Doll_Build_Slot;
+                    }
+                    else {
+                        NormalDoll_Build += Doll_Build_Slot;
+                    }
+
+                });
+                $('#HeavyDollBuild-warpper').html(HeavyDoll_Build);
+                $('#NormalDollBuild-warpper').html(NormalDoll_Build);
+
+                //detail of missioninfo
+                var listMissionInfo = '';
+                $(message[0].webMissionInfo).each(function (index, el) {
+                    var MissionInfo = '';
+                    var teams = '';
+                    $(el.Teams).each(function (index, el){
+                        teams += '梯队'+ el.TeamID;
+                    });
+                    k = index + 1;
+                    var rate = parseFloat((el.Core / el.BattleTimes).toFixed(3));
+                    MissionInfo += '<li><h3>Mission ' + k + '</h3></li><li>' + el.MissionMap + '</li><li>已循环次数: ' + el.CycleTime + '</li><li>核心数' + el.Core + '</li><li>核心率'+rate  +'</li><li>参数: ' + el.Parm + '</li><li>梯队:' + teams + '</li>';
+                    listMissionInfo += MissionInfo;
+                });
+
+
+                $('#MissionInfo').html(listMissionInfo);
+
+
+
+
+
 
                 for (var i = 0; i < message[0].webOperation.length; i++) {
                     var obj = $('.hqrw-item-list')[i];
-                    if (gameStatus){
+                    if (gameStatus) {
                         var select2_res = getOperationInfo();
                         var select1_option = '';
-                        $(message[0].WebTeams).each(function(index, el) {
-                            if(el.TeamID==message[0].webOperation[i].team_id){
-                                select1_option += '<option selected="selected" value="'+el.TeamID+'">梯队'+el.TeamID+'('+el.Leader+')</option>';
-                            }else{
-                                select1_option += '<option value="'+el.TeamID+'">梯队'+el.TeamID+'('+el.Leader+')</option>';
+                        $(message[0].WebTeams).each(function (index, el) {
+                            if (el.TeamID == message[0].webOperation[i].team_id) {
+                                select1_option += '<option selected="selected" value="' + el.TeamID + '">梯队' + el.TeamID + '(' + el.Leader + ')</option>';
+                            } else {
+                                select1_option += '<option value="' + el.TeamID + '">梯队' + el.TeamID + '(' + el.Leader + ')</option>';
                             }
                         });
 
                         var select2_option = '';
-                        $.each(select2_res.data.operationInfo, function(index, el) {
-                            if(el.id==message[0].webOperation[i].operation_id){
-                                select2_option += '<option selected="selected" value="'+el.id+'">'+el.name+'</option>';
-                            }else{
-                                select2_option += '<option value="'+el.id +'">'+el.name+'</option>';
+                        $.each(select2_res.data.operationInfo, function (index, el) {
+                            if (el.id == message[0].webOperation[i].operation_id) {
+                                select2_option += '<option selected="selected" value="' + el.id + '">' + el.name + '</option>';
+                            } else {
+                                select2_option += '<option value="' + el.id + '">' + el.name + '</option>';
                             }
                         });
 
@@ -788,22 +920,22 @@
                         $(obj).find('.select1').html(select1_option);
                     }
                     $(obj).find('.time').html(formatSeconds(message[0].webOperation[i].remaining_time));
-                    if(message[0].webOperation[i].Using){
-                        $(obj).find('.select1').attr('disabled','disabled');
-                        $(obj).find('.select2').attr('disabled','disabled');
-                    }else{
-                        $(obj).find('.select1').attr('disabled',false);
-                        $(obj).find('.select2').attr('disabled',false);
+                    if (message[0].webOperation[i].Using) {
+                        $(obj).find('.select1').attr('disabled', 'disabled');
+                        $(obj).find('.select2').attr('disabled', 'disabled');
+                    } else {
+                        $(obj).find('.select1').attr('disabled', false);
+                        $(obj).find('.select2').attr('disabled', false);
                     }
                 }
 
                 gameStatus = null;
             });
-            
+
             conGamesDetails.on("ReceiveGameNotification", (message) => {
                 message = $.parseJSON(message);
-                html_msg = '<div class="alert alert-info">'+message.ID+':'+message.message+'<span style="float:right;">'+message.timestamp+'</span></div>';
-                if($('#message-warpper').find('html_msg')){
+                html_msg = '<div class="alert alert-info">' + message.ID + ':' + message.message + '<span style="float:right;">' + message.timestamp + '</span></div>';
+                if ($('#message-warpper').find('html_msg')) {
                     $('#message-warpper').prepend(html_msg);
                 }
             });
@@ -813,6 +945,9 @@
             var secondTime = parseInt(value);// 秒
             var minuteTime = 0;// 分
             var hourTime = 0;// 小时
+            var stringHour;
+            var stringMinute;
+            var stringSecond;
             if (secondTime > 60) {//如果秒数大于60，将秒数转换成整数
                 //获取分钟，除以60取整数，得到整数分钟
                 minuteTime = parseInt(secondTime / 60);
@@ -826,17 +961,35 @@
                     minuteTime = parseInt(minuteTime % 60);
                 }
             }
-            return result = hourTime + ":" + minuteTime + ":" +secondTime;
+            if (hourTime < 10) {
+                stringHour = "0" + hourTime.toString();
+            }
+            else {
+                stringHour = hourTime.toString();
+            }
+            if (minuteTime < 10) {
+                stringMinute = "0" + minuteTime.toString();
+            }
+            else {
+                stringMinute = minuteTime.toString();
+            }
+            if (secondTime < 10) {
+                stringSecond = "0" + secondTime.toString();
+            }
+            else {
+                stringSecond = secondTime.toString();
+            }
+            return result = stringHour + ":" + stringMinute + ":" + stringSecond;
         }
 
 
         function checkToken() {
             var token = getCookie('token');
             // var token = sessionStorage.getItem('token');
-            if(!token){
+            if (!token) {
                 alert('您尚未登录游戏，请先登录');
-                window.location.href='login.html';
-            }else{
+                window.location.href = 'login.html';
+            } else {
                 return token;
             }
         }
@@ -850,14 +1003,79 @@
                 url: 'http://127.0.0.1:7777/Game/StartOperation',
                 type: 'post',
                 dataType: 'json',
-                contentType : 'application/json;charset=UTF-8',
-                data:JSON.stringify({accountID:accountID,operationID:operationID,teamID:teamID}),
+                contentType: 'application/json;charset=UTF-8',
+                data: JSON.stringify({ accountID: accountID, operationID: operationID, teamID: teamID }),
                 headers: { 'Authorization': 'Bearer ' + token },
                 success: function (res) {
-                    alert(res.message);  
+                    alert(res.message);
                 }
             });
         }
+
+        function AutoHeavyEquipBuild() {
+            var token = checkToken();
+            $.ajax({
+                url: 'http://127.0.0.1:7777/Game/Heavy_Equip_Build',
+                type: 'post',
+                dataType: 'json',
+                contentType: 'application/json;charset=UTF-8',
+                data: JSON.stringify({ gameID: param.gid }),
+                headers: { 'Authorization': 'Bearer ' + token },
+                success: function (res) {
+                    alert(res.message);
+                }
+            });
+        }
+        function AutoNormalEquipBuild() {
+            var token = checkToken();
+            $.ajax({
+                url: 'http://127.0.0.1:7777/Game/Normal_Equip_Build',
+                type: 'post',
+                dataType: 'json',
+                contentType: 'application/json;charset=UTF-8',
+                data: JSON.stringify({ gameID: param.gid }),
+                headers: { 'Authorization': 'Bearer ' + token },
+                success: function (res) {
+                    alert(res.message);
+                }
+            });
+        }
+
+
+
+
+        function AutoHeavyDollBuild() {
+            var token = checkToken();
+            $.ajax({
+                url: 'http://127.0.0.1:7777/Game/Heavy_Doll_Build',
+                type: 'post',
+                dataType: 'json',
+                contentType: 'application/json;charset=UTF-8',
+                data: JSON.stringify({ gameID: param.gid }),
+                headers: { 'Authorization': 'Bearer ' + token },
+                success: function (res) {
+                    alert(res.message);
+                }
+            });
+        }
+        function AutoNormalDollBuild() {
+            var token = checkToken();
+            $.ajax({
+                url: 'http://127.0.0.1:7777/Game/Normal_Doll_Build',
+                type: 'post',
+                dataType: 'json',
+                contentType: 'application/json;charset=UTF-8',
+                data: JSON.stringify({ gameID: param.gid }),
+                headers: { 'Authorization': 'Bearer ' + token },
+                success: function (res) {
+                    alert(res.message);
+                }
+            });
+        }
+
+
+
+
 
 
         function abortOperation(Obj) {
@@ -869,36 +1087,36 @@
                 url: 'http://127.0.0.1:7777/Game/AbortOperation',
                 type: 'post',
                 dataType: 'json',
-                contentType : 'application/json;charset=UTF-8',
-                data:JSON.stringify({accountID:accountID,operationID:operationID,teamID:teamID}),
+                contentType: 'application/json;charset=UTF-8',
+                data: JSON.stringify({ accountID: accountID, operationID: operationID, teamID: teamID }),
                 headers: { 'Authorization': 'Bearer ' + token },
                 success: function (res) {
-                    alert(res.message);  
+                    alert(res.message);
                 }
             });
         }
 
 
-        function GetRequest() {  
-            var url = location.search; //获取url中"?"符后的字串  
-            var theRequest = new Object();  
-            if (url.indexOf("?") != -1) {  
-                var str = url.substr(1);  
-                strs = str.split("&");  
-                for(var i = 0; i < strs.length; i ++) {  
-                    theRequest[strs[i].split("=")[0]]=unescape(strs[i].split("=")[1]);  
-                }  
-            }  
-            return theRequest;  
-        }  
-
-        function logout(){
-            setCookie('token',null);
-            // sessionStorage.setItem('token',null);
-            window.location.href='login.html';
+        function GetRequest() {
+            var url = location.search; //获取url中"?"符后的字串
+            var theRequest = new Object();
+            if (url.indexOf("?") != -1) {
+                var str = url.substr(1);
+                strs = str.split("&");
+                for (var i = 0; i < strs.length; i++) {
+                    theRequest[strs[i].split("=")[0]] = unescape(strs[i].split("=")[1]);
+                }
+            }
+            return theRequest;
         }
 
-        function gameLogin(){
+        function logout() {
+            setCookie('token', null);
+            // sessionStorage.setItem('token',null);
+            window.location.href = 'login.html';
+        }
+
+        function gameLogin() {
             var token = checkToken();
             var username = getCookie('username');
             // var username = sessionStorage.getItem('username');
@@ -906,16 +1124,16 @@
                 url: 'http://127.0.0.1:7777/Game/Login',
                 type: 'post',
                 dataType: 'json',
-                contentType : 'application/json;charset=UTF-8',
-                data:JSON.stringify({gameID:param.gid,username:username}),
+                contentType: 'application/json;charset=UTF-8',
+                data: JSON.stringify({ gameID: param.gid, username: username }),
                 headers: { 'Authorization': 'Bearer ' + token },
                 success: function (res) {
-                    alert(res.message);  
+                    alert(res.message);
                 }
             });
         }
 
-        $('.clean-massage').click(function() {
+        $('.clean-massage').click(function () {
             conGamesDetails.invoke("RemoveGameNotice", Gameuser).catch(err => console.error(err.toString()));
             $('#message-warpper').html('');
         });
@@ -925,78 +1143,82 @@
         var map_list = operation_info.data.battleMap;
         console.log(operation_info);
         var html_map = '';
-        $.each(map_list, function(index, val) {
-            html_map += '<option value="'+val+'">'+val+'</option>';
+        $.each(map_list, function (index, val) {
+            html_map += '<option value="' + val + '">' + val + '</option>';
         });
-        
+
         $('#zd-warpper select[name=map]').html(html_map);
 
-        function joinTeam(){
+        function joinTeam() {
             var values = $('#team2').val();
             var names = $('#team2 option:selected').html();
             var skt = $('input[name=skt]').val();
-            var team_list = '<li class="list-group-item">'+
-                                '<span class="team-title">'+names+'</span>'+
-                                '<input type="hidden" name="team_id" value="'+values+'">'+
-                                '<input type="hidden" name="skt" value="'+skt+'">'+
-                                '<span style="float: right;">梯队效能:'+skt+'</span>'+
-                            '</li>'
-            
-            console.log($('.team-list').find('input[value='+values+']'));
-            if($('.team-list').find('input[value='+values+']').length>=1){
+            var team_list = '<li class="list-group-item">' +
+                '<span class="team-title">' + names + '</span>' +
+                '<input type="hidden" name="team_id" value="' + values + '">' +
+                '<input type="hidden" name="skt" value="' + skt + '">' +
+                '<span style="float: right;">梯队效能:' + skt + '</span>' +
+                '</li>'
+
+            console.log($('.team-list').find('input[value=' + values + ']'));
+            if ($('.team-list').find('input[value=' + values + ']').length >= 1) {
                 alert('已存在梯队，不能重复添加');
-            }else{
+            } else {
                 $('.team-list').append(team_list);
             }
         }
 
-        function startBattle(){
+        function startBattle() {
             var token = checkToken();
             var username = getCookie('username');
             // var username = sessionStorage.getItem('username');
             var team_data = [];
-            for(i=0;$('.team-list input[name=team_id]').length>i;i++){
+            for (i = 0; $('.team-list input[name=team_id]').length > i; i++) {
                 var teamid = '';
                 var skt = '';
                 console.log($($('input[name=team_id]')[i]).val());
                 teamid = $($('input[name=team_id]')[i]).val();
                 skt = $($('input[name=skt]')[i]).val();
-                team_data.push({"teamid":teamid,"skt":skt,"key":i});
+                team_data.push({ "teamid": teamid, "skt": skt, "key": i });
             }
             var data = {
-                          "accountID": param.gid,
-                          "map": $('#map').val(),
-                          "teams": team_data,
-                          "parm":$('#parm').val()
-                        };
+                "accountID": param.gid,
+                "map": $('#map').val(),
+                "teams": team_data,
+                "parm": $('#parm').val()
+            };
             $.ajax({
                 url: 'http://127.0.0.1:7777/Game/StartBattle',
                 type: 'post',
                 dataType: 'json',
-                contentType : 'application/json;charset=UTF-8',
-                data:JSON.stringify(data),
+                contentType: 'application/json;charset=UTF-8',
+                data: JSON.stringify(data),
                 headers: { 'Authorization': 'Bearer ' + token },
                 success: function (res) {
                     console.log(res);
-                    alert(res.message);  
+                    alert(res.message);
                 }
             });
         }
 
-        function abortBattle(){
+        function abortBattle() {
             var token = checkToken();
             $.ajax({
                 url: 'http://127.0.0.1:7777/Game/AbortBattle',
                 type: 'post',
                 dataType: 'json',
-                contentType : 'application/json;charset=UTF-8',
-                data:JSON.stringify({accountId:param.gid}),
+                contentType: 'application/json;charset=UTF-8',
+                data: JSON.stringify({ accountId: param.gid }),
                 headers: { 'Authorization': 'Bearer ' + token },
                 success: function (res) {
-                    alert(res.message);  
+                    alert(res.message);
                 }
             });
         }
+
+        $('.clear-list').click(function () {
+            $('.team-list').html('');
+        })
 
     </script>
 </body>

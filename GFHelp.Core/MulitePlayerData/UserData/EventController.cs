@@ -74,14 +74,19 @@ namespace GFHelp.Core.MulitePlayerData
                     }
                 case 34:
                     {
-                        userData.mission.corridor(userData);
-                        //Simulation_map
+                        MissionInfo.Data data = new MissionInfo.Data();
+                        data.MissionMap = "mapcorridor";
+                        userData.MissionInfo.listTask.Add(data);
+                        if (userData.MissionInfo.listTask.Count <= 1)
+                        {
+                            userData.mission.Test();
+                        }
                         break;
                     }
                 case 41:
                     {
                         userData.mission.Test();
-                        userData.mission.End_At_Battle(userData.normal_MissionInfo);
+                        userData.mission.End_At_Battle();
                         break;
                     }
                 case 51:

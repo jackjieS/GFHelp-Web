@@ -127,7 +127,6 @@ namespace GFHelp.Web.Controllers
             }
 
             //加入控制符
-            Core.Management.Data.data.getDataByID(account.GameID).equip_Built.Heavy_Auto=true;
             return Ok(new
             {
                 code = -1,
@@ -136,6 +135,135 @@ namespace GFHelp.Web.Controllers
 
             });
         }
+        /// <summary>
+        /// Normal_Equip_Build
+        /// </summary>
+        /// <param name="account"></param>
+        /// <returns></returns>
+        [Route("/Game/Normal_Equip_Build")]
+        [HttpPost]
+        public IActionResult Normal_Equip_Build([FromBody] Account account)
+        {
+            if (Core.Management.Data.data.getDataByID(account.GameID).equip_Built.Normal_Auto == true)
+            {
+                Core.Management.Data.data.getDataByID(account.GameID).equip_Built.Normal_Auto = false;
+                return Ok(new
+                {
+                    code = 1,
+                    data = 1,
+                    message = string.Format("关闭自动普通建造", account.GameID)
+
+                });
+            }
+
+            if (Core.Management.Data.data.getDataByID(account.GameID).equip_Built.Normal_Auto == false)
+            {
+                Core.Management.Data.data.getDataByID(account.GameID).equip_Built.Normal_Auto = true;
+                return Ok(new
+                {
+                    code = 1,
+                    data = 1,
+                    message = string.Format("开启自动普通建造", account.GameID)
+
+                });
+            }
+
+            //加入控制符
+            return Ok(new
+            {
+                code = -1,
+                data = -1,
+                message = string.Format("未知错误呢 ", account.GameID)
+
+            });
+        }
+
+
+        /// <summary>
+        /// Heavy_Doll_Build
+        /// </summary>
+        /// <param name="account"></param>
+        /// <returns></returns>
+        [Route("/Game/Heavy_Doll_Build")]
+        [HttpPost]
+        public IActionResult Heavy_Doll_Build([FromBody] Account account)
+        {
+            if (Core.Management.Data.data.getDataByID(account.GameID).doll_Build.Heavy_Auto == true)
+            {
+                Core.Management.Data.data.getDataByID(account.GameID).doll_Build.Heavy_Auto = false;
+                return Ok(new
+                {
+                    code = 1,
+                    data = 1,
+                    message = string.Format("关闭自动重型建造", account.GameID)
+
+                });
+            }
+
+            if (Core.Management.Data.data.getDataByID(account.GameID).doll_Build.Heavy_Auto == false)
+            {
+                Core.Management.Data.data.getDataByID(account.GameID).doll_Build.Heavy_Auto = true;
+                return Ok(new
+                {
+                    code = 1,
+                    data = 1,
+                    message = string.Format("开启自动重型建造", account.GameID)
+
+                });
+            }
+
+            //加入控制符
+            return Ok(new
+            {
+                code = -1,
+                data = -1,
+                message = string.Format("未知错误呢 ", account.GameID)
+
+            });
+        }
+        /// <summary>
+        /// Normal_Doll_Build
+        /// </summary>
+        /// <param name="account"></param>
+        /// <returns></returns>
+        [Route("/Game/Normal_Doll_Build")]
+        [HttpPost]
+        public IActionResult Normal_Doll_Build([FromBody] Account account)
+        {
+            if (Core.Management.Data.data.getDataByID(account.GameID).doll_Build.Normal_Auto == true)
+            {
+                Core.Management.Data.data.getDataByID(account.GameID).doll_Build.Normal_Auto = false;
+                return Ok(new
+                {
+                    code = 1,
+                    data = 1,
+                    message = string.Format("关闭自动普通建造", account.GameID)
+
+                });
+            }
+
+            if (Core.Management.Data.data.getDataByID(account.GameID).doll_Build.Normal_Auto == false)
+            {
+                Core.Management.Data.data.getDataByID(account.GameID).doll_Build.Normal_Auto = true;
+                return Ok(new
+                {
+                    code = 1,
+                    data = 1,
+                    message = string.Format("开启自动普通建造", account.GameID)
+
+                });
+            }
+
+            //加入控制符
+            return Ok(new
+            {
+                code = -1,
+                data = -1,
+                message = string.Format("未知错误呢 ", account.GameID)
+
+            });
+        }
+
 
 
         /// <summary>
@@ -217,8 +345,9 @@ namespace GFHelp.Web.Controllers
 
                 });
             }
-            Core.Action.BattleBase.Normal_MissionInfo normal_MissionInfo = new Core.Action.BattleBase.Normal_MissionInfo(Core.Management.Data.data.getDataByID(bs.accountID), bs);
-            Core.Management.Data.data.getDataByID(bs.accountID).normal_MissionInfo = normal_MissionInfo;
+
+            Core.Action.BattleBase.MissionInfo.Data data = new Core.Action.BattleBase.MissionInfo.Data(Core.Management.Data.data.getDataByID(bs.accountID), bs);
+            Core.Management.Data.data.getDataByID(bs.accountID).MissionInfo.listTask.Add(data);
             Core.Management.Data.data.getDataByID(bs.accountID).eventAction.TaskBattle_1();
             return Ok(new
             {
@@ -249,7 +378,7 @@ namespace GFHelp.Web.Controllers
 
                 });
             }
-            Core.Management.Data.data.getDataByID(bs.accountID).normal_MissionInfo.Loop = false;
+            Core.Management.Data.data.getDataByID(bs.accountID).MissionInfo.listTask[0].Loop = false;
 
 
             return Ok(new

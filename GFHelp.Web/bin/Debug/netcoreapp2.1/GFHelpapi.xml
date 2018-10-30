@@ -111,6 +111,27 @@
             <param name="account"></param>
             <returns></returns>
         </member>
+        <member name="M:GFHelp.Web.Controllers.GameController.Normal_Equip_Build(GFHelp.Web.Controllers.GameController.Account)">
+            <summary>
+            Normal_Equip_Build
+            </summary>
+            <param name="account"></param>
+            <returns></returns>
+        </member>
+        <member name="M:GFHelp.Web.Controllers.GameController.Heavy_Doll_Build(GFHelp.Web.Controllers.GameController.Account)">
+            <summary>
+            Heavy_Doll_Build
+            </summary>
+            <param name="account"></param>
+            <returns></returns>
+        </member>
+        <member name="M:GFHelp.Web.Controllers.GameController.Normal_Doll_Build(GFHelp.Web.Controllers.GameController.Account)">
+            <summary>
+            Normal_Doll_Build
+            </summary>
+            <param name="account"></param>
+            <returns></returns>
+        </member>
         <member name="M:GFHelp.Web.Controllers.GameController.StartOperation(GFHelp.Web.Controllers.GameController.Operation)">
             <summary>
             [josn] accountID,后勤KEY, 后勤ID,后勤梯队ID sample:{"accountID":"13201546359",,"operationID":5,"TeamID":1}

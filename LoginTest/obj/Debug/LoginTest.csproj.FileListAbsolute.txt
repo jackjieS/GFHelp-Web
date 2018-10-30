@@ -1,0 +1,9 @@
+C:\Users\jack\Desktop\CS\GFHelp-Web\LoginTest\bin\Debug\LoginTest.exe.config
+C:\Users\jack\Desktop\CS\GFHelp-Web\LoginTest\bin\Debug\LoginTest.exe
+C:\Users\jack\Desktop\CS\GFHelp-Web\LoginTest\bin\Debug\LoginTest.pdb
+C:\Users\jack\Desktop\CS\GFHelp-Web\LoginTest\obj\Debug\LoginTest.csproj.CoreCompileInputs.cache
+C:\Users\jack\Desktop\CS\GFHelp-Web\LoginTest\obj\Debug\LoginTest.exe
+C:\Users\jack\Desktop\CS\GFHelp-Web\LoginTest\obj\Debug\LoginTest.pdb
+C:\Users\jack\Desktop\CS\GFHelp-Web\LoginTest\bin\Debug\LitJson.dll
+C:\Users\jack\Desktop\CS\GFHelp-Web\LoginTest\obj\Debug\LoginTest.csproj.CopyComplete
+C:\Users\jack\Desktop\CS\GFHelp-Web\LoginTest\obj\Debug\LoginTest.csprojAssemblyReference.cache

@@ -151,114 +151,194 @@ namespace GFHelp.Core.Action.BattleBase
             seed += user_exp;
             return seed;
         }
-        internal Dictionary<int, Gun_With_User_Info> teaminfo = new Dictionary<int, Gun_With_User_Info>();
+        public Dictionary<int, Gun_With_User_Info> teaminfo = new Dictionary<int, Gun_With_User_Info>();
     }
 
-    public class Normal_MissionInfo
+    public class MissionInfo
     {
-        public List<TeamInfo> Teams = new List<TeamInfo>();
-        public string TaskMap = "";
-        public Dictionary<int, int> List_withdrawPOS = new Dictionary<int, int>();
-        public Dictionary<int, int> List_lifeReduce = new Dictionary<int, int>();
-        public int user_exp;
-        public bool TaskList_ADD = false;
-        public int LoopTime = 0;
-        public int MaxLoopTime = 0;
-        public int reStart_WaitTime = 1;
-        public bool Loop = true;
-        public bool needSupply = true;
-        public int requestLv = 0;
-        public bool Using = false;
-        public bool StopLoopinGetNew = true;
-        public bool AutoCombine = true;
-        public string Parm;
-        public bool AutoStrengthen = true;
-        public Normal_MissionInfo()
+        //一个Data代表一个任务
+        public class Data
         {
-            this.Using = false;
+            public List<TeamInfo> Teams = new List<TeamInfo>();
+            public string MissionMap = "";
+            public Dictionary<int, int> List_withdrawPOS = new Dictionary<int, int>();
+            public Dictionary<int, int> List_lifeReduce = new Dictionary<int, int>();
+            public int CycleTime = 0;
+            public int BattleTimes = 0;
+            public int MaxCycleNumber = 0;
+            public bool Loop = true;
+            public bool needSupply = true;
+            public int requestLv = 0;
+            public bool Using = false;
+
+            public bool AutoCombine = true;
+            public bool AutoStrengthen = true;
+            public static bool AutoQuickFix = true;
+            public bool StopLoopByEquipRank5=false;
+            public bool StopLoopByStart3 = false;
+            public bool StopLoopByStart4 = false;
+            public bool StopLoopByStart5 = false;
+            public bool StopLoopByNumberCoreR = false;
+            public bool StopLoopByPrize = false;
+            public int NumberCoreRequire =0;
+            public int NumberCore = 0;
+            public bool needlog = false;
+            public int user_exp;
+            public string Parm;
+
+
+
+
+            public Data(UserData userData, Battle battle)
+            {
+                this.Using = true;
+                this.user_exp = userData.user_Info.experience;
+                this.Parm = battle.Parm;
+                if (battle.Teams.Count() == 0) { return; }
+                foreach (var team in battle.Teams)
+                {
+                    if (string.IsNullOrEmpty(team.Skt.ToString()))
+                    {
+                        Random random = new Random();
+                        team.Skt = random.Next(20000, 30000);
+                    }
+                }
+
+                foreach (var team in battle.Teams.OrderBy(s => s.Key).ToList())
+                {
+                    TeamInfo bti = new TeamInfo();
+                    bti.TeamEffect = Convert.ToInt32(team.Skt);
+                    bti.isMainTeam = true;
+                    bti.TeamID = team.Teamid;
+                    bti.teaminfo = userData.Teams[team.Teamid];
+                    this.Teams.Add(bti);
+                }
+
+
+
+                List<string> Parm = battle.Parm.ToLower().Split(' ').ToList();
+
+                if (string.IsNullOrEmpty(battle.Map))
+                {
+                    battle.Map = "-map0_2";
+                }
+                else
+                {
+                    this.MissionMap = battle.Map;
+                }
+
+                foreach (var item in Parm)
+                {
+                    if (item.Contains("-map"))
+                    {
+                        this.MissionMap = item.ToString();
+                    }
+                    if (item.Contains("-loginnum"))
+                    {
+                        Int32.TryParse(item.Remove(0, 9), out SystemOthers.ConfigData.BL_ReLogin_num);
+                    }
+                    if (item.Contains("-lv"))
+                    {
+                        Int32.TryParse(item.Remove(0, 3), out this.requestLv);
+                    }
+
+                    //循环次数
+                    if (item.Contains("-t"))
+                    {
+                        this.MaxCycleNumber = Convert.ToInt32(item.Remove(0, 2));
+                    }
+                    //自动扩编
+                    if (item.Contains("-c"))
+                    {
+                        this.AutoCombine = false;
+                    }
+                    if (item.Contains("-e"))
+                    {
+                        this.StopLoopByEquipRank5 = true;
+                    }
+                    if (item.Contains("-a"))
+                    {
+                        this.AutoStrengthen = false;
+                    }
+                    if (item.Contains("-s3"))
+                    {
+                        this.StopLoopByStart3 = true;
+                    }
+                    if (item.Contains("-s4"))
+                    {
+                        this.StopLoopByStart4 = true;
+                    }
+                    if (item.Contains("-s5"))
+                    {
+                        this.StopLoopByStart5 = true;
+                    }
+                    if (item.Contains("-n") && !item.Contains("-ns"))
+                    {
+                        this.StopLoopByNumberCoreR = true;
+                        Int32.TryParse(item.Remove(0, 2), out this.NumberCoreRequire);
+                    }
+                    if (item.Contains("-ns"))
+                    {
+                        this.needSupply = false;
+                    }
+                    if (item.Contains("-s5"))
+                    {
+                        this.StopLoopByStart5 = true;
+                    }
+                    if (item.Contains("-log"))
+                    {
+                        this.needlog = true;
+                    }
+                    if (item.Contains("-p"))
+                    {
+                        this.StopLoopByPrize = true;
+                    }
+                    if (item.Contains("-qf"))
+                    {
+                        AutoQuickFix = false;
+                    }
+
+                }
+                this.MissionMap = MissionMap.Remove(0, 1);
+            }
+            public Data() { }
         }
-        public int getSupportTeamID
+
+
+
+
+        public List<Data> listTask = new List<Data>();
+        public Data GetFirstData()
         {
-            get
-            {
-                foreach (var item in Teams)
-                {
-                    if (item.isSupportTeam) return item.TeamID;
-                }
-                return 0;
-            }
+            if (listTask.Count == 0) return null;
+            return listTask[0];
         }
-        public Normal_MissionInfo(UserData userData, Battle battle)
+        public void setFirstDataLoopFalse()
         {
-            this.Using = true;
-            this.user_exp = userData.user_Info.experience;
-            this.Parm = battle.Parm;
-            if (battle.Teams.Count() == 0) { return; }
-            foreach (var team in battle.Teams)
+            if (listTask.Count == 0) return;
+            listTask[0].Loop=false;
+        }
+
+        public MissionInfo()
+        {
+
+        }
+
+        public MissionInfo(UserData userData, Battle battle)
+        {
+
+        }
+        public static void LifeReduce(TeamInfo team)
+        {
+            if (Data.AutoQuickFix == false) return;
+            for (int i = 0; i <= team.teaminfo.Count; i++)
             {
-                if (string.IsNullOrEmpty(team.Skt.ToString()))
+                if (team.teaminfo.ContainsKey(i))
                 {
-                    Random random = new Random();
-                    team.Skt = random.Next(20000, 30000);
+                    if (team.teaminfo[i].life < 27) continue;
+                    team.teaminfo[i].life -= 1;
                 }
             }
-
-            foreach (var team in battle.Teams.OrderBy(s => s.Key).ToList())
-            {
-                TeamInfo bti = new TeamInfo();
-                bti.TeamEffect = Convert.ToInt32(team.Skt);
-                bti.isMainTeam = true;
-                bti.TeamID = team.Teamid;
-                bti.teaminfo = userData.Teams[team.Teamid];
-                this.Teams.Add(bti);
-            }
-
-
-
-            List<string> Parm = battle.Parm.ToLower().Split(' ').ToList();
-
-            if (string.IsNullOrEmpty(battle.Map))
-            {
-                battle.Map = "-map0_2";
-            }
-            else
-            {
-                this.TaskMap = battle.Map;
-            }
-
-            foreach (var item in Parm)
-            {
-                if (item.Contains("-map"))
-                {
-                    this.TaskMap = item.ToString();
-                }
-                if (item.Contains("-loginnum"))
-                {
-                    Int32.TryParse(item.Remove(0, 9), out SystemOthers.ConfigData.BL_ReLogin_num);
-                }
-                if (item.Contains("-lv"))
-                {
-                    int requestlv;
-                    Int32.TryParse(item.Remove(0, 3), out requestlv);
-                    this.requestLv = requestlv;
-                }
-                if (item.Contains("-ns"))
-                {
-                    this.needSupply = false;
-                }
-                //循环次数
-                if (item.Contains("-t"))
-                {
-                    this.MaxLoopTime = Convert.ToInt32(item.Remove(0, 2));
-                }
-                //自动扩编
-                if (item.Contains("-c"))
-                {
-                    this.AutoCombine = false;
-                }
-
-            }
-            this.TaskMap = TaskMap.Remove(0, 1);
         }
 
     }
@@ -267,6 +347,7 @@ namespace GFHelp.Core.Action.BattleBase
     {
         public class Data
         {
+            public Random random = new Random();
             public int spot_id;
             public bool if_enemy_die = true;
             public int current_time;
@@ -304,6 +385,8 @@ namespace GFHelp.Core.Action.BattleBase
         /// <param name="ecti">enemy_character_type_id</param>
         public string setData(int spotid, int teamLoc, int lrd, int tt, int eec, int le, int ecti, int userexp, bool if_enemy_die = true)
         {
+            MissionInfo.LifeReduce(data.Teams[teamLoc]);
+
             data.if_enemy_die = if_enemy_die;
             data.spot_id = spotid;
             data.teamLoc = teamLoc;
@@ -606,6 +689,7 @@ namespace GFHelp.Core.Action.BattleBase
                 }
                 //资料
             }
+            //
             if (Sday.SimulationType == 3 && userData.user_Info.bp >= 3)
             {
                 userData.eventAction.Simulation_Corridor();
@@ -638,7 +722,7 @@ namespace GFHelp.Core.Action.BattleBase
                 }
                 if (Day == 1 || Day == 6)
                 {
-                    return 1;
+                    return 3;
                 }
                 return 1;
             }
@@ -649,7 +733,6 @@ namespace GFHelp.Core.Action.BattleBase
             {
                 return (int)Helper.Decrypt.LocalDateTimeConvertToChina(DateTime.Now).DayOfWeek;
             }
-
         }
     }
 
@@ -1054,7 +1137,13 @@ namespace GFHelp.Core.Action.BattleBase
 
 
 
-
+    public class mapbase
+    {
+        public int mission_id;
+        public Spot[] Mission_Start_spots;
+        public Dictionary<int, TeamMove> dic_TeamMove;
+        public Dictionary<int, Spot> Spots = new Dictionary<int, Spot>();
+    }
 
 
 

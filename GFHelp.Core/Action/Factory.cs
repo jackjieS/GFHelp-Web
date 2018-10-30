@@ -184,7 +184,7 @@ namespace GFHelp.Core.Action
 
             int count = 0;
 
-            userData.gun_With_User_Info.Get_dicGun_Combine(userData.normal_MissionInfo.Teams[0].TeamID);
+            userData.gun_With_User_Info.Get_dicGun_Combine(userData.MissionInfo.listTask[0].Teams[0].TeamID);
             if (userData.gun_With_User_Info.dicGun_Combine.Count == 0) return;
 
             if (userData.user_Info.core < userData.gun_With_User_Info.dicGun_Combine[0].Core_COMbineNeed) return;
@@ -303,7 +303,6 @@ namespace GFHelp.Core.Action
             userData.webData.StatusBarText = "准备人形强化";
 
             string result = "";
-            userData.home.Login();
             userData.others.Get_dicGun_PowerUP();
 
             if (userData.gun_With_User_Info.dicGun_PowerUP.Count == 0) return false;
@@ -343,7 +342,7 @@ namespace GFHelp.Core.Action
                 userData.gun_With_User_Info.dicGun_PowerUP[i].UpdateData();
                 return true;
             }
-            userData.normal_MissionInfo.AutoStrengthen = false;
+            userData.MissionInfo.listTask[0].AutoStrengthen = false;
             return false;
         }
 

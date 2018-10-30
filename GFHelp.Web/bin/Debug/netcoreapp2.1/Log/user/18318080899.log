@@ -1335,3 +1335,212 @@
 【19:33:27】      message = 获取Sign失败 , exception = 
 【19:41:49】      message = 获取UserInfo失败 , exception = 
 【19:44:57】      message = 获取UserInfo失败 , exception = 
+【04:15:33】      message = 程序已注销 请重新创建实例 
+【00:54:09】      message = 程序已注销 请重新创建实例 
+【01:42:18】      message = jackjieS 无法开始作战任务，请登陆游戏检查 
+【01:46:18】      message = jackjieS 无法开始作战任务，请登陆游戏检查 
+【21:48:29】      message = 人形 : 81973801 扩编 
+【21:49:23】      message = 人形 : 81985985 扩编 
+【02:28:41】      message = jackjieS 无法开始作战任务，请登陆游戏检查 
+【10:10:02】      message = 收集数据 数据监测枢纽  
+【10:10:05】      message =  获取数据样本出错 , exception = error:1
+【13:10:03】      message = 获取宿舍信息出错 , exception = error:1
+【17:25:33】      message = #VLXyFTqtJ3seq2uXwpTJ9hFLj4KsEx6oYt0TdzCCNEUEikcYDquttLyDYcHNe3nl+G8jGdBJxxTPMvo0gdmB6s+I2ag/rU5NcA9mOhuJZyTJeFe1zw6T5OMoLN9awkRQvL6x 
+【23:01:41】      message = jackjieS 无法开始作战任务，请登陆游戏检查 
+【00:57:44】      message = 终止作战 , exception = 
+【00:57:51】      message = endTurn Error , exception = error:3
+【01:08:13】      message = 终止作战 , exception = 
+【00:28:12】      message = 程序已注销 请重新创建实例 
+【16:49:09】      message = 终止作战 , exception = 
+【16:50:36】      message = 终止作战 , exception = 
+【16:54:55】      message = 终止作战 , exception = 
+【16:57:12】      message = 8_6BOSS 成功 , exception = 
+【17:07:36】      message = 8_6BOSS 成功 , exception = 
+【23:09:55】      message = 7_4n 成功 , exception = 
+【23:11:03】      message = 7_4n 成功 , exception = 
+【23:12:19】      message = 7_4n 成功 , exception = 
+【23:13:22】      message = 7_4n 成功 , exception = 
+【23:14:28】      message = 7_4n 成功 , exception = 
+【01:21:40】      message = 终止作战 , exception = 
+【01:29:26】      message = jackjieS 无法开始作战任务，请登陆游戏检查 
+【01:31:27】      message = teamMove Error , exception = error:3
+【01:31:35】      message = jackjieS 无法部署梯队，请登陆游戏检查 , exception = error:2
+【01:32:28】      message = 终止作战 , exception = 
+【01:32:45】      message = teamMove Error , exception = error:3
+【01:32:55】      message = jackjieS 无法部署梯队，请登陆游戏检查 , exception = error:2
+【01:38:20】      message = 终止作战 , exception = 
+【01:38:36】      message = teamMove Error , exception = error:3
+【01:38:47】      message = jackjieS 无法部署梯队，请登陆游戏检查 , exception = error:2
+【01:41:01】      message = 终止作战 , exception = 
+【01:56:10】      message = 装备强化 id 15259903 
+【02:00:27】      message = 装备强化 id 15259903 
+【02:04:48】      message = 装备强化 id 15259903 
+【02:08:58】      message = 装备强化 id 15259903 
+【02:13:18】      message = 装备强化 id 15259903 
+【02:17:43】      message = 装备强化 id 15259903 
+【02:22:05】      message = Establish_Build_Finish ERROR , exception = error:202|尚无任何产出
+【02:23:15】      message = 装备强化 id 15259903 
+【02:51:37】      message = 获得5星装备 意不意外 惊不惊喜 
+【02:52:19】      message = 7_4n 成功 , exception = 
+【02:56:17】      message = 7_4n 成功 , exception = 
+【03:01:11】      message = 获得5星装备 意不意外 惊不惊喜 
+【03:01:28】      message = teamMove Error , exception = error:2
+【03:01:31】      message = teamMove Error , exception = error:2
+【14:10:02】      message = 获取宿舍信息出错 , exception = error:1
+【16:13:19】      message = 终止作战 , exception = 
+【16:13:33】      message = Establish_Build_Finish ERROR , exception = error:202|尚无任何产出
+【16:15:39】      message = 获得5星装备 意不意外 惊不惊喜 
+【16:15:47】      message = 7_4n 成功 , exception = 
+【13:46:34】      message = 4_4E 成功 
+【13:47:22】      message = 4_4E 成功 
+【13:47:51】      message = 4_4E 成功 
+【13:48:20】      message = 4_4E 成功 
+【13:48:51】      message = 4_4E 成功 
+【13:49:20】      message = 4_4E 成功 
+【13:49:49】      message = 4_4E 成功 
+【13:50:19】      message = 4_4E 成功 
+【13:50:49】      message = 4_4E 成功 
+【13:51:22】      message = 4_4E 成功 
+【13:51:53】      message = 4_4E 成功 
+【13:52:27】      message = 4_4E 成功 
+【13:53:03】      message = 4_4E 成功 
+【13:53:33】      message = 4_4E 成功 
+【13:54:03】      message = 4_4E 成功 
+【13:54:33】      message = 4_4E 成功 
+【13:55:03】      message = 4_4E 成功 
+【13:55:32】      message = 4_4E 成功 
+【13:56:02】      message = 4_4E 成功 
+【13:56:31】      message = 4_4E 成功 
+【13:57:10】      message = 4_4E 成功 
+【13:57:39】      message = 4_4E 成功 
+【13:59:15】      message = 4_4E 成功 
+【13:59:44】      message = 4_4E 成功 
+【14:00:13】      message = 4_4E 成功 
+【14:00:43】      message = 4_4E 成功 
+【14:01:12】      message = 4_4E 成功 
+【14:01:41】      message = 4_4E 成功 
+【14:02:12】      message = 4_4E 成功 
+【14:03:05】      message = 4_4E 成功 
+【14:03:37】      message = 4_4E 成功 
+【14:04:05】      message = 4_4E 成功 
+【14:04:34】      message = 4_4E 成功 
+【14:05:03】      message = 4_4E 成功 
+【14:05:33】      message = 4_4E 成功 
+【14:06:20】      message = 4_4E 成功 
+【14:06:51】      message = 4_4E 成功 
+【14:07:20】      message = 4_4E 成功 
+【14:07:52】      message = 4_4E 成功 
+【14:08:21】      message = 4_4E 成功 
+【14:08:59】      message = 4_4E 成功 
+【14:09:28】      message = 4_4E 成功 
+【14:10:16】      message = 4_4E 成功 
+【14:10:47】      message = 4_4E 成功 
+【14:11:19】      message = 4_4E 成功 
+【14:11:48】      message = 4_4E 成功 
+【14:12:17】      message = 4_4E 成功 
+【14:12:46】      message = 4_4E 成功 
+【14:13:22】      message = 4_4E 成功 
+【14:13:51】      message = 4_4E 成功 
+【14:14:58】      message = 4_4E 成功 
+【14:15:27】      message = 4_4E 成功 
+【14:16:00】      message = 4_4E 成功 
+【14:16:34】      message = 4_4E 成功 
+【14:17:02】      message = 4_4E 成功 
+【14:17:32】      message = 4_4E 成功 
+【14:18:15】      message = 4_4E 成功 
+【14:18:43】      message = 4_4E 成功 
+【14:19:14】      message = 4_4E 成功 
+【14:19:46】      message = 4_4E 成功 
+【14:20:20】      message = 4_4E 成功 
+【14:20:48】      message = 4_4E 成功 
+【14:21:17】      message = 4_4E 成功 
+【14:21:59】      message = 4_4E 成功 
+【14:22:32】      message = 4_4E 成功 
+【14:23:01】      message = 4_4E 成功 
+【14:23:49】      message = 4_4E 成功 
+【14:24:17】      message = 4_4E 成功 
+【14:24:51】      message = 4_4E 成功 
+【14:26:08】      message = 4_4E 成功 
+【14:26:56】      message = 4_4E 成功 
+【14:27:32】      message = 4_4E 成功 
+【14:28:02】      message = 4_4E 成功 
+【14:28:31】      message = 4_4E 成功 
+【14:29:03】      message = 4_4E 成功 
+【14:29:41】      message = 4_4E 成功 
+【14:30:12】      message = 4_4E 成功 
+【14:30:46】      message = 4_4E 成功 
+【14:31:36】      message = 4_4E 成功 
+【14:32:06】      message = 4_4E 成功 
+【14:32:50】      message = 4_4E 成功 
+【06:30:38】      message = 程序已注销 请重新创建实例 
+【17:10:15】      message = 装备强化 id 15259903 
+【17:10:59】      message = 人形 : 77444059 扩编 
+【17:11:44】      message = 人形 : 71148368 扩编 
+【17:12:29】      message = 人形 : 71274386 扩编 
+【17:13:13】      message = 人形 : 81990084 扩编 
+【17:16:40】      message = 终止作战 , exception = 
+【17:36:16】      message = 人形 : 87128426 扩编 
+【17:37:17】      message = 终止作战 , exception = 
+【17:42:00】      message = 人形 : 71148368 扩编 
+【17:52:25】      message = 人形 : 71274386 扩编 
+【17:53:24】      message = 人形 : 77444059 扩编 
+【18:09:48】      message = 人形 : 81990084 扩编 
+【18:10:02】      message =  s3.NorthAdmiral 宿舍 电池数 -2 剩余 48 
+【18:10:08】      message =  siguld 宿舍 电池数 -2 剩余 47 
+【18:10:14】      message =  KP31 宿舍 电池数 -2 剩余 46 
+【18:10:16】      message =  这是好事 宿舍 电池数 -2 剩余 45 
+【18:10:22】      message =  Illyasviel 宿舍 电池数 -2 剩余 44 
+【18:10:27】      message =  丁丁 宿舍 电池数 -2 剩余 43 
+【18:10:30】      message =  Akakuma 宿舍 电池数 -2 剩余 42 
+【18:10:33】      message =  KazMiller 宿舍 电池数 -2 剩余 41 
+【18:10:35】      message =  小仓朝日 宿舍 电池数 -2 剩余 40 
+【18:10:38】      message =  苍穹暗帝 宿舍 电池数 -2 剩余 39 
+【18:10:41】      message =  Cirno9 宿舍 电池数 -2 剩余 38 
+【18:10:43】      message =  Sumiko 宿舍 电池数 -2 剩余 37 
+【18:10:46】      message =  米科 宿舍 电池数 -2 剩余 36 
+【18:10:49】      message =  UZ 宿舍 电池数 -2 剩余 35 
+【18:10:51】      message =  白日梦想家 宿舍 电池数 -2 剩余 34 
+【18:10:54】      message =  霖音Blank 宿舍 电池数 -2 剩余 33 
+【18:10:57】      message =  马蒂尼亨利 宿舍 电池数 -2 剩余 32 
+【18:10:59】      message =  朝闻道 宿舍 电池数 -2 剩余 31 
+【18:11:02】      message =  Culente 宿舍 电池数 -2 剩余 30 
+【18:11:05】      message =  我不是陆Sir 宿舍 电池数 -2 剩余 29 
+【18:11:07】      message =  s1.模拟创星图 宿舍 电池数 -2 剩余 28 
+【18:11:10】      message =  Weiss 宿舍 电池数 -2 剩余 27 
+【18:11:13】      message =  聖峰銀月 宿舍 电池数 -2 剩余 26 
+【18:11:15】      message =  FuZe 宿舍 电池数 -2 剩余 25 
+【18:11:18】      message =  Yudachi 宿舍 电池数 -2 剩余 24 
+【18:11:21】      message =  月时计 宿舍 电池数 -2 剩余 23 
+【18:11:26】      message =  筠礼 宿舍 电池数 -2 剩余 22 
+【18:11:29】      message =  索涅奇卡 宿舍 电池数 -2 剩余 21 
+【18:11:32】      message =  Ark 宿舍 电池数 -2 剩余 20 
+【18:11:35】      message =  Nihil 宿舍 电池数 -2 剩余 19 
+【18:11:48】      message =  伊洛卡卡 宿舍 电池数 -2 剩余 18 
+【18:11:51】      message =  丨WA2000丨 宿舍 电池数 -2 剩余 17 
+【18:11:57】      message =  aoi 宿舍 电池数 -2 剩余 16 
+【18:11:59】      message =  辉辉夜 宿舍 电池数 -2 剩余 15 
+【18:12:03】      message =  说好的组织呢 宿舍 电池数 -2 剩余 14 
+【18:12:06】      message =  林有德 宿舍 电池数 -2 剩余 13 
+【18:12:08】      message =  Wa酱 宿舍 电池数 -2 剩余 12 
+【18:12:11】      message =  s13.虛幻 宿舍 电池数 -2 剩余 11 
+【18:12:14】      message =  s3.雪上 宿舍 电池数 -2 剩余 10 
+【18:12:19】      message =  摩西摩西 宿舍 电池数 0 剩余 9 
+【18:12:22】      message =  月鸟武 宿舍 电池数 -2 剩余 8 
+【18:12:25】      message =  这火我不传 宿舍 电池数 -2 剩余 7 
+【18:12:27】      message =  彼岸花开四季 宿舍 电池数 -2 剩余 6 
+【18:12:30】      message =  星辰cobewb 宿舍 电池数 -2 剩余 5 
+【18:12:33】      message =  城南小巷 宿舍 电池数 -2 剩余 4 
+【18:12:36】      message =  心灵塑师杰斯 宿舍 电池数 -2 剩余 3 
+【18:12:41】      message =  无痕优寂何去 宿舍 电池数 -2 剩余 2 
+【19:00:50】      message = 人形 : 87128426 扩编 
+【19:22:57】      message = Establish_Build_Finish ERROR , exception = error:202|尚无任何产出
+【20:11:02】      message = 人形 : 71148368 扩编 
+【20:23:24】      message = Establish_Build_Finish ERROR , exception = error:202|尚无任何产出
+【21:26:40】      message = Establish_Build_Finish ERROR , exception = error:202|尚无任何产出
+【23:48:30】      message = 终止作战 , exception = 
+【23:48:55】      message = Establish_Build_Finish ERROR , exception = error:202|尚无任何产出
+【23:50:45】      message = 终止作战 , exception = 
+【00:29:00】      message = 后勤结束失败 , exception = error:7
+【00:32:51】      message = 获取新人形 : gun-10000240 ,意不意外 惊不惊喜 
+【00:32:57】      message = 人形 : 77444059 扩编 
+【04:17:15】      message = 程序已注销 请重新创建实例 

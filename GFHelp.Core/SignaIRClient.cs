@@ -101,7 +101,7 @@ namespace GFHelp.Core
             {
                 Task MessageTask = new Task(() => LoopGameMessage());
                 MessageTask.Start();
-                //Task.WaitAll(MessageTask);
+                Task.WaitAll(MessageTask);
                 Thread.Sleep(1000);
             }
 

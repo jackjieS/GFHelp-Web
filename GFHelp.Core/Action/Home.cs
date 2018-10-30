@@ -289,7 +289,7 @@ namespace GFHelp.Core.Action
             int count = 0;
             while (true)
             {
-                result = API.BaseRequset.GetDigitalUid(userData.GameAccount, data);
+                result = API.Login.GetDigitalUid(userData.GameAccount, data);
 
                 switch (Response.Check(userData.GameAccount, ref result, "GetDigitalUid_Pro", false))
                 {

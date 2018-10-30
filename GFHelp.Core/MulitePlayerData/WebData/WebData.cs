@@ -1,4 +1,5 @@
-﻿using GFHelp.Core.CatchData.Base;
+﻿using GFHelp.Core.Action.BattleBase;
+using GFHelp.Core.CatchData.Base;
 using GFHelp.Core.Management;
 using LitJson;
 using Newtonsoft.Json;
@@ -13,24 +14,24 @@ namespace GFHelp.Core.MulitePlayerData.WebData
     public class WebData
     {
         public string StatusBarText;
-        //public Dictionary<int, Dictionary<int, Gun>> WebTeams = new Dictionary<int, Dictionary<int, Gun>>();
         public List<Team> WebTeams = new List<Team>();
         public List<Squad> WebSquads = new List<Squad>();
         public WebUser_Info webUser_Info = new WebUser_Info();
-        //public Dictionary<int, WebOperation> webOperation = new Dictionary<int, WebOperation>();
         public List<WebOperation> webOperation = new List<WebOperation>();
         public List<WebEquip_Build> webEquip_Build = new List<WebEquip_Build>();
+        public List<WebDoll_Build> webDoll_Builds = new List<WebDoll_Build>();
         public WebStatus webStatus = new WebStatus();
-        public WebBattle webBattle = new WebBattle();
+        public List<WebMissionInfo>  webMissionInfo = new List<WebMissionInfo>();
         public void Get(UserData userData)
         {
             Initialize.GetWebTeams(userData, ref WebTeams);
             Initialize.GetWebUser_Info(userData, ref webUser_Info);
             Initialize.GetWebOperation(userData,ref webOperation);
             Initialize.GetWebStatus(userData, ref webStatus);
-            Initialize.GetWebBattle(userData, ref webBattle);
+            Initialize.GetWebMissionInfo(userData, ref webMissionInfo);
             Initialize.GetWebSquads(userData, ref WebSquads);
             Initialize.GetWebEquip_Build(userData, ref webEquip_Build);
+            Initialize.GetWebDoll_Build(userData, ref webDoll_Builds);
         }
     }
     public class Initialize
@@ -145,25 +146,36 @@ namespace GFHelp.Core.MulitePlayerData.WebData
             }
             return "Null";
         } 
-        public static void GetWebBattle(UserData userData, ref WebBattle webBattle)
+        public static void GetWebMissionInfo(UserData userData, ref List<WebMissionInfo> list)
         {
-            //webBattle.Times = userData.normal_MissionInfo.LoopTime.ToString();
-            webBattle.Times = userData.normal_MissionInfo.LoopTime.ToString();
-            webBattle.Using = userData.normal_MissionInfo.Using;
-            webBattle.Map = userData.normal_MissionInfo.TaskMap;
-            webBattle.Parm = userData.normal_MissionInfo.Parm;
+            if (userData.MissionInfo.listTask.Count == 0) return;
+            list.Clear();
+            foreach (var item in userData.MissionInfo.listTask)
+            {
+                WebMissionInfo webMissionInfo = new WebMissionInfo(item);
+                list.Add(webMissionInfo);
+            }
         }
         public static void GetWebEquip_Build(UserData ud, ref List<WebEquip_Build> dic)
         {
             dic.Clear();
             foreach (var item in ud.equip_Built.Built_Slot)
             {
-                WebEquip_Build webOperation = new WebEquip_Build(item.Value);
-                dic.Add(webOperation);
+                WebEquip_Build webEquip_Build = new WebEquip_Build(item.Value);
+                dic.Add(webEquip_Build);
             }
 
         }
+        public static void GetWebDoll_Build(UserData ud, ref List<WebDoll_Build> dic)
+        {
+            dic.Clear();
+            foreach (var item in ud.doll_Build.Built_Slot)
+            {
+                WebDoll_Build webEquip_Build = new WebDoll_Build(item.Value);
+                dic.Add(webEquip_Build);
+            }
 
+        }
 
     }
 
@@ -274,13 +286,23 @@ namespace GFHelp.Core.MulitePlayerData.WebData
         public string Name;//游戏角色名称
         public string statusBarText;//状态
     }
-    public class WebBattle
+    public class WebMissionInfo
     {
-        public bool Using;//Ture正在使用 false 空闲
-        public string Map;//地图
-        public string Times;//已执行次数
+        public WebMissionInfo(GFHelp.Core.Action.BattleBase.MissionInfo.Data data)
+        {
+            this.Teams = data.Teams;
+            this.MissionMap = data.MissionMap;
+            this.CycleTime = data.CycleTime.ToString();
+            this.BattleTimes = data.BattleTimes.ToString();
+            this.Parm = data.Parm;
+            this.Core = data.NumberCore.ToString();
+        }
+        public List<TeamInfo> Teams;//参与的梯队
+        public string MissionMap;//地图
+        public string CycleTime;//已执行次数
+        public string BattleTimes;//战斗场次
         public string Parm;//参数
-        public List<int> Teams;//参与的梯队
+        public string Core;
     }
     public class Squad
     {
@@ -300,7 +322,26 @@ namespace GFHelp.Core.MulitePlayerData.WebData
     }
     public class WebEquip_Build
     {
-        public WebEquip_Build(Equip_Built.Data data)
+        public WebEquip_Build(Equip_Build.Data data)
+        {
+            this.Build_Slot = data.build_slot.ToString();
+            if (data.durationTime < 0)
+            {
+                this.remaining_time = "0";
+            }
+            else
+            {
+                this.remaining_time = data.durationTime.ToString();
+            }
+
+        }
+        public string Build_Slot;//后勤Key 不用显示
+        public string remaining_time;//后期剩余时间
+    }
+
+    public class WebDoll_Build
+    {
+        public WebDoll_Build(Doll_Build.Data data)
         {
             this.Build_Slot = data.build_slot.ToString();
             if (data.durationTime < 0)

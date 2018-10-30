@@ -278,7 +278,6 @@ namespace GFHelp.Core
                     }
                 }
             }
-
             return true;
         }
         private static bool ReadCatchData_fairy_type_info(dynamic jsonobj)
@@ -388,6 +387,7 @@ namespace GFHelp.Core
 
             file.WriteLine(sb.ToString());
             file.Flush();
+            file.Close();
         }
 
         private static bool LoadStcTable()
@@ -789,6 +789,22 @@ namespace GFHelp.Core
             }
             return 999999999;
         }
+        public static int getDollDevTimeByID(int id)
+        {
+            foreach (var item in GameData.listGunInfo)
+            {
+                if (item.id == id)
+                {
+                    return item.develop_duration;
+                }
+            }
+            return 999999999;
+        }
+
+
+
+
+
         public class OperationInfo
         {
             public int id;

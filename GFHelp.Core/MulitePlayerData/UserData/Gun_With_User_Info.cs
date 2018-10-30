@@ -155,7 +155,7 @@ namespace GFHelp.Core.MulitePlayerData
                 {
                     if (item.Value.number < 2)
                     {
-                        dicGun_Combine.Add(dicGun_Combine.Count, item.Value);
+                        dicGun_Combine.Add(item.Value);
                     }
 
                 }
@@ -164,7 +164,7 @@ namespace GFHelp.Core.MulitePlayerData
                 {
                     if (item.Value.number < 3)
                     {
-                        dicGun_Combine.Add(dicGun_Combine.Count, item.Value);
+                        dicGun_Combine.Add(item.Value);
                     }
 
                 }
@@ -173,7 +173,7 @@ namespace GFHelp.Core.MulitePlayerData
                 {
                     if (item.Value.number < 4)
                     {
-                        dicGun_Combine.Add(dicGun_Combine.Count, item.Value);
+                        dicGun_Combine.Add(item.Value);
                     }
 
                 }
@@ -182,11 +182,14 @@ namespace GFHelp.Core.MulitePlayerData
                 {
                     if (item.Value.number < 5)
                     {
-                        dicGun_Combine.Add(dicGun_Combine.Count, item.Value);
+                        dicGun_Combine.Add(item.Value);
                     }
 
                 }
             }
+
+            dicGun_Combine = dicGun_Combine.OrderBy(o => o.number).ToList();
+
         }
 
 
@@ -317,9 +320,31 @@ namespace GFHelp.Core.MulitePlayerData
             }
         }
 
+        public int getCoreNumber()
+        {
+            if (info.rank == 3) return 1;
+            if (info.rank == 4) return 3;
+            if (info.rank == 5) return 5;
+            return 0;
+        }
+
+
+        public void dicGunAdd(Gun_With_User_Info gwui)
+        {
+            int i = 0;
+            while (true)
+            {
+                if (!dicGun.ContainsKey(i))
+                {
+                    dicGun.Add(i, gwui);
+                    break;
+                }
+                i++;
+            }
+        }
 
         public Dictionary<int, Gun_With_User_Info> dicGun = new Dictionary<int, Gun_With_User_Info>();//所有的枪
-        public Dictionary<int, Gun_With_User_Info> dicGun_Combine = new Dictionary<int, Gun_With_User_Info>();
+        public List<Gun_With_User_Info> dicGun_Combine = new List<Gun_With_User_Info>();
         public List<Gun_With_User_Info> dicGun_PowerUP = new List<Gun_With_User_Info>();
         public List<int> Rank2 = new List<int>();
         public List<int> Rank3 = new List<int>();

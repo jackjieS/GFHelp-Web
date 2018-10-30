@@ -1829,3 +1829,220 @@
 【05:11:58】      message =  北方纱雾 宿舍 电池数 4 剩余 3 
 【05:12:00】      message =  流炎若水 宿舍 电池数 8 剩余 2 
 【01:50:31】      message = 程序已注销 请重新创建实例 
+【04:15:52】      message = 获取UserInfo失败 , exception = 
+【04:16:00】      message = 获取UserInfo失败 , exception = 
+【04:17:16】      message = 程序已注销 请重新创建实例 
+【04:18:45】      message = 2-2 成功 
+【04:19:06】      message = 2-3成功 
+【04:19:47】      message = 2-4成功 
+【04:20:33】      message = 2-4成功 
+【04:21:00】      message = 2_6BOSS 成功 , exception = 
+【04:21:22】      message = 3_1 成功 
+【04:22:08】      message = Mduwtjw 无法部署梯队，请登陆游戏检查 , exception = error:2
+【04:22:35】      message = 3_3 成功 
+【04:22:48】      message = Mduwtjw 无法部署梯队，请登陆游戏检查 , exception = error:2
+【04:52:06】      message = 程序已注销 请重新创建实例 
+【00:54:14】      message = 程序已注销 请重新创建实例 
+【00:57:00】      message = 程序已注销 请重新创建实例 
+【00:57:22】      message = 获取UserInfo失败 , exception = 
+【00:57:29】      message = 获取UserInfo失败 , exception = 
+【00:57:32】      message = 程序已注销 请重新创建实例 
+【00:58:46】      message = 程序已注销 请重新创建实例 
+【01:06:44】      message = 程序已注销 请重新创建实例 
+【01:11:48】      message = LoginDigitalSKY , exception = {"result":60118,"msg":"telphone doesnot exsit."}
+【01:11:48】      message = 数字天空登陆失败 , exception = 
+【01:11:51】      message = 程序已注销 请重新创建实例 
+【02:39:37】      message = 人形 : 44174466 扩编 
+【02:40:33】      message = 2-2 成功 
+【02:40:58】      message = 2-3成功 
+【02:41:54】      message = 2-4成功 
+【02:42:26】      message = 2-4成功 
+【02:43:01】      message = 2_6BOSS 成功 , exception = 
+【02:43:27】      message = 3_1 成功 
+【02:44:30】      message = Mduwtjw 无法部署梯队，请登陆游戏检查 , exception = error:2
+【02:47:11】      message = 获取UserInfo失败 , exception = 
+【02:47:16】      message = 程序已注销 请重新创建实例 
+【02:48:44】      message = 2-2 成功 
+【02:49:18】      message = 2-3成功 
+【02:50:01】      message = 2-4成功 
+【02:50:30】      message = 2-4成功 
+【02:50:58】      message = 2_6BOSS 成功 , exception = 
+【02:51:21】      message = 3_1 成功 
+【02:52:10】      message = Mduwtjw 无法部署梯队，请登陆游戏检查 , exception = error:2
+【02:52:41】      message = 3_3 成功 
+【02:53:14】      message = Mduwtjw 无法部署梯队，请登陆游戏检查 , exception = error:2
+【02:53:35】      message = 3_4 成功 
+【02:53:57】      message = 3_5 成功 
+【02:54:21】      message = 3_6BOSS 成功 , exception = 
+【02:55:14】      message = 4_2 成功 
+【02:55:46】      message = 4_3 成功 
+【02:56:07】      message = 获取新人形 : mg34 ,意不意外 惊不惊喜 
+【02:56:12】      message = 4_4 成功 
+【02:57:17】      message = 4_5 成功 
+【02:57:45】      message = 4_6BOSS 成功 , exception = 
+【02:57:54】      message = Mduwtjw 无法部署梯队，请登陆游戏检查 , exception = error:2
+【02:59:10】      message = 5_1 成功 
+【02:59:20】      message = Mduwtjw 无法部署梯队，请登陆游戏检查 , exception = error:2
+【02:59:43】      message = 5_2 成功 
+【03:00:19】      message = teamMove Error , exception = error:0
+【03:00:27】      message = teamMove Error , exception = error:0
+【03:00:29】      message = teamMove Error , exception = error:0
+【03:00:53】      message = 程序已注销 请重新创建实例 
+【03:01:33】      message = 终止作战 , exception = 
+【03:02:17】      message = 2-2 成功 
+【03:02:46】      message = 2-3成功 
+【03:03:30】      message = 2-4成功 
+【03:03:59】      message = 2-4成功 
+【03:04:30】      message = 2_6BOSS 成功 , exception = 
+【03:04:59】      message = 3_1 成功 
+【03:05:53】      message = Mduwtjw 无法部署梯队，请登陆游戏检查 , exception = error:2
+【03:06:22】      message = 3_3 成功 
+【03:06:51】      message = Mduwtjw 无法部署梯队，请登陆游戏检查 , exception = error:2
+【03:07:09】      message = 3_4 成功 
+【03:07:31】      message = 3_5 成功 
+【03:07:54】      message = 3_6BOSS 成功 , exception = 
+【03:08:49】      message = 4_2 成功 
+【03:09:21】      message = 4_3 成功 
+【03:09:52】      message = 4_4 成功 
+【03:10:19】      message = 4_5 成功 
+【03:10:47】      message = 4_6BOSS 成功 , exception = 
+【03:10:56】      message = Mduwtjw 无法部署梯队，请登陆游戏检查 , exception = error:2
+【03:12:12】      message = 5_1 成功 
+【03:12:22】      message = Mduwtjw 无法部署梯队，请登陆游戏检查 , exception = error:2
+【03:12:45】      message = 5_2 成功 
+【03:14:05】      message = 5_3 成功 
+【03:14:38】      message = 5_4 成功 
+【03:15:56】      message = 5_5 成功 
+【03:16:23】      message = 5_6BOSS 成功 , exception = 
+【03:16:33】      message = Mduwtjw 无法部署梯队，请登陆游戏检查 , exception = error:2
+【03:17:13】      message = 获取新人形 : dp28 ,意不意外 惊不惊喜 
+【03:17:16】      message = 6_1 成功 
+【03:17:53】      message = 6_2 成功 
+【03:18:34】      message = 6_3 成功 
+【03:19:25】      message = Mduwtjw 无法部署梯队，请登陆游戏检查 , exception = error:2
+【03:19:57】      message = endEnemyTurn Error , exception = error:2
+【03:20:00】      message = startTurn Error , exception = error:2
+【03:20:03】      message = teamMove Error , exception = error:203|行動ポイント計算エラー
+【03:20:05】      message = teamMove Error , exception = error:203|行動ポイント計算エラー
+【03:20:13】      message = teamMove Error , exception = error:203|行動ポイント計算エラー
+【03:20:20】      message = endTurn Error , exception = error:2
+【03:20:32】      message = Mduwtjw 无法部署梯队，请登陆游戏检查 , exception = error:2
+【03:21:16】      message = 获取新人形 : 马卡洛夫 ,意不意外 惊不惊喜 
+【03:21:20】      message = 6_4 成功 
+【03:21:44】      message = Mduwtjw 无法部署梯队，请登陆游戏检查 , exception = error:2
+【03:22:18】      message = 6_5 成功 
+【03:22:59】      message = 6_6BOSS 成功 , exception = 
+【03:30:33】      message = 1-1e成功 
+【03:30:59】      message = 1_2E 成功 
+【03:31:31】      message = teamMove Error , exception = error:2
+【03:31:34】      message = endTurn Error , exception = error:2
+【03:32:01】      message = 1_3E 成功 
+【03:33:12】      message = 1_4E 成功 
+【03:33:34】      message = 2_1E 成功 
+【03:34:27】      message = 2_2E 成功 
+【03:34:40】      message = Mduwtjw 无法部署梯队，请登陆游戏检查 , exception = error:2
+【03:35:00】      message = teamMove Error , exception = error:2
+【03:35:03】      message = endTurn Error , exception = error:2
+【03:35:18】      message = Mduwtjw 无法部署梯队，请登陆游戏检查 , exception = error:2
+【03:35:37】      message = teamMove Error , exception = error:2
+【03:35:39】      message = endTurn Error , exception = error:2
+【03:35:55】      message = Mduwtjw 无法部署梯队，请登陆游戏检查 , exception = error:2
+【03:36:17】      message = teamMove Error , exception = error:2
+【03:36:19】      message = endTurn Error , exception = error:2
+【03:36:34】      message = Mduwtjw 无法部署梯队，请登陆游戏检查 , exception = error:2
+【03:36:53】      message = teamMove Error , exception = error:2
+【03:36:56】      message = endTurn Error , exception = error:2
+【03:37:12】      message = Mduwtjw 无法部署梯队，请登陆游戏检查 , exception = error:2
+【03:37:30】      message = teamMove Error , exception = error:2
+【03:37:33】      message = endTurn Error , exception = error:2
+【03:37:48】      message = Mduwtjw 无法部署梯队，请登陆游戏检查 , exception = error:2
+【03:38:07】      message = 2_3E 成功 
+【03:39:43】      message = 2_4E 成功 
+【03:39:58】      message = Mduwtjw 无法部署梯队，请登陆游戏检查 , exception = error:2
+【03:40:26】      message = 3_1E 成功 
+【03:41:04】      message = 3_2E 成功 
+【03:41:28】      message = 3_3E 成功 
+【03:41:47】      message = 3_4E 成功 
+【03:42:31】      message = 4_1E 成功 
+【03:43:41】      message = 4_2E 成功 
+【03:44:08】      message = 4_3E 成功 
+【03:44:36】      message = 获取新人形 : fg42 ,意不意外 惊不惊喜 
+【03:44:38】      message = 4_4E 成功 
+【03:49:39】      message = 获取新人形 : m9 ,意不意外 惊不惊喜 
+【03:52:02】      message = 程序已注销 请重新创建实例 
+【04:06:08】      message = 获取新人形 : 阿斯特拉左轮 ,意不意外 惊不惊喜 
+【04:08:02】      message = 获取新人形 : p08 ,意不意外 惊不惊喜 
+【04:33:26】      message = 人形 : 43048093 扩编 
+【04:46:24】      message = 人形 : 10764913 扩编 
+【04:47:48】      message = 扩编出错 , exception = error:2
+【04:47:48】      message = 扩编出错 , exception = error:2
+【05:01:53】      message = 人形 : 43043936 扩编 
+【05:08:20】      message = 人形 : 43751021 扩编 
+【05:43:15】      message = 人形强化 ERROR , exception = error:3
+【05:43:19】      message = 人形强化 ERROR , exception = error:3
+【05:43:22】      message = 人形强化 ERROR , exception = error:3
+【05:43:26】      message = 人形强化 ERROR , exception = error:3
+【05:43:31】      message = 人形强化 ERROR , exception = error:3
+【05:43:35】      message = 人形强化 ERROR , exception = error:3
+【06:06:01】      message = 人形 : 44174466 扩编 
+【07:01:52】      message = 扩编出错 , exception = error:2
+【07:01:53】      message = 扩编出错 , exception = error:2
+【07:02:41】      message = 扩编出错 , exception = error:2
+【07:02:42】      message = 扩编出错 , exception = error:2
+【07:03:25】      message = 扩编出错 , exception = error:2
+【07:03:26】      message = 扩编出错 , exception = error:2
+【07:04:09】      message = 扩编出错 , exception = error:2
+【07:04:09】      message = 扩编出错 , exception = error:2
+【07:04:52】      message = 扩编出错 , exception = error:2
+【07:04:53】      message = 扩编出错 , exception = error:2
+【07:05:36】      message = 扩编出错 , exception = error:2
+【07:05:36】      message = 扩编出错 , exception = error:2
+【07:06:25】      message = 扩编出错 , exception = error:2
+【07:06:25】      message = 扩编出错 , exception = error:2
+【07:07:08】      message = 扩编出错 , exception = error:2
+【07:07:09】      message = 扩编出错 , exception = error:2
+【07:07:52】      message = 扩编出错 , exception = error:2
+【07:07:52】      message = 扩编出错 , exception = error:2
+【07:08:35】      message = 扩编出错 , exception = error:2
+【07:08:36】      message = 扩编出错 , exception = error:2
+【07:09:24】      message = 扩编出错 , exception = error:2
+【07:09:25】      message = 扩编出错 , exception = error:2
+【07:10:08】      message = 扩编出错 , exception = error:2
+【07:10:09】      message = 扩编出错 , exception = error:2
+【07:10:53】      message = 扩编出错 , exception = error:2
+【07:10:53】      message = 扩编出错 , exception = error:2
+【07:11:36】      message = 扩编出错 , exception = error:2
+【07:11:37】      message = 扩编出错 , exception = error:2
+【07:12:25】      message = 扩编出错 , exception = error:2
+【07:12:26】      message = 扩编出错 , exception = error:2
+【07:13:09】      message = 扩编出错 , exception = error:2
+【07:13:09】      message = 扩编出错 , exception = error:2
+【07:13:52】      message = 扩编出错 , exception = error:2
+【07:13:53】      message = 扩编出错 , exception = error:2
+【07:14:36】      message = 扩编出错 , exception = error:2
+【07:14:37】      message = 扩编出错 , exception = error:2
+【07:15:19】      message = 扩编出错 , exception = error:2
+【07:15:20】      message = 扩编出错 , exception = error:2
+【07:16:08】      message = 扩编出错 , exception = error:2
+【07:16:09】      message = 扩编出错 , exception = error:2
+【07:16:55】      message = 扩编出错 , exception = error:2
+【07:16:55】      message = 扩编出错 , exception = error:2
+【07:17:38】      message = 扩编出错 , exception = error:2
+【07:17:39】      message = 扩编出错 , exception = error:2
+【07:18:22】      message = 扩编出错 , exception = error:2
+【07:18:22】      message = 扩编出错 , exception = error:2
+【07:19:12】      message = 扩编出错 , exception = error:2
+【07:19:12】      message = 扩编出错 , exception = error:2
+【07:19:55】      message = 扩编出错 , exception = error:2
+【07:19:56】      message = 扩编出错 , exception = error:2
+【07:20:39】      message = 扩编出错 , exception = error:2
+【07:20:39】      message = 扩编出错 , exception = error:2
+【07:21:22】      message = 扩编出错 , exception = error:2
+【07:21:23】      message = 扩编出错 , exception = error:2
+【07:22:11】      message = 扩编出错 , exception = error:2
+【07:22:12】      message = 扩编出错 , exception = error:2
+【07:23:05】      message = 人形 : 10764913 扩编 
+【00:28:13】      message = 程序已注销 请重新创建实例 
+【14:10:02】      message = 获取宿舍信息出错 , exception = error:1
+【14:10:02】      message = 获取宿舍信息出错 , exception = error:1
+【06:30:37】      message = 程序已注销 请重新创建实例 

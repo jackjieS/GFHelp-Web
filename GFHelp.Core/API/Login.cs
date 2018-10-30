@@ -9,7 +9,15 @@ namespace GFHelp.Core.API
 {
     public class Login
     {
-
+        public static string GetDigitalUid(Management.GameAccount gameAccount, string data)
+        {
+            string result = "";
+            while (string.IsNullOrEmpty(result) == true)
+            {
+                result = API.BaseRequset.DoPost(gameAccount.GameHost + URL.GetDigitalUid, data.ToString());
+            }
+            return result;
+        }
         public static string Digitalsky(Management.GameAccount gameAccount)
         {
             string login_pwd = md5.EncryptWithMD5(gameAccount.Base.GamePassword);

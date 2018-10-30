@@ -152,7 +152,24 @@ namespace GFHelp.Core.MulitePlayerData
 
             }
         }
-
+        public int Quick_Reinforce
+        {
+            get
+            {
+                if (dicItem.ContainsKey(4))
+                {
+                    return dicItem[4].number;
+                }
+                return 0;
+            }
+            set
+            {
+                if (dicItem.ContainsKey(4))
+                {
+                    dicItem[4].number = value;
+                }
+            }
+        }
 
     }
 

@@ -46,28 +46,28 @@ namespace GFHelp.Core.Action
             Data data=null;
             try
             {
-                data = new Data().init(userData.normal_MissionInfo.TaskMap);
+                data = new Data().init(userData.MissionInfo.GetFirstData().MissionMap);
             }
             catch (Exception e)
             {
                 new Log().userInit(userData.GameAccount.Base.GameAccountID, "初始化战斗任务 ERROR", e.ToString());
-                userData.normal_MissionInfo.Loop = false;
+                userData.MissionInfo.setFirstDataLoopFalse();
                 return;
             }
 
             try
             {
-                MethodInfo methodInfo = data.type.GetMethod(userData.normal_MissionInfo.TaskMap);
-                methodInfo.Invoke(data.instance, new Object[] { userData, userData.normal_MissionInfo });
+                MethodInfo methodInfo = data.type.GetMethod(userData.MissionInfo.GetFirstData().MissionMap);
+                methodInfo.Invoke(data.instance, new Object[] { userData, userData.MissionInfo.GetFirstData() });
             }
             catch (Exception e)
             {
                 new Log().systemInit("调用作战dll文件出错", e.ToString()).coreError();
                 new Log().userInit(userData.GameAccount.Base.GameAccountID, "调用作战dll文件出错", e.ToString()).coreError();
-                userData.normal_MissionInfo.Loop = false;
+                userData.MissionInfo.setFirstDataLoopFalse();
             }
         }
-        public void corridor(UserData userData)
+        public void corridor()
         {
             userData.battle.Check_Equip_Gun_FULL();
             Data data = null;
@@ -103,43 +103,63 @@ namespace GFHelp.Core.Action
 
 
 
-        public void End_At_Battle(Normal_MissionInfo ubti)
+        public void End_At_Battle()
         {
-            //                    if(this.BattleLoopTime % this.BattleSupportRound == 0)
-            ubti.LoopTime++;
+            //修复
+            userData.battle.Check_Gun_need_FIX();
+
+
+            userData.MissionInfo.GetFirstData().CycleTime++;
 
             //检查是否需要扩编
-            if (ubti.AutoCombine)
+            if (userData.MissionInfo.GetFirstData().AutoCombine)
             {
                 Factory.CombineGun(userData);
             }
 
             //检查是否需要拆解核心
             Gun_Retire_Core();
-            //检查是否需要修复
-            //im.userdatasummery.Check_Gun_need_FIX(ubti.Teams, 0.2);
+
             //检查是否需要重新登陆
-            if (ubti.LoopTime % SystemOthers.ConfigData.BL_ReLogin_num == 0)
+            if (userData.MissionInfo.GetFirstData().CycleTime % SystemOthers.ConfigData.BL_ReLogin_num == 0)
             {
                 userData.eventAction.GetUserInfo();
             }
 
             //是否达到客服要求 多用于练级
-            if (ubti.requestLv != 0 && userData.others.CheckTeamLeval(ubti.Teams[0].TeamID, ubti.requestLv))
+            if (userData.MissionInfo.GetFirstData().requestLv != 0 && userData.others.CheckTeamLeval(userData.MissionInfo.GetFirstData().Teams[0].TeamID, userData.MissionInfo.GetFirstData().requestLv))
             {
-                ubti.Loop = false;
+                userData.MissionInfo.GetFirstData().Loop = false;
+            }
+
+            //循环次数要求
+            if(userData.MissionInfo.GetFirstData().CycleTime> userData.MissionInfo.GetFirstData().MaxCycleNumber && userData.MissionInfo.GetFirstData().MaxCycleNumber!=0)
+            {
+                userData.MissionInfo.GetFirstData().Loop = false;
+            }
+            //核心要求
+            if (userData.MissionInfo.GetFirstData().StopLoopByNumberCoreR && (userData.MissionInfo.GetFirstData().NumberCore > userData.MissionInfo.GetFirstData().NumberCoreRequire))
+            {
+                userData.MissionInfo.GetFirstData().Loop = false;
+            }
+
+            if (userData.MissionInfo.GetFirstData().Loop == false)
+            {
+                userData.battle.Check_Gun_need_FIX(true);
+                userData.MissionInfo.listTask.RemoveAt(0);
             }
 
 
-            if (ubti.Loop == false)
+
+
+
+            if (userData.MissionInfo.listTask.Count == 0)
             {
                 return;
             }
-            if (ubti.LoopTime < ubti.MaxLoopTime || ubti.MaxLoopTime == 0)
-            {
-                //继续循环
-                ContinueLoopBattle();
-            }
+
+            //继续循环
+            ContinueLoopBattle();
 
         }
         public void Gun_Retire_Core()

@@ -12,10 +12,10 @@ namespace GFHelp.Core.MulitePlayerData
     /// <summary>
     /// 这里的建造槽很操蛋 是1开头的
     /// </summary>
-    public class Equip_Built
+    public class Equip_Build
     {
 
-        public Equip_Built(UserData userData)
+        public Equip_Build(UserData userData)
         {
             this.userData = userData;
         }
@@ -50,9 +50,6 @@ namespace GFHelp.Core.MulitePlayerData
                     }
                 }
             }
-
-
-
         }
 
         public void AutoRun()
@@ -76,10 +73,29 @@ namespace GFHelp.Core.MulitePlayerData
             if (userData.fairy_With_User_Info.dicFairy.Count > userData.user_Info.max_fairy)
                 return false;
             return true;
-
-
         }
 
+        private void DataBuild(ref Data data)
+        {
+            if (data.build_slot % 2 == 0)
+            {
+                //偶数大建
+                data.ammo = 500;
+                data.part = 500;
+                data.mp = 500;
+                data.mre = 500;
+                data.input_level = 1;
+            }
+            if(data.build_slot % 2 != 0)
+            {               
+                //奇数普建
+                data.ammo = 150;
+                data.part = 150;
+                data.mp = 150;
+                data.mre = 150;
+                data.input_level = 0;
+            }
+        }
 
         public void finishDevelopHandel()
         {
@@ -97,27 +113,35 @@ namespace GFHelp.Core.MulitePlayerData
         }
         public void startDevelopHandel()
         {
-            if (!Heavy_Auto) return;
+
             if (!ResourecsCheck()) return;
             for (int i = 1; i <= userData.user_Info.max_equip_build_slot; i++)
             {
-                if (i % 2 != 0) continue;
-                if (Built_Slot.ContainsKey(i))
+                if (i % 2 != 0)
                 {
-                    if (!Built_Slot[i].isEmpty)
+                    if (!Normal_Auto) continue;
+                    //奇数普建
+                    if (Built_Slot[i].isEmpty)
                     {
-                        continue;
+                        Task<bool> taskStart = new Task<bool>(() => startDevelop(Built_Slot[i]));
+                        taskStart.Start();
+                        Task.WaitAll(taskStart);
                     }
 
                 }
                 else
                 {
-                    Data data = new Data(i);
-                    this.Built_Slot.Add(i, data);
+                    if (!Heavy_Auto) continue;
+                    //偶数大建
+                    if (Built_Slot[i].isEmpty)
+                    {
+                        Task<bool> taskStart = new Task<bool>(() => startDevelop(Built_Slot[i]));
+                        taskStart.Start();
+                        Task.WaitAll(taskStart);
+                    }
+
                 }
-                Task<bool> taskStart = new Task<bool>(() => startDevelop(Built_Slot[i]));
-                taskStart.Start();
-                Task.WaitAll(taskStart);
+
             }
         }
 
@@ -131,6 +155,7 @@ namespace GFHelp.Core.MulitePlayerData
 
         public bool startDevelop(Data data)
         {
+            DataBuild(ref data);
             dynamic newjson = new DynamicJson();
             newjson.mp = data.mp;/* 这是值*/
             newjson.ammo = data.ammo;/* 这是值*/
@@ -141,15 +166,13 @@ namespace GFHelp.Core.MulitePlayerData
             int count = 0;
             while (true)
             {
-                string result = API.Factory.startDevelop(userData.GameAccount, newjson.ToString());
+                string result = API.Factory.startEquipDevelop(userData.GameAccount, newjson.ToString());
 
                 switch (Response.Check(userData.GameAccount, ref result, "startDevelop", true))
                 {
                     case 1:
                         {
                             JsonData jsonData = JsonMapper.ToObject(result.ToString());
-                            data.start_time = Decrypt.ConvertDateTime_China_Int(DateTime.Now);
-                            data.isEmpty = false;
                             if (result.Contains("equip"))
                             {
                                 data.equip_id = jsonData["equip_id"].Int;
@@ -176,6 +199,8 @@ namespace GFHelp.Core.MulitePlayerData
                                     Built_Slot.Add(data.build_slot, data);
                                 }
                             }
+                            data.start_time = Decrypt.ConvertDateTime_China_Int(DateTime.Now);
+                            data.isEmpty = false;
                             return true;
                         }
                     case 0:
@@ -186,6 +211,8 @@ namespace GFHelp.Core.MulitePlayerData
                         {
                             if (count++ > userData.config.ErrorCount)
                             {
+                                new Log().userInit(userData.GameAccount.Base.GameAccountID, "startHeavyDevelop Error", result.ToString()).userInfo();
+                                userData.home.Login();
                                 return false;
                             }
                             continue;
@@ -213,7 +240,7 @@ namespace GFHelp.Core.MulitePlayerData
                 dynamic newjson = new DynamicJson();
                 newjson.build_slot  = data.build_slot;/* 这是值*/
 
-                string result = API.Factory.finishDevelop(userData.GameAccount,newjson.ToString());
+                string result = API.Factory.finishEquipDevelop(userData.GameAccount,newjson.ToString());
 
                 switch (Response.Check(userData.GameAccount, ref result, "finishDevelop", true))
                 {
@@ -246,6 +273,8 @@ namespace GFHelp.Core.MulitePlayerData
                         {
                             if (count++ > userData.config.ErrorCount)
                             {
+                                new Log().userInit(userData.GameAccount.Base.GameAccountID, "finishHeavyDevelop Error", result.ToString()).userInfo();
+                                userData.home.Login();
                                 return false;
                             }
                             continue;
@@ -259,7 +288,6 @@ namespace GFHelp.Core.MulitePlayerData
 
         }
 
-
         //max_equip_build_slot
         public class Data
         {
@@ -269,15 +297,7 @@ namespace GFHelp.Core.MulitePlayerData
             }
             public Data(int build_slot)
             {
-
-                this.mp = 500;/* 这是值*/
-                this.ammo = 500;/* 这是值*/
-                this.mre = 500;/* 这是值*/
-                this.part = 500;/* 这是值*/
                 this.build_slot = build_slot;/* 这是值*/
-                this.input_level = 1;/* 这是值*/
-
-
             }
             public Data(JsonData jsonData = null)
             {
