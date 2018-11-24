@@ -29,7 +29,7 @@ namespace LoginTest.Login.Bilibili
 
             string data = NetBase.StringBuilder_(parameters);
 
-            string result = NetBase.DoPost(platfromInfo.RSAURL, data.ToString());
+            string result = NetBase.HttpPost(platfromInfo.RSAURL, data.ToString());
 
 
 
@@ -45,7 +45,7 @@ namespace LoginTest.Login.Bilibili
 
 
 
-            stringArray = new string[] { "access_key", "app_id","c", "channel_id", "domain", "domain_switch_count", "dp", "game_id", "isRoot", "merchant_id", "model", "net", "operators", "pf_ver", "platform_type", "pwd","sdk_log_type", "sdk_type", "sdk_ver", "server_id", "support_abis", "timestamp", "udid","uid","user_id", "ver", "version" };
+            stringArray = new string[] { "app_id","c", "channel_id", "domain", "domain_switch_count", "dp", "game_id", "isRoot", "merchant_id", "model", "net", "operators", "pf_ver", "platform_type", "pwd","sdk_log_type", "sdk_type", "sdk_ver", "server_id", "support_abis", "timestamp", "udid","uid","user_id", "ver", "version" };
             platfromInfo.setSign(stringArray);
             parameters = new Dictionary<string, string>();
             foreach (var item in platfromInfo.getPlatfromInfoDic(stringArray))
@@ -57,10 +57,9 @@ namespace LoginTest.Login.Bilibili
 
             data = NetBase.StringBuilder_(parameters);
 
-            return NetBase.DoPost(platfromInfo.LoginURL, data.ToString());
+            return NetBase.HttpPost(platfromInfo.LoginURL, data.ToString());
 
-            
-            return "";
+
 
             //return jsonData.ToString();
         }
@@ -76,15 +75,15 @@ namespace LoginTest.Login.Bilibili
 
             public Dictionary<string, string> dicInfos = new Dictionary<string, string>()
             {
-                {"user_id","13957057132" },
-                {"pwdPlain","2353731010" },
+                {"user_id","13925924243" },
+                {"pwdPlain","20151203" },
                 {"pwd","" },
                 {"app_id","159" },
                 {"c","0" },
                 {"channel_id","1" },
                 {"domain","line1-sdkcenter-login.bilibiligame.net" },
                 {"domain_switch_count","0" },
-                {"dp","1280*720" },
+                {"dp","919*517" },
                 {"game_id","159" },
                 {"isRoot","1" },
                 {"merchant_id","49" },
@@ -98,19 +97,19 @@ namespace LoginTest.Login.Bilibili
                 {"sdk_ver","1.8.2" },
                 {"server_id","345" },
                 {"support_abis","x86,armeabi-v7a,armeabi" },
-                {"timestamp","1539875415896" },
+                {"timestamp",timestamp },
                 {"udid","Gysaf00sGCkceBt6BjQGNAY/W2JbYlprD3MPPVxoWWwIawo/Dj8OPg4/Wg==" },
                 {"ver","2.0221_339" },
                 {"version","1" },
                 {"original_domain","" },
-                {"uid","23445532" },
-                { "access_key","c42d8774b64743c55d5a14a8b8727d1d_t1"},
+                {"uid","28557410" },
+                { "access_key",""},
             };
-
+            public static string timestamp { get { return CryptData.ConvertDateTime_China_Int(DateTime.Now).ToString(); } }
             public string sign;
             public string key = "d63617abcda1445daeb4546a037ef0d4";
-            public string RSAURL = "http://line3-sdkcenter-login.bilibiligame.net/api/client/rsa";
-            public string LoginURL = "http://line3-sdkcenter-login.bilibiligame.net/api/client/login";
+            public string RSAURL = "http://line1-sdkcenter-login.bilibiligame.net/api/client/rsa";
+            public string LoginURL = "http://line1-sdkcenter-login.bilibiligame.net/api/client/login";
 
             public Dictionary<string,string> getPlatfromInfoDic(string[] names)
             {
@@ -133,14 +132,13 @@ namespace LoginTest.Login.Bilibili
             }
             public void setSign(string[] names)
             {
-                //dicInfos["timestamp"] = CryptData.ConvertDateTime_China_Int(DateTime.Now).ToString()+"111";
                 string data = "";
                 foreach (var item in names)
                 {
                     data += dicInfos[item];
                 }
                 data += key;
-                sign = CryptData.MD5(data);
+                sign = CryptData.MD5Encrypt(data);
             }
 
 

@@ -41,6 +41,7 @@ C:\Users\jack\Desktop\CS\GFHelper-Web\GFHelp\GFHelp.Web\bin\Debug\netcoreapp2.1\
 C:\Users\jack\Desktop\CS\GFHelper-Web\GFHelp\GFHelp.Web\bin\Debug\netcoreapp2.1\GFHelpapi.xml
 C:\Users\jack\Desktop\CS\GFHelper-Web\GFHelp\GFHelp.Web\bin\Debug\netcoreapp2.1\UnityEngine.dll
 C:\Users\jack\Desktop\CS\GFHelper-Web\GFHelp\GFHelp.Web\bin\Debug\netcoreapp2.1\config.cfg
+C:\Users\jack\Desktop\CS\GFHelp-Web\GFHelp.Web\bin\Debug\netcoreapp2.1\HostAddress.cfg
 C:\Users\jack\Desktop\CS\GFHelp-Web\GFHelp.Web\bin\Debug\netcoreapp2.1\UpgradeInfo.txt
 C:\Users\jack\Desktop\CS\GFHelp-Web\GFHelp.Web\bin\Debug\netcoreapp2.1\GFHelpapi.xml
 C:\Users\jack\Desktop\CS\GFHelp-Web\GFHelp.Web\bin\Debug\netcoreapp2.1\GFHelp.Web.deps.json
@@ -50,11 +51,13 @@ C:\Users\jack\Desktop\CS\GFHelp-Web\GFHelp.Web\bin\Debug\netcoreapp2.1\GFHelp.We
 C:\Users\jack\Desktop\CS\GFHelp-Web\GFHelp.Web\bin\Debug\netcoreapp2.1\GFHelp.Web.pdb
 C:\Users\jack\Desktop\CS\GFHelp-Web\GFHelp.Web\bin\Debug\netcoreapp2.1\GFHelp.Web.Views.dll
 C:\Users\jack\Desktop\CS\GFHelp-Web\GFHelp.Web\bin\Debug\netcoreapp2.1\GFHelp.Core.dll
+C:\Users\jack\Desktop\CS\GFHelp-Web\GFHelp.Web\bin\Debug\netcoreapp2.1\GFHelp.DataBase.dll
 C:\Users\jack\Desktop\CS\GFHelp-Web\GFHelp.Web\bin\Debug\netcoreapp2.1\LitJson.dll
 C:\Users\jack\Desktop\CS\GFHelp-Web\GFHelp.Web\bin\Debug\netcoreapp2.1\UnityEngine.dll
 C:\Users\jack\Desktop\CS\GFHelp-Web\GFHelp.Web\bin\Debug\netcoreapp2.1\AuthCode.dll
 C:\Users\jack\Desktop\CS\GFHelp-Web\GFHelp.Web\bin\Debug\netcoreapp2.1\ICSharpCode.SharpZipLib.dll
 C:\Users\jack\Desktop\CS\GFHelp-Web\GFHelp.Web\bin\Debug\netcoreapp2.1\GFHelp.Core.pdb
+C:\Users\jack\Desktop\CS\GFHelp-Web\GFHelp.Web\bin\Debug\netcoreapp2.1\GFHelp.DataBase.pdb
 C:\Users\jack\Desktop\CS\GFHelp-Web\GFHelp.Web\obj\Debug\netcoreapp2.1\GFHelp.Web.csprojAssemblyReference.cache
 C:\Users\jack\Desktop\CS\GFHelp-Web\GFHelp.Web\obj\Debug\netcoreapp2.1\GFHelp.Web.csproj.CoreCompileInputs.cache
 C:\Users\jack\Desktop\CS\GFHelp-Web\GFHelp.Web\obj\Debug\netcoreapp2.1\GFHelp.Web.RazorAssemblyInfo.cache
@@ -65,6 +68,3 @@ C:\Users\jack\Desktop\CS\GFHelp-Web\GFHelp.Web\obj\Debug\netcoreapp2.1\GFHelp.We
 C:\Users\jack\Desktop\CS\GFHelp-Web\GFHelp.Web\obj\Debug\netcoreapp2.1\GFHelp.Web.csproj.CopyComplete
 C:\Users\jack\Desktop\CS\GFHelp-Web\GFHelp.Web\obj\Debug\netcoreapp2.1\GFHelp.Web.dll
 C:\Users\jack\Desktop\CS\GFHelp-Web\GFHelp.Web\obj\Debug\netcoreapp2.1\GFHelp.Web.pdb
-C:\Users\jack\Desktop\CS\GFHelp-Web\GFHelp.Web\bin\Debug\netcoreapp2.1\HostAddress.cfg
-C:\Users\jack\Desktop\CS\GFHelp-Web\GFHelp.Web\bin\Debug\netcoreapp2.1\GFHelp.DataBase.dll
-C:\Users\jack\Desktop\CS\GFHelp-Web\GFHelp.Web\bin\Debug\netcoreapp2.1\GFHelp.DataBase.pdb

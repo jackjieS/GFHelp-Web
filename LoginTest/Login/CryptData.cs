@@ -10,36 +10,25 @@ namespace LoginTest.Login
 {
     class CryptData
     {
-        public static string MD5(string sText)
-        {
-            Byte[] clearBytes = Encoding.UTF8.GetBytes(sText);
-            MD5 md = new MD5CryptoServiceProvider();
-            byte[] ss = md.ComputeHash(UnicodeEncoding.UTF8.GetBytes(sText));
-            return byteArrayToHexString(ss);
-        }
-        private static string[] HexCode = { "0", "1", "2", "3", "4", "5", "6", "7", "8", "9", "a", "b", "c", "d", "e", "f" };
 
-        public static string byteToHexString(byte b)
+        public static string MD5Encrypt(string password, int bit=32)
         {
-            int n = b;
-            if (n < 0)
+            MD5CryptoServiceProvider md5Hasher = new MD5CryptoServiceProvider();
+            byte[] hashedDataBytes;
+            hashedDataBytes = md5Hasher.ComputeHash(Encoding.GetEncoding("UTF-8").GetBytes(password));
+            StringBuilder tmp = new StringBuilder();
+            foreach (byte i in hashedDataBytes)
             {
-                n = 256 + n;
+                tmp.Append(i.ToString("x2"));
             }
-            int d1 = n / 16;
-            int d2 = n % 16;
-            return HexCode[d1] + HexCode[d2];
+            if (bit == 16)
+                return tmp.ToString().Substring(8, 16);
+            else
+            if (bit == 32) return tmp.ToString();//默认情况
+            else return string.Empty;
         }
 
-        public static String byteArrayToHexString(byte[] b)
-        {
-            String result = "";
-            for (int i = 0; i < b.Length; i++)
-            {
-                result = result + byteToHexString(b[i]);
-            }
-            return result;
-        }
+
         public static string Rsa(string key, string content)
         {
             var provider = RSAProvider(key);
@@ -155,6 +144,10 @@ namespace LoginTest.Login
             }
             return true;
         }
+
+
+
+
 
         public static DateTime LocalDateTimeConvertToChina(DateTime dateTime)
         {

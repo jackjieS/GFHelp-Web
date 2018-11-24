@@ -76,6 +76,8 @@ namespace GFHelp.Core.MulitePlayerData
                     {
                         MissionInfo.Data data = new MissionInfo.Data();
                         data.MissionMap = "mapcorridor";
+                        data.AutoCombine = false;
+                        data.AutoStrengthen = false;
                         userData.MissionInfo.listTask.Add(data);
                         if (userData.MissionInfo.listTask.Count <= 1)
                         {
@@ -86,7 +88,6 @@ namespace GFHelp.Core.MulitePlayerData
                 case 41:
                     {
                         userData.mission.Test();
-                        userData.mission.End_At_Battle();
                         break;
                     }
                 case 51:

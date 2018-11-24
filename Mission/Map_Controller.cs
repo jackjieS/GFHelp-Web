@@ -144,6 +144,7 @@ namespace GFHelp.Mission
                 Spots.Add(Spots.Count, spots2);
                 Mission_Start_spots = new Spot[] { spots1 };
                 Function.init(dic_TeamMove, Spots, data);
+                withdrawSpot = 3033;//撤离
             }
 
             public static MissionType missionType = MissionType.Normal;
@@ -156,8 +157,6 @@ namespace GFHelp.Mission
             
             public Spot spots1 = new Spot(1, 0);//主力
             public Spot spots2 = new Spot(1, 1);//辅助
-
-            public int withdrawSpot = 3033;//撤离
         }
 
         public class maptest
@@ -194,24 +193,21 @@ namespace GFHelp.Mission
                 Spots.Add(Spots.Count, spots1);
                 Spots.Add(Spots.Count, spots2);
                 mission_id = 2;
+                withdrawSpot = 3033;//撤离
                 Mission_Start_spots = new Spot[] { spots1, spots2 };
                 Function.init(dic_TeamMove, Spots, data);
             }
 
             public static MissionType missionType = MissionType.Normal;
-
-
             public TeamMove teammove1 = new TeamMove(9, 17, 1, 0);
             public TeamMove teammove2 = new TeamMove(17, 18, 1, 0);
             public TeamMove teammove3 = new TeamMove(18, 19, 1, 0);
             public TeamMove teammove4 = new TeamMove(19, 16, 1, 0);
             public TeamMove teammove5 = new TeamMove(16, 23, 1, 0);
             public TeamMove teammove6 = new TeamMove(23, 25, 1, 0);
-            
             public Spot spots1 = new Spot(9, 0);//主力
             public Spot spots2 = new Spot(12, 1);//辅助
 
-            public int withdrawSpot = 3033;//撤离
         }
 
         public class map1_6 : mapbase
@@ -232,6 +228,7 @@ namespace GFHelp.Mission
                 Spots.Add(Spots.Count, spots1);
                 Spots.Add(Spots.Count, spots2);
                 Mission_Start_spots = new Spot[] { spots1 };
+                withdrawSpot = 1948;//撤离
                 Function.init(dic_TeamMove, Spots, data);
             }
 
@@ -276,7 +273,7 @@ namespace GFHelp.Mission
                 }
 
             }
-            public int withdrawSpot = 1948;//撤离
+
         }
 
         public class map2_2 : mapbase
@@ -592,6 +589,7 @@ namespace GFHelp.Mission
                 Spots.Add(Spots.Count, spots2);
                 Mission_Start_spots = new Spot[] { spots1, spots2 };
                 Function.init(dic_TeamMove, Spots, data);
+                withdrawSpot = 427;//撤离
             }
             public static MissionType missionType = MissionType.Normal;
 
@@ -605,10 +603,6 @@ namespace GFHelp.Mission
             public TeamMove teammove2 = new TeamMove(422, 423, 1, 0);
             public TeamMove teammove3 = new TeamMove(423, 424, 1, 0);
             public TeamMove teammove4 = new TeamMove(424, 425, 1, 0);
-
-
-
-            public int withdrawSpot = 427;//撤离
         }
         public class map4_1 : mapbase
         {
@@ -626,6 +620,7 @@ namespace GFHelp.Mission
                 Spots.Add(Spots.Count, spots2);
                 Mission_Start_spots = new Spot[] { spots1, spots2 };
                 Function.init(dic_TeamMove, Spots, data);
+                withdrawSpot = 5494;//撤离
             }
 
             public static MissionType missionType = MissionType.Normal;
@@ -642,8 +637,6 @@ namespace GFHelp.Mission
             public TeamMove teammove4 = new TeamMove(509, 508, 1, 0);
             public TeamMove teammove5 = new TeamMove(508, 509, 1, 0);
 
-
-            public int withdrawSpot = 5494;//撤离
         }
         public class map4_2 : mapbase
         {
@@ -658,6 +651,7 @@ namespace GFHelp.Mission
                 Spots.Add(Spots.Count, spots1);
                 Mission_Start_spots = new Spot[] { spots1 };
                 Function.init(dic_TeamMove, Spots, data);
+                withdrawSpot = 5494;//撤离
             }
 
             public static MissionType missionType = MissionType.Normal;
@@ -671,9 +665,6 @@ namespace GFHelp.Mission
             public TeamMove teammove3 = new TeamMove(517, 518, 1, 0);
             public TeamMove teammove4 = new TeamMove(518, 519, 1, 0);
 
-
-
-            public int withdrawSpot = 5494;//撤离
         }
 
         public class map4_3 : mapbase
@@ -692,6 +683,7 @@ namespace GFHelp.Mission
                 Spots.Add(Spots.Count, spots2);
                 Mission_Start_spots = new Spot[] { spots1, spots2 };
                 Function.init(dic_TeamMove, Spots, data);
+                withdrawSpot = 5494;//撤离
             }
 
             public static MissionType missionType = MissionType.Normal;
@@ -706,9 +698,6 @@ namespace GFHelp.Mission
             public TeamMove teammove4 = new TeamMove(537, 540, 1, 0);
             public TeamMove teammove5 = new TeamMove(540, 542, 1, 0);
             public TeamMove teammove6 = new TeamMove(542, 544, 1, 0);
-
-
-            public int withdrawSpot = 5494;//撤离
         }
         public class map4_4 : mapbase
         {
@@ -724,6 +713,7 @@ namespace GFHelp.Mission
                 Spots.Add(Spots.Count, spots2);
                 Mission_Start_spots = new Spot[] { spots1, spots2 };
                 Function.init(dic_TeamMove, Spots, data);
+                withdrawSpot = 5494;//撤离
             }
 
             public static MissionType missionType = MissionType.Normal;
@@ -737,10 +727,6 @@ namespace GFHelp.Mission
             public TeamMove teammove2 = new TeamMove(560, 556, 1, 0);
             public TeamMove teammove3 = new TeamMove(556, 559, 1, 0);
             public TeamMove teammove4 = new TeamMove(559, 558, 1, 0);
-
-
-
-            public int withdrawSpot = 5494;//撤离
         }
 
         public class map4_5 : mapbase
@@ -758,6 +744,7 @@ namespace GFHelp.Mission
                 Mission_Start_spots = new Spot[] { spots1, spots2 };
                 Function.init(dic_TeamMove, Spots, data);
                 mission_id = 39;
+                withdrawSpot = 5494;//撤离
             }
 
             public static MissionType missionType = MissionType.Normal;
@@ -770,10 +757,6 @@ namespace GFHelp.Mission
             public TeamMove teammove2 = new TeamMove(578, 579, 1, 0);
             public TeamMove teammove3 = new TeamMove(579, 580, 1, 0);
             public TeamMove teammove4 = new TeamMove(580, 581, 1, 0);
-
-
-
-            public int withdrawSpot = 5494;//撤离
         }
         public class map4_6 : mapbase
         {
@@ -825,6 +808,7 @@ namespace GFHelp.Mission
                 Spots.Add(Spots.Count, spots2);
                 Mission_Start_spots = new Spot[] { spots1 };
                 Function.init(dic_TeamMove, Spots, data); mission_id = 45;
+                withdrawSpot = 5494;//撤离
             }
 
             public static MissionType missionType = MissionType.Normal;
@@ -846,9 +830,6 @@ namespace GFHelp.Mission
 
             public TeamMove teammove9 = new TeamMove(703, 702, 1, 0);
             public TeamMove teammove10 = new TeamMove(702, 699, 1, 0);
-
-
-            public int withdrawSpot = 5494;//撤离
         }
 
         public class map5_2 : mapbase
@@ -864,6 +845,7 @@ namespace GFHelp.Mission
                 Spots.Add(Spots.Count, spots2);
                 Mission_Start_spots = new Spot[] { spots1 };
                 Function.init(dic_TeamMove, Spots, data); mission_id = 46;
+                withdrawSpot = 5494;//撤离
             }
 
             public static MissionType missionType = MissionType.Normal;
@@ -876,10 +858,6 @@ namespace GFHelp.Mission
             public TeamMove teammove2 = new TeamMove(713, 709, 1, 0);
             public TeamMove teammove3 = new TeamMove(709, 710, 1, 0);
             public TeamMove teammove4 = new TeamMove(710, 718, 1, 0);
-
-
-
-            public int withdrawSpot = 5494;//撤离
         }
 
         public class map5_3 : mapbase
@@ -906,6 +884,7 @@ namespace GFHelp.Mission
                 Spots.Add(Spots.Count, spots2);
                 Mission_Start_spots = new Spot[] { spots1, spots2 };
                 Function.init(dic_TeamMove, Spots, data); mission_id = 47;
+                withdrawSpot = 5494;//撤离
             }
 
             public static MissionType missionType = MissionType.Normal;
@@ -930,8 +909,6 @@ namespace GFHelp.Mission
             public TeamMove teammove12 = new TeamMove(733, 729, 1, 0);
             public TeamMove teammove13 = new TeamMove(729, 728, 1, 0);
             public TeamMove teammove14 = new TeamMove(728, 732, 1, 0);
-
-            public int withdrawSpot = 5494;//撤离
         }
 
         public class map5_4 : mapbase
@@ -946,7 +923,7 @@ namespace GFHelp.Mission
                 Spots.Add(Spots.Count, spots1);
                 Spots.Add(Spots.Count, spots2);
                 Mission_Start_spots = new Spot[] { spots1, spots2 };
-                Function.init(dic_TeamMove, Spots, data); mission_id = 48;
+                Function.init(dic_TeamMove, Spots, data); mission_id = 48; withdrawSpot = 5494;//撤离
             }
 
 
@@ -960,7 +937,6 @@ namespace GFHelp.Mission
             public TeamMove teammove2 = new TeamMove(755, 760, 1, 0);
             public TeamMove teammove3 = new TeamMove(760, 764, 1, 0);
             public TeamMove teammove4 = new TeamMove(764, 763, 1, 0);
-            public int withdrawSpot = 5494;//撤离
         }
 
         public class map5_5 : mapbase
@@ -983,7 +959,7 @@ namespace GFHelp.Mission
                 Spots.Add(Spots.Count, spots2);
                 Mission_Start_spots = new Spot[] { spots1, spots2 };
                 Function.init(dic_TeamMove, Spots, data);
-
+                withdrawSpot = 5494;//撤离
                 mission_id = 49;
             }
             public static MissionType missionType = MissionType.Normal;
@@ -1005,12 +981,6 @@ namespace GFHelp.Mission
             public TeamMove teammove9 = new TeamMove(783, 780, 1, 0);
             public TeamMove teammove10 = new TeamMove(780, 778, 1, 0);//
             public TeamMove teammove11 = new TeamMove(778, 777, 1, 0);//
-
-
-
-
-
-            public int withdrawSpot = 5494;//撤离
         }
         public class map5_6 : mapbase
         {
@@ -1059,7 +1029,7 @@ namespace GFHelp.Mission
                 Spots.Add(Spots.Count, spots2);
                 Mission_Start_spots = new Spot[] { spots1 };
                 Function.init(dic_TeamMove, Spots, data);
-
+                withdrawSpot = 5494;//撤离
                 mission_id = 55;
             }
             public static MissionType missionType = MissionType.Normal;
@@ -1076,8 +1046,6 @@ namespace GFHelp.Mission
 
             public TeamMove teammove5 = new TeamMove(1515, 1520, 1, 0);
             public TeamMove teammove6 = new TeamMove(1520, 1523, 1, 0);
-
-            public int withdrawSpot = 5494;//撤离
         }
         public class map6_2 : mapbase
         {
@@ -1094,7 +1062,7 @@ namespace GFHelp.Mission
                 Spots.Add(Spots.Count, spots2);
                 Mission_Start_spots = new Spot[] { spots1 };
                 Function.init(dic_TeamMove, Spots, data);
-
+                withdrawSpot = 5494;//撤离
                 mission_id = 56;
             }
             public static MissionType missionType = MissionType.Normal;
@@ -1109,9 +1077,6 @@ namespace GFHelp.Mission
             public TeamMove teammove4 = new TeamMove(1533, 1535, 1, 0);
 
             public TeamMove teammove5 = new TeamMove(1535, 1537, 1, 0);
-
-
-            public int withdrawSpot = 5494;//撤离
         }
         public class map6_3 : mapbase
         {
@@ -1127,7 +1092,7 @@ namespace GFHelp.Mission
                 Spots.Add(Spots.Count, spots2);
                 Mission_Start_spots = new Spot[] { spots1 };
                 Function.init(dic_TeamMove, Spots, data);
-
+                withdrawSpot = 5494;//撤离
                 mission_id = 57;
             }
             public static MissionType missionType = MissionType.Normal;
@@ -1142,9 +1107,6 @@ namespace GFHelp.Mission
             public TeamMove teammove3 = new TeamMove(1539, 1540, 1, 0);
             public TeamMove teammove4 = new TeamMove(1540, 1542, 1, 0);
 
-
-
-            public int withdrawSpot = 5494;//撤离
         }
         public class map6_4 : mapbase
         {
@@ -1163,7 +1125,7 @@ namespace GFHelp.Mission
                 Spots.Add(Spots.Count, spots2);
                 Mission_Start_spots = new Spot[] { spots1 };
                 Function.init(dic_TeamMove, Spots, data);
-
+                withdrawSpot = 5494;//撤离
                 mission_id = 58;
             }
             public static MissionType missionType = MissionType.Normal;
@@ -1182,7 +1144,6 @@ namespace GFHelp.Mission
             public TeamMove teammove6 = new TeamMove(1580, 1576, 1, 0);
             public TeamMove teammove7 = new TeamMove(1576, 1569, 1, 0);
 
-            public int withdrawSpot = 5494;//撤离
         }
         public class map6_5 : mapbase
         {
@@ -1201,7 +1162,7 @@ namespace GFHelp.Mission
                 Spots.Add(Spots.Count, spots2);
                 Mission_Start_spots = new Spot[] { spots1 };
                 Function.init(dic_TeamMove, Spots, data);
-
+                withdrawSpot = 5494;//撤离
                 mission_id = 59;
             }
             public static MissionType missionType = MissionType.Normal;
@@ -1220,9 +1181,6 @@ namespace GFHelp.Mission
             public TeamMove teammove6 = new TeamMove(1583, 1581, 1, 0);
             public TeamMove teammove7 = new TeamMove(1581, 1579, 1, 0);
 
-
-
-            public int withdrawSpot = 5494;//撤离
         }
         public class map6_6 : mapbase
         {
@@ -1453,7 +1411,7 @@ namespace GFHelp.Mission
                 Spots.Add(Spots.Count, spots2);
                 Mission_Start_spots = new Spot[] { spots1 };
                 Function.init(dic_TeamMove, Spots, data);
-
+                withdrawSpot = 1948;//撤离
                 mission_id = 70;
             }
             
@@ -1471,9 +1429,6 @@ namespace GFHelp.Mission
             public TeamMove teammove6 = new TeamMove(2152, 1941, 1, 0);
             public TeamMove teammove7 = new TeamMove(1941, 1942, 1, 0);
 
-
-
-            public int withdrawSpot = 1948;//撤离
         }
 
 
@@ -1494,7 +1449,7 @@ namespace GFHelp.Mission
                 Spots.Add(Spots.Count, spots2);
                 Mission_Start_spots = new Spot[] { spots1, spots2 };
                 Function.init(dic_TeamMove, Spots, data);
-
+                withdrawSpot = 5494;//撤离
                 mission_id = 104;
             }
             
@@ -1511,8 +1466,6 @@ namespace GFHelp.Mission
             public TeamMove teammove6 = new TeamMove(5497, 5494, 1, 0);
 
 
-
-            public int withdrawSpot = 5494;//撤离
         }
 
         public class map7_6 : mapbase
@@ -1530,7 +1483,7 @@ namespace GFHelp.Mission
                 Spots.Add(Spots.Count, spots2);
                 Mission_Start_spots = new Spot[] { spots1 };
                 Function.init(dic_TeamMove, Spots, data);
-
+                withdrawSpot = 1948;//撤离
                 mission_id = 70;
             }
             
@@ -1545,9 +1498,6 @@ namespace GFHelp.Mission
             public TeamMove teammove4 = new TeamMove(1947, 1948, 2, 0);
 
 
-
-
-            public int withdrawSpot = 1948;//撤离
         }
 
 
@@ -1578,11 +1528,6 @@ namespace GFHelp.Mission
             public TeamMove teammove3 = new TeamMove(153, 158, 1, 0);
             public TeamMove teammove4 = new TeamMove(158, 159, 1, 0);
 
-
-
-
-
-            public int withdrawSpot = 5494;//撤离
         }
         public class map1_2e : mapbase
         {
@@ -1613,9 +1558,6 @@ namespace GFHelp.Mission
             public TeamMove teammove4 = new TeamMove(166, 168, 1, 0);
             public TeamMove teammove5 = new TeamMove(168, 170, 1, 0);
 
-
-
-            public int withdrawSpot = 5494;//撤离
         }
         public class map1_3e : mapbase
         {
@@ -1647,8 +1589,6 @@ namespace GFHelp.Mission
             public TeamMove teammove5 = new TeamMove(183, 184, 1, 0);
 
 
-
-            public int withdrawSpot = 5494;//撤离
         }
         public class map1_4e : mapbase
         {
@@ -1688,8 +1628,6 @@ namespace GFHelp.Mission
             public TeamMove teammove8 = new TeamMove(201, 198, 1, 0);
             public TeamMove teammove9 = new TeamMove(198, 199, 1, 0);
 
-
-            public int withdrawSpot = 5494;//撤离
         }
         public class map2_1e : mapbase
         {
@@ -1717,10 +1655,6 @@ namespace GFHelp.Mission
             public TeamMove teammove3 = new TeamMove(285, 281, 1, 0);
 
 
-
-
-
-            public int withdrawSpot = 5494;//撤离
         }
         public class map2_2e : mapbase
         {
@@ -1751,10 +1685,6 @@ namespace GFHelp.Mission
             public TeamMove teammove5 = new TeamMove(297, 298, 1, 0);
             public TeamMove teammove6 = new TeamMove(298, 300, 1, 0);
 
-
-
-
-            public int withdrawSpot = 5494;//撤离
         }
         public class map2_3e : mapbase
         {
@@ -1783,11 +1713,6 @@ namespace GFHelp.Mission
             public TeamMove teammove3 = new TeamMove(309, 308, 1, 0);
             public TeamMove teammove4 = new TeamMove(308, 316, 1, 0);
 
-
-
-
-
-            public int withdrawSpot = 5494;//撤离
         }
         public class map2_4e : mapbase
         {
@@ -1815,12 +1740,6 @@ namespace GFHelp.Mission
             public TeamMove teammove2 = new TeamMove(318, 320, 1, 0);
             public TeamMove teammove3 = new TeamMove(320, 324, 1, 0);
             public TeamMove teammove4 = new TeamMove(324, 328, 1, 0);
-
-
-
-
-
-            public int withdrawSpot = 5494;//撤离
         }
 
         public class map3_1e : mapbase
@@ -1852,10 +1771,6 @@ namespace GFHelp.Mission
             public TeamMove teammove4 = new TeamMove(440, 439, 1, 0);
             public TeamMove teammove5 = new TeamMove(439, 438, 1, 0);
 
-
-
-
-            public int withdrawSpot = 5494;//撤离
         }
 
         public class map3_2e : mapbase
@@ -1883,7 +1798,6 @@ namespace GFHelp.Mission
             public TeamMove teammove2 = new TeamMove(455, 459, 1, 0);
             public TeamMove teammove3 = new TeamMove(459, 462, 1, 0);
 
-            public int withdrawSpot = 5494;//撤离
         }
 
         public class map3_3e : mapbase
@@ -1911,11 +1825,6 @@ namespace GFHelp.Mission
             public TeamMove teammove2 = new TeamMove(478, 481, 1, 0);
             public TeamMove teammove3 = new TeamMove(481, 480, 1, 0);
 
-
-
-
-
-            public int withdrawSpot = 5494;//撤离
         }
 
         public class map3_4e : mapbase
@@ -1944,11 +1853,6 @@ namespace GFHelp.Mission
             public TeamMove teammove2 = new TeamMove(489, 490, 1, 0);
             public TeamMove teammove3 = new TeamMove(490, 491, 1, 0);
             public TeamMove teammove4 = new TeamMove(491, 492, 1, 0);
-
-
-
-
-            public int withdrawSpot = 5494;//撤离
         }
 
 
@@ -1984,9 +1888,6 @@ namespace GFHelp.Mission
             public TeamMove teammove5 = new TeamMove(621, 623, 1, 0);
             public TeamMove teammove6 = new TeamMove(623, 625, 1, 0);
 
-
-
-            public int withdrawSpot = 5494;//撤离
         }
 
         public class map4_2e : mapbase
@@ -2015,11 +1916,6 @@ namespace GFHelp.Mission
             public TeamMove teammove2 = new TeamMove(641, 637, 1, 0);
             public TeamMove teammove3 = new TeamMove(637, 640, 1, 0);
             public TeamMove teammove4 = new TeamMove(640, 639, 1, 0);
-
-
-
-
-            public int withdrawSpot = 5494;//撤离
         }
 
         public class map4_3e : mapbase
@@ -2049,11 +1945,6 @@ namespace GFHelp.Mission
             public TeamMove teammove2 = new TeamMove(659, 660, 1, 0);
             public TeamMove teammove3 = new TeamMove(660, 661, 1, 0);
             public TeamMove teammove4 = new TeamMove(661, 662, 1, 0);
-
-
-
-
-            public int withdrawSpot = 5494;//撤离
         }
         public class map4_4e : mapbase
         {
@@ -2082,10 +1973,6 @@ namespace GFHelp.Mission
             public TeamMove teammove3 = new TeamMove(676, 680, 1, 0);
             public TeamMove teammove4 = new TeamMove(680, 686, 1, 0);
 
-
-
-
-            public int withdrawSpot = 5494;//撤离
         }
         public class map5_1e : mapbase
         {
@@ -2136,8 +2023,6 @@ namespace GFHelp.Mission
             public TeamMove teammove13 = new TeamMove(835, 834, 1, 0);
             public TeamMove teammove14 = new TeamMove(834, 838, 1, 0);
 
-
-            public int withdrawSpot = 5494;//撤离
         }
         public class map5_2e : mapbase
         {
@@ -2167,10 +2052,6 @@ namespace GFHelp.Mission
             public TeamMove teammove3 = new TeamMove(866, 870, 1, 0);
             public TeamMove teammove4 = new TeamMove(870, 869, 1, 0);
 
-
-
-
-            public int withdrawSpot = 5494;//撤离
         }
         public class map5_3e : mapbase
         {
@@ -2215,9 +2096,6 @@ namespace GFHelp.Mission
             public TeamMove teammove9 = new TeamMove(886, 884, 1, 0);
             public TeamMove teammove10 = new TeamMove(884, 883, 1, 0);
 
-
-
-            public int withdrawSpot = 5494;//撤离
         }
         public class map5_4e : mapbase
         {
@@ -2248,9 +2126,6 @@ namespace GFHelp.Mission
             public TeamMove teammove4 = new TeamMove(926, 932, 1, 0);
 
 
-
-
-            public int withdrawSpot = 5494;//撤离
         }
         public class map1_4n : mapbase
         {
@@ -2386,10 +2261,6 @@ namespace GFHelp.Mission
 
 
 
-
-
-            public int withdrawSpot = 3033;//撤离
-
             public int BossPos(string result)
             {
                 JsonData jsonData = JsonMapper.ToObject(result);
@@ -2474,8 +2345,6 @@ namespace GFHelp.Mission
             public TeamMove teammove3 = new TeamMove(1825, 1829, 1, 0);
             public TeamMove teammove4 = new TeamMove(1829, 1835, 1, 0);//分支开始
 
-
-
         }
         public class map5_2n : mapbase
         {
@@ -2494,7 +2363,7 @@ namespace GFHelp.Mission
                 Spots.Add(Spots.Count, spots2);
                 Mission_Start_spots = new Spot[] { spots1, spots2 };
                 Function.init(dic_TeamMove, Spots, data);
-
+                withdrawSpot = 3057;//撤离
                 mission_id = 90018;
             }
             
@@ -2511,12 +2380,6 @@ namespace GFHelp.Mission
             public TeamMove teammove6 = new TeamMove(3051, 3056, 1, 0);
             public TeamMove teammove7 = new TeamMove(3056, 3057, 2, 0);
 
-
-
-
-
-
-            public int withdrawSpot = 3057;//撤离
         }
         public class map5_4n : mapbase
         {
@@ -2545,9 +2408,6 @@ namespace GFHelp.Mission
             public TeamMove teammove2 = new TeamMove(3090, 3095, 1, 0);
             public TeamMove teammove3 = new TeamMove(3095, 3102, 1, 0);
             public TeamMove teammove4 = new TeamMove(3102, 3108, 1, 0);//分支开始
-
-
-
         }
         public class map6_4n : mapbase
         {
@@ -2567,7 +2427,7 @@ namespace GFHelp.Mission
                 Spots.Add(Spots.Count, spots2);
                 Mission_Start_spots = new Spot[] { spots1, spots2 };
                 Function.init(dic_TeamMove, Spots, data);
-
+                withdrawSpot = 4082;//撤离
                 mission_id = 90024;
             }
             
@@ -2584,10 +2444,6 @@ namespace GFHelp.Mission
             public TeamMove teammove6 = new TeamMove(4079, 4068, 1, 0);//分支2向左1
             public TeamMove teammove7 = new TeamMove(4068, 4079, 1, 0);//分支2向左2
             public TeamMove teammove8 = new TeamMove(4079, 4082, 1, 0);//分支3
-
-
-
-            public int withdrawSpot = 4082;//撤离
         }
         public class map7_4n : mapbase
         {
@@ -2644,7 +2500,7 @@ namespace GFHelp.Mission
                 Spots.Add(Spots.Count, spots2);
                 Mission_Start_spots = new Spot[] { spots1, spots2 };
                 Function.init(dic_TeamMove, Spots, data);
-
+                withdrawSpot = 7066;//撤离
                 mission_id = 90029;
             }
             public static MissionType missionType = MissionType.Normal;
@@ -2660,10 +2516,6 @@ namespace GFHelp.Mission
             public TeamMove teammove4 = new TeamMove(7067, 7075, 1, 0);
             public TeamMove teammove5 = new TeamMove(7075, 7074, 1, 0);
             public TeamMove teammove6 = new TeamMove(7074, 7066, 2, 0);
-
-
-
-            public int withdrawSpot = 7066;//撤离
 
         }
         public class map8_4n : mapbase
@@ -2701,11 +2553,58 @@ namespace GFHelp.Mission
             public TeamMove teammove5 = new TeamMove(7061, 7065, 1, 0);
             public TeamMove teammove6 = new TeamMove(7065, 7056, 2, 0);
             public TeamMove teammove7 = new TeamMove(7056, 7055, 2, 0);
-
-
-            public int withdrawSpot = 7066;//撤离
+        }
+        public class map8_2emod2 : mapbase
+        {
+            public map8_2emod2(MissionInfo.Data data)
+            {
+                dic_TeamMove = new Dictionary<int, TeamMove>();
+                dic_TeamMove.Add(dic_TeamMove.Count, teammove1);
+                dic_TeamMove.Add(dic_TeamMove.Count, teammove2);
+                dic_TeamMove.Add(dic_TeamMove.Count, teammove3);
+                dic_TeamMove.Add(dic_TeamMove.Count, teammove4);
+                Spots.Add(Spots.Count, spots1);
+                Spots.Add(Spots.Count, spots2);
+                mission_id = 82;
+                Mission_Start_spots = new Spot[] { spots1, spots2 };
+                Function.init(dic_TeamMove, Spots, data);
+            }
+            public static MissionType missionType = MissionType.Normal;
+            public TeamMove teammove1 = new TeamMove(3880, 3854, 1, 0);
+            public TeamMove teammove2 = new TeamMove(3854, 3847, 1, 0);
+            public TeamMove teammove3 = new TeamMove(3847, 3859, 1, 0);
+            public TeamMove teammove4 = new TeamMove(3859, 3862, 1, 0);
+            public Spot spots1 = new Spot(3880, 0);//主力
+            public Spot spots2 = new Spot(3870, 1);//辅助
 
         }
+        public class map8_3emod2 : mapbase
+        {
+            public map8_3emod2(MissionInfo.Data data)
+            {
+                dic_TeamMove = new Dictionary<int, TeamMove>();
+                dic_TeamMove.Add(dic_TeamMove.Count, teammove1);
+                dic_TeamMove.Add(dic_TeamMove.Count, teammove2);
+                dic_TeamMove.Add(dic_TeamMove.Count, teammove3);
+                dic_TeamMove.Add(dic_TeamMove.Count, teammove4);
+                Spots.Add(Spots.Count, spots1);
+                Spots.Add(Spots.Count, spots2);
+                mission_id = 83;
+                Mission_Start_spots = new Spot[] { spots1 };
+                Function.init(dic_TeamMove, Spots, data);
+            }
+            public static MissionType missionType = MissionType.Normal;
+            public TeamMove teammove1 = new TeamMove(3892, 3890, 1, 0);
+            public TeamMove teammove2 = new TeamMove(3890, 3897, 1, 0);
+            public TeamMove teammove3 = new TeamMove(3897, 3894, 1, 0);
+            public TeamMove teammove4 = new TeamMove(3894, 3893, 1, 0);
+            public Spot spots1 = new Spot(3892, 0);//主力
+            public Spot spots2 = new Spot(3892, 1);//辅助
+
+        }
+
+
+
         public class mapequip_ump : mapbase
         {
             //要给spots1 2 赋值 梯队ID
@@ -2751,8 +2650,6 @@ namespace GFHelp.Mission
             public TeamMove teammove7 = new TeamMove(4568, 4603, 1, 0);
             public TeamMove teammove8 = new TeamMove(4603, 4568, 1, 0);
 
-
-
             public int withdrawSpot1 = 4559;//撤离
             public int withdrawSpot2 = 4568;//撤离
         }
@@ -2792,10 +2689,6 @@ namespace GFHelp.Mission
             public TeamMove teammove6 = new TeamMove(3240, 3233, 1, 0);
             public TeamMove teammove7 = new TeamMove(3233, 3234, 1, 0);
             public TeamMove teammove8 = new TeamMove(3234, 3235, 1, 0);
-
-
-
-            public int withdrawSpot = 4082;//撤离
         }
 
         public class maparctic1_4 : mapbase
@@ -3755,6 +3648,7 @@ namespace GFHelp.Mission
                 Spots.Add(Spots.Count, spots5);
                 Mission_Start_spots = new Spot[] { spots1, spots2, spots3, spots4 };
                 Function.init(dic_TeamMove, Spots, data);
+                withdrawSpot = 8243;
             }
 
             
@@ -3810,26 +3704,6 @@ namespace GFHelp.Mission
             public TeamMove teammove37 = new TeamMove(8644, 8645, 1, 0);//
             public TeamMove teammove38 = new TeamMove(8645, 8646, 1, 0);
             public TeamMove teammove39 = new TeamMove(8646, 8647, 1, 0);
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-            public int withdrawSpot = 8243;
 
         }
 

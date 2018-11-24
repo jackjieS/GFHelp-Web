@@ -186,11 +186,46 @@ namespace GFHelp.Core.Action.BattleBase
             public int user_exp;
             public string Parm;
 
+            public RecycleLog recycleLog;
+            public class RecycleLog
+            {
+                public int Mp = 0;
+                public int Ammo = 0;
+                public int Mre = 0;
+                public int Part = 0;
 
+                public int Coin1 = 0;
+                public int Coin2 = 0;
+                public int Coin3 = 0;
+
+                public int Gun = 0;
+
+                public void ResultD(UserData userData,string result)
+                {
+                    
+
+
+
+
+
+
+
+
+
+                }
+
+
+
+
+
+
+
+            }
 
 
             public Data(UserData userData, Battle battle)
             {
+                this.recycleLog = new RecycleLog();
                 this.Using = true;
                 this.user_exp = userData.user_Info.experience;
                 this.Parm = battle.Parm;
@@ -274,6 +309,7 @@ namespace GFHelp.Core.Action.BattleBase
                     }
                     if (item.Contains("-n") && !item.Contains("-ns"))
                     {
+                        this.AutoCombine = false;
                         this.StopLoopByNumberCoreR = true;
                         Int32.TryParse(item.Remove(0, 2), out this.NumberCoreRequire);
                     }
@@ -301,7 +337,10 @@ namespace GFHelp.Core.Action.BattleBase
                 }
                 this.MissionMap = MissionMap.Remove(0, 1);
             }
-            public Data() { }
+            public Data()
+            {
+                this.recycleLog = new RecycleLog();
+            }
         }
 
 
@@ -1140,6 +1179,7 @@ namespace GFHelp.Core.Action.BattleBase
     public class mapbase
     {
         public int mission_id;
+        public int withdrawSpot;
         public Spot[] Mission_Start_spots;
         public Dictionary<int, TeamMove> dic_TeamMove;
         public Dictionary<int, Spot> Spots = new Dictionary<int, Spot>();

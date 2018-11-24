@@ -177,6 +177,7 @@ namespace GFHelp.Core.Management
             this.equip_Built = new Equip_Build(this);
             this.doll_Build = new Doll_Build(this);
             this.cdloop = new cdLoop(this);
+            this.share_With_User_Info = new Share_With_User_Info(this);
         }
         public void CreatGameAccount(DataBase.GameAccount gameAccount)
         {
@@ -239,7 +240,7 @@ namespace GFHelp.Core.Management
             equip_Built.Read(jsonData);
             doll_Build.Read(jsonData);
 
-
+            share_With_User_Info.Read(jsonobj);
             Function.SetTeamInfo(this);
 
         }
@@ -331,7 +332,7 @@ namespace GFHelp.Core.Management
         public Equip_Build equip_Built;
         public Doll_Build doll_Build;
 
-
+        public Share_With_User_Info share_With_User_Info;
 
 
 

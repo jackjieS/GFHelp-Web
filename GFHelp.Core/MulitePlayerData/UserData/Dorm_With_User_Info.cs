@@ -4,6 +4,7 @@ using GFHelp.Core.Management;
 using LitJson;
 using System;
 using System.Collections.Generic;
+using System.Linq;
 using System.Text;
 using System.Threading;
 using System.Threading.Tasks;
@@ -39,7 +40,7 @@ namespace GFHelp.Core.MulitePlayerData
         public int current_build_coin;
         public int build_coin_flag;
         public UserData userData;
-
+        Dictionary<Friend_With_User_Info.Data, int> dicFridentBatteryNumber = new Dictionary<Friend_With_User_Info.Data, int>();
         private bool is3AMswitchStart = false;
         private bool is15PMswitchStart = false;
         private bool is11PMswitchMineStart = false;
@@ -49,11 +50,11 @@ namespace GFHelp.Core.MulitePlayerData
         {
             DateTime BeijingTimeNow = Decrypt.LocalDateTimeConvertToChina(DateTime.Now);
             //3点
-            if (BeijingTimeNow.Hour * 60 + BeijingTimeNow.Minute == (60 * 3 + 10))
+            if (BeijingTimeNow.Hour * 60 + BeijingTimeNow.Minute == (60 * 3 + 3))
             {
                 if (is3AMswitchStart == false)
                 {
-                    Task getFriendBattery = new Task(() => FriendBattery(userData));
+                    Task getFriendBattery = new Task(() => FriendBattery());
                     is3AMswitchStart = true;
                     getFriendBattery.Start();
                     
@@ -65,11 +66,11 @@ namespace GFHelp.Core.MulitePlayerData
             }
 
 
-            if (BeijingTimeNow.Hour * 60 + BeijingTimeNow.Minute == (60 * 15 + 10))
+            if (BeijingTimeNow.Hour * 60 + BeijingTimeNow.Minute == (60 * 15 + 3))
             {
                 if (is15PMswitchStart == false)
                 {
-                    Task getFriendBattery = new Task(() => FriendBattery(userData));
+                    Task getFriendBattery = new Task(() => FriendBattery());
                     is15PMswitchStart = true;
                     getFriendBattery.Start();
                 }
@@ -202,23 +203,48 @@ namespace GFHelp.Core.MulitePlayerData
             }
 
         }
-
-
-        private void FriendBattery(UserData userData)
+        private void printBatteryNumber()
         {
-            int BattaryNum = 10;
-            for (int i = 0; i < userData.friend_with_user_info.dicFriend.Count; i++)
+            int i = 1;
+            foreach (var item in dicFridentBatteryNumber)
             {
-                var friend = userData.friend_with_user_info.dicFriend[i];
-                int Friend_BattaryNum = GetFriendBatteryNum(userData, friend.f_userid);
-                new Log().userInit(userData.GameAccount.Base.GameAccountID, String.Format(" {0} 宿舍 电池数 {1} 剩余 {2}", friend.name, Friend_BattaryNum, userData.friend_with_user_info.dicFriend.Count - i+1)).userInfo();
-                if (Friend_BattaryNum == BattaryNum)
+                if (item.Value > 0)
                 {
-                    GetFriendBattery(userData, friend.f_userid);
+                    new Log().userInit(userData.GameAccount.Base.GameAccountID, string.Format(" {0} 宿舍 电池数 {1}", item.Key.name, item.Value)).userInfo();
+                    i++;
+                }
+                
+            }
+            new Log().userInit(userData.GameAccount.Base.GameAccountID,string.Format(" -----------展示好友电池信息({0})------------",i)).userInfo();
+        }
+
+        public void FriendBattery()
+        {
+            if (userData.Dorm_Rest_Friend_Build_Coin_Count <= 0) return;
+            dicFridentBatteryNumber.Clear();
+            try
+            {
+                new Log().userInit(userData.GameAccount.Base.GameAccountID, "-----------获取好友电池信息------------").userInfo();
+                foreach (var item in userData.friend_with_user_info.dicFriend)
+                {
+                    int Friend_BattaryNum = GetFriendBatteryNum(userData, item.Value.f_userid);
+                    dicFridentBatteryNumber.Add(item.Value, Friend_BattaryNum);
+                }
+                dicFridentBatteryNumber = dicFridentBatteryNumber.OrderByDescending(x => x.Value).ToDictionary(x => x.Key, y => y.Value);
+                printBatteryNumber();
+                foreach (var item in dicFridentBatteryNumber)
+                {
+                    if (userData.Dorm_Rest_Friend_Build_Coin_Count <= 0) return;
+                    new Log().userInit(userData.GameAccount.Base.GameAccountID, String.Format(" 获取好友 {0} 电池 数量 {1}", item.Key.name, item.Value)).userInfo();
+                    GetFriendBattery(userData, item.Key.f_userid);
                     userData.Dorm_Rest_Friend_Build_Coin_Count--;
-                    if (userData.Dorm_Rest_Friend_Build_Coin_Count == 0) return;
                 }
             }
+            catch (Exception e)
+            {
+                new Log().userInit(userData.GameAccount.Base.GameAccountID, "非法操作 " + e.ToString()).userInfo();
+            }
+
         }
         private int GetFriendBatteryNum(UserData userData, int id)
         {

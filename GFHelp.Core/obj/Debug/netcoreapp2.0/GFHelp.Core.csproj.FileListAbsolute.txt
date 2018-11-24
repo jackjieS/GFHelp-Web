@@ -16,10 +16,6 @@ C:\Users\jack\Desktop\CS\GFHelper-Web\GFHelp\GFHelp.Core\bin\Debug\netcoreapp2.0
 C:\Users\jack\Desktop\CS\GFHelper-Web\GFHelp\GFHelp.Core\bin\Debug\netcoreapp2.0\LitJson.dll
 C:\Users\jack\Desktop\CS\GFHelper-Web\GFHelp\GFHelp.Core\bin\Debug\netcoreapp2.0\UnityEngine.dll
 C:\Users\jack\Desktop\CS\GFHelper-Web\GFHelp\GFHelp.Core\obj\Debug\netcoreapp2.0\GFHelp.Core.csprojAssemblyReference.cache
-C:\Users\jack\Desktop\CS\GFHelp-Web\GFHelp.Core\obj\Debug\netcoreapp2.0\GFHelp.Core.csprojAssemblyReference.cache
-C:\Users\jack\Desktop\CS\GFHelp-Web\GFHelp.Core\obj\Debug\netcoreapp2.0\GFHelp.Core.csproj.CoreCompileInputs.cache
-C:\Users\jack\Desktop\CS\GFHelp-Web\GFHelp.Core\obj\Debug\netcoreapp2.0\GFHelp.Core.AssemblyInfoInputs.cache
-C:\Users\jack\Desktop\CS\GFHelp-Web\GFHelp.Core\obj\Debug\netcoreapp2.0\GFHelp.Core.AssemblyInfo.cs
 C:\Users\jack\Desktop\CS\GFHelp-Web\GFHelp.Core\bin\Debug\netcoreapp2.0\GFHelp.Core.deps.json
 C:\Users\jack\Desktop\CS\GFHelp-Web\GFHelp.Core\bin\Debug\netcoreapp2.0\GFHelp.Core.dll
 C:\Users\jack\Desktop\CS\GFHelp-Web\GFHelp.Core\bin\Debug\netcoreapp2.0\GFHelp.Core.pdb
@@ -37,6 +33,10 @@ C:\Users\jack\Desktop\CS\GFHelp-Web\GFHelp.Core\bin\Debug\netcoreapp2.0\dotnet-a
 C:\Users\jack\Desktop\CS\GFHelp-Web\GFHelp.Core\bin\Debug\netcoreapp2.0\Microsoft.AspNetCore.Identity.EntityFrameworkCore.xml
 C:\Users\jack\Desktop\CS\GFHelp-Web\GFHelp.Core\bin\Debug\netcoreapp2.0\Microsoft.EntityFrameworkCore.xml
 C:\Users\jack\Desktop\CS\GFHelp-Web\GFHelp.Core\bin\Debug\netcoreapp2.0\Microsoft.Data.Sqlite.xml
+C:\Users\jack\Desktop\CS\GFHelp-Web\GFHelp.Core\obj\Debug\netcoreapp2.0\GFHelp.Core.csprojAssemblyReference.cache
+C:\Users\jack\Desktop\CS\GFHelp-Web\GFHelp.Core\obj\Debug\netcoreapp2.0\GFHelp.Core.csproj.CoreCompileInputs.cache
+C:\Users\jack\Desktop\CS\GFHelp-Web\GFHelp.Core\obj\Debug\netcoreapp2.0\GFHelp.Core.AssemblyInfoInputs.cache
+C:\Users\jack\Desktop\CS\GFHelp-Web\GFHelp.Core\obj\Debug\netcoreapp2.0\GFHelp.Core.AssemblyInfo.cs
 C:\Users\jack\Desktop\CS\GFHelp-Web\GFHelp.Core\obj\Debug\netcoreapp2.0\GFHelp.Core.csproj.CopyComplete
 C:\Users\jack\Desktop\CS\GFHelp-Web\GFHelp.Core\obj\Debug\netcoreapp2.0\GFHelp.Core.dll
 C:\Users\jack\Desktop\CS\GFHelp-Web\GFHelp.Core\obj\Debug\netcoreapp2.0\GFHelp.Core.pdb

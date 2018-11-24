@@ -6,4 +6,3 @@ C:\Users\jack\Desktop\CS\GFHelp-Web\LoginTest\obj\Debug\LoginTest.exe
 C:\Users\jack\Desktop\CS\GFHelp-Web\LoginTest\obj\Debug\LoginTest.pdb
 C:\Users\jack\Desktop\CS\GFHelp-Web\LoginTest\bin\Debug\LitJson.dll
 C:\Users\jack\Desktop\CS\GFHelp-Web\LoginTest\obj\Debug\LoginTest.csproj.CopyComplete
-C:\Users\jack\Desktop\CS\GFHelp-Web\LoginTest\obj\Debug\LoginTest.csprojAssemblyReference.cache

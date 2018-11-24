@@ -249,7 +249,10 @@ namespace GFHelp.Core.Action
 
             }
         }
-        public int teamMove_Random(TeamMove teammove)
+
+
+
+        public int teamMove_Random(TeamMove teammove, MissionInfo.Data data)
         {
             userData.webData.StatusBarText = "移动";
             //{"team_id":6,"from_spot_id":3033,"to_spot_id":3038,"move_type":1}
@@ -271,12 +274,12 @@ namespace GFHelp.Core.Action
 
                     case 1:
                         {
+                            TeamMove_RandomHandle(result, data);
+
+
+
                             if (result.Contains("enemy_team_id")) return 1;
                             return 0;
-                        }
-                    case 0:
-                        {
-                            return -1;
                         }
                     case -1:
                         {
@@ -293,6 +296,66 @@ namespace GFHelp.Core.Action
 
             }
         }
+
+        public void TeamMove_RandomHandle(string result, MissionInfo.Data data)
+        {
+            var jsonobj = Codeplex.Data.DynamicJson.Parse(result);
+            if (result.Contains("coin3"))
+            {
+                data.recycleLog.Coin3 += Convert.ToInt16(jsonobj.coin3);
+            }
+            if (result.Contains("coin2"))
+            {
+                data.recycleLog.Coin2 += Convert.ToInt16(jsonobj.coin2);
+            }
+            if (result.Contains("coin1"))
+            {
+                data.recycleLog.Coin1 += Convert.ToInt16(jsonobj.coin1);
+            }
+            //loseammo
+            if (result.Contains("loseammo"))
+            {
+                data.recycleLog.Ammo -= Convert.ToInt16(jsonobj.loseammo);
+            }
+            if (result.Contains("losemre"))
+            {
+                data.recycleLog.Mre -= Convert.ToInt16(jsonobj.losemre);
+            }
+            if (result.Contains("losemp"))
+            {
+                data.recycleLog.Mp -= Convert.ToInt16(jsonobj.losemp);
+            }
+            if (result.Contains("losepart"))
+            {
+                data.recycleLog.Part -= Convert.ToInt16(jsonobj.losepart);
+            }
+            if (result.Contains("mp") && !result.Contains("losemp"))
+            {
+                data.recycleLog.Mp += Convert.ToInt16(jsonobj.mp);
+            }
+            if (result.Contains("ammo") && !result.Contains("loseammo"))
+            {
+                data.recycleLog.Ammo += Convert.ToInt16(jsonobj.ammo);
+            }
+            if (result.Contains("mre")&& !result.Contains("losemre"))
+            {
+                data.recycleLog.Mre += Convert.ToInt16(jsonobj.mre);
+            }
+            if (result.Contains("part") && !result.Contains("losepart"))
+            {
+                data.recycleLog.Part += Convert.ToInt16(jsonobj.part);
+            }
+            if (result.Contains("gun_id"))
+            {
+                Add_Get_Gun_Equip_Battle(jsonobj, data);
+            }
+
+
+
+        }
+
+
+
         public bool Normal_battleFinish(string data, ref string result, bool errorSkip = false)
         {
             userData.webData.StatusBarText = "战斗结算";
@@ -652,7 +715,7 @@ namespace GFHelp.Core.Action
 
 
         }
-        public void Check_Gun_need_FIX(bool fix=false)
+        public void Check_Gun_need_FIX()
         {
             userData.webData.StatusBarText = "检查人形是否需要修复";
             Thread.Sleep(1000);
@@ -662,27 +725,16 @@ namespace GFHelp.Core.Action
                 for (int i = 0; i <= userData.Teams[k].Count; i++)
                 {
                     if (!userData.Teams[k].ContainsKey(i)) continue;
-
-                    if (fix)
-                    {
-                        if (Fix_Gun(userData.Teams[k][i].id, true))
-                        {
-                            userData.Teams[k][i].life = userData.Teams[k][i].maxLife;
-                            userData.item_With_User_Info.Quick_Reinforce -= 1;
-                        }
-                    }
                     double life = (double)userData.Teams[k][i].life / userData.Teams[k][i].maxLife;
-                    if (life < 0.25)
-                    {
-                        if (userData.item_With_User_Info.Quick_Reinforce <= 100) continue;
-                        if (Fix_Gun(userData.Teams[k][i].id, true))
-                        {
-                            userData.Teams[k][i].life = userData.Teams[k][i].maxLife;
-                            userData.item_With_User_Info.Quick_Reinforce -= 1;
-                        }
+                    if (userData.item_With_User_Info.Quick_Reinforce <= 10) continue;
+                    if (userData.Teams[k][i].life == userData.Teams[k][i].maxLife) continue;
+                    if (life > 0.25) continue;
 
-                    }
 
+
+                    Fix_Gun(userData.Teams[k][i].id, true);
+                    userData.Teams[k][i].life = userData.Teams[k][i].maxLife;
+                    userData.item_With_User_Info.Quick_Reinforce -= 1;
                 }
             }
         }
@@ -762,13 +814,12 @@ namespace GFHelp.Core.Action
         public bool Add_Get_Gun_Equip_Battle(dynamic jsonobj, MissionInfo.Data data)
         {
             JsonData jsonData = JsonMapper.ToObject(jsonobj.ToString());
-
-            if (jsonobj.ToString().Contains("battle_get_prize") == true)
+            if (jsonobj.ToString().Contains("battle_get_prize"))
             {
                 new Log().userInit(userData.GameAccount.Base.GameAccountID, "奖励获取 battle_get_prize ").userInfo();
                 if (data.StopLoopByPrize) data.Loop = false;
             }
-            if (jsonobj.ToString().Contains("battle_get_equip") == true)
+            if (jsonobj.ToString().Contains("battle_get_equip"))
             {
                 try
                 {
@@ -791,8 +842,7 @@ namespace GFHelp.Core.Action
                     return false;
                 }
             }
-
-            if (jsonobj.ToString().Contains("battle_get_gun") == true)
+            if (jsonobj.ToString().Contains("battle_get_gun"))
             {
                 try
                 {
@@ -807,7 +857,24 @@ namespace GFHelp.Core.Action
                     return false;
                 }
             }
-            if (jsonobj.ToString().Contains("reward_gun") == true)
+
+            if (jsonData["gun_id"].IsString && jsonData["gun_with_user_id"].IsString)
+            {
+                try
+                {
+                    Gun_With_User_Info gwui = new Gun_With_User_Info();
+                    gwui = initGun(jsonData["gun_with_user_id"].Int, jsonData["gun_id"].Int, data);
+                    userData.gun_With_User_Info.dicGunAdd(gwui);
+                }
+                catch (Exception e)
+                {
+                    new Log().userInit(userData.GameAccount.Base.GameAccountID, "添加人形掉落遇到错误 Error", e.ToString()).userInfo();
+
+                    return false;
+                }
+            }
+
+            if (jsonobj.ToString().Contains("reward_gun"))
             {
                 try
                 {
@@ -830,15 +897,19 @@ namespace GFHelp.Core.Action
                     return false;
                 }
             }
+
+
+
+
             return true;
         }
 
-        public bool Add_Get_Gun_Equip_Battle(int gun_equip_id, string with_user_id)
+        public bool Add_Get_Gun_Equip_Battle(int gun_equip_id, string result)
         {
             //battle_get_equip
-            if (with_user_id.Contains("gun"))
+            if (result.Contains("gun"))
             {
-                var jsonobj = DynamicJson.Parse(with_user_id);
+                var jsonobj = DynamicJson.Parse(result);
                 int gun_with_user_id = int.Parse(jsonobj.gun_with_user_id.ToString());
                 try
                 {

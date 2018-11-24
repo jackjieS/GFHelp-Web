@@ -107,7 +107,7 @@ namespace GFHelp.Core.Helper
         public const string getDataCell = "Dorm/get_data_cell";
         public const string DataAnalysisFinishAll = "Dorm/data_analysis_finish_all";
         public const string DataAnalysis = "Dorm/data_analysis";
-
+        public const string WeeklyShare = "Dorm/share";
     }
 
 //    class GameHost

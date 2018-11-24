@@ -131,7 +131,7 @@ namespace GFHelp.Mission
             //Function.Night_PosCheck_type1(result, 3244) == 1
             userData.battle.endEnemyTurn();
             userData.battle.startTurn(data);
-            if (userData.battle.teamMove_Random(maparctic1_4.dic_TeamMove[stepNum++]) == 1)
+            if (userData.battle.teamMove_Random(maparctic1_4.dic_TeamMove[stepNum++],data) == 1)
             {
                 battledata = new BattleData(data.Teams).setData(2057, 0, 0, random.Next(8, 10), 3344, 5716, 10004, userData.user_Info.experience);
                 if (userData.battle.Normal_battleFinish(battledata, ref result))

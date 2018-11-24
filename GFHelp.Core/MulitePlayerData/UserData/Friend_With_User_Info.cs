@@ -7,13 +7,8 @@ namespace GFHelp.Core.MulitePlayerData
 {
     public class Friend_With_User_Info
     {
-        public Dictionary<int, Friend_With_User_Info> dicFriend = new Dictionary<int, Friend_With_User_Info>();
-        public int type;
-        public int f_userid;
-        public string name;
-        public int lv;
-        public int headpic_id;
-        public int homepage_time;
+        public Dictionary<int, Data> dicFriend = new Dictionary<int, Data>();
+
 
         public bool Read(dynamic jsonobj)
         {
@@ -21,15 +16,15 @@ namespace GFHelp.Core.MulitePlayerData
 
             foreach (var item in jsonobj.friend_with_user_info)
             {
-                Friend_With_User_Info fwui = new Friend_With_User_Info();
+                Data data = new Data();
                 try
                 {
-                    fwui.type = Convert.ToInt32(item.type);
-                    fwui.f_userid = Convert.ToInt32(item.f_userid);
-                    fwui.name = item.name.ToString();
-                    fwui.lv = Convert.ToInt32(item.lv);
-                    fwui.headpic_id = Convert.ToInt32(item.headpic_id);
-                    fwui.homepage_time = Convert.ToInt32(item.homepage_time);
+                    data.type = Convert.ToInt32(item.type);
+                    data.f_userid = Convert.ToInt32(item.f_userid);
+                    data.name = item.name.ToString();
+                    data.lv = Convert.ToInt32(item.lv);
+                    data.headpic_id = Convert.ToInt32(item.headpic_id);
+                    data.homepage_time = Convert.ToInt32(item.homepage_time);
                 }
                 catch (Exception e)
                 {
@@ -38,10 +33,20 @@ namespace GFHelp.Core.MulitePlayerData
                     continue;
                 }
 
-                dicFriend.Add(dicFriend.Count, fwui);
+                dicFriend.Add(dicFriend.Count, data);
             }
 
             return true;
+        }
+
+        public class Data
+        {
+            public int type;
+            public int f_userid;
+            public string name;
+            public int lv;
+            public int headpic_id;
+            public int homepage_time;
         }
 
 

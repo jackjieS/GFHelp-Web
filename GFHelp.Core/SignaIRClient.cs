@@ -99,10 +99,18 @@ namespace GFHelp.Core
         {
             while (true)
             {
-                Task MessageTask = new Task(() => LoopGameMessage());
-                MessageTask.Start();
-                Task.WaitAll(MessageTask);
-                Thread.Sleep(1000);
+                try
+                {
+                    Task MessageTask = new Task(() => LoopGameMessage());
+                    MessageTask.Start();
+                    Task.WaitAll(MessageTask);
+                    Thread.Sleep(1000);
+                }
+                catch (Exception e)
+                {
+                    new Log().systemInit(e.ToString()).webInfo();
+                }
+
             }
 
         }

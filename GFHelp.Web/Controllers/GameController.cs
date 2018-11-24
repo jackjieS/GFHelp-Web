@@ -358,6 +358,21 @@ namespace GFHelp.Web.Controllers
             });
         }
 
+
+        
+        [Route("/Game/getFriendBattery")]
+        [HttpPost]
+        public IActionResult getFriendBattery([FromBody] Account account)
+        {
+            //加入控制符
+            
+            Task getFriendBattery = new Task(() => Core.Management.Data.data.getDataByID(account.GameID).dorm_with_user_info.FriendBattery());
+            getFriendBattery.Start();
+            return Ok(new
+            {
+                code = 1,
+            });
+        }
         /// <summary>
         /// 终止作战
         /// </summary>

@@ -1,8 +1,0 @@
-【02:24:12】      message = 循环倒计时 出现错误  , exception = System.Collections.Generic.KeyNotFoundException: The given key '204' was not present in the dictionary.
-   at System.Collections.Generic.Dictionary`2.get_Item(TKey key)
-   at GFHelp.Core.MulitePlayerData.Outhouse_BattleReport.get_Furniture_database() in C:\Users\jack\Desktop\CS\GFHelp-Web\GFHelp.Core\MulitePlayerData\UserData\Outhouse_BattleReport.cs:line 257
-   at GFHelp.Core.MulitePlayerData.Outhouse_BattleReport.BattleReportStart() in C:\Users\jack\Desktop\CS\GFHelp-Web\GFHelp.Core\MulitePlayerData\UserData\Outhouse_BattleReport.cs:line 114
-   at GFHelp.Core.MulitePlayerData.Outhouse_BattleReport.AutoRun() in C:\Users\jack\Desktop\CS\GFHelp-Web\GFHelp.Core\MulitePlayerData\UserData\Outhouse_BattleReport.cs:line 108
-   at GFHelp.Core.Management.Auto_Summery.Auto_Act_Summery() in C:\Users\jack\Desktop\CS\GFHelp-Web\GFHelp.Core\MulitePlayerData\Loop.cs:line 65
-   at GFHelp.Core.Management.cdLoop.CountDown() in C:\Users\jack\Desktop\CS\GFHelp-Web\GFHelp.Core\MulitePlayerData\Loop.cs:line 32
-【02:24:12】      message = 程序已注销 请重新创建实例 
