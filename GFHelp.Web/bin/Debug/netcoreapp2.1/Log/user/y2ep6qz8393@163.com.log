@@ -1,0 +1,87 @@
+【05:41:51】      message =  自动分享获取30钻石 
+【05:43:07】      message = 3_1 成功 
+【05:43:36】      message = 3_1 成功 
+【05:44:08】      message = 战斗任务结束,获得 人力 0 子弹 0 口粮 0 零件 0 初级资料 0 中级资料 0 高级资料 0 人形 0 
+【05:44:29】      message = 程序已注销 请重新创建实例 
+【05:46:22】      message = 2-2 成功 
+【05:46:51】      message = 2-3成功 
+【05:51:49】      message = 2-4成功 
+【05:52:28】      message = 2-4成功 
+【05:53:26】      message = 2_6BOSS 成功 , exception = 
+【05:55:39】      message = 3_1 成功 
+【06:03:00】      message = -----------获取好友电池信息------------ 
+【06:03:25】      message =  -----------展示好友电池信息(1)------------ 
+【06:03:25】      message =  获取好友 DustinJ 电池 数量 0 
+【06:03:29】      message =  获取好友 雷姆琳 电池 数量 0 
+【06:03:34】      message =  获取好友 安德烈娅 电池 数量 0 
+【06:03:38】      message =  获取好友 梅花白鹿 电池 数量 0 
+【06:03:42】      message =  获取好友 惠惠QAQ 电池 数量 0 
+【06:03:46】      message =  获取好友 Wo去 电池 数量 0 
+【06:07:40】      message = 3_3 成功 
+【06:11:31】      message = 3_4 成功 
+【07:40:42】      message = 3_5 成功 
+【07:41:17】      message = 3_6BOSS 成功 , exception = 
+【07:42:24】      message = 获取新人形 : dp28 ,意不意外 惊不惊喜 
+【07:42:26】      message = 4_2 成功 
+【07:43:02】      message = 4_3 成功 
+【07:43:29】      message = 4_4 成功 
+【07:43:57】      message = 4_5 成功 
+【07:44:02】      message = 人形强化 ERROR , exception = error:2
+【07:44:06】      message = 人形强化 ERROR , exception = error:2
+【07:44:10】      message = 人形强化 ERROR , exception = error:2
+【07:44:14】      message = 人形强化 ERROR , exception = error:2
+【07:44:18】      message = 人形强化 ERROR , exception = error:2
+【07:44:22】      message = 人形强化 ERROR , exception = error:2
+【07:44:26】      message = 人形强化 ERROR , exception = error:2
+【07:44:30】      message = 人形强化 ERROR , exception = error:2
+【07:44:34】      message = 人形强化 ERROR , exception = error:2
+【07:44:38】      message = 人形强化 ERROR , exception = error:2
+【07:44:42】      message = 人形强化 ERROR , exception = error:2
+【07:44:46】      message = 人形强化 ERROR , exception = error:2
+【07:44:50】      message = 人形强化 ERROR , exception = error:2
+【07:45:34】      message = 4_6BOSS 成功 , exception = 
+【07:47:02】      message = 5_1 成功 
+【07:47:35】      message = 5_2 成功 
+【07:49:02】      message = 5_3 成功 
+【07:49:25】      message = 5_4 成功 
+【07:49:39】      message = 获取新人形 : lwmmg ,意不意外 惊不惊喜 
+【07:50:45】      message = 获取新人形 : fg42 ,意不意外 惊不惊喜 
+【07:50:50】      message = 5_5 成功 
+【07:51:13】      message = 5_6BOSS 成功 , exception = 
+【07:52:13】      message = 6_1 成功 
+【07:52:54】      message = 6_2 成功 
+【07:53:29】      message = 6_3 成功 
+【07:54:12】      message = endEnemyTurn Error , exception = error:2
+【07:54:14】      message = startTurn Error , exception = error:2
+【07:54:17】      message = teamMove Error , exception = error:203|行动点数计算有误
+【07:54:20】      message = teamMove Error , exception = error:203|行动点数计算有误
+【07:54:28】      message = teamMove Error , exception = error:203|行动点数计算有误
+【07:54:35】      message = endTurn Error , exception = error:2
+【07:55:33】      message = 6_4 成功 
+【07:56:34】      message = 6_5 成功 
+【07:57:28】      message = 6_6BOSS 成功 , exception = 
+【07:57:29】      message = 战斗任务结束,获得 人力 0 子弹 0 口粮 0 零件 0 初级资料 0 中级资料 0 高级资料 0 人形 0 
+【10:29:42】      message = 程序已注销 请重新创建实例 
+【16:57:52】      message = 1-1e成功 
+【16:58:49】      message = 1_2E 成功 
+【16:59:41】      message = teamMove Error , exception = error:2
+【16:59:44】      message = endTurn Error , exception = error:2
+【17:00:31】      message = teamMove Error , exception = error:2
+【17:00:34】      message = endTurn Error , exception = error:2
+【17:01:25】      message = 1_3E 成功 
+【17:03:11】      message = 1_4E 成功 
+【17:03:52】      message = 2_1E 成功 
+【17:06:31】      message = 2_2E 成功 
+【17:08:11】      message = 2_3E 成功 
+【17:10:41】      message = 2_4E 成功 
+【17:12:21】      message = 3_1E 成功 
+【17:13:45】      message = 3_2E 成功 
+【17:14:55】      message = 3_3E 成功 
+【17:15:52】      message = 3_4E 成功 
+【17:17:00】      message = 4_1E 成功 
+【17:17:39】      message = 4_2E 成功 
+【17:18:48】      message = 获取UserInfo失败 , exception = 
+【17:19:56】      message = 4_3E 成功 
+【17:20:34】      message = 4_4E 成功 
+【17:21:29】      message = 战斗任务结束,获得 人力 0 子弹 0 口粮 0 零件 0 初级资料 0 中级资料 0 高级资料 0 人形 0 
+【04:46:56】      message = 程序已注销 请重新创建实例 

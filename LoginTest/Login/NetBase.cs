@@ -1,4 +1,5 @@
-﻿using System;
+﻿using FSLib.Network.Http;
+using System;
 using System.Collections.Generic;
 using System.IO;
 using System.Linq;
@@ -7,53 +8,39 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Web;
 
-namespace LoginTest.Login
+namespace GFLogin
 {
     class NetBase
     {
-        public static string StringBuilder_(IDictionary<string, string> parameters)
+        public static string HttpPost(string url, IDictionary<string, string> postData)
         {
-            StringBuilder buffer = new StringBuilder();
-            if (!(parameters == null || parameters.Count == 0))
+            var client = new HttpClient();
+            var ctx = client.Create<string>(HttpMethod.Post, url, data: postData);
+            ctx.SetRequestContentType(ContentType.FormUrlEncoded);
+            ctx.Send();
+            if (ctx.IsValid())
             {
-                int i = 0;
-                foreach (string key in parameters.Keys)
-                {
-                    string keyA = HttpUtility.UrlEncode(key);
-                    string keyB = HttpUtility.UrlEncode(parameters[key]);
-                    if (i > 0)
-                    {
-                        buffer.AppendFormat("&{0}={1}", keyA, keyB);
-                    }
-                    else
-                    {
-                        buffer.AppendFormat("{0}={1}", keyA, keyB);
-                    }
-                    i++;
-                }
+                return ctx.Result;
             }
-            return buffer.ToString();
+            else
+            {
+                return "错误！状态码：" + ctx.Response.Status;
+            }
         }
-        public static string HttpPost(string url,string postData)
+        public static string HttpPost(string url, byte[] postData)
         {
-
-            byte[] postBytes = Encoding.ASCII.GetBytes(postData);     //将参数转化为assic码
-            HttpWebRequest req = (HttpWebRequest)HttpWebRequest.Create(url);
-            req.Method = "POST";
-            req.ContentType = "application/x-www-form-urlencoded";
-            req.ContentLength = postBytes.Length;
-            using (Stream reqStream = req.GetRequestStream())
+            var client = new HttpClient();
+            var ctx = client.Create<string>(HttpMethod.Post, url, data: postData);
+            ctx.SetRequestContentType(ContentType.FormUrlEncoded);
+            ctx.Send();
+            if (ctx.IsValid())
             {
-                reqStream.Write(postBytes, 0, postBytes.Length);
+                return ctx.Result;
             }
-            using (WebResponse wr = req.GetResponse())
+            else
             {
-                StreamReader sr = new StreamReader(wr.GetResponseStream());
-                return sr.ReadToEnd();
+                return "错误！状态码：" + ctx.Response.Status;
             }
-
         }
-
-
     }
 }

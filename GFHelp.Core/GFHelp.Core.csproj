@@ -1,7 +1,7 @@
 <Project Sdk="Microsoft.NET.Sdk">
 
   <PropertyGroup>
-    <TargetFramework>netcoreapp2.0</TargetFramework>
+    <TargetFramework>netcoreapp2.1</TargetFramework>
     <ApplicationIcon />
     <OutputType>Library</OutputType>
     <StartupObject />
@@ -22,6 +22,9 @@
     </Reference>
     <Reference Include="dotnet-aspnet-codegenerator-design">
       <HintPath>..\..\..\..\..\..\Program Files\dotnet\sdk\NuGetFallbackFolder\microsoft.visualstudio.web.codegeneration.design\2.1.0\lib\netstandard2.0\dotnet-aspnet-codegenerator-design.dll</HintPath>
+    </Reference>
+    <Reference Include="GFLogin">
+      <HintPath>..\..\GFLogin\GFLogin\bin\Release\netcoreapp2.1\GFLogin.dll</HintPath>
     </Reference>
     <Reference Include="ICSharpCode.SharpZipLib">
       <HintPath>..\packages\ICSharpCode.SharpZipLib.dll</HintPath>

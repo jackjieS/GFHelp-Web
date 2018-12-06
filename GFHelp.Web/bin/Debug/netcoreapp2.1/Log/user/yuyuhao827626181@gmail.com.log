@@ -1,0 +1,262 @@
+【23:52:23】      message = 奖励获取 battle_get_prize  
+【23:52:25】      message = Rabbit E1 成功 
+【23:52:56】      message = 奖励获取 battle_get_prize  
+【23:52:58】      message = Rabbit E1 成功 
+【23:53:37】      message = 奖励获取 battle_get_prize  
+【23:53:38】      message = Rabbit E1 成功 
+【23:54:15】      message = 奖励获取 battle_get_prize  
+【23:54:16】      message = Rabbit E2 成功 
+【23:55:04】      message = 奖励获取 battle_get_prize  
+【23:55:05】      message = Rabbit E2 成功 
+【23:55:53】      message = 奖励获取 battle_get_prize  
+【23:55:54】      message = Rabbit E2 成功 
+【23:57:01】      message = 奖励获取 battle_get_prize  
+【23:57:03】      message = Rabbit E3 成功 
+【23:58:17】      message = 奖励获取 battle_get_prize  
+【23:58:19】      message = Rabbit E3 成功 
+【23:59:05】      message = Rabbit E1 成功 
+【23:59:44】      message = Rabbit E1 成功 
+【00:00:24】      message = Rabbit E1 成功 
+【00:01:04】      message = Rabbit E2 成功 
+【00:01:49】      message = Rabbit E2 成功 
+【00:02:33】      message = Rabbit E2 成功 
+【00:03:57】      message = Rabbit E3 成功 
+【00:05:16】      message = Rabbit E3 成功 
+【00:06:00】      message = Rabbit E1 成功 
+【00:06:37】      message = Rabbit E1 成功 
+【00:07:21】      message = Rabbit E1 成功 
+【00:07:58】      message = Rabbit E2 成功 
+【00:08:36】      message = Rabbit E2 成功 
+【00:09:21】      message = Rabbit E2 成功 
+【00:10:34】      message = Rabbit E3 成功 
+【00:11:49】      message = Rabbit E3 成功 
+【00:12:28】      message = Rabbit E1 成功 
+【00:13:08】      message = Rabbit E1 成功 
+【00:13:40】      message = Rabbit E1 成功 
+【00:14:23】      message = Rabbit E2 成功 
+【00:15:00】      message = Rabbit E2 成功 
+【00:15:45】      message = Rabbit E2 成功 
+【00:16:53】      message = Rabbit E3 成功 
+【00:18:13】      message = Rabbit E3 成功 
+【00:19:00】      message = Rabbit E1 成功 
+【00:19:33】      message = Rabbit E1 成功 
+【00:20:13】      message = Rabbit E1 成功 
+【00:20:58】      message = Rabbit E2 成功 
+【00:21:42】      message = Rabbit E2 成功 
+【00:22:27】      message = Rabbit E2 成功 
+【00:23:51】      message = Rabbit E3 成功 
+【00:25:11】      message = Rabbit E3 成功 
+【00:25:57】      message = Rabbit E1 成功 
+【00:26:42】      message = Rabbit E1 成功 
+【00:27:26】      message = Rabbit E1 成功 
+【00:28:03】      message = Rabbit E2 成功 
+【00:28:48】      message = Rabbit E2 成功 
+【00:29:33】      message = Rabbit E2 成功 
+【00:30:57】      message = Rabbit E3 成功 
+【00:32:13】      message = Rabbit E3 成功 
+【00:32:55】      message = Rabbit E1 成功 
+【00:33:39】      message = Rabbit E1 成功 
+【00:34:20】      message = Rabbit E1 成功 
+【00:35:00】      message = Rabbit E2 成功 
+【00:35:45】      message = Rabbit E2 成功 
+【00:36:31】      message = Rabbit E2 成功 
+【00:37:43】      message = Rabbit E3 成功 
+【00:38:58】      message = Rabbit E3 成功 
+【00:39:01】      message = 获取UserInfo失败 , exception = 
+【00:39:07】      message = 人形强化 ERROR , exception = error:0
+【00:39:10】      message = 人形强化 ERROR , exception = error:0
+【00:39:13】      message = 人形强化 ERROR , exception = error:0
+【00:39:17】      message = 人形强化 ERROR , exception = error:0
+【00:39:20】      message = 人形强化 ERROR , exception = error:0
+【00:39:24】      message = 人形强化 ERROR , exception = error:0
+【00:39:27】      message = 人形强化 ERROR , exception = error:0
+【00:39:30】      message = 人形强化 ERROR , exception = error:0
+【00:39:32】      message = 程序已注销 请重新创建实例 
+【00:39:34】      message = 人形强化 ERROR , exception = error:0
+【00:39:37】      message = 人形强化 ERROR , exception = error:0
+【00:39:40】      message = 人形强化 ERROR , exception = error:0
+【00:39:44】      message = 人形强化 ERROR , exception = error:0
+【00:39:47】      message = 人形强化 ERROR , exception = error:0
+【00:39:51】      message = 人形强化 ERROR , exception = error:0
+【00:39:54】      message = 人形强化 ERROR , exception = error:0
+【00:39:57】      message = 人形强化 ERROR , exception = error:0
+【00:40:01】      message = 人形强化 ERROR , exception = error:0
+【00:40:10】      message = Gun_retire ERROR , exception = error:0
+【00:40:19】      message = Gun_retire ERROR , exception = error:0
+【00:40:20】      message = 获取UserInfo失败 , exception = 
+【00:40:29】      message = Gun_retire ERROR , exception = error:0
+【00:40:39】      message = Gun_retire ERROR , exception = error:0
+【00:40:43】      message = 获取UserInfo失败 , exception = 
+【00:40:44】      message = 获取UserInfo失败 , exception = 
+【00:40:45】      message = 一沙 无法开始作战任务，请登陆游戏检查 
+【00:40:46】      message = 获取UserInfo失败 , exception = 
+【00:40:55】      message = Gun_retire ERROR , exception = error:0
+【00:41:04】      message = Gun_retire ERROR , exception = error:0
+【23:27:55】      message = 奖励获取 battle_get_prize  
+【23:27:57】      message = Rabbit E1 成功 
+【23:28:43】      message = 奖励获取 battle_get_prize  
+【23:28:45】      message = Rabbit E1 成功 
+【23:29:16】      message = 奖励获取 battle_get_prize  
+【23:29:18】      message = Rabbit E1 成功 
+【23:30:01】      message = 奖励获取 battle_get_prize  
+【23:30:02】      message = Rabbit E2 成功 
+【23:30:39】      message = 奖励获取 battle_get_prize  
+【23:30:40】      message = Rabbit E2 成功 
+【23:31:28】      message = 奖励获取 battle_get_prize  
+【23:31:29】      message = Rabbit E2 成功 
+【23:32:37】      message = 奖励获取 battle_get_prize  
+【23:32:38】      message = Rabbit E3 成功 
+【23:33:53】      message = 奖励获取 battle_get_prize  
+【23:33:54】      message = Rabbit E3 成功 
+【23:36:03】      message = 奖励获取 battle_get_prize  
+【23:36:03】      message = Rabbit E4 成功 
+【23:36:55】      message = 获取新人形 : 马卡洛夫 ,意不意外 惊不惊喜 
+【23:38:15】      message = 奖励获取 battle_get_prize  
+【23:38:15】      message = Rabbit E4 成功 
+【23:38:16】      message = 战斗任务结束,获得 人力 0 子弹 0 口粮 0 零件 0 初级资料 0 中级资料 0 高级资料 0 人形 0 
+【17:09:45】      message = 程序已注销 请重新创建实例 
+【09:33:26】      message = 奖励获取 battle_get_prize  
+【09:33:27】      message = Rabbit E1 成功 
+【09:34:19】      message = 奖励获取 battle_get_prize  
+【09:34:20】      message = Rabbit E1 成功 
+【09:35:04】      message = 奖励获取 battle_get_prize  
+【09:35:06】      message = Rabbit E1 成功 
+【09:35:50】      message = 奖励获取 battle_get_prize  
+【09:35:52】      message = Rabbit E2 成功 
+【09:36:44】      message = 奖励获取 battle_get_prize  
+【09:36:46】      message = Rabbit E2 成功 
+【09:37:30】      message = 奖励获取 battle_get_prize  
+【09:37:31】      message = Rabbit E2 成功 
+【09:38:56】      message = 奖励获取 battle_get_prize  
+【09:38:58】      message = Rabbit E3 成功 
+【09:40:15】      message = 奖励获取 battle_get_prize  
+【09:40:16】      message = Rabbit E3 成功 
+【09:41:46】      message = 获取新人形 : mg42 ,意不意外 惊不惊喜 
+【09:42:26】      message = 奖励获取 battle_get_prize  
+【09:42:26】      message = Rabbit E4 成功 
+【09:44:21】      message = 获取新人形 : m1919a4 ,意不意外 惊不惊喜 
+【09:44:43】      message = 奖励获取 battle_get_prize  
+【09:44:43】      message = Rabbit E4 成功 
+【09:44:44】      message = 战斗任务结束,获得 人力 0 子弹 0 口粮 0 零件 0 初级资料 0 中级资料 0 高级资料 0 人形 0 
+【22:50:59】      message = 程序已注销 请重新创建实例 
+【22:52:34】      message = 奖励获取 battle_get_prize  
+【22:52:35】      message = Rabbit E1 成功 
+【22:53:19】      message = 奖励获取 battle_get_prize  
+【22:53:20】      message = Rabbit E1 成功 
+【22:54:05】      message = 奖励获取 battle_get_prize  
+【22:54:06】      message = Rabbit E1 成功 
+【22:54:54】      message = 奖励获取 battle_get_prize  
+【22:54:56】      message = Rabbit E2 成功 
+【22:55:41】      message = 奖励获取 battle_get_prize  
+【22:55:42】      message = Rabbit E2 成功 
+【22:56:27】      message = 奖励获取 battle_get_prize  
+【22:56:28】      message = Rabbit E2 成功 
+【22:57:49】      message = 奖励获取 battle_get_prize  
+【22:57:50】      message = 获取新人形 : 诺爱尔 ,意不意外 惊不惊喜 
+【22:57:53】      message = Rabbit E3 成功 
+【22:59:22】      message = Rabbit E3 成功 
+【23:01:34】      message = 奖励获取 battle_get_prize  
+【23:01:34】      message = Rabbit E4 成功 
+【23:03:41】      message = 奖励获取 battle_get_prize  
+【23:03:41】      message = Rabbit E4 成功 
+【23:03:42】      message = 战斗任务结束,获得 人力 0 子弹 0 口粮 0 零件 0 初级资料 0 中级资料 0 高级资料 0 人形 0 
+【23:30:46】      message = 程序已注销 请重新创建实例 
+【23:31:26】      message = 获取邮件 标题 12月7日定期メンテナンスのお知らせ 内容 <color=#bf8f00>指揮官の皆さま:</color>
+
+「ドールズフロントライン」は<color=#bf8f00>2018年12月7日(金)13:00～17:00</color>にて、<color=#bf8f00>メンテナンスを伴う</color>アップデートを行います。
+
+メンテナンス中はゲームをプレイすることができません。
+ご迷惑をおかけしますが、ご注意くださいますようお願い申し上げます。
+
+また、作業の進捗によってメンテナンスの終了時刻が前後する場合がございますこと、あらかじめご了承いただけますようお願いいたします。
+
++-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+
+
+今回のアップデート内容：
+
+1.終了予告:期間限定スキンガチャ『幼き日々』が<color=#bf8f00>2018年12月7日(金)13:00をもって終了します。</color>終了後、引換券は全て同数のコインに変換されますので、ご注意ください。
+
+2.新人形:<color=#bf8f00>2018年12月7日(金)メンテナンス終了後</color>より、☆5AR「64式自」、☆5SMG「一〇〇式」、☆5RF「カルカノM1891」、☆5RF「カルカノM91/38」、☆5MG「PKP」、☆3HG「P99」の6名が製造に追加され、恒常入手が可能となります。事前登録報酬を逃してしまった指揮官さまも「一〇〇式」を入手するチャンスですよ！
+※「64式自」、及び12月のログインボーナス人形「62式」の音声は未実装であるため、実装時点では図鑑で音声やそれらに関連したテキストを確認することはできません。なお、戦術人形のボイスや関連テキストは今後の更新にて順次実装していく予定です。
+
+3.イベント:「64式自」、「一〇〇式」、「カルカノM1891」、「カルカノM91/38」、「PKP」、「P99」6名の新人形製造確率UPイベントが開催されます。
+<color=#bf8f00>イベント期間:2018年12月7日(金)メンテナンス終了後～2018年12月9日(日)23:59</color>
+
+4.イベント:イベント「ジンジャークッキー収集大作戦」が開催されます。期間中に指定のステージをクリアすることで手に入るイベントアイテム「ジンジャークッキー」を集め、豪華アイテムと交換しましょう！
+<color=#bf8f00>イベント期間:2018年12月7日(金)メンテナンス終了後～2018年12月27日(木)23:59</color>
+
+◇イベントアイテム「ジンジャークッキー」獲得可能ステージ◇
+【第一戦役】-【通常】-【1-6 除草作戦】
+【第二戦役】-【通常】-【2-6 作戦終了】
+【第三戦役】-【通常】-【3-6 狩猟禁止】
+【第四戦役】-【通常】-【4-6 侵入排除】
+【第五戦役】-【通常】-【5-6 迫撃密令】
+【第六戦役】-【通常】-【6-6 遅すぎた告別】
+【第七戦役】-【通常】-【7-6 再会】
+
+上記ステージのクリア時に「ジンジャークッキー」が12個手に入ります。なお、「ジンジャークッキー」を獲得できるのは各ステージ1日１回までです。
+
+◇イベントショップ◇
+ショップの特設ページにて、スキン「カリーナ-ウィンターパーティー」やクリスマステーマの家具等を含む豪華アイテムと交換することができます。
+<color=#bf8f00>イベントショップ開放期間:2018年12月7日(金)メンテナンス終了後～2019年1月3日(木)23:59</color>
+
+◇注意事項◇
+<color=#ff0000>・ステージクリア時の評価がSでなくても、「ジンジャークッキー」は入手することができます。</color>
+<color=#ff0000>・自律作戦では、「ジンジャークッキー」を入手することは出来ませんので、十分にご注意ください。</color>
+<color=#ff0000>・【戦闘】ページにて、その日「ジンジャークッキー」を獲得済みであるかどうかの確認が行えるようになりました。未獲得の場合、上記ステージの上に「ジンジャークッキー」のアイコンが表示されます。</color>
+<color=#ff0000>・日付が変わる前にステージに入り、日付が変わってからステージをクリアした場合、日付が変わった際の獲得となります。</color>
+<color=#ff0000>・支援部隊が敵司令部を占領し、クリアした場合でも「ジンジャークッキー」を獲得できます。ボスを必ずしも撃退する必要はないので、ご注意ください。</color>
+
+5.期間限定商品:【ショップ】にて、「半額パック(人力)」、「半額パック(弾薬)」、「半額パック(配給)」、「半額パック(部品)」、「半額パック(契約)」が期間限定で販売されます。それぞれ1日20個まで購入可能です。
+<color=#bf8f00>販売期間:2018年12月7日(金)メンテナンス終了後～2018年12月9日(日)23:59</color>
+
+6.修正:【図鑑】ページの家具の実装年表記を正しいものへ修正。
+
+7.修正:特典人形「エルフェルト＝ヴァレンタイン」のコミュニケーション4のボイスが出ない問題。
+
+8.修正:キャリア任務NO.151のテキストを修正。
+
+9.修正:一部ボイステキストを修正。
+
+10.改善:ショップでのアイテムの名称表示、数量表示、及び価格表示をわかりやすく調整。
+
++-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+
+
+※メンテナンスが開始されると進行中のステージはすべて強制終了され、また、宿舎の訪問/被訪問記録もすべて削除されてしまいますので、十分にご注意ください。
+
+メンテナンス終了後、プレイヤーの皆さまに「カリーナのメンテナンスご協力感謝パック」を配布いたしますので、忘れずにお受け取りくださいね！
+
+カリーナのメンテナンスご協力感謝パック：<color=#bf8f00>人力×500、弾薬×500、配給×500、部品×500 </color>
+
+いつも「ドールズフロントライン」をご愛顧いただき、本当にありがとうございます！
+
+「ドールズフロントライン」運営チーム
+2018年12月6日 
+【23:31:58】      message = 没有2级枪 ERROR , exception = 
+【23:32:30】      message = 奖励获取 battle_get_prize  
+【23:32:32】      message = Rabbit E1 成功 
+【23:32:38】      message = 获取邮件 标题 每日指标：象征性胜利 内容 通过任意关卡1次。 
+【23:33:22】      message = 奖励获取 battle_get_prize  
+【23:33:24】      message = Rabbit E1 成功 
+【23:33:30】      message = 获取邮件 标题 ÿ�ܼ�ч�������ս��� 内容 ս��ʤ�����������200����ͨ��е��ѫ���� 
+【23:34:07】      message = 奖励获取 battle_get_prize  
+【23:34:09】      message = Rabbit E1 成功 
+【23:34:53】      message = 奖励获取 battle_get_prize  
+【23:34:55】      message = Rabbit E2 成功 
+【23:35:01】      message = 获取邮件 标题 每日指标：三段式胜利 内容 通过任意关卡3次。 
+【23:35:44】      message = 奖励获取 battle_get_prize  
+【23:35:45】      message = Rabbit E2 成功 
+【23:36:29】      message = 奖励获取 battle_get_prize  
+【23:36:31】      message = Rabbit E2 成功 
+【23:37:51】      message = 奖励获取 battle_get_prize  
+【23:37:52】      message = Rabbit E3 成功 
+【23:39:17】      message = 奖励获取 battle_get_prize  
+【23:39:18】      message = Rabbit E3 成功 
+【23:41:28】      message = 奖励获取 battle_get_prize  
+【23:41:28】      message = Rabbit E4 成功 
+【23:41:34】      message = 获取邮件 标题 每日指标：扩散型胜利 内容 通过任意关卡5次。 
+【23:43:42】      message = 奖励获取 battle_get_prize  
+【23:43:42】      message = Rabbit E4 成功 
+【23:43:46】      message = 人形 : 11261852 扩编 
+【23:43:46】      message = 战斗任务结束,获得 人力 0 子弹 0 口粮 0 零件 0 初级资料 0 中级资料 0 高级资料 0 人形 0 
+【00:33:46】      message = 程序已注销 请重新创建实例 

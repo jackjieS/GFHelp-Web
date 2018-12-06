@@ -13,6 +13,9 @@
           "Newtonsoft.Json": "11.0.2",
           "AuthCode": "1.0.0.0",
           "dotnet-aspnet-codegenerator-design": "2.1.0.0",
+          "FSLib.Extension": "1.4.3.0",
+          "FSLib.Network": "2.2.5.0",
+          "GFLogin": "1.0.0.0",
           "ICSharpCode.SharpZipLib": "0.86.0.518",
           "LitJson": "1.0.0.0",
           "Microsoft.AspNetCore.Identity.EntityFrameworkCore": "2.0.3.0",
@@ -308,6 +311,40 @@
           }
         }
       },
+      "FSLib.Extension/1.4.3.0": {
+        "runtime": {
+          "FSLib.Extension.dll": {
+            "assemblyVersion": "1.4.3.0",
+            "fileVersion": "1.4.3.0"
+          }
+        },
+        "resources": {
+          "en/FSLib.Extension.resources.dll": {
+            "locale": "en"
+          }
+        }
+      },
+      "FSLib.Network/2.2.5.0": {
+        "runtime": {
+          "FSLib.Network.dll": {
+            "assemblyVersion": "2.2.5.0",
+            "fileVersion": "2.2.5.0"
+          }
+        },
+        "resources": {
+          "en/FSLib.Network.resources.dll": {
+            "locale": "en"
+          }
+        }
+      },
+      "GFLogin/1.0.0.0": {
+        "runtime": {
+          "GFLogin.dll": {
+            "assemblyVersion": "1.0.0.0",
+            "fileVersion": "1.0.0.0"
+          }
+        }
+      },
       "ICSharpCode.SharpZipLib/0.86.0.518": {
         "runtime": {
           "ICSharpCode.SharpZipLib.dll": {
@@ -543,6 +580,21 @@
       "sha512": ""
     },
     "dotnet-aspnet-codegenerator-design/2.1.0.0": {
+      "type": "reference",
+      "serviceable": false,
+      "sha512": ""
+    },
+    "FSLib.Extension/1.4.3.0": {
+      "type": "reference",
+      "serviceable": false,
+      "sha512": ""
+    },
+    "FSLib.Network/2.2.5.0": {
+      "type": "reference",
+      "serviceable": false,
+      "sha512": ""
+    },
+    "GFLogin/1.0.0.0": {
       "type": "reference",
       "serviceable": false,
       "sha512": ""

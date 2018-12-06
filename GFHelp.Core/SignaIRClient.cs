@@ -129,17 +129,17 @@ namespace GFHelp.Core
                 {
                     if (k.taskDispose == true) continue;
                     k.webData.Get(k);
-                    if (!GamesStatus.ContainsKey(k.GameAccount.Base.WebUsername))
+                    if (!GamesStatus.ContainsKey(k.GameAccount.WebUsername))
                     {
-                        GamesStatus.Add(k.GameAccount.Base.WebUsername, new List<WebStatus>());
+                        GamesStatus.Add(k.GameAccount.WebUsername, new List<WebStatus>());
                     }
-                    GamesStatus[k.GameAccount.Base.WebUsername].Add(k.webData.webStatus);
+                    GamesStatus[k.GameAccount.WebUsername].Add(k.webData.webStatus);
 
-                    if (!GameDetails.ContainsKey(k.GameAccount.Base.GameAccountID))
+                    if (!GameDetails.ContainsKey(k.GameAccount.GameAccountID))
                     {
-                        GameDetails.Add(k.GameAccount.Base.GameAccountID, new List<WebData>());
+                        GameDetails.Add(k.GameAccount.GameAccountID, new List<WebData>());
                     }
-                    GameDetails[k.GameAccount.Base.GameAccountID].Add(k.webData);
+                    GameDetails[k.GameAccount.GameAccountID].Add(k.webData);
 
                 }
                 catch (Exception e)
@@ -159,6 +159,7 @@ namespace GFHelp.Core
             //检查是否有客户端 如果没有的话就不发送了
 
             getWebData();
+            if (userList.Count == 0) return;
             for (int i = 0; i < userList.Count; i++)
             {
                 connection.StartAsync();

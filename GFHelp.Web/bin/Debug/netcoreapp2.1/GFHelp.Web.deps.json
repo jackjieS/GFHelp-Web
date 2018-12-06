@@ -643,6 +643,7 @@
           "Newtonsoft.Json": "11.0.2",
           "LitJson": "1.0.0.0",
           "UnityEngine": "0.0.0.0",
+          "GFLogin": "1.0.0.0",
           "AuthCode": "1.0.0.0",
           "ICSharpCode.SharpZipLib": "0.86.0.518"
         },
@@ -674,6 +675,14 @@
           "UnityEngine.dll": {
             "assemblyVersion": "0.0.0.0",
             "fileVersion": "0.0.0.0"
+          }
+        }
+      },
+      "GFLogin.Reference/1.0.0.0": {
+        "runtime": {
+          "GFLogin.dll": {
+            "assemblyVersion": "1.0.0.0",
+            "fileVersion": "1.0.0.0"
           }
         }
       },
@@ -4436,6 +4445,11 @@
       "sha512": ""
     },
     "UnityEngine.Reference/0.0.0.0": {
+      "type": "reference",
+      "serviceable": false,
+      "sha512": ""
+    },
+    "GFLogin.Reference/1.0.0.0": {
       "type": "reference",
       "serviceable": false,
       "sha512": ""

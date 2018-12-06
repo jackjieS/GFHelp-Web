@@ -33,7 +33,7 @@ namespace GFHelp.Core.Management
                 }
                 catch (Exception e)
                 {
-                    new Log().userInit(userData.GameAccount.Base.GameAccountID, "循环倒计时 出现错误 ", e.ToString()).userInfo();
+                    new Log().userInit(userData.GameAccount.GameAccountID, "循环倒计时 出现错误 ", e.ToString()).userInfo();
                     return;
                 }
 

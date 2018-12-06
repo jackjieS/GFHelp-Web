@@ -46,7 +46,7 @@ namespace GFHelp.Core.Action
                         {
                             if (count++ >= userData.config.ErrorCount)
                             {
-                                new Log().userInit(userData.GameAccount.Base.GameAccountID, "后勤结束", result.ToString()).userInfo();
+                                new Log().userInit(userData.GameAccount.GameAccountID, "后勤结束", result.ToString()).userInfo();
                                 return;
                             }
                             break;
@@ -85,7 +85,7 @@ namespace GFHelp.Core.Action
                         {
                             if (count++ >= userData.config.ErrorCount)
                             {
-                                new Log().userInit(userData.GameAccount.Base.GameAccountID, "后勤任务开始 ERROR", result.ToString()).userInfo();
+                                new Log().userInit(userData.GameAccount.GameAccountID, "后勤任务开始 ERROR", result.ToString()).userInfo();
                                 return;
                             }
 
@@ -137,7 +137,7 @@ namespace GFHelp.Core.Action
                         {
                             if (count++ >= userData.config.ErrorCount)
                             {
-                                new Log().userInit(userData.GameAccount.Base.GameAccountID, "后勤结束失败", result.ToString()).userInfo();
+                                new Log().userInit(userData.GameAccount.GameAccountID, "后勤结束失败", result.ToString()).userInfo();
                                 return -1;
                             }
                             continue;
@@ -178,7 +178,7 @@ namespace GFHelp.Core.Action
                         {
                             if (count++ >= userData.config.ErrorCount)
                             {
-                                new Log().userInit(userData.GameAccount.Base.GameAccountID, " 开始后勤任务出错", result.ToString()).userInfo();
+                                new Log().userInit(userData.GameAccount.GameAccountID, " 开始后勤任务出错", result.ToString()).userInfo();
                                 return -1;
                             }
 
@@ -218,7 +218,7 @@ namespace GFHelp.Core.Action
                         {
                             if (count++ > userData.config.ErrorCount)
                             {
-                                new Log().userInit(userData.GameAccount.Base.GameAccountID, "AbortOperation ERROR", result).userInfo();
+                                new Log().userInit(userData.GameAccount.GameAccountID, "AbortOperation ERROR", result).userInfo();
                                 return -1;
                             }
                             break;
@@ -227,7 +227,7 @@ namespace GFHelp.Core.Action
                         {
                             if (count++ > userData.config.ErrorCount)
                             {
-                                new Log().userInit(userData.GameAccount.Base.GameAccountID, "AbortOperation ERROR", result).userInfo();
+                                new Log().userInit(userData.GameAccount.GameAccountID, "AbortOperation ERROR", result).userInfo();
                                 return -1;
                             }
                             break;

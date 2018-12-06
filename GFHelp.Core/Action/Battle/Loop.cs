@@ -50,7 +50,7 @@ namespace GFHelp.Core.Action
             }
             catch (Exception e)
             {
-                new Log().userInit(userData.GameAccount.Base.GameAccountID, "初始化战斗任务 ERROR", e.ToString());
+                new Log().userInit(userData.GameAccount.GameAccountID, "初始化战斗任务 ERROR", e.ToString());
                 userData.MissionInfo.setFirstDataLoopFalse();
                 goto End_At_Battle;
             }
@@ -63,7 +63,7 @@ namespace GFHelp.Core.Action
             catch (Exception e)
             {
                 new Log().systemInit("调用作战dll文件出错", e.ToString()).coreError();
-                new Log().userInit(userData.GameAccount.Base.GameAccountID, "调用作战dll文件出错", e.ToString()).coreError();
+                new Log().userInit(userData.GameAccount.GameAccountID, "调用作战dll文件出错", e.ToString()).coreError();
                 userData.MissionInfo.setFirstDataLoopFalse();
                 goto End_At_Battle;
             }
@@ -88,7 +88,7 @@ namespace GFHelp.Core.Action
             }
             catch (Exception e)
             {
-                new Log().userInit(userData.GameAccount.Base.GameAccountID, "初始化战斗任务 ERROR", e.ToString());
+                new Log().userInit(userData.GameAccount.GameAccountID, "初始化战斗任务 ERROR", e.ToString());
                 return;
             }
 
@@ -104,7 +104,7 @@ namespace GFHelp.Core.Action
             catch (Exception e)
             {
                 new Log().systemInit("调用作战dll文件出错", e.ToString()).coreError();
-                new Log().userInit(userData.GameAccount.Base.GameAccountID, "调用作战dll文件出错", e.ToString()).coreError();
+                new Log().userInit(userData.GameAccount.GameAccountID, "调用作战dll文件出错", e.ToString()).coreError();
 
             }
         }
@@ -147,6 +147,13 @@ namespace GFHelp.Core.Action
             {
                 userData.MissionInfo.GetFirstData().Loop = false;
             }
+            if (userData.MissionInfo.GetFirstData().CommanderLv < userData.user_Info.lv && userData.MissionInfo.GetFirstData().CommanderLv != 0)
+            {
+                userData.MissionInfo.GetFirstData().Loop = false;
+            }
+
+
+
             //核心要求
             if (userData.MissionInfo.GetFirstData().StopLoopByNumberCoreR && (userData.MissionInfo.GetFirstData().NumberCore > userData.MissionInfo.GetFirstData().NumberCoreRequire))
             {
@@ -195,7 +202,7 @@ namespace GFHelp.Core.Action
 
             string SummaryStatement = string.Format("战斗任务结束,获得 人力 {0} 子弹 {1} 口粮 {2} 零件 {3} 初级资料 {4} 中级资料 {5} 高级资料 {6} 人形 {7}", MP, AMMO, MRE, PART, COIN1, COIN2, COIN3, NumGun);
 
-            new Log().userInit(userData.GameAccount.Base.GameAccountID, SummaryStatement).userInfo();
+            new Log().userInit(userData.GameAccount.GameAccountID, SummaryStatement).userInfo();
 
 
 

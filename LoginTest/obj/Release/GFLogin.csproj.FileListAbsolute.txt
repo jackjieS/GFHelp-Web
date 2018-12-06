@@ -1,0 +1,17 @@
+C:\Users\jack\Desktop\CS\GFHelp-Web\LoginTest\bin\Release\GFLogin.dll.config
+C:\Users\jack\Desktop\CS\GFHelp-Web\LoginTest\bin\Release\GFLogin.dll
+C:\Users\jack\Desktop\CS\GFHelp-Web\LoginTest\bin\Release\GFLogin.pdb
+C:\Users\jack\Desktop\CS\GFHelp-Web\LoginTest\bin\Release\FSLib.Extension.dll
+C:\Users\jack\Desktop\CS\GFHelp-Web\LoginTest\bin\Release\FSLib.Network.dll
+C:\Users\jack\Desktop\CS\GFHelp-Web\LoginTest\bin\Release\LitJson.dll
+C:\Users\jack\Desktop\CS\GFHelp-Web\LoginTest\bin\Release\Newtonsoft.Json.dll
+C:\Users\jack\Desktop\CS\GFHelp-Web\LoginTest\bin\Release\FSLib.Extension.xml
+C:\Users\jack\Desktop\CS\GFHelp-Web\LoginTest\bin\Release\FSLib.Network.xml
+C:\Users\jack\Desktop\CS\GFHelp-Web\LoginTest\bin\Release\Newtonsoft.Json.xml
+C:\Users\jack\Desktop\CS\GFHelp-Web\LoginTest\bin\Release\en\FSLib.Extension.resources.dll
+C:\Users\jack\Desktop\CS\GFHelp-Web\LoginTest\bin\Release\en\FSLib.Network.resources.dll
+C:\Users\jack\Desktop\CS\GFHelp-Web\LoginTest\obj\Release\GFLogin.csproj.CoreCompileInputs.cache
+C:\Users\jack\Desktop\CS\GFHelp-Web\LoginTest\obj\Release\GFLogin.csproj.CopyComplete
+C:\Users\jack\Desktop\CS\GFHelp-Web\LoginTest\obj\Release\GFLogin.dll
+C:\Users\jack\Desktop\CS\GFHelp-Web\LoginTest\obj\Release\GFLogin.pdb
+C:\Users\jack\Desktop\CS\GFHelp-Web\LoginTest\bin\Release\System.Drawing.dll

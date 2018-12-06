@@ -68,3 +68,7 @@ C:\Users\jack\Desktop\CS\GFHelp-Web\GFHelp.Web\obj\Debug\netcoreapp2.1\GFHelp.We
 C:\Users\jack\Desktop\CS\GFHelp-Web\GFHelp.Web\obj\Debug\netcoreapp2.1\GFHelp.Web.csproj.CopyComplete
 C:\Users\jack\Desktop\CS\GFHelp-Web\GFHelp.Web\obj\Debug\netcoreapp2.1\GFHelp.Web.dll
 C:\Users\jack\Desktop\CS\GFHelp-Web\GFHelp.Web\obj\Debug\netcoreapp2.1\GFHelp.Web.pdb
+C:\Users\jack\Desktop\CS\GFHelp-Web\GFHelp.Web\obj\Debug\netcoreapp2.1\GFHelp.Web.Properties.Resources.resources
+C:\Users\jack\Desktop\CS\GFHelp-Web\GFHelp.Web\obj\Debug\netcoreapp2.1\GFHelp.Web.csproj.GenerateResource.cache
+C:\Users\jack\Desktop\CS\GFHelp-Web\GFHelp.Web\bin\Debug\netcoreapp2.1\GFLogin.dll
+C:\Users\jack\Desktop\CS\GFHelp-Web\GFHelp.Web\bin\Debug\netcoreapp2.1\GFLogin.pdb

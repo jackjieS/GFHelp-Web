@@ -90,3 +90,137 @@
 【18:05:36】      message =  获取好友 苍穹暗帝 电池 数量 10 
 【23:08:15】      message = 程序已注销 请重新创建实例 
 【02:03:55】      message = 程序已注销 请重新创建实例 
+【19:25:09】      message = jackjieS 无法开始作战任务，请登陆游戏检查 
+【19:28:20】      message = jackjieS 无法开始作战任务，请登陆游戏检查 
+【19:28:26】      message = 战斗任务结束,获得 人力 0 子弹 0 口粮 0 零件 0 初级资料 0 中级资料 0 高级资料 0 人形 0 
+【19:43:37】      message = 终止作战 , exception = 
+【19:44:11】      message = 战斗任务结束,获得 人力 0 子弹 0 口粮 0 零件 0 初级资料 0 中级资料 0 高级资料 0 人形 0 
+【19:50:03】      message = 战斗任务结束,获得 人力 0 子弹 0 口粮 0 零件 0 初级资料 0 中级资料 0 高级资料 0 人形 0 
+【23:02:41】      message = 程序已注销 请重新创建实例 
+【23:08:53】      message = 获取邮件 标题 每日指标：人偶储存 内容 进行1次战术少女制造。 
+【23:09:01】      message = 获取邮件 标题 每日指标：人偶扩展 内容 进行3次战术少女制造。 
+【23:09:18】      message = 获取邮件 标题 ÿ�ܼ�ч����ż���� 内容 ����20��ս����ů���졣 
+【23:09:28】      message = 获取邮件 标题 每日指标：小型强化 内容 进行1次战术少女强化。 
+【23:09:38】      message = 获取邮件 标题 每日指标：常规强化 内容 进行3次战术少女强化。 
+【23:10:00】      message = 获取邮件 标题 squad_data_daily-10000002 内容 squad_data_daily-20000002 
+【23:10:08】      message = 获取邮件 标题 prize-10006160 内容 prize-20006160 
+【23:10:58】      message = 获取邮件 标题 冬幕欢歌采购限时复刻开启 内容 活动时间：12月6日维护后至12月20日10:00
+备注：
+1.活动期间，当在“光辉典藏”中获得装扮时，有50%概率为2016年冬幕欢歌主题装扮。
+2.活动期间，当在“光辉典藏”中获得5星家具时，有50%概率为5星套装“圣诞福音”中的家具。
+3.活动期间，当在“光辉典藏”中获得4星家具时，有50%概率为4星套装“极地雪屋”中的家具。
+4.活动结束后，2016年冬幕欢歌主题装扮将从“光辉典藏”中移除。 
+【23:11:53】      message = teamMove Error , exception = error:203|行动点数计算有误
+【23:13:02】      message = 终止作战 , exception = 
+【23:14:31】      message = Rabbit E6 成功 
+【23:15:54】      message = Rabbit E6 成功 
+【23:17:01】      message = Rabbit E6 成功 
+【23:18:19】      message = Rabbit E6 成功 
+【00:04:21】      message = 获取邮件 标题 嘉年华奖励 内容 零件*100 
+【00:04:25】      message = 获取邮件 标题 嘉年华奖励 内容 弹药*200 
+【00:04:30】      message = 获取邮件 标题 每日指标：三段式胜利 内容 通过任意关卡3次。 
+【00:04:33】      message = 获取邮件 标题 prize-10006159 内容 prize-20006159 
+【00:04:37】      message = 获取邮件 标题 嘉年华奖励 内容 人力*100 
+【00:04:42】      message = 获取邮件 标题 每日指标：小型维修 内容 进行3次战术少女修复。 
+【00:04:45】      message = 战斗任务结束,获得 人力 0 子弹 0 口粮 0 零件 0 初级资料 0 中级资料 0 高级资料 0 人形 0 
+【00:34:36】      message = 获取邮件 标题 嘉年华奖励 内容 人力*100 
+【00:34:40】      message = 获取邮件 标题 prize-10006161 内容 prize-20006161 
+【00:34:47】      message = 获取邮件 标题 嘉年华奖励 内容 零件*300 
+【00:34:51】      message = 获取邮件 标题 ÿ�ܼ�ч�������ս��� 内容 ս��ʤ�����������200����ͨ��е��ѫ���� 
+【00:37:38】      message = Rabbit E7 成功 
+【00:38:08】      message = 获取邮件 标题 ÿ�ܼ�ч�����ο��� 内容 ս��ʤ�����������200����ͨ������ѫ���� 
+【00:38:12】      message = 获取邮件 标题 嘉年华奖励 内容 零件*300 
+【00:38:16】      message = 获取邮件 标题 每日指标：扩散型胜利 内容 通过任意关卡5次。 
+【00:40:13】      message = endEnemyTurn Error , exception = error:2
+【00:40:16】      message = startTurn Error , exception = error:2
+【00:40:23】      message = teamMove Error , exception = error:203|行动点数计算有误
+【00:40:30】      message = teamMove Error , exception = error:203|行动点数计算有误
+【00:40:42】      message = teamMove Error , exception = error:203|行动点数计算有误
+【00:40:54】      message = teamMove Error , exception = error:203|行动点数计算有误
+【00:41:19】      message = endTurn Error , exception = error:2
+【00:44:57】      message = Rabbit E7 成功 
+【00:47:14】      message = Rabbit E7 成功 
+【00:47:15】      message = 战斗任务结束,获得 人力 0 子弹 0 口粮 0 零件 0 初级资料 0 中级资料 0 高级资料 0 人形 0 
+【00:51:40】      message = teamMove Error , exception = error:2
+【00:51:53】      message = teamMove Error , exception = error:2
+【00:55:55】      message = 获取邮件 标题 嘉年华奖励 内容 零件*100 
+【00:55:59】      message = 获取邮件 标题 嘉年华奖励 内容 采购币*10 
+【00:56:03】      message = 获取邮件 标题 ÿ�ܼ�ч��ս����ʦ 内容 ��s�������100��ս���� 
+【00:56:13】      message = 终止作战 , exception = 
+【01:00:09】      message = teamMove Error , exception = error:2
+【01:04:16】      message = 获取邮件 标题 活跃奖励 内容 采购币*20、核心*10、快速训练契约*1 
+【01:04:17】      message = 终止作战 , exception = 
+【01:05:08】      message = Establish_Build_Finish ERROR , exception = error:202|尚无任何产出
+【01:06:38】      message = teamMove Error , exception = error:2
+【01:06:41】      message = teamMove Error , exception = error:2
+【01:06:53】      message = teamMove Error , exception = error:2
+【01:16:55】      message = 终止作战 , exception = 
+【01:20:08】      message = teamMove Error , exception = error:2
+【01:28:01】      message = 终止作战 , exception = 
+【01:35:27】      message = 终止作战 , exception = 
+【01:36:09】      message = 终止作战 , exception = 
+【01:42:44】      message = 终止作战 , exception = 
+【01:44:59】      message = 获取邮件 标题 嘉年华奖励 内容 采购币*10 
+【01:45:00】      message = 终止作战 , exception = 
+【01:47:14】      message = teamMove Error , exception = error:2
+【01:51:21】      message = 获取邮件 标题 每日指标：常规维修 内容 进行10次战术少女修复。 
+【01:59:37】      message = 终止作战 , exception = 
+【02:01:44】      message = endEnemyTurn Error , exception = error:2
+【02:01:47】      message = startTurn Error , exception = error:2
+【02:02:09】      message = teamMove Error , exception = error:203|行动点数计算有误
+【02:08:26】      message = 终止作战 , exception = 
+【02:31:28】      message = Establish_Build_Finish ERROR , exception = error:202|尚无任何产出
+【02:32:01】      message = teamMove Error , exception = error:2
+【02:35:34】      message = 终止作战 , exception = 
+【02:38:21】      message = teamMove Error , exception = error:2
+【02:41:32】      message = 终止作战 , exception = 
+【02:44:24】      message = endEnemyTurn Error , exception = error:2
+【02:44:28】      message = startTurn Error , exception = error:2
+【02:44:36】      message = teamMove Error , exception = error:203|行动点数计算有误
+【02:55:12】      message = endEnemyTurn Error , exception = error:2
+【02:55:17】      message = startTurn Error , exception = error:2
+【02:55:27】      message = teamMove Error , exception = error:203|行动点数计算有误
+【02:55:32】      message = teamMove Error , exception = error:203|行动点数计算有误
+【02:56:52】      message = jackjieS 无法开始作战任务，请登陆游戏检查 
+【02:56:53】      message = 战斗任务结束,获得 人力 0 子弹 0 口粮 0 零件 0 初级资料 0 中级资料 0 高级资料 0 人形 0 
+【03:00:34】      message = 获取邮件 标题 签到奖励 内容 签到奖励: 
+【03:00:38】      message = 获取邮件 标题 格琳娜的每日答谢礼物 内容 亲爱的指挥官，//n感谢您的关照，这是我准备的小礼物，希望您会喜欢。顺便，祝新的一天工作顺利！//n//n您活跃的后勤官 格琳娜 
+【03:03:14】      message = endEnemyTurn Error , exception = error:2
+【03:03:18】      message = startTurn Error , exception = error:2
+【03:06:21】      message = 获取邮件 标题 格琳娜的每日答谢礼物 内容 亲爱的指挥官，//n感谢您的关照，这是我准备的小礼物，希望您会喜欢。顺便，祝新的一天工作顺利！//n//n您活跃的后勤官 格琳娜 
+【03:06:25】      message = 获取邮件 标题 每日指标：小型强化 内容 进行1次战术少女强化。 
+【03:06:28】      message = 获取邮件 标题 squad_data_daily-10000011 内容 squad_data_daily-20000011 
+【03:06:32】      message = 获取邮件 标题 月卡奖励 内容 月卡过期时间：2019-01-05 
+【03:06:36】      message = 获取邮件 标题 每日指标：人偶储存 内容 进行1次战术少女制造。 
+【03:06:40】      message = 获取邮件 标题 ÿ�ܼ�ч��װ��׷���� 内容 ս��ʤ�����������200��װ�׻�е��ѫ���� 
+【03:06:41】      message = 终止作战 , exception = 
+【03:07:12】      message = endTurn Error , exception = error:3
+【03:07:20】      message = endEnemyTurn Error , exception = error:2
+【03:07:23】      message = startTurn Error , exception = error:2
+【03:07:26】      message = teamMove Error , exception = error:203|行动点数计算有误
+【03:07:38】      message = teamMove Error , exception = error:203|行动点数计算有误
+【03:07:46】      message = teamMove Error , exception = error:203|行动点数计算有误
+【03:07:49】      message = teamMove Error , exception = error:203|行动点数计算有误
+【03:08:00】      message = teamMove Error , exception = error:203|行动点数计算有误
+【03:08:08】      message = teamMove Error , exception = error:203|行动点数计算有误
+【03:08:32】      message = endEnemyTurn Error , exception = error:2
+【03:08:39】      message = startTurn Error , exception = error:2
+【03:08:42】      message = teamMove Error , exception = error:203|行动点数计算有误
+【03:08:45】      message = teamMove Error , exception = error:203|行动点数计算有误
+【03:08:57】      message = teamMove Error , exception = error:203|行动点数计算有误
+【03:09:08】      message = teamMove Error , exception = error:203|行动点数计算有误
+【03:09:10】      message = teamMove Error , exception = error:203|行动点数计算有误
+【03:09:16】      message = teamMove Error , exception = error:203|行动点数计算有误
+【03:09:24】      message = endTurn Error , exception = error:2
+【03:09:29】      message = endEnemyTurn Error , exception = error:2
+【03:09:32】      message = startTurn Error , exception = error:2
+【03:09:36】      message = teamMove Error , exception = error:203|行动点数计算有误
+【03:09:39】      message = teamMove Error , exception = error:203|行动点数计算有误
+【03:12:42】      message = endEnemyTurn Error , exception = error:2
+【03:12:46】      message = startTurn Error , exception = error:2
+【03:12:50】      message = teamMove Error , exception = error:203|行动点数计算有误
+【03:15:10】      message = 终止作战 , exception = 
+【03:17:17】      message = endEnemyTurn Error , exception = error:2
+【03:17:21】      message = startTurn Error , exception = error:2
+【03:18:13】      message = 终止作战 , exception = 
+【03:21:19】      message = Rabbit E8 成功 

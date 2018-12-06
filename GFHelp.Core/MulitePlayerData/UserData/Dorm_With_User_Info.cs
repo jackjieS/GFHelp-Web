@@ -210,12 +210,12 @@ namespace GFHelp.Core.MulitePlayerData
             {
                 if (item.Value > 0)
                 {
-                    new Log().userInit(userData.GameAccount.Base.GameAccountID, string.Format(" {0} 宿舍 电池数 {1}", item.Key.name, item.Value)).userInfo();
+                    new Log().userInit(userData.GameAccount.GameAccountID, string.Format(" {0} 宿舍 电池数 {1}", item.Key.name, item.Value)).userInfo();
                     i++;
                 }
                 
             }
-            new Log().userInit(userData.GameAccount.Base.GameAccountID,string.Format(" -----------展示好友电池信息({0})------------",i)).userInfo();
+            new Log().userInit(userData.GameAccount.GameAccountID,string.Format(" -----------展示好友电池信息({0})------------",i)).userInfo();
         }
 
         public void FriendBattery()
@@ -224,7 +224,7 @@ namespace GFHelp.Core.MulitePlayerData
             dicFridentBatteryNumber.Clear();
             try
             {
-                new Log().userInit(userData.GameAccount.Base.GameAccountID, "-----------获取好友电池信息------------").userInfo();
+                new Log().userInit(userData.GameAccount.GameAccountID, "-----------获取好友电池信息------------").userInfo();
                 foreach (var item in userData.friend_with_user_info.dicFriend)
                 {
                     int Friend_BattaryNum = GetFriendBatteryNum(userData, item.Value.f_userid);
@@ -235,14 +235,14 @@ namespace GFHelp.Core.MulitePlayerData
                 foreach (var item in dicFridentBatteryNumber)
                 {
                     if (userData.Dorm_Rest_Friend_Build_Coin_Count <= 0) return;
-                    new Log().userInit(userData.GameAccount.Base.GameAccountID, String.Format(" 获取好友 {0} 电池 数量 {1}", item.Key.name, item.Value)).userInfo();
+                    new Log().userInit(userData.GameAccount.GameAccountID, String.Format(" 获取好友 {0} 电池 数量 {1}", item.Key.name, item.Value)).userInfo();
                     GetFriendBattery(userData, item.Key.f_userid);
                     userData.Dorm_Rest_Friend_Build_Coin_Count--;
                 }
             }
             catch (Exception e)
             {
-                new Log().userInit(userData.GameAccount.Base.GameAccountID, "非法操作 " + e.ToString()).userInfo();
+                new Log().userInit(userData.GameAccount.GameAccountID, "非法操作 " + e.ToString()).userInfo();
             }
 
         }
@@ -322,7 +322,7 @@ namespace GFHelp.Core.MulitePlayerData
                             {
                                 if (count++ >= userData.config.ErrorCount)
                                 {
-                                    new Log().userInit(userData.GameAccount.Base.GameAccountID, "获取电池出错", result).userInfo();
+                                    new Log().userInit(userData.GameAccount.GameAccountID, "获取电池出错", result).userInfo();
                                     return;
                                 }
                                 break;
@@ -331,7 +331,7 @@ namespace GFHelp.Core.MulitePlayerData
                             {
                                 if (count++ >= userData.config.ErrorCount)
                                 {
-                                    new Log().userInit(userData.GameAccount.Base.GameAccountID, "获取宿舍信息出错", result).userInfo();
+                                    new Log().userInit(userData.GameAccount.GameAccountID, "获取宿舍信息出错", result).userInfo();
                                     return;
                                 }
                                 break;
@@ -369,7 +369,7 @@ namespace GFHelp.Core.MulitePlayerData
                             {
                                 if (count++ >= userData.config.ErrorCount)
                                 {
-                                    new Log().userInit(userData.GameAccount.Base.GameAccountID, "获取电池出错", result.ToString()).userInfo();
+                                    new Log().userInit(userData.GameAccount.GameAccountID, "获取电池出错", result.ToString()).userInfo();
                                     return;
                                 }
                                 break;
@@ -378,7 +378,7 @@ namespace GFHelp.Core.MulitePlayerData
                             {
                                 if (count++ >= userData.config.ErrorCount)
                                 {
-                                    new Log().userInit(userData.GameAccount.Base.GameAccountID, " 获取电池出错", result.ToString()).userInfo();
+                                    new Log().userInit(userData.GameAccount.GameAccountID, " 获取电池出错", result.ToString()).userInfo();
                                     return;
                                 }
                                 break;
@@ -414,7 +414,7 @@ namespace GFHelp.Core.MulitePlayerData
 
         private bool GetOandPData(ref string result)
         {
-            new Log().userInit(userData.GameAccount.Base.GameAccountID, "收集数据 数据监测枢纽 ").userInfo();
+            new Log().userInit(userData.GameAccount.GameAccountID, "收集数据 数据监测枢纽 ").userInfo();
             int count = 0;
             while (true)
             {
@@ -424,14 +424,14 @@ namespace GFHelp.Core.MulitePlayerData
                 {
                     case 1:
                         {
-                            new Log().userInit(userData.GameAccount.Base.GameAccountID, "收集数据 数据监测枢纽 完成").userInfo();
+                            new Log().userInit(userData.GameAccount.GameAccountID, "收集数据 数据监测枢纽 完成").userInfo();
                             return true;
                         }
                     case 0:
                         {
                             if (count++ >= userData.config.ErrorCount)
                             {
-                                new Log().userInit(userData.GameAccount.Base.GameAccountID, " 获取数据样本出错", result.ToString()).userInfo();
+                                new Log().userInit(userData.GameAccount.GameAccountID, " 获取数据样本出错", result.ToString()).userInfo();
                                 return false;
                             }
                             break;
@@ -440,7 +440,7 @@ namespace GFHelp.Core.MulitePlayerData
                         {
                             if (count++ >= userData.config.ErrorCount)
                             {
-                                new Log().userInit(userData.GameAccount.Base.GameAccountID, " 获取数据样本出错", result.ToString()).userInfo();
+                                new Log().userInit(userData.GameAccount.GameAccountID, " 获取数据样本出错", result.ToString()).userInfo();
                                 return false;
                             }
                             break;

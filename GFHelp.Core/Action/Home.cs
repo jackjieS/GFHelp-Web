@@ -23,55 +23,46 @@ namespace GFHelp.Core.Action
         public bool Login()
         {
 
-            if (string.IsNullOrEmpty(userData.GameAccount.Base.YunDouDou))
+            if (string.IsNullOrEmpty(userData.GameAccount.YunDouDou))
             {
-
-                userData.webData.StatusBarText = "数字天空登陆";
-                if (!LoginDigitalSKY())
-                {
-                    new Log().userInit(userData.GameAccount.Base.GameAccountID, "数字天空登陆失败", "").userInfo();
-                    return false;
-                }
-
-
-
                 userData.webData.StatusBarText = "获取时间信息";
                 if (!Index_version())
                 {
-                    new Log().userInit(userData.GameAccount.Base.GameAccountID, "获取时间信息失败", "").userInfo();
+                    new Log().userInit(userData.GameAccount.GameAccountID, "获取时间信息失败", "").userInfo();
                     return false;
                 }
 
-                userData.webData.StatusBarText = "获取Sign";
-                if (!GetDigitalUid())
+                userData.webData.StatusBarText = "游戏登陆";
+                GFLogin.LoginManager login = new GFLogin.LoginManager().setAccountID(userData.GameAccount.GameAccountID).setPWD(userData.GameAccount.GamePassword).setChannelID(userData.GameAccount.ChannelID);
+                login.Login();
+                if (login.isSuccessLogin)
                 {
-                    new Log().userInit(userData.GameAccount.Base.GameAccountID, "获取Sign失败", "").userInfo();
+                    userData.GameAccount.YunDouDou = login.EncryptResult;
+                }
+                else
+                {
+                    new Log().userInit(userData.GameAccount.GameAccountID, "数字天空登陆失败", "").userInfo();
                     return false;
                 }
 
+
             }
-            else
-            {
-                //解密云豆豆
-                userData.GameAccount.req_id = Decrypt.ConvertDateTime_China_Int(DateTime.Now);
-                if (Response.Check(userData.GameAccount, ref userData.GameAccount.Base.YunDouDou, "GetDigitalUid_Pro", false) != 1) return false;
-            }
+
+            userData.GameAccount.req_id = Decrypt.ConvertDateTime_China_Int(DateTime.Now);
+            if (Response.Check(userData.GameAccount, ref userData.GameAccount.YunDouDou, "GetDigitalUid_Pro", false) != 1) return false;
 
             userData.webData.StatusBarText = "获取UserInfo";
             if (!GetUserInfo())
             {
-                new Log().userInit(userData.GameAccount.Base.GameAccountID, "获取UserInfo失败", "").userInfo();
+                new Log().userInit(userData.GameAccount.GameAccountID, "获取UserInfo失败", "").userInfo();
                 return false;
             }
-
-
-
 
             userData.webData.StatusBarText = "签到";
 
             if (!Attendance())
             {
-                new Log().userInit(userData.GameAccount.Base.GameAccountID, "签到失败", "").userInfo();
+                new Log().userInit(userData.GameAccount.GameAccountID, "签到失败", "").userInfo();
                 return false;
             } 
 
@@ -154,48 +145,7 @@ namespace GFHelp.Core.Action
             return buffer.ToString();
         }
 
-        private bool LoginDigitalSKY()
-        {
-            int count = 0;
-            while (true)
-            {
-                string result = API.Login.Digitalsky(userData.GameAccount);
-                if (Response.Check(userData.GameAccount, ref result, "LoginFirstUrl", false) == 1)
-                {
-                    var jsonobj = DynamicJson.Parse(result); //讲道理，我真不想写了
-                    userData.GameAccount.access_token = jsonobj.access_token.ToString();
-                    userData.GameAccount.openid = jsonobj.openid.ToString();
-                    return true;
-                }
-                if (Response.Check(userData.GameAccount, ref result, "LoginFirstUrl", false) == 0)
-                {
-                    if (count++ >= userData.config.ErrorCount)
-                    {
-                        new Log().systemInit("LoginDigitalSKY", result.ToString()).coreError();
-                        new Log().userInit(userData.GameAccount.Base.GameAccountID, "LoginDigitalSKY", result.ToString()).userInfo();
-                        return false;
-                    }
-                    continue;
-                }
-                if (Response.Check(userData.GameAccount, ref result, "LoginFirstUrl", false) == -1)
-                {
-                    if (count++ >= userData.config.ErrorCount)
-                    {
-                        new Log().systemInit("LoginDigitalSKY", result.ToString()).coreError();
-                        new Log().userInit(userData.GameAccount.Base.GameAccountID, "LoginDigitalSKY", result.ToString()).userInfo();
-                        return false;
-                    }
-                    continue;
-                }
 
-            }
-
-
-
-
-            //Data.data[gameAccount.Base.Accountid].User_info = result;
-            //return result;
-        }
 
         public  bool Index_version()//这个API发的是当前时间戳？
         {
@@ -271,46 +221,11 @@ namespace GFHelp.Core.Action
                 }
             }
         }
-        private bool GetDigitalUid()
-        {
-            IDictionary<string, string> parameters = new Dictionary<string, string>();
-            parameters.Add("openid", userData.GameAccount.openid);
-            parameters.Add("access_token", userData.GameAccount.access_token);
-            parameters.Add("app_id", "0002000100021001");
-            parameters.Add("channelid", userData.GameAccount.Base.ChannelID);
-            parameters.Add("idfa", "");
-            parameters.Add("androidid", userData.GameAccount.AndroidID);
-            parameters.Add("mac", userData.GameAccount.MAC);
-            parameters.Add("req_id", userData.GameAccount.req_id++.ToString());
 
-            string data = StringBuilder_(parameters);
 
-            string result = "";
-            int count = 0;
-            while (true)
-            {
-                result = API.Login.GetDigitalUid(userData.GameAccount, data);
 
-                switch (Response.Check(userData.GameAccount, ref result, "GetDigitalUid_Pro", false))
-                {
-                    case 1:
-                        {
-                            return true;
-                        }
-                    case 0:
-                        {
-                            continue;
-                        }
-                    case -1:
-                        {
-                            if (count++ >= userData.config.ErrorCount) return false;
-                            continue;
-                        }
-                    default:
-                        break;
-                }
-            }
-        }
+
+
 
         private bool Attendance()
         {
@@ -352,7 +267,7 @@ namespace GFHelp.Core.Action
                             if(count++ > userData.config.ErrorCount)
                             {
                                 new Log().systemInit("Mail", result.ToString()).coreError();
-                                new Log().userInit(userData.GameAccount.Base.GameAccountID, "Mail", result.ToString()).userInfo();
+                                new Log().userInit(userData.GameAccount.GameAccountID, "Mail", result.ToString()).userInfo();
                                 return;
                             }
                             break;
@@ -389,7 +304,7 @@ namespace GFHelp.Core.Action
                                 if (count++ > userData.config.ErrorCount)
                                 {
                                     new Log().systemInit("GetMail", result.ToString()).coreError();
-                                    new Log().userInit(userData.GameAccount.Base.GameAccountID, "GetMail", result.ToString()).userInfo();
+                                    new Log().userInit(userData.GameAccount.GameAccountID, "GetMail", result.ToString()).userInfo();
                                     return;
                                 }
                                 break;
@@ -418,7 +333,7 @@ namespace GFHelp.Core.Action
                         jsonobj = DynamicJson.Parse(result);
                         string title =CatchData.Base.Asset_Textes.ChangeCodeFromeCSV(Response.UnicodeToString(jsonobj.title.ToString()));
                         string content = CatchData.Base.Asset_Textes.ChangeCodeFromeCSV(Response.UnicodeToString(jsonobj.content.ToString()));
-                        //输出日志
+                        new Log().userInit(userData.GameAccount.GameAccountID, string.Format("获取邮件 标题 {0} 内容 {1}", title, content)).userInfo();
                     }
 
 
@@ -489,7 +404,7 @@ namespace GFHelp.Core.Action
                         {
                             if (count++ > userData.config.ErrorCount)
                             {
-                                new Log().userInit(userData.GameAccount.Base.GameAccountID, "锁 失败", result.ToString()).userInfo();
+                                new Log().userInit(userData.GameAccount.GameAccountID, "锁 失败", result.ToString()).userInfo();
                                 return;
                             }
                             continue;

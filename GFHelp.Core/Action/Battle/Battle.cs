@@ -23,7 +23,7 @@ namespace GFHelp.Core.Action
         {
             if (userData.others.Mission_S)
             {
-                new Log().userInit(userData.GameAccount.Base.GameAccountID, "终止作战", "").userInfo();
+                new Log().userInit(userData.GameAccount.GameAccountID, "终止作战", "").userInfo();
                 abortMission();
             }
             
@@ -65,16 +65,44 @@ namespace GFHelp.Core.Action
         {
             userData.webData.StatusBarText = "回合开始";
             Thread.Sleep(3000);
+
+            StringBuilder stringBuilder = new StringBuilder();
+            JsonWriter jsonWriter = new JsonWriter(stringBuilder);
+            jsonWriter.WriteObjectStart();
+
+            jsonWriter.WritePropertyName("mission_id");
+            jsonWriter.Write(map.mission_id);
+
+            jsonWriter.WritePropertyName("spots");
+            jsonWriter.WriteArrayStart();
+            foreach (var item in map.Mission_Start_spots)
+            {
+                jsonWriter.WriteObjectStart();
+                jsonWriter.WritePropertyName("spot_id");
+                jsonWriter.Write(item.spot_id);
+                jsonWriter.WritePropertyName("team_id");
+                jsonWriter.Write(item.team_id);
+                jsonWriter.WriteObjectEnd();
+            }
+            jsonWriter.WriteArrayEnd();
+
+            jsonWriter.WritePropertyName("squad_spots");
+            jsonWriter.WriteArrayStart();
+            jsonWriter.WriteArrayEnd();
+
+
+            jsonWriter.WritePropertyName("ally_id");
+            jsonWriter.Write(Decrypt.ConvertDateTime_China_Int(DateTime.Now));
+
+
+
+            jsonWriter.WriteObjectEnd();
+
             int count = 0;
-            int[] squad_spots= { };
-            dynamic newjson = new DynamicJson();
-            newjson.mission_id /*这是节点*/ = map.mission_id;/* 这是值*/
-            newjson.spots = map.Mission_Start_spots;
-            newjson.squad_spots = squad_spots;
-            newjson.ally_id = Decrypt.ConvertDateTime_China_Int(DateTime.Now);
+
             while (true)
             {
-                string result =API.Battle.startMission(userData.GameAccount,newjson.ToString());
+                string result =API.Battle.startMission(userData.GameAccount, stringBuilder.ToString());
 
                 switch (Response.Check(userData.GameAccount, ref result, "Start_Mission_Pro", true))
                 {
@@ -91,7 +119,7 @@ namespace GFHelp.Core.Action
                         {
                             if(count++ > userData.config.ErrorCount)
                             {
-                                new Log().userInit(userData.GameAccount.Base.GameAccountID, String.Format("{0} 无法开始作战任务，请登陆游戏检查", userData.user_Info.name)).userInfo();
+                                new Log().userInit(userData.GameAccount.GameAccountID, String.Format("{0} 无法开始作战任务，请登陆游戏检查", userData.user_Info.name)).userInfo();
                                 userData.MissionInfo.listTask[0].Using = false;
                                 userData.MissionInfo.listTask[0].Loop = false;
                                 return -1;
@@ -106,20 +134,26 @@ namespace GFHelp.Core.Action
             }
         }
 
-        public bool reinforceTeam(Spot spots, bool night = false)
+        public bool reinforceTeam(Spot.Data spot, bool night = false)
         {
             userData.webData.StatusBarText = "部署梯队";
 
             Thread.Sleep(2000);
             int count = 0;
-            dynamic newjson = new DynamicJson();
-            newjson.spot_id /*这是节点*/ = spots.spot_id;/* 这是值*/
-            newjson.team_id = spots.team_id;
+
+            StringBuilder stringBuilder = new StringBuilder();
+            JsonWriter jsonWriter = new JsonWriter(stringBuilder);
+            jsonWriter.WriteObjectStart();
+            jsonWriter.WritePropertyName("spot_id");
+            jsonWriter.Write(spot.spot_id);
+            jsonWriter.WritePropertyName("team_id");
+            jsonWriter.Write(spot.team_id);
+            jsonWriter.WriteObjectEnd();
 
             int k = 0;
             while (true)
             {
-                string result =API.Battle.reinforceTeam(userData.GameAccount,newjson.ToString());
+                string result =API.Battle.reinforceTeam(userData.GameAccount, stringBuilder.ToString());
 
                 if (night == false) k = Response.Check(userData.GameAccount, ref result, "reinforceTeam",true);
                 if (night == true) k = Response.Check(userData.GameAccount, ref result, "night_reinforceTeam", true);
@@ -138,7 +172,7 @@ namespace GFHelp.Core.Action
                         {
                             if (count++ > userData.config.ErrorCount)
                             {
-                                new Log().userInit(userData.GameAccount.Base.GameAccountID, String.Format("{0} 无法部署梯队，请登陆游戏检查", userData.user_Info.name), result).userInfo();
+                                new Log().userInit(userData.GameAccount.GameAccountID, String.Format("{0} 无法部署梯队，请登陆游戏检查", userData.user_Info.name), result).userInfo();
                                 return false;
                             }
                             continue;
@@ -177,7 +211,7 @@ namespace GFHelp.Core.Action
                         {
                             if (count++ > userData.config.ErrorCount)
                             {
-                                new Log().userInit(userData.GameAccount.Base.GameAccountID, "allyTeamAi Error", result).userInfo();
+                                new Log().userInit(userData.GameAccount.GameAccountID, "allyTeamAi Error", result).userInfo();
 
                                 return;
                             }
@@ -207,7 +241,7 @@ namespace GFHelp.Core.Action
             Thread.Sleep(500);
             API.Battle.endOtherSideTurn(userData.GameAccount);
         }
-        public bool teamMove(TeamMove teammove)
+        public bool teamMove(TeamMove.Data teammove)
         {
             userData.webData.StatusBarText = "移动";
             //{"team_id":6,"from_spot_id":3033,"to_spot_id":3038,"move_type":1}
@@ -238,7 +272,7 @@ namespace GFHelp.Core.Action
                         {
                             if (count++ > userData.config.ErrorCount)
                             {
-                                new Log().userInit(userData.GameAccount.Base.GameAccountID, "teamMove Error", result).userInfo();
+                                new Log().userInit(userData.GameAccount.GameAccountID, "teamMove Error", result).userInfo();
                                 return false;
                             }
                             continue;
@@ -252,7 +286,7 @@ namespace GFHelp.Core.Action
 
 
 
-        public int teamMove_Random(TeamMove teammove, MissionInfo.Data data)
+        public int teamMove_Random(TeamMove.Data teammove, MissionInfo.Data data)
         {
             userData.webData.StatusBarText = "移动";
             //{"team_id":6,"from_spot_id":3033,"to_spot_id":3038,"move_type":1}
@@ -285,7 +319,7 @@ namespace GFHelp.Core.Action
                         {
                             if (count++ > userData.config.ErrorCount)
                             {
-                                new Log().userInit(userData.GameAccount.Base.GameAccountID, "teamMove Error", result).userInfo();
+                                new Log().userInit(userData.GameAccount.GameAccountID, "teamMove Error", result).userInfo();
                                 return -1;
                             }
                             continue;
@@ -359,7 +393,7 @@ namespace GFHelp.Core.Action
         public bool Normal_battleFinish(string data, ref string result, bool errorSkip = false)
         {
             userData.webData.StatusBarText = "战斗结算";
-            //new Log().userInit(userData.GameAccount.Base.GameAccountID, String.Format("data = {0}", data));
+            //new Log().userInit(userData.GameAccount.GameAccountID, String.Format("data = {0}", data));
             Thread.Sleep(3000);
             int count = 0;
 
@@ -382,7 +416,7 @@ namespace GFHelp.Core.Action
                         {
                             if (count++ > userData.config.ErrorCount)
                             {
-                                //new Log().userInit(userData.GameAccount.Base.GameAccountID, "Normal_battleFinish Error", result).userInfo();
+                                //new Log().userInit(userData.GameAccount.GameAccountID, "Normal_battleFinish Error", result).userInfo();
                                 return false;
                             }
                             continue;
@@ -430,7 +464,7 @@ namespace GFHelp.Core.Action
                         {
                             if (count++ > userData.config.ErrorCount)
                             {
-                                new Log().userInit(userData.GameAccount.Base.GameAccountID, "FairyMissionSkill Error", result).userInfo();
+                                new Log().userInit(userData.GameAccount.GameAccountID, "FairyMissionSkill Error", result).userInfo();
                                 return false;
                             }
                             continue;
@@ -469,7 +503,7 @@ namespace GFHelp.Core.Action
                         {
                             if (count++ > userData.config.ErrorCount)
                             {
-                                new Log().userInit(userData.GameAccount.Base.GameAccountID, "withdrawTeam Error", result).userInfo();
+                                new Log().userInit(userData.GameAccount.GameAccountID, "withdrawTeam Error", result).userInfo();
                                 return false;
                             }
                             continue;
@@ -506,7 +540,7 @@ namespace GFHelp.Core.Action
                         {
                             if (count++ > userData.config.ErrorCount)
                             {
-                                new Log().userInit(userData.GameAccount.Base.GameAccountID, "endTurn Error", result).userInfo();
+                                new Log().userInit(userData.GameAccount.GameAccountID, "endTurn Error", result).userInfo();
                                 return result;
                             }
                             continue;
@@ -546,7 +580,7 @@ namespace GFHelp.Core.Action
                         {
                             if (count++ > userData.config.ErrorCount)
                             {
-                                new Log().userInit(userData.GameAccount.Base.GameAccountID, "startTurn Error", result).userInfo();
+                                new Log().userInit(userData.GameAccount.GameAccountID, "startTurn Error", result).userInfo();
                                 return false;
                             }
                             continue;
@@ -615,7 +649,7 @@ namespace GFHelp.Core.Action
                         {
                             if (count++ > userData.config.ErrorCount)
                             {
-                                new Log().userInit(userData.GameAccount.Base.GameAccountID, "endEnemyTurn Error", result).userInfo();
+                                new Log().userInit(userData.GameAccount.GameAccountID, "endEnemyTurn Error", result).userInfo();
                                 return;
                             }
                             continue;
@@ -648,7 +682,7 @@ namespace GFHelp.Core.Action
                         {
                             if (count++ > userData.config.ErrorCount)
                             {
-                                new Log().userInit(userData.GameAccount.Base.GameAccountID, "SupplyTeam Error", result).userInfo();
+                                new Log().userInit(userData.GameAccount.GameAccountID, "SupplyTeam Error", result).userInfo();
                                 return;
                             }
                             continue;
@@ -703,7 +737,7 @@ namespace GFHelp.Core.Action
                         {
                             if (count++ > userData.config.ErrorCount)
                             {
-                                new Log().userInit(userData.GameAccount.Base.GameAccountID, "saveHostage Error", result).userInfo();
+                                new Log().userInit(userData.GameAccount.GameAccountID, "saveHostage Error", result).userInfo();
                                 return false;
                             }
                             continue;
@@ -776,7 +810,7 @@ namespace GFHelp.Core.Action
                         {
                             if (count++ > userData.config.ErrorCount)
                             {
-                                new Log().userInit(userData.GameAccount.Base.GameAccountID, "Fix_Gun Error", result).userInfo();
+                                new Log().userInit(userData.GameAccount.GameAccountID, "Fix_Gun Error", result).userInfo();
                                 return false;
                             }
                             continue;
@@ -816,7 +850,7 @@ namespace GFHelp.Core.Action
             JsonData jsonData = JsonMapper.ToObject(jsonobj.ToString());
             if (jsonobj.ToString().Contains("battle_get_prize"))
             {
-                new Log().userInit(userData.GameAccount.Base.GameAccountID, "奖励获取 battle_get_prize ").userInfo();
+                new Log().userInit(userData.GameAccount.GameAccountID, "奖励获取 battle_get_prize ").userInfo();
                 if (data.StopLoopByPrize) data.Loop = false;
             }
             if (jsonobj.ToString().Contains("battle_get_equip"))
@@ -829,7 +863,7 @@ namespace GFHelp.Core.Action
                     
                     if ((int)equip.info.rank==5)
                     {
-                        new Log().userInit(userData.GameAccount.Base.GameAccountID, "获得5星装备 意不意外 惊不惊喜").userInfo();
+                        new Log().userInit(userData.GameAccount.GameAccountID, "获得5星装备 意不意外 惊不惊喜").userInfo();
                     }
                     if ((int)equip.info.rank == 5 && data.StopLoopByEquipRank5==true)
                     {
@@ -838,7 +872,7 @@ namespace GFHelp.Core.Action
                 }
                 catch (Exception e)
                 {
-                    new Log().userInit(userData.GameAccount.Base.GameAccountID, "添加掉落装备遇到错误").userInfo();
+                    new Log().userInit(userData.GameAccount.GameAccountID, "添加掉落装备遇到错误").userInfo();
                     return false;
                 }
             }
@@ -852,7 +886,7 @@ namespace GFHelp.Core.Action
                 }
                 catch (Exception e)
                 {
-                    new Log().userInit(userData.GameAccount.Base.GameAccountID, "添加人形掉落遇到错误 Error", e.ToString()).userInfo();
+                    new Log().userInit(userData.GameAccount.GameAccountID, "添加人形掉落遇到错误 Error", e.ToString()).userInfo();
 
                     return false;
                 }
@@ -868,7 +902,7 @@ namespace GFHelp.Core.Action
                 }
                 catch (Exception e)
                 {
-                    new Log().userInit(userData.GameAccount.Base.GameAccountID, "添加人形掉落遇到错误 Error", e.ToString()).userInfo();
+                    new Log().userInit(userData.GameAccount.GameAccountID, "添加人形掉落遇到错误 Error", e.ToString()).userInfo();
 
                     return false;
                 }
@@ -893,7 +927,7 @@ namespace GFHelp.Core.Action
                 }
                 catch (Exception e)
                 {
-                    new Log().userInit(userData.GameAccount.Base.GameAccountID, "添加人形掉落遇到错误 Error", e.ToString()).userInfo();
+                    new Log().userInit(userData.GameAccount.GameAccountID, "添加人形掉落遇到错误 Error", e.ToString()).userInfo();
                     return false;
                 }
             }
@@ -928,7 +962,7 @@ namespace GFHelp.Core.Action
                 }
                 catch (Exception e)
                 {
-                    new Log().userInit(userData.GameAccount.Base.GameAccountID, "添加人形掉落遇到错误 Error", e.ToString()).userInfo();
+                    new Log().userInit(userData.GameAccount.GameAccountID, "添加人形掉落遇到错误 Error", e.ToString()).userInfo();
                     return false;
                 }
             }
@@ -953,7 +987,7 @@ namespace GFHelp.Core.Action
             //        }
             //        if (CatachData.Check_equipRank5(ewui.equip_id))
             //        {
-            //            new Log().userInit(userData.GameAccount.Base.GameAccountID, "获得5星装备 意不意外 惊不惊喜").userInfo();
+            //            new Log().userInit(userData.GameAccount.GameAccountID, "获得5星装备 意不意外 惊不惊喜").userInfo();
             //            if (userData.normal_MissionInfo.StopLoopinGetNew)
             //            {
             //                userData.normal_MissionInfo.Using = false;
@@ -962,7 +996,7 @@ namespace GFHelp.Core.Action
             //    }
             //    catch (Exception e)
             //    {
-            //        new Log().userInit(userData.GameAccount.Base.GameAccountID, "添加掉落装备遇到错误",e.ToString()).userInfo();
+            //        new Log().userInit(userData.GameAccount.GameAccountID, "添加掉落装备遇到错误",e.ToString()).userInfo();
             //        return false;
             //    }
 
@@ -986,7 +1020,7 @@ namespace GFHelp.Core.Action
 
 
 
-                new Log().userInit(userData.GameAccount.Base.GameAccountID, string.Format("获取新人形 : {0} ,意不意外 惊不惊喜", CatchData.Base.Asset_Textes.ChangeCodeFromeCSV(Function.FindGunName_GunId(gwui.gun_id)))).userInfo();
+                new Log().userInit(userData.GameAccount.GameAccountID, string.Format("获取新人形 : {0} ,意不意外 惊不惊喜", CatchData.Base.Asset_Textes.ChangeCodeFromeCSV(Function.FindGunName_GunId(gwui.gun_id)))).userInfo();
                 if (data != null)
                 {
                     if (data.StopLoopByStart3 && gwui.info.rank == 3) data.Loop = false;

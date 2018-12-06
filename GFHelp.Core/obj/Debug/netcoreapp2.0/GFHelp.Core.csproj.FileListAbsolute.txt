@@ -40,3 +40,9 @@ C:\Users\jack\Desktop\CS\GFHelp-Web\GFHelp.Core\obj\Debug\netcoreapp2.0\GFHelp.C
 C:\Users\jack\Desktop\CS\GFHelp-Web\GFHelp.Core\obj\Debug\netcoreapp2.0\GFHelp.Core.csproj.CopyComplete
 C:\Users\jack\Desktop\CS\GFHelp-Web\GFHelp.Core\obj\Debug\netcoreapp2.0\GFHelp.Core.dll
 C:\Users\jack\Desktop\CS\GFHelp-Web\GFHelp.Core\obj\Debug\netcoreapp2.0\GFHelp.Core.pdb
+C:\Users\jack\Desktop\CS\GFHelp-Web\GFHelp.Core\bin\Debug\netcoreapp2.0\GFLogin.dll
+C:\Users\jack\Desktop\CS\GFHelp-Web\GFHelp.Core\bin\Debug\netcoreapp2.0\GFLogin.pdb
+C:\Users\jack\Desktop\CS\GFHelp-Web\GFHelp.Core\bin\Debug\netcoreapp2.0\FSLib.Extension.dll
+C:\Users\jack\Desktop\CS\GFHelp-Web\GFHelp.Core\bin\Debug\netcoreapp2.0\FSLib.Network.dll
+C:\Users\jack\Desktop\CS\GFHelp-Web\GFHelp.Core\bin\Debug\netcoreapp2.0\en\FSLib.Extension.resources.dll
+C:\Users\jack\Desktop\CS\GFHelp-Web\GFHelp.Core\bin\Debug\netcoreapp2.0\en\FSLib.Network.resources.dll

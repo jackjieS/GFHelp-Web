@@ -58,7 +58,7 @@ namespace GFHelp.Core.Action
                             {
                                 if(count++ > userData.config.ErrorCount)
                                 {
-                                    new Log().userInit(userData.GameAccount.Base.GameAccountID, "FriendPraise ERROR", result).userInfo();
+                                    new Log().userInit(userData.GameAccount.GameAccountID, "FriendPraise ERROR", result).userInfo();
                                     Loop = false;
                                 }
                                 break;
@@ -103,7 +103,7 @@ namespace GFHelp.Core.Action
                             {
                                 if (count++ > userData.config.ErrorCount)
                                 {
-                                    new Log().userInit(userData.GameAccount.Base.GameAccountID, "FriendPraise ERROR", result).userInfo();
+                                    new Log().userInit(userData.GameAccount.GameAccountID, "FriendPraise ERROR", result).userInfo();
 
                                     Loop = false;
                                 }

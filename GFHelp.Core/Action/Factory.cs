@@ -37,7 +37,7 @@ namespace GFHelp.Core.Action
                     userData.equip_With_User_Info.listEquip.GetDataById(id).equip_exp += @int;
                     //删除装备
                     userData.equip_With_User_Info.Del_Equip_IN_Dict(userData.equip_With_User_Info.Get_Equipment_Food());
-                    new Log().userInit(userData.GameAccount.Base.GameAccountID, string.Format("装备强化 id {0}", userData.equip_With_User_Info.dicUpgrade[0].id.ToString())).userInfo();
+                    new Log().userInit(userData.GameAccount.GameAccountID, string.Format("装备强化 id {0}", userData.equip_With_User_Info.dicUpgrade[0].id.ToString())).userInfo();
                     return true;
                 }
                 if (updateResult == -1)
@@ -83,7 +83,7 @@ namespace GFHelp.Core.Action
                         {
                             if (count++ > userData.config.ErrorCount)
                             {
-                                new Log().userInit(userData.GameAccount.Base.GameAccountID, "装备强化 ERROR", result).userInfo();
+                                new Log().userInit(userData.GameAccount.GameAccountID, "装备强化 ERROR", result).userInfo();
                                 return -1;
                             }
                             continue;
@@ -111,7 +111,7 @@ namespace GFHelp.Core.Action
 
                 if (equipFood.Count==0)
                 {
-                    new Log().userInit(userData.GameAccount.Base.GameAccountID, " 没有2星3星装备 请整理装备").userInfo();
+                    new Log().userInit(userData.GameAccount.GameAccountID, " 没有2星3星装备 请整理装备").userInfo();
                 }
                 StringBuilder sb = new StringBuilder();
                 JsonWriter jsonWriter = new JsonWriter(sb);
@@ -151,7 +151,7 @@ namespace GFHelp.Core.Action
                             {
                                 userData.webData.StatusBarText = "Get_Set_UserInfo";
                                 userData.home.GetUserInfo();
-                                new Log().userInit(userData.GameAccount.Base.GameAccountID, "装备强化 ERROR", result).userInfo();
+                                new Log().userInit(userData.GameAccount.GameAccountID, "装备强化 ERROR", result).userInfo();
                                 return;
                             }
                             break;
@@ -212,7 +212,7 @@ namespace GFHelp.Core.Action
                         {
                             userData.user_Info.core  -= userData.gun_With_User_Info.dicGun_Combine[0].Core_COMbineNeed;
                             userData.gun_With_User_Info.dicGun_Combine[0].number++;
-                            new Log().userInit(userData.GameAccount.Base.GameAccountID, string.Format("人形 : {0} 扩编", userData.gun_With_User_Info.dicGun_Combine[0].id)).userInfo();
+                            new Log().userInit(userData.GameAccount.GameAccountID, string.Format("人形 : {0} 扩编", userData.gun_With_User_Info.dicGun_Combine[0].id)).userInfo();
                             return;
                         }
                     case 0:
@@ -221,7 +221,7 @@ namespace GFHelp.Core.Action
                         }
                     case -1:
                         {
-                            new Log().userInit(userData.GameAccount.Base.GameAccountID, "扩编出错",result).userInfo();
+                            new Log().userInit(userData.GameAccount.GameAccountID, "扩编出错",result).userInfo();
                             if (count++ >= userData.config.ErrorCount) return;
                             continue;
                         }
@@ -243,7 +243,7 @@ namespace GFHelp.Core.Action
             Thread.Sleep(2000);
             if (userData.gun_With_User_Info.Get_Gun_Retire() == false)
             {
-                new Log().userInit(userData.GameAccount.Base.GameAccountID, "没有2级枪 ERROR", result).userInfo();
+                new Log().userInit(userData.GameAccount.GameAccountID, "没有2级枪 ERROR", result).userInfo();
                 return 0;
             }
             //Gun_Retire
@@ -285,7 +285,7 @@ namespace GFHelp.Core.Action
                         {
                             if (count++ > userData.config.ErrorCount)
                             {
-                                new Log().userInit(userData.GameAccount.Base.GameAccountID, "人形强化 ERROR", result).userInfo();
+                                new Log().userInit(userData.GameAccount.GameAccountID, "人形强化 ERROR", result).userInfo();
                                 return -1;
                             }
                             continue;
@@ -327,7 +327,7 @@ namespace GFHelp.Core.Action
                 }
                 catch (Exception e)
                 {
-                    new Log().userInit(userData.GameAccount.Base.GameAccountID, "人形强化 ERROR", e.ToString()).userInfo();
+                    new Log().userInit(userData.GameAccount.GameAccountID, "人形强化 ERROR", e.ToString()).userInfo();
                 }
 
                 int additionPow = Convert.ToInt32((int)jsonData["pow"]);
@@ -413,7 +413,7 @@ namespace GFHelp.Core.Action
                         {
                             if (count++ > userData.config.ErrorCount)
                             {
-                                new Log().userInit(userData.GameAccount.Base.GameAccountID, "Gun_retire ERROR", result).userInfo();
+                                new Log().userInit(userData.GameAccount.GameAccountID, "Gun_retire ERROR", result).userInfo();
                                 return false;
                             }
                             userData.webData.StatusBarText = "Get_Set_UserInfo";

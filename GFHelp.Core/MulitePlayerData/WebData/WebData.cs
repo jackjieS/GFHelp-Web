@@ -133,8 +133,8 @@ namespace GFHelp.Core.MulitePlayerData.WebData
         }
         public static void GetWebStatus(UserData ud, ref WebStatus webStatus)
         {
-            webStatus.AccountId = ud.GameAccount.Base.GameAccountID;
-            webStatus.Name = ud.GameAccount.Base.ChannelID + " - " + ud.GameAccount.Base.GameAccountID +  " - " + ud.user_Info.name;
+            webStatus.AccountId = ud.GameAccount.GameAccountID;
+            webStatus.Name = ud.GameAccount.ChannelID + " - " + ud.GameAccount.GameAccountID +  " - " + ud.user_Info.name;
             webStatus.statusBarText = ud.webData.StatusBarText;
         }
         private static string getItemNumFromID(UserData userData,int id)
@@ -148,7 +148,6 @@ namespace GFHelp.Core.MulitePlayerData.WebData
         } 
         public static void GetWebMissionInfo(UserData userData, ref List<WebMissionInfo> list)
         {
-            if (userData.MissionInfo.listTask.Count == 0) return;
             list.Clear();
             foreach (var item in userData.MissionInfo.listTask)
             {
@@ -288,16 +287,23 @@ namespace GFHelp.Core.MulitePlayerData.WebData
     }
     public class WebMissionInfo
     {
-        public WebMissionInfo(GFHelp.Core.Action.BattleBase.MissionInfo.Data data)
+        public WebMissionInfo(MissionInfo.Data data)
         {
-            this.Teams = data.Teams;
+
+            foreach (var item in data.Teams)
+            {
+                this.Teams += string.Format("梯队 {0} ", item.TeamID.ToString());
+            }
+
+
+
             this.MissionMap = data.MissionMap;
             this.CycleTime = data.CycleTime.ToString();
             this.BattleTimes = data.BattleTimes.ToString();
             this.Parm = data.Parm;
             this.Core = data.NumberCore.ToString();
         }
-        public List<TeamInfo> Teams;//参与的梯队
+        public string Teams;
         public string MissionMap;//地图
         public string CycleTime;//已执行次数
         public string BattleTimes;//战斗场次

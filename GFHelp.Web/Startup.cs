@@ -143,12 +143,7 @@ namespace GFHelp.Web
                     response.StatusCode == (int)HttpStatusCode.Forbidden)
                     response.Redirect("/Auth/Login");
             });
-            app.UseSignalR(routes => {
-                routes.MapHub<Chat>("/somehub", options => {
-                    // Set to 0 for no limit, or to some non-zero value (in bytes) to set a different buffer limit
-                    options.TransportMaxBufferSize = 0;
-                });
-            });
+
 
             app.UseSignalR(u => u.MapHub<Chat>("/chathub"));
             app.UseDefaultFiles();

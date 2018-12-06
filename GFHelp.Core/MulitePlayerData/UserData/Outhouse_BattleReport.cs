@@ -178,7 +178,7 @@ namespace GFHelp.Core.MulitePlayerData
                         {
                             if (count++ > userData.config.ErrorCount)
                             {
-                                new Log().userInit(userData.GameAccount.Base.GameAccountID, "Establish_Build_Start ERROR", result).userInfo();
+                                new Log().userInit(userData.GameAccount.GameAccountID, "Establish_Build_Start ERROR", result).userInfo();
                                 AutoRunning = false;
                                 return false;
                             }
@@ -228,7 +228,7 @@ namespace GFHelp.Core.MulitePlayerData
                         {
                             if (count++ > userData.config.ErrorCount)
                             {
-                                new Log().userInit(userData.GameAccount.Base.GameAccountID, "Establish_Build_Finish ERROR", result).userInfo();
+                                new Log().userInit(userData.GameAccount.GameAccountID, "Establish_Build_Finish ERROR", result).userInfo();
                                 AutoRunning = false;
                                 return false;
                             }

@@ -26,11 +26,11 @@ namespace GFHelp.Mission
             Map_Controller.mapcorridor map = new Map_Controller.mapcorridor();
             if (Map_Controller.Function.Startmap(userData, ref map,ref data) == false) return;
 
-            userData.battle.teamMove(map.dic_TeamMove[stepNum++]);
-            userData.battle.teamMove_Random(map.dic_TeamMove[stepNum++],data);
-            userData.battle.teamMove_Random(map.dic_TeamMove[stepNum++],data);
-            userData.battle.teamMove_Random(map.dic_TeamMove[stepNum++],data);
-            userData.battle.teamMove_Random(map.dic_TeamMove[stepNum++],data);
+            userData.battle.teamMove(map.teamMove.dic[stepNum++]);
+            userData.battle.teamMove_Random(map.teamMove.dic[stepNum++],data);
+            userData.battle.teamMove_Random(map.teamMove.dic[stepNum++],data);
+            userData.battle.teamMove_Random(map.teamMove.dic[stepNum++],data);
+            userData.battle.teamMove_Random(map.teamMove.dic[stepNum++],data);
 
             battledata = new BattleData(data.Teams).setData(5520, 0, 0, random.Next(8, 10), 26483, 28819, 10009, userData.user_Info.experience);
             if (userData.battle.Normal_battleFinish(battledata, ref result))

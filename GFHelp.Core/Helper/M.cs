@@ -5,7 +5,8 @@ using System.Text;
 namespace GFHelp.Core.Helper
 {
     class M
-    {/// <summary>  
+    {
+        /// <summary>  
      /// 生成随机MAC地址  
      /// </summary>  
      /// <param name="macAddress">随意传递一个MAC</param>  

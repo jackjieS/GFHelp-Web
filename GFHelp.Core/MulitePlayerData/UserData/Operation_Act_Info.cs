@@ -91,7 +91,7 @@ namespace GFHelp.Core.MulitePlayerData
             //string TeamID = text.TeamID.ToString();
             if (dicOperation.Count >= 4)
             {
-                new Log().userInit(userData.GameAccount.AndroidID, "后勤开始失败" + data.ToString());
+                new Log().userInit(userData.GameAccount.GameAccountID, "后勤开始失败" + data.ToString());
             }
             for (int i = 0; i < dicOperation.Count; i++)
             {
@@ -113,7 +113,7 @@ namespace GFHelp.Core.MulitePlayerData
                     }
                 }
             }
-            new Log().userInit(userData.GameAccount.AndroidID, "后勤开始失败 " + data.ToString());
+            new Log().userInit(userData.GameAccount.GameAccountID, "后勤开始失败 " + data.ToString());
             return -1;
         }
         

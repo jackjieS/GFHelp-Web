@@ -1,0 +1,104 @@
+{
+  "runtimeTarget": {
+    "name": ".NETCoreApp,Version=v2.1",
+    "signature": "da39a3ee5e6b4b0d3255bfef95601890afd80709"
+  },
+  "compilationOptions": {},
+  "targets": {
+    ".NETCoreApp,Version=v2.1": {
+      "TEST/1.0.0": {
+        "dependencies": {
+          "GFLogin": "1.0.0"
+        },
+        "runtime": {
+          "TEST.dll": {}
+        }
+      },
+      "GFLogin/1.0.0": {
+        "dependencies": {
+          "LitJson": "1.0.0.0",
+          "FSLib.Network": "2.2.5.0",
+          "FSLib.Extension": "1.4.3.0",
+          "Newtonsoft.Json": "11.0.0.0"
+        },
+        "runtime": {
+          "GFLogin.dll": {}
+        }
+      },
+      "LitJson.Reference/1.0.0.0": {
+        "runtime": {
+          "LitJson.dll": {
+            "assemblyVersion": "1.0.0.0",
+            "fileVersion": "1.0.0.0"
+          }
+        }
+      },
+      "FSLib.Network.Reference/2.2.5.0": {
+        "runtime": {
+          "FSLib.Network.dll": {
+            "assemblyVersion": "2.2.5.0",
+            "fileVersion": "2.2.5.0"
+          }
+        },
+        "resources": {
+          "en/FSLib.Network.resources.dll": {
+            "locale": "en"
+          }
+        }
+      },
+      "FSLib.Extension.Reference/1.4.3.0": {
+        "runtime": {
+          "FSLib.Extension.dll": {
+            "assemblyVersion": "1.4.3.0",
+            "fileVersion": "1.4.3.0"
+          }
+        },
+        "resources": {
+          "en/FSLib.Extension.resources.dll": {
+            "locale": "en"
+          }
+        }
+      },
+      "Newtonsoft.Json.Reference/11.0.0.0": {
+        "runtime": {
+          "Newtonsoft.Json.dll": {
+            "assemblyVersion": "11.0.0.0",
+            "fileVersion": "11.0.1.21818"
+          }
+        }
+      }
+    }
+  },
+  "libraries": {
+    "TEST/1.0.0": {
+      "type": "project",
+      "serviceable": false,
+      "sha512": ""
+    },
+    "GFLogin/1.0.0": {
+      "type": "project",
+      "serviceable": false,
+      "sha512": ""
+    },
+    "LitJson.Reference/1.0.0.0": {
+      "type": "reference",
+      "serviceable": false,
+      "sha512": ""
+    },
+    "FSLib.Network.Reference/2.2.5.0": {
+      "type": "reference",
+      "serviceable": false,
+      "sha512": ""
+    },
+    "FSLib.Extension.Reference/1.4.3.0": {
+      "type": "reference",
+      "serviceable": false,
+      "sha512": ""
+    },
+    "Newtonsoft.Json.Reference/11.0.0.0": {
+      "type": "reference",
+      "serviceable": false,
+      "sha512": ""
+    }
+  }
+}

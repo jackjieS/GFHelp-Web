@@ -19,7 +19,7 @@ namespace GFHelp.Core.Management
         {
             foreach (UserData item in mDatas)
             {
-                if(item.GameAccount.Base.GameAccountID == userData.GameAccount.Base.GameAccountID && item.taskDispose == false)
+                if(item.GameAccount.GameAccountID == userData.GameAccount.GameAccountID && item.taskDispose == false)
                 {
                     return false;
                 }
@@ -43,7 +43,7 @@ namespace GFHelp.Core.Management
         {
             foreach (var item in mDatas)
             {
-                if(item.GameAccount.Base.GameAccountID == ID && item.taskDispose == false)
+                if(item.GameAccount.GameAccountID == ID && item.taskDispose == false)
                 {
                     return item;
                 }
@@ -54,7 +54,7 @@ namespace GFHelp.Core.Management
         {
             for (int i = 0; i < mDatas.Count; i++)
             {
-                if (mDatas[i].GameAccount.Base.GameAccountID == ID)
+                if (mDatas[i].GameAccount.GameAccountID == ID)
                 {
                     mDatas.RemoveAt(i);
                 }
@@ -64,7 +64,7 @@ namespace GFHelp.Core.Management
         {
             foreach (var item in mDatas)
             {
-                if(item.GameAccount.Base.GameAccountID == id && item.taskDispose == false)
+                if(item.GameAccount.GameAccountID == id && item.taskDispose == false)
                 {
                     return true;
                 }
@@ -92,7 +92,7 @@ namespace GFHelp.Core.Management
         }
         public static void Seed(UserData userData)
         {
-            if (data.ContainsKey(userData.GameAccount.Base.GameAccountID))
+            if (data.ContainsKey(userData.GameAccount.GameAccountID))
             {
                 return;
             }
@@ -105,8 +105,8 @@ namespace GFHelp.Core.Management
             userData.cd.Start();
             userData.cd.ContinueWith(t =>
             {
-                DataBase.DataBase.DelGameAccount(userData.GameAccount.Base);
-                string id = userData.GameAccount.Base.GameAccountID;
+                DataBase.DataBase.DelGameAccount(userData.GameAccount);
+                string id = userData.GameAccount.GameAccountID;
                 new Log().userInit(id, "程序已注销 请重新创建实例").userInfo();
                 userData = null;
                 data.RemoveByID(id);
@@ -118,7 +118,7 @@ namespace GFHelp.Core.Management
             WebData webData = new WebData();
             foreach (var item in data)
             {
-                if (item.GameAccount.Base.GameAccountID == AccountId)
+                if (item.GameAccount.GameAccountID == AccountId)
                 {
                     item.webData.Get(item);
                     webData = item.webData;
@@ -134,7 +134,7 @@ namespace GFHelp.Core.Management
             WebStatus WebStatus = new WebStatus();
             foreach (var item in data)
             {
-                if (item.GameAccount.Base.GameAccountID == AccountId)
+                if (item.GameAccount.GameAccountID == AccountId)
                 {
                     item.webData.Get(item);
                     webData = item.webData;
@@ -181,10 +181,8 @@ namespace GFHelp.Core.Management
         }
         public void CreatGameAccount(DataBase.GameAccount gameAccount)
         {
-            GameAccount.Base = gameAccount;
-            GameAccount.AndroidID = Guid.NewGuid().ToString("N");
-            GameAccount.MAC = M.GetNewMac();
-            GameAccount.GameHost = Helper.Configer.HostAddress.GetAddressByName(GameAccount.Base.ChannelID);
+            GameAccount.setData(gameAccount);
+            GameAccount.GameHost = Helper.Configer.HostAddress.GetAddressByName(GameAccount.ChannelID);
             config.ParmConfiuge(this);
         }
 
@@ -359,8 +357,8 @@ namespace GFHelp.Core.Management
 
         public void ParmConfiuge(UserData userData)
         {
-            if (string.IsNullOrEmpty(userData.GameAccount.Base.Parm)) return;
-            List<string> Parm = userData.GameAccount.Base.Parm.ToLower().Split(' ').ToList();
+            if (string.IsNullOrEmpty(userData.GameAccount.Parm)) return;
+            List<string> Parm = userData.GameAccount.Parm.ToLower().Split(' ').ToList();
             foreach (var item in Parm)
             {
                 if (item.Contains("-d"))
@@ -397,9 +395,19 @@ namespace GFHelp.Core.Management
 
 
 
-    public class GameAccount
+    public class GameAccount: DataBase.GameAccount
     {
-        public DataBase.GameAccount Base = new DataBase.GameAccount();
+        public void setData(DataBase.GameAccount data)
+        {
+            WebUsername = data.WebUsername;
+            GameAccountID = data.GameAccountID;
+            GamePassword = data.GamePassword;
+            ChannelID = data.ChannelID;
+            WorldID = data.WorldID;
+            YunDouDou = data.YunDouDou;
+            Parm = data.Parm;
+
+        }
         public int GetCurrentTimeStamp()
         {
             return Convert.ToInt32((DateTime.UtcNow - new DateTime(1970, 1, 1, 0, 0, 0, 0)).TotalSeconds - realtimeSinceLogin + loginTime);
@@ -415,8 +423,7 @@ namespace GFHelp.Core.Management
 
         public int timeoffset;
         public long req_id;
-        public string AndroidID;
-        public string MAC;
+
         public string CatchDataVersion;
         public int tomorrow_zero;
         public int weekday;

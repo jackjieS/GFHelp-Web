@@ -876,10 +876,7 @@
                 var listMissionInfo = '';
                 $(message[0].webMissionInfo).each(function (index, el) {
                     var MissionInfo = '';
-                    var teams = '';
-                    $(el.Teams).each(function (index, el){
-                        teams += '梯队'+ el.TeamID;
-                    });
+                    var teams = el.Teams;
                     k = index + 1;
                     var rate = parseFloat((el.Core / el.BattleTimes).toFixed(3));
                     MissionInfo += '<li><h3>Mission ' + k + '</h3></li><li>' + el.MissionMap + '</li><li>已循环次数: ' + el.CycleTime + '</li><li>核心数' + el.Core + '</li><li>核心率'+rate  +'</li><li>参数: ' + el.Parm + '</li><li>梯队:' + teams + '</li>';

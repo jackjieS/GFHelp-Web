@@ -59,9 +59,9 @@ namespace GFHelp.Core.MulitePlayerData
             if (userData.config.DataAnalysis == false) return;
             if (AutoRunning == false) return;
             if (!isAllDataAnalysisFinish()) return;
-            new Log().userInit(userData.GameAccount.Base.GameAccountID, "情报解析 准备 完成");
+            new Log().userInit(userData.GameAccount.GameAccountID, "情报解析 准备 完成");
             DataAnalysisFinish();
-            new Log().userInit(userData.GameAccount.Base.GameAccountID, "情报解析 完成");
+            new Log().userInit(userData.GameAccount.GameAccountID, "情报解析 完成");
 
 
 
@@ -91,7 +91,7 @@ namespace GFHelp.Core.MulitePlayerData
                         {
                             if (count++ > userData.config.ErrorCount)
                             {
-                                new Log().userInit(userData.GameAccount.Base.GameAccountID, "DataAnalysisFinishAll ERROR", result).userInfo();
+                                new Log().userInit(userData.GameAccount.GameAccountID, "DataAnalysisFinishAll ERROR", result).userInfo();
                                 this.AutoRunning = false;
                                 return false;
                             }
@@ -168,7 +168,7 @@ namespace GFHelp.Core.MulitePlayerData
 
                 int cost = num * 20;
                 result = API.Dorm.DataAnalysis(userData.GameAccount,data);
-                new Log().userInit(userData.GameAccount.Base.GameAccountID, result).userInfo();
+                new Log().userInit(userData.GameAccount.GameAccountID, result).userInfo();
                 if (resultCheck(result) == 1)
                 {
                     Response.Check(userData.GameAccount, ref result, "DataAnalysisStart", true);

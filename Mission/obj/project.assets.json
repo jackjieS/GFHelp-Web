@@ -480,7 +480,7 @@
       },
       "GFHelp.Core/1.0.0": {
         "type": "project",
-        "framework": ".NETCoreApp,Version=v2.0",
+        "framework": ".NETCoreApp,Version=v2.1",
         "dependencies": {
           "GFHelp.DataBase": "1.0.0",
           "Microsoft.AspNetCore.SignalR.Client": "1.0.0",
@@ -495,7 +495,7 @@
       },
       "GFHelp.DataBase/1.0.0": {
         "type": "project",
-        "framework": ".NETCoreApp,Version=v2.0",
+        "framework": ".NETCoreApp,Version=v2.1",
         "compile": {
           "bin/placeholder/GFHelp.DataBase.dll": {}
         },

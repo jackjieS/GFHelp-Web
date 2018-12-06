@@ -189,7 +189,7 @@ namespace GFHelp.Core.MulitePlayerData
                         {
                             if (count++ > userData.config.ErrorCount)
                             {
-                                new Log().userInit(userData.GameAccount.Base.GameAccountID, "finishDevelop Error", result.ToString()).userInfo();
+                                new Log().userInit(userData.GameAccount.GameAccountID, "finishDevelop Error", result.ToString()).userInfo();
                                 userData.home.Login();
                                 return false;
                             }
@@ -249,7 +249,7 @@ namespace GFHelp.Core.MulitePlayerData
                         {
                             if (count++ > userData.config.ErrorCount)
                             {
-                                new Log().userInit(userData.GameAccount.Base.GameAccountID, "startDevelop Error", result.ToString()).userInfo();
+                                new Log().userInit(userData.GameAccount.GameAccountID, "startDevelop Error", result.ToString()).userInfo();
                                 userData.home.Login();
                                 return false;
                             }

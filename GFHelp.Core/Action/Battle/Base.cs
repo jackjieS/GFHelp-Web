@@ -11,22 +11,25 @@ namespace GFHelp.Core.Action.BattleBase
 {
     public class Spot
     {
-        public Spot(int spot_id, int key)
+        public void Add(int spot_id, int key)
         {
-            this.spot_id = spot_id;
-            this.team_loc = key;
+            Data data = new Data();
+            data.spot_id = spot_id;
+            data.team_loc = key;
+            dic.Add(dic.Count,data);
         }
-        public int spot_id
+
+
+        public Dictionary<int, Data> dic = new Dictionary<int, Data>();
+        public class Data
         {
-            set;
-            get;
+            public int spot_id;
+            public int team_id;
+            public int team_loc;
         }
-        public int team_id
-        {
-            set;
-            get;
-        }
-        public int team_loc;
+
+
+
     }
 
     public class user_rec
@@ -103,19 +106,25 @@ namespace GFHelp.Core.Action.BattleBase
 
     public class TeamMove
     {
-        public TeamMove(int from_spot_id, int to_spot_id, int move_type, int teamLOC)
+        public Dictionary<int, Data> dic = new Dictionary<int, Data>();
+        public void Add(int from_spot_id, int to_spot_id, int move_type, int teamLOC)
         {
-            this.from_spot_id = from_spot_id;
-            this.to_spot_id = to_spot_id;
-            this.move_type = move_type;
-            this.teamLOC = teamLOC;
+            Data data = new Data();
+            data.from_spot_id = from_spot_id;
+            data.to_spot_id = to_spot_id;
+            data.move_type = move_type;
+            data.teamLOC = teamLOC;
+            dic.Add(dic.Count, data);
         }
-        //{"team_id":6,"from_spot_id":3033,"to_spot_id":3038,"move_type":1}
-        public int team_id { set; get; }
-        public int from_spot_id { set; get; }
-        public int to_spot_id { set; get; }
-        public int move_type { set; get; }
-        public int teamLOC { set; get; }
+        public class Data
+        {
+            public int team_id { set; get; }
+            public int from_spot_id { set; get; }
+            public int to_spot_id { set; get; }
+            public int move_type { set; get; }
+            public int teamLOC { set; get; }
+        }
+
     }
 
 
@@ -171,6 +180,7 @@ namespace GFHelp.Core.Action.BattleBase
             public int requestLv = 0;
             public bool Using = false;
 
+            public int CommanderLv = 0;
             public bool AutoCombine = true;
             public bool AutoStrengthen = true;
             public static bool AutoQuickFix = true;
@@ -183,8 +193,8 @@ namespace GFHelp.Core.Action.BattleBase
             public int NumberCoreRequire =0;
             public int NumberCore = 0;
             public bool needlog = false;
-            public int user_exp;
-            public string Parm;
+            public int user_exp=0;
+            public string Parm="";
 
             public RecycleLog recycleLog;
             public class RecycleLog
@@ -333,6 +343,10 @@ namespace GFHelp.Core.Action.BattleBase
                     {
                         AutoQuickFix = false;
                     }
+                    if (item.Contains("-h"))
+                    {
+                        this.CommanderLv = Convert.ToInt32(item.Remove(0, 2));
+                    }
 
                 }
                 this.MissionMap = MissionMap.Remove(0, 1);
@@ -349,7 +363,7 @@ namespace GFHelp.Core.Action.BattleBase
         public List<Data> listTask = new List<Data>();
         public Data GetFirstData()
         {
-            if (listTask.Count == 0) return null;
+            if (listTask.Count == 0) return new Data();
             return listTask[0];
         }
         public void setFirstDataLoopFalse()
@@ -873,7 +887,7 @@ namespace GFHelp.Core.Action.BattleBase
         {
             if (userData.battle.Simulation_battleFinish(BattleResult) == false)
             {
-                new Helper.Log().userInit(userData.GameAccount.Base.GameAccountID, "模拟作战 Error");
+                new Helper.Log().userInit(userData.GameAccount.GameAccountID, "模拟作战 Error");
             }
         }
 
@@ -1109,7 +1123,7 @@ namespace GFHelp.Core.Action.BattleBase
                         break;
                 }
             }
-            new Log().userInit(userData.GameAccount.Base.GameAccountID, "开始无限防御 Error TeamID = {0}",TeamID.ToString()).userInfo();
+            new Log().userInit(userData.GameAccount.GameAccountID, "开始无限防御 Error TeamID = {0}",TeamID.ToString()).userInfo();
             return false;
         }
         private bool EndBattle()
@@ -1133,7 +1147,7 @@ namespace GFHelp.Core.Action.BattleBase
                         {
                             if (count++ > userData.config.ErrorCount)
                             {
-                                new Log().userInit(userData.GameAccount.Base.GameAccountID, "开始无限防御 Error TeamID = {0}", TeamID.ToString()).userInfo();
+                                new Log().userInit(userData.GameAccount.GameAccountID, "开始无限防御 Error TeamID = {0}", TeamID.ToString()).userInfo();
                                 return false;
                             }
                             continue;
@@ -1180,9 +1194,9 @@ namespace GFHelp.Core.Action.BattleBase
     {
         public int mission_id;
         public int withdrawSpot;
-        public Spot[] Mission_Start_spots;
-        public Dictionary<int, TeamMove> dic_TeamMove;
-        public Dictionary<int, Spot> Spots = new Dictionary<int, Spot>();
+        public Spot.Data[] Mission_Start_spots;
+        public TeamMove teamMove = new TeamMove();
+        public Spot Spots = new Spot();
     }
 
 

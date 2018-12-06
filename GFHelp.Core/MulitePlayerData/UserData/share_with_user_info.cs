@@ -27,7 +27,7 @@ namespace GFHelp.Core.MulitePlayerData
             Decrypt.ConvertDateTime_China_Int(DateTime.Now);
             if(data.last_time < Decrypt.ConvertDateTime_China_Int(DateTime.Now))
             {
-                new Log().userInit(userData.GameAccount.Base.GameAccountID, " 自动分享获取30钻石").userInfo();
+                new Log().userInit(userData.GameAccount.GameAccountID, " 自动分享获取30钻石").userInfo();
                 API.Dorm.WeeklyShare(userData.GameAccount);
                 data.last_time += 999999999;
             }

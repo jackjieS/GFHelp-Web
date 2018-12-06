@@ -6,7 +6,7 @@ using System.Security.Cryptography;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace LoginTest.Login
+namespace GFLogin
 {
     class CryptData
     {
@@ -165,10 +165,32 @@ namespace LoginTest.Login
 
 
                 DateTime startTime = TimeZone.CurrentTimeZone.ToLocalTime(LocalDateTimeConvertToChina(new DateTime(1970, 1, 1, 0, 0, 0, 0)));
+                long t;
 
-                var t = (time.Ticks - startTime.Ticks) / 10000000;
-
+                t = (time.Ticks - startTime.Ticks) / 10000000;
                 return (int)t;
+            }
+            catch (Exception e)
+            {
+                throw;
+            }
+
+        }
+        public static long ConvertDateTime_China_LONG(DateTime time)
+        {
+            try
+            {
+                TimeZoneInfo timeZoneSource = TimeZoneInfo.Local;
+                TimeZoneInfo timeZoneDestination = TimeZoneInfo.FindSystemTimeZoneById("China Standard Time");
+                time = TimeZoneInfo.ConvertTime(time, timeZoneSource, timeZoneDestination);
+
+
+                DateTime startTime = TimeZone.CurrentTimeZone.ToLocalTime(LocalDateTimeConvertToChina(new DateTime(1970, 1, 1, 0, 0, 0, 0)));
+                long t = (time.Ticks - startTime.Ticks) / 10000;
+
+
+
+                return t;
             }
             catch (Exception e)
             {
