@@ -32,7 +32,7 @@ namespace GFHelp.Core.MulitePlayerData
                     }
                 case 2:
                     {
-                        userData.home.GetUserInfo();
+                        userData.home.Login();
                         break;
                     }
                 case 3:

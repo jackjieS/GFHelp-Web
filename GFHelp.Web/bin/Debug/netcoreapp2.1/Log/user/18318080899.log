@@ -224,3 +224,49 @@
 【03:17:21】      message = startTurn Error , exception = error:2
 【03:18:13】      message = 终止作战 , exception = 
 【03:21:19】      message = Rabbit E8 成功 
+【16:14:01】      message = 程序已注销 请重新创建实例 
+【16:31:09】      message = 获取UserInfo失败 , exception = 
+【16:31:19】      message = 获取UserInfo失败 , exception = 
+【16:31:49】      message = 程序已注销 请重新创建实例 
+【03:43:58】      message = 获取邮件 标题 每日指标：象征性胜利 内容 通过任意关卡1次。 
+【03:44:02】      message = 获取邮件 标题 每日指标：小型支援 内容 完成1次后勤支援。 
+【03:44:08】      message = 获取邮件 标题 签到奖励 内容 签到奖励: 
+【03:44:12】      message = 获取邮件 标题 格琳娜的每日答谢礼物 内容 亲爱的指挥官，//n感谢您的关照，这是我准备的小礼物，希望您会喜欢。顺便，祝新的一天工作顺利！//n//n您活跃的后勤官 格琳娜 
+【03:45:58】      message = teamMove Error , exception = error:2
+【03:48:41】      message = 获取邮件 标题 格琳娜的每日答谢礼物 内容 亲爱的指挥官，//n感谢您的关照，这是我准备的小礼物，希望您会喜欢。顺便，祝新的一天工作顺利！//n//n您活跃的后勤官 格琳娜 
+【03:48:45】      message = 获取邮件 标题 每日指标：小型强化 内容 进行1次战术少女强化。 
+【03:48:49】      message = 获取邮件 标题 月卡奖励 内容 月卡过期时间：2019-01-05 
+【03:48:51】      message = 终止作战 , exception = 
+【03:50:59】      message = endEnemyTurn Error , exception = error:2
+【03:51:03】      message = startTurn Error , exception = error:2
+【03:54:14】      message = 获取邮件 标题 格琳娜的每日答谢礼物 内容 亲爱的指挥官，//n感谢您的关照，这是我准备的小礼物，希望您会喜欢。顺便，祝新的一天工作顺利！//n//n您活跃的后勤官 格琳娜 
+【03:54:18】      message = 获取邮件 标题 每日指标：人偶储存 内容 进行1次战术少女制造。 
+【03:54:19】      message = 终止作战 , exception = 
+【03:56:31】      message = teamMove Error , exception = error:2
+【04:01:30】      message = 终止作战 , exception = 
+【04:04:27】      message = endEnemyTurn Error , exception = error:2
+【04:04:32】      message = startTurn Error , exception = error:2
+【04:04:41】      message = teamMove Error , exception = error:203|行动点数计算有误
+【04:08:15】      message = 获取邮件 标题 格琳娜的每日答谢礼物 内容 亲爱的指挥官，//n感谢您的关照，这是我准备的小礼物，希望您会喜欢。顺便，祝新的一天工作顺利！//n//n您活跃的后勤官 格琳娜 
+【04:08:20】      message = 获取邮件 标题 每日指标：常规支援 内容 完成3次后勤支援。 
+【04:08:21】      message = 终止作战 , exception = 
+【04:11:29】      message = 奖励获取 battle_get_prize  
+【04:11:31】      message = Rabbit E4 成功 
+【04:14:44】      message = Rabbit E4 成功 
+【14:29:35】      message = 获取邮件 标题 格琳娜的每日答谢礼物 内容 亲爱的指挥官，//n感谢您的关照，这是我准备的小礼物，希望您会喜欢。顺便，祝新的一天工作顺利！//n//n您活跃的后勤官 格琳娜 
+【14:29:37】      message = 终止作战 , exception = 
+【15:38:19】      message = 终止作战 , exception = 
+【15:40:53】      message = 获取新人形 : gun-10000245 ,意不意外 惊不惊喜 
+【15:42:10】      message = 终止作战 , exception = 
+【15:43:28】      message = 获取新人形 : gun-10000245 ,意不意外 惊不惊喜 
+【15:44:09】      message = 战斗任务结束,获得 人力 0 子弹 0 口粮 0 零件 0 初级资料 0 中级资料 0 高级资料 0 人形 0 
+【00:30:25】      message = 获取邮件 标题 每日指标：三段式胜利 内容 通过任意关卡3次。 
+【00:30:29】      message = 获取邮件 标题 squad_data_daily-10000012 内容 squad_data_daily-20000012 
+【00:35:04】      message = Rabbit E4 成功 
+【00:35:38】      message = 获取邮件 标题 嘉年华奖励 内容 人力*100 
+【00:39:03】      message = Rabbit E4 成功 
+【00:41:25】      message = endTurn Error , exception = error:2
+【00:41:30】      message = endEnemyTurn Error , exception = error:2
+【00:41:33】      message = startTurn Error , exception = error:2
+【00:41:41】      message = teamMove Error , exception = error:203|行动点数计算有误
+【00:41:51】      message = teamMove Error , exception = error:203|行动点数计算有误

@@ -4785,3 +4785,4 @@ Parameter name: buffer
 Parameter name: buffer
    at System.IO.MemoryStream..ctor(Byte[] buffer, Boolean writable)
    at GFHelp.Core.Helper.Response.Check(GameAccount gameAccount, String& result, String type, Boolean need_decode) in C:\Users\jack\Desktop\CS\GFHelp-Web\GFHelp.Core\Helper\ResponseCheck.cs:line 50
+【01:06:28】      message = GetMail , exception = error:3

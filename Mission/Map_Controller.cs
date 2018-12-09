@@ -3206,27 +3206,46 @@ namespace GFHelp.Mission
             {
                 teamMove.Add(4175, 4188, 1, 0);
                 teamMove.Add(4176, 4187, 1, 1);
+
                 teamMove.Add(4188, 4191, 1, 0);
                 teamMove.Add(4191, 4190, 1, 0);
                 teamMove.Add(4190, 4196, 1, 0);
                 teamMove.Add(4196, 4179, 1, 0);
-                teamMove.Add(4179, 4182, 1, 0);
-                teamMove.Add(4176, 4189, 1, 3);
-
-                teamMove.Add(4182, 4179, 1, 0);
                 teamMove.Add(4179, 4184, 1, 0);
                 teamMove.Add(4184, 4183, 1, 0);
+
                 teamMove.Add(4183, 4185, 1, 0);
-
-                teamMove.Add(4187, 4186, 1, 1);
-
                 teamMove.Add(4185, 4197, 1, 0);
                 teamMove.Add(4197, 4174, 1, 0);
                 teamMove.Add(4174, 4178, 1, 0);
                 teamMove.Add(4178, 4198, 1, 0);
                 teamMove.Add(4198, 4195, 1, 0);
+
                 teamMove.Add(4195, 4181, 1, 0);
                 teamMove.Add(4181, 4194, 1, 0);
+
+
+                //teamMove.Add(4188, 4191, 1, 0);
+                //teamMove.Add(4191, 4190, 1, 0);
+                //teamMove.Add(4190, 4196, 1, 0);
+                //teamMove.Add(4196, 4179, 1, 0);
+                //teamMove.Add(4179, 4182, 1, 0);
+                //teamMove.Add(4176, 4189, 1, 3);
+
+                //teamMove.Add(4182, 4179, 1, 0);
+                //teamMove.Add(4179, 4184, 1, 0);
+                //teamMove.Add(4184, 4183, 1, 0);
+                //teamMove.Add(4183, 4185, 1, 0);
+
+                //teamMove.Add(4187, 4186, 1, 1);
+
+                //teamMove.Add(4185, 4197, 1, 0);
+                //teamMove.Add(4197, 4174, 1, 0);
+                //teamMove.Add(4174, 4178, 1, 0);
+                //teamMove.Add(4178, 4198, 1, 0);
+                //teamMove.Add(4198, 4195, 1, 0);
+                //teamMove.Add(4195, 4181, 1, 0);
+                //teamMove.Add(4181, 4194, 1, 0);
 
                 Spots.Add(4175, 0);//主力
                 Spots.Add(4176, 1);//主力

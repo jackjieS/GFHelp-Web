@@ -43,6 +43,7 @@ namespace GFHelp.Core.Action
                 {
                     case 1:
                         {
+                            userData.battle.Check_Equip_Gun_FULL();
                             return true;
                         }
                     case 0:
@@ -832,8 +833,8 @@ namespace GFHelp.Core.Action
             gwui.teamId = 0;
             gwui.isLocked = false;
             gwui.level = 1;
-            Check_NewGun(data,gwui);
             gwui.UpdateData();
+            Check_NewGun(data, gwui);
             if (data != null)
             {
                 data.NumberCore += gwui.getCoreNumber();
@@ -1026,8 +1027,6 @@ namespace GFHelp.Core.Action
                     if (data.StopLoopByStart3 && gwui.info.rank == 3) data.Loop = false;
                     if (data.StopLoopByStart4 && gwui.info.rank==4) data.Loop = false;
                     if (data.StopLoopByStart5 && gwui.info.rank == 5) data.Loop = false;
-
-
                 }
 
                 List<int> listLockid = new List<int>();

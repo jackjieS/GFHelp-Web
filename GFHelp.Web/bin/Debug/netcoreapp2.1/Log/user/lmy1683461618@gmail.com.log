@@ -54,3 +54,8 @@
 【02:56:11】      message = Rabbit E3 成功 
 【02:56:12】      message = 战斗任务结束,获得 人力 0 子弹 0 口粮 0 零件 0 初级资料 0 中级资料 0 高级资料 0 人形 0 
 【23:30:52】      message = 程序已注销 请重新创建实例 
+【00:56:46】      message = endTurn Error , exception = error:2
+【00:56:51】      message = endEnemyTurn Error , exception = error:2
+【00:56:56】      message = startTurn Error , exception = error:2
+【00:56:59】      message = teamMove Error , exception = error:203|行動ポイント計算エラー
+【00:59:23】      message = 程序已注销 请重新创建实例 

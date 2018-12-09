@@ -25,6 +25,7 @@
     </Reference>
     <Reference Include="GFLogin">
       <HintPath>..\..\GFLogin\GFLogin\bin\Release\netcoreapp2.1\GFLogin.dll</HintPath>
+      <Private>true</Private>
     </Reference>
     <Reference Include="ICSharpCode.SharpZipLib">
       <HintPath>..\packages\ICSharpCode.SharpZipLib.dll</HintPath>

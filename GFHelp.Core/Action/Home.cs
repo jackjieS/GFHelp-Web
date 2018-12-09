@@ -48,7 +48,7 @@ namespace GFHelp.Core.Action
 
             }
 
-            userData.GameAccount.req_id = Decrypt.ConvertDateTime_China_Int(DateTime.Now);
+            //userData.GameAccount.req_id = Decrypt.ConvertDateTime_China_Int(DateTime.Now);
             if (Response.Check(userData.GameAccount, ref userData.GameAccount.YunDouDou, "GetDigitalUid_Pro", false) != 1) return false;
 
             userData.webData.StatusBarText = "获取UserInfo";
@@ -81,6 +81,12 @@ namespace GFHelp.Core.Action
             var jsonobj = DynamicJson.Parse(result); //讲道理，我真不想写了
             JsonData jsonData = JsonMapper.ToObject(result);
             userData.Read(jsonobj, jsonData);
+
+            userData.webData.StatusBarText = "查询新邮件";
+            Mail();
+
+
+
             return true;
         }
 

@@ -327,10 +327,7 @@ namespace GFHelp.Core.Action.BattleBase
                     {
                         this.needSupply = false;
                     }
-                    if (item.Contains("-s5"))
-                    {
-                        this.StopLoopByStart5 = true;
-                    }
+
                     if (item.Contains("-log"))
                     {
                         this.needlog = true;

@@ -2136,83 +2136,68 @@ namespace GFHelp.Mission
             userData.battle.endEnemyTurn();
             userData.battle.startTurn(data);
 
+
             userData.battle.teamMove(map.teamMove.dic[stepNum++]);//右移一步
+            battledata = new BattleData(data.Teams).setData(4191, 0, 0, random.Next(5, 7), 6740, 13812, 10009, userData.user_Info.experience);
+            if (userData.battle.Normal_battleFinish(battledata, ref result))
+            {
+                userData.battle.Battle_Result_PRO(ref data, 0, ref result);
+            }
             userData.battle.teamMove(map.teamMove.dic[stepNum++]);//右移一步
-            battledata = new BattleData(data.Teams).setData(4190, 0, 0, random.Next(5, 7), 6740, 3812, 10009, userData.user_Info.experience);
+            battledata = new BattleData(data.Teams).setData(4190, 0, 0, random.Next(5, 7), 6740, 13812, 10009, userData.user_Info.experience);
+            if (userData.battle.Normal_battleFinish(battledata, ref result))
+            {
+                userData.battle.Battle_Result_PRO(ref data, 0, ref result);
+            }
+            userData.battle.teamMove(map.teamMove.dic[stepNum++]);//右移一步
+            battledata = new BattleData(data.Teams).setData(4196, 0, 0, random.Next(5, 7), 4483, 16724, 10008, userData.user_Info.experience);
+            if (userData.battle.Normal_battleFinish(battledata, ref result))
+            {
+                userData.battle.Battle_Result_PRO(ref data, 0, ref result);
+            }
+            userData.battle.teamMove(map.teamMove.dic[stepNum++]);//右移一步
+            battledata = new BattleData(data.Teams).setData(4179, 0, 0, random.Next(5, 7), 4572, 21351, 10005, userData.user_Info.experience);
+            if (userData.battle.Normal_battleFinish(battledata, ref result))
+            {
+                userData.battle.Battle_Result_PRO(ref data, 0, ref result);
+            }
+            userData.battle.teamMove(map.teamMove.dic[stepNum++]);//右移一步
+            battledata = new BattleData(data.Teams).setData(4184, 0, 0, random.Next(5, 7), 6740, 13812, 10009, userData.user_Info.experience);
+            if (userData.battle.Normal_battleFinish(battledata, ref result))
+            {
+                userData.battle.Battle_Result_PRO(ref data, 0, ref result);
+            }
+            userData.battle.teamMove(map.teamMove.dic[stepNum++]);//右移一步
+            battledata = new BattleData(data.Teams).setData(4183, 0, 0, random.Next(5, 7), 6740, 13812, 10009, userData.user_Info.experience);
             if (userData.battle.Normal_battleFinish(battledata, ref result))
             {
                 userData.battle.Battle_Result_PRO(ref data, 0, ref result);
             }
 
-            userData.battle.teamMove(map.teamMove.dic[stepNum++]);//右移一步
-            battledata = new BattleData(data.Teams).setData(4196, 0, 0, random.Next(5, 7), 6740, 3812, 10009, userData.user_Info.experience);
-            if (userData.battle.Normal_battleFinish(battledata, ref result))
-            {
-                userData.battle.Battle_Result_PRO(ref data, 0, ref result);
-            }
-
-            userData.battle.teamMove(map.teamMove.dic[stepNum++]);//右移一步
-            battledata = new BattleData(data.Teams).setData(4179, 0, 0, random.Next(5, 7), 4572, 6351, 10005, userData.user_Info.experience);
-            if (userData.battle.Normal_battleFinish(battledata, ref result))
-            {
-                userData.battle.Battle_Result_PRO(ref data, 0, ref result);
-            }
-            userData.battle.teamMove(map.teamMove.dic[stepNum++]);//右移一步
-
-            userData.battle.teamMove(map.teamMove.dic[stepNum++]);//右移一步
-            battledata = new BattleData(data.Teams).setData(4189, 3, 0, random.Next(5, 7), 4483, 6724, 10008, userData.user_Info.experience);
-            if (userData.battle.Normal_battleFinish(battledata, ref result))
-            {
-                userData.battle.Battle_Result_PRO(ref data, 0, ref result);
-            }
 
 
 
 
             EndTurnresult = userData.battle.endTurn(data);
-            userData.battle.endEnemyTurn();
-            userData.battle.startTurn(data);
-
-            userData.battle.teamMove(map.teamMove.dic[stepNum++]);//右移一步
-            battledata = new BattleData(data.Teams).setData(4179, 0, 0, random.Next(5, 7), 6740, 3812, 10009, userData.user_Info.experience);
-            if (userData.battle.Normal_battleFinish(battledata, ref result))
+            if (Function.Normal_PosCheck_type2(EndTurnresult, 4183) == 1)
             {
-                userData.battle.Battle_Result_PRO(ref data, 0, ref result);
-            }
-
-            userData.battle.teamMove(map.teamMove.dic[stepNum++]);//右移一步
-            userData.battle.teamMove(map.teamMove.dic[stepNum++]);//右移一步
-            battledata = new BattleData(data.Teams).setData(4183, 0, 0, random.Next(5, 7), 6740, 3812, 10009, userData.user_Info.experience);
-            if (userData.battle.Normal_battleFinish(battledata, ref result))
-            {
-                userData.battle.Battle_Result_PRO(ref data, 0, ref result);
-            }
-            userData.battle.teamMove(map.teamMove.dic[stepNum++]);//右移一步
-            battledata = new BattleData(data.Teams).setData(4185, 0, 0, random.Next(5, 7), 4483, 6724, 10008, userData.user_Info.experience);
-            if (userData.battle.Normal_battleFinish(battledata, ref result))
-            {
-                userData.battle.Battle_Result_PRO(ref data, 0, ref result);
-            }
-
-            userData.battle.teamMove(map.teamMove.dic[stepNum++]);//右移一步
-            battledata = new BattleData(data.Teams).setData(4186, 1, 0, random.Next(5, 7), 4483, 6724, 10008, userData.user_Info.experience);
-            if (userData.battle.Normal_battleFinish(battledata, ref result))
-            {
-                userData.battle.Battle_Result_PRO(ref data, 0, ref result);
-            }
-
-            EndTurnresult = userData.battle.endTurn(data);
-            if (Function.Normal_PosCheck_type2(EndTurnresult, 4185) == 1)
-            {
-                battledata = new BattleData(data.Teams).setData(4185, 0, 0, random.Next(5, 7), 4485, 15291, 10012, userData.user_Info.experience);
+                battledata = new BattleData(data.Teams).setData(4183, 0, 0, random.Next(5, 7), 6740, 13812, 10009, userData.user_Info.experience);
                 if (userData.battle.Normal_battleFinish(battledata, ref result))
                 {
                     userData.battle.Battle_Result_PRO(ref data, 0, ref result);
                 }
             }
-            if (Function.Normal_PosCheck_type2(EndTurnresult, 4186) == 1)
+            if (Function.Normal_PosCheck_type2(EndTurnresult, 4187) == 1)
             {
-                battledata = new BattleData(data.Teams).setData(4186, 1, 0, random.Next(5, 7), 4485, 15291, 10012, userData.user_Info.experience);
+                battledata = new BattleData(data.Teams).setData(4187, 1, 0, random.Next(5, 7), 4483, 6724, 10008, userData.user_Info.experience);
+                if (userData.battle.Normal_battleFinish(battledata, ref result))
+                {
+                    userData.battle.Battle_Result_PRO(ref data, 0, ref result);
+                }
+            }
+            if (Function.Normal_PosCheck_type2(EndTurnresult, 4176) == 1)
+            {
+                battledata = new BattleData(data.Teams).setData(4176, 3, 0, random.Next(5, 7), 4483, 6724, 10008, userData.user_Info.experience);
                 if (userData.battle.Normal_battleFinish(battledata, ref result))
                 {
                     userData.battle.Battle_Result_PRO(ref data, 0, ref result);
@@ -2220,35 +2205,213 @@ namespace GFHelp.Mission
             }
             userData.battle.endEnemyTurn();
             userData.battle.startTurn(data);
-
             userData.battle.teamMove(map.teamMove.dic[stepNum++]);//右移一步
-            userData.battle.teamMove(map.teamMove.dic[stepNum++]);//右移一步
-            battledata = new BattleData(data.Teams).setData(4174, 0, 0, random.Next(5, 7), 4483, 6724, 10008, userData.user_Info.experience);
+            battledata = new BattleData(data.Teams).setData(4185, 0, 0, random.Next(5, 7), 4483, 16724, 10008, userData.user_Info.experience);
             if (userData.battle.Normal_battleFinish(battledata, ref result))
             {
                 userData.battle.Battle_Result_PRO(ref data, 0, ref result);
             }
 
+
             userData.battle.teamMove(map.teamMove.dic[stepNum++]);//右移一步
-            userData.battle.teamMove(map.teamMove.dic[stepNum++]);//右移一步
-            userData.battle.teamMove(map.teamMove.dic[stepNum++]);//右移一步
-            battledata = new BattleData(data.Teams).setData(4195, 0, 0, random.Next(5, 7), 4572, 6351, 10005, userData.user_Info.experience);
+            battledata = new BattleData(data.Teams).setData(4197, 0, 0, random.Next(5, 7), 6740, 13812, 10009, userData.user_Info.experience);
             if (userData.battle.Normal_battleFinish(battledata, ref result))
             {
                 userData.battle.Battle_Result_PRO(ref data, 0, ref result);
             }
             userData.battle.teamMove(map.teamMove.dic[stepNum++]);//右移一步
-            battledata = new BattleData(data.Teams).setData(4181, 0, 0, random.Next(5, 7), 4572, 6351, 10005, userData.user_Info.experience);
+            battledata = new BattleData(data.Teams).setData(4174, 0, 0, random.Next(5, 7), 4485, 30291, 10012, userData.user_Info.experience);
             if (userData.battle.Normal_battleFinish(battledata, ref result))
             {
                 userData.battle.Battle_Result_PRO(ref data, 0, ref result);
             }
             userData.battle.teamMove(map.teamMove.dic[stepNum++]);//右移一步
-            battledata = new BattleData(data.Teams).setData(4194, 0, 0, random.Next(5, 7), 8358, 16408, 900076, userData.user_Info.experience);
+            battledata = new BattleData(data.Teams).setData(4178, 0, 0, random.Next(5, 7), 4483, 21724, 10008, userData.user_Info.experience);
             if (userData.battle.Normal_battleFinish(battledata, ref result))
             {
                 userData.battle.Battle_Result_PRO(ref data, 0, ref result);
             }
+            userData.battle.teamMove(map.teamMove.dic[stepNum++]);//右移一步
+            battledata = new BattleData(data.Teams).setData(4198, 0, 0, random.Next(5, 7), 4572, 21351, 10005, userData.user_Info.experience);
+            if (userData.battle.Normal_battleFinish(battledata, ref result))
+            {
+                userData.battle.Battle_Result_PRO(ref data, 0, ref result);
+            }
+            userData.battle.teamMove(map.teamMove.dic[stepNum++]);//右移一步
+            battledata = new BattleData(data.Teams).setData(4195, 0, 0, random.Next(5, 7), 4572, 21351, 10005, userData.user_Info.experience);
+            if (userData.battle.Normal_battleFinish(battledata, ref result))
+            {
+                userData.battle.Battle_Result_PRO(ref data, 0, ref result);
+            }
+
+            
+
+            EndTurnresult = userData.battle.endTurn(data);
+            if (Function.Normal_PosCheck_type2(EndTurnresult, 4195) == 1)
+            {
+                battledata = new BattleData(data.Teams).setData(4195, 0, 0, random.Next(5, 7), 6740, 13812, 10009, userData.user_Info.experience);
+                if (userData.battle.Normal_battleFinish(battledata, ref result))
+                {
+                    userData.battle.Battle_Result_PRO(ref data, 0, ref result);
+                }
+            }
+            if (Function.Normal_PosCheck_type2(EndTurnresult, 4187) == 1)
+            {
+                battledata = new BattleData(data.Teams).setData(4187, 1, 0, random.Next(5, 7), 4483, 6724, 10008, userData.user_Info.experience);
+                if (userData.battle.Normal_battleFinish(battledata, ref result))
+                {
+                    userData.battle.Battle_Result_PRO(ref data, 0, ref result);
+                }
+            }
+            if (Function.Normal_PosCheck_type2(EndTurnresult, 4176) == 1)
+            {
+                battledata = new BattleData(data.Teams).setData(4176, 3, 0, random.Next(5, 7), 4483, 6724, 10008, userData.user_Info.experience);
+                if (userData.battle.Normal_battleFinish(battledata, ref result))
+                {
+                    userData.battle.Battle_Result_PRO(ref data, 0, ref result);
+                }
+            }
+            if (Function.Normal_PosCheck_type2(EndTurnresult, 4175) == 1)
+            {
+                battledata = new BattleData(data.Teams).setData(4175, 2, 0, random.Next(5, 7), 4511, 8755, 10006, userData.user_Info.experience);
+                if (userData.battle.Normal_battleFinish(battledata, ref result))
+                {
+                    userData.battle.Battle_Result_PRO(ref data, 0, ref result);
+                }
+            }
+            userData.battle.endEnemyTurn();
+            userData.battle.startTurn(data);
+
+            userData.battle.teamMove(map.teamMove.dic[stepNum++]);//右移一步
+            userData.battle.teamMove(map.teamMove.dic[stepNum++]);//右移一步
+            battledata = new BattleData(data.Teams).setData(4194, 0, 0, random.Next(5, 7), 8358, 26408, 900076, userData.user_Info.experience);
+            if (userData.battle.Normal_battleFinish(battledata, ref result))
+            {
+                userData.battle.Battle_Result_PRO(ref data, 0, ref result);
+            }
+
+
+
+
+
+
+
+
+
+
+            //userData.battle.teamMove(map.teamMove.dic[stepNum++]);//右移一步
+            //userData.battle.teamMove(map.teamMove.dic[stepNum++]);//右移一步
+            //battledata = new BattleData(data.Teams).setData(4190, 0, 0, random.Next(5, 7), 6740, 3812, 10009, userData.user_Info.experience);
+            //if (userData.battle.Normal_battleFinish(battledata, ref result))
+            //{
+            //    userData.battle.Battle_Result_PRO(ref data, 0, ref result);
+            //}
+
+            //userData.battle.teamMove(map.teamMove.dic[stepNum++]);//右移一步
+            //battledata = new BattleData(data.Teams).setData(4196, 0, 0, random.Next(5, 7), 6740, 3812, 10009, userData.user_Info.experience);
+            //if (userData.battle.Normal_battleFinish(battledata, ref result))
+            //{
+            //    userData.battle.Battle_Result_PRO(ref data, 0, ref result);
+            //}
+
+            //userData.battle.teamMove(map.teamMove.dic[stepNum++]);//右移一步
+            //battledata = new BattleData(data.Teams).setData(4179, 0, 0, random.Next(5, 7), 4572, 6351, 10005, userData.user_Info.experience);
+            //if (userData.battle.Normal_battleFinish(battledata, ref result))
+            //{
+            //    userData.battle.Battle_Result_PRO(ref data, 0, ref result);
+            //}
+            //userData.battle.teamMove(map.teamMove.dic[stepNum++]);//右移一步
+
+            //userData.battle.teamMove(map.teamMove.dic[stepNum++]);//右移一步
+            //battledata = new BattleData(data.Teams).setData(4189, 3, 0, random.Next(5, 7), 4483, 6724, 10008, userData.user_Info.experience);
+            //if (userData.battle.Normal_battleFinish(battledata, ref result))
+            //{
+            //    userData.battle.Battle_Result_PRO(ref data, 0, ref result);
+            //}
+
+
+
+
+            //EndTurnresult = userData.battle.endTurn(data);
+            //userData.battle.endEnemyTurn();
+            //userData.battle.startTurn(data);
+
+            //userData.battle.teamMove(map.teamMove.dic[stepNum++]);//右移一步
+            //battledata = new BattleData(data.Teams).setData(4179, 0, 0, random.Next(5, 7), 6740, 3812, 10009, userData.user_Info.experience);
+            //if (userData.battle.Normal_battleFinish(battledata, ref result))
+            //{
+            //    userData.battle.Battle_Result_PRO(ref data, 0, ref result);
+            //}
+
+            //userData.battle.teamMove(map.teamMove.dic[stepNum++]);//右移一步
+            //userData.battle.teamMove(map.teamMove.dic[stepNum++]);//右移一步
+            //battledata = new BattleData(data.Teams).setData(4183, 0, 0, random.Next(5, 7), 6740, 3812, 10009, userData.user_Info.experience);
+            //if (userData.battle.Normal_battleFinish(battledata, ref result))
+            //{
+            //    userData.battle.Battle_Result_PRO(ref data, 0, ref result);
+            //}
+            //userData.battle.teamMove(map.teamMove.dic[stepNum++]);//右移一步
+            //battledata = new BattleData(data.Teams).setData(4185, 0, 0, random.Next(5, 7), 4483, 6724, 10008, userData.user_Info.experience);
+            //if (userData.battle.Normal_battleFinish(battledata, ref result))
+            //{
+            //    userData.battle.Battle_Result_PRO(ref data, 0, ref result);
+            //}
+
+            //userData.battle.teamMove(map.teamMove.dic[stepNum++]);//右移一步
+            //battledata = new BattleData(data.Teams).setData(4186, 1, 0, random.Next(5, 7), 4483, 6724, 10008, userData.user_Info.experience);
+            //if (userData.battle.Normal_battleFinish(battledata, ref result))
+            //{
+            //    userData.battle.Battle_Result_PRO(ref data, 0, ref result);
+            //}
+
+            //EndTurnresult = userData.battle.endTurn(data);
+            //if (Function.Normal_PosCheck_type2(EndTurnresult, 4185) == 1)
+            //{
+            //    battledata = new BattleData(data.Teams).setData(4185, 0, 0, random.Next(5, 7), 4485, 15291, 10012, userData.user_Info.experience);
+            //    if (userData.battle.Normal_battleFinish(battledata, ref result))
+            //    {
+            //        userData.battle.Battle_Result_PRO(ref data, 0, ref result);
+            //    }
+            //}
+            //if (Function.Normal_PosCheck_type2(EndTurnresult, 4186) == 1)
+            //{
+            //    battledata = new BattleData(data.Teams).setData(4186, 1, 0, random.Next(5, 7), 4485, 15291, 10012, userData.user_Info.experience);
+            //    if (userData.battle.Normal_battleFinish(battledata, ref result))
+            //    {
+            //        userData.battle.Battle_Result_PRO(ref data, 0, ref result);
+            //    }
+            //}
+            //userData.battle.endEnemyTurn();
+            //userData.battle.startTurn(data);
+
+            //userData.battle.teamMove(map.teamMove.dic[stepNum++]);//右移一步
+            //userData.battle.teamMove(map.teamMove.dic[stepNum++]);//右移一步
+            //battledata = new BattleData(data.Teams).setData(4174, 0, 0, random.Next(5, 7), 4483, 6724, 10008, userData.user_Info.experience);
+            //if (userData.battle.Normal_battleFinish(battledata, ref result))
+            //{
+            //    userData.battle.Battle_Result_PRO(ref data, 0, ref result);
+            //}
+
+            //userData.battle.teamMove(map.teamMove.dic[stepNum++]);//右移一步
+            //userData.battle.teamMove(map.teamMove.dic[stepNum++]);//右移一步
+            //userData.battle.teamMove(map.teamMove.dic[stepNum++]);//右移一步
+            //battledata = new BattleData(data.Teams).setData(4195, 0, 0, random.Next(5, 7), 4572, 6351, 10005, userData.user_Info.experience);
+            //if (userData.battle.Normal_battleFinish(battledata, ref result))
+            //{
+            //    userData.battle.Battle_Result_PRO(ref data, 0, ref result);
+            //}
+            //userData.battle.teamMove(map.teamMove.dic[stepNum++]);//右移一步
+            //battledata = new BattleData(data.Teams).setData(4181, 0, 0, random.Next(5, 7), 4572, 6351, 10005, userData.user_Info.experience);
+            //if (userData.battle.Normal_battleFinish(battledata, ref result))
+            //{
+            //    userData.battle.Battle_Result_PRO(ref data, 0, ref result);
+            //}
+            //userData.battle.teamMove(map.teamMove.dic[stepNum++]);//右移一步
+            //battledata = new BattleData(data.Teams).setData(4194, 0, 0, random.Next(5, 7), 8358, 16408, 900076, userData.user_Info.experience);
+            //if (userData.battle.Normal_battleFinish(battledata, ref result))
+            //{
+            //    userData.battle.Battle_Result_PRO(ref data, 0, ref result);
+            //}
 
             if (result.Contains("rank"))
             {
