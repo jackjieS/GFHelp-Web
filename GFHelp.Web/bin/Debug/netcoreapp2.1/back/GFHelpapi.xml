@@ -1,0 +1,336 @@
+<?xml version="1.0"?>
+<doc>
+    <assembly>
+        <name>GFHelp.Web</name>
+    </assembly>
+    <members>
+        <member name="T:GFHelp.Web.Controllers.AccountController">
+            <summary>
+            网站用户相关操作
+            </summary>
+        </member>
+        <member name="M:GFHelp.Web.Controllers.AccountController.#ctor">
+            <summary>
+            构造器
+            </summary>
+            <param name="context"></param>
+        </member>
+        <member name="M:GFHelp.Web.Controllers.AccountController.GetGamesInfo">
+            <summary>
+            获取当前用户的信息
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:GFHelp.Web.Controllers.AccountController.CreatGame(GFHelp.DataBase.GameAccount)">
+            <summary>
+            创建一个游戏实例
+            Username 网站用户名字
+            Accountid 游戏账户(主键)
+            Password 
+            Platform 平台 安卓苹果
+            Channelid 官网填写GWPZ，ios留空不填,腾讯应用宝TX B服Bili 其它渠道服channelid也不一样
+            WorldId 频道 默认0
+            Androidid 不必要 自动生成
+            MAC 不必要 自动生成
+            YunDouDou 默认为空(这是备用登陆游戏登陆方案)
+            </summary>
+            <param name="accountbase.Username.Username">网站用户名字</param>
+            <param name2="accountbase.Accountid">游戏账户(主键)</param>
+            <param name3="accountbase.Password">密码</param>
+            <param name4="accountbase.Platform">平台 安卓苹果</param>
+            <param name5="accountbase.Channelid">官网填写GWPZ，ios留空不填,腾讯应用宝TX B服Bili 其它渠道服channelid也不一样</param>
+            <param name6="accountbase.WorldId">频道 默认0</param>
+            <param name7="accountbase.Androidid">不必要 后端自动生成</param>
+            <param name8="accountbase.MAC">不必要 后端自动生成</param>
+            <param name9="accountbaseYunDouDou">默认为空(这是备用登陆游戏登陆方案)</param>
+            <returns></returns>
+        </member>
+        <member name="M:GFHelp.Web.Controllers.AccountController.DeleteGame(GFHelp.DataBase.GameAccount)">
+            <summary>
+            删除一个游戏实例
+            </summary>
+            <param name="accountbase"></param>
+            <returns></returns>
+        </member>
+        <member name="T:GFHelp.Web.Controllers.AuthController">
+            <summary>
+            认证与登陆
+            </summary>
+        </member>
+        <member name="M:GFHelp.Web.Controllers.AuthController.WebLogin(GFHelp.DataBase.LoginModel)">
+            <summary>
+            网站登陆
+            Username
+            Password
+            </summary>
+            <param name="model.Username.Username"> 123 </param>
+            <returns>123</returns>
+        </member>
+        <member name="M:GFHelp.Web.Controllers.AuthController.WebRegister(GFHelp.DataBase.LoginModel)">
+            <summary>
+            网站注册
+            Username
+            Password
+            </summary>
+            <param name="model.Username.Username"> 123 </param>
+            <returns>123</returns>
+        </member>
+        <member name="T:GFHelp.Web.Controllers.GameController">
+            <summary>
+            游戏操作的
+            </summary>
+        </member>
+        <member name="M:GFHelp.Web.Controllers.GameController.#ctor">
+            <summary>
+            Game控制器
+            </summary>
+        </member>
+        <member name="M:GFHelp.Web.Controllers.GameController.GetGameDetails(System.String)">
+            <summary>
+            获取游戏实例的详细信息
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:GFHelp.Web.Controllers.GameController.GetGameStatus(System.String)">
+            <summary>
+            获取游戏实例的状态
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:GFHelp.Web.Controllers.GameController.Login(GFHelp.Web.Controllers.GameController.Account)">
+            <summary>
+            游戏登陆
+            </summary>
+            <param name="account"></param>
+            <returns></returns>
+        </member>
+        <member name="M:GFHelp.Web.Controllers.GameController.Heavy_Equip_Build(GFHelp.Web.Controllers.GameController.Account)">
+            <summary>
+            Heavy_Equip_Build
+            </summary>
+            <param name="account"></param>
+            <returns></returns>
+        </member>
+        <member name="M:GFHelp.Web.Controllers.GameController.Normal_Equip_Build(GFHelp.Web.Controllers.GameController.Account)">
+            <summary>
+            Normal_Equip_Build
+            </summary>
+            <param name="account"></param>
+            <returns></returns>
+        </member>
+        <member name="M:GFHelp.Web.Controllers.GameController.Heavy_Doll_Build(GFHelp.Web.Controllers.GameController.Account)">
+            <summary>
+            Heavy_Doll_Build
+            </summary>
+            <param name="account"></param>
+            <returns></returns>
+        </member>
+        <member name="M:GFHelp.Web.Controllers.GameController.Normal_Doll_Build(GFHelp.Web.Controllers.GameController.Account)">
+            <summary>
+            Normal_Doll_Build
+            </summary>
+            <param name="account"></param>
+            <returns></returns>
+        </member>
+        <member name="M:GFHelp.Web.Controllers.GameController.StartOperation(GFHelp.Web.Controllers.GameController.Operation)">
+            <summary>
+            [josn] accountID,后勤KEY, 后勤ID,后勤梯队ID sample:{"accountID":"13201546359",,"operationID":5,"TeamID":1}
+            </summary>
+            <param text="json"> json</param>
+            <returns></returns>
+        </member>
+        <member name="M:GFHelp.Web.Controllers.GameController.AbortOperation(GFHelp.Web.Controllers.GameController.Operation)">
+            <summary>
+            [josn] accountID,后勤KEY, 后勤ID, sample:{"accountID":"13201546359",,"operationID":5,"TeamID":1}
+            </summary>
+            <param text="json"> json</param>
+            <returns></returns>
+        </member>
+        <member name="M:GFHelp.Web.Controllers.GameController.StartBattle(GFHelp.Core.Action.BattleBase.Battle)">
+            <summary>
+            开始作战
+            </summary>
+            <param name="bs"></param>
+            <returns></returns>
+        </member>
+        <member name="M:GFHelp.Web.Controllers.GameController.AbortBattle(GFHelp.Core.Action.BattleBase.Battle)">
+            <summary>
+            终止作战
+            </summary>
+            <param name="Accountid"> 游戏账户id</param>
+            <returns></returns>
+        </member>
+        <member name="T:GFHelp.Web.Controllers.GameController.Account">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="T:GFHelp.Web.Controllers.GameController.Operation">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="T:GFHelp.Web.Controllers.SystemController">
+            <summary>
+            系统运行的情况
+            </summary>
+        </member>
+        <member name="M:GFHelp.Web.Controllers.SystemController.#ctor">
+            <summary>
+            系统控制器
+            </summary>
+        </member>
+        <member name="M:GFHelp.Web.Controllers.SystemController.GetLogs">
+            <summary>
+            获取系统错误信息
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:GFHelp.Web.Controllers.SystemController.RemoveALLSystemNotice">
+            <summary>
+            删除全部系统消息信息
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:GFHelp.Web.Controllers.SystemController.GetOperationInfo">
+            <summary>
+            获取基础信息 如10张图的后勤信息
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:GFHelp.Web.Controllers.SystemController.UpgradeInfo">
+            <summary>
+            获取系统信息
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:GFHelp.Web.Controllers.SystemController.TestInitSystemNotice">
+            <summary>
+            这是一个测试接口，模拟生成一个系统消息并推送到前端
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:GFHelp.Web.Controllers.SystemController.GetCountOfGame">
+            <summary>
+            获取当前游戏实例个数
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:GFHelp.Web.Controllers.SystemController.LoadHostAddress">
+            <summary>
+            获取当前游戏实例个数
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:GFHelp.Web.Controllers.SystemController.ReloadLibeary">
+            <summary>
+            ReloadMissionDll
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:GFHelp.Web.Chat.Send(System.String)">
+            <summary>
+            向所有人推送消息
+            </summary>
+            <param name="message"></param>
+            <returns></returns>
+        </member>
+        <member name="M:GFHelp.Web.Chat.SendToGroup(System.String,System.String)">
+            <summary>
+            向指定组推送消息
+            </summary>
+            <param name="groupName"></param>
+            <param name="message"></param>
+            <returns></returns>
+        </member>
+        <member name="M:GFHelp.Web.Chat.JoinGroup(System.String)">
+            <summary>
+            加入指定组并向组推送消息
+            </summary>
+            <param name="groupName"></param>
+            <returns></returns>
+        </member>
+        <member name="M:GFHelp.Web.Chat.LeaveGroup(System.String)">
+            <summary>
+            推出指定组并向组推送消息
+            </summary>
+            <param name="groupName"></param>
+            <returns></returns>
+        </member>
+        <member name="M:GFHelp.Web.Chat.Echo(System.String,System.String)">
+            <summary>
+            向指定Id推送消息
+            </summary>
+            <param name="userid">要推送消息的对象</param>
+            <param name="message"></param>
+            <returns></returns>
+        </member>
+        <member name="M:GFHelp.Web.Chat.SendGamesStatus(System.String,System.String)">
+            <summary>
+            后端向前端发送信息
+            单个游戏实例
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:GFHelp.Web.Chat.SendGameDetails(System.String,System.String)">
+            <summary>
+            后端向前端发送信息
+            单个游戏实例
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:GFHelp.Web.Chat.SendGamesNotes(System.String,System.String)">
+            <summary>
+            后端向前端发送信息
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:GFHelp.Web.Chat.SendSystemNotification(System.String,System.String)">
+            <summary>
+            后端向前端发送信息
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:GFHelp.Web.Chat.OnConnectedAsync">
+            <summary>
+            建立连接时触发
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:GFHelp.Web.Chat.OnDisconnectedAsync(System.Exception)">
+            <summary>
+            离开连接时触发
+            </summary>
+            <param name="ex"></param>
+            <returns></returns>
+        </member>
+        <member name="M:GFHelp.Web.Chat.RemoveAllSystemNotice(System.String)">
+            <summary>
+            移除所有系统消息
+            </summary>
+            <param name="ID"></param>
+        </member>
+        <member name="M:GFHelp.Web.Chat.RemoveGameNotice(System.String)">
+            <summary>
+            移除游戏消息
+            </summary>
+            <param name="ID"></param>
+        </member>
+        <member name="T:GFHelp.Web.Properties.Resources">
+            <summary>
+              A strongly-typed resource class, for looking up localized strings, etc.
+            </summary>
+        </member>
+        <member name="P:GFHelp.Web.Properties.Resources.ResourceManager">
+            <summary>
+              Returns the cached ResourceManager instance used by this class.
+            </summary>
+        </member>
+        <member name="P:GFHelp.Web.Properties.Resources.Culture">
+            <summary>
+              Overrides the current thread's CurrentUICulture property for all
+              resource lookups using this strongly typed resource class.
+            </summary>
+        </member>
+    </members>
+</doc>

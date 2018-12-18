@@ -249,14 +249,7 @@ namespace GFHelp.Web.Controllers
                 //data = result,
                 message = string.Format("完成")
             });
-
-
         }
-
-
-
-
-
 
 
 

@@ -101,9 +101,11 @@ namespace GFHelp.Core.Management
                 data.Add(userData);
             }
 
-            userData.cd = new Task(() => userData.cdloop.CountDown());
-            userData.cd.Start();
-            userData.cd.ContinueWith(t =>
+            userData.battleLoop = new Task(() => userData.threadLoop.BattleLoop());
+            userData.battleLoop.Start();
+            userData.dailyLoop = new Task(() => userData.threadLoop.DailyLoop());
+            userData.dailyLoop.Start();
+            userData.dailyLoop.ContinueWith(t =>
             {
                 DataBase.DataBase.DelGameAccount(userData.GameAccount);
                 string id = userData.GameAccount.GameAccountID;
@@ -113,38 +115,8 @@ namespace GFHelp.Core.Management
             });
         }
 
-        public static WebData GetWebData(string AccountId)
-        {
-            WebData webData = new WebData();
-            foreach (var item in data)
-            {
-                if (item.GameAccount.GameAccountID == AccountId)
-                {
-                    item.webData.Get(item);
-                    webData = item.webData;
-                }
 
-            }
-            return webData;
-        }
 
-        public static WebStatus GetWebStatus(string AccountId)
-        {
-            WebData webData = new WebData();
-            WebStatus WebStatus = new WebStatus();
-            foreach (var item in data)
-            {
-                if (item.GameAccount.GameAccountID == AccountId)
-                {
-                    item.webData.Get(item);
-                    webData = item.webData;
-                }
-
-            }
-            WebStatus.AccountId = AccountId;
-            WebStatus.statusBarText = webData.StatusBarText;
-            return WebStatus;
-        }
 
 
 
@@ -163,7 +135,7 @@ namespace GFHelp.Core.Management
             this.operation_Act_Info = new Operation_Act_Info(this);
             this.dorm_with_user_info = new Dorm_With_User_Info(this);
             this.home = new Home(this);
-            this.auto_Summery = new Auto_Summery(this);
+
             this.simulation = new Simulation(this);
             this.BattleReport = new BattleReport(this);
             this.outhouse_Establish_Info = new Outhouse_BattleReport(this);
@@ -171,13 +143,17 @@ namespace GFHelp.Core.Management
             this.config = new Config(this);
             this.equip_With_User_Info = new Equip(this);
             this.squadDataAnalysisAction = new SquadDataAnalysisAction(this);
-            this.squadDailyQuestAction = new SquadDailyQuestAction(this);
+            this.task_Daily = new Task_Daily(this);
             this.squad_With_User_Info = new Squad_With_User_Info(this);
             this.chip_With_User_Info = new Chip_With_User_Info(this);
             this.equip_Built = new Equip_Build(this);
             this.doll_Build = new Doll_Build(this);
-            this.cdloop = new cdLoop(this);
+            this.threadLoop = new ThreadLoop(this);
             this.share_With_User_Info = new Share_With_User_Info(this);
+            this.MissionInfo = new MissionInfo(this);
+            this.upgrade_Act_Info = new Upgrade_Act_Info(this);
+            this.webData = new WebData(this);
+            this.mailList = new Mail(this);
         }
         public void CreatGameAccount(DataBase.GameAccount gameAccount)
         {
@@ -217,7 +193,8 @@ namespace GFHelp.Core.Management
             auto_Mission_Act_Info.Read(jsonobj);
 
             ReadUserData_mission_act_info(jsonobj);
-            upgrade_Act_Info.Read(jsonobj);
+
+            upgrade_Act_Info.Read(jsonData);
 
             outhouse_Establish_Info.Read(jsonobj);
 
@@ -232,7 +209,7 @@ namespace GFHelp.Core.Management
 
 
             squadDataAnalysisAction.Read(jsonData);
-            squadDailyQuestAction.Read(jsonData);
+            task_Daily.Read(jsonData);
             squad_With_User_Info.Read(jsonData);
             chip_With_User_Info.Read(jsonData);
             equip_Built.Read(jsonData);
@@ -259,11 +236,12 @@ namespace GFHelp.Core.Management
             }
         }
 
-        public Task cd;
-        public cdLoop cdloop;
+        public Task dailyLoop;
+        public Task battleLoop;
+        public ThreadLoop threadLoop;
         public bool taskDispose = false;
 
-        public Auto_Summery auto_Summery;
+
         public Home home;
         public Action.Battle battle;
 
@@ -286,11 +264,11 @@ namespace GFHelp.Core.Management
         public Dorm_With_User_Info dorm_with_user_info;
         public Friend_With_User_Info friend_with_user_info = new Friend_With_User_Info();
 
-        public MailList mailList = new MailList();
+        public Mail mailList;
 
         public Auto_Mission_Act_Info auto_Mission_Act_Info = new Auto_Mission_Act_Info();
 
-        public Upgrade_Act_Info upgrade_Act_Info = new Upgrade_Act_Info();
+        public Upgrade_Act_Info upgrade_Act_Info;
 
         public Outhouse_BattleReport outhouse_Establish_Info; 
 
@@ -304,7 +282,7 @@ namespace GFHelp.Core.Management
 
         public Mission mission;
         public Simulation simulation;
-        public MissionInfo MissionInfo = new MissionInfo();
+        public MissionInfo MissionInfo;
         public Dictionary<int, Dictionary<int, Gun_With_User_Info>> Teams = new Dictionary<int, Dictionary<int, Gun_With_User_Info>>();//没读一次user_info都需要刷新
 
         public BattleReport BattleReport;
@@ -315,7 +293,7 @@ namespace GFHelp.Core.Management
         //这个要时刻刷新交给前端 是一个类 包含user_info，BattleTask,Logistal
         //还有一个进度信息StatusBarText
         //以Json形式扔出去
-        public WebData webData = new WebData();
+        public WebData webData;
 
         public logWriter log = new logWriter();
         public EventAction eventAction;
@@ -324,16 +302,15 @@ namespace GFHelp.Core.Management
 
 
         public SquadDataAnalysisAction squadDataAnalysisAction;
-        public SquadDailyQuestAction squadDailyQuestAction;
         public Squad_With_User_Info squad_With_User_Info;
         public Chip_With_User_Info chip_With_User_Info;
         public Equip_Build equip_Built;
         public Doll_Build doll_Build;
-
+        public Task_Daily task_Daily;
         public Share_With_User_Info share_With_User_Info;
 
 
-
+        public Random random = new Random();
     }
 
     public class Config
@@ -353,7 +330,7 @@ namespace GFHelp.Core.Management
 
         public bool AutoSimulation = false;
         public bool DataAnalysis = false;
-
+        public bool AutoSquadTaskDaily = false;
 
         public void ParmConfiuge(UserData userData)
         {
@@ -374,6 +351,7 @@ namespace GFHelp.Core.Management
                     this.AutoSimulation = true;
                     this.AutoStrengthen = true;
                     this.DataAnalysis = true;
+                    this.AutoSquadTaskDaily = true;
                 }
             }
         }
@@ -428,6 +406,10 @@ namespace GFHelp.Core.Management
         public int tomorrow_zero;
         public int weekday;
         public string GameHost = "http://gf-adrgw-cn-zs-game-0001.ppgame.com/index.php/1000/";
+
+
+        public string data_version;
+        public string ab_version;
     }
 
 
@@ -466,64 +448,12 @@ namespace GFHelp.Core.Management
             }
         }
 
-        public void Login()
-        {
-            invoke(new ActionEventArgs(TaskList.Login));
-        }
-
 
         public void ReloadMissionDll()
         {
             invoke(new ActionEventArgs(TaskList.ReloadMissionDll));
         }
-        public void Test()
-        {
-            invoke(new ActionEventArgs(TaskList.Test));
-        }
-        public void GetUserInfo()
-        {
-            invoke(new ActionEventArgs(TaskList.GetuserInfo));
-        }
-        public void Click_Kalina()
-        {
-            invoke(new ActionEventArgs(TaskList.Click_Kalina));
-        }
 
-        public void GetRecoverBp()
-        {
-            invoke(new ActionEventArgs(TaskList.GetRecoverBp));
-        }
-
-        public void Simulation_DATA()
-        {
-            invoke(new ActionEventArgs(TaskList.Simulation_DATA));
-        }
-        public void Simulation_Corridor()
-        {
-            invoke(new ActionEventArgs(TaskList.Simulation_Corridor));
-        }
-
-        public void TaskBattle_1()
-        {
-            invoke(new ActionEventArgs(TaskList.TaskBattle_1));
-        }
-
-        public void BattleReport_Write()
-        {
-            invoke(new ActionEventArgs(TaskList.BattleReport_Write));
-        }
-        public void BattleReport_Finish()
-        {
-            invoke(new ActionEventArgs(TaskList.BattleReport_Finish));
-        }
-        public void Start_Trial()
-        {
-            invoke(new ActionEventArgs(TaskList.Start_Trial));
-        }
-        public void Click_Girls_In_Dorm()
-        {
-            invoke(new ActionEventArgs(TaskList.Click_Girls_In_Dorm));
-        }
 
     }
 

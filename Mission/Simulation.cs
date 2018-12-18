@@ -6,34 +6,48 @@ using GFHelp.Core.Management;
 
 namespace GFHelp.Mission
 {
-    class Simulation
+    class Simulation : MapManager
     {
-        public static string Test()
+        public Simulation(UserData userData) : base(userData)
         {
-            return "Hello world";
+
         }
 
 
 
 
 
-        public void mapcorridor(UserData userData,MissionInfo.Data ignore)
+        public void mapsimulationdata()
         {
-            Random random = new Random();
-            int stepNum = 0; string result = "";
-            string battledata;
-            MissionInfo.Data data= new MissionInfo.Data();
-            Map_Controller.mapcorridor map = new Map_Controller.mapcorridor();
-            if (Map_Controller.Function.Startmap(userData, ref map,ref data) == false) return;
 
-            userData.battle.teamMove(map.teamMove.dic[stepNum++]);
-            userData.battle.teamMove_Random(map.teamMove.dic[stepNum++],data);
-            userData.battle.teamMove_Random(map.teamMove.dic[stepNum++],data);
-            userData.battle.teamMove_Random(map.teamMove.dic[stepNum++],data);
-            userData.battle.teamMove_Random(map.teamMove.dic[stepNum++],data);
+            Map_Controller.mapsimulationdata map = new Map_Controller.mapsimulationdata(userData);
+            map.Start();
+        }
 
-            battledata = new BattleData(data.Teams).setData(5520, 0, 0, random.Next(8, 10), 26483, 28819, 10009, userData.user_Info.experience);
-            if (userData.battle.Normal_battleFinish(battledata, ref result))
+        public void mapsimulationtrial()
+        {
+            Map_Controller.mapsimulationtrial map = new Map_Controller.mapsimulationtrial(userData);
+
+            map.Start();
+
+
+        }
+
+        public void mapcorridor()
+        {
+
+            Map_Controller.mapcorridor map = new Map_Controller.mapcorridor(data);
+            if (userData.battle.startMission(map, data) == -1) return;
+
+            userData.battle.teamMove(map.teamMove.dic[map.stepNum++]);
+            userData.battle.teamMove_Random(map.teamMove.dic[map.stepNum++],data);
+            userData.battle.teamMove_Random(map.teamMove.dic[map.stepNum++],data);
+            userData.battle.teamMove_Random(map.teamMove.dic[map.stepNum++],data);
+            userData.battle.teamMove_Random(map.teamMove.dic[map.stepNum++],data);
+
+            strbattledata = battleData.setData(5520, 0, 0, random.Next(8, 10), 26483, 28819, 10009, userData.user_Info.experience);
+
+            if (userData.battle.Normal_battleFinish(strbattledata, ref result))
             {
                 userData.battle.Battle_Result_PRO(ref data, 0, ref result);
             }

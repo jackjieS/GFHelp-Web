@@ -1,0 +1,63 @@
+【16:41:37】      message = 程序已注销 请重新创建实例 
+【16:41:46】      message =  自动分享获取30钻石 
+【16:41:49】      message = 获取邮件 ID: 34040080 标题 签到奖励 内容 签到奖励: 
+【16:41:52】      message = 获取邮件 ID: 34040081 标题 格琳娜的每日答谢礼物 内容 亲爱的指挥官，//n感谢您的关照，这是我准备的小礼物，希望您会喜欢。顺便，祝新的一天工作顺利！//n//n您活跃的后勤官 格琳娜 
+【16:42:04】      message = 获取邮件 ID: 34040094 标题 每日指标：小型支援 内容 完成1次后勤支援。 
+【16:43:18】      message = System.AggregateException: One or more errors occurred. (Invalid token 'False' in input string) ---> LitJson.JsonException: Invalid token 'False' in input string ---> System.Collections.Generic.KeyNotFoundException: The given key '65539' was not present in the dictionary.
+   at System.Collections.Generic.Dictionary`2.get_Item(TKey key)
+   at LitJson.JsonReader.Read()
+   --- End of inner exception stack trace ---
+   at LitJson.JsonReader.Read()
+   at LitJson.JsonMapper.ReadValue(WrapperFactory factory, JsonReader reader)
+   at LitJson.JsonMapper.ToObject(String json)
+   at GFLogin.BiliLoginManager.LoginBilibili() in C:\Users\jack\Desktop\CS\GFLogin\GFLogin\Client.cs:line 251
+   at GFLogin.BiliLoginManager.Login() in C:\Users\jack\Desktop\CS\GFLogin\GFLogin\Client.cs:line 224
+   at System.Threading.ExecutionContext.RunInternal(ExecutionContext executionContext, ContextCallback callback, Object state)
+--- End of stack trace from previous location where exception was thrown ---
+   at System.Threading.Tasks.Task.ExecuteWithThreadLocal(Task& currentTaskSlot)
+   --- End of inner exception stack trace ---
+   at System.Threading.Tasks.Task.WaitAllCore(Task[] tasks, Int32 millisecondsTimeout, CancellationToken cancellationToken)
+   at GFLogin.LoginManager.Login() in C:\Users\jack\Desktop\CS\GFLogin\GFLogin\Client.cs:line 63
+   at GFHelp.Core.Action.Home.Login() in C:\Users\jack\Desktop\CS\GFHelp-Web\GFHelp.Core\Action\Home.cs:line 39
+---> (Inner Exception #0) LitJson.JsonException: Invalid token 'False' in input string ---> System.Collections.Generic.KeyNotFoundException: The given key '65539' was not present in the dictionary.
+   at System.Collections.Generic.Dictionary`2.get_Item(TKey key)
+   at LitJson.JsonReader.Read()
+   --- End of inner exception stack trace ---
+   at LitJson.JsonReader.Read()
+   at LitJson.JsonMapper.ReadValue(WrapperFactory factory, JsonReader reader)
+   at LitJson.JsonMapper.ToObject(String json)
+   at GFLogin.BiliLoginManager.LoginBilibili() in C:\Users\jack\Desktop\CS\GFLogin\GFLogin\Client.cs:line 251
+   at GFLogin.BiliLoginManager.Login() in C:\Users\jack\Desktop\CS\GFLogin\GFLogin\Client.cs:line 224
+   at System.Threading.ExecutionContext.RunInternal(ExecutionContext executionContext, ContextCallback callback, Object state)
+--- End of stack trace from previous location where exception was thrown ---
+   at System.Threading.Tasks.Task.ExecuteWithThreadLocal(Task& currentTaskSlot)<---
+ , exception = System.AggregateException: One or more errors occurred. (Invalid token 'False' in input string) ---> LitJson.JsonException: Invalid token 'False' in input string ---> System.Collections.Generic.KeyNotFoundException: The given key '65539' was not present in the dictionary.
+   at System.Collections.Generic.Dictionary`2.get_Item(TKey key)
+   at LitJson.JsonReader.Read()
+   --- End of inner exception stack trace ---
+   at LitJson.JsonReader.Read()
+   at LitJson.JsonMapper.ReadValue(WrapperFactory factory, JsonReader reader)
+   at LitJson.JsonMapper.ToObject(String json)
+   at GFLogin.BiliLoginManager.LoginBilibili() in C:\Users\jack\Desktop\CS\GFLogin\GFLogin\Client.cs:line 251
+   at GFLogin.BiliLoginManager.Login() in C:\Users\jack\Desktop\CS\GFLogin\GFLogin\Client.cs:line 224
+   at System.Threading.ExecutionContext.RunInternal(ExecutionContext executionContext, ContextCallback callback, Object state)
+--- End of stack trace from previous location where exception was thrown ---
+   at System.Threading.Tasks.Task.ExecuteWithThreadLocal(Task& currentTaskSlot)
+   --- End of inner exception stack trace ---
+   at System.Threading.Tasks.Task.WaitAllCore(Task[] tasks, Int32 millisecondsTimeout, CancellationToken cancellationToken)
+   at GFLogin.LoginManager.Login() in C:\Users\jack\Desktop\CS\GFLogin\GFLogin\Client.cs:line 63
+   at GFHelp.Core.Action.Home.Login() in C:\Users\jack\Desktop\CS\GFHelp-Web\GFHelp.Core\Action\Home.cs:line 39
+---> (Inner Exception #0) LitJson.JsonException: Invalid token 'False' in input string ---> System.Collections.Generic.KeyNotFoundException: The given key '65539' was not present in the dictionary.
+   at System.Collections.Generic.Dictionary`2.get_Item(TKey key)
+   at LitJson.JsonReader.Read()
+   --- End of inner exception stack trace ---
+   at LitJson.JsonReader.Read()
+   at LitJson.JsonMapper.ReadValue(WrapperFactory factory, JsonReader reader)
+   at LitJson.JsonMapper.ToObject(String json)
+   at GFLogin.BiliLoginManager.LoginBilibili() in C:\Users\jack\Desktop\CS\GFLogin\GFLogin\Client.cs:line 251
+   at GFLogin.BiliLoginManager.Login() in C:\Users\jack\Desktop\CS\GFLogin\GFLogin\Client.cs:line 224
+   at System.Threading.ExecutionContext.RunInternal(ExecutionContext executionContext, ContextCallback callback, Object state)
+--- End of stack trace from previous location where exception was thrown ---
+   at System.Threading.Tasks.Task.ExecuteWithThreadLocal(Task& currentTaskSlot)<---
+
+【17:54:41】      message = 程序已注销 请重新创建实例 

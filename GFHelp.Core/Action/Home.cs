@@ -34,22 +34,34 @@ namespace GFHelp.Core.Action
 
                 userData.webData.StatusBarText = "游戏登陆";
                 GFLogin.LoginManager login = new GFLogin.LoginManager().setAccountID(userData.GameAccount.GameAccountID).setPWD(userData.GameAccount.GamePassword).setChannelID(userData.GameAccount.ChannelID);
-                login.Login();
+                try
+                {
+                    login.Login();
+                }
+                catch (Exception e)
+                {
+                    new Log().userInit(userData.GameAccount.GameAccountID, e.ToString(), e.ToString()).userInfo();
+                    return false;
+                }
+
+
                 if (login.isSuccessLogin)
                 {
-                    userData.GameAccount.YunDouDou = login.EncryptResult;
+                    Response.Check(userData.GameAccount, ref login.EncryptResult, "GetDigitalUid_Pro", false);
                 }
                 else
                 {
                     new Log().userInit(userData.GameAccount.GameAccountID, "数字天空登陆失败", "").userInfo();
                     return false;
                 }
-
-
+            }
+            else
+            {
+                Response.Check(userData.GameAccount, ref userData.GameAccount.YunDouDou, "GetDigitalUid_Pro", false);
             }
 
-            //userData.GameAccount.req_id = Decrypt.ConvertDateTime_China_Int(DateTime.Now);
-            if (Response.Check(userData.GameAccount, ref userData.GameAccount.YunDouDou, "GetDigitalUid_Pro", false) != 1) return false;
+
+
 
             userData.webData.StatusBarText = "获取UserInfo";
             if (!GetUserInfo())
@@ -66,9 +78,10 @@ namespace GFHelp.Core.Action
                 return false;
             } 
 
-            userData.webData.StatusBarText = "查询新邮件";
-            Mail();
+            userData.mailList.MailHandle();
             userData.battle.Abort_Mission_login();
+
+
             userData.config.LoginSuccessful = true;//开始自动任务循环
             return true;
         }
@@ -81,11 +94,6 @@ namespace GFHelp.Core.Action
             var jsonobj = DynamicJson.Parse(result); //讲道理，我真不想写了
             JsonData jsonData = JsonMapper.ToObject(result);
             userData.Read(jsonobj, jsonData);
-
-            userData.webData.StatusBarText = "查询新邮件";
-            Mail();
-
-
 
             return true;
         }
@@ -181,6 +189,11 @@ namespace GFHelp.Core.Action
                     var jsonobj = DynamicJson.Parse(result); //讲道理，我真不想写了
                     userData.GameAccount.loginTime = Convert.ToInt32(jsonobj.now);
                     userData.GameAccount.CatchDataVersion = jsonobj.data_version.ToString();
+                    userData.GameAccount.data_version = jsonobj.data_version.ToString();
+                    userData.GameAccount.ab_version = jsonobj.ab_version.ToString();
+
+
+
                     SystemOthers.ConfigData.DataVersion = userData.GameAccount.CatchDataVersion;
                     userData.GameAccount.tomorrow_zero = Convert.ToInt32(jsonobj.tomorrow_zero);
                     userData.GameAccount.weekday = Convert.ToInt32(jsonobj.weekday);
@@ -242,130 +255,7 @@ namespace GFHelp.Core.Action
             return true;
         }
 
-        /// <summary>
-        /// Mail只处理签到信息
-        /// 可能会处理友情点 资源
-        /// </summary>
-        public void Mail()
-        {
-            var jsonobj = DynamicJson.Parse("");
-            bool Loop = true;
-            int count = 0;
-            string result = "";
-            while (Loop)
-            {
-                result = API.Home.ifNewMail(userData.GameAccount);
-                switch (Response.Check(userData.GameAccount, ref result, "ifNewMail", true))
-                {
-                    case 1:
-                        {
-                            jsonobj = DynamicJson.Parse(result);
-                            Loop = false;
-                            break;
-                        }
-                    case 0:
-                        {
 
-                            break;
-                        }
-                    case -1:
-                        {
-                            if(count++ > userData.config.ErrorCount)
-                            {
-                                new Log().systemInit("Mail", result.ToString()).coreError();
-                                new Log().userInit(userData.GameAccount.GameAccountID, "Mail", result.ToString()).userInfo();
-                                return;
-                            }
-                            break;
-                        }
-                    default:
-                        break;
-                }
-            }
-
-            Loop = true;
-            if (jsonobj.if_new_mail == true)
-            {
-                //如果有 就发送
-
-
-                while (Loop)
-                {
-                    //titleGetMailList
-                    result = API.Home.GetMailList(userData.GameAccount);
-                    switch (Response.Check(userData.GameAccount, ref result, "GetMailList", true))
-                    {
-                        case 1:
-                            {
-                                jsonobj = DynamicJson.Parse(result);
-                                Loop = false;
-                                break;
-                            }
-                        case 0:
-                            {
-                                break;
-                            }
-                        case -1:
-                            {
-                                if (count++ > userData.config.ErrorCount)
-                                {
-                                    new Log().systemInit("GetMail", result.ToString()).coreError();
-                                    new Log().userInit(userData.GameAccount.GameAccountID, "GetMail", result.ToString()).userInfo();
-                                    return;
-                                }
-                                break;
-                            }
-                        default:
-                            break;
-                    }
-                }
-
-
-                userData.mailList.Read(jsonobj);
-
-                //根据是否有邮件签到
-                //type 5 可能是签到
-                int x = 0; string gun_id = "";
-
-                while (userData.mailList.dicMail.Count>0)
-                {
-
-                    int mailwith_user_id = userData.mailList.dicMail[x].id;
-                    userData.webData.StatusBarText = String.Format(" 开始接收邮件 邮件ID: {0} ,邮件剩余数量 : {1} ", userData.mailList.dicMail[x].id,userData.mailList.dicMail.Count);
-
-                    result = API.Home.GetOneMail_Type1(userData.GameAccount,mailwith_user_id);
-                    if(Response.Check(userData.GameAccount, ref result, "GetMail_Content_Pro", true)==1)
-                    {
-                        jsonobj = DynamicJson.Parse(result);
-                        string title =CatchData.Base.Asset_Textes.ChangeCodeFromeCSV(Response.UnicodeToString(jsonobj.title.ToString()));
-                        string content = CatchData.Base.Asset_Textes.ChangeCodeFromeCSV(Response.UnicodeToString(jsonobj.content.ToString()));
-                        new Log().userInit(userData.GameAccount.GameAccountID, string.Format("获取邮件 标题 {0} 内容 {1}", title, content)).userInfo();
-                    }
-
-
-                    //这里检查新枪
-                    jsonobj = DynamicJson.Parse(result);
-                    if (result.Contains("gun_id") || result.Contains("equip_ids"))
-                    {
-                        gun_id = jsonobj.gun_id.ToString();
-                    }
-                    result = API.Home.GetMailResource_Type1(userData.GameAccount, mailwith_user_id);
-                    if (result.Contains("gun_with_user_id") || result.Contains("equip_with_user_id"))
-                    {
-                        userData.battle.Add_Get_Gun_Equip_Battle(int.Parse(gun_id), result);
-                    }
-
-                    userData.mailList.dicMail.Remove(x++);
-                }
-
-
-
-
-
-            }
-
-
-        }
 
         public void changeLock(List<int> listlockid, List<int> listUnlockid)
         {
@@ -459,13 +349,12 @@ namespace GFHelp.Core.Action
             if (DateTime.Now.Minute == 35 && DateTime.Now.Second == 1)
             {
                 userData.GameAccount.tomorrow_zero = 2101948800;
-                Thread.Sleep(1000);
-                userData.eventAction.Login();
+                Thread.Sleep(userData.random.Next(3,9)*100);
+                new Log().userInit(userData.GameAccount.GameAccountID,string.Format("{0} 登陆",DateTime.Now.ToString())).userInfo();
+                userData.home.Login();
             }
             return;
         }
-
-
 
 
 

@@ -372,22 +372,22 @@ namespace GFHelp.Core
         private static void Write<T>(string name,List<T> abc)
         {
             return;
-            StringBuilder sb = new StringBuilder();
-            LitJson.JsonWriter jsonWriter = new LitJson.JsonWriter(sb);
-            jsonWriter.WriteObjectStart();
+            //StringBuilder sb = new StringBuilder();
+            //LitJson.JsonWriter jsonWriter = new LitJson.JsonWriter(sb);
+            //jsonWriter.WriteObjectStart();
             
-            jsonWriter.WritePropertyName(name);
-            jsonWriter.WriteArrayStart();
-            foreach (var item in abc)
-            {
-                jsonWriter.Write(JsonConvert.SerializeObject(item));
-            }
-            jsonWriter.WriteArrayEnd();
-            jsonWriter.WriteObjectEnd();
+            //jsonWriter.WritePropertyName(name);
+            //jsonWriter.WriteArrayStart();
+            //foreach (var item in abc)
+            //{
+            //    jsonWriter.Write(JsonConvert.SerializeObject(item));
+            //}
+            //jsonWriter.WriteArrayEnd();
+            //jsonWriter.WriteObjectEnd();
 
-            file.WriteLine(sb.ToString());
-            file.Flush();
-            file.Close();
+            //file.WriteLine(sb.ToString());
+            //file.Flush();
+            //file.Close();
         }
 
         private static bool LoadStcTable()

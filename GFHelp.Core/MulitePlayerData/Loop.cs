@@ -9,14 +9,14 @@ using System.Threading;
 
 namespace GFHelp.Core.Management
 {
-    public class cdLoop
+    public class ThreadLoop
     {
-        public cdLoop(UserData userData)
+        public ThreadLoop(UserData userData)
         {
             this.userData = userData;
         }
         private UserData userData;
-        public void CountDown()//倒计时
+        public void DailyLoop()//倒计时
         {
             while (true)
             {
@@ -29,7 +29,7 @@ namespace GFHelp.Core.Management
                 {
                     userData.operation_Act_Info.TimeReduce();
                     userData.dorm_with_user_info.TimeReduce();
-                    userData.auto_Summery.Auto_Act_Summery();
+                    Auto_Act_Summery();
                 }
                 catch (Exception e)
                 {
@@ -39,20 +39,32 @@ namespace GFHelp.Core.Management
 
             }
         }
-    }
-
-
-
-
-    public class Auto_Summery
-    {
-        private UserData userData;
-        public Auto_Summery(UserData userData)
+        public void BattleLoop()
         {
-            this.userData = userData;
+            while (true)
+            {
+                Thread.Sleep(1000);
+                if (userData.taskDispose == true)
+                {
+                    return;
+                }
+                try
+                {
+                    Auto_Battle();
+                }
+                catch (Exception e)
+                {
+                    new Log().userInit(userData.GameAccount.GameAccountID, "战斗Battle线程出现错误 ", e.ToString()).userInfo();
+                    return;
+                }
+
+            }
         }
-        //总的循环
-        public void Auto_Act_Summery()
+
+
+
+
+        private void Auto_Act_Summery()
         {
 
             if (userData.config.LoginSuccessful)
@@ -66,40 +78,19 @@ namespace GFHelp.Core.Management
                 userData.squadDataAnalysisAction.AutoRun();
                 userData.equip_Built.AutoRun();
                 userData.doll_Build.AutoRun();
-                //WriteReport_Start(userData);
-                //WriteReport_Finish(userData);
-
+                userData.task_Daily.AutoRun();
             }
 
         }
-
+        private void Auto_Battle()
+        {
+            if (userData.config.LoginSuccessful && userData.taskDispose != true)
+            {
+                if (userData.MissionInfo.listTask.Count == 0) return;
+                userData.mission.Test();
+            }
+        }
     }
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 
 
 

@@ -13,110 +13,95 @@ namespace GFHelp.Core.MulitePlayerData.WebData
 {
     public class WebData
     {
-        public string StatusBarText;
-        public List<Team> WebTeams = new List<Team>();
-        public List<Squad> WebSquads = new List<Squad>();
-        public WebUser_Info webUser_Info = new WebUser_Info();
-        public List<WebOperation> webOperation = new List<WebOperation>();
-        public List<WebEquip_Build> webEquip_Build = new List<WebEquip_Build>();
-        public List<WebDoll_Build> webDoll_Builds = new List<WebDoll_Build>();
-        public WebStatus webStatus = new WebStatus();
-        public List<WebMissionInfo>  webMissionInfo = new List<WebMissionInfo>();
-        public void Get(UserData userData)
+        public WebData(UserData UserData)
         {
-            Initialize.GetWebTeams(userData, ref WebTeams);
-            Initialize.GetWebUser_Info(userData, ref webUser_Info);
-            Initialize.GetWebOperation(userData,ref webOperation);
-            Initialize.GetWebStatus(userData, ref webStatus);
-            Initialize.GetWebMissionInfo(userData, ref webMissionInfo);
-            Initialize.GetWebSquads(userData, ref WebSquads);
-            Initialize.GetWebEquip_Build(userData, ref webEquip_Build);
-            Initialize.GetWebDoll_Build(userData, ref webDoll_Builds);
+            this.UserData = UserData;
         }
-    }
-    public class Initialize
-    {
-        public static void GetWebTeams(UserData userData, ref List<Team> Teams)
+
+        private UserData UserData;
+
+        public void GetWebTeams(ref List<Team> Teams)
         {
             Teams.Clear();
-            foreach (var team in userData.Teams)
+            foreach (var team in UserData.Teams)
             {
-                int teamID=0;
-                string Leader="";
+                int teamID = 0;
+                string Leader = "";
                 List<Gun> guns = new List<Gun>();
                 foreach (var k in team.Value)
                 {
                     if (k.Value.location == 1)
                     {
-                        Leader = k.Value.info.en_name; 
+                        Leader = k.Value.info.en_name;
                         teamID = k.Value.teamId;
                     }
                     Gun gun = new Gun(k.Value);
                     guns.Add(gun);
                 }
                 Team Tteam = new Team(teamID, Leader, guns);
+                Tteam.isFree = UserData.others.CheckTeamStatus(teamID);
                 Teams.Add(Tteam);
             }
         }
-        public static void GetWebSquads(UserData userData,ref List<Squad> squads)
+        public void GetWebSquads(ref List<Squad> squads)
         {
             squads.Clear();
-            foreach (var squad in userData.squad_With_User_Info.listSquad)
+            foreach (var squad in UserData.squad_With_User_Info.listSquad)
             {
                 Squad s = new Squad(squad);
                 squads.Add(s);
             }
         }
-        public static void GetWebUser_Info(UserData ud,ref WebUser_Info ui)
+        public void GetWebUser_Info(ref WebUser_Info ui)
         {
-            ui.UserName = ud.user_Info.name;
-            ui.Level = ud.user_Info.lv.ToString();
-            ui.ammo = ud.user_Info.ammo.ToString();
-            ui.mre = ud.user_Info.mre.ToString();
-            ui.part = ud.user_Info.part.ToString();
-            ui.mp = ud.user_Info.mp.ToString();
-            ui.IOP_Contract = getItemNumFromID(ud, 0);
-            ui.Quick_Develop = getItemNumFromID(ud, 3);
-            ui.Quick_Reinforce = getItemNumFromID(ud, 4);
-            ui.Quick_Training = getItemNumFromID(ud, 8);
-            ui.EQUIP_Contract = getItemNumFromID(ud, 2);
-            ui.max_build_slot = ud.user_Info.max_build_slot.ToString();
-            ui.max_fix_slot = ud.user_Info.max_fix_slot.ToString();
-            ui.GunNum = ud.gun_With_User_Info.dicGun.Count.ToString();
-            ui.maxgun = ud.user_Info.maxgun.ToString();
-            ui.maxteam = ud.user_Info.maxteam.ToString();
-            ui.UnlockRatio = ((int)((double)ud.user_Info.gun_collect.Count / (double)GameData.listGunInfo.Count * 100)).ToString() + "%";
-            ui.KalinaLevel = ud.kalina_with_user_info.level.ToString();
-            ui.KalinaFavor = ud.kalina_with_user_info.favor.ToString();
+            ui.UserName = UserData.user_Info.name;
+            ui.Level = UserData.user_Info.lv.ToString();
+            ui.ammo = UserData.user_Info.ammo.ToString();
+            ui.mre = UserData.user_Info.mre.ToString();
+            ui.part = UserData.user_Info.part.ToString();
+            ui.mp = UserData.user_Info.mp.ToString();
+            ui.IOP_Contract = getItemNumFromID(0);
+            ui.Quick_Develop = getItemNumFromID(3);
+            ui.Quick_Reinforce = getItemNumFromID(4);
+            ui.Quick_Training = getItemNumFromID(8);
+            ui.EQUIP_Contract = getItemNumFromID(2);
+            ui.max_build_slot = UserData.user_Info.max_build_slot.ToString();
+            ui.max_fix_slot = UserData.user_Info.max_fix_slot.ToString();
+            ui.GunNum = UserData.gun_With_User_Info.dicGun.Count.ToString();
+            ui.maxgun = UserData.user_Info.maxgun.ToString();
+            ui.maxteam = UserData.user_Info.maxteam.ToString();
+            ui.UnlockRatio = ((int)((double)UserData.user_Info.gun_collect.Count / (double)GameData.listGunInfo.Count * 100)).ToString() + "%";
+            ui.KalinaLevel = UserData.kalina_with_user_info.level.ToString();
+            ui.KalinaFavor = UserData.kalina_with_user_info.favor.ToString();
 
-            ui.EquipNum = ud.equip_With_User_Info.listEquip.Count.ToString();
-            ui.FriendNum = ud.friend_with_user_info.dicFriend.Count.ToString();
-            ui.Coin1 = ud.user_Info.coin1.ToString();
-            ui.Coin2 = ud.user_Info.coin2.ToString();
-            ui.Coin3 = ud.user_Info.coin3.ToString();
-            ui.GemNum = ud.user_Info.gem.ToString();
-            ui.BatteryNum = ud.item_With_User_Info.Battery.ToString();
+            ui.EquipNum = UserData.equip_With_User_Info.listEquip.Count.ToString();
+            ui.FriendNum = UserData.friend_with_user_info.dicFriend.Count.ToString();
+            ui.Coin1 = UserData.user_Info.coin1.ToString();
+            ui.Coin2 = UserData.user_Info.coin2.ToString();
+            ui.Coin3 = UserData.user_Info.coin3.ToString();
+            ui.GemNum = UserData.user_Info.gem.ToString();
+            ui.BatteryNum = UserData.item_With_User_Info.Battery.ToString();
 
-            ui.GlobalEXP = ud.item_With_User_Info.globalFreeExp > 0 ? ud.item_With_User_Info.globalFreeExp.ToString():0.ToString();
-            ui.TimeOfReport = ud.outhouse_Establish_Info.time > 0 ? ud.outhouse_Establish_Info.time.ToString() : 0.ToString();
-            ui.BPnum = ud.user_Info.bp.ToString();
-            ui.BP_PayNUM = ud.user_Info.bp_pay.ToString();
-            ui.FurnitureCoinNum = getItemNumFromID(ud, 41);
-            ui.ExchangeCoinNum = getItemNumFromID(ud, 42);
-            ui.Core = ud.user_Info.core.ToString();
+            ui.GlobalEXP = UserData.item_With_User_Info.globalFreeExp > 0 ? UserData.item_With_User_Info.globalFreeExp.ToString() : 0.ToString();
+            ui.TimeOfReport = UserData.outhouse_Establish_Info.time > 0 ? UserData.outhouse_Establish_Info.time.ToString() : 0.ToString();
+            ui.BPnum = UserData.user_Info.bp.ToString();
+            ui.BP_PayNUM = UserData.user_Info.bp_pay.ToString();
+            ui.FurnitureCoinNum = getItemNumFromID(41);
+            ui.ExchangeCoinNum = getItemNumFromID(42);
+            ui.Core = UserData.user_Info.core.ToString();
 
 
-            ui.OrginalDataNum = ud.item_With_User_Info.originalData > 0 ? ud.item_With_User_Info.originalData.ToString() : 0.ToString();
-            ui.PureDataNum = ud.item_With_User_Info.PureData > 0 ? ud.item_With_User_Info.PureData.ToString() : 0.ToString();
+            ui.OrginalDataNum = UserData.item_With_User_Info.originalData > 0 ? UserData.item_With_User_Info.originalData.ToString() : 0.ToString();
+            ui.PureDataNum = UserData.item_With_User_Info.PureData > 0 ? UserData.item_With_User_Info.PureData.ToString() : 0.ToString();
 
-            ui.ChipNum = ud.chip_With_User_Info.listSquadChip.Count.ToString();
-            ui.ChipRank5Num = ud.chip_With_User_Info.listSquadChipRank5.Count.ToString();
-            ui.ChipMaxNum = ud.outhouse_Establish_Info.ChipsWhareHouse.ToString();
+            ui.ChipNum = UserData.chip_With_User_Info.listSquadChip.Count.ToString();
+            ui.ChipRank5Num = UserData.chip_With_User_Info.listSquadChipRank5.Count.ToString();
+            ui.ChipMaxNum = UserData.outhouse_Establish_Info.ChipsWhareHouse.ToString();
         }
-        public static void GetWebOperation(UserData ud, ref List<WebOperation> dic)
+        public void GetWebOperation(ref List<WebOperation> dic)
         {
             dic.Clear();
-            foreach (var item in ud.operation_Act_Info.dicOperation)
+            foreach (var item in UserData.operation_Act_Info.dicOperation)
             {
                 WebOperation webOperation = new WebOperation();
                 webOperation.Using = item.Value.Using;
@@ -131,44 +116,44 @@ namespace GFHelp.Core.MulitePlayerData.WebData
             }
 
         }
-        public static void GetWebStatus(UserData ud, ref WebStatus webStatus)
+        public void GetWebStatus(ref WebStatus webStatus)
         {
-            webStatus.AccountId = ud.GameAccount.GameAccountID;
-            webStatus.Name = ud.GameAccount.ChannelID + " - " + ud.GameAccount.GameAccountID +  " - " + ud.user_Info.name;
-            webStatus.statusBarText = ud.webData.StatusBarText;
+            webStatus.AccountId = UserData.GameAccount.GameAccountID;
+            webStatus.Name = UserData.GameAccount.ChannelID + " - " + UserData.GameAccount.GameAccountID + " - " + UserData.user_Info.name;
+            webStatus.statusBarText = UserData.webData.StatusBarText;
         }
-        private static string getItemNumFromID(UserData userData,int id)
+        private string getItemNumFromID(int id)
         {
-            foreach (var item in userData.item_With_User_Info.dicItem)
+            foreach (var item in UserData.item_With_User_Info.dicItem)
             {
                 if (item.Value.item_id == id)
                     return item.Value.number.ToString();
             }
             return "Null";
-        } 
-        public static void GetWebMissionInfo(UserData userData, ref List<WebMissionInfo> list)
+        }
+        public void GetWebMissionInfo(ref List<WebMissionInfo> list)
         {
             list.Clear();
-            foreach (var item in userData.MissionInfo.listTask)
+            foreach (var item in UserData.MissionInfo.listTask)
             {
                 WebMissionInfo webMissionInfo = new WebMissionInfo(item);
                 list.Add(webMissionInfo);
             }
         }
-        public static void GetWebEquip_Build(UserData ud, ref List<WebEquip_Build> dic)
+        public void GetWebEquip_Build(ref List<WebEquip_Build> dic)
         {
             dic.Clear();
-            foreach (var item in ud.equip_Built.Built_Slot)
+            foreach (var item in UserData.equip_Built.Built_Slot)
             {
                 WebEquip_Build webEquip_Build = new WebEquip_Build(item.Value);
                 dic.Add(webEquip_Build);
             }
 
         }
-        public static void GetWebDoll_Build(UserData ud, ref List<WebDoll_Build> dic)
+        public void GetWebDoll_Build(ref List<WebDoll_Build> dic)
         {
             dic.Clear();
-            foreach (var item in ud.doll_Build.Built_Slot)
+            foreach (var item in UserData.doll_Build.Built_Slot)
             {
                 WebDoll_Build webEquip_Build = new WebDoll_Build(item.Value);
                 dic.Add(webEquip_Build);
@@ -176,6 +161,29 @@ namespace GFHelp.Core.MulitePlayerData.WebData
 
         }
 
+
+
+
+        public string StatusBarText;
+        public List<Team> WebTeams = new List<Team>();
+        public List<Squad> WebSquads = new List<Squad>();
+        public WebUser_Info webUser_Info = new WebUser_Info();
+        public List<WebOperation> webOperation = new List<WebOperation>();
+        public List<WebEquip_Build> webEquip_Build = new List<WebEquip_Build>();
+        public List<WebDoll_Build> webDoll_Builds = new List<WebDoll_Build>();
+        public WebStatus webStatus = new WebStatus();
+        public List<WebMissionInfo>  webMissionInfo = new List<WebMissionInfo>();
+        public void Get()
+        {
+            GetWebTeams(ref WebTeams);
+            GetWebUser_Info(ref webUser_Info);
+            GetWebOperation(ref webOperation);
+            GetWebStatus(ref webStatus);
+            GetWebMissionInfo(ref webMissionInfo);
+            GetWebSquads(ref WebSquads);
+            GetWebEquip_Build(ref webEquip_Build);
+            GetWebDoll_Build(ref webDoll_Builds);
+        }
     }
 
     public class Team
@@ -189,6 +197,7 @@ namespace GFHelp.Core.MulitePlayerData.WebData
         public int TeamID;
         public string Leader;
         public List<Gun> Guns;
+        public bool isFree;
     }
 
     public class Gun

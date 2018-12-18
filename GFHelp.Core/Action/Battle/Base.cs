@@ -131,6 +131,12 @@ namespace GFHelp.Core.Action.BattleBase
 
     public class TeamInfo
     {
+        public TeamInfo(Team team)
+        {
+            TeamID = team.Teamid;
+            isMainTeam = true;
+            TeamEffect = Convert.ToInt32(team.Skt);
+        }
         public int TeamID;
         public bool isMainTeam;
         public bool isSupportTeam { get { return !isMainTeam; } }
@@ -165,9 +171,25 @@ namespace GFHelp.Core.Action.BattleBase
 
     public class MissionInfo
     {
-        //一个Data代表一个任务
+
         public class Data
         {
+            public void DataHandle()
+            {
+                if (CycleTime > 100)
+                {
+                    this.needSupply = false;
+                }
+                if (AutoQuickFixTimes > 100)
+                {
+                    this.AutoQuickFix = false;
+                }
+
+
+
+
+        }
+
             public List<TeamInfo> Teams = new List<TeamInfo>();
             public string MissionMap = "";
             public Dictionary<int, int> List_withdrawPOS = new Dictionary<int, int>();
@@ -183,7 +205,8 @@ namespace GFHelp.Core.Action.BattleBase
             public int CommanderLv = 0;
             public bool AutoCombine = true;
             public bool AutoStrengthen = true;
-            public static bool AutoQuickFix = true;
+            public bool AutoQuickFix = true;
+            public int AutoQuickFixTimes = 0;
             public bool StopLoopByEquipRank5=false;
             public bool StopLoopByStart3 = false;
             public bool StopLoopByStart4 = false;
@@ -239,22 +262,19 @@ namespace GFHelp.Core.Action.BattleBase
                 this.Using = true;
                 this.user_exp = userData.user_Info.experience;
                 this.Parm = battle.Parm;
-                if (battle.Teams.Count() == 0) { return; }
-                foreach (var team in battle.Teams)
+
+                for (int i = 0; i < battle.Teams.Count; i++)
                 {
-                    if (string.IsNullOrEmpty(team.Skt.ToString()))
+                    if (battle.Teams[i] == null) continue;
+                    if (battle.Teams[i].Skt==0)
                     {
-                        Random random = new Random();
-                        team.Skt = random.Next(20000, 30000);
+                        battle.Teams[i].Skt = userData.random.Next(20000, 30000);
                     }
                 }
 
                 foreach (var team in battle.Teams.OrderBy(s => s.Key).ToList())
                 {
-                    TeamInfo bti = new TeamInfo();
-                    bti.TeamEffect = Convert.ToInt32(team.Skt);
-                    bti.isMainTeam = true;
-                    bti.TeamID = team.Teamid;
+                    TeamInfo bti = new TeamInfo(team);
                     bti.teaminfo = userData.Teams[team.Teamid];
                     this.Teams.Add(bti);
                 }
@@ -352,16 +372,47 @@ namespace GFHelp.Core.Action.BattleBase
             {
                 this.recycleLog = new RecycleLog();
             }
+
+            public int getTeamId()
+            {
+                if(Teams.Count!=0)
+                return Teams[0].TeamID;
+                return 1;
+            }
+            public void LifeReduce(int teamID)
+            {
+                if (AutoQuickFix == false) return;
+                if (Teams.Count == 0) return;
+                
+                for (int i = 0; i < Teams[teamID].teaminfo.Count; i++)
+                {
+                    if (!Teams[teamID].teaminfo.ContainsKey(i)) continue;
+                    if (Teams[teamID].teaminfo[i].life < 27) continue;
+                    Teams[teamID].teaminfo[i].life--;
+                }
+
+            }
+
+
+
         }
 
-
+        public Data data = new Data();
 
 
         public List<Data> listTask = new List<Data>();
+
         public Data GetFirstData()
         {
             if (listTask.Count == 0) return new Data();
             return listTask[0];
+        }
+        public int getFirsDataTeamID()
+        {
+            if (listTask.Count != 0) return listTask[0].getTeamId();
+            return 1;
+
+
         }
         public void setFirstDataLoopFalse()
         {
@@ -369,34 +420,25 @@ namespace GFHelp.Core.Action.BattleBase
             listTask[0].Loop=false;
         }
 
-        public MissionInfo()
+        public MissionInfo(UserData userData)
         {
-
+            this.userData = userData;
         }
 
         public MissionInfo(UserData userData, Battle battle)
         {
 
         }
-        public static void LifeReduce(TeamInfo team)
-        {
-            if (Data.AutoQuickFix == false) return;
-            for (int i = 0; i <= team.teaminfo.Count; i++)
-            {
-                if (team.teaminfo.ContainsKey(i))
-                {
-                    if (team.teaminfo[i].life < 27) continue;
-                    team.teaminfo[i].life -= 1;
-                }
-            }
-        }
 
+
+        UserData userData;
     }
 
     public class BattleData
     {
         public class Data
         {
+            
             public Random random = new Random();
             public int spot_id;
             public bool if_enemy_die = true;
@@ -416,12 +458,18 @@ namespace GFHelp.Core.Action.BattleBase
         }
 
         Data data = new Data();
-        public BattleData(List<TeamInfo> Teams)
+
+        UserData userData;
+        public BattleData(UserData userData)
         {
-            data.Teams = Teams;
+            this.userData = userData;
+            this.data.Teams = userData.MissionInfo.GetFirstData().Teams;
         }
 
-
+        public BattleData(MissionInfo.Data data)
+        {
+            this.data.Teams = data.Teams;
+        }
         /// <summary>
         /// 
         /// </summary>
@@ -435,7 +483,7 @@ namespace GFHelp.Core.Action.BattleBase
         /// <param name="ecti">enemy_character_type_id</param>
         public string setData(int spotid, int teamLoc, int lrd, int tt, int eec, int le, int ecti, int userexp, bool if_enemy_die = true)
         {
-            MissionInfo.LifeReduce(data.Teams[teamLoc]);
+            userData.MissionInfo.GetFirstData().LifeReduce(teamLoc);
 
             data.if_enemy_die = if_enemy_die;
             data.spot_id = spotid;
@@ -713,450 +761,122 @@ namespace GFHelp.Core.Action.BattleBase
         public void Run()
         {
             if (userData.config.AutoSimulation == false) return;
-            //获取梯队
+
             if (Sday.SimulationType == 1 && userData.user_Info.bp >= 5)
             {
-                userData.eventAction.Start_Trial();
+                Start_Trial();
                 userData.user_Info.bp -= 5;
-                //无限防御
             }
             if (Sday.SimulationType == 2)
             {
                 if(userData.others.GetSimulatieDataType()==1 && userData.user_Info.bp >= 1)
                 {
-                    userData.eventAction.Simulation_DATA();
+                    Simulation_DATA();
                     userData.user_Info.bp -= 1;
                 }
                 if (userData.others.GetSimulatieDataType() == 2 && userData.user_Info.bp >= 2)
                 {
-                    userData.eventAction.Simulation_DATA();
+                    Simulation_DATA();
                     userData.user_Info.bp -= 2;
                 }
                 if (userData.others.GetSimulatieDataType() == 3 && userData.user_Info.bp >= 3)
                 {
-                    userData.eventAction.Simulation_DATA();
+                    Simulation_DATA();
                     userData.user_Info.bp -= 3;
                 }
-                //资料
+
             }
             //
             if (Sday.SimulationType == 3 && userData.user_Info.bp >= 3)
             {
-                userData.eventAction.Simulation_Corridor();
+                CorridorRun();
                 userData.user_Info.bp -= 3;
-                //云图
+                
             }
+        }
+
+        private void Start_Trial()
+        {
+            Battle bs = new Battle();
+            bs.accountID = userData.GameAccount.GameAccountID;
+            bs.Map = "-mapsimulationtrial";
+            bs.Parm = "-t1 -c -ns -qf -a -e";
+            if (userData.others.getAvailableTeamID().Count == 0) return;
+
+            bs.Teams = new List<Team>();
+            MissionInfo.Data data = new MissionInfo.Data(userData, bs);
+            userData.MissionInfo.listTask.Add(data);
+
+
+
+        }
+        private void Simulation_DATA()
+        {
+            Battle bs = new Battle();
+            bs.accountID = userData.GameAccount.GameAccountID;
+            bs.Map = "-mapsimulationdata";
+            bs.Parm = "-t1 -c -ns -qf -a -e";
+            bs.Teams = new List<Team>();
+            MissionInfo.Data data = new MissionInfo.Data(userData, bs);
+            userData.MissionInfo.listTask.Add(data);
+        }
+
+        private void CorridorRun()
+        {
+            if (userData.others.getAvailableTeamID().Count == 0) return;
+            Battle bs = new Battle();
+            bs.accountID = userData.GameAccount.GameAccountID;
+            bs.Map = "-mapcorridor";
+            bs.Parm = "-t1 -c -ns -qf -a -e";
+            bs.CreatTeamList(userData.others.getAvailableTeamID());
+            MissionInfo.Data data = new MissionInfo.Data(userData, bs);
+            userData.MissionInfo.listTask.Add(data);
         }
 
 
 
 
-    }
-
-    public class SimulationDay
-    {
-        /// <summary>
-        /// Type:1 是无限防御 2是资料 3是云图
-        /// </summary>
-        public int SimulationType
+        public class SimulationDay
         {
-            get
+            /// <summary>
+            /// Type:1 是无限防御 2是资料 3是云图
+            /// </summary>
+            public int SimulationType
             {
-                if (Day == 3 || Day == 4)
+                get
                 {
+                    if (Day == 3 || Day == 4)
+                    {
+                        return 1;
+                    }
+                    if (Day == 2 || Day == 5 || Day == 0)
+                    {
+                        return 1;
+                    }
+                    if (Day == 1 || Day == 6)
+                    {
+                        return 1;
+                    }
                     return 1;
                 }
-                if (Day == 2 || Day == 5 || Day == 0)
-                {
-                    return 2;
-                }
-                if (Day == 1 || Day == 6)
-                {
-                    return 3;
-                }
-                return 1;
             }
-        }
-        public int Day
-        {
-            get
+            public int Day
             {
-                return (int)Helper.Decrypt.LocalDateTimeConvertToChina(DateTime.Now).DayOfWeek;
+                get
+                {
+                    return (int)Helper.Decrypt.LocalDateTimeConvertToChina(DateTime.Now).DayOfWeek;
+                }
             }
         }
+
+
+
     }
 
-    public class SimulationDataHandle
-    {
-        class Info
-        {
-            public Info(int type)
-            {
-                this.DataType = type;
-                if (type!=1 && type!=2 && type != 3)
-                {
-                    this.DataType = 1;
-                }
-            }
-            public int DataType;
-            public int mission_id
-            {
-                get
-                {
-                    if (DataType == 1)
-                    {
-                        return 1301;
-                    }
-                    if (DataType == 2)
-                    {
-                        return 1302;
-                    }
-                    return 1303;
-                }
-            }
-            public double Max_duration
-            {
-                get
-                {
-                    if (DataType == 1)
-                    {
-                        return 0.7f;
-                    }
-                    if (DataType == 2)
-                    {
-                        return 1.4f;
-                    }
-                    return 2.87f;
-                }
-            }
-            public int enemy_effect_client
-            {
-                get
-                {
-                    if (DataType == 1)
-                    {
-                        return 2569;
-                    }
-                    if (DataType == 2)
-                    {
-                        return 5069;
-                    }
-                    return 10069;
-                }
-            }
-            public int enemy_life
-            {
-                get
-                {
-                    if (DataType == 1)
-                    {
-                        return 10000;
-                    }
-                    if (DataType == 2)
-                    {
-                        return 20000;
-                    }
-                    return 40000;
-                }
-            }
-            public int skill_cd
-            {
-                get
-                {
-                    Random random = new Random();
-                    return random.Next(20000, 30000);
-                }
-            }
-        }
-
-        public SimulationDataHandle(UserData userData)
-        {
-            this.userData = userData;
-            this.info = new Info(userData.others.GetSimulatieDataType());
-            this.mission_id = info.mission_id;
-            this.battle_time.enemy_effect_client = info.enemy_effect_client;
-            this.life_enemy = info.enemy_life;
-            this.duration = Math.Round(info.Max_duration, 2);
-            this.skill_cd = info.skill_cd;
-            this.battle_time.true_time = info.Max_duration;
-        }
-        public void Start()
-        {
-            if (userData.battle.Simulation_battleFinish(BattleResult) == false)
-            {
-                new Helper.Log().userInit(userData.GameAccount.GameAccountID, "模拟作战 Error");
-            }
-        }
-
-
-
-        private UserData userData;
-        private Info info;
-        public int mission_id;
-        public int boss_hp = 0;
-        public double duration;
-        public int skill_cd;
-        public int life_enemy;
-        public battle_time battle_time = new battle_time();
-        public string BattleResult
-        {
-            get
-            {
-                StringBuilder sb = new StringBuilder();
-                JsonWriter jsonWriter = new JsonWriter(sb);
-                jsonWriter.WriteObjectStart();
-                jsonWriter.WritePropertyName("mission_id");
-                jsonWriter.Write(mission_id);
-                jsonWriter.WritePropertyName("boss_hp");
-                jsonWriter.Write(0);
-                jsonWriter.WritePropertyName("duration");
-                jsonWriter.Write(battle_time.true_time);
-                WriteDamageData(jsonWriter);
-                jsonWriter.WritePropertyName("battle_time");
-                jsonWriter.WriteObjectStart();
-                jsonWriter.WriteObjectEnd();
-                jsonWriter.WriteObjectEnd();
-                return sb.ToString();
-            }
-        }
-        public void WriteDamageData(JsonWriter writer)
-        {
-            writer.WritePropertyName("1000");
-            writer.WriteObjectStart();
-            writer.WritePropertyName("11");
-            writer.Write(skill_cd);
-            writer.WritePropertyName("12");
-            writer.Write(skill_cd);
-            writer.WritePropertyName("13");
-            writer.Write(skill_cd);
-            writer.WritePropertyName("15");
-            writer.Write(battle_time.enemy_effect_client);
-            writer.WritePropertyName("17");
-            writer.Write(GetTotalFPS_(battle_time.true_time));//总帧数
-            writer.WritePropertyName("18");
-            writer.Write(0);
-            writer.WritePropertyName("19");
-            writer.Write(0);
-            writer.WritePropertyName("20");
-            writer.Write(0);
-            writer.WritePropertyName("21");
-            writer.Write(0);
-            writer.WritePropertyName("22");
-            writer.Write(0);
-            writer.WritePropertyName("23");
-            writer.Write(0);
-            writer.WritePropertyName("24");
-            writer.Write(life_enemy);//血量
-            writer.WritePropertyName("25");
-            writer.Write(0);
-            writer.WritePropertyName("26");
-            writer.Write(life_enemy);
-            writer.WritePropertyName("27");
-            writer.Write((int)Math.Ceiling(battle_time.true_time));//总时间
-            writer.WriteObjectEnd();
-            writer.WritePropertyName("1001");
-            writer.WriteObjectStart();
-            writer.WriteObjectEnd();
-            writer.WritePropertyName("1002");
-            writer.WriteObjectStart();
-            writer.WriteObjectEnd();
-            writer.WritePropertyName("1003");
-            writer.WriteObjectStart();
-            writer.WriteObjectEnd();
-        }
-        public static int GetTotalFPS_(double time)
-        {
-            double result = time * 31;
-            return (int)Math.Ceiling(result);
-        }
-    }
-
-    public class SimulationTrialHandle
-    {
-        public class TrialExercise_Battle_Sent
-        {
-
-            public int if_win = 0;
-            internal Dictionary<int, Gun_With_User_Info> teaminfo = new Dictionary<int, Gun_With_User_Info>();
-
-            public TrialExercise_Battle_Sent(Dictionary<int, Gun_With_User_Info> teaminfo)
-            {
-                this.teaminfo = teaminfo;
-            }
-            public string BattleResult
-            {
-                get
-                {
-                    StringBuilder stringBuilder = new StringBuilder();
-                    JsonWriter jsonWriter = new JsonWriter(stringBuilder);
-                    jsonWriter.WriteObjectStart();
-
-                    jsonWriter.WritePropertyName("if_win");
-                    jsonWriter.Write(0);
-
-                    jsonWriter.WritePropertyName("battle_guns");
-                    jsonWriter.WriteObjectStart();
-                    foreach (var item in teaminfo)
-                    {
-                        jsonWriter.WritePropertyName(item.Value.id.ToString());
-                        jsonWriter.WriteObjectStart();
-
-                        jsonWriter.WritePropertyName("life");
-                        jsonWriter.Write(item.Value.life);
-
-                        jsonWriter.WritePropertyName("dps");
-                        jsonWriter.Write(0);
-                        jsonWriter.WriteObjectEnd();
-
-
-                    }
-                    jsonWriter.WriteObjectEnd();
-                    WriteDamageData(jsonWriter);
-                    jsonWriter.WritePropertyName("battle_damage");
-                    jsonWriter.WriteObjectStart();
-                    jsonWriter.WriteObjectEnd();
-                    jsonWriter.WriteObjectEnd();
 
 
 
 
-                    return stringBuilder.ToString();
-                }
-            }
-
-
-            public void WriteDamageData(JsonWriter writer)
-            {
-                writer.WritePropertyName("1000");
-                writer.WriteObjectStart();
-                writer.WritePropertyName("11");
-                writer.Write(149);
-                writer.WritePropertyName("12");
-                writer.Write(0);
-                writer.WritePropertyName("13");
-                writer.Write(0);
-                writer.WritePropertyName("15");
-                writer.Write(22644);
-                writer.WritePropertyName("17");
-                writer.Write(0);
-                writer.WritePropertyName("18");
-                writer.Write(0);
-                writer.WritePropertyName("19");
-                writer.Write(0);
-                writer.WritePropertyName("20");
-                writer.Write(0);
-                writer.WritePropertyName("21");
-                writer.Write(0);
-                writer.WritePropertyName("22");
-                writer.Write(0);
-                writer.WritePropertyName("23");
-                writer.Write(0);
-                writer.WritePropertyName("24");
-                writer.Write(0);
-                writer.WritePropertyName("25");
-                writer.Write(0);
-                writer.WritePropertyName("26");
-                writer.Write(24520);
-                writer.WritePropertyName("27");
-                writer.Write(3);
-                writer.WriteObjectEnd();
-                writer.WritePropertyName("1001");
-                writer.WriteObjectStart();
-                writer.WriteObjectEnd();
-                writer.WritePropertyName("1002");
-                writer.WriteObjectStart();
-                writer.WriteObjectEnd();
-                writer.WritePropertyName("1003");
-                writer.WriteObjectStart();
-                writer.WriteObjectEnd();
-            }
-
-
-
-
-        }
-        public SimulationTrialHandle(UserData userData)
-        {
-            this.userData = userData;
-
-        }
-
-        public bool Start()
-        {
-            if (StartBattle()==false) return false;
-            return EndBattle();
-        }
-
-        private bool StartBattle()
-        {
-            foreach (var team in userData.Teams)
-            {
-                TeamID = team.Key;
-                int count = 0;
-                string result = API.Battle.StartTrial(userData.GameAccount, TeamID.ToString());
-                switch (Response.Check(userData.GameAccount, ref result, "StartTrial_Pro", true))
-                {
-                    case 1:
-                        {
-                            return true;
-                        }
-                    case 0:
-                        {
-                            if (count++ > userData.config.ErrorCount)
-                            {
-                                continue;
-                            }
-                            break;
-                        }
-                    case -1:
-                        {
-                            if (count++ > userData.config.ErrorCount)
-                            {
-                                continue;
-                            }
-                            break;
-                        }
-                    default:
-                        break;
-                }
-            }
-            new Log().userInit(userData.GameAccount.GameAccountID, "开始无限防御 Error TeamID = {0}",TeamID.ToString()).userInfo();
-            return false;
-        }
-        private bool EndBattle()
-        {
-            TrialExercise_Battle_Sent tbs = new TrialExercise_Battle_Sent(userData.Teams[TeamID]);
-            int count = 0;
-            while (true)
-            {
-                string result = API.Battle.EndTrial(userData.GameAccount,tbs.BattleResult);
-                switch (Response.Check(userData.GameAccount,ref result, "EndTrial_Pro", true))
-                {
-                    case 1:
-                        {
-                            return true;
-                        }
-                    case 0:
-                        {
-                            break;
-                        }
-                    case -1:
-                        {
-                            if (count++ > userData.config.ErrorCount)
-                            {
-                                new Log().userInit(userData.GameAccount.GameAccountID, "开始无限防御 Error TeamID = {0}", TeamID.ToString()).userInfo();
-                                return false;
-                            }
-                            continue;
-                        }
-                    default:
-                        break;
-                }
-            }
-        }
-        public int TeamID;
-        private UserData userData;
-    }
 
 
 
@@ -1172,8 +892,28 @@ namespace GFHelp.Core.Action.BattleBase
     {
         public string accountID;
         public string Map;
-        public Team[] Teams;
+        public List<Team> Teams;
         public string Parm;
+
+        public bool isErrorVaild()
+        {
+            if (Teams.Count == 0)
+            {
+                return true;
+            }
+            return false;
+        }
+        public void CreatTeamList(List<int> teamlist)
+        {
+            Teams = new List<Team>();
+            for (int i = 0; i < teamlist.Count; i++)
+            {
+                Team t = new Team();
+                t.Key = i;
+                t.Teamid = teamlist[i];
+                Teams.Add(t);
+            }
+        }
     }
     /// <summary>
     /// 
@@ -1189,6 +929,7 @@ namespace GFHelp.Core.Action.BattleBase
 
     public class mapbase
     {
+        public int stepNum = 0;
         public int mission_id;
         public int withdrawSpot;
         public Spot.Data[] Mission_Start_spots;

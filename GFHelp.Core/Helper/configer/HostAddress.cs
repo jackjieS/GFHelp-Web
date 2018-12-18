@@ -7,7 +7,9 @@ namespace GFHelp.Core.Helper.Configer
 {
     public class HostAddress
     {
+
         private static string fileName = SystemOthers.ConfigData.currentDirectory + @"\HostAddress.cfg";
+
         private static List<Data> Address = new List<Data>();
         private class Data
         {
@@ -19,6 +21,10 @@ namespace GFHelp.Core.Helper.Configer
             public string HostName;
             public string HostAddress;
         }
+
+
+
+
         public static bool Load()
         {
             if (String.IsNullOrEmpty(fileName) || !File.Exists(fileName))

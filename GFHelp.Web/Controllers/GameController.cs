@@ -42,12 +42,12 @@ namespace GFHelp.Web.Controllers
         {
 
             //string username = User.FindFirst(ClaimTypes.NameIdentifier)?.Value;
-            var details = Core.Management.Data.GetWebData(Accountid);
+
 
             return Ok(new
             {
                 code = 1,
-                data = details,
+
             });
         }
 
@@ -61,11 +61,11 @@ namespace GFHelp.Web.Controllers
         {
 
             //string username = User.FindFirst(ClaimTypes.NameIdentifier)?.Value;
-            var status = Core.Management.Data.GetWebStatus(Accountid);
+
             return Ok(new
             {
                 code = 1,
-                data = status,
+
             });
         }
 
@@ -83,7 +83,7 @@ namespace GFHelp.Web.Controllers
         public IActionResult Login([FromBody] Account account)
         {
             //加入控制符
-            Core.Management.Data.data.getDataByID(account.GameID).eventAction.Login();
+            Core.Management.Data.data.getDataByID(account.GameID).home.Login();
             return Ok(new
             {
                 code = 1,
@@ -345,10 +345,23 @@ namespace GFHelp.Web.Controllers
 
                 });
             }
+            if (bs.isErrorVaild())
+            {
+                return Ok(new
+                {
+                    code = -1,
+                    data = "error",
+                    message = string.Format("数据无效", bs.accountID)
+
+                });
+            }
+
+
+
 
             Core.Action.BattleBase.MissionInfo.Data data = new Core.Action.BattleBase.MissionInfo.Data(Core.Management.Data.data.getDataByID(bs.accountID), bs);
             Core.Management.Data.data.getDataByID(bs.accountID).MissionInfo.listTask.Add(data);
-            Core.Management.Data.data.getDataByID(bs.accountID).eventAction.TaskBattle_1();
+
             return Ok(new
             {
                 code = 1,

@@ -64,3 +64,7 @@ C:\Users\jack\Desktop\CS\GFHelp-Web\GFHelp.Web\bin\Release\netcoreapp2.1\HostAdd
 C:\Users\jack\Desktop\CS\GFHelp-Web\GFHelp.Web\bin\Release\netcoreapp2.1\UpgradeInfo.txt
 C:\Users\jack\Desktop\CS\GFHelp-Web\GFHelp.Web\bin\Release\netcoreapp2.1\GFHelp.DataBase.dll
 C:\Users\jack\Desktop\CS\GFHelp-Web\GFHelp.Web\bin\Release\netcoreapp2.1\GFHelp.DataBase.pdb
+C:\Users\jack\Desktop\CS\GFHelp-Web\GFHelp.Web\bin\Release\netcoreapp2.1\GFLogin.dll
+C:\Users\jack\Desktop\CS\GFHelp-Web\GFHelp.Web\bin\Release\netcoreapp2.1\GFLogin.pdb
+C:\Users\jack\Desktop\CS\GFHelp-Web\GFHelp.Web\obj\Release\netcoreapp2.1\GFHelp.Web.Properties.Resources.resources
+C:\Users\jack\Desktop\CS\GFHelp-Web\GFHelp.Web\obj\Release\netcoreapp2.1\GFHelp.Web.csproj.GenerateResource.cache

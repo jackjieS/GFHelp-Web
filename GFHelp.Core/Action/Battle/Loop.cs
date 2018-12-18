@@ -26,7 +26,7 @@ namespace GFHelp.Core.Action
         private UserData userData;
         public Mission(UserData userData)
         {
-            this.data = new Data();
+            this.data = new Data(userData);
             init();
             this.userData = userData;
         }
@@ -43,14 +43,19 @@ namespace GFHelp.Core.Action
         public void Test()
         {
             userData.battle.Check_Equip_Gun_FULL();
+
+
+
+
+
             Data data=null;
             try
             {
-                data = new Data().init(userData.MissionInfo.GetFirstData().MissionMap);
+                data = new Data(userData).init(userData.MissionInfo.GetFirstData().MissionMap);
             }
             catch (Exception e)
             {
-                new Log().userInit(userData.GameAccount.GameAccountID, "初始化战斗任务 ERROR", e.ToString());
+                new Log().userInit(userData.GameAccount.GameAccountID, "初始化战斗任务 ERROR", e.ToString()).userInfo();
                 userData.MissionInfo.setFirstDataLoopFalse();
                 goto End_At_Battle;
             }
@@ -58,7 +63,7 @@ namespace GFHelp.Core.Action
             try
             {
                 MethodInfo methodInfo = data.type.GetMethod(userData.MissionInfo.GetFirstData().MissionMap);
-                methodInfo.Invoke(data.instance, new Object[] { userData, userData.MissionInfo.GetFirstData() });
+                methodInfo.Invoke(data.instance, null);
             }
             catch (Exception e)
             {
@@ -77,42 +82,6 @@ namespace GFHelp.Core.Action
 
 
         }
-        public void corridor()
-        {
-            userData.battle.Check_Equip_Gun_FULL();
-            Data data = null;
-            try
-            {
-                data = new Data().init("mapcorridor");
-
-            }
-            catch (Exception e)
-            {
-                new Log().userInit(userData.GameAccount.GameAccountID, "初始化战斗任务 ERROR", e.ToString());
-                return;
-            }
-
-            try
-            {
-                //Invoke()
-                MethodInfo methodInfo = data.type.GetMethod("mapcorridor");
-                methodInfo.Invoke(data.instance, new Object[] { userData });
-                //Task methodTask = new Task(() => );
-                //methodTask.Start();
-                //Task.WaitAll(methodTask);
-            }
-            catch (Exception e)
-            {
-                new Log().systemInit("调用作战dll文件出错", e.ToString()).coreError();
-                new Log().userInit(userData.GameAccount.GameAccountID, "调用作战dll文件出错", e.ToString()).coreError();
-
-            }
-        }
-
-
-
-
-
         public void End_At_Battle()
         {
             //修复
@@ -133,7 +102,7 @@ namespace GFHelp.Core.Action
             //检查是否需要重新登陆
             if (userData.MissionInfo.GetFirstData().CycleTime % SystemOthers.ConfigData.BL_ReLogin_num == 0)
             {
-                userData.eventAction.GetUserInfo();
+                userData.home.GetUserInfo();
             }
 
             //是否达到客服要求 多用于练级
@@ -176,14 +145,11 @@ namespace GFHelp.Core.Action
 
 
 
-
+            userData.webData.StatusBarText = "空闲";
             if (userData.MissionInfo.listTask.Count == 0)
             {
                 return;
             }
-
-            //继续循环
-            ContinueLoopBattle();
 
         }
         private void PrintRecycleLog()
@@ -221,18 +187,15 @@ namespace GFHelp.Core.Action
 
             }
         }
-        public void ContinueLoopBattle()
-        {
-            userData.eventAction.TaskBattle_1();
-        }
+
         Data data;
         class Data
         {
-            public Data()
+            public Data(UserData userData)
             {
-
+                this.userData = userData;
             }
-
+            public UserData userData;
             public Type typeMap_Controller;
             public Type type = null;
             public Type neededType;
@@ -243,7 +206,16 @@ namespace GFHelp.Core.Action
                 typeMap_Controller = Action.MissionData.assembly.GetType("GFHelp.Mission.Map_Controller");
                 neededType = typeMap_Controller.GetNestedType(taskMap);
                 missionType = neededType.GetField("missionType").GetValue(null);
-                instance = Action.MissionData.assembly.CreateInstance("GFHelp.Mission." + missionType.ToString());
+
+                
+                instance = Action.MissionData.assembly.CreateInstance("GFHelp.Mission." + missionType.ToString(), 
+                    false,
+                    BindingFlags.CreateInstance,
+                    null,
+                    new Object[] { userData },
+                    null,
+                    null
+                    );
                 type = Action.MissionData.assembly.GetType("GFHelp.Mission." + missionType.ToString());
                 return this;
             }

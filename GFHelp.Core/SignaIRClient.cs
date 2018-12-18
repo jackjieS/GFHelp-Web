@@ -128,7 +128,7 @@ namespace GFHelp.Core
                 try
                 {
                     if (k.taskDispose == true) continue;
-                    k.webData.Get(k);
+                    k.webData.Get();
                     if (!GamesStatus.ContainsKey(k.GameAccount.WebUsername))
                     {
                         GamesStatus.Add(k.GameAccount.WebUsername, new List<WebStatus>());

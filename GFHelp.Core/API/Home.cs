@@ -85,10 +85,8 @@ namespace GFHelp.Core.API
         }
 
 
-        public static string GetMailResource_Type1(GameAccount gameAccount, int mailwith_user_id)
+        public static string GetMailResource(GameAccount gameAccount, string outdatacode)
         {
-            System.Threading.Thread.Sleep(100);
-            string outdatacode = "{\"mail_with_user_id\":" + mailwith_user_id.ToString() + "}";
             outdatacode = AuthCode.Encode(outdatacode, gameAccount.sign);//用自身作为密匙把自身加密
             string requeststring = String.Format("uid={0}&outdatacode={1}&req_id={2}", gameAccount.uid, System.Web.HttpUtility.UrlEncode(outdatacode), gameAccount.req_id++.ToString());
             var url = gameAccount.GameHost + Helper.URL.GetMailResource;
@@ -111,5 +109,17 @@ namespace GFHelp.Core.API
             return result;
         }
 
+        public static string getMailList(GameAccount gameAccount, string outdatacode)
+        {
+            outdatacode = AuthCode.Encode(outdatacode, gameAccount.sign);
+            string requeststring = String.Format("uid={0}&outdatacode={1}&req_id={2}", gameAccount.uid, System.Web.HttpUtility.UrlEncode(outdatacode), gameAccount.req_id++.ToString());
+            string result = "";
+            var url = gameAccount.GameHost + Helper.URL.Home;
+            while (string.IsNullOrEmpty(result))
+            {
+                result = BaseRequset.DoPost(url, requeststring);
+            }
+            return result;
+        }
     }
 }

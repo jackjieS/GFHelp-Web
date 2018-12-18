@@ -1,4 +1,6 @@
 ﻿using GFHelp.Core.Helper;
+using GFHelp.Core.Management;
+using LitJson;
 using System;
 using System.Collections.Generic;
 using System.Text;
@@ -7,38 +9,66 @@ namespace GFHelp.Core.MulitePlayerData
 {
     public class Upgrade_Act_Info
     {
-        public Dictionary<int, Upgrade_Act_Info> dic_Upgrade = new Dictionary<int, Upgrade_Act_Info>();
-        public int user_id;
-        public int gun_with_user_id;
-        public int skill;
-        public int upgrade_slot;
-        public int fairy_with_user_id;
-        public int end_time;
-        public void Read(dynamic jsonobj)
+        public Upgrade_Act_Info(UserData userdata)
         {
-            dic_Upgrade.Clear();
-
-            foreach (var item in jsonobj.upgrade_act_info)
-            {
-                Upgrade_Act_Info uai = new Upgrade_Act_Info();
-                try
-                {
-                    uai.user_id = Convert.ToInt32(item.user_id);
-                    uai.gun_with_user_id = Convert.ToInt32(item.gun_with_user_id);
-                    uai.skill = Convert.ToInt32(item.skill);
-                    uai.upgrade_slot = Convert.ToInt32(item.upgrade_slot);
-                    uai.fairy_with_user_id = Convert.ToInt32(item.fairy_with_user_id);
-                    uai.end_time = Convert.ToInt32(item.end_time);
-                }
-                catch (Exception e)
-                {
-                    new Log().systemInit("读取UserData_upgrade_act_info遇到错误", e.ToString()).coreError();
-                    continue;
-                }
-                dic_Upgrade.Add(dic_Upgrade.Count, uai);
-            }
-            return;
+            this.userdata = userdata;
         }
+        public Dictionary<int, Data> dic_Upgrade = new Dictionary<int, Data>();
+        public UserData userdata;
+        public void Read(JsonData jsonData)
+        {
+
+            dic_Upgrade.Clear();
+            if (jsonData.Contains("upgrade_act_info"))
+            {
+                JsonData jsonData16 = jsonData["upgrade_act_info"];
+                for (int num8 = 0; num8 < jsonData16.Count; num8++)
+                {
+                    Data data2 = new Data(jsonData16[num8]);
+                    this.dic_Upgrade.Add(dic_Upgrade.Count,data2);
+                }
+            }
+        }
+        public bool isUpgradING(int GunID)
+        {
+            foreach (var item in dic_Upgrade)
+            {
+                if (item.Value.gun_with_user_id == GunID) return true;
+            }
+            return false;
+        }
+
+
+        public class Data
+        {
+            public Data(JsonData jsonData)
+            {
+                this.user_id = jsonData["user_id"].Int;
+                this.gun_with_user_id = jsonData["gun_with_user_id"].Int;
+                this.skill = jsonData["skill"].Int;
+                this.upgrade_slot = jsonData["upgrade_slot"].Int;
+                this.fairy_with_user_id = jsonData["fairy_with_user_id"].Int;
+                this.end_time = jsonData["end_time"].Int;
+            }
+
+            public int user_id;
+            public int gun_with_user_id;
+            public int skill;
+            public int upgrade_slot;
+            public int fairy_with_user_id;
+            public int end_time;
+
+
+
+
+
+
+
+        }
+
+
+
+
     }
 }
 

@@ -1,5 +1,7 @@
 ﻿using GFHelp.Core.Action.BattleBase;
+using GFHelp.Core.Helper;
 using GFHelp.Core.Management;
+using GFHelp.Core.MulitePlayerData;
 using LitJson;
 using System;
 using System.Collections.Generic;
@@ -82,39 +84,28 @@ namespace GFHelp.Mission
                 }
             }
 
-            public static MissionInfo.Data seedmap(UserData userData, int teamID)
-            {
 
-                Team team = new Team();
-                Battle battle = new Battle();
-                team.Key = 0;
-                team.Skt = 26643;
-                team.Teamid = teamID;
-                Team[] Teams = { team };
-                battle.Teams = Teams;
-                battle.accountID = userData.GameAccount.GameAccountID;
-                battle.Map = "mapcorridor";
-                battle.Parm = "";
 
-                MissionInfo.Data data = new MissionInfo.Data(userData, battle);
-                data.Loop = false;
-                return data;
-            }
-            public static bool Startmap(UserData userData, ref Map_Controller.mapcorridor map, ref MissionInfo.Data data)
+
+            public static List<int> getTeamAvailable(UserData userData,int Require)
             {
-                for (int i = 1; i <= userData.Teams.Count; i++)
+                List<int> lisID = new List<int>();
+                int count = 0;
+                foreach (var item in userData.Teams)
                 {
-                    data = seedmap(userData, i);
-                    map = new Map_Controller.mapcorridor(data);
-                    if (userData.battle.startMission(map, data) == 1)
-                    {
-                        return true;
-                    }
+                    //if (lisID.Count == Require) return lisID;
+                    //if (userData.battle.startMission(map, data) == 1)
+                    //{
+                    //    return true;
+                    //}
+
+
+
+
                 }
-                return false;
+
+                return new List<int>();
             }
-
-
 
         }
         public enum MissionType
@@ -189,8 +180,7 @@ namespace GFHelp.Mission
                 Spots.Add(12, 1);//辅助
                 mission_id = 2;
                 withdrawSpot = 3033;//撤离
-                Mission_Start_spots = new Spot.Data[] { Spots.dic[0], Spots.dic[1]
-        };
+                Mission_Start_spots = new Spot.Data[] { Spots.dic[0], Spots.dic[1]};
                 Function.init(teamMove.dic, Spots, data);
             }
 
@@ -200,6 +190,101 @@ namespace GFHelp.Mission
 
 
         }
+
+        public class map1_1n : mapbase
+        {
+            public map1_1n(MissionInfo.Data data)
+            {
+                teamMove.Add(1309, 1348, 1, 0);//0
+                teamMove.Add(1309, 1310, 1, 1);//1
+
+                teamMove.Add(1348, 1351, 1, 0);//2
+                teamMove.Add(1351, 1352, 1, 0);//3
+                teamMove.Add(1348, 1349, 1, 0);//4
+                teamMove.Add(1349, 1352, 1, 0);//5
+
+
+
+                Spots.Add(1309, 0);//主力
+                Spots.Add(1309, 1);//辅助
+                mission_id = 90001;
+                Mission_Start_spots = new Spot.Data[] { Spots.dic[0] };
+                Function.init(teamMove.dic, Spots, data);
+            }
+
+            public static MissionType missionType = MissionType.Normal;
+
+
+
+
+        }
+
+
+
+
+        public class map1_1 : mapbase
+        {
+            //要给Spots.dic[0] 2 赋值 梯队ID
+            //要给teammove 赋值 梯队ID
+
+
+            public map1_1(MissionInfo.Data data)
+            {
+
+                teamMove.Add(88, 89, 1, 0);
+                teamMove.Add(89, 90, 1, 0);
+
+                Spots.Add(88, 0);//主力
+
+                Mission_Start_spots = new Spot.Data[] { Spots.dic[0] };
+                Function.init(teamMove.dic, Spots, data);
+                mission_id = 5;
+            }
+
+            public static MissionType missionType = MissionType.Normal;
+
+
+
+
+
+
+
+
+
+        }
+        public class map1_2 : mapbase
+        {
+            //要给Spots.dic[0] 2 赋值 梯队ID
+            //要给teammove 赋值 梯队ID
+
+
+            public map1_2(MissionInfo.Data data)
+            {
+
+                teamMove.Add(92, 93, 1, 0);
+                teamMove.Add(93, 94, 1, 0);
+                teamMove.Add(94, 95, 1, 0);
+                teamMove.Add(95, 96, 1, 0);
+                Spots.Add(92, 0);//主力
+
+                Mission_Start_spots = new Spot.Data[] { Spots.dic[0] };
+                Function.init(teamMove.dic, Spots, data);
+                mission_id = 6;
+            }
+
+            public static MissionType missionType = MissionType.Normal;
+
+
+
+
+
+
+
+
+
+        }
+
+
 
         public class map1_6 : mapbase
         {
@@ -2311,9 +2396,6 @@ namespace GFHelp.Mission
             public static MissionType missionType = MissionType.Simulation;
 
 
-            
-
-
 
 
         }
@@ -3172,19 +3254,27 @@ namespace GFHelp.Mission
             {
                 teamMove.Add(4156, 4155, 1, 0);
                 teamMove.Add(4151, 4158, 1, 1);
+
+                teamMove.Add(4156, 4154, 1, 2);
+
                 teamMove.Add(4155, 4165, 1, 0);
                 teamMove.Add(4165, 4164, 1, 0);
-                teamMove.Add(4164, 4172, 1, 0);
+                teamMove.Add(4164, 4166, 1, 0);
+                teamMove.Add(4166, 4169, 1, 0);
 
-                teamMove.Add(4172, 4161, 1, 0);
-                teamMove.Add(4161, 4167, 1, 0);
-                teamMove.Add(4167, 4169, 1, 0);
                 teamMove.Add(4169, 4159, 1, 0);
                 teamMove.Add(4159, 4160, 1, 0);
                 teamMove.Add(4160, 4170, 1, 0);
+
+
+
+                teamMove.Add(4154, 4171, 1, 2);
+                teamMove.Add(4171, 4162, 1, 2);
+                teamMove.Add(4162, 4163, 1, 2);
                 Spots.Add(4156, 0);//主力
                 Spots.Add(4151, 1);//主力
                 Spots.Add(4156, 2);//主力
+                Spots.Add(4151, 3);//主力
                 Mission_Start_spots = new Spot.Data[] { Spots.dic[0], Spots.dic[1] };
                 Function.init(teamMove.dic, Spots, data);
                 mission_id = 10028;
@@ -3441,5 +3531,360 @@ namespace GFHelp.Mission
 
 
         }
+
+
+
+
+        public class mapsimulationdata : mapbase
+        {
+            class Info
+            {
+                public Info(int type)
+                {
+                    this.DataType = type;
+                    if (type != 1 && type != 2 && type != 3)
+                    {
+                        this.DataType = 1;
+                    }
+                }
+                public int DataType;
+                public int mission_id
+                {
+                    get
+                    {
+                        if (DataType == 1)
+                        {
+                            return 1301;
+                        }
+                        if (DataType == 2)
+                        {
+                            return 1302;
+                        }
+                        return 1303;
+                    }
+                }
+                public double Max_duration
+                {
+                    get
+                    {
+                        if (DataType == 1)
+                        {
+                            return 0.7f;
+                        }
+                        if (DataType == 2)
+                        {
+                            return 1.4f;
+                        }
+                        return 2.87f;
+                    }
+                }
+                public int enemy_effect_client
+                {
+                    get
+                    {
+                        if (DataType == 1)
+                        {
+                            return 2569;
+                        }
+                        if (DataType == 2)
+                        {
+                            return 5069;
+                        }
+                        return 10069;
+                    }
+                }
+                public int enemy_life
+                {
+                    get
+                    {
+                        if (DataType == 1)
+                        {
+                            return 10000;
+                        }
+                        if (DataType == 2)
+                        {
+                            return 20000;
+                        }
+                        return 40000;
+                    }
+                }
+                public int skill_cd
+                {
+                    get
+                    {
+                        Random random = new Random();
+                        return random.Next(20000, 30000);
+                    }
+                }
+            }
+            public mapsimulationdata(UserData userData)
+            {
+                this.userData = userData;
+                this.info = new Info(userData.others.GetSimulatieDataType());
+                this.mission_id = info.mission_id;
+                this.battle_time.enemy_effect_client = info.enemy_effect_client;
+                this.life_enemy = info.enemy_life;
+                this.duration = Math.Round(info.Max_duration, 2);
+                this.skill_cd = info.skill_cd;
+                this.battle_time.true_time = info.Max_duration;
+            }
+            public static MissionType missionType = MissionType.Simulation;
+            public void Start()
+            {
+                if (userData.battle.Simulation_battleFinish(BattleResult) == false)
+                {
+                    new Log().userInit(userData.GameAccount.GameAccountID, "模拟作战 Error");
+                }
+            }
+
+
+
+            private UserData userData;
+            private Info info;
+            
+            public int boss_hp = 0;
+            public double duration;
+            public int skill_cd;
+            public int life_enemy;
+            public battle_time battle_time = new battle_time();
+            public string BattleResult
+            {
+                get
+                {
+                    StringBuilder sb = new StringBuilder();
+                    JsonWriter jsonWriter = new JsonWriter(sb);
+                    jsonWriter.WriteObjectStart();
+                    jsonWriter.WritePropertyName("mission_id");
+                    jsonWriter.Write(mission_id);
+                    jsonWriter.WritePropertyName("boss_hp");
+                    jsonWriter.Write(0);
+                    jsonWriter.WritePropertyName("duration");
+                    jsonWriter.Write(battle_time.true_time);
+                    WriteDamageData(jsonWriter);
+                    jsonWriter.WritePropertyName("battle_time");
+                    jsonWriter.WriteObjectStart();
+                    jsonWriter.WriteObjectEnd();
+                    jsonWriter.WriteObjectEnd();
+                    return sb.ToString();
+                }
+            }
+            public void WriteDamageData(JsonWriter writer)
+            {
+                writer.WritePropertyName("1000");
+                writer.WriteObjectStart();
+                writer.WritePropertyName("11");
+                writer.Write(skill_cd);
+                writer.WritePropertyName("12");
+                writer.Write(skill_cd);
+                writer.WritePropertyName("13");
+                writer.Write(skill_cd);
+                writer.WritePropertyName("15");
+                writer.Write(battle_time.enemy_effect_client);
+                writer.WritePropertyName("17");
+                writer.Write(GetTotalFPS_(battle_time.true_time));//总帧数
+                writer.WritePropertyName("18");
+                writer.Write(0);
+                writer.WritePropertyName("19");
+                writer.Write(0);
+                writer.WritePropertyName("20");
+                writer.Write(0);
+                writer.WritePropertyName("21");
+                writer.Write(0);
+                writer.WritePropertyName("22");
+                writer.Write(0);
+                writer.WritePropertyName("23");
+                writer.Write(0);
+                writer.WritePropertyName("24");
+                writer.Write(life_enemy);//血量
+                writer.WritePropertyName("25");
+                writer.Write(0);
+                writer.WritePropertyName("26");
+                writer.Write(life_enemy);
+                writer.WritePropertyName("27");
+                writer.Write((int)Math.Ceiling(battle_time.true_time));//总时间
+                writer.WriteObjectEnd();
+                writer.WritePropertyName("1001");
+                writer.WriteObjectStart();
+                writer.WriteObjectEnd();
+                writer.WritePropertyName("1002");
+                writer.WriteObjectStart();
+                writer.WriteObjectEnd();
+                writer.WritePropertyName("1003");
+                writer.WriteObjectStart();
+                writer.WriteObjectEnd();
+            }
+            public static int GetTotalFPS_(double time)
+            {
+                double result = time * 31;
+                return (int)Math.Ceiling(result);
+            }
+        }
+
+        public class mapsimulationtrial : mapbase
+        {
+            public class TrialExercise_Battle_Sent
+            {
+
+                public int if_win = 0;
+                internal Dictionary<int, Gun_With_User_Info> teaminfo = new Dictionary<int, Gun_With_User_Info>();
+
+                public TrialExercise_Battle_Sent(Dictionary<int, Gun_With_User_Info> teaminfo)
+                {
+                    this.teaminfo = teaminfo;
+                }
+                public string BattleResult
+                {
+                    get
+                    {
+                        StringBuilder stringBuilder = new StringBuilder();
+                        JsonWriter jsonWriter = new JsonWriter(stringBuilder);
+                        jsonWriter.WriteObjectStart();
+
+                        jsonWriter.WritePropertyName("if_win");
+                        jsonWriter.Write(0);
+
+                        jsonWriter.WritePropertyName("battle_guns");
+                        jsonWriter.WriteObjectStart();
+                        foreach (var item in teaminfo)
+                        {
+                            jsonWriter.WritePropertyName(item.Value.id.ToString());
+                            jsonWriter.WriteObjectStart();
+
+                            jsonWriter.WritePropertyName("life");
+                            jsonWriter.Write(item.Value.life);
+
+                            jsonWriter.WritePropertyName("dps");
+                            jsonWriter.Write(0);
+                            jsonWriter.WriteObjectEnd();
+
+
+                        }
+                        jsonWriter.WriteObjectEnd();
+                        WriteDamageData(jsonWriter);
+                        jsonWriter.WritePropertyName("battle_damage");
+                        jsonWriter.WriteObjectStart();
+                        jsonWriter.WriteObjectEnd();
+                        jsonWriter.WriteObjectEnd();
+
+
+
+
+                        return stringBuilder.ToString();
+                    }
+                }
+
+
+                public void WriteDamageData(JsonWriter writer)
+                {
+                    writer.WritePropertyName("1000");
+                    writer.WriteObjectStart();
+                    writer.WritePropertyName("11");
+                    writer.Write(149);
+                    writer.WritePropertyName("12");
+                    writer.Write(0);
+                    writer.WritePropertyName("13");
+                    writer.Write(0);
+                    writer.WritePropertyName("15");
+                    writer.Write(22644);
+                    writer.WritePropertyName("17");
+                    writer.Write(0);
+                    writer.WritePropertyName("18");
+                    writer.Write(0);
+                    writer.WritePropertyName("19");
+                    writer.Write(0);
+                    writer.WritePropertyName("20");
+                    writer.Write(0);
+                    writer.WritePropertyName("21");
+                    writer.Write(0);
+                    writer.WritePropertyName("22");
+                    writer.Write(0);
+                    writer.WritePropertyName("23");
+                    writer.Write(0);
+                    writer.WritePropertyName("24");
+                    writer.Write(0);
+                    writer.WritePropertyName("25");
+                    writer.Write(0);
+                    writer.WritePropertyName("26");
+                    writer.Write(24520);
+                    writer.WritePropertyName("27");
+                    writer.Write(3);
+                    writer.WriteObjectEnd();
+                    writer.WritePropertyName("1001");
+                    writer.WriteObjectStart();
+                    writer.WriteObjectEnd();
+                    writer.WritePropertyName("1002");
+                    writer.WriteObjectStart();
+                    writer.WriteObjectEnd();
+                    writer.WritePropertyName("1003");
+                    writer.WriteObjectStart();
+                    writer.WriteObjectEnd();
+                }
+
+
+
+
+            }
+            public mapsimulationtrial(UserData userData)
+            {
+                this.userData = userData;
+
+            }
+            public static MissionType missionType = MissionType.Simulation;
+            public bool Start()
+            {
+                if (StartBattle() == false) return false;
+                return EndBattle();
+            }
+
+            private bool StartBattle()
+            {
+                return userData.battle.StartTrial(userData.others.getAvailableTeamID());
+            }
+            private bool EndBattle()
+            {
+                int id = userData.others.getAvailableTeamID()[0];
+                TrialExercise_Battle_Sent tbs = new TrialExercise_Battle_Sent(userData.Teams[id]);
+                return userData.battle.EndTrial(tbs.BattleResult);
+            }
+            private UserData userData;
+        }
+
+
+
+
+
+
+
+
+
+
+
+
+
     }
+
+
+    public class MapManager
+    {
+        public MapManager(UserData userData)
+        {
+            this.userData = userData;
+            this.missionInfo = userData.MissionInfo;
+            this.data = missionInfo.GetFirstData();
+            this.battleData = new BattleData(userData);
+            this.random = new Random();
+        }
+        public UserData userData;
+        public MissionInfo missionInfo;
+        public MissionInfo.Data data;
+        public Random random;
+        public BattleData battleData;
+
+
+
+
+        public string result = "";
+        public string strbattledata;
+    }
+
 }

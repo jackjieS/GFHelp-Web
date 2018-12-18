@@ -28,7 +28,85 @@ namespace GFHelp.Core.Action
             }
             
         }
+        public bool StartTrial(List<int>teamID)
+        {
+            userData.webData.StatusBarText = "开始防御演习";
+            Thread.Sleep(2000);
+            StringBuilder stringBuilder = new StringBuilder();
+            JsonWriter jsonWriter = new JsonWriter(stringBuilder);
+            jsonWriter.WriteObjectStart();
+            jsonWriter.WritePropertyName("team_ids");
+            jsonWriter.Write(teamID[0].ToString());
+            jsonWriter.WritePropertyName("battle_team");
+            jsonWriter.Write(teamID[0]);
+            jsonWriter.WriteObjectEnd();
 
+            int count = 0;
+
+            while (true)
+            {
+                string result = API.Battle.StartTrial(userData.GameAccount, stringBuilder.ToString());
+
+                switch (Response.Check(userData.GameAccount, ref result, "StartTrial_Pro", true))
+                {
+                    case 1:
+                        {
+                            return true;
+                        }
+                    case 0:
+                        {
+                            continue;
+                        }
+                    case -1:
+                        {
+                            if (count++ > userData.config.ErrorCount)
+                            {
+                                new Log().userInit(userData.GameAccount.GameAccountID, String.Format("{0} 无法开始作战任务，请登陆游戏检查", userData.user_Info.name)).userInfo();
+                                return false;
+                            }
+                            userData.home.Login();
+                            userData.others.Check_Equip_GUN_FULL();
+                            continue;
+                        }
+                    default:
+                        break;
+                }
+            }
+
+        }
+        public bool EndTrial(string outdatacode)
+        {
+            int count = 0;
+            while (true)
+            {
+                string result = API.Battle.EndTrial(userData.GameAccount, outdatacode);
+                switch (Response.Check(userData.GameAccount, ref result, "EndTrial_Pro", true))
+                {
+                    case 1:
+                        {
+                            return true;
+                        }
+                    case 0:
+                        {
+                            break;
+                        }
+                    case -1:
+                        {
+                            if (count++ > userData.config.ErrorCount)
+                            {
+                                new Log().userInit(userData.GameAccount.GameAccountID, "终止无限防御 ").userInfo();
+                                return false;
+                            }
+                            continue;
+                        }
+                    default:
+                        break;
+                }
+            }
+        
+
+
+    }
         public bool abortMission()
         {
             userData.webData.StatusBarText = (" 终止作战");
@@ -64,6 +142,8 @@ namespace GFHelp.Core.Action
 
         public int startMission(mapbase map, MissionInfo.Data data)
         {
+
+            if (data.Loop == false) return -1;
             userData.webData.StatusBarText = "回合开始";
             Thread.Sleep(3000);
 

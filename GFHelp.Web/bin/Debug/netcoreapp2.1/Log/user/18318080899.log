@@ -270,3 +270,155 @@
 【00:41:33】      message = startTurn Error , exception = error:2
 【00:41:41】      message = teamMove Error , exception = error:203|行动点数计算有误
 【00:41:51】      message = teamMove Error , exception = error:203|行动点数计算有误
+【18:13:55】      message =  自动分享获取30钻石 
+【18:14:00】      message = 获取邮件 标题 每日指标：小型支援 内容 完成1次后勤支援。 
+【18:14:06】      message = 获取邮件 标题 签到奖励 内容 签到奖励: 
+【18:14:10】      message = 获取邮件 标题 格琳娜的每日答谢礼物 内容 亲爱的指挥官，//n感谢您的关照，这是我准备的小礼物，希望您会喜欢。顺便，祝新的一天工作顺利！//n//n您活跃的后勤官 格琳娜 
+【18:14:11】      message = 终止作战 , exception = 
+【18:14:21】      message = Establish_Build_Finish ERROR , exception = error:202|尚无任何产出
+【18:14:44】      message = 获取邮件 标题 每日指标：常规支援 内容 完成3次后勤支援。 
+【01:25:45】      message = 获取邮件 标题 月卡奖励 内容 月卡过期时间：2019-01-05 
+【01:25:49】      message = 获取邮件 标题 每日指标：小型维修 内容 进行3次战术少女修复。 
+【01:25:50】      message = 终止作战 , exception = 
+【03:49:48】      message = 程序已注销 请重新创建实例 
+【00:17:52】      message = 程序已注销 请重新创建实例 
+【01:08:19】      message = 程序已注销 请重新创建实例 
+【01:47:08】      message = 获取UserInfo失败 , exception = 
+【01:50:07】      message = 获取UserInfo失败 , exception = 
+【01:56:01】      message = jackjieS 无法开始作战任务，请登陆游戏检查 
+【01:56:02】      message = 战斗任务结束,获得 人力 0 子弹 0 口粮 0 零件 0 初级资料 0 中级资料 0 高级资料 0 人形 0 
+【01:59:10】      message = 后勤结束失败 , exception = error:7
+【01:59:16】      message = 获取邮件 标题 月卡奖励 内容 月卡过期时间：2019-01-05 
+【02:00:28】      message = 战斗任务结束,获得 人力 0 子弹 0 口粮 0 零件 0 初级资料 0 中级资料 0 高级资料 0 人形 0 
+【02:01:50】      message = 战斗任务结束,获得 人力 0 子弹 0 口粮 0 零件 0 初级资料 0 中级资料 0 高级资料 0 人形 0 
+【02:02:24】      message = 获取邮件 标题 squad_data_daily-10000010 内容 squad_data_daily-20000010 
+【02:02:28】      message = 获取邮件 标题 每日指标：象征性胜利 内容 通过任意关卡1次。 
+【03:13:19】      message = 获取邮件 标题 每日指标：小型支援 内容 完成1次后勤支援。 
+【03:13:26】      message = 获取邮件 标题 签到奖励 内容 签到奖励: 
+【03:13:30】      message = 获取邮件 标题 格琳娜的每日答谢礼物 内容 亲爱的指挥官，//n感谢您的关照，这是我准备的小礼物，希望您会喜欢。顺便，祝新的一天工作顺利！//n//n您活跃的后勤官 格琳娜 
+【03:14:53】      message = 程序已注销 请重新创建实例 
+【03:15:25】      message = 程序已注销 请重新创建实例 
+【16:34:49】      message = 程序已注销 请重新创建实例 
+【16:36:31】      message = 战斗任务结束,获得 人力 0 子弹 0 口粮 0 零件 0 初级资料 0 中级资料 0 高级资料 0 人形 0 
+【16:36:54】      message = 程序已注销 请重新创建实例 
+【16:57:27】      message = 战斗任务结束,获得 人力 0 子弹 0 口粮 0 零件 0 初级资料 0 中级资料 0 高级资料 0 人形 0 
+【17:00:17】      message = 战斗任务结束,获得 人力 0 子弹 0 口粮 0 零件 0 初级资料 0 中级资料 0 高级资料 0 人形 0 
+【17:09:47】      message = 战斗任务结束,获得 人力 0 子弹 0 口粮 0 零件 0 初级资料 0 中级资料 0 高级资料 0 人形 0 
+【17:12:09】      message = 战斗任务结束,获得 人力 0 子弹 0 口粮 0 零件 0 初级资料 0 中级资料 0 高级资料 0 人形 0 
+【17:21:18】      message = 终止作战 , exception = 
+【17:25:50】      message = 终止作战 , exception = 
+【23:15:47】      message = 后勤结束失败 , exception = error:7
+【23:15:47】      message =  自动分享获取30钻石 
+【23:15:47】      message =  自动分享获取30钻石 
+【23:16:44】      message = 获取邮件 标题 每日指标：小型强化 内容 进行1次战术少女强化。 
+【23:17:26】      message = 循环倒计时 出现错误  , exception = System.Collections.Generic.KeyNotFoundException: The given key '204' was not present in the dictionary.
+   at System.Collections.Generic.Dictionary`2.get_Item(TKey key)
+   at GFHelp.Core.MulitePlayerData.Outhouse_BattleReport.get_Furniture_database() in C:\Users\jack\Desktop\CS\GFHelp-Web\GFHelp.Core\MulitePlayerData\UserData\Outhouse_BattleReport.cs:line 257
+   at GFHelp.Core.MulitePlayerData.Outhouse_BattleReport.BattleReportStart() in C:\Users\jack\Desktop\CS\GFHelp-Web\GFHelp.Core\MulitePlayerData\UserData\Outhouse_BattleReport.cs:line 114
+   at GFHelp.Core.MulitePlayerData.Outhouse_BattleReport.AutoRun() in C:\Users\jack\Desktop\CS\GFHelp-Web\GFHelp.Core\MulitePlayerData\UserData\Outhouse_BattleReport.cs:line 108
+   at GFHelp.Core.Management.ThreadLoop.Auto_Act_Summery() in C:\Users\jack\Desktop\CS\GFHelp-Web\GFHelp.Core\MulitePlayerData\Loop.cs:line 77
+   at GFHelp.Core.Management.ThreadLoop.DailyLoop() in C:\Users\jack\Desktop\CS\GFHelp-Web\GFHelp.Core\MulitePlayerData\Loop.cs:line 32
+【23:17:26】      message = 程序已注销 请重新创建实例 
+【23:19:09】      message = 获取邮件 标题 每日指标：全面支援 内容 完成10次后勤支援。 
+【23:22:10】      message = 获取邮件 标题 每日指标：全面支援 内容 完成10次后勤支援。 
+【23:35:01】      message = 2018/12/17 23:35:01 登陆 
+【15:30:11】      message = 程序已注销 请重新创建实例 
+【15:31:37】      message = 循环倒计时 出现错误  , exception = System.NullReferenceException: Object reference not set to an instance of an object.
+   at GFHelp.Core.Action.BattleBase.MissionInfo.Data..ctor(UserData userData, Battle battle) in C:\Users\jack\Desktop\CS\GFHelp-Web\GFHelp.Core\Action\Battle\Base.cs:line 268
+   at GFHelp.Core.Action.BattleBase.Simulation.CorridorRun() in C:\Users\jack\Desktop\CS\GFHelp-Web\GFHelp.Core\Action\Battle\Base.cs:line 805
+   at GFHelp.Core.Action.BattleBase.Simulation.Run() in C:\Users\jack\Desktop\CS\GFHelp-Web\GFHelp.Core\Action\Battle\Base.cs:line 791
+   at GFHelp.Core.Management.ThreadLoop.Auto_Act_Summery() in C:\Users\jack\Desktop\CS\GFHelp-Web\GFHelp.Core\MulitePlayerData\Loop.cs:line 76
+   at GFHelp.Core.Management.ThreadLoop.DailyLoop() in C:\Users\jack\Desktop\CS\GFHelp-Web\GFHelp.Core\MulitePlayerData\Loop.cs:line 32
+【15:31:41】      message = 程序已注销 请重新创建实例 
+【15:46:01】      message = #djDlA95+CtnSsS05iA6c96KmBRQxSh+UHYow/krvvNwENeuFFMe5rugiX2jzaLqS6jaXG+dI4Sf+fFnjxiVY3BQK/kyTDoGCQ8CznguMATG9Bi6bHrw8dAciHkgzadW9n7WO 
+【15:49:44】      message = 获取邮件 ID: 67869827 标题 daily-10000029 内容 daily-20000029 
+【15:50:56】      message = 获取邮件 ID: 67869827 标题 daily-10000029 内容 daily-20000029 
+【15:50:58】      message = 获取邮件 ID: 67869828 标题 daily-10000030 内容 daily-20000030 
+【15:52:42】      message = 战斗任务结束,获得 人力 90 子弹 90 口粮 0 零件 0 初级资料 0 中级资料 0 高级资料 0 人形 0 
+【15:53:37】      message = 战斗任务结束,获得 人力 0 子弹 90 口粮 180 零件 0 初级资料 0 中级资料 0 高级资料 0 人形 0 
+【16:02:59】      message = 获取邮件 ID: 67871999 标题 ÿ�ܼ�ч���ϸ�̹� 内容 ����5�μ���ѵ������������/����/��װ���ӣ��� 
+【16:12:02】      message = 程序已注销 请重新创建实例 
+【23:24:34】      message = 获取邮件 ID: 67902869 标题 每日指标：象征性胜利 内容 通过任意关卡1次。 
+【23:24:37】      message = 获取邮件 ID: 67903947 标题 每日指标：武装强化 内容 进行1次装备强化。 
+【23:24:39】      message = 获取邮件 ID: 67905568 标题 每日指标：三段式胜利 内容 通过任意关卡3次。 
+【23:25:28】      message = teamMove Error , exception = error:2
+【23:25:50】      message = jackjieS 无法部署梯队，请登陆游戏检查 , exception = error:2
+【23:26:26】      message = 终止作战 , exception = 
+【23:26:57】      message = teamMove Error , exception = error:2
+【23:28:01】      message = 终止作战 , exception = 
+【23:28:17】      message = teamMove Error , exception = error:2
+【23:29:00】      message = 终止作战 , exception = 
+【23:33:39】      message = 装备强化 id 15259903 
+【23:35:01】      message = 2018/12/18 23:35:01 登陆 
+【23:35:30】      message = 终止作战 , exception = 
+【23:35:38】      message = teamMove Error , exception = error:3
+【23:35:48】      message = endTurn Error , exception = error:3
+【23:36:22】      message = teamMove Error , exception = error:2
+【23:36:34】      message = jackjieS 无法部署梯队，请登陆游戏检查 , exception = error:2
+【23:36:46】      message = teamMove Error , exception = error:2
+【23:36:53】      message = teamMove Error , exception = error:2
+【23:36:59】      message = teamMove Error , exception = error:2
+【23:37:54】      message = teamMove Error , exception = error:2
+【23:54:05】      message = 终止作战 , exception = 
+【00:30:39】      message = 获取邮件 ID: 67911570 标题 每日指标：扩散型胜利 内容 通过任意关卡5次。 
+【00:30:41】      message = 获取邮件 ID: 67913845 标题 squad_data_daily-10000013 内容 squad_data_daily-20000013 
+【00:35:01】      message = 2018/12/19 0:35:01 登陆 
+【00:52:51】      message = 程序已注销 请重新创建实例 
+【00:53:16】      message = 获取邮件 ID: 67915259 标题 squad_data_daily-10000005 内容 squad_data_daily-20000005 
+【00:53:27】      message = #85JubLXLy6ipLXQe/4w49n4tvcdD0eNcpcdmhfknn9uhZT+l4J1CSp0snqwvBqeLgel8/NzbGPv1iN3uwp8AEoO0hgGie3bQpWVX7hFt1Cmy9drc0fJ74IfdcYjP5SgJ5OU 
+【00:54:16】      message = 程序已注销 请重新创建实例 
+【03:28:40】      message = 获取邮件 ID: 67948065 标题 签到奖励 内容 签到奖励: 
+【03:28:44】      message = 获取邮件 ID: 67948066 标题 格琳娜的每日答谢礼物 内容 亲爱的指挥官，//n感谢您的关照，这是我准备的小礼物，希望您会喜欢。顺便，祝新的一天工作顺利！//n//n您活跃的后勤官 格琳娜 
+【03:28:48】      message = jackjieS GET MAIL Resource FAILED , exception = error:202|未到邮件的可领取时间
+【03:28:48】      message = 获取邮件 ID: 67948071 标题 每日指标：小型支援 内容 完成1次后勤支援。 
+【03:29:03】      message = 战斗任务结束,获得 人力 0 子弹 0 口粮 0 零件 0 初级资料 0 中级资料 0 高级资料 0 人形 0 
+【03:29:15】      message = 获取邮件 ID: 67948066 标题 格琳娜的每日答谢礼物 内容 亲爱的指挥官，//n感谢您的关照，这是我准备的小礼物，希望您会喜欢。顺便，祝新的一天工作顺利！//n//n您活跃的后勤官 格琳娜 
+【03:29:19】      message = jackjieS GET MAIL Resource FAILED , exception = error:202|未到邮件的可领取时间
+【03:29:19】      message = 获取邮件 ID: 67948084 标题 月卡奖励 内容 月卡过期时间：2019-01-05 
+【03:29:22】      message = 获取邮件 ID: 67948097 标题 每日指标：常规支援 内容 完成3次后勤支援。 
+【03:29:25】      message = 获取邮件 ID: 67948206 标题 每日指标：小型模拟 内容 完成1次模拟作战。 
+【03:29:42】      message = endTurn Error , exception = error:2
+【03:29:46】      message = endEnemyTurn Error , exception = error:2
+【03:29:48】      message = startTurn Error , exception = error:2
+【03:29:50】      message = teamMove Error , exception = error:203|行动点数计算有误
+【03:29:56】      message = teamMove Error , exception = error:203|行动点数计算有误
+【03:30:03】      message = endTurn Error , exception = error:2
+【03:30:59】      message = 获取邮件 ID: 67948066 标题 格琳娜的每日答谢礼物 内容 亲爱的指挥官，//n感谢您的关照，这是我准备的小礼物，希望您会喜欢。顺便，祝新的一天工作顺利！//n//n您活跃的后勤官 格琳娜 
+【03:31:02】      message = jackjieS GET MAIL Resource FAILED , exception = error:202|未到邮件的可领取时间
+【03:31:02】      message = 终止作战 , exception = 
+【03:32:37】      message = 6_6BOSS 成功 , exception = 
+【03:33:30】      message = 6_6BOSS 成功 , exception = 
+【03:33:32】      message = 战斗任务结束,获得 人力 0 子弹 0 口粮 0 零件 0 初级资料 0 中级资料 0 高级资料 0 人形 0 
+【03:33:55】      message = 获取邮件 ID: 67948066 标题 格琳娜的每日答谢礼物 内容 亲爱的指挥官，//n感谢您的关照，这是我准备的小礼物，希望您会喜欢。顺便，祝新的一天工作顺利！//n//n您活跃的后勤官 格琳娜 
+【03:34:01】      message = jackjieS GET MAIL Resource FAILED , exception = error:202|未到邮件的可领取时间
+【03:34:01】      message = 获取邮件 ID: 67949477 标题 每日指标：象征性胜利 内容 通过任意关卡1次。 
+【03:34:04】      message = 获取邮件 ID: 67949478 标题 squad_data_daily-10000005 内容 squad_data_daily-20000005 
+【03:34:43】      message = 1_2 成功 
+【03:35:02】      message = 2018/12/19 3:35:02 登陆 
+【03:35:34】      message = 1_2 成功 
+【03:36:04】      message = 1_2 成功 
+【03:36:37】      message = 1_2 成功 
+【03:37:31】      message = 1_2 成功 
+【03:37:32】      message = 战斗任务结束,获得 人力 0 子弹 0 口粮 0 零件 0 初级资料 0 中级资料 0 高级资料 0 人形 0 
+【03:38:32】      message = 2_2E 成功 
+【03:41:10】      message = 获取邮件 ID: 67948066 标题 格琳娜的每日答谢礼物 内容 亲爱的指挥官，//n感谢您的关照，这是我准备的小礼物，希望您会喜欢。顺便，祝新的一天工作顺利！//n//n您活跃的后勤官 格琳娜 
+【03:41:10】      message = 2_2E 成功 
+【03:41:11】      message = 战斗任务结束,获得 人力 0 子弹 0 口粮 0 零件 0 初级资料 0 中级资料 0 高级资料 0 人形 0 
+【03:41:13】      message = jackjieS GET MAIL Resource FAILED , exception = error:202|未到邮件的可领取时间
+【03:41:13】      message = 获取邮件 ID: 67950002 标题 squad_data_daily-10000011 内容 squad_data_daily-20000011 
+【03:41:15】      message = 获取邮件 ID: 67950372 标题 每日指标：三段式胜利 内容 通过任意关卡3次。 
+【03:41:17】      message = 获取邮件 ID: 67951263 标题 squad_data_daily-10000013 内容 squad_data_daily-20000013 
+【03:41:20】      message = 终止作战 , exception = 
+【03:41:22】      message = #afhJfxBkyXQhfHwaYeSuLchM87gqSI9NaYoCFRhRn1SuHRa3kGx8NjFHoabkM+GzxyQB+bx23ANAClomEUtBsLm/bAPqty7hLu9LDFCteYwpxWkP1UF9CWJZHQV4bn7VA2c 
+【03:41:26】      message = endTurn Error , exception = error:3
+【03:41:30】      message = endEnemyTurn Error , exception = error:3
+【03:41:32】      message = startTurn Error , exception = error:3
+【03:41:34】      message = teamMove Error , exception = error:3
+【03:41:40】      message = teamMove Error , exception = error:3
+【03:41:46】      message = endTurn Error , exception = error:3
+【03:42:14】      message = 1_2 成功 
+【03:42:32】      message = 获取邮件 ID: 67948066 标题 格琳娜的每日答谢礼物 内容 亲爱的指挥官，//n感谢您的关照，这是我准备的小礼物，希望您会喜欢。顺便，祝新的一天工作顺利！//n//n您活跃的后勤官 格琳娜 
+【03:42:35】      message = jackjieS GET MAIL Resource FAILED , exception = error:202|未到邮件的可领取时间
+【03:42:35】      message = 获取邮件 ID: 67951986 标题 每日指标：扩散型胜利 内容 通过任意关卡5次。 
+【03:42:38】      message = 获取邮件 ID: 67952034 标题 每日指标：小型解析 内容 进行1次情报解析。 
+【03:42:40】      message = 获取邮件 ID: 67952035 标题 每日指标：常规解析 内容 进行3次情报解析。 

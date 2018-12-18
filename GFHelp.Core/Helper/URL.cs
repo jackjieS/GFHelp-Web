@@ -108,6 +108,7 @@ namespace GFHelp.Core.Helper
         public const string DataAnalysisFinishAll = "Dorm/data_analysis_finish_all";
         public const string DataAnalysis = "Dorm/data_analysis";
         public const string WeeklyShare = "Dorm/share";
+        public const string Home = "Index/home";
     }
 
 //    class GameHost

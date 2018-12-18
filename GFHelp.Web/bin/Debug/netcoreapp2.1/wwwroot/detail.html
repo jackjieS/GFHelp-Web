@@ -466,12 +466,7 @@
                                             </select>
                                         </span>
                                     </div>
-                                    <div>
-                                        <label for="">梯队效能:</label>
-                                        <span>
-                                            <input class="form-control" name="skt" />
-                                        </span>
-                                    </div>
+
                                     <div>
                                         <label for="">参数:</label>
                                         <span>
@@ -642,8 +637,8 @@
     </div>
     <!-- 对话框HTML -->
     <div class="modal fade" id="informationModel">
-        <div class="modal-dialog">
-            <div class="modal-content">
+        <div class="modal-dialog">  
+            <div class="modal-content>
                 <div class="modal-header">
                     <button type="button" class="close" data-dismiss="modal">
                         <span aria-hidden="true">×</span>
@@ -689,7 +684,7 @@
                     </button>
                     <h2 class="modal-title" style="color:#000000">MissionInfo</h2>
                 </div>
-                <div class="modal-body">
+                <div class="modal-body" style="height:600px;overflow:auto; ">
                     <div id="MissionInfo"style='color:#000000;display:block;word-break: break-all;word-wrap: break-word;'>
                     </div>
                 </div>
@@ -817,8 +812,10 @@
                         $(el.Guns).each(function (index2, el2) {
                             person += '<li><div id="gun"><span id="gunName">' + el2.Name + '</span><span id="gunLv">' + " | " + "LV: " + el2.Lv + '</span><span id ="gunHp">' + " | " + "HP: " + el2.Hp + '</span><span id = "gunExp">' + " | " + "Exp: " + el2.Exp + '</span><span id="Number">' + " | " + el2.number + "扩" + '</span></div></li> ';
                         });
-
-                        teamHtml += '<div class=""><div><h3>第' + (index + 1) + '梯队</h3></div><ul>' + person + '</ul></div>';
+						var Status ='';
+						if(el.isFree==true)Status='    状态: Free';
+						if(el.isFree==false)Status='    状态: Locked';
+                        teamHtml += '<div class=""><div><h3>第' + (index + 1) + '梯队' + Status   +'</h3></div><ul>' + person + '</ul></div>';
                     });
                     $('#bdyl-warpper').html(teamHtml);
 
@@ -878,8 +875,9 @@
                     var MissionInfo = '';
                     var teams = el.Teams;
                     k = index + 1;
-                    var rate = parseFloat((el.Core / el.BattleTimes).toFixed(3));
-                    MissionInfo += '<li><h3>Mission ' + k + '</h3></li><li>' + el.MissionMap + '</li><li>已循环次数: ' + el.CycleTime + '</li><li>核心数' + el.Core + '</li><li>核心率'+rate  +'</li><li>参数: ' + el.Parm + '</li><li>梯队:' + teams + '</li>';
+                    var rate1 = parseFloat((el.Core / el.CycleTime).toFixed(4));
+                    var rate2 = parseFloat((el.Core / el.BattleTimes).toFixed(4));
+                    MissionInfo += '<li><h3>Mission ' + k + '</h3></li><li>' + el.MissionMap + '</li><li>已循环次数: ' + el.CycleTime + '</li><li>核心数' + el.Core + '</li><li>核心率A' + rate1 + '</li><li>核心率B' + rate2 +'</li><li>参数: ' + el.Parm + '</li><li>梯队:' + teams + '</li>';
                     listMissionInfo += MissionInfo;
                 });
 
@@ -1149,12 +1147,9 @@
         function joinTeam() {
             var values = $('#team2').val();
             var names = $('#team2 option:selected').html();
-            var skt = $('input[name=skt]').val();
             var team_list = '<li class="list-group-item">' +
                 '<span class="team-title">' + names + '</span>' +
                 '<input type="hidden" name="team_id" value="' + values + '">' +
-                '<input type="hidden" name="skt" value="' + skt + '">' +
-                '<span style="float: right;">梯队效能:' + skt + '</span>' +
                 '</li>'
 
             console.log($('.team-list').find('input[value=' + values + ']'));
@@ -1172,11 +1167,11 @@
             var team_data = [];
             for (i = 0; $('.team-list input[name=team_id]').length > i; i++) {
                 var teamid = '';
-                var skt = '';
+
                 console.log($($('input[name=team_id]')[i]).val());
                 teamid = $($('input[name=team_id]')[i]).val();
-                skt = $($('input[name=skt]')[i]).val();
-                team_data.push({ "teamid": teamid, "skt": skt, "key": i });
+
+                team_data.push({ "teamid": teamid, "key": i });
             }
             var data = {
                 "accountID": param.gid,

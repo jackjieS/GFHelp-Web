@@ -441,8 +441,14 @@ namespace GFHelp.Core.Helper
                     {
                         return result.Contains("user_id") ? 1 : 0;
                     }
-
-
+                case "home":
+                    {
+                        return result.Contains("recover_mp") ? 1 : 0;
+                    }
+                case "MailResource":
+                    {
+                        return result.Contains("[") ? 1 : 0;
+                    }
 
                 default:
                     break;

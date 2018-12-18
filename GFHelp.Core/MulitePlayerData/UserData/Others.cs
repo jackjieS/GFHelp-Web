@@ -38,14 +38,50 @@ namespace GFHelp.Core.MulitePlayerData
 
 
 
+        public bool CheckTeamStatus(int ID)
+        {
+            //是否在后勤 自律 训练 0血
+
+            if (!userData.Teams.ContainsKey(ID)) return false;
+            if (userData.Teams[ID].Count == 0) return false;
+
+            foreach (var x in userData.operation_Act_Info.dicOperation)
+            {
+                if (x.Value.team_id == ID)
+                {
+                    return false;
+                }
+
+            }
+            if (userData.auto_Mission_Act_Info.listTeamID.Contains(ID)) return false;
+
+            foreach (var item in userData.Teams[ID])
+            {
+                if (userData.upgrade_Act_Info.isUpgradING(item.Value.id)) return false;
+            }
+            foreach (var item in userData.Teams[ID])
+            {
+                if (item.Value.life == 0) return false;
+            }
+            return true;
+        }
+        public List<int> getAvailableTeamID()
+        {
+            List<int> teamID = new List<int>();
+            for (int i = 1; i < userData.user_Info.maxteam; i++)
+            {
+                if (CheckTeamStatus(i)) teamID.Add(i);
+            }
+            return teamID;
 
 
+        }
 
 
 
         public bool CheckGunStatus(Gun_With_User_Info gwui)
         {
-            //是否在后勤 自律 训练
+            //是否在后勤 自律 训练 0血
             foreach (var x in userData.operation_Act_Info.dicOperation)
             {
                 if (x.Value.team_id == gwui.teamId)
@@ -54,7 +90,7 @@ namespace GFHelp.Core.MulitePlayerData
                 }
 
             }
-            if (userData.auto_Mission_Act_Info.team_ids.Contains(gwui.teamId)) return true;
+            if (userData.auto_Mission_Act_Info.listTeamID.Contains(gwui.teamId)) return true;
             foreach (var y in userData.upgrade_Act_Info.dic_Upgrade)
             {
                 if (y.Value.gun_with_user_id == gwui.id) return true;

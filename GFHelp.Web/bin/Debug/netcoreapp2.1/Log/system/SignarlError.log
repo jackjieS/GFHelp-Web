@@ -6794,3 +6794,380 @@ Parameter name: index
    at GFHelp.Core.MulitePlayerData.WebData.Initialize.GetWebSquads(UserData userData, List`1& squads) in C:\Users\jack\Desktop\CS\GFHelp-Web\GFHelp.Core\MulitePlayerData\WebData\WebData.cs:line 64
    at GFHelp.Core.MulitePlayerData.WebData.WebData.Get(UserData userData) in C:\Users\jack\Desktop\CS\GFHelp-Web\GFHelp.Core\MulitePlayerData\WebData\WebData.cs:line 32
    at GFHelp.Core.SignaIRClient.getWebData() in C:\Users\jack\Desktop\CS\GFHelp-Web\GFHelp.Core\SignaIRClient.cs:line 131
+【23:24:38】      message = getGamesStatus Error , exception = System.InvalidOperationException: Collection was modified; enumeration operation may not execute.
+   at System.Collections.Generic.List`1.Enumerator.MoveNextRare()
+   at GFHelp.Core.MulitePlayerData.WebData.WebData.GetWebSquads(List`1& squads) in C:\Users\jack\Desktop\CS\GFHelp-Web\GFHelp.Core\MulitePlayerData\WebData\WebData.cs:line 49
+   at GFHelp.Core.MulitePlayerData.WebData.WebData.Get() in C:\Users\jack\Desktop\CS\GFHelp-Web\GFHelp.Core\MulitePlayerData\WebData\WebData.cs:line 183
+   at GFHelp.Core.SignaIRClient.getWebData() in C:\Users\jack\Desktop\CS\GFHelp-Web\GFHelp.Core\SignaIRClient.cs:line 131
+【00:59:10】      message = getGamesStatus Error , exception = System.Collections.Generic.KeyNotFoundException: The given key '0' was not present in the dictionary.
+   at System.Collections.Generic.Dictionary`2.get_Item(TKey key)
+   at GFHelp.Core.MulitePlayerData.Others.CheckTeamStatus(Int32 ID) in C:\Users\jack\Desktop\CS\GFHelp-Web\GFHelp.Core\MulitePlayerData\UserData\Others.cs:line 44
+   at GFHelp.Core.MulitePlayerData.WebData.WebData.GetWebTeams(List`1& Teams) in C:\Users\jack\Desktop\CS\GFHelp-Web\GFHelp.Core\MulitePlayerData\WebData\WebData.cs:line 42
+   at GFHelp.Core.MulitePlayerData.WebData.WebData.Get() in C:\Users\jack\Desktop\CS\GFHelp-Web\GFHelp.Core\MulitePlayerData\WebData\WebData.cs:line 178
+   at GFHelp.Core.SignaIRClient.getWebData() in C:\Users\jack\Desktop\CS\GFHelp-Web\GFHelp.Core\SignaIRClient.cs:line 131
+【00:59:11】      message = getGamesStatus Error , exception = System.Collections.Generic.KeyNotFoundException: The given key '0' was not present in the dictionary.
+   at System.Collections.Generic.Dictionary`2.get_Item(TKey key)
+   at GFHelp.Core.MulitePlayerData.Others.CheckTeamStatus(Int32 ID) in C:\Users\jack\Desktop\CS\GFHelp-Web\GFHelp.Core\MulitePlayerData\UserData\Others.cs:line 44
+   at GFHelp.Core.MulitePlayerData.WebData.WebData.GetWebTeams(List`1& Teams) in C:\Users\jack\Desktop\CS\GFHelp-Web\GFHelp.Core\MulitePlayerData\WebData\WebData.cs:line 42
+   at GFHelp.Core.MulitePlayerData.WebData.WebData.Get() in C:\Users\jack\Desktop\CS\GFHelp-Web\GFHelp.Core\MulitePlayerData\WebData\WebData.cs:line 178
+   at GFHelp.Core.SignaIRClient.getWebData() in C:\Users\jack\Desktop\CS\GFHelp-Web\GFHelp.Core\SignaIRClient.cs:line 131
+【00:59:38】      message = getGamesStatus Error , exception = System.Collections.Generic.KeyNotFoundException: The given key '0' was not present in the dictionary.
+   at System.Collections.Generic.Dictionary`2.get_Item(TKey key)
+   at GFHelp.Core.MulitePlayerData.Others.CheckTeamStatus(Int32 ID) in C:\Users\jack\Desktop\CS\GFHelp-Web\GFHelp.Core\MulitePlayerData\UserData\Others.cs:line 44
+   at GFHelp.Core.MulitePlayerData.WebData.WebData.GetWebTeams(List`1& Teams) in C:\Users\jack\Desktop\CS\GFHelp-Web\GFHelp.Core\MulitePlayerData\WebData\WebData.cs:line 42
+   at GFHelp.Core.MulitePlayerData.WebData.WebData.Get() in C:\Users\jack\Desktop\CS\GFHelp-Web\GFHelp.Core\MulitePlayerData\WebData\WebData.cs:line 178
+   at GFHelp.Core.SignaIRClient.getWebData() in C:\Users\jack\Desktop\CS\GFHelp-Web\GFHelp.Core\SignaIRClient.cs:line 131
+【00:59:41】      message = getGamesStatus Error , exception = System.Collections.Generic.KeyNotFoundException: The given key '0' was not present in the dictionary.
+   at System.Collections.Generic.Dictionary`2.get_Item(TKey key)
+   at GFHelp.Core.MulitePlayerData.Others.CheckTeamStatus(Int32 ID) in C:\Users\jack\Desktop\CS\GFHelp-Web\GFHelp.Core\MulitePlayerData\UserData\Others.cs:line 44
+   at GFHelp.Core.MulitePlayerData.WebData.WebData.GetWebTeams(List`1& Teams) in C:\Users\jack\Desktop\CS\GFHelp-Web\GFHelp.Core\MulitePlayerData\WebData\WebData.cs:line 42
+   at GFHelp.Core.MulitePlayerData.WebData.WebData.Get() in C:\Users\jack\Desktop\CS\GFHelp-Web\GFHelp.Core\MulitePlayerData\WebData\WebData.cs:line 178
+   at GFHelp.Core.SignaIRClient.getWebData() in C:\Users\jack\Desktop\CS\GFHelp-Web\GFHelp.Core\SignaIRClient.cs:line 131
+【00:59:43】      message = getGamesStatus Error , exception = System.Collections.Generic.KeyNotFoundException: The given key '0' was not present in the dictionary.
+   at System.Collections.Generic.Dictionary`2.get_Item(TKey key)
+   at GFHelp.Core.MulitePlayerData.Others.CheckTeamStatus(Int32 ID) in C:\Users\jack\Desktop\CS\GFHelp-Web\GFHelp.Core\MulitePlayerData\UserData\Others.cs:line 44
+   at GFHelp.Core.MulitePlayerData.WebData.WebData.GetWebTeams(List`1& Teams) in C:\Users\jack\Desktop\CS\GFHelp-Web\GFHelp.Core\MulitePlayerData\WebData\WebData.cs:line 42
+   at GFHelp.Core.MulitePlayerData.WebData.WebData.Get() in C:\Users\jack\Desktop\CS\GFHelp-Web\GFHelp.Core\MulitePlayerData\WebData\WebData.cs:line 178
+   at GFHelp.Core.SignaIRClient.getWebData() in C:\Users\jack\Desktop\CS\GFHelp-Web\GFHelp.Core\SignaIRClient.cs:line 131
+【00:59:49】      message = getGamesStatus Error , exception = System.Collections.Generic.KeyNotFoundException: The given key '0' was not present in the dictionary.
+   at System.Collections.Generic.Dictionary`2.get_Item(TKey key)
+   at GFHelp.Core.MulitePlayerData.Others.CheckTeamStatus(Int32 ID) in C:\Users\jack\Desktop\CS\GFHelp-Web\GFHelp.Core\MulitePlayerData\UserData\Others.cs:line 44
+   at GFHelp.Core.MulitePlayerData.WebData.WebData.GetWebTeams(List`1& Teams) in C:\Users\jack\Desktop\CS\GFHelp-Web\GFHelp.Core\MulitePlayerData\WebData\WebData.cs:line 42
+   at GFHelp.Core.MulitePlayerData.WebData.WebData.Get() in C:\Users\jack\Desktop\CS\GFHelp-Web\GFHelp.Core\MulitePlayerData\WebData\WebData.cs:line 178
+   at GFHelp.Core.SignaIRClient.getWebData() in C:\Users\jack\Desktop\CS\GFHelp-Web\GFHelp.Core\SignaIRClient.cs:line 131
+【00:59:53】      message = getGamesStatus Error , exception = System.Collections.Generic.KeyNotFoundException: The given key '0' was not present in the dictionary.
+   at System.Collections.Generic.Dictionary`2.get_Item(TKey key)
+   at GFHelp.Core.MulitePlayerData.Others.CheckTeamStatus(Int32 ID) in C:\Users\jack\Desktop\CS\GFHelp-Web\GFHelp.Core\MulitePlayerData\UserData\Others.cs:line 44
+   at GFHelp.Core.MulitePlayerData.WebData.WebData.GetWebTeams(List`1& Teams) in C:\Users\jack\Desktop\CS\GFHelp-Web\GFHelp.Core\MulitePlayerData\WebData\WebData.cs:line 42
+   at GFHelp.Core.MulitePlayerData.WebData.WebData.Get() in C:\Users\jack\Desktop\CS\GFHelp-Web\GFHelp.Core\MulitePlayerData\WebData\WebData.cs:line 178
+   at GFHelp.Core.SignaIRClient.getWebData() in C:\Users\jack\Desktop\CS\GFHelp-Web\GFHelp.Core\SignaIRClient.cs:line 131
+【00:59:56】      message = getGamesStatus Error , exception = System.Collections.Generic.KeyNotFoundException: The given key '0' was not present in the dictionary.
+   at System.Collections.Generic.Dictionary`2.get_Item(TKey key)
+   at GFHelp.Core.MulitePlayerData.Others.CheckTeamStatus(Int32 ID) in C:\Users\jack\Desktop\CS\GFHelp-Web\GFHelp.Core\MulitePlayerData\UserData\Others.cs:line 44
+   at GFHelp.Core.MulitePlayerData.WebData.WebData.GetWebTeams(List`1& Teams) in C:\Users\jack\Desktop\CS\GFHelp-Web\GFHelp.Core\MulitePlayerData\WebData\WebData.cs:line 42
+   at GFHelp.Core.MulitePlayerData.WebData.WebData.Get() in C:\Users\jack\Desktop\CS\GFHelp-Web\GFHelp.Core\MulitePlayerData\WebData\WebData.cs:line 178
+   at GFHelp.Core.SignaIRClient.getWebData() in C:\Users\jack\Desktop\CS\GFHelp-Web\GFHelp.Core\SignaIRClient.cs:line 131
+【01:00:05】      message = getGamesStatus Error , exception = System.Collections.Generic.KeyNotFoundException: The given key '0' was not present in the dictionary.
+   at System.Collections.Generic.Dictionary`2.get_Item(TKey key)
+   at GFHelp.Core.MulitePlayerData.Others.CheckTeamStatus(Int32 ID) in C:\Users\jack\Desktop\CS\GFHelp-Web\GFHelp.Core\MulitePlayerData\UserData\Others.cs:line 44
+   at GFHelp.Core.MulitePlayerData.WebData.WebData.GetWebTeams(List`1& Teams) in C:\Users\jack\Desktop\CS\GFHelp-Web\GFHelp.Core\MulitePlayerData\WebData\WebData.cs:line 42
+   at GFHelp.Core.MulitePlayerData.WebData.WebData.Get() in C:\Users\jack\Desktop\CS\GFHelp-Web\GFHelp.Core\MulitePlayerData\WebData\WebData.cs:line 178
+   at GFHelp.Core.SignaIRClient.getWebData() in C:\Users\jack\Desktop\CS\GFHelp-Web\GFHelp.Core\SignaIRClient.cs:line 131
+【01:00:08】      message = getGamesStatus Error , exception = System.Collections.Generic.KeyNotFoundException: The given key '0' was not present in the dictionary.
+   at System.Collections.Generic.Dictionary`2.get_Item(TKey key)
+   at GFHelp.Core.MulitePlayerData.Others.CheckTeamStatus(Int32 ID) in C:\Users\jack\Desktop\CS\GFHelp-Web\GFHelp.Core\MulitePlayerData\UserData\Others.cs:line 44
+   at GFHelp.Core.MulitePlayerData.WebData.WebData.GetWebTeams(List`1& Teams) in C:\Users\jack\Desktop\CS\GFHelp-Web\GFHelp.Core\MulitePlayerData\WebData\WebData.cs:line 42
+   at GFHelp.Core.MulitePlayerData.WebData.WebData.Get() in C:\Users\jack\Desktop\CS\GFHelp-Web\GFHelp.Core\MulitePlayerData\WebData\WebData.cs:line 178
+   at GFHelp.Core.SignaIRClient.getWebData() in C:\Users\jack\Desktop\CS\GFHelp-Web\GFHelp.Core\SignaIRClient.cs:line 131
+【01:00:12】      message = getGamesStatus Error , exception = System.Collections.Generic.KeyNotFoundException: The given key '0' was not present in the dictionary.
+   at System.Collections.Generic.Dictionary`2.get_Item(TKey key)
+   at GFHelp.Core.MulitePlayerData.Others.CheckTeamStatus(Int32 ID) in C:\Users\jack\Desktop\CS\GFHelp-Web\GFHelp.Core\MulitePlayerData\UserData\Others.cs:line 44
+   at GFHelp.Core.MulitePlayerData.WebData.WebData.GetWebTeams(List`1& Teams) in C:\Users\jack\Desktop\CS\GFHelp-Web\GFHelp.Core\MulitePlayerData\WebData\WebData.cs:line 42
+   at GFHelp.Core.MulitePlayerData.WebData.WebData.Get() in C:\Users\jack\Desktop\CS\GFHelp-Web\GFHelp.Core\MulitePlayerData\WebData\WebData.cs:line 178
+   at GFHelp.Core.SignaIRClient.getWebData() in C:\Users\jack\Desktop\CS\GFHelp-Web\GFHelp.Core\SignaIRClient.cs:line 131
+【01:00:17】      message = getGamesStatus Error , exception = System.Collections.Generic.KeyNotFoundException: The given key '0' was not present in the dictionary.
+   at System.Collections.Generic.Dictionary`2.get_Item(TKey key)
+   at GFHelp.Core.MulitePlayerData.Others.CheckTeamStatus(Int32 ID) in C:\Users\jack\Desktop\CS\GFHelp-Web\GFHelp.Core\MulitePlayerData\UserData\Others.cs:line 44
+   at GFHelp.Core.MulitePlayerData.WebData.WebData.GetWebTeams(List`1& Teams) in C:\Users\jack\Desktop\CS\GFHelp-Web\GFHelp.Core\MulitePlayerData\WebData\WebData.cs:line 42
+   at GFHelp.Core.MulitePlayerData.WebData.WebData.Get() in C:\Users\jack\Desktop\CS\GFHelp-Web\GFHelp.Core\MulitePlayerData\WebData\WebData.cs:line 178
+   at GFHelp.Core.SignaIRClient.getWebData() in C:\Users\jack\Desktop\CS\GFHelp-Web\GFHelp.Core\SignaIRClient.cs:line 131
+【01:00:20】      message = getGamesStatus Error , exception = System.Collections.Generic.KeyNotFoundException: The given key '0' was not present in the dictionary.
+   at System.Collections.Generic.Dictionary`2.get_Item(TKey key)
+   at GFHelp.Core.MulitePlayerData.Others.CheckTeamStatus(Int32 ID) in C:\Users\jack\Desktop\CS\GFHelp-Web\GFHelp.Core\MulitePlayerData\UserData\Others.cs:line 44
+   at GFHelp.Core.MulitePlayerData.WebData.WebData.GetWebTeams(List`1& Teams) in C:\Users\jack\Desktop\CS\GFHelp-Web\GFHelp.Core\MulitePlayerData\WebData\WebData.cs:line 42
+   at GFHelp.Core.MulitePlayerData.WebData.WebData.Get() in C:\Users\jack\Desktop\CS\GFHelp-Web\GFHelp.Core\MulitePlayerData\WebData\WebData.cs:line 178
+   at GFHelp.Core.SignaIRClient.getWebData() in C:\Users\jack\Desktop\CS\GFHelp-Web\GFHelp.Core\SignaIRClient.cs:line 131
+【01:00:21】      message = getGamesStatus Error , exception = System.Collections.Generic.KeyNotFoundException: The given key '0' was not present in the dictionary.
+   at System.Collections.Generic.Dictionary`2.get_Item(TKey key)
+   at GFHelp.Core.MulitePlayerData.Others.CheckTeamStatus(Int32 ID) in C:\Users\jack\Desktop\CS\GFHelp-Web\GFHelp.Core\MulitePlayerData\UserData\Others.cs:line 44
+   at GFHelp.Core.MulitePlayerData.WebData.WebData.GetWebTeams(List`1& Teams) in C:\Users\jack\Desktop\CS\GFHelp-Web\GFHelp.Core\MulitePlayerData\WebData\WebData.cs:line 42
+   at GFHelp.Core.MulitePlayerData.WebData.WebData.Get() in C:\Users\jack\Desktop\CS\GFHelp-Web\GFHelp.Core\MulitePlayerData\WebData\WebData.cs:line 178
+   at GFHelp.Core.SignaIRClient.getWebData() in C:\Users\jack\Desktop\CS\GFHelp-Web\GFHelp.Core\SignaIRClient.cs:line 131
+【01:00:22】      message = getGamesStatus Error , exception = System.Collections.Generic.KeyNotFoundException: The given key '0' was not present in the dictionary.
+   at System.Collections.Generic.Dictionary`2.get_Item(TKey key)
+   at GFHelp.Core.MulitePlayerData.Others.CheckTeamStatus(Int32 ID) in C:\Users\jack\Desktop\CS\GFHelp-Web\GFHelp.Core\MulitePlayerData\UserData\Others.cs:line 44
+   at GFHelp.Core.MulitePlayerData.WebData.WebData.GetWebTeams(List`1& Teams) in C:\Users\jack\Desktop\CS\GFHelp-Web\GFHelp.Core\MulitePlayerData\WebData\WebData.cs:line 42
+   at GFHelp.Core.MulitePlayerData.WebData.WebData.Get() in C:\Users\jack\Desktop\CS\GFHelp-Web\GFHelp.Core\MulitePlayerData\WebData\WebData.cs:line 178
+   at GFHelp.Core.SignaIRClient.getWebData() in C:\Users\jack\Desktop\CS\GFHelp-Web\GFHelp.Core\SignaIRClient.cs:line 131
+【01:00:24】      message = getGamesStatus Error , exception = System.Collections.Generic.KeyNotFoundException: The given key '0' was not present in the dictionary.
+   at System.Collections.Generic.Dictionary`2.get_Item(TKey key)
+   at GFHelp.Core.MulitePlayerData.Others.CheckTeamStatus(Int32 ID) in C:\Users\jack\Desktop\CS\GFHelp-Web\GFHelp.Core\MulitePlayerData\UserData\Others.cs:line 44
+   at GFHelp.Core.MulitePlayerData.WebData.WebData.GetWebTeams(List`1& Teams) in C:\Users\jack\Desktop\CS\GFHelp-Web\GFHelp.Core\MulitePlayerData\WebData\WebData.cs:line 42
+   at GFHelp.Core.MulitePlayerData.WebData.WebData.Get() in C:\Users\jack\Desktop\CS\GFHelp-Web\GFHelp.Core\MulitePlayerData\WebData\WebData.cs:line 178
+   at GFHelp.Core.SignaIRClient.getWebData() in C:\Users\jack\Desktop\CS\GFHelp-Web\GFHelp.Core\SignaIRClient.cs:line 131
+【01:00:28】      message = getGamesStatus Error , exception = System.Collections.Generic.KeyNotFoundException: The given key '0' was not present in the dictionary.
+   at System.Collections.Generic.Dictionary`2.get_Item(TKey key)
+   at GFHelp.Core.MulitePlayerData.Others.CheckTeamStatus(Int32 ID) in C:\Users\jack\Desktop\CS\GFHelp-Web\GFHelp.Core\MulitePlayerData\UserData\Others.cs:line 44
+   at GFHelp.Core.MulitePlayerData.WebData.WebData.GetWebTeams(List`1& Teams) in C:\Users\jack\Desktop\CS\GFHelp-Web\GFHelp.Core\MulitePlayerData\WebData\WebData.cs:line 42
+   at GFHelp.Core.MulitePlayerData.WebData.WebData.Get() in C:\Users\jack\Desktop\CS\GFHelp-Web\GFHelp.Core\MulitePlayerData\WebData\WebData.cs:line 178
+   at GFHelp.Core.SignaIRClient.getWebData() in C:\Users\jack\Desktop\CS\GFHelp-Web\GFHelp.Core\SignaIRClient.cs:line 131
+【01:00:30】      message = getGamesStatus Error , exception = System.Collections.Generic.KeyNotFoundException: The given key '0' was not present in the dictionary.
+   at System.Collections.Generic.Dictionary`2.get_Item(TKey key)
+   at GFHelp.Core.MulitePlayerData.Others.CheckTeamStatus(Int32 ID) in C:\Users\jack\Desktop\CS\GFHelp-Web\GFHelp.Core\MulitePlayerData\UserData\Others.cs:line 44
+   at GFHelp.Core.MulitePlayerData.WebData.WebData.GetWebTeams(List`1& Teams) in C:\Users\jack\Desktop\CS\GFHelp-Web\GFHelp.Core\MulitePlayerData\WebData\WebData.cs:line 42
+   at GFHelp.Core.MulitePlayerData.WebData.WebData.Get() in C:\Users\jack\Desktop\CS\GFHelp-Web\GFHelp.Core\MulitePlayerData\WebData\WebData.cs:line 178
+   at GFHelp.Core.SignaIRClient.getWebData() in C:\Users\jack\Desktop\CS\GFHelp-Web\GFHelp.Core\SignaIRClient.cs:line 131
+【01:00:32】      message = getGamesStatus Error , exception = System.Collections.Generic.KeyNotFoundException: The given key '0' was not present in the dictionary.
+   at System.Collections.Generic.Dictionary`2.get_Item(TKey key)
+   at GFHelp.Core.MulitePlayerData.Others.CheckTeamStatus(Int32 ID) in C:\Users\jack\Desktop\CS\GFHelp-Web\GFHelp.Core\MulitePlayerData\UserData\Others.cs:line 44
+   at GFHelp.Core.MulitePlayerData.WebData.WebData.GetWebTeams(List`1& Teams) in C:\Users\jack\Desktop\CS\GFHelp-Web\GFHelp.Core\MulitePlayerData\WebData\WebData.cs:line 42
+   at GFHelp.Core.MulitePlayerData.WebData.WebData.Get() in C:\Users\jack\Desktop\CS\GFHelp-Web\GFHelp.Core\MulitePlayerData\WebData\WebData.cs:line 178
+   at GFHelp.Core.SignaIRClient.getWebData() in C:\Users\jack\Desktop\CS\GFHelp-Web\GFHelp.Core\SignaIRClient.cs:line 131
+【01:00:34】      message = getGamesStatus Error , exception = System.Collections.Generic.KeyNotFoundException: The given key '0' was not present in the dictionary.
+   at System.Collections.Generic.Dictionary`2.get_Item(TKey key)
+   at GFHelp.Core.MulitePlayerData.Others.CheckTeamStatus(Int32 ID) in C:\Users\jack\Desktop\CS\GFHelp-Web\GFHelp.Core\MulitePlayerData\UserData\Others.cs:line 44
+   at GFHelp.Core.MulitePlayerData.WebData.WebData.GetWebTeams(List`1& Teams) in C:\Users\jack\Desktop\CS\GFHelp-Web\GFHelp.Core\MulitePlayerData\WebData\WebData.cs:line 42
+   at GFHelp.Core.MulitePlayerData.WebData.WebData.Get() in C:\Users\jack\Desktop\CS\GFHelp-Web\GFHelp.Core\MulitePlayerData\WebData\WebData.cs:line 178
+   at GFHelp.Core.SignaIRClient.getWebData() in C:\Users\jack\Desktop\CS\GFHelp-Web\GFHelp.Core\SignaIRClient.cs:line 131
+【01:00:39】      message = getGamesStatus Error , exception = System.Collections.Generic.KeyNotFoundException: The given key '0' was not present in the dictionary.
+   at System.Collections.Generic.Dictionary`2.get_Item(TKey key)
+   at GFHelp.Core.MulitePlayerData.Others.CheckTeamStatus(Int32 ID) in C:\Users\jack\Desktop\CS\GFHelp-Web\GFHelp.Core\MulitePlayerData\UserData\Others.cs:line 44
+   at GFHelp.Core.MulitePlayerData.WebData.WebData.GetWebTeams(List`1& Teams) in C:\Users\jack\Desktop\CS\GFHelp-Web\GFHelp.Core\MulitePlayerData\WebData\WebData.cs:line 42
+   at GFHelp.Core.MulitePlayerData.WebData.WebData.Get() in C:\Users\jack\Desktop\CS\GFHelp-Web\GFHelp.Core\MulitePlayerData\WebData\WebData.cs:line 178
+   at GFHelp.Core.SignaIRClient.getWebData() in C:\Users\jack\Desktop\CS\GFHelp-Web\GFHelp.Core\SignaIRClient.cs:line 131
+【01:00:41】      message = getGamesStatus Error , exception = System.Collections.Generic.KeyNotFoundException: The given key '0' was not present in the dictionary.
+   at System.Collections.Generic.Dictionary`2.get_Item(TKey key)
+   at GFHelp.Core.MulitePlayerData.Others.CheckTeamStatus(Int32 ID) in C:\Users\jack\Desktop\CS\GFHelp-Web\GFHelp.Core\MulitePlayerData\UserData\Others.cs:line 44
+   at GFHelp.Core.MulitePlayerData.WebData.WebData.GetWebTeams(List`1& Teams) in C:\Users\jack\Desktop\CS\GFHelp-Web\GFHelp.Core\MulitePlayerData\WebData\WebData.cs:line 42
+   at GFHelp.Core.MulitePlayerData.WebData.WebData.Get() in C:\Users\jack\Desktop\CS\GFHelp-Web\GFHelp.Core\MulitePlayerData\WebData\WebData.cs:line 178
+   at GFHelp.Core.SignaIRClient.getWebData() in C:\Users\jack\Desktop\CS\GFHelp-Web\GFHelp.Core\SignaIRClient.cs:line 131
+【01:00:42】      message = getGamesStatus Error , exception = System.Collections.Generic.KeyNotFoundException: The given key '0' was not present in the dictionary.
+   at System.Collections.Generic.Dictionary`2.get_Item(TKey key)
+   at GFHelp.Core.MulitePlayerData.Others.CheckTeamStatus(Int32 ID) in C:\Users\jack\Desktop\CS\GFHelp-Web\GFHelp.Core\MulitePlayerData\UserData\Others.cs:line 44
+   at GFHelp.Core.MulitePlayerData.WebData.WebData.GetWebTeams(List`1& Teams) in C:\Users\jack\Desktop\CS\GFHelp-Web\GFHelp.Core\MulitePlayerData\WebData\WebData.cs:line 42
+   at GFHelp.Core.MulitePlayerData.WebData.WebData.Get() in C:\Users\jack\Desktop\CS\GFHelp-Web\GFHelp.Core\MulitePlayerData\WebData\WebData.cs:line 178
+   at GFHelp.Core.SignaIRClient.getWebData() in C:\Users\jack\Desktop\CS\GFHelp-Web\GFHelp.Core\SignaIRClient.cs:line 131
+【01:00:43】      message = getGamesStatus Error , exception = System.Collections.Generic.KeyNotFoundException: The given key '0' was not present in the dictionary.
+   at System.Collections.Generic.Dictionary`2.get_Item(TKey key)
+   at GFHelp.Core.MulitePlayerData.Others.CheckTeamStatus(Int32 ID) in C:\Users\jack\Desktop\CS\GFHelp-Web\GFHelp.Core\MulitePlayerData\UserData\Others.cs:line 44
+   at GFHelp.Core.MulitePlayerData.WebData.WebData.GetWebTeams(List`1& Teams) in C:\Users\jack\Desktop\CS\GFHelp-Web\GFHelp.Core\MulitePlayerData\WebData\WebData.cs:line 42
+   at GFHelp.Core.MulitePlayerData.WebData.WebData.Get() in C:\Users\jack\Desktop\CS\GFHelp-Web\GFHelp.Core\MulitePlayerData\WebData\WebData.cs:line 178
+   at GFHelp.Core.SignaIRClient.getWebData() in C:\Users\jack\Desktop\CS\GFHelp-Web\GFHelp.Core\SignaIRClient.cs:line 131
+【01:00:45】      message = getGamesStatus Error , exception = System.Collections.Generic.KeyNotFoundException: The given key '0' was not present in the dictionary.
+   at System.Collections.Generic.Dictionary`2.get_Item(TKey key)
+   at GFHelp.Core.MulitePlayerData.Others.CheckTeamStatus(Int32 ID) in C:\Users\jack\Desktop\CS\GFHelp-Web\GFHelp.Core\MulitePlayerData\UserData\Others.cs:line 44
+   at GFHelp.Core.MulitePlayerData.WebData.WebData.GetWebTeams(List`1& Teams) in C:\Users\jack\Desktop\CS\GFHelp-Web\GFHelp.Core\MulitePlayerData\WebData\WebData.cs:line 42
+   at GFHelp.Core.MulitePlayerData.WebData.WebData.Get() in C:\Users\jack\Desktop\CS\GFHelp-Web\GFHelp.Core\MulitePlayerData\WebData\WebData.cs:line 178
+   at GFHelp.Core.SignaIRClient.getWebData() in C:\Users\jack\Desktop\CS\GFHelp-Web\GFHelp.Core\SignaIRClient.cs:line 131
+【01:00:46】      message = getGamesStatus Error , exception = System.Collections.Generic.KeyNotFoundException: The given key '0' was not present in the dictionary.
+   at System.Collections.Generic.Dictionary`2.get_Item(TKey key)
+   at GFHelp.Core.MulitePlayerData.Others.CheckTeamStatus(Int32 ID) in C:\Users\jack\Desktop\CS\GFHelp-Web\GFHelp.Core\MulitePlayerData\UserData\Others.cs:line 44
+   at GFHelp.Core.MulitePlayerData.WebData.WebData.GetWebTeams(List`1& Teams) in C:\Users\jack\Desktop\CS\GFHelp-Web\GFHelp.Core\MulitePlayerData\WebData\WebData.cs:line 42
+   at GFHelp.Core.MulitePlayerData.WebData.WebData.Get() in C:\Users\jack\Desktop\CS\GFHelp-Web\GFHelp.Core\MulitePlayerData\WebData\WebData.cs:line 178
+   at GFHelp.Core.SignaIRClient.getWebData() in C:\Users\jack\Desktop\CS\GFHelp-Web\GFHelp.Core\SignaIRClient.cs:line 131
+【01:00:47】      message = getGamesStatus Error , exception = System.Collections.Generic.KeyNotFoundException: The given key '0' was not present in the dictionary.
+   at System.Collections.Generic.Dictionary`2.get_Item(TKey key)
+   at GFHelp.Core.MulitePlayerData.Others.CheckTeamStatus(Int32 ID) in C:\Users\jack\Desktop\CS\GFHelp-Web\GFHelp.Core\MulitePlayerData\UserData\Others.cs:line 44
+   at GFHelp.Core.MulitePlayerData.WebData.WebData.GetWebTeams(List`1& Teams) in C:\Users\jack\Desktop\CS\GFHelp-Web\GFHelp.Core\MulitePlayerData\WebData\WebData.cs:line 42
+   at GFHelp.Core.MulitePlayerData.WebData.WebData.Get() in C:\Users\jack\Desktop\CS\GFHelp-Web\GFHelp.Core\MulitePlayerData\WebData\WebData.cs:line 178
+   at GFHelp.Core.SignaIRClient.getWebData() in C:\Users\jack\Desktop\CS\GFHelp-Web\GFHelp.Core\SignaIRClient.cs:line 131
+【01:00:49】      message = getGamesStatus Error , exception = System.Collections.Generic.KeyNotFoundException: The given key '0' was not present in the dictionary.
+   at System.Collections.Generic.Dictionary`2.get_Item(TKey key)
+   at GFHelp.Core.MulitePlayerData.Others.CheckTeamStatus(Int32 ID) in C:\Users\jack\Desktop\CS\GFHelp-Web\GFHelp.Core\MulitePlayerData\UserData\Others.cs:line 44
+   at GFHelp.Core.MulitePlayerData.WebData.WebData.GetWebTeams(List`1& Teams) in C:\Users\jack\Desktop\CS\GFHelp-Web\GFHelp.Core\MulitePlayerData\WebData\WebData.cs:line 42
+   at GFHelp.Core.MulitePlayerData.WebData.WebData.Get() in C:\Users\jack\Desktop\CS\GFHelp-Web\GFHelp.Core\MulitePlayerData\WebData\WebData.cs:line 178
+   at GFHelp.Core.SignaIRClient.getWebData() in C:\Users\jack\Desktop\CS\GFHelp-Web\GFHelp.Core\SignaIRClient.cs:line 131
+【01:00:51】      message = getGamesStatus Error , exception = System.Collections.Generic.KeyNotFoundException: The given key '0' was not present in the dictionary.
+   at System.Collections.Generic.Dictionary`2.get_Item(TKey key)
+   at GFHelp.Core.MulitePlayerData.Others.CheckTeamStatus(Int32 ID) in C:\Users\jack\Desktop\CS\GFHelp-Web\GFHelp.Core\MulitePlayerData\UserData\Others.cs:line 44
+   at GFHelp.Core.MulitePlayerData.WebData.WebData.GetWebTeams(List`1& Teams) in C:\Users\jack\Desktop\CS\GFHelp-Web\GFHelp.Core\MulitePlayerData\WebData\WebData.cs:line 42
+   at GFHelp.Core.MulitePlayerData.WebData.WebData.Get() in C:\Users\jack\Desktop\CS\GFHelp-Web\GFHelp.Core\MulitePlayerData\WebData\WebData.cs:line 178
+   at GFHelp.Core.SignaIRClient.getWebData() in C:\Users\jack\Desktop\CS\GFHelp-Web\GFHelp.Core\SignaIRClient.cs:line 131
+【01:06:53】      message = getGamesStatus Error , exception = System.Collections.Generic.KeyNotFoundException: The given key '0' was not present in the dictionary.
+   at System.Collections.Generic.Dictionary`2.get_Item(TKey key)
+   at GFHelp.Core.MulitePlayerData.Others.CheckTeamStatus(Int32 ID) in C:\Users\jack\Desktop\CS\GFHelp-Web\GFHelp.Core\MulitePlayerData\UserData\Others.cs:line 44
+   at GFHelp.Core.MulitePlayerData.WebData.WebData.GetWebTeams(List`1& Teams) in C:\Users\jack\Desktop\CS\GFHelp-Web\GFHelp.Core\MulitePlayerData\WebData\WebData.cs:line 42
+   at GFHelp.Core.MulitePlayerData.WebData.WebData.Get() in C:\Users\jack\Desktop\CS\GFHelp-Web\GFHelp.Core\MulitePlayerData\WebData\WebData.cs:line 178
+   at GFHelp.Core.SignaIRClient.getWebData() in C:\Users\jack\Desktop\CS\GFHelp-Web\GFHelp.Core\SignaIRClient.cs:line 131
+【01:06:54】      message = getGamesStatus Error , exception = System.Collections.Generic.KeyNotFoundException: The given key '0' was not present in the dictionary.
+   at System.Collections.Generic.Dictionary`2.get_Item(TKey key)
+   at GFHelp.Core.MulitePlayerData.Others.CheckTeamStatus(Int32 ID) in C:\Users\jack\Desktop\CS\GFHelp-Web\GFHelp.Core\MulitePlayerData\UserData\Others.cs:line 44
+   at GFHelp.Core.MulitePlayerData.WebData.WebData.GetWebTeams(List`1& Teams) in C:\Users\jack\Desktop\CS\GFHelp-Web\GFHelp.Core\MulitePlayerData\WebData\WebData.cs:line 42
+   at GFHelp.Core.MulitePlayerData.WebData.WebData.Get() in C:\Users\jack\Desktop\CS\GFHelp-Web\GFHelp.Core\MulitePlayerData\WebData\WebData.cs:line 178
+   at GFHelp.Core.SignaIRClient.getWebData() in C:\Users\jack\Desktop\CS\GFHelp-Web\GFHelp.Core\SignaIRClient.cs:line 131
+【01:06:55】      message = getGamesStatus Error , exception = System.Collections.Generic.KeyNotFoundException: The given key '0' was not present in the dictionary.
+   at System.Collections.Generic.Dictionary`2.get_Item(TKey key)
+   at GFHelp.Core.MulitePlayerData.Others.CheckTeamStatus(Int32 ID) in C:\Users\jack\Desktop\CS\GFHelp-Web\GFHelp.Core\MulitePlayerData\UserData\Others.cs:line 44
+   at GFHelp.Core.MulitePlayerData.WebData.WebData.GetWebTeams(List`1& Teams) in C:\Users\jack\Desktop\CS\GFHelp-Web\GFHelp.Core\MulitePlayerData\WebData\WebData.cs:line 42
+   at GFHelp.Core.MulitePlayerData.WebData.WebData.Get() in C:\Users\jack\Desktop\CS\GFHelp-Web\GFHelp.Core\MulitePlayerData\WebData\WebData.cs:line 178
+   at GFHelp.Core.SignaIRClient.getWebData() in C:\Users\jack\Desktop\CS\GFHelp-Web\GFHelp.Core\SignaIRClient.cs:line 131
+【01:06:58】      message = getGamesStatus Error , exception = System.Collections.Generic.KeyNotFoundException: The given key '0' was not present in the dictionary.
+   at System.Collections.Generic.Dictionary`2.get_Item(TKey key)
+   at GFHelp.Core.MulitePlayerData.Others.CheckTeamStatus(Int32 ID) in C:\Users\jack\Desktop\CS\GFHelp-Web\GFHelp.Core\MulitePlayerData\UserData\Others.cs:line 44
+   at GFHelp.Core.MulitePlayerData.WebData.WebData.GetWebTeams(List`1& Teams) in C:\Users\jack\Desktop\CS\GFHelp-Web\GFHelp.Core\MulitePlayerData\WebData\WebData.cs:line 42
+   at GFHelp.Core.MulitePlayerData.WebData.WebData.Get() in C:\Users\jack\Desktop\CS\GFHelp-Web\GFHelp.Core\MulitePlayerData\WebData\WebData.cs:line 178
+   at GFHelp.Core.SignaIRClient.getWebData() in C:\Users\jack\Desktop\CS\GFHelp-Web\GFHelp.Core\SignaIRClient.cs:line 131
+【01:07:02】      message = getGamesStatus Error , exception = System.Collections.Generic.KeyNotFoundException: The given key '0' was not present in the dictionary.
+   at System.Collections.Generic.Dictionary`2.get_Item(TKey key)
+   at GFHelp.Core.MulitePlayerData.Others.CheckTeamStatus(Int32 ID) in C:\Users\jack\Desktop\CS\GFHelp-Web\GFHelp.Core\MulitePlayerData\UserData\Others.cs:line 44
+   at GFHelp.Core.MulitePlayerData.WebData.WebData.GetWebTeams(List`1& Teams) in C:\Users\jack\Desktop\CS\GFHelp-Web\GFHelp.Core\MulitePlayerData\WebData\WebData.cs:line 42
+   at GFHelp.Core.MulitePlayerData.WebData.WebData.Get() in C:\Users\jack\Desktop\CS\GFHelp-Web\GFHelp.Core\MulitePlayerData\WebData\WebData.cs:line 178
+   at GFHelp.Core.SignaIRClient.getWebData() in C:\Users\jack\Desktop\CS\GFHelp-Web\GFHelp.Core\SignaIRClient.cs:line 131
+【01:07:03】      message = getGamesStatus Error , exception = System.Collections.Generic.KeyNotFoundException: The given key '0' was not present in the dictionary.
+   at System.Collections.Generic.Dictionary`2.get_Item(TKey key)
+   at GFHelp.Core.MulitePlayerData.Others.CheckTeamStatus(Int32 ID) in C:\Users\jack\Desktop\CS\GFHelp-Web\GFHelp.Core\MulitePlayerData\UserData\Others.cs:line 44
+   at GFHelp.Core.MulitePlayerData.WebData.WebData.GetWebTeams(List`1& Teams) in C:\Users\jack\Desktop\CS\GFHelp-Web\GFHelp.Core\MulitePlayerData\WebData\WebData.cs:line 42
+   at GFHelp.Core.MulitePlayerData.WebData.WebData.Get() in C:\Users\jack\Desktop\CS\GFHelp-Web\GFHelp.Core\MulitePlayerData\WebData\WebData.cs:line 178
+   at GFHelp.Core.SignaIRClient.getWebData() in C:\Users\jack\Desktop\CS\GFHelp-Web\GFHelp.Core\SignaIRClient.cs:line 131
+【01:07:04】      message = getGamesStatus Error , exception = System.Collections.Generic.KeyNotFoundException: The given key '0' was not present in the dictionary.
+   at System.Collections.Generic.Dictionary`2.get_Item(TKey key)
+   at GFHelp.Core.MulitePlayerData.Others.CheckTeamStatus(Int32 ID) in C:\Users\jack\Desktop\CS\GFHelp-Web\GFHelp.Core\MulitePlayerData\UserData\Others.cs:line 44
+   at GFHelp.Core.MulitePlayerData.WebData.WebData.GetWebTeams(List`1& Teams) in C:\Users\jack\Desktop\CS\GFHelp-Web\GFHelp.Core\MulitePlayerData\WebData\WebData.cs:line 42
+   at GFHelp.Core.MulitePlayerData.WebData.WebData.Get() in C:\Users\jack\Desktop\CS\GFHelp-Web\GFHelp.Core\MulitePlayerData\WebData\WebData.cs:line 178
+   at GFHelp.Core.SignaIRClient.getWebData() in C:\Users\jack\Desktop\CS\GFHelp-Web\GFHelp.Core\SignaIRClient.cs:line 131
+【01:07:05】      message = getGamesStatus Error , exception = System.Collections.Generic.KeyNotFoundException: The given key '0' was not present in the dictionary.
+   at System.Collections.Generic.Dictionary`2.get_Item(TKey key)
+   at GFHelp.Core.MulitePlayerData.Others.CheckTeamStatus(Int32 ID) in C:\Users\jack\Desktop\CS\GFHelp-Web\GFHelp.Core\MulitePlayerData\UserData\Others.cs:line 44
+   at GFHelp.Core.MulitePlayerData.WebData.WebData.GetWebTeams(List`1& Teams) in C:\Users\jack\Desktop\CS\GFHelp-Web\GFHelp.Core\MulitePlayerData\WebData\WebData.cs:line 42
+   at GFHelp.Core.MulitePlayerData.WebData.WebData.Get() in C:\Users\jack\Desktop\CS\GFHelp-Web\GFHelp.Core\MulitePlayerData\WebData\WebData.cs:line 178
+   at GFHelp.Core.SignaIRClient.getWebData() in C:\Users\jack\Desktop\CS\GFHelp-Web\GFHelp.Core\SignaIRClient.cs:line 131
+【01:07:06】      message = getGamesStatus Error , exception = System.Collections.Generic.KeyNotFoundException: The given key '0' was not present in the dictionary.
+   at System.Collections.Generic.Dictionary`2.get_Item(TKey key)
+   at GFHelp.Core.MulitePlayerData.Others.CheckTeamStatus(Int32 ID) in C:\Users\jack\Desktop\CS\GFHelp-Web\GFHelp.Core\MulitePlayerData\UserData\Others.cs:line 44
+   at GFHelp.Core.MulitePlayerData.WebData.WebData.GetWebTeams(List`1& Teams) in C:\Users\jack\Desktop\CS\GFHelp-Web\GFHelp.Core\MulitePlayerData\WebData\WebData.cs:line 42
+   at GFHelp.Core.MulitePlayerData.WebData.WebData.Get() in C:\Users\jack\Desktop\CS\GFHelp-Web\GFHelp.Core\MulitePlayerData\WebData\WebData.cs:line 178
+   at GFHelp.Core.SignaIRClient.getWebData() in C:\Users\jack\Desktop\CS\GFHelp-Web\GFHelp.Core\SignaIRClient.cs:line 131
+【01:07:07】      message = getGamesStatus Error , exception = System.Collections.Generic.KeyNotFoundException: The given key '0' was not present in the dictionary.
+   at System.Collections.Generic.Dictionary`2.get_Item(TKey key)
+   at GFHelp.Core.MulitePlayerData.Others.CheckTeamStatus(Int32 ID) in C:\Users\jack\Desktop\CS\GFHelp-Web\GFHelp.Core\MulitePlayerData\UserData\Others.cs:line 44
+   at GFHelp.Core.MulitePlayerData.WebData.WebData.GetWebTeams(List`1& Teams) in C:\Users\jack\Desktop\CS\GFHelp-Web\GFHelp.Core\MulitePlayerData\WebData\WebData.cs:line 42
+   at GFHelp.Core.MulitePlayerData.WebData.WebData.Get() in C:\Users\jack\Desktop\CS\GFHelp-Web\GFHelp.Core\MulitePlayerData\WebData\WebData.cs:line 178
+   at GFHelp.Core.SignaIRClient.getWebData() in C:\Users\jack\Desktop\CS\GFHelp-Web\GFHelp.Core\SignaIRClient.cs:line 131
+【01:07:08】      message = getGamesStatus Error , exception = System.Collections.Generic.KeyNotFoundException: The given key '0' was not present in the dictionary.
+   at System.Collections.Generic.Dictionary`2.get_Item(TKey key)
+   at GFHelp.Core.MulitePlayerData.Others.CheckTeamStatus(Int32 ID) in C:\Users\jack\Desktop\CS\GFHelp-Web\GFHelp.Core\MulitePlayerData\UserData\Others.cs:line 44
+   at GFHelp.Core.MulitePlayerData.WebData.WebData.GetWebTeams(List`1& Teams) in C:\Users\jack\Desktop\CS\GFHelp-Web\GFHelp.Core\MulitePlayerData\WebData\WebData.cs:line 42
+   at GFHelp.Core.MulitePlayerData.WebData.WebData.Get() in C:\Users\jack\Desktop\CS\GFHelp-Web\GFHelp.Core\MulitePlayerData\WebData\WebData.cs:line 178
+   at GFHelp.Core.SignaIRClient.getWebData() in C:\Users\jack\Desktop\CS\GFHelp-Web\GFHelp.Core\SignaIRClient.cs:line 131
+【01:07:09】      message = getGamesStatus Error , exception = System.Collections.Generic.KeyNotFoundException: The given key '0' was not present in the dictionary.
+   at System.Collections.Generic.Dictionary`2.get_Item(TKey key)
+   at GFHelp.Core.MulitePlayerData.Others.CheckTeamStatus(Int32 ID) in C:\Users\jack\Desktop\CS\GFHelp-Web\GFHelp.Core\MulitePlayerData\UserData\Others.cs:line 44
+   at GFHelp.Core.MulitePlayerData.WebData.WebData.GetWebTeams(List`1& Teams) in C:\Users\jack\Desktop\CS\GFHelp-Web\GFHelp.Core\MulitePlayerData\WebData\WebData.cs:line 42
+   at GFHelp.Core.MulitePlayerData.WebData.WebData.Get() in C:\Users\jack\Desktop\CS\GFHelp-Web\GFHelp.Core\MulitePlayerData\WebData\WebData.cs:line 178
+   at GFHelp.Core.SignaIRClient.getWebData() in C:\Users\jack\Desktop\CS\GFHelp-Web\GFHelp.Core\SignaIRClient.cs:line 131
+【01:07:10】      message = getGamesStatus Error , exception = System.Collections.Generic.KeyNotFoundException: The given key '0' was not present in the dictionary.
+   at System.Collections.Generic.Dictionary`2.get_Item(TKey key)
+   at GFHelp.Core.MulitePlayerData.Others.CheckTeamStatus(Int32 ID) in C:\Users\jack\Desktop\CS\GFHelp-Web\GFHelp.Core\MulitePlayerData\UserData\Others.cs:line 44
+   at GFHelp.Core.MulitePlayerData.WebData.WebData.GetWebTeams(List`1& Teams) in C:\Users\jack\Desktop\CS\GFHelp-Web\GFHelp.Core\MulitePlayerData\WebData\WebData.cs:line 42
+   at GFHelp.Core.MulitePlayerData.WebData.WebData.Get() in C:\Users\jack\Desktop\CS\GFHelp-Web\GFHelp.Core\MulitePlayerData\WebData\WebData.cs:line 178
+   at GFHelp.Core.SignaIRClient.getWebData() in C:\Users\jack\Desktop\CS\GFHelp-Web\GFHelp.Core\SignaIRClient.cs:line 131
+【01:07:11】      message = getGamesStatus Error , exception = System.Collections.Generic.KeyNotFoundException: The given key '0' was not present in the dictionary.
+   at System.Collections.Generic.Dictionary`2.get_Item(TKey key)
+   at GFHelp.Core.MulitePlayerData.Others.CheckTeamStatus(Int32 ID) in C:\Users\jack\Desktop\CS\GFHelp-Web\GFHelp.Core\MulitePlayerData\UserData\Others.cs:line 44
+   at GFHelp.Core.MulitePlayerData.WebData.WebData.GetWebTeams(List`1& Teams) in C:\Users\jack\Desktop\CS\GFHelp-Web\GFHelp.Core\MulitePlayerData\WebData\WebData.cs:line 42
+   at GFHelp.Core.MulitePlayerData.WebData.WebData.Get() in C:\Users\jack\Desktop\CS\GFHelp-Web\GFHelp.Core\MulitePlayerData\WebData\WebData.cs:line 178
+   at GFHelp.Core.SignaIRClient.getWebData() in C:\Users\jack\Desktop\CS\GFHelp-Web\GFHelp.Core\SignaIRClient.cs:line 131
+【01:07:12】      message = getGamesStatus Error , exception = System.Collections.Generic.KeyNotFoundException: The given key '0' was not present in the dictionary.
+   at System.Collections.Generic.Dictionary`2.get_Item(TKey key)
+   at GFHelp.Core.MulitePlayerData.Others.CheckTeamStatus(Int32 ID) in C:\Users\jack\Desktop\CS\GFHelp-Web\GFHelp.Core\MulitePlayerData\UserData\Others.cs:line 44
+   at GFHelp.Core.MulitePlayerData.WebData.WebData.GetWebTeams(List`1& Teams) in C:\Users\jack\Desktop\CS\GFHelp-Web\GFHelp.Core\MulitePlayerData\WebData\WebData.cs:line 42
+   at GFHelp.Core.MulitePlayerData.WebData.WebData.Get() in C:\Users\jack\Desktop\CS\GFHelp-Web\GFHelp.Core\MulitePlayerData\WebData\WebData.cs:line 178
+   at GFHelp.Core.SignaIRClient.getWebData() in C:\Users\jack\Desktop\CS\GFHelp-Web\GFHelp.Core\SignaIRClient.cs:line 131
+【01:07:13】      message = getGamesStatus Error , exception = System.Collections.Generic.KeyNotFoundException: The given key '0' was not present in the dictionary.
+   at System.Collections.Generic.Dictionary`2.get_Item(TKey key)
+   at GFHelp.Core.MulitePlayerData.Others.CheckTeamStatus(Int32 ID) in C:\Users\jack\Desktop\CS\GFHelp-Web\GFHelp.Core\MulitePlayerData\UserData\Others.cs:line 44
+   at GFHelp.Core.MulitePlayerData.WebData.WebData.GetWebTeams(List`1& Teams) in C:\Users\jack\Desktop\CS\GFHelp-Web\GFHelp.Core\MulitePlayerData\WebData\WebData.cs:line 42
+   at GFHelp.Core.MulitePlayerData.WebData.WebData.Get() in C:\Users\jack\Desktop\CS\GFHelp-Web\GFHelp.Core\MulitePlayerData\WebData\WebData.cs:line 178
+   at GFHelp.Core.SignaIRClient.getWebData() in C:\Users\jack\Desktop\CS\GFHelp-Web\GFHelp.Core\SignaIRClient.cs:line 131
+【01:07:15】      message = getGamesStatus Error , exception = System.Collections.Generic.KeyNotFoundException: The given key '0' was not present in the dictionary.
+   at System.Collections.Generic.Dictionary`2.get_Item(TKey key)
+   at GFHelp.Core.MulitePlayerData.Others.CheckTeamStatus(Int32 ID) in C:\Users\jack\Desktop\CS\GFHelp-Web\GFHelp.Core\MulitePlayerData\UserData\Others.cs:line 44
+   at GFHelp.Core.MulitePlayerData.WebData.WebData.GetWebTeams(List`1& Teams) in C:\Users\jack\Desktop\CS\GFHelp-Web\GFHelp.Core\MulitePlayerData\WebData\WebData.cs:line 42
+   at GFHelp.Core.MulitePlayerData.WebData.WebData.Get() in C:\Users\jack\Desktop\CS\GFHelp-Web\GFHelp.Core\MulitePlayerData\WebData\WebData.cs:line 178
+   at GFHelp.Core.SignaIRClient.getWebData() in C:\Users\jack\Desktop\CS\GFHelp-Web\GFHelp.Core\SignaIRClient.cs:line 131
+【01:07:16】      message = getGamesStatus Error , exception = System.Collections.Generic.KeyNotFoundException: The given key '0' was not present in the dictionary.
+   at System.Collections.Generic.Dictionary`2.get_Item(TKey key)
+   at GFHelp.Core.MulitePlayerData.Others.CheckTeamStatus(Int32 ID) in C:\Users\jack\Desktop\CS\GFHelp-Web\GFHelp.Core\MulitePlayerData\UserData\Others.cs:line 44
+   at GFHelp.Core.MulitePlayerData.WebData.WebData.GetWebTeams(List`1& Teams) in C:\Users\jack\Desktop\CS\GFHelp-Web\GFHelp.Core\MulitePlayerData\WebData\WebData.cs:line 42
+   at GFHelp.Core.MulitePlayerData.WebData.WebData.Get() in C:\Users\jack\Desktop\CS\GFHelp-Web\GFHelp.Core\MulitePlayerData\WebData\WebData.cs:line 178
+   at GFHelp.Core.SignaIRClient.getWebData() in C:\Users\jack\Desktop\CS\GFHelp-Web\GFHelp.Core\SignaIRClient.cs:line 131
+【01:07:17】      message = getGamesStatus Error , exception = System.Collections.Generic.KeyNotFoundException: The given key '0' was not present in the dictionary.
+   at System.Collections.Generic.Dictionary`2.get_Item(TKey key)
+   at GFHelp.Core.MulitePlayerData.Others.CheckTeamStatus(Int32 ID) in C:\Users\jack\Desktop\CS\GFHelp-Web\GFHelp.Core\MulitePlayerData\UserData\Others.cs:line 44
+   at GFHelp.Core.MulitePlayerData.WebData.WebData.GetWebTeams(List`1& Teams) in C:\Users\jack\Desktop\CS\GFHelp-Web\GFHelp.Core\MulitePlayerData\WebData\WebData.cs:line 42
+   at GFHelp.Core.MulitePlayerData.WebData.WebData.Get() in C:\Users\jack\Desktop\CS\GFHelp-Web\GFHelp.Core\MulitePlayerData\WebData\WebData.cs:line 178
+   at GFHelp.Core.SignaIRClient.getWebData() in C:\Users\jack\Desktop\CS\GFHelp-Web\GFHelp.Core\SignaIRClient.cs:line 131
+【01:07:18】      message = getGamesStatus Error , exception = System.Collections.Generic.KeyNotFoundException: The given key '0' was not present in the dictionary.
+   at System.Collections.Generic.Dictionary`2.get_Item(TKey key)
+   at GFHelp.Core.MulitePlayerData.Others.CheckTeamStatus(Int32 ID) in C:\Users\jack\Desktop\CS\GFHelp-Web\GFHelp.Core\MulitePlayerData\UserData\Others.cs:line 44
+   at GFHelp.Core.MulitePlayerData.WebData.WebData.GetWebTeams(List`1& Teams) in C:\Users\jack\Desktop\CS\GFHelp-Web\GFHelp.Core\MulitePlayerData\WebData\WebData.cs:line 42
+   at GFHelp.Core.MulitePlayerData.WebData.WebData.Get() in C:\Users\jack\Desktop\CS\GFHelp-Web\GFHelp.Core\MulitePlayerData\WebData\WebData.cs:line 178
+   at GFHelp.Core.SignaIRClient.getWebData() in C:\Users\jack\Desktop\CS\GFHelp-Web\GFHelp.Core\SignaIRClient.cs:line 131
+【01:07:19】      message = getGamesStatus Error , exception = System.Collections.Generic.KeyNotFoundException: The given key '0' was not present in the dictionary.
+   at System.Collections.Generic.Dictionary`2.get_Item(TKey key)
+   at GFHelp.Core.MulitePlayerData.Others.CheckTeamStatus(Int32 ID) in C:\Users\jack\Desktop\CS\GFHelp-Web\GFHelp.Core\MulitePlayerData\UserData\Others.cs:line 44
+   at GFHelp.Core.MulitePlayerData.WebData.WebData.GetWebTeams(List`1& Teams) in C:\Users\jack\Desktop\CS\GFHelp-Web\GFHelp.Core\MulitePlayerData\WebData\WebData.cs:line 42
+   at GFHelp.Core.MulitePlayerData.WebData.WebData.Get() in C:\Users\jack\Desktop\CS\GFHelp-Web\GFHelp.Core\MulitePlayerData\WebData\WebData.cs:line 178
+   at GFHelp.Core.SignaIRClient.getWebData() in C:\Users\jack\Desktop\CS\GFHelp-Web\GFHelp.Core\SignaIRClient.cs:line 131
+【01:07:20】      message = getGamesStatus Error , exception = System.Collections.Generic.KeyNotFoundException: The given key '0' was not present in the dictionary.
+   at System.Collections.Generic.Dictionary`2.get_Item(TKey key)
+   at GFHelp.Core.MulitePlayerData.Others.CheckTeamStatus(Int32 ID) in C:\Users\jack\Desktop\CS\GFHelp-Web\GFHelp.Core\MulitePlayerData\UserData\Others.cs:line 44
+   at GFHelp.Core.MulitePlayerData.WebData.WebData.GetWebTeams(List`1& Teams) in C:\Users\jack\Desktop\CS\GFHelp-Web\GFHelp.Core\MulitePlayerData\WebData\WebData.cs:line 42
+   at GFHelp.Core.MulitePlayerData.WebData.WebData.Get() in C:\Users\jack\Desktop\CS\GFHelp-Web\GFHelp.Core\MulitePlayerData\WebData\WebData.cs:line 178
+   at GFHelp.Core.SignaIRClient.getWebData() in C:\Users\jack\Desktop\CS\GFHelp-Web\GFHelp.Core\SignaIRClient.cs:line 131
+【01:07:21】      message = getGamesStatus Error , exception = System.Collections.Generic.KeyNotFoundException: The given key '0' was not present in the dictionary.
+   at System.Collections.Generic.Dictionary`2.get_Item(TKey key)
+   at GFHelp.Core.MulitePlayerData.Others.CheckTeamStatus(Int32 ID) in C:\Users\jack\Desktop\CS\GFHelp-Web\GFHelp.Core\MulitePlayerData\UserData\Others.cs:line 44
+   at GFHelp.Core.MulitePlayerData.WebData.WebData.GetWebTeams(List`1& Teams) in C:\Users\jack\Desktop\CS\GFHelp-Web\GFHelp.Core\MulitePlayerData\WebData\WebData.cs:line 42
+   at GFHelp.Core.MulitePlayerData.WebData.WebData.Get() in C:\Users\jack\Desktop\CS\GFHelp-Web\GFHelp.Core\MulitePlayerData\WebData\WebData.cs:line 178
+   at GFHelp.Core.SignaIRClient.getWebData() in C:\Users\jack\Desktop\CS\GFHelp-Web\GFHelp.Core\SignaIRClient.cs:line 131
+【01:07:22】      message = getGamesStatus Error , exception = System.Collections.Generic.KeyNotFoundException: The given key '0' was not present in the dictionary.
+   at System.Collections.Generic.Dictionary`2.get_Item(TKey key)
+   at GFHelp.Core.MulitePlayerData.Others.CheckTeamStatus(Int32 ID) in C:\Users\jack\Desktop\CS\GFHelp-Web\GFHelp.Core\MulitePlayerData\UserData\Others.cs:line 44
+   at GFHelp.Core.MulitePlayerData.WebData.WebData.GetWebTeams(List`1& Teams) in C:\Users\jack\Desktop\CS\GFHelp-Web\GFHelp.Core\MulitePlayerData\WebData\WebData.cs:line 42
+   at GFHelp.Core.MulitePlayerData.WebData.WebData.Get() in C:\Users\jack\Desktop\CS\GFHelp-Web\GFHelp.Core\MulitePlayerData\WebData\WebData.cs:line 178
+   at GFHelp.Core.SignaIRClient.getWebData() in C:\Users\jack\Desktop\CS\GFHelp-Web\GFHelp.Core\SignaIRClient.cs:line 131
+【01:07:23】      message = getGamesStatus Error , exception = System.Collections.Generic.KeyNotFoundException: The given key '0' was not present in the dictionary.
+   at System.Collections.Generic.Dictionary`2.get_Item(TKey key)
+   at GFHelp.Core.MulitePlayerData.Others.CheckTeamStatus(Int32 ID) in C:\Users\jack\Desktop\CS\GFHelp-Web\GFHelp.Core\MulitePlayerData\UserData\Others.cs:line 44
+   at GFHelp.Core.MulitePlayerData.WebData.WebData.GetWebTeams(List`1& Teams) in C:\Users\jack\Desktop\CS\GFHelp-Web\GFHelp.Core\MulitePlayerData\WebData\WebData.cs:line 42
+   at GFHelp.Core.MulitePlayerData.WebData.WebData.Get() in C:\Users\jack\Desktop\CS\GFHelp-Web\GFHelp.Core\MulitePlayerData\WebData\WebData.cs:line 178
+   at GFHelp.Core.SignaIRClient.getWebData() in C:\Users\jack\Desktop\CS\GFHelp-Web\GFHelp.Core\SignaIRClient.cs:line 131
+【01:07:24】      message = getGamesStatus Error , exception = System.Collections.Generic.KeyNotFoundException: The given key '0' was not present in the dictionary.
+   at System.Collections.Generic.Dictionary`2.get_Item(TKey key)
+   at GFHelp.Core.MulitePlayerData.Others.CheckTeamStatus(Int32 ID) in C:\Users\jack\Desktop\CS\GFHelp-Web\GFHelp.Core\MulitePlayerData\UserData\Others.cs:line 44
+   at GFHelp.Core.MulitePlayerData.WebData.WebData.GetWebTeams(List`1& Teams) in C:\Users\jack\Desktop\CS\GFHelp-Web\GFHelp.Core\MulitePlayerData\WebData\WebData.cs:line 42
+   at GFHelp.Core.MulitePlayerData.WebData.WebData.Get() in C:\Users\jack\Desktop\CS\GFHelp-Web\GFHelp.Core\MulitePlayerData\WebData\WebData.cs:line 178
+   at GFHelp.Core.SignaIRClient.getWebData() in C:\Users\jack\Desktop\CS\GFHelp-Web\GFHelp.Core\SignaIRClient.cs:line 131
+【01:07:25】      message = getGamesStatus Error , exception = System.Collections.Generic.KeyNotFoundException: The given key '0' was not present in the dictionary.
+   at System.Collections.Generic.Dictionary`2.get_Item(TKey key)
+   at GFHelp.Core.MulitePlayerData.Others.CheckTeamStatus(Int32 ID) in C:\Users\jack\Desktop\CS\GFHelp-Web\GFHelp.Core\MulitePlayerData\UserData\Others.cs:line 44
+   at GFHelp.Core.MulitePlayerData.WebData.WebData.GetWebTeams(List`1& Teams) in C:\Users\jack\Desktop\CS\GFHelp-Web\GFHelp.Core\MulitePlayerData\WebData\WebData.cs:line 42
+   at GFHelp.Core.MulitePlayerData.WebData.WebData.Get() in C:\Users\jack\Desktop\CS\GFHelp-Web\GFHelp.Core\MulitePlayerData\WebData\WebData.cs:line 178
+   at GFHelp.Core.SignaIRClient.getWebData() in C:\Users\jack\Desktop\CS\GFHelp-Web\GFHelp.Core\SignaIRClient.cs:line 131
+【01:07:26】      message = getGamesStatus Error , exception = System.Collections.Generic.KeyNotFoundException: The given key '0' was not present in the dictionary.
+   at System.Collections.Generic.Dictionary`2.get_Item(TKey key)
+   at GFHelp.Core.MulitePlayerData.Others.CheckTeamStatus(Int32 ID) in C:\Users\jack\Desktop\CS\GFHelp-Web\GFHelp.Core\MulitePlayerData\UserData\Others.cs:line 44
+   at GFHelp.Core.MulitePlayerData.WebData.WebData.GetWebTeams(List`1& Teams) in C:\Users\jack\Desktop\CS\GFHelp-Web\GFHelp.Core\MulitePlayerData\WebData\WebData.cs:line 42
+   at GFHelp.Core.MulitePlayerData.WebData.WebData.Get() in C:\Users\jack\Desktop\CS\GFHelp-Web\GFHelp.Core\MulitePlayerData\WebData\WebData.cs:line 178
+   at GFHelp.Core.SignaIRClient.getWebData() in C:\Users\jack\Desktop\CS\GFHelp-Web\GFHelp.Core\SignaIRClient.cs:line 131
+【01:07:27】      message = getGamesStatus Error , exception = System.Collections.Generic.KeyNotFoundException: The given key '0' was not present in the dictionary.
+   at System.Collections.Generic.Dictionary`2.get_Item(TKey key)
+   at GFHelp.Core.MulitePlayerData.Others.CheckTeamStatus(Int32 ID) in C:\Users\jack\Desktop\CS\GFHelp-Web\GFHelp.Core\MulitePlayerData\UserData\Others.cs:line 44
+   at GFHelp.Core.MulitePlayerData.WebData.WebData.GetWebTeams(List`1& Teams) in C:\Users\jack\Desktop\CS\GFHelp-Web\GFHelp.Core\MulitePlayerData\WebData\WebData.cs:line 42
+   at GFHelp.Core.MulitePlayerData.WebData.WebData.Get() in C:\Users\jack\Desktop\CS\GFHelp-Web\GFHelp.Core\MulitePlayerData\WebData\WebData.cs:line 178
+   at GFHelp.Core.SignaIRClient.getWebData() in C:\Users\jack\Desktop\CS\GFHelp-Web\GFHelp.Core\SignaIRClient.cs:line 131
+【01:07:28】      message = getGamesStatus Error , exception = System.Collections.Generic.KeyNotFoundException: The given key '0' was not present in the dictionary.
+   at System.Collections.Generic.Dictionary`2.get_Item(TKey key)
+   at GFHelp.Core.MulitePlayerData.Others.CheckTeamStatus(Int32 ID) in C:\Users\jack\Desktop\CS\GFHelp-Web\GFHelp.Core\MulitePlayerData\UserData\Others.cs:line 44
+   at GFHelp.Core.MulitePlayerData.WebData.WebData.GetWebTeams(List`1& Teams) in C:\Users\jack\Desktop\CS\GFHelp-Web\GFHelp.Core\MulitePlayerData\WebData\WebData.cs:line 42
+   at GFHelp.Core.MulitePlayerData.WebData.WebData.Get() in C:\Users\jack\Desktop\CS\GFHelp-Web\GFHelp.Core\MulitePlayerData\WebData\WebData.cs:line 178
+   at GFHelp.Core.SignaIRClient.getWebData() in C:\Users\jack\Desktop\CS\GFHelp-Web\GFHelp.Core\SignaIRClient.cs:line 131
+【01:07:29】      message = getGamesStatus Error , exception = System.Collections.Generic.KeyNotFoundException: The given key '0' was not present in the dictionary.
+   at System.Collections.Generic.Dictionary`2.get_Item(TKey key)
+   at GFHelp.Core.MulitePlayerData.Others.CheckTeamStatus(Int32 ID) in C:\Users\jack\Desktop\CS\GFHelp-Web\GFHelp.Core\MulitePlayerData\UserData\Others.cs:line 44
+   at GFHelp.Core.MulitePlayerData.WebData.WebData.GetWebTeams(List`1& Teams) in C:\Users\jack\Desktop\CS\GFHelp-Web\GFHelp.Core\MulitePlayerData\WebData\WebData.cs:line 42
+   at GFHelp.Core.MulitePlayerData.WebData.WebData.Get() in C:\Users\jack\Desktop\CS\GFHelp-Web\GFHelp.Core\MulitePlayerData\WebData\WebData.cs:line 178
+   at GFHelp.Core.SignaIRClient.getWebData() in C:\Users\jack\Desktop\CS\GFHelp-Web\GFHelp.Core\SignaIRClient.cs:line 131
+【01:07:30】      message = getGamesStatus Error , exception = System.Collections.Generic.KeyNotFoundException: The given key '0' was not present in the dictionary.
+   at System.Collections.Generic.Dictionary`2.get_Item(TKey key)
+   at GFHelp.Core.MulitePlayerData.Others.CheckTeamStatus(Int32 ID) in C:\Users\jack\Desktop\CS\GFHelp-Web\GFHelp.Core\MulitePlayerData\UserData\Others.cs:line 44
+   at GFHelp.Core.MulitePlayerData.WebData.WebData.GetWebTeams(List`1& Teams) in C:\Users\jack\Desktop\CS\GFHelp-Web\GFHelp.Core\MulitePlayerData\WebData\WebData.cs:line 42
+   at GFHelp.Core.MulitePlayerData.WebData.WebData.Get() in C:\Users\jack\Desktop\CS\GFHelp-Web\GFHelp.Core\MulitePlayerData\WebData\WebData.cs:line 178
+   at GFHelp.Core.SignaIRClient.getWebData() in C:\Users\jack\Desktop\CS\GFHelp-Web\GFHelp.Core\SignaIRClient.cs:line 131
+【01:07:31】      message = getGamesStatus Error , exception = System.Collections.Generic.KeyNotFoundException: The given key '0' was not present in the dictionary.
+   at System.Collections.Generic.Dictionary`2.get_Item(TKey key)
+   at GFHelp.Core.MulitePlayerData.Others.CheckTeamStatus(Int32 ID) in C:\Users\jack\Desktop\CS\GFHelp-Web\GFHelp.Core\MulitePlayerData\UserData\Others.cs:line 44
+   at GFHelp.Core.MulitePlayerData.WebData.WebData.GetWebTeams(List`1& Teams) in C:\Users\jack\Desktop\CS\GFHelp-Web\GFHelp.Core\MulitePlayerData\WebData\WebData.cs:line 42
+   at GFHelp.Core.MulitePlayerData.WebData.WebData.Get() in C:\Users\jack\Desktop\CS\GFHelp-Web\GFHelp.Core\MulitePlayerData\WebData\WebData.cs:line 178
+   at GFHelp.Core.SignaIRClient.getWebData() in C:\Users\jack\Desktop\CS\GFHelp-Web\GFHelp.Core\SignaIRClient.cs:line 131

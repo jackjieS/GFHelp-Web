@@ -40,13 +40,7 @@ namespace GFHelp.Core.MulitePlayerData
                         Action.MissionData.Reload();
                         break;
                     }
-                case 4:
-                    {
-                        userData.mission.Test();
-                        userData.mission.Test();
-                        userData.mission.Test();
-                        break;
-                    }
+
                 case 21:
                     {
                         userData.home.Click_Kalina();
@@ -59,7 +53,7 @@ namespace GFHelp.Core.MulitePlayerData
                     }
                 case 31:
                     {
-                        new SimulationTrialHandle(userData).Start();
+
                         break;
                     }
                 case 32:
@@ -69,27 +63,13 @@ namespace GFHelp.Core.MulitePlayerData
                     }
                 case 33:
                     {
-                        new SimulationDataHandle(userData).Start();
                         break;
                     }
                 case 34:
                     {
-                        MissionInfo.Data data = new MissionInfo.Data();
-                        data.MissionMap = "mapcorridor";
-                        data.AutoCombine = false;
-                        data.AutoStrengthen = false;
-                        userData.MissionInfo.listTask.Add(data);
-                        if (userData.MissionInfo.listTask.Count <= 1)
-                        {
-                            userData.mission.Test();
-                        }
                         break;
                     }
-                case 41:
-                    {
-                        userData.mission.Test();
-                        break;
-                    }
+
                 case 51:
                     {
                         break;
