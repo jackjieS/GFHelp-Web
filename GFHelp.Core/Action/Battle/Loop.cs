@@ -89,11 +89,11 @@ namespace GFHelp.Core.Action
 
 
             userData.MissionInfo.GetFirstData().CycleTime++;
-
+            userData.MissionInfo.GetFirstData().DataHandle();
             //检查是否需要扩编
             if (userData.MissionInfo.GetFirstData().AutoCombine)
             {
-                Factory.CombineGun(userData);
+                userData.Factory.CombineGun();
             }
 
             //检查是否需要拆解核心
@@ -182,7 +182,7 @@ namespace GFHelp.Core.Action
             if (userData.gun_With_User_Info.Rank3.Count >= 24)
             {
                 Thread.Sleep(2000);
-                Factory.Gun_retire(userData,3);
+                userData.Factory.Gun_retire(3);
                 userData.user_Info.core += 24;
 
             }

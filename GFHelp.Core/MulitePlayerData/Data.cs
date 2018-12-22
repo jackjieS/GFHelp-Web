@@ -154,6 +154,7 @@ namespace GFHelp.Core.Management
             this.upgrade_Act_Info = new Upgrade_Act_Info(this);
             this.webData = new WebData(this);
             this.mailList = new Mail(this);
+            this.Factory = new Factory(this);
         }
         public void CreatGameAccount(DataBase.GameAccount gameAccount)
         {
@@ -308,7 +309,7 @@ namespace GFHelp.Core.Management
         public Doll_Build doll_Build;
         public Task_Daily task_Daily;
         public Share_With_User_Info share_With_User_Info;
-
+        public Factory Factory;
 
         public Random random = new Random();
     }

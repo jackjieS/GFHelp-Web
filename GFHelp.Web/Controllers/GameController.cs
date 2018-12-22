@@ -82,8 +82,10 @@ namespace GFHelp.Web.Controllers
         [HttpPost]
         public IActionResult Login([FromBody] Account account)
         {
+
             //加入控制符
-            Core.Management.Data.data.getDataByID(account.GameID).home.Login();
+            Task task = new Task(()=>Core.Management.Data.data.getDataByID(account.GameID).home.Login());
+            task.Start();
             return Ok(new
             {
                 code = 1,

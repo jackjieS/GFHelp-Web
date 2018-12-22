@@ -176,11 +176,11 @@ namespace GFHelp.Core.Action.BattleBase
         {
             public void DataHandle()
             {
-                if (CycleTime > 100)
+                if (CycleTime > 50)
                 {
                     this.needSupply = false;
                 }
-                if (AutoQuickFixTimes > 100)
+                if (AutoQuickFixTimes > 50)
                 {
                     this.AutoQuickFix = false;
                 }
@@ -218,7 +218,7 @@ namespace GFHelp.Core.Action.BattleBase
             public bool needlog = false;
             public int user_exp=0;
             public string Parm="";
-
+            public int equipid = 0;
             public RecycleLog recycleLog;
             public class RecycleLog
             {
@@ -363,6 +363,10 @@ namespace GFHelp.Core.Action.BattleBase
                     if (item.Contains("-h"))
                     {
                         this.CommanderLv = Convert.ToInt32(item.Remove(0, 2));
+                    }
+                    if (item.Contains("-equipid"))
+                    {
+                        this.equipid = Convert.ToInt32(item.Remove(0,8));
                     }
 
                 }

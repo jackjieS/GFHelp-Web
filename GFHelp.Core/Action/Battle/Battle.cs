@@ -19,6 +19,9 @@ namespace GFHelp.Core.Action
         }
         private UserData userData;
 
+
+
+
         public void Abort_Mission_login()
         {
             if (userData.others.Mission_S)
@@ -1047,46 +1050,7 @@ namespace GFHelp.Core.Action
                     return false;
                 }
             }
-            //if (with_user_id.Contains("equip"))
-            //{
-            //    try
-            //    {
-            //        var jsonobj = DynamicJson.Parse(with_user_id);
-            //        int equip_with_user_id = int.Parse(jsonobj.equip_with_user_id.ToString());
-            //        Equip ewui = new Equip();
-            //        ewui.id = gun_equip_id;
-            //        ewui.equip_id = equip_with_user_id;
-            //        int i = 0;
-            //        while (true)
-            //        {
-            //            if (!userData.equip_With_User_Info.dicEquip.ContainsKey(i))
-            //            {
-            //                userData.equip_With_User_Info.dicEquip.Add(i, ewui);
-            //                break;
-            //            }
-            //            i++;
-            //        }
-            //        if (CatachData.Check_equipRank5(ewui.equip_id))
-            //        {
-            //            new Log().userInit(userData.GameAccount.GameAccountID, "获得5星装备 意不意外 惊不惊喜").userInfo();
-            //            if (userData.normal_MissionInfo.StopLoopinGetNew)
-            //            {
-            //                userData.normal_MissionInfo.Using = false;
-            //            }
-            //        }
-            //    }
-            //    catch (Exception e)
-            //    {
-            //        new Log().userInit(userData.GameAccount.GameAccountID, "添加掉落装备遇到错误",e.ToString()).userInfo();
-            //        return false;
-            //    }
 
-
-
-
-
-
-            //}
 
             return true;
         }
@@ -1158,7 +1122,7 @@ namespace GFHelp.Core.Action
 
         public void Check_Equip_Gun_FULL()
         {
-            userData.webData.StatusBarText= "检查床位是否满额";
+            userData.webData.StatusBarText= "检查装备仓库人形床位是否满额";
 
 
             if (userData.others.Check_Equip_GUN_FULL())
@@ -1168,19 +1132,19 @@ namespace GFHelp.Core.Action
                 {
                     if (userData.MissionInfo.GetFirstData().AutoStrengthen)
                     {
-                        Factory.EatGunHandle(userData);
+                        userData.Factory.EatGunHandle();
                         if (userData.others.Check_Equip_GUN_FULL())
                         {
-                            Factory.Gun_retire(userData, 2);
-                            Factory.Gun_retire(userData, 3);
+                            userData.Factory.Gun_retire(2);
+                            userData.Factory.Gun_retire(3);
 
                         }
                         return;
                     }
                     if (!userData.MissionInfo.GetFirstData().AutoStrengthen)
                     {
-                        Factory.Gun_retire(userData, 2);
-                        Factory.Gun_retire(userData, 3);
+                        userData.Factory.Gun_retire(2);
+                        userData.Factory.Gun_retire(3);
                     }
 
 
@@ -1189,16 +1153,16 @@ namespace GFHelp.Core.Action
                 {
                     if (userData.MissionInfo.GetFirstData().AutoStrengthen)
                     {
-                        Factory.Eat_EquipHandle(userData);
+                        userData.Factory.Eat_EquipHandle(userData.MissionInfo.GetFirstData());
                         if (userData.others.Check_Equip_GUN_FULL())
                         {
-                            Factory.Equip_retire(userData);
+                            userData.Factory.Equip_retire();
                         }
                         return;
                     }
                     if (!userData.MissionInfo.GetFirstData().AutoStrengthen)
                     {
-                        Factory.Equip_retire(userData);
+                        userData.Factory.Equip_retire();
                     }
                 }
 

@@ -78,6 +78,31 @@ namespace GFHelp.Core.MulitePlayerData
             }
             SortEquipment_Upgrade();
         }
+        /// <summary>
+        /// 获取需要升级的装备
+        /// </summary>
+        public void Read_Equipment_Upgrade(int id)
+        {
+            dicUpgrade.Clear();
+
+            foreach (var item in listEquip)
+            {
+
+                //5级装备等级小于10 没有被人形装备
+                if (item.info.id == 16) continue;
+                if (item.info.id == 59) continue;
+                if (item.info.id == 117) continue;
+                if (item.info.id == 118) continue;
+                if (item.equip_level < 10 && item.info.id == id)
+                {
+                    Equip.Data ewui_upgrade = new Equip.Data();
+                    ewui_upgrade = item;
+                    dicUpgrade.Add(dicUpgrade.Count, ewui_upgrade);
+                }
+            }
+            SortEquipment_Upgrade();
+        }
+
 
         private void SortEquipment_Upgrade()
         {
