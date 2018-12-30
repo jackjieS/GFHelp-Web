@@ -894,6 +894,7 @@ namespace GFHelp.Core.Action.BattleBase
     /// </summary>
     public class Battle
     {
+        public string WebUserName;
         public string accountID;
         public string Map;
         public List<Team> Teams;

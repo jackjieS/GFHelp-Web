@@ -39,7 +39,16 @@ namespace GFHelp.Core.MulitePlayerData
                     CatchData.Base.Asset_Textes.ChangeCodeFromeCSV(item.title),
                     CatchData.Base.Asset_Textes.ChangeCodeFromeCSV(item.content)
                     )).userInfo();
-                GetMailResouce(item.id);
+                try
+                {
+                    GetMailResouce(item.id);
+                }
+                catch (Exception e)
+                {
+                    new Log().systemInit("获取邮件错误", e.ToString()).coreInfo();
+                    new Log().userInit(userData.GameAccount.GameAccountID, "获取邮件错误", e.ToString()).userInfo();
+                }
+
                 //对日常任务处理
             }
 
@@ -119,16 +128,11 @@ namespace GFHelp.Core.MulitePlayerData
                         }
                     case 0:
                         {
-                            continue;
+                            return false;
                         }
                     case -1:
                         {
-                            if (count++ > userData.config.ErrorCount)
-                            {
-                                new Log().userInit(userData.GameAccount.GameAccountID, String.Format("{0} GET MAIL Resource FAILED", userData.user_Info.name), result).userInfo();
-                                return false;
-                            }
-                            continue;
+                            return false;
                         }
                     default:
                         break;

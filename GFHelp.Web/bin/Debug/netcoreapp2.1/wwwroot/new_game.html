@@ -1,0 +1,230 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>zui-admin</title>
+    <!-- zui css -->
+    <link rel="stylesheet" href="dist/css/zui.min.css">
+    <link rel="stylesheet" href="dist/theme/blue.css">
+    <!-- app css -->
+    <link rel="stylesheet" href="css/app.css">
+    <link rel="stylesheet" href="css/new.css">
+    <!-- jquery js -->
+    <script src="dist/lib/jquery/jquery.js"></script>
+    
+</head>
+<body>
+    <div class="wrapper">
+        <header class="main-header">
+            <nav class="navbar navbar-fixed-top bg-primary">
+                <div class="navbar-header">
+                    <a class="navbar-toggle" href="javascript:;" data-toggle="collapse" data-target=".navbar-collapse"><i class="icon icon-th-large"></i></a>
+                    <a class="sidebar-toggle" href="javascript:;" data-toggle="push-menu"><i class="icon icon-bars"></i></a>
+                    <a class="navbar-brand" href="#">
+                        <span class="logo">SYSTEM</span>
+                        <span class="logo-mini">F</span> 
+                    </a>
+                </div>
+                <div class="collapse navbar-collapse">
+                    <div class="container-fluid">
+                        <ul class="nav navbar-nav">
+                            <li><a href="javascript:;" data-toggle="push-menu"><i class="icon icon-bars"></i></a></li>
+                        </ul>
+                        <ul class="nav navbar-nav navbar-right">
+                            <li>
+                                <a href="javascript:;">
+                                    <span>
+                                        <i class="icon icon-bell-alt"></i>
+                                        <span class="label label-danger label-pill up">5</span>
+                                    </span>
+                                </a>
+                            </li>
+                            <li>
+                                <a href="javascript:;">
+                                    <span>
+                                        <i class="icon icon-envelope-alt"></i>
+                                        <span class="label label-success label-pill up">2</span>
+                                    </span>
+                                </a>
+                            </li>
+                            <li class="dropdown">
+                                <a href="javascript:;" data-toggle="dropdown">
+                                    <i class="icon icon-user"></i> 
+                                    <span class="username">管理员</span> 
+                                    <span class="caret"></span></a>
+                                <ul class="dropdown-menu">
+                                    <li><a href="#">资料设置</a></li>
+                                    <li><a href="#">清除缓存</a></li>
+                                    <li class="divider"></li>
+                                    <li><a onclick="logout()" href="#">注销</a></li>
+                                </ul>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+            </nav>
+        </header>
+        <aside class="main-sidebar">
+            <section class="sidebar">
+                <ul class="sidebar-menu" data-widget="tree">
+                    <li class="header">主要菜单</li>
+                    <li>
+                        <a href="index.html">
+                            <i class="icon icon-dashboard"></i> 
+                            <span>账号管理</span>
+                            <span class="pull-right-container">
+                            </span>
+                        </a>
+                    </li>
+                    <li>
+                        <a href="systemMessage.html">
+                            <i class="icon icon-dashboard"></i> 
+                            <span>系统消息</span>
+                            <span class="pull-right-container">
+                            </span>
+                        </a>
+                    </li>
+                    <li class="active">
+                        <a href="new_game.html">
+                            <i class="icon icon-dashboard"></i> 
+                            <span>创建实列</span>
+                            <span class="pull-right-container">
+                            </span>
+                        </a>
+                    </li>
+                </ul>
+            </section>
+        </aside>
+        <div class="content-wrapper">
+            <div class="content-header">
+                <ul class="breadcrumb">
+                    <li><a href="#"><i class="icon icon-home"></i></a></li>
+                    <li class="active">系统消息</li>
+                </ul>
+            </div>
+            <div class="content-body">
+                <div class="container">
+                    <table class="table">
+                        <thead>
+                        <tr>
+                            <th width="100">ID</th>
+                            <th>yunDouDou</th>
+                            <th>webUsername</th>
+                            <th>gameAccountID</th>
+                            <th>gamePassword</th>
+                            <th>channelID</th>
+                            <th>worldID</th>
+                            <th>parm</th>
+                            <th width="150">操作</th>
+                        </tr>
+                        </thead>
+                        <form action=""><tbody></tbody></form>
+                    </table>
+                    <button class="btn btn-primary btn-block"  id="addBtn">添加</button>
+                    <!-- <button class="btn btn-primary btn-block" onclick="create_all()">所有创建</button> -->
+                </div>
+            </div>
+        </div> 
+    </div>
+    <!-- zui js -->
+    <script src="dist/js/zui.min.js"></script>
+    <script src="../lib/SingnlR/signalr.js"></script>
+    <!-- app js -->
+    <script src="js/app.js"></script>
+    <script src="js/cookie.js"></script>
+    <script type="text/javascript">
+
+        var token = getCookie('token');
+
+        //统计已有行数
+        function countRow()
+        {
+            return $('tbody tr').length;
+        }
+
+        //创建单个实列
+        function create_one(id)
+        {
+
+
+            
+            let data = {
+                yunDouDou:$('input[name="yunDouDou['+id+']"]').val(),
+                webUsername:$('input[name="webUsername['+id+']"]').val(),
+                gameAccountID:$('input[name="gameAccountID['+id+']"]').val(),
+                gamePassword:$('input[name="gamePassword['+id+']"]').val(),
+                channelID:$('input[name="channelID['+id+']"]').val(),
+                worldID:$('input[name="worldID['+id+']"]').val(),
+                parm:$('input[name="parm['+id+']"]').val(),
+            };
+
+            $.ajax({
+                url: 'http://127.0.0.1:7777/CreatDefaultGame',
+                type: 'post',
+                dataType: 'json',
+                headers: { 'Authorization': 'Bearer ' + token },
+                contentType: "application/json",
+                data: data,
+                success: function (res) {
+                    if(res && res.code==1){
+                        $('button[data-id='+id+']').attr('disabled','disabled');
+                        alert('成功');
+                    }else{
+                        alert('失败');
+                    }
+                }
+            });
+        }
+
+        function create_all()
+        {
+            let data = [];
+            let id = countRow()+1;
+            for (let i=1;i<id;i++){
+                data.push({
+                    yunDouDou:$('input[name="yunDouDou['+i+']"]').val(),
+                    webUsername:$('input[name="webUsername['+i+']"]').val(),
+                    gameAccountID:$('input[name="gameAccountID['+i+']"]').val(),
+                    gamePassword:$('input[name="gamePassword['+i+']"]').val(),
+                    channelID:$('input[name="channelID['+i+']"]').val(),
+                    worldID:$('input[name="worldID['+i+']"]').val(),
+                    parm:$('input[name="parm['+i+']"]').val(),
+                });
+            }
+
+            $.ajax({
+                url: 'http://127.0.0.1:7777/CreatDefaultGame',
+                type: 'post',
+                dataType: 'json',
+                headers: { 'Authorization': 'Bearer ' + token },
+                contentType: "application/json",
+                data: data,
+                success: function (res) {
+                    console.log(res);
+                }
+            });
+        }
+
+        //监听添加一行
+        $('#addBtn').on('click',function () {
+            var rowId = countRow()+1;
+            var tr = '<tr><td>'+rowId+'</td>\n' +
+                '<td><input type="text" name="yunDouDou['+rowId+']" class="form-control" ></td>\n' +
+                '<td><input type="text" name="webUsername['+rowId+']" id="inputID" class="form-control" ></td>\n' +
+                '<td><input type="text" name="gameAccountID['+rowId+']" id="inputID" class="form-control"></td>\n' +
+                '<td><input type="text" name="gamePassword['+rowId+']" id="inputID" class="form-control"></td>\n' +
+                '<td><input type="text" name="channelID['+rowId+']" id="inputID" class="form-control"></td>\n' +
+                '<td><input type="text" name="worldID['+rowId+']" id="inputID" class="form-control"></td>\n' +
+                '<td><input type="text" name="parm['+rowId+']" id="inputID" class="form-control" ></td>\n' +
+                '<td>\n' +
+                '<button class="btn btn-primary" onclick="create_one('+rowId+')" data-id="'+rowId+'">创建</button>\n' +
+                '<button class="btn btn-primary">移除</button>\n' +
+                '</td></tr>';
+            $('tbody').append(tr);
+        });
+
+    </script>
+</body>
+</html>

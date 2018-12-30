@@ -1,7 +1,7 @@
 
 
 
-export function setCookie(cname,cvalue,exdays)
+/*export function setCookie(cname,cvalue,exdays)
 {
 	alert()
   var d = new Date();
@@ -20,4 +20,9 @@ export function getCookie(cname)
     if (c.indexOf(name)==0) return c.substring(name.length,c.length);
   }
   return "";
+}*/
+
+if(getCookie('token')=='null' || getCookie('token')==''){
+  alert('未登陆');
+  location.href = 'http://'+document.domain+'/login.html';
 }

@@ -8,224 +8,303 @@
     border-radius: 5px;
     box-shadow: 3px 3px 3px #888888;
 }
-.item-left{
-	display: inline-block;
-	height:100%;
-	width: 100px;
-	float: left;
+
+.item-left {
+    display: inline-block;
+    height: 100%;
+    width: 100px;
+    float: left;
 }
 
-.item-right{
-	margin-left:120px;
+.item-right {
+    margin-left: 120px;
 }
 
-.item-right a,span{
-	margin-right:10px;
+    .item-right a, span {
+        margin-right: 10px;
+    }
+
+    .item-right div:nth-child(2) {
+        margin-top: 45px;
+    }
+
+#xxyl-warpper div:nth-child(1) {
+    border: 1px solid #e5e6e7;
+    height: 90px;
+    padding: 10px;
 }
 
-.item-right div:nth-child(2){
-	margin-top: 45px;
+
+
+#xxyl-warpper div:nth-child(n+2) {
+    border: 1px solid #e5e6e7;
+    height: 150px;
+    padding: 10px;
+    margin-top: 20px;
 }
-#xxyl-warpper div:nth-child(1){
-	border: 1px solid #e5e6e7;
-	height: 90px;
-	padding: 10px;
+
+    #xxyl-warpper div:nth-child(n+2) li:nth-child(1) {
+        border-bottom: 1px solid #e5e6e7;
+        margin-bottom: 5px;
+        font-weight: bold;
+        background: lightblue;
+    }
+
+.user-title {
+    background: #e5e6e7;
+    font-size: 20px;
+    padding: 10px;
 }
+
+#xxyl-warpper div:nth-child(1) li {
+    display: inline-block;
+    border-right: 1px solid #e5e6e7;
+    margin-right: 10px;
+}
+
+hr {
+    margin: 0;
+}
+
+#xxyl-warpper div:last-child {
+    border: 0px;
+}
+
+#NormalDollBuild-warpper div {
+    border: 1px solid #e5e6e7;
+    height: 100px;
+    margin-top: 20px;
+    position: relative;
+    background: #e5e6e7;
+}
+
+    #NormalDollBuild-warpper div span {
+        line-height: 100px;
+        font-size: 50px;
+        font-weight: bold;
+        display: block;
+        text-align: center;
+    }
+
+    #NormalDollBuild-warpper div label {
+        position: absolute;
+        top: 35px;
+        font-size: 20px;
+        /* background:lightblue; */
+        left: 15px;
+    }
+
+#HeavyDollBuild-warpper div {
+    border: 1px solid #e5e6e7;
+    height: 100px;
+    margin-top: 20px;
+    position: relative;
+    background: #e5e6e7;
+}
+
+    #HeavyDollBuild-warpper div span {
+        line-height: 100px;
+        font-size: 50px;
+        font-weight: bold;
+        display: block;
+        text-align: center;
+    }
+
+    #HeavyDollBuild-warpper div label {
+        position: absolute;
+        top: 35px;
+        font-size: 20px;
+        /* background:lightblue; */
+        left: 15px;
+    }
 
 
 
-#xxyl-warpper div:nth-child(n+2){
-	border: 1px solid #e5e6e7;
-	height: 150px;
-	padding: 10px;
-	margin-top:20px;
+
+
+
+
+
+
+
+#bdyl-warpper > div {
+    margin-top: 20px;
+    margin-right: 20px;
+    padding: 10px;
+    background: #e5e6e7;
 }
 
-#xxyl-warpper div:nth-child(n+2) li:nth-child(1){
-	border-bottom:1px solid #e5e6e7;
-	margin-bottom: 5px;
-	font-weight: bold;
-	background: lightblue;
+#zzbd-warpper > div {
+    margin-top: 20px;
+    margin-right: 20px;
+    padding: 10px;
+    background: #e5e6e7;
 }
 
-.user-title{
-	background : #e5e6e7;
-	font-size: 20px;
-	padding: 10px;
-}
-#xxyl-warpper div:nth-child(1) li{
-	display: inline-block;
-	border-right: 1px solid #e5e6e7;
-	margin-right: 10px;
-}
-hr{
-	margin: 0;
+#bdyl-warpper ul li {
+    margin-top: 15px;
 }
 
-#xxyl-warpper div:last-child{
-	border: 0px;
-}
+    #bdyl-warpper ul li label {
+        /*width: 60px;*/
+        margin-right: 30px;
+    }
 
-#rxjz-warpper div {
-	border: 1px solid #e5e6e7;
-	height: 100px;
-	margin-top: 20px;
-	position: relative;
-	background: #e5e6e7;
-}
-
-#rxjz-warpper div span{
-	line-height: 100px;
-	font-size: 50px;
-	font-weight: bold;
-	display:block;
-	text-align: center;
-}
-
-#rxjz-warpper div label{
-	position: absolute;
-	top: 35px;
-	font-size: 20px;
-	/* background:lightblue; */
-	left: 15px;
-}
-
-#bdyl-warpper>div{
-	margin-top:20px; 
-	margin-right: 20px;
-	padding: 10px;
-	background: #e5e6e7;
-}
-#zzbd-warpper>div{
-	margin-top:20px; 
-	margin-right: 20px;
-	padding: 10px;
-	background: #e5e6e7;
-}
-#bdyl-warpper ul li{
-	margin-top:15px; 
-}
-
-#bdyl-warpper ul li label {
-	/*width: 60px;*/
-	margin-right: 30px;
-}
 .hqrw-item-list {
-	border: 1px solid #e5e6e7;
-	border-radius: 10px;
-	background: lightblue;
-	height: 100px;
-	margin-top:20px;
+    border: 1px solid #e5e6e7;
+    border-radius: 10px;
+    background: lightblue;
+    height: 100px;
+    margin-top: 20px;
 }
 
-.hqrw-item-list select {
-	font-size: 12px;
-	width: 100px;
-   /* background: transparent;
-   width: 268px;
-   padding: 5px;
-   font-size: 16px;
-   border: 1px solid gray;
-   height: 34px; */
-   /*-webkit-appearance: none; /*for chrome*/
-}
+    .hqrw-item-list select {
+        font-size: 12px;
+        width: 100px;
+    }
 
-.hqrw-item-list .time{
-	width: 100px;
-}
+    .hqrw-item-list .time {
+        width: 100px;
+    }
 
 .hqrw-item {
-	/* background: #000; */
-	margin: 9px 0 0 100px;
-	height: 80px;
-	vertical-align: middle;
+    /* background: #000; */
+    margin: 9px 0 0 100px;
+    height: 80px;
+    vertical-align: middle;
 }
 
-.hqrw-item select{
-	width: 100px;
-	height: 35px;
-}
+    .hqrw-item select {
+        width: 100px;
+        height: 35px;
+    }
 
-.hqrw-item span {
-	display: inline-block;
-	margin:22px 0 0 20px;
-	height: 35px;
-	line-height: 35px;
-	font-size: 30px;
-	position: relative;
-}
+    .hqrw-item span {
+        display: inline-block;
+        margin: 22px 0 0 20px;
+        height: 35px;
+        line-height: 35px;
+        font-size: 30px;
+        position: relative;
+    }
 
-.hqrw-item span .btn {
-	position: relative;
-	top:-5px;
-}
+        .hqrw-item span .btn {
+            position: relative;
+            top: -5px;
+        }
 
-.hqrw-item-title{
-	position: absolute;
-	left: -50px;
-}
-
-
-#zbjz-warpper div {
-	border: 1px solid #e5e6e7;
-	height: 100px;
-	margin-top: 20px;
-	position: relative;
-	background: #e5e6e7;
-}
-
-#zbjz-warpper div span{
-	line-height: 100px;
-	font-size: 50px;
-	font-weight: bold;
-	display:block;
-	text-align: center;
-}
-
-#zbjz-warpper div label{
-	position: absolute;
-	top: 35px;
-	font-size: 20px;
-	/* background:lightblue; */
-	left: 15px;
-}
-
-#zd-warpper {	
-	margin-top:20px;
-}
-#zd-warpper .zd-left{
-	/* background: lightblue; */
-	margin-right: 10px;
-	border: 1px solid #e5e6e7;
-	padding: 10px;
-	margin-bottom: 20px;
-}
-.zd-right{
-	margin-bottom: 20px;
-}
-#zd-warpper .zd-left div{
-	margin-bottom: 10px;
-}
-
-#zd-warpper .zd-left div label{
-	width: 80px;
-	text-align: right;
-	margin-right:10px;	
-	vertical-align: top;
-}
-#zd-warpper .zd-left div span{
-	width: 250px;
-	display: inline-block;
+.hqrw-item-title {
+    position: absolute;
+    left: -50px;
 }
 
 
-#zd-warpper .zd-right .panel-heading .clear-list{
-	float: right;
-	cursor: pointer;
+#NormalEquipBuild-warpper > div {
+    border: 1px solid #e5e6e7;
+    height: 100px;
+    margin-top: 20px;
+    position: relative;
+    background: #e5e6e7;
 }
 
-.zd-bottom{
-	margin-top:20px;
+#NormalEquipBuild-warpper div span {
+    line-height: 100px;
+    font-size: 50px;
+    font-weight: bold;
+    display: block;
+    text-align: center;
+}
+
+#NormalEquipBuild-warpper div label {
+    position: absolute;
+    top: 35px;
+    font-size: 20px;
+    /* background:lightblue; */
+    left: 15px;
+}
+
+#NormalEquipBuild-warpper ul li {
+    margin-top: 15px;
+}
+
+    #NormalEquipBuild-warpper ul li label {
+        /*width: 60px;*/
+        margin-right: 30px;
+    }
+
+#HeavyEquipBuild-warpper > div {
+    border: 1px solid #e5e6e7;
+    height: 100px;
+    margin-top: 20px;
+    position: relative;
+    background: #e5e6e7;
+}
+
+#HeavyEquipBuild-warpper div span {
+    line-height: 100px;
+    font-size: 50px;
+    font-weight: bold;
+    display: block;
+    text-align: center;
+}
+
+#HeavyEquipBuild-warpper div label {
+    position: absolute;
+    top: 35px;
+    font-size: 20px;
+    /* background:lightblue; */
+    left: 15px;
+}
+
+#HeavyEquipBuild-warpper ul li {
+    margin-top: 15px;
+}
+
+    #HeavyEquipBuild-warpper ul li label {
+        /*width: 60px;*/
+        margin-right: 30px;
+    }
+
+#zd-warpper {
+    margin-top: 20px;
+}
+
+    #zd-warpper .zd-left {
+        /* background: lightblue; */
+        margin-right: 10px;
+        border: 1px solid #e5e6e7;
+        padding: 10px;
+        margin-bottom: 20px;
+    }
+
+.zd-right {
+    margin-bottom: 20px;
+}
+
+#zd-warpper .zd-left div {
+    margin-bottom: 10px;
+}
+
+    #zd-warpper .zd-left div label {
+        width: 80px;
+        text-align: right;
+        margin-right: 10px;
+        vertical-align: top;
+    }
+
+    #zd-warpper .zd-left div span {
+        width: 250px;
+        display: inline-block;
+    }
+
+
+#zd-warpper .zd-right .panel-heading .clear-list {
+    float: right;
+    cursor: pointer;
+}
+
+.zd-bottom {
+    margin-top: 20px;
 }
 
 #gun {
@@ -236,19 +315,23 @@ hr{
     border-radius: 5px;
     box-shadow: 3px 3px 3px #888888;
 }
+
 #gunName {
     font-weight: bold;
     width: 120px;
     display: inline-block
 }
+
 #gunLv {
     width: 80px;
     display: inline-block
 }
+
 #gunHp {
     width: 80px;
     display: inline-block
 }
+
 #gunExp {
     width: 150px;
     display: inline-block

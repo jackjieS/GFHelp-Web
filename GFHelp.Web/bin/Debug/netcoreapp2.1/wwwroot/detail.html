@@ -701,6 +701,7 @@
     <!-- app js -->
     <script src="js/app.js"></script>
     <script src="js/cookie.js"></script>
+    <script src="js/auth.js"></script>
     <script type="text/javascript">
         var gameStatus = true;
         var param = GetRequest();
@@ -807,15 +808,17 @@
                     $('ul.Guns').html("");
                     var teamHtml = '';
                     $(message[0].WebTeams).each(function (index, el) {
-                        select1_option += '<option value="' + el.TeamID + '">第' + (index + 1) + '梯队(' + el.Leader + ')</option>';
+						var Status ='';
+						if(el.isFree==true)Status='Free';
+						if(el.isFree==false)Status='Locked';
+						
+                        select1_option += '<option value="' + el.TeamID + '">第' + (index + 1) + '梯队(' + el.Leader + ')('+Status+')</option>';
                         var person = '';
                         $(el.Guns).each(function (index2, el2) {
                             person += '<li><div id="gun"><span id="gunName">' + el2.Name + '</span><span id="gunLv">' + " | " + "LV: " + el2.Lv + '</span><span id ="gunHp">' + " | " + "HP: " + el2.Hp + '</span><span id = "gunExp">' + " | " + "Exp: " + el2.Exp + '</span><span id="Number">' + " | " + el2.number + "扩" + '</span></div></li> ';
                         });
-						var Status ='';
-						if(el.isFree==true)Status='    状态: Free';
-						if(el.isFree==false)Status='    状态: Locked';
-                        teamHtml += '<div class=""><div><h3>第' + (index + 1) + '梯队' + Status   +'</h3></div><ul>' + person + '</ul></div>';
+
+                        teamHtml += '<div class=""><div><h3>第' + (index + 1) + '梯队 (状态:' + Status   +')</h3></div><ul>' + person + '</ul></div>';
                     });
                     $('#bdyl-warpper').html(teamHtml);
 

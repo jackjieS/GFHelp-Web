@@ -170,20 +170,6 @@ namespace GFHelp.Web
             });
 
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-            DataBase.DataBase.isMulteAccount("admin");
             Core.SystemOthers.ConfigData.Initialize();
             Core.SignaIRClient.seed();
             Core.Init.InitFromDatabase();

@@ -26,10 +26,7 @@ namespace GFHelp.Web.Controllers
         {
 
         }
-        private bool isAdmin(string username)
-        {
-            return DataBase.DataBase.isUserAdmin(username);
-        }
+
 
         /// <summary>
         /// 获取系统错误信息
@@ -41,7 +38,7 @@ namespace GFHelp.Web.Controllers
         public IActionResult GetLogs()
         {
             string username = User.FindFirst(ClaimTypes.NameIdentifier)?.Value;
-            if (isAdmin(username))
+            if (DataBase.DataBase.isLevel1(username))
             {
                 return Ok(new
                 {
@@ -76,7 +73,7 @@ namespace GFHelp.Web.Controllers
         public IActionResult RemoveALLSystemNotice()
         {
             string username = User.FindFirst(ClaimTypes.NameIdentifier)?.Value;
-            if (isAdmin(username))
+            if (DataBase.DataBase.isLevel1(username))
             {
                 if (Core.Helper.Viewer.systemLogs.Count != 0)
                 {
@@ -158,10 +155,10 @@ namespace GFHelp.Web.Controllers
         [Authorize]
         public  IActionResult TestInitSystemNotice()
         {
-            Log log = new Log().systemInit(DateTime.Now.ToString()).coreInfo();
+
             Task.Run(()=> 
             {
-                Core.SignaIRClient.SendSystemNotice(log.data);
+                new Log().systemInit(DateTime.Now.ToString()).coreInfo();
             });
             return Ok(new
             {
@@ -220,16 +217,18 @@ namespace GFHelp.Web.Controllers
                 });
             }
         }
+
         /// <summary>
         /// ReloadMissionDll
         /// </summary>
         /// <returns></returns>
         [Route("/Game/ReloadLibeary")]
         [HttpGet]
+        [Authorize]
         public IActionResult ReloadLibeary()
         {
             string username = User.FindFirst(ClaimTypes.NameIdentifier)?.Value;
-            if (!isAdmin(username))
+            if (!DataBase.DataBase.isLevel1(username))
             {
                 return Ok(new
                 {
@@ -251,7 +250,38 @@ namespace GFHelp.Web.Controllers
             });
         }
 
+        /// <summary>
+        /// 获取网站所有用户 注意并不是 游戏帐户
+        /// </summary>
+        /// <returns></returns>
+        [Route("/Game/GetWebUsers")]
+        [HttpGet]
+        [Authorize]
+        public IActionResult GetWebUsers()
+        {
+            string username = User.FindFirst(ClaimTypes.NameIdentifier)?.Value;
+            if (!DataBase.DataBase.isLevel1(username))
+            {
+                return Ok(new
+                {
+                    code = -1,
+                    //data = result,
+                    message = string.Format("没有权限")
+                });
+            }
 
+            var AccountInfo = DataBase.DataBase.GetAccountInfos();
+            for (int i = 0; i < AccountInfo.Count; i++)
+            {
+                AccountInfo[i].Password = null;
+            }
+            return Ok(new
+            {
+                code = 1,
+                data = AccountInfo,
+                message = string.Format("完成")
+            });
+        }
 
     }
 }

@@ -129,20 +129,14 @@ namespace GFHelp.Web
         {
             string name = Context.GetHttpContext().Request.Query["name"].ToString();
             if (name.ToLower() == "null" || string.IsNullOrEmpty(name)) return;
-            await Task.Run(() => {
+            await Task.Run(() =>
+            {
                 try
                 {
                     SignalRInfo user = new SignalRInfo();
                     user.SignalRID = Context.ConnectionId;
                     user.SignalRName = name;
-                    user.isAdmin = false;
-                    foreach (var k in Core.SystemOthers.ConfigData.WebUserData)
-                    {
-                        if (k.Username == name && k.Policy == "1")
-                        {
-                            user.isAdmin = true;
-                        }
-                    }
+                    user.Level = DataBase.DataBase.getLevelNumber(user.SignalRName);
                     userList.Add(user);
                     SendSystemNotice(Context.ConnectionId);
                     SendGameNotice(Context.ConnectionId);

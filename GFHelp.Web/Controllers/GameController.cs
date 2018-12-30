@@ -27,9 +27,15 @@ namespace GFHelp.Web.Controllers
 
         }
 
-        private bool isAdmin(string username)
+
+        internal List<DataBase.GameAccount> GetAccountInfo(string username)
         {
-            return DataBase.DataBase.isUserAdmin(username);
+            var gameaccount = DataBase.DataBase.GetGameAccountByUserName(username);
+            if (gameaccount.Count > 0)
+            {
+                return gameaccount;
+            }
+            return null;
         }
 
         /// <summary>
@@ -69,10 +75,6 @@ namespace GFHelp.Web.Controllers
             });
         }
 
-
-
-
-
         /// <summary>
         /// 游戏登陆
         /// </summary>
@@ -91,6 +93,43 @@ namespace GFHelp.Web.Controllers
                 code = 1,
                 //data = result,
                 message = string.Format("正在登陆 {0}", account.GameID)
+
+            });
+        }
+
+        /// <summary>
+        /// 多个游戏登陆
+        /// </summary>
+        /// <returns></returns>
+        [Route("/Game/MultiLogin")]
+        [HttpPost]
+        public IActionResult MultiLogin([FromBody] string WebUserName)
+        {
+            string username = User.FindFirst(ClaimTypes.NameIdentifier)?.Value;
+
+            //检查是否admin
+            if (DataBase.DataBase.getLevelNumber(username) != 1)
+            {
+                return Ok(new
+                {
+                    code = -1,
+                    message = string.Format("权限不足")
+                });
+            }
+            if (string.IsNullOrEmpty(WebUserName)) WebUserName = username;
+            List<DataBase.GameAccount> gameAccounts = GetAccountInfo(WebUserName);
+
+            foreach (var item in gameAccounts)
+            {
+                //加入控制符
+                Task task = new Task(() => Core.Management.Data.data.getDataByID(item.GameAccountID).home.Login());
+                task.Start();
+            }
+            return Ok(new
+            {
+                code = 1,
+                //data = result,
+                message = string.Format("操作完成")
 
             });
         }
@@ -373,8 +412,48 @@ namespace GFHelp.Web.Controllers
             });
         }
 
+        /// <summary>
+        /// 开始作战
+        /// </summary>
+        /// <param name="bs"></param>
+        /// <returns></returns>
+        [Route("/Game/MultiStartBattle")]
+        [HttpPost]
+        public IActionResult MultiStartBattle([FromBody] Core.Action.BattleBase.Battle bs)
+        {
+            string username = User.FindFirst(ClaimTypes.NameIdentifier)?.Value;
 
-        
+            //检查是否admin
+            if (DataBase.DataBase.getLevelNumber(username) != 1)
+            {
+                return Ok(new
+                {
+                    code = -1,
+                    message = string.Format("权限不足")
+                });
+            }
+            if (string.IsNullOrEmpty(bs.WebUserName)) bs.WebUserName = username;
+            List<DataBase.GameAccount> gameAccounts = GetAccountInfo(bs.WebUserName);
+            List<string> listResult = new List<string>();
+            foreach (var item in gameAccounts)
+            {
+                if (!Core.Management.Data.data.ContainsKey(item.GameAccountID))
+                {
+                    listResult.Add(item.GameAccountID);
+                    continue;
+                }
+                Core.Action.BattleBase.MissionInfo.Data data = new Core.Action.BattleBase.MissionInfo.Data(Core.Management.Data.data.getDataByID(item.GameAccountID), bs);
+                Core.Management.Data.data.getDataByID(item.GameAccountID).MissionInfo.listTask.Add(data);
+            }
+            return Ok(new
+            {
+                code = 1,
+                data = listResult,
+                message = "开始批量作战"
+
+            });
+        }
+
         [Route("/Game/getFriendBattery")]
         [HttpPost]
         public IActionResult getFriendBattery([FromBody] Account account)

@@ -23,7 +23,7 @@
                     <a class="navbar-toggle" href="javascript:;" data-toggle="collapse" data-target=".navbar-collapse"><i class="icon icon-th-large"></i></a>
                     <a class="sidebar-toggle" href="javascript:;" data-toggle="push-menu"><i class="icon icon-bars"></i></a>
                     <a class="navbar-brand" href="#">
-                        <span class="logo">Fenglin0721</span>
+                        <span class="logo">SYSTEM</span>
                         <span class="logo-mini">F</span> 
                     </a>
                 </div>
@@ -86,47 +86,13 @@
                             </span>
                         </a>
                     </li>
-                    <li class="treeview">
-                        <a href="javascript:;">
-                            <i class="icon icon-file"></i> 
-                            <span>页面演示</span>
+                    <li>
+                        <a href="new_game.html">
+                            <i class="icon icon-dashboard"></i> 
+                            <span>创建实列</span>
                             <span class="pull-right-container">
-                                <i class="icon icon-angle-left"></i>
                             </span>
                         </a>
-                        <ul class="treeview-menu">
-                            <li><a href="layout.html"><i class="icon icon-circle-blank"></i> 空白页</a></li>
-                            <li><a href="login.html"><i class="icon icon-circle-blank"></i> 登录</a></li>
-                            <li><a href="error-404.html"><i class="icon icon-circle-blank"></i> 404页</a></li>
-                            <li><a href="config.html"><i class="icon icon-circle-blank"></i> 系统设置</a></li>
-                            <li><a href="list.html"><i class="icon icon-circle-blank"></i> 用户列表</a></li>
-                        </ul>
-                    </li>
-                    <li class="treeview">
-                        <a href="javascript:;">
-                            <i class="icon icon-columns"></i> 
-                            <span>基础组件</span>
-                            <span class="pull-right-container">
-                                <i class="icon icon-angle-left"></i>
-                            </span>
-                        </a>
-                        <ul class="treeview-menu">
-                            <li><a href="component-checkbox-radio.html"><i class="icon icon-circle-blank"></i> 多选和单选框</a></li>
-                            <li><a href="component-step.html"><i class="icon icon-circle-blank"></i> 步骤条</a></li>
-                        </ul>
-                    </li>
-                    <li class="treeview">
-                        <a href="javascript:;">
-                            <i class="icon icon-sign-blank"></i> 
-                            <span>扩展插件</span>
-                            <span class="pull-right-container">
-                                <i class="icon icon-angle-left"></i>
-                            </span>
-                        </a>
-                        <ul class="treeview-menu">
-                            <li><a href="plugin-toastr.html"><i class="icon icon-circle-blank"></i> Toastr</a></li>
-                            <li><a href="plugin-notify.html"><i class="icon icon-circle-blank"></i> Notify</a></li>
-                        </ul>
                     </li>
                 </ul>
             </section>
@@ -154,7 +120,7 @@
     <script src="js/app.js"></script>
     <script type="text/javascript">
         var Webuser = sessionStorage.getItem('username');
-        const conGamesStatus = new signalR.HubConnectionBuilder().withUrl("/chatHub?name=" + Webuser).build();
+        const conGamesStatus = new signalR.HubConnectionBuilder().withUrl("http://127.0.0.1:7777/chatHub?name=" + Webuser).build();
         conGamesStatus.start().catch(err => console.error(err.toString()));
         conGamesStatus.on("ReceiveSystemNotification", (message) => {
             console.log(message);

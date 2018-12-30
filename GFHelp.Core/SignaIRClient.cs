@@ -21,7 +21,7 @@ namespace GFHelp.Core
         {
             public string SignalRID;
             public string SignalRName;
-            public bool isAdmin = false;
+            public int Level = -1;
         }
 
 
@@ -39,15 +39,10 @@ namespace GFHelp.Core
         public async static Task SendSystemNotice(string ConnectionId)
         {
             if (Viewer.systemLogs.Count == 0) { return; }
-            for (int i = 0; i < userList.Count; i++)
+
+            foreach (var log in Viewer.systemLogs)
             {
-                if (!userList[i].isAdmin) continue;
-                if (userList[i].SignalRID != ConnectionId) continue;
-                await connection.StartAsync();
-                foreach (var log in Viewer.systemLogs)
-                {
-                    await connection.InvokeAsync("SendSystemNotification", userList[i].SignalRID, JsonConvert.SerializeObject(log));
-                }
+                await connection.InvokeAsync("SendSystemNotification", ConnectionId, JsonConvert.SerializeObject(log));
             }
 
         }
@@ -55,7 +50,7 @@ namespace GFHelp.Core
         {
             for (int i = 0; i < userList.Count; i++)
             {
-                if (userList[i].isAdmin)
+                if (userList[i].Level==1)
                 {
                     await connection.StartAsync();
                     await connection.InvokeAsync("SendSystemNotification", userList[i].SignalRID, JsonConvert.SerializeObject(data));
@@ -95,6 +90,7 @@ namespace GFHelp.Core
             }
 
         }
+
         public static void Loop()
         {
             while (true)
@@ -102,7 +98,9 @@ namespace GFHelp.Core
                 try
                 {
                     Task MessageTask = new Task(() => LoopGameMessage());
+                    Task SystemMessageTask = new Task(() => LoopSystemMessage());
                     MessageTask.Start();
+                    SystemMessageTask.Start();
                     Task.WaitAll(MessageTask);
                     Thread.Sleep(1000);
                 }
@@ -195,6 +193,31 @@ namespace GFHelp.Core
             return;
 
         }
+
+        private static void LoopSystemMessage()
+        {
+            //检查是否有客户端 如果没有的话就不发送了
+
+            if (userList.Count == 0) return;
+            for (int i = 0; i < userList.Count; i++)
+            {
+                connection.StartAsync();
+                if (userList[i].SignalRName == "LocalClient") continue;
+                if (userList[i].Level != 1) continue;
+                try
+                {
+                    //SendSystemNotice(userList[i].SignalRID);
+                }
+                catch (Exception e )
+                {
+                    new Log().systemInit("LoopSystemMessage Error", e.ToString()).signarlError();
+                }
+            }
+            return;
+
+        }
+
+
 
         private static void build()
         {

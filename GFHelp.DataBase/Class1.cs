@@ -38,7 +38,7 @@ namespace GFHelp.DataBase
                     while (query.Read())
                     {
                         List<string> data = new List<string>();
-                        for (int i = 0; i < 7; i++)
+                        for (int i = 0; i < 8; i++)
                         {
                             data.Add(query.GetString(i));
                         }
@@ -77,7 +77,7 @@ namespace GFHelp.DataBase
                     while (query.Read())
                     {
                         List<string> data = new List<string>();
-                        for (int i = 0; i < 2; i++)
+                        for (int i = 0; i <= 2; i++)
                         {
                             data.Add(query.GetString(i));
                         }
@@ -117,7 +117,7 @@ namespace GFHelp.DataBase
                 while (query.Read())
                 {
                     List<string> data = new List<string>();
-                    for (int i = 0; i < 7; i++)
+                    for (int i = 0; i < 8; i++)
                     {
                         data.Add(query.GetString(i));
                     }
@@ -157,7 +157,7 @@ namespace GFHelp.DataBase
         public static bool creatGameAccount(GameAccount gameAccount)
         {
             //INSERT INTO GameAccount (WebUsername,GameAccountID,GamePassword,ChannelID,WorldID,YunDouDou,Parm) VALUES("1","1","1","1","1","1","1");
-            string cmd = "INSERT INTO GameAccount (WebUsername,GameAccountID,GamePassword,ChannelID,WorldID,YunDouDou,Parm) VALUES(" + "\"" + gameAccount.WebUsername + "\"," + "\"" + gameAccount.GameAccountID + "\"," + "\"" + gameAccount.GamePassword + "\"," + "\"" + gameAccount.ChannelID + "\"," + "\"" + gameAccount.WorldID + "\"," + "\"" + gameAccount.YunDouDou + "\"," + "\"" + gameAccount.Parm + "\")";
+            string cmd = "INSERT INTO GameAccount (WebUsername,GameAccountID,GamePassword,ChannelID,WorldID,YunDouDou,Parm,isDefault) VALUES(" + "\"" + gameAccount.WebUsername + "\"," + "\"" + gameAccount.GameAccountID + "\"," + "\"" + gameAccount.GamePassword + "\"," + "\"" + gameAccount.ChannelID + "\"," + "\"" + gameAccount.WorldID + "\"," + "\"" + gameAccount.YunDouDou + "\"," + "\"" + gameAccount.Parm+"\"," + "\"" + gameAccount.isDefault + "\")";
             using (SqliteConnection db = new SqliteConnection("Filename=" + currentDirectory))
             {
                 db.Open();
@@ -177,10 +177,26 @@ namespace GFHelp.DataBase
                 return true;
             }
         }
-        public static bool isUserAdmin(string username)
-        {
 
+        public static bool isLevel1(string username)
+        {
+            if (getLevelNumber(username) == 1) return true;
+            return false;
+        }
+        public static bool isLevel2(string username)
+        {
+            if (getLevelNumber(username) == 2) return true;
+            return false;
+        }
+        public static bool isLevel3(string username)
+        {
+            if (getLevelNumber(username) == 3) return true;
+            return false;
+        }
+        public static int getLevelNumber(string username)
+        {
             string cmd = "SELECT Policy from AccountInfo Where Username='" + username + "'";
+            string result = "";
             using (SqliteConnection db = new SqliteConnection("Filename=" + currentDirectory))
             {
                 db.Open();
@@ -194,14 +210,26 @@ namespace GFHelp.DataBase
                 catch (Exception)
                 {
                     db.Close();
-                    return false;
+                    return -1;
                 }
-                string result = query.GetString(0);
-                if (result == "1") return true;
+                try
+                {
+                    result = query.GetString(0);
+                }
+                catch (Exception)
+                {
+                    db.Close();
+                    return 3;
+                }
+
                 db.Close();
-                return false;
+                int abc;
+                if (int.TryParse(result, out abc)) return abc;
+                return 3;
+
             }
         }
+
         public static bool isMulteAccount(string username)
         {
             string cmd = "SELECT count(*) FROM GameAccount Where WebUsername='" + username + "'";
@@ -381,6 +409,17 @@ namespace GFHelp.DataBase
             WorldID = data[4];
             YunDouDou = data[5];
             Parm = data[6];
+            if (!string.IsNullOrEmpty(data[7]))
+            {
+                if (data[7].ToLower() == "true")
+                {
+                    isDefault = true;
+                }
+                else
+                {
+                    isDefault = false;
+                }
+            }
         }
         public GameAccount()
         {
@@ -424,6 +463,13 @@ namespace GFHelp.DataBase
         /// 
         /// </summary>
         public string Parm { get; set; }
+
+        /// <summary>
+        /// 
+        /// </summary>
+        public bool isDefault { get; set; }
+
+
     }
     public class LoginModel
     {

@@ -30,7 +30,7 @@ namespace GFHelp.Web.Controllers
         /// <param name="context"></param>
         public AccountController()
         {
-
+            ;
         }
 
 
@@ -42,6 +42,19 @@ namespace GFHelp.Web.Controllers
                 return gameaccount;
             }
             return null;
+        }
+
+        internal List<DataBase.GameAccount> GetDefaultAccountInfo()
+        {
+            var listGameInfo = DataBase.DataBase.GetGameAccounts();
+            List<DataBase.GameAccount> resultList = new List<DataBase.GameAccount>();
+
+
+            foreach (var item in listGameInfo)
+            {
+                if (item.isDefault) resultList.Add(item);
+            }
+            return resultList;
         }
 
         private bool delGameAccount(DataBase.GameAccount gameAccount)
@@ -82,10 +95,6 @@ namespace GFHelp.Web.Controllers
             return false;
         }
 
-        private bool isAdmin(string username)
-        {
-            return DataBase.DataBase.isUserAdmin(username);
-        }
 
         private bool isMulteAccount(string username)
         {
@@ -144,19 +153,20 @@ namespace GFHelp.Web.Controllers
         [HttpPost]
         public IActionResult CreatGame([FromBody] DataBase.GameAccount accountbase)
         {
+            if (CheckDataVailed(accountbase) == false) return NoContent();
             bool isCreatSussess=false;
             string username =User.FindFirst(ClaimTypes.NameIdentifier)?.Value;
             accountbase.WebUsername = username;
+            accountbase.isDefault = false;
             //检查是否admin
-            if (isAdmin(username))
+            if (DataBase.DataBase.getLevelNumber(username) <= 2)
             {
                 if (!isAccCreated(accountbase))
                 {
                     isCreatSussess = creatGameAccount(accountbase);
                 }
-
             }
-            else
+            if (DataBase.DataBase.getLevelNumber(username) > 2)
             {
                 //检查是否有多个账号
                 if (!isMulteAccount(username) && !isAccCreated(accountbase))
@@ -186,6 +196,8 @@ namespace GFHelp.Web.Controllers
         }
 
 
+
+
         /// <summary>
         /// 删除一个游戏实例
         /// </summary>
@@ -195,12 +207,10 @@ namespace GFHelp.Web.Controllers
         [HttpPost]
         public IActionResult DeleteGame([FromBody] DataBase.GameAccount accountbase)
         {
+            if (CheckDataVailed(accountbase) == false) return NoContent();
             bool reslut=true;
             string username = User.FindFirst(ClaimTypes.NameIdentifier)?.Value;
             accountbase.WebUsername = username;
-
-
-
 
             if (isAccCreated(accountbase))
             {
@@ -224,6 +234,185 @@ namespace GFHelp.Web.Controllers
             });
 
         }
+
+
+
+        /// <summary>
+        /// 获取Default的游戏实例
+        /// </summary>
+        /// <returns></returns>
+        [Route("[action]")]
+        [HttpGet]
+        public IActionResult GetDefaultGamesInfo()
+        {
+            string username = User.FindFirst(ClaimTypes.NameIdentifier)?.Value;
+
+            //检查是否admin
+            if (DataBase.DataBase.getLevelNumber(username) != 1)
+            {
+                return Ok(new
+                {
+                    code = -1,
+                    message = string.Format("权限不足")
+                });
+            }
+            return Ok(new
+            {
+                code = 1,
+                data = GetDefaultAccountInfo(),
+                message = string.Format("嘤嘤嘤")
+            });
+
+        }
+
+
+        /// <summary>
+        /// 创建一个游戏实例
+        /// </summary>
+        [Route("[action]")]
+        [HttpPost]
+        public IActionResult CreatDefaultGame([FromBody] DataBase.GameAccount AccountInfo)
+        {
+            if (CheckDataVailed(AccountInfo) == false) return NoContent();
+
+
+
+            string username = User.FindFirst(ClaimTypes.NameIdentifier)?.Value;
+
+
+
+
+            //检查是否admin
+            if (DataBase.DataBase.getLevelNumber(username) != 1)
+            {
+                return Ok(new
+                {
+                    code = -1,
+                    message = string.Format("权限不足")
+                });
+            }
+
+            AccountInfo.isDefault = true;
+            //检查是否有多个账号
+            if (!isAccCreated(AccountInfo))
+            {
+                creatGameAccount(AccountInfo);
+            }
+
+            return Ok(new
+            {
+                code = 1,
+                data = GetDefaultAccountInfo(),
+                message = string.Format("游戏账号记录成功")
+            });
+
+        }
+
+        /// <summary>
+        /// 创建多个游戏实例
+        /// </summary>
+        [Route("[action]")]
+        [HttpPost]
+        public IActionResult CreatDefaultGames([FromBody] List<DataBase.GameAccount> ListAccountInfo)
+        {
+            if (CheckDataVailed(ListAccountInfo) == false) return NoContent();
+            string username = User.FindFirst(ClaimTypes.NameIdentifier)?.Value;
+            List<DataBase.GameAccount> resultList = new List<DataBase.GameAccount>();
+            //检查是否admin
+            if (DataBase.DataBase.getLevelNumber(username) != 1)
+            {
+                return Ok(new
+                {
+                    code = -1,
+                    message = string.Format("权限不足")
+                });
+            }
+
+
+            for (int i = 0; i < ListAccountInfo.Count; i++)
+            {
+                ListAccountInfo[i].isDefault = true;
+            }
+
+            foreach (var item in ListAccountInfo)
+            {
+                //检查是否有多个账号
+                if (!isAccCreated(item))
+                {
+                    if (!creatGameAccount(item)) resultList.Add(item);
+                }
+
+            }
+
+
+
+            return Ok(new
+            {
+                code = 1,
+                data = GetDefaultAccountInfo(),
+                message = string.Format("游戏账号记录成功")
+            });
+
+        }
+
+
+        /// <summary>
+        /// 删除一个游戏实例
+        /// </summary>
+        /// <returns></returns>
+        [Route("[action]")]
+        [HttpPost]
+        public IActionResult DeleteDefaultGame([FromBody] DataBase.GameAccount accountbase)
+        {
+            if (CheckDataVailed(accountbase) == false) return NoContent();
+            string username = User.FindFirst(ClaimTypes.NameIdentifier)?.Value;
+
+            //检查是否admin
+            if (DataBase.DataBase.getLevelNumber(username) != 1)
+            {
+                return Ok(new
+                {
+                    code = -1,
+                    data = "",
+                    message = string.Format("权限不足")
+                });
+            }
+
+            if (isAccCreated(accountbase))
+            {
+                delGameAccount(accountbase);
+            }
+            return Ok(new
+            {
+                code = 1,
+                data = GetDefaultAccountInfo(),
+                message = string.Format("已清空")
+            });
+
+        }
+
+        private bool CheckDataVailed(object data)
+        {
+            if (data == null) return false;
+            return true;
+
+
+        }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
     }
 }

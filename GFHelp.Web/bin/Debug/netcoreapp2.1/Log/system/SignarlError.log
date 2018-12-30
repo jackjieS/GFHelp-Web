@@ -7171,3 +7171,43 @@ Parameter name: index
    at GFHelp.Core.MulitePlayerData.WebData.WebData.GetWebTeams(List`1& Teams) in C:\Users\jack\Desktop\CS\GFHelp-Web\GFHelp.Core\MulitePlayerData\WebData\WebData.cs:line 42
    at GFHelp.Core.MulitePlayerData.WebData.WebData.Get() in C:\Users\jack\Desktop\CS\GFHelp-Web\GFHelp.Core\MulitePlayerData\WebData\WebData.cs:line 178
    at GFHelp.Core.SignaIRClient.getWebData() in C:\Users\jack\Desktop\CS\GFHelp-Web\GFHelp.Core\SignaIRClient.cs:line 131
+【20:49:28】      message = OnDisconnectedAsync ERROR , exception = System.InvalidOperationException: The data is NULL at ordinal 0. This method can't be called on NULL values. Check using IsDBNull before calling.
+   at Microsoft.Data.Sqlite.SqliteValueReader.GetString(Int32 ordinal)
+   at Microsoft.Data.Sqlite.SqliteDataReader.GetString(Int32 ordinal)
+   at GFHelp.DataBase.DataBase.getLevelNumber(String username) in C:\Users\jack\Desktop\CS\GFHelp-Web\GFHelp.DataBase\Class1.cs:line 214
+   at GFHelp.Web.Chat.<>c__DisplayClass10_0.<OnConnectedAsync>b__0() in C:\Users\jack\Desktop\CS\GFHelp-Web\GFHelp.Web\Hub\ChatHub.cs:line 139
+【20:52:26】      message = OnDisconnectedAsync ERROR , exception = System.InvalidOperationException: The data is NULL at ordinal 0. This method can't be called on NULL values. Check using IsDBNull before calling.
+   at Microsoft.Data.Sqlite.SqliteValueReader.GetString(Int32 ordinal)
+   at Microsoft.Data.Sqlite.SqliteDataReader.GetString(Int32 ordinal)
+   at GFHelp.DataBase.DataBase.getLevelNumber(String username) in C:\Users\jack\Desktop\CS\GFHelp-Web\GFHelp.DataBase\Class1.cs:line 214
+   at GFHelp.Web.Chat.<>c__DisplayClass10_0.<OnConnectedAsync>b__0() in C:\Users\jack\Desktop\CS\GFHelp-Web\GFHelp.Web\Hub\ChatHub.cs:line 139
+【20:59:19】      message = OnDisconnectedAsync ERROR , exception = System.InvalidOperationException: The data is NULL at ordinal 0. This method can't be called on NULL values. Check using IsDBNull before calling.
+   at Microsoft.Data.Sqlite.SqliteValueReader.GetString(Int32 ordinal)
+   at Microsoft.Data.Sqlite.SqliteDataReader.GetString(Int32 ordinal)
+   at GFHelp.DataBase.DataBase.getLevelNumber(String username) in C:\Users\jack\Desktop\CS\GFHelp-Web\GFHelp.DataBase\Class1.cs:line 214
+   at GFHelp.Web.Chat.<>c__DisplayClass10_0.<OnConnectedAsync>b__0() in C:\Users\jack\Desktop\CS\GFHelp-Web\GFHelp.Web\Hub\ChatHub.cs:line 139
+【21:01:37】      message = OnDisconnectedAsync ERROR , exception = System.InvalidOperationException: The data is NULL at ordinal 0. This method can't be called on NULL values. Check using IsDBNull before calling.
+   at Microsoft.Data.Sqlite.SqliteValueReader.GetString(Int32 ordinal)
+   at Microsoft.Data.Sqlite.SqliteDataReader.GetString(Int32 ordinal)
+   at GFHelp.DataBase.DataBase.getLevelNumber(String username) in C:\Users\jack\Desktop\CS\GFHelp-Web\GFHelp.DataBase\Class1.cs:line 214
+   at GFHelp.Web.Chat.<>c__DisplayClass10_0.<OnConnectedAsync>b__0() in C:\Users\jack\Desktop\CS\GFHelp-Web\GFHelp.Web\Hub\ChatHub.cs:line 139
+【00:06:24】      message = OnDisconnectedAsync ERROR , exception = System.InvalidOperationException: The data is NULL at ordinal 0. This method can't be called on NULL values. Check using IsDBNull before calling.
+   at Microsoft.Data.Sqlite.SqliteValueReader.GetString(Int32 ordinal)
+   at Microsoft.Data.Sqlite.SqliteDataReader.GetString(Int32 ordinal)
+   at GFHelp.DataBase.DataBase.getLevelNumber(String username) in C:\Users\jack\Desktop\CS\GFHelp-Web\GFHelp.DataBase\Class1.cs:line 214
+   at GFHelp.Web.Chat.<>c__DisplayClass10_0.<OnConnectedAsync>b__0() in C:\Users\jack\Desktop\CS\GFHelp-Web\GFHelp.Web\Hub\ChatHub.cs:line 139
+【00:06:52】      message = OnDisconnectedAsync ERROR , exception = System.InvalidOperationException: The data is NULL at ordinal 0. This method can't be called on NULL values. Check using IsDBNull before calling.
+   at Microsoft.Data.Sqlite.SqliteValueReader.GetString(Int32 ordinal)
+   at Microsoft.Data.Sqlite.SqliteDataReader.GetString(Int32 ordinal)
+   at GFHelp.DataBase.DataBase.getLevelNumber(String username) in C:\Users\jack\Desktop\CS\GFHelp-Web\GFHelp.DataBase\Class1.cs:line 214
+   at GFHelp.Web.Chat.<>c__DisplayClass10_0.<OnConnectedAsync>b__0() in C:\Users\jack\Desktop\CS\GFHelp-Web\GFHelp.Web\Hub\ChatHub.cs:line 139
+【00:07:09】      message = OnDisconnectedAsync ERROR , exception = System.InvalidOperationException: The data is NULL at ordinal 0. This method can't be called on NULL values. Check using IsDBNull before calling.
+   at Microsoft.Data.Sqlite.SqliteValueReader.GetString(Int32 ordinal)
+   at Microsoft.Data.Sqlite.SqliteDataReader.GetString(Int32 ordinal)
+   at GFHelp.DataBase.DataBase.getLevelNumber(String username) in C:\Users\jack\Desktop\CS\GFHelp-Web\GFHelp.DataBase\Class1.cs:line 214
+   at GFHelp.Web.Chat.<>c__DisplayClass10_0.<OnConnectedAsync>b__0() in C:\Users\jack\Desktop\CS\GFHelp-Web\GFHelp.Web\Hub\ChatHub.cs:line 139
+【00:08:21】      message = OnDisconnectedAsync ERROR , exception = System.InvalidOperationException: The data is NULL at ordinal 0. This method can't be called on NULL values. Check using IsDBNull before calling.
+   at Microsoft.Data.Sqlite.SqliteValueReader.GetString(Int32 ordinal)
+   at Microsoft.Data.Sqlite.SqliteDataReader.GetString(Int32 ordinal)
+   at GFHelp.DataBase.DataBase.getLevelNumber(String username) in C:\Users\jack\Desktop\CS\GFHelp-Web\GFHelp.DataBase\Class1.cs:line 214
+   at GFHelp.Web.Chat.<>c__DisplayClass10_0.<OnConnectedAsync>b__0() in C:\Users\jack\Desktop\CS\GFHelp-Web\GFHelp.Web\Hub\ChatHub.cs:line 139

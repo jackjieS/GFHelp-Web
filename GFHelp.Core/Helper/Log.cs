@@ -161,12 +161,14 @@ namespace GFHelp.Core.Helper
         {
             logWriter.CoreInfo(data.text);
             Add(Viewer.systemLogs, data);
+            SignaIRClient.SendSystemNotice(data);
             return this;
         }
         public Log coreError()
         {
             logWriter.CoreError(data.text);
             Add(Viewer.systemLogs, data);
+            SignaIRClient.SendSystemNotice(data);
             return this;
         }
         public Log signarlError()
