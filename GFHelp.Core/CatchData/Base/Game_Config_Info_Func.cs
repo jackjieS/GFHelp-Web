@@ -72,24 +72,26 @@ namespace GFHelp.Core.CatchData.Base
             return result;
 
         }
-        public static float GetGunBasicAttribute(int type, string key)
-        {
 
-            if (!CatachData.dictGunBaseAttri.ContainsKey(type))
+        // Token: 0x0600157C RID: 5500 RVA: 0x0009E06C File Offset: 0x0009C26C
+        public static float GetGunBasicAttribute(GunType type, string key)
+        {
+            if (!Data.dictGunBaseAttri.ContainsKey(type))
             {
-                CatachData.dictGunBaseAttri.Add(type, new Dictionary<string, float>());
+                Data.dictGunBaseAttri.Add(type, new Dictionary<string, float>());
             }
-            if (!CatachData.dictGunBaseAttri[type].ContainsKey(key))
+            if (!Data.dictGunBaseAttri[type].ContainsKey(key))
             {
-                float result = CatachData.gun_type_info[type].data[key];
-                CatachData.dictGunBaseAttri[type].Add(key, result);
+                Data.dictGunBaseAttri[type].Add(key, (float)GameData.jsonGunType[type - GunType.handgun][key].Double);
             }
-            return CatachData.dictGunBaseAttri[type][key];
+            return Data.dictGunBaseAttri[type][key];
         }
 
 
         public static void ReadInfo(JsonData jsonData)
         {
+            if (!jsonData.Contains("game_config_info")) return;
+            jsonData = jsonData["game_config_info"];
             Data.dictionaryIntParamter = new Dictionary<string, int>();
             Data.dictionaryStringParamter = new Dictionary<string, string>();
             Data.dictionaryFloatParamter = new Dictionary<string, float>();
@@ -97,26 +99,29 @@ namespace GFHelp.Core.CatchData.Base
             for (int i = 0; i < jsonData.Count; i++)
             {
                 string @string = jsonData[i]["parameter_type"].String;
-                switch (@string)
+                if (@string != null)
                 {
-                    case "int":
+                    if (!(@string == "int"))
+                    {
+                        if (!(@string == "string"))
                         {
-                            int @int = jsonData[i]["parameter_value"].Int;
-                            Data.dictionaryIntParamter.Add(jsonData[i]["parameter_name"].String, @int);
-                            break;
+                            if (@string == "float")
+                            {
+                                string rawdata = jsonData[i]["parameter_value"].String;
+                                Data.dictionaryFloatParamter.Add(jsonData[i]["parameter_name"].String, float.Parse(rawdata));
+                            }
                         }
-                    case "string":
+                        else
                         {
                             string string2 = jsonData[i]["parameter_value"].String;
                             Data.dictionaryStringParamter.Add(jsonData[i]["parameter_name"].String, string2);
-                            break;
                         }
-                    case "float":
-                        {
-                            double @float = jsonData[i]["parameter_value"].Double;
-                            Data.dictionaryFloatParamter.Add(jsonData[i]["parameter_name"].String,float.Parse(@float.ToString()));
-                            break;
-                        }
+                    }
+                    else
+                    {
+                        int @int = jsonData[i]["parameter_value"].Int;
+                        Data.dictionaryIntParamter.Add(jsonData[i]["parameter_name"].String, @int);
+                    }
                 }
             }
             if (Data.GetInt("messagelist_refresh_rate") == 0)
@@ -526,7 +531,7 @@ namespace GFHelp.Core.CatchData.Base
         public static Dictionary<int, int> dictGunUpLevelExp;
         public static Dictionary<int, int> dictLevelToSumExp = new Dictionary<int, int>();
         public static tBaseDatas<EquipInfo> listEquipInfo;
-        public static tBaseDatas<Gun_Info> listGunInfo = new tBaseDatas<Gun_Info>();
+        public static tBaseDatas<GunInfo> listGunInfo = new tBaseDatas<GunInfo>();
         public static tBaseDatas<ItemInfo> listItemInfo = new tBaseDatas<ItemInfo>();
         public static tBaseDatas<SquadChipInfo> listSquadChipInfo = new tBaseDatas<SquadChipInfo>();
         public static tBaseDatas<SquadInfo> listSquadInfo = new tBaseDatas<SquadInfo>();
@@ -542,7 +547,7 @@ namespace GFHelp.Core.CatchData.Base
         public static tBaseDatas<SquadCPUColor> listSquadCPUColor = new tBaseDatas<SquadCPUColor>();
         public static tBaseDatas<SquadCPUGrid> listSquadCPUGrid = new tBaseDatas<SquadCPUGrid>();
         public static tBaseDatas<SquadCPUCompletion> listSquadCPUCompletion = new tBaseDatas<SquadCPUCompletion>();
-
+        public static JsonData jsonGunType;
 
 
 

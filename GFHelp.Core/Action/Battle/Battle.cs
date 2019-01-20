@@ -833,7 +833,7 @@ namespace GFHelp.Core.Action
 
 
         }
-        public void Check_Gun_need_FIX()
+        public void Check_Gun_need_FIX(bool fix=false)
         {
             userData.webData.StatusBarText = "检查人形是否需要修复";
             Thread.Sleep(1000);
@@ -843,16 +843,24 @@ namespace GFHelp.Core.Action
                 for (int i = 0; i <= userData.Teams[k].Count; i++)
                 {
                     if (!userData.Teams[k].ContainsKey(i)) continue;
-                    double life = (double)userData.Teams[k][i].life / userData.Teams[k][i].maxLife;
-                    if (userData.item_With_User_Info.Quick_Reinforce <= 10) continue;
                     if (userData.Teams[k][i].life == userData.Teams[k][i].maxLife) continue;
-                    if (life > 0.25) continue;
+                    double life = (double)userData.Teams[k][i].life / userData.Teams[k][i].maxLife;
+                    if (fix == true)
+                    {
+                        Fix_Gun(userData.Teams[k][i].id, true);
+
+                    }
+                    if(fix == false)
+                    {
+                        if (userData.item_With_User_Info.Quick_Reinforce <= 10) continue;
+                        if (userData.Teams[k][i].life == userData.Teams[k][i].maxLife) continue;
+                        if (life > 0.25) continue;
+                        Fix_Gun(userData.Teams[k][i].id, true);
+                        userData.Teams[k][i].life = userData.Teams[k][i].maxLife;
+                        userData.item_With_User_Info.Quick_Reinforce -= 1;
+                    }
 
 
-
-                    Fix_Gun(userData.Teams[k][i].id, true);
-                    userData.Teams[k][i].life = userData.Teams[k][i].maxLife;
-                    userData.item_With_User_Info.Quick_Reinforce -= 1;
                 }
             }
         }

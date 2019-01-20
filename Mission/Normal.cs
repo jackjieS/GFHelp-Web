@@ -5032,7 +5032,7 @@ namespace GFHelp.Mission
 
         }
 
-        public void map8_2emod2(UserData userData,MissionInfo.Data data)
+        public void map8_2emod2()
         {
 
             

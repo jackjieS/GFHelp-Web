@@ -81,6 +81,7 @@ namespace GFHelp.Core.Action
             userData.mailList.MailHandle();
             userData.battle.Abort_Mission_login();
 
+            DailyTask();
 
             userData.config.LoginSuccessful = true;//开始自动任务循环
             return true;
@@ -308,9 +309,17 @@ namespace GFHelp.Core.Action
                     default:
                         break;
                 }
-
-
             }
+        }
+
+
+        private void DailyTask()
+        {
+            if (!userData.config.AutoTaskDaily) return;
+            userData.webData.StatusBarText = "获取每日任务";
+            string result = API.Home.GetDailyTask(userData.GameAccount);
+            if (Response.Check(userData.GameAccount, ref result, "GetDailyTask", true) != 1) return;
+            userData.task_Daily.ReadTask_Daily(JsonMapper.ToObject(result));
         }
 
         public void Click_Kalina()

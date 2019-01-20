@@ -1,0 +1,217 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>zui-admin</title>
+    <!-- zui css -->
+    <link rel="stylesheet" href="dist/css/zui.min.css">
+    <link rel="stylesheet" href="dist/theme/blue.css">
+    <!-- app css -->
+    <link rel="stylesheet" href="css/app.css">
+    <link rel="stylesheet" href="css/new.css">
+    <!-- jquery js -->
+    <script src="dist/lib/jquery/jquery.js"></script>
+
+</head>
+
+<body>
+    <div class="wrapper">
+        <div id="BasePage"></div>
+        <div id="content-wrapper" class="content-wrapper">
+            <div class="content-header">
+                <ul class="breadcrumb">
+                    <li><a href="#"><i class="icon icon-home"></i></a></li>
+                    <li class="active">批量创建</li>
+                </ul>
+            </div>
+            <div class="content-body">
+                <div class="container">
+                    <table class="table">
+                        <thead>
+                            <tr>
+                                <th width="100">ID</th>
+                                <th>yunDouDou</th>
+                                <th>webUsername</th>
+                                <th>gameAccountID</th>
+                                <th>gamePassword</th>
+                                <th width="100">channelID</th>
+                                <th>worldID</th>
+                                <th>parm</th>
+                                <th width="150">操作</th>
+                            </tr>
+                        </thead>
+                        <form action="">
+                            <tbody></tbody>
+                        </form>
+                    </table>
+                    <button class="btn btn-primary btn-block" id="addBtn">添加</button>
+                    <!-- <button class="btn btn-primary btn-block" onclick="create_all()">所有创建</button> -->
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- zui js -->
+    <script src="dist/js/zui.min.js"></script>
+    <script src="../lib/SingnlR/signalr.js"></script>
+    <!-- app js -->
+    <script src="js/app.js"></script>
+    <script src="js/basetools.js"></script>
+    <script type="text/javascript">
+        $(function () {
+            $("#BasePage").load("BasePage.html",function(response,status){
+                if(status=="success"){
+                    document.getElementById("content-wrapper").style["display"]="block";
+                }
+            });
+
+        });
+        var token = getCookie('token');
+
+        //统计已有行数
+        function countRow() {
+            return $('tbody tr').length;
+        }
+
+        //创建单个实列
+        function create_one(id) {
+
+            let data = {
+                yunDouDou: $('input[name="yunDouDou[' + id + ']"]').val(),
+                webUsername: $('input[name="webUsername[' + id + ']"]').val(),
+                gameAccountID: $('input[name="gameAccountID[' + id + ']"]').val(),
+                gamePassword: $('input[name="gamePassword[' + id + ']"]').val(),
+                channelID: $('select[name="channelID[' + id + ']"]').val(),
+                worldID: $('input[name="worldID[' + id + ']"]').val(),
+                parm: $('input[name="parm[' + id + ']"]').val(),
+            };
+
+            $.ajax({
+                url: 'http://118.24.162.26:7777/CreatDefaultGame',
+                type: 'post',
+                dataType: 'json',
+                headers: { 'Authorization': 'Bearer ' + token },
+                contentType: "application/json;charset=UTF-8",
+                data: JSON.stringify(data),
+                success: function (res) {
+                    if (res && res.code == 1) {
+                        $('button[data-id=' + id + ']').attr('disabled', 'disabled');
+                        alert('成功');
+                    } else {
+                        alert('失败');
+                    }
+                }
+            });
+        }
+
+        //创建单个实列
+        function delete_one(id) {
+
+            let data = {
+                yunDouDou: $('input[name="yunDouDou[' + id + ']"]').val(),
+                webUsername: $('input[name="webUsername[' + id + ']"]').val(),
+                gameAccountID: $('input[name="gameAccountID[' + id + ']"]').val(),
+                gamePassword: $('input[name="gamePassword[' + id + ']"]').val(),
+                channelID: $('select[name="channelID[' + id + ']"]').val(),
+                worldID: $('input[name="worldID[' + id + ']"]').val(),
+                parm: $('input[name="parm[' + id + ']"]').val(),
+            };
+
+            $.ajax({
+                url: 'http://118.24.162.26:7777/DeleteDefaultGame',
+                type: 'post',
+                dataType: 'json',
+                headers: { 'Authorization': 'Bearer ' + token },
+                contentType: "application/json;charset=UTF-8",
+                data: JSON.stringify(data),
+                success: function (res) {
+                    if (res && res.code == 1) {
+                        $('button[data-id=' + id + ']').parents('tr').remove();
+                        alert('成功');
+                    } else {
+                        alert('失败');
+                    }
+                }
+            });
+        }
+
+        function create_all() {
+            let data = [];
+            let id = countRow() + 1;
+            for (let i = 1; i < id; i++) {
+                data.push({
+                    yunDouDou: $('input[name="yunDouDou[' + i + ']"]').val(),
+                    webUsername: $('input[name="webUsername[' + i + ']"]').val(),
+                    gameAccountID: $('input[name="gameAccountID[' + i + ']"]').val(),
+                    gamePassword: $('input[name="gamePassword[' + i + ']"]').val(),
+                    channelID: $('select[name="channelID[' + i + ']"]').val(),
+                    worldID: $('input[name="worldID[' + i + ']"]').val(),
+                    parm: $('input[name="parm[' + i + ']"]').val(),
+                });
+            }
+
+            $.ajax({
+                url: 'http://118.24.162.26:7777/CreatDefaultGame',
+                type: 'post',
+                dataType: 'json',
+                headers: { 'Authorization': 'Bearer ' + token },
+                contentType: "application/json",
+                data: data,
+                success: function (res) {
+                    console.log(res);
+                }
+            });
+        }
+
+        //监听添加一行
+        $('#addBtn').on('click', function () {
+            var rowId = countRow() + 1;
+            var tr = '<tr><td>' + rowId + '</td>\n' +
+                '<td><input type="text" name="yunDouDou[' + rowId + ']" class="form-control" ></td>\n' +
+                '<td><input type="text" name="webUsername[' + rowId + ']" id="inputID" class="form-control" ></td>\n' +
+                '<td><input type="text" name="gameAccountID[' + rowId + ']" id="inputID" class="form-control"></td>\n' +
+                '<td><input type="text" name="gamePassword[' + rowId + ']" id="inputID" class="form-control"></td>\n' +
+                '<td><select class="form-control" name="channelID[' + rowId + ']" ><option value="ios">官方ios</option><option value="gwpz">官方安卓</option><option value="bili">B站</option><option value="other">其他</option></select></td>\n' +
+                '<td><input type="text" name="worldID[' + rowId + ']" id="inputID" class="form-control"></td>\n' +
+                '<td><input type="text" name="parm[' + rowId + ']" id="inputID" class="form-control" ></td>\n' +
+                '<td>\n' +
+                '<button class="btn btn-primary" onclick="create_one(' + rowId + ')" data-id="' + rowId + '">创建</button>\n' +
+                '<button class="btn btn-primary" onclick="delete_one(' + rowId + ')">移除</button>\n' +
+                '</td></tr>';
+            $('tbody').append(tr);
+        });
+
+        //获取默认实列
+        $.ajax({
+            url: 'http://118.24.162.26:7777/GetDefaultGamesInfo',
+            type: 'get',
+            dataType: 'json',
+            headers: { 'Authorization': 'Bearer ' + token },
+            contentType: "application/json",
+            success: function (res) {
+                if (res.code == 1) {
+                    for (let i = 0; i < res.data.length; i++) {
+                        let tr = '<tr><td>' + (i + 1) + '</td>\n' +
+                            '<td><input type="text" value="' + res.data[i].yunDouDou + '" name="yunDouDou[' + (i + 1) + ']" class="form-control" ></td>\n' +
+                            '<td><input type="text" value="' + res.data[i].webUsername + '" name="webUsername[' + (i + 1) + ']" id="inputID" class="form-control" ></td>\n' +
+                            '<td><input type="text" value="' + res.data[i].gameAccountID + '" name="gameAccountID[' + (i + 1) + ']" id="inputID" class="form-control"></td>\n' +
+                            '<td><input type="text" value="' + res.data[i].gamePassword + '" name="gamePassword[' + (i + 1) + ']" id="inputID" class="form-control"></td>\n' +
+                            '<td><select class="form-control" name="channelID[' + rowId + ']" ><option value="ios">官方ios</option><option value="gwpz">官方安卓</option><option value="bili">B站</option><option value="other">其他</option></select></td>\n' +
+                            '<td><input type="text" value="' + res.data[i].worldID + '" name="worldID[' + (i + 1) + ']" id="inputID" class="form-control"></td>\n' +
+                            '<td><input type="text" value="' + res.data[i].parm + '" name="parm[' + (i + 1) + ']" id="inputID" class="form-control" ></td>\n' +
+                            '<td>\n' +
+                            '<button class="btn btn-primary" disabled onclick="create_one(' + (i + 1) + ')" data-id="' + (i + 1) + '">创建</button>\n' +
+                            '<button class="btn btn-primary" onclick="delete_one(' + (i + 1) + ')">移除</button>\n' +
+                            '</td></tr>';
+                        $('tbody').append(tr);
+                    }
+                }
+            }
+        });
+
+    </script>
+</body>
+
+</html>

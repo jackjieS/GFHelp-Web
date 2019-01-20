@@ -464,7 +464,7 @@ namespace GFHelp.Core.MulitePlayerData
                 {
                     return value;
                 }
-                string[] array = this.info.strBounsType.Split(new char[]
+                string[] array = this.info.bonus_type.Split(new char[]
                 {
             ','
                 });
@@ -502,7 +502,7 @@ namespace GFHelp.Core.MulitePlayerData
                     num = 0;
                 }
                 float equipLevelUpRate = CatchData.Base.Data.GetEquipLevelUpRate((int)this.info.rank);
-                float exclusiveRate = this.info.exclusiveRate;
+                float exclusiveRate = this.info.exclusive_rate;
                 return Mathf.CeilToInt((float)num * equipLevelUpRate * exclusiveRate);
             }
             public int CalculateExpToNextLevel(int nextLevel)
@@ -528,7 +528,7 @@ namespace GFHelp.Core.MulitePlayerData
                     num = 0;
                 }
                 float equipLevelUpRate = CatchData.Base.Data.GetEquipLevelUpRate((int)this.info.rank);
-                float exclusiveRate = this.info.exclusiveRate;
+                float exclusiveRate = this.info.exclusive_rate;
                 return Mathf.CeilToInt((float)num * equipLevelUpRate * exclusiveRate);
             }
             public int GetLevelToBeAdded(int expAdded)

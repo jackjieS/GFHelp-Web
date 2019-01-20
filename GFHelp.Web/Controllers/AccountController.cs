@@ -278,8 +278,9 @@ namespace GFHelp.Web.Controllers
 
 
             string username = User.FindFirst(ClaimTypes.NameIdentifier)?.Value;
-
-
+            AccountInfo.isDefault = true;
+            if (string.IsNullOrEmpty(AccountInfo.WebUsername)) AccountInfo.WebUsername = username;
+            if (string.IsNullOrEmpty(AccountInfo.WorldID)) AccountInfo.WorldID = "0";
 
 
             //检查是否admin
@@ -332,6 +333,8 @@ namespace GFHelp.Web.Controllers
             for (int i = 0; i < ListAccountInfo.Count; i++)
             {
                 ListAccountInfo[i].isDefault = true;
+                if (string.IsNullOrEmpty(ListAccountInfo[i].WebUsername)) ListAccountInfo[i].WebUsername = username;
+                if (string.IsNullOrEmpty(ListAccountInfo[i].WorldID)) ListAccountInfo[i].WorldID = "0";
             }
 
             foreach (var item in ListAccountInfo)

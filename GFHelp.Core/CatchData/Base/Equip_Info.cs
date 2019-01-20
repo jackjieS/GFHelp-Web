@@ -6,91 +6,135 @@ using System.Text;
 
 namespace GFHelp.Core.CatchData.Base
 {
-    public class EquipInfo : tBaseData
+    public class EquipInfo : StcEquip, tBaseData
     {
-        public EquipInfo(JsonData jsonEquipInfo)
+        // Token: 0x06001714 RID: 5908 RVA: 0x000A8148 File Offset: 0x000A6348
+        public EquipInfo()
         {
-            this.id = Convert.ToInt32((string)jsonEquipInfo["id"]);
-            this.code = jsonEquipInfo["code"].String;
-            this.name = (string)jsonEquipInfo["name"];
-            this.introduction = jsonEquipInfo["equip_introduction"].String;
-            this.type = (EquipType)jsonEquipInfo["type"].Int;
-            this.category = (EquipCategory)jsonEquipInfo["category"].Int;
-            this.SetRange(jsonEquipInfo["pow"].String.Split(new char[]
+
+        }
+
+        // Token: 0x06001715 RID: 5909 RVA: 0x000A822C File Offset: 0x000A642C
+        public long GetID()
+        {
+
+            return (long)this.id;
+        }
+
+        // Token: 0x17000591 RID: 1425
+        // (get) Token: 0x06001716 RID: 5910 RVA: 0x000A8260 File Offset: 0x000A6460
+        // (set) Token: 0x06001717 RID: 5911 RVA: 0x000A829C File Offset: 0x000A649C
+        public new string name
+        {
+            get
+            {
+
+                return this.name;
+            }
+            set
+            {
+
+                this.name = value;
+            }
+        }
+
+        // Token: 0x17000592 RID: 1426
+        // (get) Token: 0x06001718 RID: 5912 RVA: 0x000A82D0 File Offset: 0x000A64D0
+        // (set) Token: 0x06001719 RID: 5913 RVA: 0x000A830C File Offset: 0x000A650C
+        public string introduction
+        {
+            get
+            {
+                return this.equip_introduction;
+            }
+            set
+            {
+                this.equip_introduction = value;
+            }
+        }
+
+        // Token: 0x17000593 RID: 1427
+        // (get) Token: 0x0600171A RID: 5914 RVA: 0x000A8340 File Offset: 0x000A6540
+        // (set) Token: 0x0600171B RID: 5915 RVA: 0x000A837C File Offset: 0x000A657C
+        public new string description
+        {
+            get
+            {
+
+                return this.description;
+            }
+            set
+            {
+                this.description = value;
+            }
+        }
+
+        // Token: 0x0600171C RID: 5916 RVA: 0x000A83B0 File Offset: 0x000A65B0
+        public override void InitData()
+        {
+
+            this.category = (EquipCategory)base.category;
+            this.type = (EquipType)base.type;
+            this.rank = (EquipRank)base.rank;
+            this.SetRange(this.pow.Split(new char[]
             {
             ','
             }), ref this.rangePow);
-            this.SetRange(jsonEquipInfo["hit"].String.Split(new char[]
+            this.SetRange(this.hit.Split(new char[]
             {
             ','
             }), ref this.rangeHit);
-            this.SetRange(jsonEquipInfo["dodge"].String.Split(new char[]
+            this.SetRange(this.dodge.Split(new char[]
             {
             ','
             }), ref this.rangeDodge);
-            this.SetRange(jsonEquipInfo["speed"].String.Split(new char[]
+            this.SetRange(this.speed.Split(new char[]
             {
             ','
             }), ref this.rangeSpeed);
-            this.SetRange(jsonEquipInfo["rate"].String.Split(new char[]
+            this.SetRange(this.rate.Split(new char[]
             {
             ','
             }), ref this.rangeRate);
-            this.SetRange(jsonEquipInfo["critical_harm_rate"].String.Split(new char[]
+            this.SetRange(this.critical_harm_rate.Split(new char[]
             {
             ','
             }), ref this.rangeCritHarm);
-            this.SetRange(jsonEquipInfo["critical_percent"].String.Split(new char[]
+            this.SetRange(this.critical_percent.Split(new char[]
             {
             ','
             }), ref this.rangeCrit);
-            this.SetRange(jsonEquipInfo["armor_piercing"].String.Split(new char[]
+            this.SetRange(this.armor_piercing.Split(new char[]
             {
             ','
             }), ref this.rangePiercing);
-            this.SetRange(jsonEquipInfo["armor"].String.Split(new char[]
+            this.SetRange(this.armor.Split(new char[]
             {
             ','
             }), ref this.rangeArmor);
-            this.SetRange(jsonEquipInfo["shield"].String.Split(new char[]
+            this.SetRange(this.shield.Split(new char[]
             {
             ','
             }), ref this.rangeShiled);
-            this.SetRange(jsonEquipInfo["damage_amplify"].String.Split(new char[]
+            this.SetRange(this.damage_amplify.Split(new char[]
             {
             ','
             }), ref this.rangeDamageAmplify);
-            this.SetRange(jsonEquipInfo["damage_reduction"].String.Split(new char[]
+            this.SetRange(this.damage_reduction.Split(new char[]
             {
             ','
             }), ref this.rangeDamageReduction);
-            this.SetRange(jsonEquipInfo["night_view_percent"].String.Split(new char[]
+            this.SetRange(this.night_view_percent.Split(new char[]
             {
             ','
             }), ref this.rangeNightResistance);
-            this.SetRange(jsonEquipInfo["bullet_number_up"].String.Split(new char[]
+            this.SetRange(this.bullet_number_up.Split(new char[]
             {
             ','
             }), ref this.rangeBulletNumberUp);
-            this.rank = (EquipRank)jsonEquipInfo["rank"].Int;
-            this.description = jsonEquipInfo["description"].String;
-            this.developDuration = jsonEquipInfo["develop_duration"].Int;
-            this.retireMp = jsonEquipInfo["retire_mp"].Int;
-            this.retireAmmo = jsonEquipInfo["retire_ammo"].Int;
-            this.retireMre = jsonEquipInfo["retire_mre"].Int;
-            this.retirePart = jsonEquipInfo["retire_part"].Int;
-            this.skillLevelUp = jsonEquipInfo["skill_level_up"].Int;
-            this.skill = jsonEquipInfo["skill"].Int;
-            this.powerupMp = float.Parse(jsonEquipInfo["powerup_mp"].String);
-            this.powerupAmmo = float.Parse(jsonEquipInfo["powerup_ammo"].String);
-            this.powerupMre = float.Parse(jsonEquipInfo["powerup_mre"].String);
-            this.powerupPart = float.Parse(jsonEquipInfo["powerup_part"].String);
-            this.exclusiveRate = float.Parse(jsonEquipInfo["exclusive_rate"].String);
-            this.strBounsType = jsonEquipInfo["bonus_type"].String;
-            string @string = jsonEquipInfo["fit_guns"].String;
-            if (@string != string.Empty)
+            if (this.fit_guns != string.Empty)
             {
-                string[] array = @string.Split(new char[]
+                string[] array = this.fit_guns.Split(new char[]
                 {
                 ','
                 });
@@ -101,17 +145,7 @@ namespace GFHelp.Core.CatchData.Base
             }
         }
 
-        public string name
-        {
-            get
-            {
-                return this.nameID;
-            }
-            set
-            {
-                this.nameID = value;
-            }
-        }
+        // Token: 0x0600171D RID: 5917 RVA: 0x000A8630 File Offset: 0x000A6830
         private void SetRange(string[] strRange, ref int[] intRange)
         {
             if (strRange.Length == 2)
@@ -121,158 +155,65 @@ namespace GFHelp.Core.CatchData.Base
             }
         }
 
-        // Token: 0x040019D5 RID: 6613
-        public int id;
+        // Token: 0x0400243B RID: 9275
+        public new EquipCategory category;
 
-        // Token: 0x040019D6 RID: 6614
-        public string code;
+        // Token: 0x0400243C RID: 9276
+        public new EquipType type;
 
-        // Token: 0x040019D7 RID: 6615
-        private string nameID;
+        // Token: 0x0400243D RID: 9277
+        public new EquipRank rank;
 
-        // Token: 0x040019D8 RID: 6616
-        private string introductionId;
-
-        // Token: 0x040019D9 RID: 6617
-        public EquipCategory category;
-
-        // Token: 0x040019DA RID: 6618
-        public EquipType type;
-
-        // Token: 0x040019DB RID: 6619
-        public EquipRank rank;
-
-        // Token: 0x040019DC RID: 6620
-        private string descriptionId;
-
-        // Token: 0x040019DD RID: 6621
-        public int retireMp;
-
-        // Token: 0x040019DE RID: 6622
-        public int retireAmmo;
-
-        // Token: 0x040019DF RID: 6623
-        public int retireMre;
-
-        // Token: 0x040019E0 RID: 6624
-        public int retirePart;
-
-        // Token: 0x040019E1 RID: 6625
-        public int developDuration;
-
-        // Token: 0x040019E2 RID: 6626
-        public int skillLevelUp;
-
-        // Token: 0x040019E3 RID: 6627
+        // Token: 0x0400243E RID: 9278
         public List<int> listFitGunInfoId = new List<int>();
 
-        // Token: 0x040019E4 RID: 6628
+        // Token: 0x0400243F RID: 9279
         public bool isLimit;
 
-        // Token: 0x040019E5 RID: 6629
+        // Token: 0x04002440 RID: 9280
         public bool isTimeLimit;
 
-        // Token: 0x040019E6 RID: 6630
-        public int skill;
-
-        // Token: 0x040019E7 RID: 6631
-        public float powerupMp;
-
-        // Token: 0x040019E8 RID: 6632
-        public float powerupAmmo;
-
-        // Token: 0x040019E9 RID: 6633
-        public float powerupMre;
-
-        // Token: 0x040019EA RID: 6634
-        public float powerupPart;
-
-        // Token: 0x040019EB RID: 6635
-        public float exclusiveRate;
-
-        // Token: 0x040019EC RID: 6636
-        public string strBounsType;
-
-        // Token: 0x040019ED RID: 6637
+        // Token: 0x04002441 RID: 9281
         public int[] rangePow = new int[2];
 
-        // Token: 0x040019EE RID: 6638
+        // Token: 0x04002442 RID: 9282
         public int[] rangeHit = new int[2];
 
-        // Token: 0x040019EF RID: 6639
+        // Token: 0x04002443 RID: 9283
         public int[] rangeDodge = new int[2];
 
-        // Token: 0x040019F0 RID: 6640
+        // Token: 0x04002444 RID: 9284
         public int[] rangeSpeed = new int[2];
 
-        // Token: 0x040019F1 RID: 6641
+        // Token: 0x04002445 RID: 9285
         public int[] rangeRate = new int[2];
 
-        // Token: 0x040019F2 RID: 6642
+        // Token: 0x04002446 RID: 9286
         public int[] rangeCritHarm = new int[2];
 
-        // Token: 0x040019F3 RID: 6643
+        // Token: 0x04002447 RID: 9287
         public int[] rangeCrit = new int[2];
 
-        // Token: 0x040019F4 RID: 6644
+        // Token: 0x04002448 RID: 9288
         public int[] rangePiercing = new int[2];
 
-        // Token: 0x040019F5 RID: 6645
+        // Token: 0x04002449 RID: 9289
         public int[] rangeArmor = new int[2];
 
-        // Token: 0x040019F6 RID: 6646
+        // Token: 0x0400244A RID: 9290
         public int[] rangeShiled = new int[2];
 
-        // Token: 0x040019F7 RID: 6647
+        // Token: 0x0400244B RID: 9291
         public int[] rangeDamageAmplify = new int[2];
 
-        // Token: 0x040019F8 RID: 6648
+        // Token: 0x0400244C RID: 9292
         public int[] rangeDamageReduction = new int[2];
 
-        // Token: 0x040019F9 RID: 6649
+        // Token: 0x0400244D RID: 9293
         public int[] rangeNightResistance = new int[2];
 
-        // Token: 0x040019FA RID: 6650
+        // Token: 0x0400244E RID: 9294
         public int[] rangeBulletNumberUp = new int[2];
-
-        public long GetID()
-        {
-            return (long)this.id;
-        }
-        public string introduction
-        {
-            get
-            {
-                return this.introductionId;
-                //return PLTable.Instance.GetTableLang(this.introductionId);
-            }
-            set
-            {
-                this.introductionId = value;
-            }
-        }
-        public string description
-        {
-            get
-            {
-                return this.descriptionId;
-            }
-            set
-            {
-                this.descriptionId = value;
-            }
-        }
-
-
-
-
-
-
-
-
-
-
-
 
     }
 

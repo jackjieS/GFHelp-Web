@@ -137,7 +137,7 @@ namespace GFHelp.Core.Action
             if (userData.MissionInfo.GetFirstData().Loop == false)
             {
                 PrintRecycleLog();
-                userData.battle.Check_Gun_need_FIX();
+                userData.battle.Check_Gun_need_FIX(true);
 
                 userData.MissionInfo.listTask.RemoveAt(0);
             }

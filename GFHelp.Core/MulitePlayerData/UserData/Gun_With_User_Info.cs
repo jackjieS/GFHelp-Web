@@ -420,7 +420,7 @@ namespace GFHelp.Core.MulitePlayerData
 
         public int criHarmRate;
 
-        public Gun_Info info = new Gun_Info();
+        public GunInfo info = new GunInfo();
 
         public int gunEffect = 0;
 

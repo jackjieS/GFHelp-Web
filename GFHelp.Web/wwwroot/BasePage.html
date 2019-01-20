@@ -1,0 +1,130 @@
+<header class="main-header">
+    <nav class="navbar navbar-fixed-top bg-primary">
+        <div class="navbar-header">
+            <a class="navbar-toggle" href="javascript:;" data-toggle="collapse" data-target=".navbar-collapse"><i class="icon icon-th-large"></i></a>
+            <a class="sidebar-toggle" href="javascript:;" data-toggle="push-menu"><i class="icon icon-bars"></i></a>
+            <a class="navbar-brand" href="#">
+                <span id="titleName0" class="logo"></span>
+                <span class="logo-mini">F</span>
+            </a>
+        </div>
+        <div class="collapse navbar-collapse">
+            <div class="container-fluid">
+                <ul class="nav navbar-nav">
+                    <li><a href="javascript:;" data-toggle="push-menu"><i class="icon icon-bars"></i></a></li>
+                </ul>
+                <ul class="nav navbar-nav navbar-right">
+                    <li>
+                        <a href="javascript:;">
+                            <span>
+                                <i class="icon icon-bell-alt"></i>
+                                <span class="label label-danger label-pill up"></span>
+                            </span>
+                        </a>
+                    </li>
+                    <li>
+                        <a href="javascript:;">
+                            <span>
+                                <i class="icon icon-envelope-alt"></i>
+                                <span class="label label-success label-pill up"></span>
+                            </span>
+                        </a>
+                    </li>
+                    <li class="dropdown">
+                        <a href="javascript:;" data-toggle="dropdown">
+                            <i class="icon icon-user"></i>
+                            <span id="titleName1" class="username">管理员</span>
+                            <span class="caret"></span>
+                        </a>
+                        <ul class="dropdown-menu">
+                            <li><a href="#">资料设置</a></li>
+                            <li><a href="#">清除缓存</a></li>
+                            <li class="divider"></li>
+                            <li><a onclick="logout()" href="#">注销</a></li>
+                        </ul>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+</header>
+<aside class="main-sidebar">
+    <section class="sidebar">
+        <ul class="sidebar-menu" data-widget="tree">
+            <li class="header">主要菜单</li>
+            <li id=SidebarLi0>
+                <a href="index.html">
+                    <i class="icon icon-dashboard"></i>
+                    <span>账号管理</span>
+                    <span class="pull-right-container">
+                    </span>
+                </a>
+            </li>
+            <li id=SidebarLi1>
+                <a href="systemMessage.html">
+                    <i class="icon icon-dashboard"></i>
+                    <span>系统消息</span>
+                    <span class="pull-right-container">
+                    </span>
+                </a>
+            </li>
+            <li id=SidebarLi2>
+                <a href="mulitgames.html">
+                    <i class="icon icon-dashboard"></i>
+                    <span>批量创建</span>
+                    <span class="pull-right-container">
+                    </span>
+                </a>
+            </li>
+            <li id=SidebarLi3>
+                <a href="groupLogin.html">
+                    <i class="icon icon-dashboard"></i>
+                    <span>批量登录</span>
+                    <span class="pull-right-container">
+                    </span>
+                </a>
+            </li>
+        </ul>
+    </section>
+</aside>
+
+
+
+
+
+<script src="js/basetools.js"></script>
+<script type="text/javascript">
+    window.onload = function () {
+    }
+
+    $(function () {
+        $('#titleName0').html(getValueFromStorage('WebUserName'));
+        $('#titleName1').html(getValueFromStorage('WebUserName'));
+        var pathname = self.location.pathname;
+        switch (pathname) {
+            case '/index.html': {
+                $('#SidebarLi0').addClass('active');
+                break;
+            }
+            case '/systemMessage.html': {
+                $('#SidebarLi1').addClass('active');
+                break;
+            }
+            case '/mulitgames.html':
+                {
+                    $('#SidebarLi2').addClass('active');
+                    break;
+                }
+            case '/groupLogin.html':
+                {
+                    $('#SidebarLi3').addClass('active');
+                    break;
+                }
+            default:
+                {
+                    $('#SidebarLi0').addClass('active');
+                    break;
+                }
+        }
+    });
+</script>

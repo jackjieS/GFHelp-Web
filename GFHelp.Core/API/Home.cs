@@ -9,6 +9,21 @@ namespace GFHelp.Core.API
 {
     class Home
     {
+        public static string GetDailyTask(GameAccount gameAccount)
+        {
+            string outdatacode = AuthCode.Encode(gameAccount.sign, gameAccount.sign);
+            string requeststring = String.Format("uid={0}&signcode={1}&req_id={2}", gameAccount.uid, System.Web.HttpUtility.UrlEncode(outdatacode), gameAccount.req_id++.ToString());
+            string result = "";
+            var url = gameAccount.GameHost + Helper.URL.GetQuest;
+            while (string.IsNullOrEmpty(result) == true)
+            {
+                result = BaseRequset.DoPost(url, requeststring);//不需要解密 返回的是签到当月信息奖励
+            }
+            return result;
+        }
+
+
+
         public static string GetUserInfo(GameAccount gameAccount)//api = index/index
         {
 

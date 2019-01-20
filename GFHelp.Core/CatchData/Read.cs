@@ -65,29 +65,50 @@ namespace GFHelp.Core
         {
 
             var catchdatafile = SystemOthers.ConfigData.currentDirectory + @"\stc\catchdata.json";
-            string jsondata = File.ReadAllText(catchdatafile);
-            var jsonobj = DynamicJson.Parse(jsondata); //讲道理，我真不想写了
-            JsonData jsonData = JsonMapper.ToObject(jsonobj.game_config_info.ToString());
-            CatchData.Base.Data.ReadInfo(jsonData);
-            ReadCatchData_operation_info(jsonobj);
-            ReadCatchData_gun_exp_info(jsonobj);
-            ReadCatchData_kalina_favor_info(jsonobj);
-            ReadCatchData_auto_mission_info(jsonobj);
-            ReadCatchData_equip_exp_info(jsonobj);
-            ReadCatchData_equip_info(jsonobj);
-            ReadCatchData_fairy_type_info(jsonobj);
-            ReadCatchData_Fairy_Info(jsonobj);
+            var rawString = File.ReadAllLines(catchdatafile);
+            JsonData jsonData;
+            dynamic jsonobj;
+            foreach (var item in rawString)
+            {
+                try
+                {
+                    jsonData = JsonMapper.ToObject(item);
+                    jsonobj = DynamicJson.Parse(item); //讲道理，我真不想写了
+                }
+                catch (Exception e)
+                {
+                    continue;
+                }
+
+                CatchData.Base.Data.ReadInfo(jsonData);
+                ReadCatchData_operation_info(jsonobj);
+                ReadCatchData_gun_exp_info(jsonData);
+                ReadCatchData_kalina_favor_info(jsonobj);
+                ReadCatchData_auto_mission_info(jsonobj);
+                ReadCatchData_equip_exp_info(jsonData);
+
+                ReadCatchData_fairy_type_info(jsonobj);
+                ReadCatchData_Fairy_Info(jsonobj);
+
+                ReadCatchData_gun_type_info(jsonData);
+                ReadCatchData_game_config_info(jsonobj);
+                GetFurniture_database(jsonobj);
+                GetFurniture_server(jsonobj);
+                GetFurniture_printer(jsonobj);
+
+            }
             LoadStcTable();
-            ReadCatchData_gun_type_info(jsonobj);
-            ReadCatchData_game_config_info(jsonobj);
-            GetFurniture_database(jsonobj);
-            GetFurniture_server(jsonobj);
-            GetFurniture_printer(jsonobj);
+
+
+
+
+
+
         }
 
         private static bool ReadCatchData_operation_info(dynamic jsonobj)
         {
-
+            if (!jsonobj.ToString().Contains("operation_info")) return false;
             foreach (var item in jsonobj.operation_info)
             {
                 try
@@ -135,11 +156,12 @@ namespace GFHelp.Core
             }
             return true;
         }
-        private static bool ReadCatchData_gun_exp_info(dynamic jsonobj)
+        private static bool ReadCatchData_gun_exp_info(JsonData jsonData)
         {
+            if (!jsonData.Contains("gun_exp_info")) return false;
             try
             {
-                JsonData jsonData = JsonMapper.ToObject(jsonobj.ToString());
+
                 JsonData jsonData23 = jsonData["gun_exp_info"];
                 GameData.dictGunUpLevelExp = new Dictionary<int, int>();
                 GameData.dictLevelToSumExp = new Dictionary<int, int>();
@@ -161,6 +183,7 @@ namespace GFHelp.Core
         }
         private static bool ReadCatchData_kalina_favor_info(dynamic jsonobj)
         {
+            if (!jsonobj.ToString().Contains("kalina_favor_info")) return false;
             try
             {
                 foreach (var item in jsonobj.kalina_favor_info)
@@ -182,7 +205,7 @@ namespace GFHelp.Core
         }
         private static void ReadCatchData_auto_mission_info(dynamic jsonobj)
         {
-
+            if (!jsonobj.ToString().Contains("auto_mission_info")) return;
             foreach (var item in jsonobj.auto_mission_info)
             {
                 try
@@ -239,10 +262,10 @@ namespace GFHelp.Core
                 }
             }
         }
-        private static bool ReadCatchData_equip_exp_info(dynamic jsonobj)
+        private static bool ReadCatchData_equip_exp_info(JsonData jsonData)
         {
+
             GameData.listEquipInfo = new tBaseDatas<EquipInfo>();
-            JsonData jsonData = JsonMapper.ToObject(jsonobj.ToString());
             if (jsonData.Contains("equip_exp_info"))
             {
                 GameData.dictEquipmentExpInfo = new Dictionary<int, int>();
@@ -258,30 +281,10 @@ namespace GFHelp.Core
             }
             return true;
         }
-        private static bool ReadCatchData_equip_info(dynamic jsonobj)
-        {
-            GameData.listEquipInfo = new tBaseDatas<EquipInfo>();
-            JsonData jsonData = JsonMapper.ToObject(jsonobj.ToString());
-            JsonData jsonData32 = jsonData["equip_info"];
-            if (jsonData32 != null)
-            {
-                for (int num25 = 0; num25 < jsonData32.Count; num25++)
-                {
-                    try
-                    {
-                        EquipInfo data13 = new EquipInfo(jsonData32[num25]);
-                        GameData.listEquipInfo.Add(data13);
-                    }
-                    catch (Exception e)
-                    {
-                        new Log().systemInit("读取CatchData_equip_info遇到错误", e.ToString()).coreError();
-                    }
-                }
-            }
-            return true;
-        }
+
         private static bool ReadCatchData_fairy_type_info(dynamic jsonobj)
         {
+            if (!jsonobj.ToString().Contains("fairy_type_info")) return false;
             try
             {
                 foreach (var item in jsonobj.fairy_type_info)
@@ -302,6 +305,7 @@ namespace GFHelp.Core
         private static bool ReadCatchData_Fairy_Info(dynamic jsonobj)
         {
 
+            if (!jsonobj.ToString().Contains("fairy_info")) return false;
             foreach (var item in jsonobj.fairy_info)
             {
                 try
@@ -395,7 +399,7 @@ namespace GFHelp.Core
 
 
 
-            if (TableHelper.LoadTable<SquadBaseAttribution>(ref GameData.listSquadBaseAttriInfo, CmdDef.stcSquad_standard_attributionList, true))
+            if (TableHelper.LoadTable<SquadBaseAttribution>(ref GameData.listSquadBaseAttriInfo, CmdDef.stcSquad_standard_attributionList))
             {
                 new Log().systemInit("stcSquad_standard_attributionList 解析完成：" + GameData.listSquadBaseAttriInfo.Count).coreInfo();
                 Write("listSquadBaseAttriInfo", GameData.listSquadBaseAttriInfo.GetList());
@@ -406,9 +410,17 @@ namespace GFHelp.Core
                 new Log().systemInit("stcSquad_standard_attributionList 解析失败：" + GameData.listSquadBaseAttriInfo.Count).coreInfo();
             }
 
+            if (TableHelper.LoadTable<EquipInfo>(ref GameData.listEquipInfo, CmdDef.stcEquipList))
+            {
+                new Log().systemInit("stcEquipList 解析完成：" + GameData.listEquipInfo.Count).coreInfo();
+                Write("EquipInfo", GameData.listEquipInfo.GetList());
+            }
+            else
+            {
+                new Log().systemInit("EquipInfo 解析失败：" + GameData.listEquipInfo.Count).coreInfo();
+            }
 
-
-            if (TableHelper.LoadTable<ItemInfo>(ref GameData.listItemInfo, CmdDef.stcItemList, true))
+            if (TableHelper.LoadTable<ItemInfo>(ref GameData.listItemInfo, CmdDef.stcItemList))
             {
                 new Log().systemInit("stcItemList 解析完成：" + GameData.listItemInfo.Count).coreInfo();
                 Write("listItemInfo", GameData.listItemInfo.GetList());
@@ -418,7 +430,7 @@ namespace GFHelp.Core
                 new Log().systemInit("stcItemList 解析失败：" + GameData.listItemInfo.Count).coreInfo();
             }
 
-            if (TableHelper.LoadTable<Gun_Info>(ref GameData.listGunInfo, CmdDef.stcGunList, true))
+            if (TableHelper.LoadTable<GunInfo>(ref GameData.listGunInfo, CmdDef.stcGunList))
             {
                 new Log().systemInit("stcGunList 解析完成：" + GameData.listGunInfo.Count).coreInfo();
                 Write("listGunInfo", GameData.listGunInfo.GetList());
@@ -428,7 +440,7 @@ namespace GFHelp.Core
                 new Log().systemInit("stcGunList 解析完成：" + GameData.listGunInfo.Count).coreInfo();
             }
 
-            if (TableHelper.LoadTable<SquadInfo>(ref GameData.listSquadInfo, CmdDef.stcSquadList, true))
+            if (TableHelper.LoadTable<SquadInfo>(ref GameData.listSquadInfo, CmdDef.stcSquadList))
             {
                 new Log().systemInit("stcSquadList 解析完成：" + GameData.listSquadInfo.Count).coreInfo();
                 Write("listSquadInfo", GameData.listSquadInfo.GetList());
@@ -442,7 +454,7 @@ namespace GFHelp.Core
 
 
 
-            if (TableHelper.LoadTable<SquadChipInfo>(ref GameData.listSquadChipInfo, CmdDef.stcSquad_chipList, true))
+            if (TableHelper.LoadTable<SquadChipInfo>(ref GameData.listSquadChipInfo, CmdDef.stcSquad_chipList))
             {
                 new Log().systemInit("stcSquad_chipList 解析完成：" + GameData.listSquadChipInfo.Count).coreInfo();
                 Write("listSquadChipInfo", GameData.listSquadChipInfo.GetList());
@@ -454,7 +466,7 @@ namespace GFHelp.Core
 
 
 
-            if (TableHelper.LoadTable<SquadTypeInfo>(ref GameData.listSquadTypeInfo, CmdDef.stcSquad_typeList, true))
+            if (TableHelper.LoadTable<SquadTypeInfo>(ref GameData.listSquadTypeInfo, CmdDef.stcSquad_typeList))
             {
                 new Log().systemInit("stcSquad_typeList 解析完成：" + GameData.listSquadTypeInfo.Count).coreInfo();
                 Write("listSquadTypeInfo", GameData.listSquadTypeInfo.GetList());
@@ -466,7 +478,7 @@ namespace GFHelp.Core
             }
 
 
-            if (TableHelper.LoadTable<SquadRankInfo>(ref GameData.listSquadRankInfo, CmdDef.stcSquad_rankList, true))
+            if (TableHelper.LoadTable<SquadRankInfo>(ref GameData.listSquadRankInfo, CmdDef.stcSquad_rankList))
             {
                 new Log().systemInit("stcSquad_rankList 解析完成：" + GameData.listSquadRankInfo.Count).coreInfo();
                 Write("listSquadRankInfo", GameData.listSquadRankInfo.GetList());
@@ -476,7 +488,7 @@ namespace GFHelp.Core
                 new Log().systemInit("stcSquad_rankList 解析失败：" + GameData.listSquadRankInfo.Count).coreInfo();
             }
 
-            if (TableHelper.LoadTable<SquadExp>(ref GameData.listSquadExp, CmdDef.stcSquad_expList, true))
+            if (TableHelper.LoadTable<SquadExp>(ref GameData.listSquadExp, CmdDef.stcSquad_expList))
             {
                 new Log().systemInit("stcSquad_expList 解析完成：" + GameData.listSquadExp.Count).coreInfo();
                 Write("listSquadExp", GameData.listSquadExp.GetList());
@@ -487,7 +499,7 @@ namespace GFHelp.Core
                 new Log().systemInit("stcSquad_expList 解析失败：" + GameData.listSquadExp.Count).coreInfo();
             }
 
-            if (TableHelper.LoadTable<SquadChipExp>(ref GameData.listSquadChipExp, CmdDef.stcSquad_chip_expList, true))
+            if (TableHelper.LoadTable<SquadChipExp>(ref GameData.listSquadChipExp, CmdDef.stcSquad_chip_expList))
             {
                 new Log().systemInit("stcSquad_chip_expList 解析完成：" + GameData.listSquadChipExp.Count).coreInfo();
                 Write("listSquadChipExp", GameData.listSquadChipExp.GetList());
@@ -497,7 +509,7 @@ namespace GFHelp.Core
                 new Log().systemInit("stcSquad_chip_expList 解析失败：" + GameData.listSquadChipExp.Count).coreInfo();
             }
 
-            if (TableHelper.LoadTable<SquadDailyQuestInfo>(ref GameData.listSquadDailyQuestInfo, CmdDef.stcSquad_data_dailyList, true))
+            if (TableHelper.LoadTable<SquadDailyQuestInfo>(ref GameData.listSquadDailyQuestInfo, CmdDef.stcSquad_data_dailyList))
             {
                 new Log().systemInit("stcSquad_data_dailyList 解析完成：" + GameData.listSquadDailyQuestInfo.Count).coreInfo();
                 Write("listSquadDailyQuestInfo", GameData.listSquadDailyQuestInfo.GetList());
@@ -507,17 +519,17 @@ namespace GFHelp.Core
                 new Log().systemInit("stcSquad_data_dailyList 解析失败：" + GameData.listSquadDailyQuestInfo.Count).coreInfo();
             }
 
-            if (TableHelper.LoadTable<BattleSkillCfg>(ref GameData.listBTSkillCfg, CmdDef.stcBattle_skill_configList, true))
-            {
-                new Log().systemInit("stcBattle_skill_configList 解析完成：" + GameData.listBTSkillCfg.Count).coreInfo();
-                Write("listBTSkillCfg", GameData.listBTSkillCfg.GetList());
-            }
-            else
-            {
-                new Log().systemInit("stcBattle_skill_configList 解析失败:" + GameData.listBTSkillCfg.Count).coreInfo();
-            }
+            //if (TableHelper.LoadTable<BattleSkillCfg>(ref GameData.listBTSkillCfg, CmdDef.stcBattle_skill_configList))
+            //{
+            //    new Log().systemInit("stcBattle_skill_configList 解析完成：" + GameData.listBTSkillCfg.Count).coreInfo();
+            //    Write("listBTSkillCfg", GameData.listBTSkillCfg.GetList());
+            //}
+            //else
+            //{
+            //    new Log().systemInit("stcBattle_skill_configList 解析失败:" + GameData.listBTSkillCfg.Count).coreInfo();
+            //}
 
-            if (TableHelper.LoadTable<SquadAdvancedBonus>(ref GameData.listSquadAdvancedBonus, CmdDef.stcSquad_advanced_bonusList, true))
+            if (TableHelper.LoadTable<SquadAdvancedBonus>(ref GameData.listSquadAdvancedBonus, CmdDef.stcSquad_advanced_bonusList))
             {
                 new Log().systemInit("stcSquad_advanced_bonusList 解析完成：" + GameData.listSquadAdvancedBonus.Count).coreInfo();
                 Write("listSquadAdvancedBonus", GameData.listSquadAdvancedBonus.GetList());
@@ -529,7 +541,7 @@ namespace GFHelp.Core
             }
 
 
-            if (TableHelper.LoadTable<SquadCPUInfo>(ref GameData.listSquadCPUInfo, CmdDef.stcSquad_cpuList, true))
+            if (TableHelper.LoadTable<SquadCPUInfo>(ref GameData.listSquadCPUInfo, CmdDef.stcSquad_cpuList))
             {
                 new Log().systemInit("stcSquad_cpuList 解析完成：" + GameData.listSquadCPUInfo.Count).coreInfo();
                 Write("listSquadCPUInfo", GameData.listSquadCPUInfo.GetList());
@@ -539,7 +551,7 @@ namespace GFHelp.Core
                 new Log().systemInit("stcSquad_cpuList 解析失败:" + GameData.listSquadCPUInfo.Count).coreInfo();
             }
 
-            if (TableHelper.LoadTable<SquadCPUColor>(ref GameData.listSquadCPUColor, CmdDef.stcSquad_colorList, true))
+            if (TableHelper.LoadTable<SquadCPUColor>(ref GameData.listSquadCPUColor, CmdDef.stcSquad_colorList))
             {
                 new Log().systemInit("stcSquad_colorList 解析完成：" + GameData.listSquadCPUColor.Count).coreInfo();
                 Write("listSquadCPUColor", GameData.listSquadCPUColor.GetList());
@@ -549,7 +561,7 @@ namespace GFHelp.Core
                 new Log().systemInit("stcSquad_colorList 解析失败：" + GameData.listSquadCPUColor.Count).coreInfo();
 
             }
-            if (TableHelper.LoadTable<SquadCPUGrid>(ref GameData.listSquadCPUGrid, CmdDef.stcSquad_gridList, true))
+            if (TableHelper.LoadTable<SquadCPUGrid>(ref GameData.listSquadCPUGrid, CmdDef.stcSquad_gridList))
             {
                 new Log().systemInit("stcSquad_gridList 解析完成：" + GameData.listSquadCPUGrid.Count).coreInfo();
                 Write("listSquadCPUGrid", GameData.listSquadCPUGrid.GetList());
@@ -559,7 +571,7 @@ namespace GFHelp.Core
                 new Log().systemInit("stcSquad_gridList 解析失败：" + GameData.listSquadCPUGrid.Count).coreInfo();
 
             }
-            if (TableHelper.LoadTable<SquadCPUCompletion>(ref GameData.listSquadCPUCompletion, CmdDef.stcSquad_cpu_completionList, true))
+            if (TableHelper.LoadTable<SquadCPUCompletion>(ref GameData.listSquadCPUCompletion, CmdDef.stcSquad_cpu_completionList))
             {
                 new Log().systemInit("stcSquad_cpu_completionList 解析完成：" + GameData.listSquadCPUCompletion.Count).coreInfo();
                 Write("listSquadCPUCompletion", GameData.listSquadCPUCompletion.GetList());
@@ -589,39 +601,18 @@ namespace GFHelp.Core
 
 
 
-        private static void ReadCatchData_gun_info()
-        {
-            TableHelper.LoadTable<Gun_Info>(ref GameData.listGunInfo, CmdDef.stcGunList, true);
-        }
-
         //private static void ReadCatchDATA_Item_Info()
         //{
         //    TableHelper.LoadTable<ItemInfo>(ref listItemInfo, CmdDef.stcItemList, true);
         //}
-        private static bool ReadCatchData_gun_type_info(dynamic jsonobj)
+        private static bool ReadCatchData_gun_type_info(JsonData jsonData)
         {
+            if (!jsonData.Contains("gun_type_info")) return false;
             try
             {
-                foreach (var item in jsonobj.gun_type_info)
-                {
-                    Gun_Type_Info gti = new Gun_Type_Info();
-
-                    gti.id = Convert.ToInt32(item.id);
-                    gti.name = item.name.ToString();
-                    gti.data.Add("basic_attribute_life", float.Parse(item.basic_attribute_life));
-                    gti.data.Add("basic_attribute_pow", float.Parse(item.basic_attribute_pow));
-                    gti.data.Add("basic_attribute_rate", float.Parse(item.basic_attribute_rate));
-                    gti.data.Add("basic_attribute_speed", float.Parse(item.basic_attribute_speed));
-                    gti.data.Add("basic_attribute_hit", float.Parse(item.basic_attribute_hit));
-                    gti.data.Add("basic_attribute_dodge", float.Parse(item.basic_attribute_dodge));
-                    gti.data.Add("basic_attribute_armor", float.Parse(item.basic_attribute_armor));
-                    gti.data.Add("mp_fix_ratio", float.Parse(item.mp_fix_ratio));
-                    gti.data.Add("part_fix_ratio", float.Parse(item.part_fix_ratio));
-                    gti.data.Add("fix_time_ratio", float.Parse(item.fix_time_ratio));
-
-                    gun_type_info.Add(gti.id, gti);
-                }
+                GameData.jsonGunType = jsonData["gun_type_info"];
             }
+            
             catch (Exception e)
             {
                 new Log().systemInit("CatchData_gun_type_info遇到错误", e.ToString()).coreError();
@@ -631,6 +622,7 @@ namespace GFHelp.Core
         }
         private static bool ReadCatchData_game_config_info(dynamic jsonobj)
         {
+            if (!jsonobj.ToString().Contains("game_config_info")) return false;
             var datetime = new DateTime();
             foreach (var item in jsonobj.game_config_info)
             {
@@ -662,7 +654,7 @@ namespace GFHelp.Core
                                     gci.parameter_value.Add(gci.parameter_value.Count, temp);
                                     continue;
                                 }
-                                string[] value = new string[2];
+                                string[] value = new string[3];
                                 int i = 0;
                                 foreach (var y in x.Split(':'))
                                 {
@@ -711,6 +703,7 @@ namespace GFHelp.Core
         }
         private static bool GetFurniture_database(dynamic jsonobj)
         {
+            if (!jsonobj.ToString().Contains("furniture_establish_info")) return false;
             try
             {
                 foreach (var item in jsonobj.furniture_establish_info)
@@ -730,6 +723,7 @@ namespace GFHelp.Core
         }
         private static bool GetFurniture_server(dynamic jsonobj)
         {
+            if (!jsonobj.ToString().Contains("establish_type")) return false;
             try
             {
                 foreach (var item in jsonobj.furniture_establish_info)
@@ -749,6 +743,7 @@ namespace GFHelp.Core
         }
         private static bool GetFurniture_printer(dynamic jsonobj)
         {
+            if (!jsonobj.ToString().Contains("furniture_establish_info")) return false;
             try
             {
                 foreach (var item in jsonobj.furniture_establish_info)
@@ -773,7 +768,7 @@ namespace GFHelp.Core
             {
                 if (item.id == id)
                 {
-                    return item.developDuration;
+                    return item.develop_duration;
                 }
             }
             return 999999999;

@@ -16,7 +16,7 @@ namespace GFHelp.Core.CatchData.Base
     public class TableHelper
     {
         // Token: 0x06003D44 RID: 15684 RVA: 0x00174190 File Offset: 0x00172390
-        public static bool LoadTable<T>(ref tBaseDatas<T> tDatas, CmdDef table, bool excel) where T : NullCmdStruct, tBaseData, new()
+        public static bool LoadTable<T>(ref tBaseDatas<T> tDatas, CmdDef table) where T : NullCmdStruct, tBaseData, new()
         {
             if (tDatas != null)
             {
@@ -24,12 +24,10 @@ namespace GFHelp.Core.CatchData.Base
             }
             else
             {
-                //tDatas = new tBaseDatas<T>();
+                tDatas = new tBaseDatas<T>();
             }
-            return TableHelper.LoadBytesTable(tDatas, table);
+            return TableHelper.LoadBytesTable<T>(tDatas, table);
         }
-
-        // Token: 0x06003D45 RID: 15685 RVA: 0x001741C0 File Offset: 0x001723C0
         private static bool LoadBytesTable<T>(tBaseDatas<T> tDatas, CmdDef table) where T : NullCmdStruct, tBaseData, new()
         {
             string stcDirectory = SystemOthers.ConfigData.currentDirectory + @"\stc";
@@ -41,6 +39,7 @@ namespace GFHelp.Core.CatchData.Base
                 //NDebug.LogError("找不到表格:" + text, string.Empty);
                 return false;
             }
+
             try
             {
                 using (Stream stream = new FileStream(text, FileMode.Open))
@@ -57,7 +56,8 @@ namespace GFHelp.Core.CatchData.Base
                             int num2 = stream2.Read(TableHelper.dataBuffer, 0, 4194304);
                             if (num2 <= 0)
                             {
-                                //NDebug.LogError("读取表格字段失败！", string.Empty);
+                                Console.WriteLine("读取表格字段失败！");
+
                                 stream2.Close();
                                 return false;
                             }
@@ -128,62 +128,101 @@ namespace GFHelp.Core.CatchData.Base
             }
             catch (Exception ex)
             {
-                new Log().systemInit("读取" + text + "失败:" + ex.Message, string.Empty).coreInfo();
-                //NDebug.Log("读取" + text + "失败:" + ex.Message, string.Empty);
+                Console.WriteLine(ex.ToString());
             }
             return true;
         }
 
-        // Token: 0x06003D46 RID: 15686 RVA: 0x0017450C File Offset: 0x0017270C
+        // Token: 0x06003ED1 RID: 16081 RVA: 0x001ECE9C File Offset: 0x001EB09C
         public static void ClearBuffer()
         {
             TableHelper.dataBuffer = null;
         }
 
-        // Token: 0x04003EB8 RID: 16056
-        private const int BUFFER_SIZE = 4194304;
-
-        // Token: 0x04003EB9 RID: 16057
+        // Token: 0x040074D1 RID: 29905
         private static string cachePostfix = ".stc";
 
-        // Token: 0x04003EBA RID: 16058
+        // Token: 0x040074D2 RID: 29906
         private static string encryption = "c88d016d261eb80ce4d6e41a510d4048";
 
-        // Token: 0x04003EBB RID: 16059
+        // Token: 0x040074D3 RID: 29907
         private static byte[] dataBuffer;
 
-        // Token: 0x04003EBC RID: 16060
+        // Token: 0x040074D4 RID: 29908
+        private const int BUFFER_SIZE = 4194304;
+
+        // Token: 0x040074D5 RID: 29909
         internal static List<TableHelper.eDataType> listDataType = new List<TableHelper.eDataType>();
 
-        // Token: 0x04003EBD RID: 16061
+        // Token: 0x040074D6 RID: 29910
         internal static byte readIndex = 0;
 
-        // Token: 0x02000636 RID: 1590
+
+        // Token: 0x02000796 RID: 1942
         internal enum eDataType
         {
-            // Token: 0x04003EBF RID: 16063
+            // Token: 0x040074DC RID: 29916
             @sbyte = 1,
-            // Token: 0x04003EC0 RID: 16064
+            // Token: 0x040074DD RID: 29917
             @byte,
-            // Token: 0x04003EC1 RID: 16065
+            // Token: 0x040074DE RID: 29918
             @short,
-            // Token: 0x04003EC2 RID: 16066
+            // Token: 0x040074DF RID: 29919
             @ushort,
-            // Token: 0x04003EC3 RID: 16067
+            // Token: 0x040074E0 RID: 29920
             @int,
-            // Token: 0x04003EC4 RID: 16068
+            // Token: 0x040074E1 RID: 29921
             @uint,
-            // Token: 0x04003EC5 RID: 16069
+            // Token: 0x040074E2 RID: 29922
             @long,
-            // Token: 0x04003EC6 RID: 16070
+            // Token: 0x040074E3 RID: 29923
             @ulong,
-            // Token: 0x04003EC7 RID: 16071
+            // Token: 0x040074E4 RID: 29924
             @float,
-            // Token: 0x04003EC8 RID: 16072
+            // Token: 0x040074E5 RID: 29925
             @double,
-            // Token: 0x04003EC9 RID: 16073
+            // Token: 0x040074E6 RID: 29926
             @string
         }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+        
     }
 
 }

@@ -134,15 +134,15 @@ namespace GFHelp.Web
 
 
 
-            //更改未经授权的默认重定向
-            app.UseStatusCodePages(async context =>
-            {
-                var response = context.HttpContext.Response;
+            ////更改未经授权的默认重定向
+            //app.UseStatusCodePages(async context =>
+            //{
+            //    var response = context.HttpContext.Response;
 
-                if (response.StatusCode == (int)HttpStatusCode.Unauthorized ||
-                    response.StatusCode == (int)HttpStatusCode.Forbidden)
-                    response.Redirect("/Auth/Login");
-            });
+            //    if (response.StatusCode == (int)HttpStatusCode.Unauthorized ||
+            //        response.StatusCode == (int)HttpStatusCode.Forbidden)
+            //        response.Redirect("/Auth/Login");
+            //});
 
 
             app.UseSignalR(u => u.MapHub<Chat>("/chathub"));
@@ -155,15 +155,9 @@ namespace GFHelp.Web
                     name: "default",
                     template: "{controller=Auth}/{action=WebLogin}/{id?}");
             });
-            // Enable middleware to serve generated Swagger as a JSON endpoint.
+
             app.UseSwagger();
 
-            // Enable middleware to serve swagger-ui (HTML, JS, CSS etc.), specifying the Swagger JSON endpoint.
-            //app.UseSwaggerUI(c =>
-            //{
-            //    c.SwaggerEndpoint("/swagger/v1/swagger.json", "GFHelp API V1");
-
-            //});
             app.UseSwaggerUI(c =>
             {
                 c.SwaggerEndpoint("/swagger/v1/swagger.json", "My API V1");

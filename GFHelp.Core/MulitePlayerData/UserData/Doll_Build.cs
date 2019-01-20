@@ -141,6 +141,25 @@ namespace GFHelp.Core.MulitePlayerData
             }
         }
 
+        public void startDevelopDailyTaskHandel()
+        {
+
+            if (!ResourecsCheck()) return;
+            for (int i = 1; i <= userData.user_Info.max_build_slot; i++)
+            {
+                if (i % 2 != 0)
+                {
+                    //奇数普建
+                    if (Built_Slot[i].isEmpty)
+                    {
+                        Task<bool> taskStart = new Task<bool>(() => startDevelop(Built_Slot[i]));
+                        taskStart.Start();
+                        Task.WaitAll(taskStart);
+                    }
+
+                }
+            }
+        }
 
 
 

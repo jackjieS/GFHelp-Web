@@ -22,7 +22,7 @@ namespace GFHelp.Core.Helper
         public static int Check(GameAccount gameAccount,ref string result, string type, bool need_decode)
         {
             if (result == "") { return 0; }//
-            if (result.ToLower().Contains("error") ) { return -1; }//我也不知道return 什么好
+            if (result.ToLower().Contains("error:") ) { return -1; }//我也不知道return 什么好
             if (result.ToLower().Contains("err_msg") || result.ToLower().Contains("err_no")) return -1;
             if (need_decode)
             {
@@ -251,6 +251,10 @@ namespace GFHelp.Core.Helper
                 case "startDevelop":
                     {
                         return result.Contains("id") ? 1 : 0;
+                    }
+                case "GetDailyTask":
+                    {
+                        return result.Contains("daily") ? 1 : 0;
                     }
                 default:
                     break;

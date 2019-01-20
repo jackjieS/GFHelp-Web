@@ -11,12 +11,12 @@ namespace GFHelp.Core.CatchData.Base.CMD
     }
     public class tBaseDatas<T> where T : tBaseData
     {
-        // Token: 0x06001B86 RID: 7046 RVA: 0x0008DE54 File Offset: 0x0008C054
+        // Token: 0x06001543 RID: 5443 RVA: 0x0009C720 File Offset: 0x0009A920
         public tBaseDatas()
         {
         }
 
-        // Token: 0x06001B87 RID: 7047 RVA: 0x0008DE74 File Offset: 0x0008C074
+        // Token: 0x06001544 RID: 5444 RVA: 0x0009C740 File Offset: 0x0009A940
         public tBaseDatas(List<T> datas)
         {
             this.mDatas = datas;
@@ -34,45 +34,45 @@ namespace GFHelp.Core.CatchData.Base.CMD
             }
         }
 
-        // Token: 0x06001B88 RID: 7048 RVA: 0x0008DF14 File Offset: 0x0008C114
+        // Token: 0x06001545 RID: 5445 RVA: 0x0009C7E0 File Offset: 0x0009A9E0
         public bool Contains(T t)
         {
             return this.mDatas.Contains(t);
         }
 
-        // Token: 0x06001B89 RID: 7049 RVA: 0x0008DF24 File Offset: 0x0008C124
+        // Token: 0x06001546 RID: 5446 RVA: 0x0009C7F0 File Offset: 0x0009A9F0
         public bool ContainsKey(long id)
         {
             return this.mDicDatas.ContainsKey(id);
         }
 
-        // Token: 0x06001B8A RID: 7050 RVA: 0x0008DF34 File Offset: 0x0008C134
+        // Token: 0x06001547 RID: 5447 RVA: 0x0009C800 File Offset: 0x0009AA00
         public void Clear()
         {
             this.mDatas.Clear();
             this.mDicDatas.Clear();
         }
 
-        // Token: 0x06001B8B RID: 7051 RVA: 0x0008DF4C File Offset: 0x0008C14C
+        // Token: 0x06001548 RID: 5448 RVA: 0x0009C818 File Offset: 0x0009AA18
         public IEnumerator<T> GetEnumerator()
         {
             return this.mDatas.GetEnumerator();
         }
 
-        // Token: 0x06001B8C RID: 7052 RVA: 0x0008DF60 File Offset: 0x0008C160
+        // Token: 0x06001549 RID: 5449 RVA: 0x0009C82C File Offset: 0x0009AA2C
         public List<T> GetList()
         {
             return this.mDatas;
         }
 
-        // Token: 0x06001B8D RID: 7053 RVA: 0x0008DF68 File Offset: 0x0008C168
+        // Token: 0x0600154A RID: 5450 RVA: 0x0009C834 File Offset: 0x0009AA34
         public Dictionary<long, T> GetDict()
         {
             return this.mDicDatas;
         }
 
-        // Token: 0x17000443 RID: 1091
-        // (get) Token: 0x06001B8E RID: 7054 RVA: 0x0008DF70 File Offset: 0x0008C170
+        // Token: 0x1700055E RID: 1374
+        // (get) Token: 0x0600154B RID: 5451 RVA: 0x0009C83C File Offset: 0x0009AA3C
         public int Count
         {
             get
@@ -81,7 +81,7 @@ namespace GFHelp.Core.CatchData.Base.CMD
             }
         }
 
-        // Token: 0x06001B8F RID: 7055 RVA: 0x0008DF80 File Offset: 0x0008C180
+        // Token: 0x0600154C RID: 5452 RVA: 0x0009C84C File Offset: 0x0009AA4C
         public T Find(Predicate<T> match)
         {
             int i = 0;
@@ -98,7 +98,7 @@ namespace GFHelp.Core.CatchData.Base.CMD
             return default(T);
         }
 
-        // Token: 0x06001B90 RID: 7056 RVA: 0x0008DFD0 File Offset: 0x0008C1D0
+        // Token: 0x0600154D RID: 5453 RVA: 0x0009C89C File Offset: 0x0009AA9C
         public List<T> FindAll(Predicate<T> match)
         {
             List<T> list = new List<T>();
@@ -116,25 +116,25 @@ namespace GFHelp.Core.CatchData.Base.CMD
             return list;
         }
 
-        // Token: 0x06001B91 RID: 7057 RVA: 0x0008E024 File Offset: 0x0008C224
+        // Token: 0x0600154E RID: 5454 RVA: 0x0009C8F0 File Offset: 0x0009AAF0
         public tBaseDatas<T> FindAllEx(Predicate<T> match)
         {
             return new tBaseDatas<T>(this.FindAll(match));
         }
 
-        // Token: 0x06001B92 RID: 7058 RVA: 0x0008E034 File Offset: 0x0008C234
+        // Token: 0x0600154F RID: 5455 RVA: 0x0009C900 File Offset: 0x0009AB00
         public T GetDataByIndex(int index)
         {
             return (this.mDatas.Count > index) ? this.mDatas[index] : default(T);
         }
 
-        // Token: 0x06001B93 RID: 7059 RVA: 0x0008E06C File Offset: 0x0008C26C
+        // Token: 0x06001550 RID: 5456 RVA: 0x0009C938 File Offset: 0x0009AB38
         public int GetIndexByData(T data)
         {
             return this.mDatas.FindIndex((T item) => item.GetID() == data.GetID());
         }
 
-        // Token: 0x06001B94 RID: 7060 RVA: 0x0008E0A0 File Offset: 0x0008C2A0
+        // Token: 0x06001551 RID: 5457 RVA: 0x0009C96C File Offset: 0x0009AB6C
         public T GetDataById(long id)
         {
             if (this.mDicDatas.ContainsKey(id))
@@ -144,18 +144,22 @@ namespace GFHelp.Core.CatchData.Base.CMD
             return default(T);
         }
 
-        // Token: 0x06001B95 RID: 7061 RVA: 0x0008E0D4 File Offset: 0x0008C2D4
+        // Token: 0x06001552 RID: 5458 RVA: 0x0009C9A0 File Offset: 0x0009ABA0
         public void Add(T data)
         {
             if (this.mDicDatas.ContainsKey(data.GetID()))
             {
-                throw new Exception("数据中存在重复id！");
+                Console.WriteLine("数据中存在重复id！");
             }
-            this.mDicDatas.Add(data.GetID(), data);
-            this.mDatas.Add(data);
+            else
+            {
+                this.mDicDatas.Add(data.GetID(), data);
+                this.mDatas.Add(data);
+            }
+
         }
 
-        // Token: 0x06001B96 RID: 7062 RVA: 0x0008E130 File Offset: 0x0008C330
+        // Token: 0x06001553 RID: 5459 RVA: 0x0009C9FC File Offset: 0x0009ABFC
         public bool Exists(Predicate<T> match)
         {
             int i = 0;
@@ -171,7 +175,7 @@ namespace GFHelp.Core.CatchData.Base.CMD
             return false;
         }
 
-        // Token: 0x06001B97 RID: 7063 RVA: 0x0008E178 File Offset: 0x0008C378
+        // Token: 0x06001554 RID: 5460 RVA: 0x0009CA44 File Offset: 0x0009AC44
         public void Remove(T data)
         {
             if (!this.mDicDatas.ContainsKey(data.GetID()))
@@ -182,7 +186,7 @@ namespace GFHelp.Core.CatchData.Base.CMD
             this.mDatas.Remove(data);
         }
 
-        // Token: 0x06001B98 RID: 7064 RVA: 0x0008E1CC File Offset: 0x0008C3CC
+        // Token: 0x06001555 RID: 5461 RVA: 0x0009CA98 File Offset: 0x0009AC98
         public void Remove(long id)
         {
             if (!this.mDicDatas.ContainsKey(id))
@@ -193,7 +197,7 @@ namespace GFHelp.Core.CatchData.Base.CMD
             this.mDicDatas.Remove(id);
         }
 
-        // Token: 0x06001B99 RID: 7065 RVA: 0x0008E210 File Offset: 0x0008C410
+        // Token: 0x06001556 RID: 5462 RVA: 0x0009CAD4 File Offset: 0x0009ACD4
         public void Remove(Predicate<T> match)
         {
             T t = default(T);
@@ -215,7 +219,7 @@ namespace GFHelp.Core.CatchData.Base.CMD
             }
         }
 
-        // Token: 0x06001B9A RID: 7066 RVA: 0x0008E294 File Offset: 0x0008C494
+        // Token: 0x06001557 RID: 5463 RVA: 0x0009CB58 File Offset: 0x0009AD58
         public void RemoveAll(Predicate<T> match)
         {
             List<T> list = this.FindAll(match);
@@ -231,7 +235,7 @@ namespace GFHelp.Core.CatchData.Base.CMD
             }
         }
 
-        // Token: 0x06001B9B RID: 7067 RVA: 0x0008E2F4 File Offset: 0x0008C4F4
+        // Token: 0x06001558 RID: 5464 RVA: 0x0009CBB8 File Offset: 0x0009ADB8
         public void RemoveAt(int index)
         {
             if (this.mDicDatas.Count <= 0)
@@ -244,17 +248,17 @@ namespace GFHelp.Core.CatchData.Base.CMD
             this.mDatas.RemoveAt(index);
         }
 
-        // Token: 0x06001B9C RID: 7068 RVA: 0x0008E348 File Offset: 0x0008C548
+        // Token: 0x06001559 RID: 5465 RVA: 0x0009CC0C File Offset: 0x0009AE0C
         internal void Sort(Comparison<T> t)
         {
             this.mDatas.Sort(t);
         }
 
-        // Token: 0x04001766 RID: 5990
+        // Token: 0x0400225D RID: 8797
         private List<T> mDatas = new List<T>();
 
-        // Token: 0x04001767 RID: 5991
+        // Token: 0x0400225E RID: 8798
         private Dictionary<long, T> mDicDatas = new Dictionary<long, T>();
-    }
 
+    }
 }

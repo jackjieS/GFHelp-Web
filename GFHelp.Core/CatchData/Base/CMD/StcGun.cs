@@ -4,12 +4,19 @@ using System.Text;
 
 namespace GFHelp.Core.CatchData.Base.CMD
 {
-    // Token: 0x0200062E RID: 1582
+    // Token: 0x0200074F RID: 1871
     public class StcGun : NullCmdStruct
     {
-        // Token: 0x06003D18 RID: 15640 RVA: 0x00173454 File Offset: 0x00171654
+        // Token: 0x06003DE6 RID: 15846 RVA: 0x001E3C10 File Offset: 0x001E1E10
+        public StcGun()
+        {
+
+        }
+
+        // Token: 0x06003DE7 RID: 15847 RVA: 0x001E3C40 File Offset: 0x001E1E40
         protected override void _Pack(ByteBuffer buffer)
         {
+
             buffer.WriteInt(this.id);
             buffer.WriteString(this.name);
             buffer.WriteString(this.en_name);
@@ -48,14 +55,14 @@ namespace GFHelp.Core.CatchData.Base.CMD
             buffer.WriteString(this.passive_skill);
             buffer.WriteString(this.dynamic_passive_skill);
             buffer.WriteInt(this.effect_grid_center);
-            buffer.WriteInt(this.effect_guntype);
+            buffer.WriteString(this.effect_guntype);
             buffer.WriteString(this.effect_grid_pos);
             buffer.WriteString(this.effect_grid_effect);
             buffer.WriteInt(this.max_equip);
             buffer.WriteString(this.type_equip1);
             buffer.WriteString(this.type_equip2);
             buffer.WriteString(this.type_equip3);
-            buffer.WriteInt(this.type_equip4);
+            buffer.WriteString(this.type_equip4);
             buffer.WriteInt(this.ai);
             buffer.WriteSbyte(this.is_additional);
             buffer.WriteString(this.launch_time);
@@ -63,9 +70,10 @@ namespace GFHelp.Core.CatchData.Base.CMD
             buffer.WriteInt(this.rank_display);
             buffer.WriteInt(this.prize_id);
             buffer.WriteString(this.mindupdate_consume);
+            buffer.WriteString(this.explore_tag);
         }
 
-        // Token: 0x06003D19 RID: 15641 RVA: 0x001736E0 File Offset: 0x001718E0
+        // Token: 0x06003DE8 RID: 15848 RVA: 0x001E3EF4 File Offset: 0x001E20F4
         protected override void _UnPack(ByteBuffer buffer)
         {
             this.id = buffer.ReadInt();
@@ -106,14 +114,14 @@ namespace GFHelp.Core.CatchData.Base.CMD
             this.passive_skill = buffer.ReadString();
             this.dynamic_passive_skill = buffer.ReadString();
             this.effect_grid_center = buffer.ReadInt();
-            this.effect_guntype = buffer.ReadInt();
+            this.effect_guntype = buffer.ReadString();
             this.effect_grid_pos = buffer.ReadString();
             this.effect_grid_effect = buffer.ReadString();
             this.max_equip = buffer.ReadInt();
             this.type_equip1 = buffer.ReadString();
             this.type_equip2 = buffer.ReadString();
             this.type_equip3 = buffer.ReadString();
-            this.type_equip4 = buffer.ReadInt();
+            this.type_equip4 = buffer.ReadString();
             this.ai = buffer.ReadInt();
             this.is_additional = buffer.ReadSbyte();
             this.launch_time = buffer.ReadString();
@@ -121,165 +129,170 @@ namespace GFHelp.Core.CatchData.Base.CMD
             this.rank_display = buffer.ReadInt();
             this.prize_id = buffer.ReadInt();
             this.mindupdate_consume = buffer.ReadString();
+            this.explore_tag = buffer.ReadString();
         }
 
-        // Token: 0x04003E60 RID: 15968
+        // Token: 0x04006FCF RID: 28623
         public int id;
 
-        // Token: 0x04003E61 RID: 15969
+        // Token: 0x04006FD0 RID: 28624
         public string name;
 
-        // Token: 0x04003E62 RID: 15970
+        // Token: 0x04006FD1 RID: 28625
         public string en_name;
 
-        // Token: 0x04003E63 RID: 15971
+        // Token: 0x04006FD2 RID: 28626
         public string code;
 
-        // Token: 0x04003E64 RID: 15972
+        // Token: 0x04006FD3 RID: 28627
         public string introduce;
 
-        // Token: 0x04003E65 RID: 15973
+        // Token: 0x04006FD4 RID: 28628
         public string dialogue;
 
-        // Token: 0x04003E66 RID: 15974
+        // Token: 0x04006FD5 RID: 28629
         public string extra;
 
-        // Token: 0x04003E67 RID: 15975
+        // Token: 0x04006FD6 RID: 28630
         public string en_introduce;
 
-        // Token: 0x04003E68 RID: 15976
+        // Token: 0x04006FD7 RID: 28631
         public string character;
 
-        // Token: 0x04003E69 RID: 15977
+        // Token: 0x04006FD8 RID: 28632
         public int type;
 
-        // Token: 0x04003E6A RID: 15978
+        // Token: 0x04006FD9 RID: 28633
         public int rank;
 
-        // Token: 0x04003E6B RID: 15979
+        // Token: 0x04006FDA RID: 28634
         public int develop_duration;
 
-        // Token: 0x04003E6C RID: 15980
+        // Token: 0x04006FDB RID: 28635
         public int baseammo;
 
-        // Token: 0x04003E6D RID: 15981
+        // Token: 0x04006FDC RID: 28636
         public int basemre;
 
-        // Token: 0x04003E6E RID: 15982
+        // Token: 0x04006FDD RID: 28637
         public int ammo_add_withnumber;
 
-        // Token: 0x04003E6F RID: 15983
+        // Token: 0x04006FDE RID: 28638
         public int mre_add_withnumber;
 
-        // Token: 0x04003E70 RID: 15984
+        // Token: 0x04006FDF RID: 28639
         public int retiremp;
 
-        // Token: 0x04003E71 RID: 15985
+        // Token: 0x04006FE0 RID: 28640
         public int retireammo;
 
-        // Token: 0x04003E72 RID: 15986
+        // Token: 0x04006FE1 RID: 28641
         public int retiremre;
 
-        // Token: 0x04003E73 RID: 15987
+        // Token: 0x04006FE2 RID: 28642
         public int retirepart;
 
-        // Token: 0x04003E74 RID: 15988
+        // Token: 0x04006FE3 RID: 28643
         public int ratio_life;
 
-        // Token: 0x04003E75 RID: 15989
+        // Token: 0x04006FE4 RID: 28644
         public int ratio_pow;
 
-        // Token: 0x04003E76 RID: 15990
+        // Token: 0x04006FE5 RID: 28645
         public int ratio_rate;
 
-        // Token: 0x04003E77 RID: 15991
+        // Token: 0x04006FE6 RID: 28646
         public int ratio_speed;
 
-        // Token: 0x04003E78 RID: 15992
+        // Token: 0x04006FE7 RID: 28647
         public int ratio_hit;
 
-        // Token: 0x04003E79 RID: 15993
+        // Token: 0x04006FE8 RID: 28648
         public int ratio_dodge;
 
-        // Token: 0x04003E7A RID: 15994
+        // Token: 0x04006FE9 RID: 28649
         public int ratio_armor;
 
-        // Token: 0x04003E7B RID: 15995
+        // Token: 0x04006FEA RID: 28650
         public int armor_piercing;
 
-        // Token: 0x04003E7C RID: 15996
+        // Token: 0x04006FEB RID: 28651
         public int crit;
 
-        // Token: 0x04003E7D RID: 15997
+        // Token: 0x04006FEC RID: 28652
         public int special;
 
-        // Token: 0x04003E7E RID: 15998
+        // Token: 0x04006FED RID: 28653
         public int eat_ratio;
 
-        // Token: 0x04003E7F RID: 15999
+        // Token: 0x04006FEE RID: 28654
         public int ratio_range;
 
-        // Token: 0x04003E80 RID: 16000
+        // Token: 0x04006FEF RID: 28655
         public int skill1;
 
-        // Token: 0x04003E81 RID: 16001
+        // Token: 0x04006FF0 RID: 28656
         public int skill2;
 
-        // Token: 0x04003E82 RID: 16002
+        // Token: 0x04006FF1 RID: 28657
         public int normal_attack;
 
-        // Token: 0x04003E83 RID: 16003
+        // Token: 0x04006FF2 RID: 28658
         public string passive_skill;
 
-        // Token: 0x04003E84 RID: 16004
+        // Token: 0x04006FF3 RID: 28659
         public string dynamic_passive_skill;
 
-        // Token: 0x04003E85 RID: 16005
+        // Token: 0x04006FF4 RID: 28660
         public int effect_grid_center;
 
-        // Token: 0x04003E86 RID: 16006
-        public int effect_guntype;
+        // Token: 0x04006FF5 RID: 28661
+        public string effect_guntype;
 
-        // Token: 0x04003E87 RID: 16007
+        // Token: 0x04006FF6 RID: 28662
         public string effect_grid_pos;
 
-        // Token: 0x04003E88 RID: 16008
+        // Token: 0x04006FF7 RID: 28663
         public string effect_grid_effect;
 
-        // Token: 0x04003E89 RID: 16009
+        // Token: 0x04006FF8 RID: 28664
         public int max_equip;
 
-        // Token: 0x04003E8A RID: 16010
+        // Token: 0x04006FF9 RID: 28665
         public string type_equip1;
 
-        // Token: 0x04003E8B RID: 16011
+        // Token: 0x04006FFA RID: 28666
         public string type_equip2;
 
-        // Token: 0x04003E8C RID: 16012
+        // Token: 0x04006FFB RID: 28667
         public string type_equip3;
 
-        // Token: 0x04003E8D RID: 16013
-        public int type_equip4;
+        // Token: 0x04006FFC RID: 28668
+        public string type_equip4;
 
-        // Token: 0x04003E8E RID: 16014
+        // Token: 0x04006FFD RID: 28669
         public int ai;
 
-        // Token: 0x04003E8F RID: 16015
+        // Token: 0x04006FFE RID: 28670
         public sbyte is_additional;
 
-        // Token: 0x04003E90 RID: 16016
+        // Token: 0x04006FFF RID: 28671
         public string launch_time;
 
-        // Token: 0x04003E91 RID: 16017
+        // Token: 0x04007000 RID: 28672
         public string obtain_ids;
 
-        // Token: 0x04003E92 RID: 16018
+        // Token: 0x04007001 RID: 28673
         public int rank_display;
 
-        // Token: 0x04003E93 RID: 16019
+        // Token: 0x04007002 RID: 28674
         public int prize_id;
 
-        // Token: 0x04003E94 RID: 16020
+        // Token: 0x04007003 RID: 28675
         public string mindupdate_consume;
+
+        // Token: 0x04007004 RID: 28676
+        public string explore_tag;
+
     }
 }

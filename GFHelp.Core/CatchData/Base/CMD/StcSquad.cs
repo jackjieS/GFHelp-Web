@@ -4,14 +4,19 @@ using System.Text;
 
 namespace GFHelp.Core.CatchData.Base.CMD
 {
+    // Token: 0x02000750 RID: 1872
     public class StcSquad : NullCmdStruct
     {
+        // Token: 0x06003DE9 RID: 15849 RVA: 0x001E41A8 File Offset: 0x001E23A8
         public StcSquad()
         {
-            ;
+
         }
+
+        // Token: 0x06003DEA RID: 15850 RVA: 0x001E41D8 File Offset: 0x001E23D8
         protected override void _Pack(ByteBuffer buffer)
         {
+
             buffer.WriteInt(this.id);
             buffer.WriteString(this.name);
             buffer.WriteString(this.en_name);
@@ -32,6 +37,7 @@ namespace GFHelp.Core.CatchData.Base.CMD
             buffer.WriteInt(this.damage);
             buffer.WriteInt(this.atk_speed);
             buffer.WriteInt(this.hit);
+            buffer.WriteInt(this.basic_rate);
             buffer.WriteInt(this.cpu_rate);
             buffer.WriteInt(this.crit_rate);
             buffer.WriteInt(this.crit_damage);
@@ -47,6 +53,7 @@ namespace GFHelp.Core.CatchData.Base.CMD
             buffer.WriteInt(this.skill3);
             buffer.WriteInt(this.performance_skill);
             buffer.WriteString(this.passive_skill);
+            buffer.WriteString(this.dynamic_passive_skill);
             buffer.WriteInt(this.normal_attack);
             buffer.WriteInt(this.advanced_bonus);
             buffer.WriteInt(this.deploy_round);
@@ -63,11 +70,16 @@ namespace GFHelp.Core.CatchData.Base.CMD
             buffer.WriteInt(this.destroy_coef);
             buffer.WriteString(this.mission_skill_repair);
             buffer.WriteInt(this.develop_duration);
-            buffer.WriteInt(this.basic_rate);
             buffer.WriteString(this.dorm_ai);
+            buffer.WriteInt(this.normal_attack_description);
+            buffer.WriteInt(this.attack_range);
+            buffer.WriteInt(this.night_vision);
         }
+
+        // Token: 0x06003DEB RID: 15851 RVA: 0x001E44B0 File Offset: 0x001E26B0
         protected override void _UnPack(ByteBuffer buffer)
         {
+
             this.id = buffer.ReadInt();
             this.name = buffer.ReadString();
             this.en_name = buffer.ReadString();
@@ -88,6 +100,7 @@ namespace GFHelp.Core.CatchData.Base.CMD
             this.damage = buffer.ReadInt();
             this.atk_speed = buffer.ReadInt();
             this.hit = buffer.ReadInt();
+            this.basic_rate = buffer.ReadInt();
             this.cpu_rate = buffer.ReadInt();
             this.crit_rate = buffer.ReadInt();
             this.crit_damage = buffer.ReadInt();
@@ -103,6 +116,7 @@ namespace GFHelp.Core.CatchData.Base.CMD
             this.skill3 = buffer.ReadInt();
             this.performance_skill = buffer.ReadInt();
             this.passive_skill = buffer.ReadString();
+            this.dynamic_passive_skill = buffer.ReadString();
             this.normal_attack = buffer.ReadInt();
             this.advanced_bonus = buffer.ReadInt();
             this.deploy_round = buffer.ReadInt();
@@ -119,166 +133,183 @@ namespace GFHelp.Core.CatchData.Base.CMD
             this.destroy_coef = buffer.ReadInt();
             this.mission_skill_repair = buffer.ReadString();
             this.develop_duration = buffer.ReadInt();
-            this.basic_rate = buffer.ReadInt();
             this.dorm_ai = buffer.ReadString();
+            this.normal_attack_description = buffer.ReadInt();
+            this.attack_range = buffer.ReadInt();
+            this.night_vision = buffer.ReadInt();
         }
-        // Token: 0x04006E36 RID: 28214
+
+        // Token: 0x04007008 RID: 28680
         public int id;
 
-        // Token: 0x04006E37 RID: 28215
+        // Token: 0x04007009 RID: 28681
         public string name;
 
-        // Token: 0x04006E38 RID: 28216
+        // Token: 0x0400700A RID: 28682
         public string en_name;
 
-        // Token: 0x04006E39 RID: 28217
+        // Token: 0x0400700B RID: 28683
         public string code;
 
-        // Token: 0x04006E3A RID: 28218
+        // Token: 0x0400700C RID: 28684
         public string introduce;
 
-        // Token: 0x04006E3B RID: 28219
+        // Token: 0x0400700D RID: 28685
         public string dialogue;
 
-        // Token: 0x04006E3C RID: 28220
+        // Token: 0x0400700E RID: 28686
         public string extra;
 
-        // Token: 0x04006E3D RID: 28221
+        // Token: 0x0400700F RID: 28687
         public string en_introduce;
 
-        // Token: 0x04006E3E RID: 28222
+        // Token: 0x04007010 RID: 28688
         public int type;
 
-        // Token: 0x04006E3F RID: 28223
+        // Token: 0x04007011 RID: 28689
         public int assist_type;
 
-        // Token: 0x04006E40 RID: 28224
+        // Token: 0x04007012 RID: 28690
         public int population;
 
-        // Token: 0x04006E41 RID: 28225
+        // Token: 0x04007013 RID: 28691
         public int cpu_id;
 
-        // Token: 0x04006E42 RID: 28226
+        // Token: 0x04007014 RID: 28692
         public int hp;
 
-        // Token: 0x04006E43 RID: 28227
+        // Token: 0x04007015 RID: 28693
         public int assist_damage;
 
-        // Token: 0x04006E44 RID: 28228
+        // Token: 0x04007016 RID: 28694
         public int assist_reload;
 
-        // Token: 0x04006E45 RID: 28229
+        // Token: 0x04007017 RID: 28695
         public int assist_hit;
 
-        // Token: 0x04006E46 RID: 28230
+        // Token: 0x04007018 RID: 28696
         public int assist_def_break;
 
-        // Token: 0x04006E47 RID: 28231
+        // Token: 0x04007019 RID: 28697
         public int damage;
 
-        // Token: 0x04006E48 RID: 28232
+        // Token: 0x0400701A RID: 28698
         public int atk_speed;
 
-        // Token: 0x04006E49 RID: 28233
+        // Token: 0x0400701B RID: 28699
         public int hit;
 
-        // Token: 0x04006E4A RID: 28234
-        public int cpu_rate;
-
-        // Token: 0x04006E4B RID: 28235
-        public int crit_rate;
-
-        // Token: 0x04006E4C RID: 28236
-        public int crit_damage;
-
-        // Token: 0x04006E4D RID: 28237
-        public int armor_piercing;
-
-        // Token: 0x04006E4E RID: 28238
-        public int dodge;
-
-        // Token: 0x04006E4F RID: 28239
-        public int move;
-
-        // Token: 0x04006E50 RID: 28240
-        public int assist_armor_piercing;
-
-        // Token: 0x04006E51 RID: 28241
-        public string battle_assist_range;
-
-        // Token: 0x04006E52 RID: 28242
-        public int display_assist_damage_area;
-
-        // Token: 0x04006E53 RID: 28243
-        public int display_assist_area_coef;
-
-        // Token: 0x04006E54 RID: 28244
-        public int skill1;
-
-        // Token: 0x04006E55 RID: 28245
-        public int skill2;
-
-        // Token: 0x04006E56 RID: 28246
-        public int skill3;
-
-        // Token: 0x04006E57 RID: 28247
-        public int performance_skill;
-
-        // Token: 0x04006E58 RID: 28248
-        public string passive_skill;
-
-        // Token: 0x04006E59 RID: 28249
-        public int normal_attack;
-
-        // Token: 0x04006E5A RID: 28250
-        public int advanced_bonus;
-
-        // Token: 0x04006E5B RID: 28251
-        public int deploy_round;
-
-        // Token: 0x04006E5C RID: 28252
-        public int assist_attack_round;
-
-        // Token: 0x04006E5D RID: 28253
-        public int attack_round;
-
-        // Token: 0x04006E5E RID: 28254
-        public int baseammo;
-
-        // Token: 0x04006E5F RID: 28255
-        public int basemre;
-
-        // Token: 0x04006E60 RID: 28256
-        public int ammo_part;
-
-        // Token: 0x04006E61 RID: 28257
-        public int mre_part;
-
-        // Token: 0x04006E62 RID: 28258
-        public sbyte is_additional;
-
-        // Token: 0x04006E63 RID: 28259
-        public string launch_time;
-
-        // Token: 0x04006E64 RID: 28260
-        public string obtain_ids;
-
-        // Token: 0x04006E65 RID: 28261
-        public int piece_item_id;
-
-        // Token: 0x04006E66 RID: 28262
-        public int destroy_coef;
-
-        // Token: 0x04006E67 RID: 28263
-        public string mission_skill_repair;
-
-        // Token: 0x04006E68 RID: 28264
-        public int develop_duration;
-
-        // Token: 0x04006E69 RID: 28265
+        // Token: 0x0400701C RID: 28700
         public int basic_rate;
 
-        // Token: 0x04006E6A RID: 28266
+        // Token: 0x0400701D RID: 28701
+        public int cpu_rate;
+
+        // Token: 0x0400701E RID: 28702
+        public int crit_rate;
+
+        // Token: 0x0400701F RID: 28703
+        public int crit_damage;
+
+        // Token: 0x04007020 RID: 28704
+        public int armor_piercing;
+
+        // Token: 0x04007021 RID: 28705
+        public int dodge;
+
+        // Token: 0x04007022 RID: 28706
+        public int move;
+
+        // Token: 0x04007023 RID: 28707
+        public int assist_armor_piercing;
+
+        // Token: 0x04007024 RID: 28708
+        public string battle_assist_range;
+
+        // Token: 0x04007025 RID: 28709
+        public int display_assist_damage_area;
+
+        // Token: 0x04007026 RID: 28710
+        public int display_assist_area_coef;
+
+        // Token: 0x04007027 RID: 28711
+        public int skill1;
+
+        // Token: 0x04007028 RID: 28712
+        public int skill2;
+
+        // Token: 0x04007029 RID: 28713
+        public int skill3;
+
+        // Token: 0x0400702A RID: 28714
+        public int performance_skill;
+
+        // Token: 0x0400702B RID: 28715
+        public string passive_skill;
+
+        // Token: 0x0400702C RID: 28716
+        public string dynamic_passive_skill;
+
+        // Token: 0x0400702D RID: 28717
+        public int normal_attack;
+
+        // Token: 0x0400702E RID: 28718
+        public int advanced_bonus;
+
+        // Token: 0x0400702F RID: 28719
+        public int deploy_round;
+
+        // Token: 0x04007030 RID: 28720
+        public int assist_attack_round;
+
+        // Token: 0x04007031 RID: 28721
+        public int attack_round;
+
+        // Token: 0x04007032 RID: 28722
+        public int baseammo;
+
+        // Token: 0x04007033 RID: 28723
+        public int basemre;
+
+        // Token: 0x04007034 RID: 28724
+        public int ammo_part;
+
+        // Token: 0x04007035 RID: 28725
+        public int mre_part;
+
+        // Token: 0x04007036 RID: 28726
+        public sbyte is_additional;
+
+        // Token: 0x04007037 RID: 28727
+        public string launch_time;
+
+        // Token: 0x04007038 RID: 28728
+        public string obtain_ids;
+
+        // Token: 0x04007039 RID: 28729
+        public int piece_item_id;
+
+        // Token: 0x0400703A RID: 28730
+        public int destroy_coef;
+
+        // Token: 0x0400703B RID: 28731
+        public string mission_skill_repair;
+
+        // Token: 0x0400703C RID: 28732
+        public int develop_duration;
+
+        // Token: 0x0400703D RID: 28733
         public string dorm_ai;
+
+        // Token: 0x0400703E RID: 28734
+        public int normal_attack_description;
+
+        // Token: 0x0400703F RID: 28735
+        public int attack_range;
+
+        // Token: 0x04007040 RID: 28736
+        public int night_vision;
+
+
     }
 }

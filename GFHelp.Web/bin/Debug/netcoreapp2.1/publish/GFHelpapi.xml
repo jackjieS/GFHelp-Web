@@ -181,6 +181,13 @@
             <param name="bs"></param>
             <returns></returns>
         </member>
+        <member name="M:GFHelp.Web.Controllers.GameController.MultiStartBattle(GFHelp.Core.Action.BattleBase.Battle)">
+            <summary>
+            开始作战
+            </summary>
+            <param name="bs"></param>
+            <returns></returns>
+        </member>
         <member name="M:GFHelp.Web.Controllers.GameController.AbortBattle(GFHelp.Core.Action.BattleBase.Battle)">
             <summary>
             终止作战

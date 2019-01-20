@@ -19,7 +19,7 @@ namespace GFHelp.Core.MulitePlayerData
         UserData userData;
 
 
-        public bool Eat_EquipHandle(Action.BattleBase.MissionInfo.Data data)
+        public bool Eat_EquipHandle(Action.BattleBase.MissionInfo.Data data=null,int FoodNum=0)
         {
             //SELECT+1
             //选取需要升级的枪 done
@@ -29,20 +29,18 @@ namespace GFHelp.Core.MulitePlayerData
             //经验++           done
             Thread.Sleep(2000);
             userData.webData.StatusBarText = "准备装备升级";
-            if (data.equipid == 0)
-            {
-                userData.equip_With_User_Info.Read_Equipment_Upgrade();
-            }
-            else
+            userData.equip_With_User_Info.Read_Equipment_Upgrade();
+            if (data != null && data.equipid != 0)
             {
                 userData.equip_With_User_Info.Read_Equipment_Upgrade(data.equipid);
             }
+
 
             string result = "";
             for (int i = 0; i < userData.equip_With_User_Info.dicUpgrade.Count;)
             {
                 long id = userData.equip_With_User_Info.dicUpgrade[i].id;
-                int updateResult = Eat_Equip(id, ref result);
+                int updateResult = Eat_Equip(id, ref result, FoodNum);
                 if (updateResult == 1)
                 {
                     JsonData jsonData = JsonMapper.ToObject(result);
@@ -66,7 +64,7 @@ namespace GFHelp.Core.MulitePlayerData
 
 
 
-        private int Eat_Equip(long id, ref string result)
+        private int Eat_Equip(long id, ref string result,int equipFoodNum=0)
         {
             List<long> equipFood = new List<long>();
             equipFood = userData.equip_With_User_Info.Get_Equipment_Food();
@@ -77,10 +75,21 @@ namespace GFHelp.Core.MulitePlayerData
             jsonWriter.Write(id);
             jsonWriter.WritePropertyName("food");
             jsonWriter.WriteArrayStart();
-            foreach (var item in equipFood)
+            if (equipFoodNum == 0)
             {
-                jsonWriter.Write(item.ToString());
+                foreach (var item in equipFood)
+                {
+                    jsonWriter.Write(item.ToString());
+                }
             }
+            else
+            {
+                for (int i = 0; i < equipFood.Count && i<equipFoodNum; i++)
+                {
+                    jsonWriter.Write(equipFood[i].ToString());
+                }
+            }
+
             jsonWriter.WriteArrayEnd();
             jsonWriter.WriteObjectEnd();
             int count = 0;
@@ -255,7 +264,7 @@ namespace GFHelp.Core.MulitePlayerData
         }
 
 
-        public int Gun_PowerUP(int id, ref string result)
+        public int Gun_PowerUP(int id, ref string result,int retireGunNum=0)
         {
 
             Thread.Sleep(2000);
@@ -276,11 +285,21 @@ namespace GFHelp.Core.MulitePlayerData
             jsonWriter.Write(0);
             jsonWriter.WritePropertyName("food");
             jsonWriter.WriteArrayStart();
-
-            foreach (var item in userData.gun_With_User_Info.Rank2)
+            if (retireGunNum == 0)
             {
-                jsonWriter.Write(item);
+                foreach (var item in userData.gun_With_User_Info.Rank2)
+                {
+                    jsonWriter.Write(item);
+                }
             }
+            else
+            {
+                for (int i = 0; i < userData.gun_With_User_Info.Rank2.Count && i < retireGunNum; i++)
+                {
+                    jsonWriter.Write(userData.gun_With_User_Info.Rank2[i]);
+                }
+            }
+
             jsonWriter.WriteArrayEnd();
             jsonWriter.WriteObjectEnd();
 
@@ -315,7 +334,7 @@ namespace GFHelp.Core.MulitePlayerData
             }
         }
 
-        public bool EatGunHandle()
+        public bool EatGunHandle(int retireGunnum = 0)
         {
             Thread.Sleep(2000);
             userData.webData.StatusBarText = "准备人形强化";
@@ -327,7 +346,7 @@ namespace GFHelp.Core.MulitePlayerData
 
             for (int i = 0; i < userData.gun_With_User_Info.dicGun_PowerUP.Count();)
             {
-                int intResult = Gun_PowerUP(userData.gun_With_User_Info.dicGun_PowerUP[i].id, ref result);
+                int intResult = Gun_PowerUP(userData.gun_With_User_Info.dicGun_PowerUP[i].id, ref result, retireGunnum);
                 if (intResult==1)
                 {
                     userData.gun_With_User_Info.Del_Gun_IN_Dict(2);
@@ -360,7 +379,11 @@ namespace GFHelp.Core.MulitePlayerData
                 userData.gun_With_User_Info.dicGun_PowerUP[i].UpdateData();
                 return true;
             }
-            userData.MissionInfo.listTask[0].AutoStrengthen = false;
+            if (userData.MissionInfo.listTask.Count != 0)
+            {
+                userData.MissionInfo.listTask[0].AutoStrengthen = false;
+            }
+
             return false;
         }
 

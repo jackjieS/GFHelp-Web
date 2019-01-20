@@ -37,10 +37,22 @@ namespace GFHelp.Core.MulitePlayerData
             }
 
         }
+        public void ReadTask_Daily(JsonData jsonData)
+        {
+            dailyTaskData = new DailyTaskData(jsonData);
+            DailyTaskHandle();
+
+
+
+        }
+
+
+
+
         public void AutoRun()
         {
             //return;
-            if (!userData.config.AutoSquadTaskDaily) return;
+            if (!userData.config.AutoTaskDaily) return;
             if (listSquadData.Count == 0) return;
             for (int i = 0; i < listSquadData.Count; i++)
             {
@@ -51,18 +63,38 @@ namespace GFHelp.Core.MulitePlayerData
             }
 
         }
+
+
+        private void DailyTaskHandle()
+        {
+            if (Convert.ToInt16(dailyTaskData.mission) < 10)
+            {
+                if (!CheckBattleList("map1_1"))
+                {
+                    addBattle1_1(10);
+                }
+
+            }
+            if (Convert.ToInt16(dailyTaskData.develop_gun) < 4)
+            {
+                 userData.doll_Build.startDevelopDailyTaskHandel();
+            }
+            if (Convert.ToInt16(dailyTaskData.develop_equip) < 4)
+            {
+                 userData.equip_Built.startDevelopDailyTaskHandel();
+            }
+            if (Convert.ToInt16(dailyTaskData.eat) < 5)
+            {
+                userData.Factory.EatGunHandle(1);
+            }
+            if (Convert.ToInt16(dailyTaskData.eat_equip) < 5)
+            {
+                userData.Factory.Eat_EquipHandle(FoodNum:1);
+            }
+            userData.webData.StatusBarText = "空闲";
+        }
         private void FinishTask(SquadData data)
         {
-            //Battle bs = new Battle();
-            //bs.accountID = userData.GameAccount.GameAccountID;
-            //bs.Map = "-mapsimulationtrial";
-            //bs.Parm = "-t1 -c -ns -qf -a -e";
-            //if (userData.others.getAvailableTeamID().Count == 0) return;
-
-            //bs.Teams = new List<Team>();
-            //MissionInfo.Data data = new MissionInfo.Data(userData, bs);
-            //userData.MissionInfo.listTask.Add(data);
-
 
             if (data.isFinish) return;
             switch (data.squad_id)
@@ -162,13 +194,33 @@ namespace GFHelp.Core.MulitePlayerData
 
         }
 
-
+        private bool CheckBattleList(string map)
+        {
+            foreach (var item in userData.MissionInfo.listTask)
+            {
+                if (item.MissionMap.Contains(map)) return true;
+            }
+            return false;
+        }
         private void addBattle1_1()
         {
             Battle bs = new Battle();
             bs.accountID = userData.GameAccount.GameAccountID;
             bs.Map = "-map1_1";
             bs.Parm = "-t1 -c -ns -qf -a -e";
+            bs.CreatTeamList(userData.others.getAvailableTeamID());
+            if (userData.others.getAvailableTeamID().Count == 0) return;
+            MissionInfo.Data data = new MissionInfo.Data(userData, bs);
+            userData.MissionInfo.listTask.Add(data);
+        }
+        private void addBattle1_1(int i)
+        {
+
+            Battle bs = new Battle();
+            bs.accountID = userData.GameAccount.GameAccountID;
+            bs.Map = "-map1_1";
+            string parm = string.Format("-t{0} -c -ns -qf -a -e", i);
+            bs.Parm = parm;
             bs.CreatTeamList(userData.others.getAvailableTeamID());
             if (userData.others.getAvailableTeamID().Count == 0) return;
             MissionInfo.Data data = new MissionInfo.Data(userData, bs);
@@ -264,15 +316,6 @@ namespace GFHelp.Core.MulitePlayerData
             userData.MissionInfo.listTask.Add(data);
         }
 
-
-
-
-
-
-
-
-
-
         public class SquadData
         {
             public SquadData()
@@ -301,13 +344,63 @@ namespace GFHelp.Core.MulitePlayerData
             public bool isFinish = false;
             public bool Added = false;
         }
+        public class DailyTaskData
+        {
+            public DailyTaskData()
+            {
 
+            }
+            public DailyTaskData(JsonData jsonData = null)
+            {
 
+                if (jsonData != null)
+                {
+                    jsonData = jsonData["daily"];
+                    this.mission = jsonData["mission"].String;
+                    this.operation = jsonData["operation"].String;
+                    this.coin_mission = jsonData["coin_mission"].String;
+                    this.squad_data_analyse = jsonData["squad_data_analyse"].String;
+                    this.from_friend_build_coin = jsonData["from_friend_build_coin"].String;
+                    this.eat = jsonData["eat"].String;
+                    this.id = jsonData["id"].String;
+                    this.end_time = jsonData["end_time"].String;
+                    this.develop_gun = jsonData["develop_gun"].String;
+                    this.fix = jsonData["fix"].String;
+                    this.develop_equip = jsonData["develop_equip"].String;
+                    this.win_robot = jsonData["win_robot"].String;
+                    this.win_person = jsonData["win_person"].String;
+                    this.win_boss = jsonData["win_boss"].String;
+                    this.win_armorrobot = jsonData["win_armorrobot"].String;
+                    this.win_armorperson = jsonData["win_armorperson"].String;
+                    this.eat_equip = jsonData["eat_equip"].String;
+                    this.borrow_friend_team = jsonData["borrow_friend_team"].String;
 
-
+                }
+            }
+            public string mission;
+            public string operation;
+            public string coin_mission;
+            public string squad_data_analyse;
+            public string from_friend_build_coin;
+            public string eat;
+            public string id;
+            public string user_id;
+            public string end_time;
+            public string develop_gun;
+            public string fix;
+            public string upgrade;
+            public string develop_equip;
+            public string win_robot;
+            public string win_person;
+            public string win_boss;
+            public string win_armorrobot;
+            public string win_armorperson;
+            public string eat_equip;
+            public string borrow_friend_team;
+        }
         UserData userData;
         public List<SquadData> listSquadData = new List<SquadData>();
-
+        DailyTaskData dailyTaskData = new DailyTaskData();
 
 
 

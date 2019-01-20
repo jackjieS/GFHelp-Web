@@ -331,7 +331,7 @@ namespace GFHelp.Core.Management
 
         public bool AutoSimulation = false;
         public bool DataAnalysis = false;
-        public bool AutoSquadTaskDaily = false;
+        public bool AutoTaskDaily = false;
 
         public void ParmConfiuge(UserData userData)
         {
@@ -352,7 +352,7 @@ namespace GFHelp.Core.Management
                     this.AutoSimulation = true;
                     this.AutoStrengthen = true;
                     this.DataAnalysis = true;
-                    this.AutoSquadTaskDaily = true;
+                    this.AutoTaskDaily = true;
                 }
             }
         }

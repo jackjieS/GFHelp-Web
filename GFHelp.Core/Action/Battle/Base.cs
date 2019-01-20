@@ -765,7 +765,7 @@ namespace GFHelp.Core.Action.BattleBase
         public void Run()
         {
             if (userData.config.AutoSimulation == false) return;
-
+            if (CheckBattleListHas()) return;
             if (Sday.SimulationType == 1 && userData.user_Info.bp >= 5)
             {
                 Start_Trial();
@@ -797,6 +797,17 @@ namespace GFHelp.Core.Action.BattleBase
                 userData.user_Info.bp -= 3;
                 
             }
+        }
+
+        private bool CheckBattleListHas()
+        {
+            foreach (var item in userData.MissionInfo.listTask)
+            {
+                if (item.MissionMap.Contains("simulationtrial")) return true;
+                if (item.MissionMap.Contains("simulationdata")) return true;
+                if (item.MissionMap.Contains("corridor")) return true;
+            }
+            return false;
         }
 
         private void Start_Trial()
@@ -851,7 +862,7 @@ namespace GFHelp.Core.Action.BattleBase
                 {
                     if (Day == 3 || Day == 4)
                     {
-                        return 1;
+                        return 3;
                     }
                     if (Day == 2 || Day == 5 || Day == 0)
                     {
@@ -859,9 +870,9 @@ namespace GFHelp.Core.Action.BattleBase
                     }
                     if (Day == 1 || Day == 6)
                     {
-                        return 1;
+                        return 3;
                     }
-                    return 1;
+                    return 3;
                 }
             }
             public int Day
