@@ -155,6 +155,7 @@ namespace GFHelp.Core.Management
             this.webData = new WebData(this);
             this.mailList = new Mail(this);
             this.Factory = new Factory(this);
+            this.auto_Mission_Act_Info = new Auto_Mission_Act_Info(this);
         }
         public void CreatGameAccount(DataBase.GameAccount gameAccount)
         {
@@ -168,7 +169,7 @@ namespace GFHelp.Core.Management
             user_Info = new User_Info();
             user_Record = new User_Record();
             kalina_with_user_info = new Kalina_With_User_Info();
-            auto_Mission_Act_Info = new Auto_Mission_Act_Info();
+
 
         }
 
@@ -191,9 +192,9 @@ namespace GFHelp.Core.Management
 
             Dorm_Rest_Friend_Build_Coin_Count = Convert.ToInt32(jsonobj.dorm_rest_friend_build_coin_count);
 
-            auto_Mission_Act_Info.Read(jsonobj);
+            auto_Mission_Act_Info.Read(jsonData);
 
-            ReadUserData_mission_act_info(jsonobj);
+            ReadUserData_mission_act_info(jsonData);
 
             upgrade_Act_Info.Read(jsonData);
 
@@ -220,21 +221,21 @@ namespace GFHelp.Core.Management
             Function.SetTeamInfo(this);
 
         }
-        private void ReadUserData_mission_act_info(dynamic jsonobj)
+        private void ReadUserData_mission_act_info(LitJson.JsonData JsonData)
         {
-            Mission_S = false;
             try
             {
-                string data = jsonobj.mission_act_info.ToString();
-                if (data.Length > 10)
+                if (JsonData["mission_act_info"] == null) return;
+                else
                 {
-                    Mission_S = true;
+                    this.others.Mission_S = true;
                 }
             }
             catch (Exception)
             {
-                return;
             }
+
+
         }
 
         public Task dailyLoop;
@@ -247,7 +248,7 @@ namespace GFHelp.Core.Management
         public Action.Battle battle;
 
         public int Dorm_Rest_Friend_Build_Coin_Count;
-        public bool Mission_S;
+
 
         public Config config; 
 
@@ -267,7 +268,7 @@ namespace GFHelp.Core.Management
 
         public Mail mailList;
 
-        public Auto_Mission_Act_Info auto_Mission_Act_Info = new Auto_Mission_Act_Info();
+        public Auto_Mission_Act_Info auto_Mission_Act_Info;
 
         public Upgrade_Act_Info upgrade_Act_Info;
 

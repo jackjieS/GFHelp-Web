@@ -53,7 +53,7 @@
 
         });
         var Webuser = sessionStorage.getItem('username');
-        const conGamesStatus = new signalR.HubConnectionBuilder().withUrl("http://118.24.162.26:7777/chatHub?name=" + Webuser).build();
+        const conGamesStatus = new signalR.HubConnectionBuilder().withUrl("http://127.0.0.1:7777/chatHub?name=" + Webuser).build();
         conGamesStatus.start().catch(err => console.error(err.toString()));
         conGamesStatus.on("ReceiveSystemNotification", (message) => {
             console.log(message);

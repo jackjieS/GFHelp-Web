@@ -45,14 +45,6 @@ namespace GFHelp.Core.MulitePlayerData
                 coin1 = Convert.ToInt32(jsonobj.user_info.coin1);
                 coin2 = Convert.ToInt32(jsonobj.user_info.coin2);
                 coin3 = Convert.ToInt32(jsonobj.user_info.coin3);
-                try
-                {
-                    Int32.TryParse(jsonobj.monthlycard1_end_time, out monthlycard1_end_time);
-                    Int32.TryParse(jsonobj.monthlycard2_end_time, out monthlycard2_end_time);
-                }
-                catch (Exception)
-                {
-                }
 
 
                 growthfond = Convert.ToInt32(jsonobj.user_info.growthfond);
@@ -60,14 +52,6 @@ namespace GFHelp.Core.MulitePlayerData
                 last_bp_recover_time = Convert.ToInt32(jsonobj.user_info.last_bp_recover_time);
                 last_favor_recover_time = Convert.ToInt32(jsonobj.user_info.last_favor_recover_time);
 
-                try
-                {
-                    Int32.TryParse(jsonobj.last_monthlycard1_recover_time, out last_monthlycard1_recover_time);
-                    Int32.TryParse(jsonobj.last_monthlycard2_recover_time, out last_monthlycard2_recover_time);
-                }
-                catch (Exception)
-                {
-                }
 
 
                 last_login_time = Convert.ToInt32(jsonobj.user_info.last_login_time);

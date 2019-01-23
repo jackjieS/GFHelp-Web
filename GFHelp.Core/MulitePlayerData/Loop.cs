@@ -20,13 +20,14 @@ namespace GFHelp.Core.Management
         {
             while (true)
             {
-                Thread.Sleep(1000);
-                if (userData.taskDispose == true)
-                {
-                    return;
-                }
                 try
                 {
+                    Thread.Sleep(1000);
+                    if (userData.taskDispose == true || userData == null)
+                    {
+                        return;
+                    }
+
                     userData.operation_Act_Info.TimeReduce();
                     userData.dorm_with_user_info.TimeReduce();
                     Auto_Act_Summery();
@@ -43,13 +44,14 @@ namespace GFHelp.Core.Management
         {
             while (true)
             {
-                Thread.Sleep(1000);
-                if (userData.taskDispose == true)
-                {
-                    return;
-                }
                 try
                 {
+                    Thread.Sleep(1000);
+                    if (userData.taskDispose == true || userData == null)
+                    {
+                        return;
+                    }
+
                     Auto_Battle();
                 }
                 catch (Exception e)
@@ -84,11 +86,8 @@ namespace GFHelp.Core.Management
         }
         private void Auto_Battle()
         {
-            if (userData.config.LoginSuccessful && userData.taskDispose != true)
-            {
-                if (userData.MissionInfo.listTask.Count == 0) return;
-                userData.mission.Test();
-            }
+            if (userData.MissionInfo.listTask.Count == 0) return;
+            userData.mission.Test();
         }
     }
 

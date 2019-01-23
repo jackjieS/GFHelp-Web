@@ -38,9 +38,10 @@ namespace GFHelp.Core.MulitePlayerData
             //剩下时间 = 开始时间+任务时间 - 当前时间
             try
             {
+                if (userData.config.LoginSuccessful == false) return;
                 for (int i = 0; i < dicOperation.Count; i++)
                 {
-
+                    if (dicOperation[i].operation_id == 0) continue;
                     dicOperation[i].remaining_time = dicOperation[i].start_time + /*任务时间*/ CatachData.operation_info[dicOperation[i].operation_id - 1].duration - Decrypt.ConvertDateTime_China_Int(DateTime.Now);
                     if (dicOperation[i].start_time == (int)DateTime.MinValue.Ticks) continue;
                     if (dicOperation[i].remaining_time < 0)

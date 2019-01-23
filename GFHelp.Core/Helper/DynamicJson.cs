@@ -35,6 +35,7 @@ namespace Codeplex.Data
         public static dynamic Parse(string json)
         {
             if (json == "") return false;
+            if (json == "      ") return false;
             try
             {
                 return Parse(json, Encoding.Unicode);

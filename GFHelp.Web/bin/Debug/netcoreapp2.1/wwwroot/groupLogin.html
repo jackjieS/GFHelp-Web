@@ -1,0 +1,122 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>zui-admin</title>
+    <!-- zui css -->
+    <link rel="stylesheet" href="dist/css/zui.min.css">
+    <link rel="stylesheet" href="dist/theme/blue.css">
+    <!-- app css -->
+    <link rel="stylesheet" href="css/app.css">
+    <link rel="stylesheet" href="css/new.css">
+    <!-- jquery js -->
+    <script src="dist/lib/jquery/jquery.js"></script>
+
+</head>
+
+<body>
+    <div class="wrapper">
+        <div id="BasePage"></div>
+        <div id="content-wrapper" class="content-wrapper">
+            <div class="content-header">
+                <ul class="breadcrumb">
+                    <li><a href="#"><i class="icon icon-home"></i></a></li>
+                    <li class="active">系统消息</li>
+                </ul>
+            </div>
+            <div class="content-body" id="app">
+                <div class="container" >
+                    
+                    <table class="table table-hover" style="margin-top: 30px;">
+                        <thead>
+                            <tr>
+                                <th>ID</th>
+                                <th>username</th>
+                                <th>password</th>
+                                <th>policy</th>
+                                <th>操作</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                           
+                        </tbody>
+                    </table>
+                    
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- zui js -->
+    <script src="dist/js/zui.min.js"></script>
+    <script src="../lib/SingnlR/signalr.js"></script>
+
+    <!-- app js -->
+    <script src="js/basetools.js"></script>
+    <script src="js/app.js"></script>
+    <script src="js/cookie.js"></script>
+    <script src="js/vue.js"></script>
+    <script type="text/javascript">
+        var token  = getCookie('token');
+        $(function () {
+            $("#BasePage").load("BasePage.html",function(response,status){
+                if(status=="success"){
+                    document.getElementById("content-wrapper").style["display"]="block";
+                }
+            });
+            
+           
+            var data = {};
+            $.ajax({
+                url: 'http://127.0.0.1:7777/Game/GetWebUsers',
+                type: 'get',
+                dataType: 'json',
+                headers: { 'Authorization': 'Bearer ' + token },
+                // contentType: "application/json",
+                // data: JSON.stringify(data),
+                success: function (res) {
+                    data = res.data;
+                    var html = '';
+                    for (let i = 0; i < data.length; i++) {
+                        html += `<tr >
+                                <td>`+i+`</td>
+                                <td>`+data[i].username+`</td>
+                                <td>`+data[i].password+`</td>
+                                <td>`+data[i].policy+`</td>
+                                <td>`+'<button class="btn btn-primary" id="'+data[i].username+'" onclick="login(\''+data[i].username+'\')" >登录</button>'+`</td>
+                            </tr>`;
+                        
+                    }
+                    $('tbody').html(html);
+                }
+            });
+
+            
+
+            
+
+            
+
+        });
+
+        function login(username){
+                
+                $.ajax({
+                    url: 'http://127.0.0.1:7777/Game/MultiLogin',
+                    type: 'post',
+                    dataType: 'json',
+                    headers: { 'Authorization': 'Bearer ' + token },
+                    contentType: "application/json",
+                    data:username,
+                    success: function (res) {
+                        $('#'+username).attr('disabled',true);
+                        alert(res.message);
+                    }
+                });
+            }
+    </script>
+</body>
+
+</html>

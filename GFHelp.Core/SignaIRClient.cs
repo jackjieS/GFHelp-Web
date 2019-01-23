@@ -48,6 +48,7 @@ namespace GFHelp.Core
         }
         public async static Task SendSystemNotice(Data data)
         {
+            if (userList == null) return;
             for (int i = 0; i < userList.Count; i++)
             {
                 if (userList[i].Level==1)

@@ -44,10 +44,6 @@ namespace GFHelp.Core.Action
         {
             userData.battle.Check_Equip_Gun_FULL();
 
-
-
-
-
             Data data=null;
             try
             {
@@ -138,7 +134,6 @@ namespace GFHelp.Core.Action
             {
                 PrintRecycleLog();
                 userData.battle.Check_Gun_need_FIX(true);
-
                 userData.MissionInfo.listTask.RemoveAt(0);
             }
 

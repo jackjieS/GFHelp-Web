@@ -14,25 +14,13 @@ namespace GFHelp.Core.MulitePlayerData
         {
             this.userData = userData;
         }
-        public bool Mission_S;
+        public bool Mission_S=false;
         public bool ClickGrilsFavor;
 
         public void Read(dynamic jsonobj)
         {
             ClickGrilsFavor = true;
-            Mission_S = false;
-            try
-            {
-                string data = jsonobj.mission_act_info.ToString();
-                if (data.Length > 10)
-                {
-                    Mission_S = true;
-                }
-            }
-            catch (Exception)
-            {
-                return;
-            }
+
         }
 
 
@@ -53,7 +41,8 @@ namespace GFHelp.Core.MulitePlayerData
                 }
 
             }
-            if (userData.auto_Mission_Act_Info.listTeamID.Contains(ID)) return false;
+
+            if (userData.auto_Mission_Act_Info.CheckTeamStatus(ID)) return false;
 
             foreach (var item in userData.Teams[ID])
             {
@@ -90,7 +79,7 @@ namespace GFHelp.Core.MulitePlayerData
                 }
 
             }
-            if (userData.auto_Mission_Act_Info.listTeamID.Contains(gwui.teamId)) return true;
+            if (userData.auto_Mission_Act_Info.CheckGunStatus(gwui)) return true;
             foreach (var y in userData.upgrade_Act_Info.dic_Upgrade)
             {
                 if (y.Value.gun_with_user_id == gwui.id) return true;

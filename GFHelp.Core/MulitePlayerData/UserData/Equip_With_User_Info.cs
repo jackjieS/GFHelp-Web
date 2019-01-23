@@ -134,10 +134,11 @@ namespace GFHelp.Core.MulitePlayerData
             int rankLevel = 2;
             while (list.Count <= 24)
             {
-                if (rankLevel == 5) return list;
+                if (rankLevel == 5)
+                    return list;
                 foreach (var item in listEquip)
                 {
-                    if ((int)item.info.rank == rankLevel && item.gunId == 0)
+                    if ((int)item.info.rank == rankLevel && item.gunId == 0 && !item.isLocked)
                     {
                         list.Add(item.id);
                     }

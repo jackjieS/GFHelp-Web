@@ -75,7 +75,17 @@
                                 <i class="icon icon-plus"></i> click me
                             </span>
                         </div>
-
+                        <!--<div class="form-group">
+                            <label for="">平台:</label>
+                            <p>
+                                <label class="radio-inline">
+                                    <input type="radio" checked name="platform" value="ios"> IOS
+                                </label>
+                                <label class="radio-inline">
+                                    <input type="radio" name="platform" value="android"> 安卓
+                                </label>
+                            </p>
+                        </div>-->
                         <div class="form-group">
                             <label for="">平台:</label>
                             <p>
@@ -134,7 +144,9 @@
                 </div>
                 <div class="modal-body">
                     <div id="information" style='color:#000000;display:block;word-break: break-all;word-wrap: break-word;'>
-                        模拟作战,情报分析默认关闭。-d 打开情报分析 -s打开模拟作战
+                        模拟作战,情报分析默认关闭。
+                        <br>-d 打开情报分析 -s打开模拟作战
+                        <br>-all 全部打开
                     </div>
                 </div>
                 <div class="modal-footer">
@@ -170,7 +182,6 @@
 
         function programInit() {
 
-            // const Webuser = sessionStorage.getItem('username')
             const Webuser = getCookie('username');
             const conGamesStatus = new signalR.HubConnectionBuilder().withUrl("http://127.0.0.1:7777/chatHub?name=" + Webuser).build();
 

@@ -254,6 +254,7 @@ namespace GFHelp.Core.MulitePlayerData
         {
             get
             {
+                if (!dicEstablish.ContainsKey(204)) return 99999;
                 return dicEstablish[204].parameter_1;
             }
         }

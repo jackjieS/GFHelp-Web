@@ -31,17 +31,17 @@ namespace GFHelp.Core.MulitePlayerData
         }
         private void getMailResouce()
         {
-            foreach (var item in listMail)
+            for (int i = 0; i < listMail.Count; i++)
             {
-                userData.webData.StatusBarText = "获取邮件 ID: " + item.id;
+                userData.webData.StatusBarText = "获取邮件 ID: " + listMail[i].id;
                 new Log().userInit(userData.GameAccount.GameAccountID, String.Format("获取邮件 ID: {0} 标题 {1} 内容 {2}",
-                    item.id, 
-                    CatchData.Base.Asset_Textes.ChangeCodeFromeCSV(item.title),
-                    CatchData.Base.Asset_Textes.ChangeCodeFromeCSV(item.content)
+                    listMail[i].id,
+                    CatchData.Base.Asset_Textes.ChangeCodeFromeCSV(listMail[i].title),
+                    CatchData.Base.Asset_Textes.ChangeCodeFromeCSV(listMail[i].content)
                     )).userInfo();
                 try
                 {
-                    GetMailResouce(item.id);
+                    GetMailResouce(listMail[i].id);
                 }
                 catch (Exception e)
                 {
@@ -49,8 +49,9 @@ namespace GFHelp.Core.MulitePlayerData
                     new Log().userInit(userData.GameAccount.GameAccountID, "获取邮件错误", e.ToString()).userInfo();
                 }
 
-                //对日常任务处理
+
             }
+
 
             userData.webData.StatusBarText = "空闲";
 
@@ -170,6 +171,7 @@ namespace GFHelp.Core.MulitePlayerData
                 for (int num8 = 0; num8 < jsonData16.Count; num8++)
                 {
                     Data data2 = new Data(jsonData16[num8]);
+                    if(data2.CouldGet)
                     listMail.Add(data2);
                 }
             }
@@ -192,11 +194,17 @@ namespace GFHelp.Core.MulitePlayerData
                     this.sub_id = jsonData["sub_id"].String;
                     this.title = jsonData["title"].String;
                     this.content = jsonData["content"].String;
-
+                    this.start_time = jsonData["start_time"].Int;
+                    if (Decrypt.ConvertDateTime_China_Int(DateTime.Now)>this.start_time)
+                        this.CouldGet = true;
+                    else
+                    {
+                        this.CouldGet = false;
+                    }
                 }
             }
 
-
+            public bool CouldGet;
             public int id;
             public int user_id;
             public int type;

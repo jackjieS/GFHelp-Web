@@ -214,6 +214,8 @@ namespace GFHelp.DataBase
                 }
                 try
                 {
+ 
+                    if (query.IsDBNull(0)) return 3;
                     result = query.GetString(0);
                 }
                 catch (Exception)
