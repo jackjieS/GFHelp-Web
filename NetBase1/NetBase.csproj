@@ -8,7 +8,7 @@
 
   <ItemGroup>
     <Reference Include="LitJson">
-      <HintPath>..\..\CS\GFHelp-Web\GFHelp.Web\bin\Debug\netcoreapp2.1\LitJson.dll</HintPath>
+      <HintPath>..\packages\LitJson.dll</HintPath>
     </Reference>
   </ItemGroup>
 

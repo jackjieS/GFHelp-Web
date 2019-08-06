@@ -638,7 +638,7 @@
       ]
     },
     "Microsoft.AspNetCore.Connections.Abstractions/2.1.0": {
-      "sha512": "MHJTOt5fUCxUzSWpPc4q75OPM5nq9yKWFmIC6HiZc4uwjGsi4eLs/cgtGv6+WbfaWosdkikXYfvjXtM7dI5zuQ==",
+      "sha512": "+OylNlEFRCv5+LdlDooDztkZihVhwSJpQdJ/DLVdU0xOwDDsZaggnIY13BmMfnjdhQ6u4D9jlYxs9Zuqy4V+xg==",
       "type": "package",
       "path": "microsoft.aspnetcore.connections.abstractions/2.1.0",
       "files": [
@@ -651,7 +651,7 @@
       ]
     },
     "Microsoft.AspNetCore.Http.Connections.Client/1.0.0": {
-      "sha512": "S8q0eTW+AqaltowKSER8y+Q3s7Uz0lkVG7qrAfP/4SL6FXdgTfTz4l18kI1D8uKOt2Xi241VcFchUwKZzob+oQ==",
+      "sha512": "JWSI+jLDKPm9p+ptQNTAmSSxeS8tpG7Q3SHL9kp8FK+uR7L31wUE8pNgjt2s9kb4EXoOCCAUhaELpDW+CnSpDg==",
       "type": "package",
       "path": "microsoft.aspnetcore.http.connections.client/1.0.0",
       "files": [
@@ -666,7 +666,7 @@
       ]
     },
     "Microsoft.AspNetCore.Http.Connections.Common/1.0.0": {
-      "sha512": "LaFyFOgjjyJCQ2CF71BKoVu0R5USfidPK1vKtXVelxMeJr9QxZ6RYOuW1+3wrNRtMn7AWffiX4fBw3hebSIO8A==",
+      "sha512": "bqaRJ5IU7T9+KXVRsP4OYIXHHtVu8wzICcqKSJRF6O1GRFWAGKEQw+PuAa7z2l2S7yD1PfqxvSyUBgScagG3AQ==",
       "type": "package",
       "path": "microsoft.aspnetcore.http.connections.common/1.0.0",
       "files": [
@@ -679,7 +679,7 @@
       ]
     },
     "Microsoft.AspNetCore.Http.Features/2.1.0": {
-      "sha512": "g+l5TKp20g+zOrlspVTP1gkgzDkMZySn8ZkkihLXjd2QdsPpMAMZ2eKxAf6Tl+EkoRFX8SgUJCOPHzcofIEZkw==",
+      "sha512": "UmkUePxRjsQW0j5euFFscBwjvTu25b8+qIK/2fI3GvcqQ+mkwgbWNAT8b/Gkoei1m2bTWC07lSdutuRDPPLcJA==",
       "type": "package",
       "path": "microsoft.aspnetcore.http.features/2.1.0",
       "files": [
@@ -692,7 +692,7 @@
       ]
     },
     "Microsoft.AspNetCore.SignalR.Client/1.0.0": {
-      "sha512": "bLWEF9G0ZMZym4b1VUQcCStubqrRr3N1fO0Y6EP+Qp3fBTgqTWRckKaz+N7Oa1atfwwrPiWGWi2ZwYWq9QupwA==",
+      "sha512": "KF+Vjq5lwARvdEnCkUX7+1NcK95OGcNFsOBAHB573utc+c5tSir7g97wrniuct1zSwIvKcmA8jEZZHymGReqRg==",
       "type": "package",
       "path": "microsoft.aspnetcore.signalr.client/1.0.0",
       "files": [
@@ -705,7 +705,7 @@
       ]
     },
     "Microsoft.AspNetCore.SignalR.Client.Core/1.0.0": {
-      "sha512": "r6L72wg9cvVsfvshHD9Wkti+vQzWhkkHrUoUGD69AsWpW/kOIIbsaAEgM8wWfB8kyHNOA7IHoL6d9R3/ih2Tuw==",
+      "sha512": "VuG3bSqvIjtRgE9/8bWyf/x3ymI9J8cWb86LGu5r52fGbfbbuqpdj+O/sK2LswGef6uumwI2acjzTOw/EmB81Q==",
       "type": "package",
       "path": "microsoft.aspnetcore.signalr.client.core/1.0.0",
       "files": [
@@ -718,7 +718,7 @@
       ]
     },
     "Microsoft.AspNetCore.SignalR.Common/1.0.0": {
-      "sha512": "bz8scI0ocxSyg/O7csj08wVy9WddOLow6ZmxWNPizUI2DA4MXsVyeHBC8Le4ZzLMpg/njAJhOiLwbVADZOAyWQ==",
+      "sha512": "T2faKmfuF8yG1AmQsFZeW8uVrulOp+nrJ2jxeY3eHuw2AlouAvTx6QV3bREgh7UCoCmAewtXhmfYeDGNnCdj6g==",
       "type": "package",
       "path": "microsoft.aspnetcore.signalr.common/1.0.0",
       "files": [
@@ -733,7 +733,7 @@
       ]
     },
     "Microsoft.AspNetCore.SignalR.Protocols.Json/1.0.0": {
-      "sha512": "o8i6gAljo8fAP1owxnZyDrGJO36ZkyfrUlWWxcQUnMPigC28KvD8OKcrqsgR91uGH0hFtW/bC0NT/T2rkPu3iA==",
+      "sha512": "XVvzBbJ0X4tsY6YEMAhWwKW0nLTntmtYXUkjQYC8Q5784w5dj5nw0JEJ+6cmdksWum9Saj5st3Er38U3hOLAmA==",
       "type": "package",
       "path": "microsoft.aspnetcore.signalr.protocols.json/1.0.0",
       "files": [
@@ -746,7 +746,7 @@
       ]
     },
     "Microsoft.Extensions.Configuration/2.1.0": {
-      "sha512": "5nnZYvEJXM0jNCoI7aYbjVU3CKNy6Yx09WLMSaa5ZhwaYh92/7uzgqn8Y97wQW2jOXeu4gqcS4FxPa/kMwVixQ==",
+      "sha512": "SS8ce1GYQTkZoOq5bskqQ+m7xiXQjnKRiGfVNZkkX2SX0HpXNRsKnSUaywRRuCje3v2KT9xeacsM3J9/G2exsQ==",
       "type": "package",
       "path": "microsoft.extensions.configuration/2.1.0",
       "files": [
@@ -759,7 +759,7 @@
       ]
     },
     "Microsoft.Extensions.Configuration.Abstractions/2.1.0": {
-      "sha512": "3aTLjQ1t+5h15MSqt1BzzwzVO8j13/NReFwn/r8nmwRBBw2U78b2On1j27L6S7G3QynPb90Itsvut0EIoZNfdw==",
+      "sha512": "lMmUjAKvY9r6QmxCS15iSb6ulhwnh0zp44NtnVJ+HIDLFmu4iej41U+dU58On8NRezmlgRXiQtLnBeZSzYNKQg==",
       "type": "package",
       "path": "microsoft.extensions.configuration.abstractions/2.1.0",
       "files": [
@@ -772,7 +772,7 @@
       ]
     },
     "Microsoft.Extensions.Configuration.Binder/2.1.0": {
-      "sha512": "f98sU3mGlDiUx5YO2gMaDpm+0KZUCkWDirbZ6Me9CwmUDGajyOtFJ9Ftgk1QYGQcK3m1Kp2jec3OUIgAyGzAQg==",
+      "sha512": "Fls0O54Ielz1DiVYpcmiUpeizN1iKGGI5yAWAoShfmUvMcQ8jAGOK1a+DaflHA5hN9IOKvmSos0yewDYAIY0ZA==",
       "type": "package",
       "path": "microsoft.extensions.configuration.binder/2.1.0",
       "files": [
@@ -785,7 +785,7 @@
       ]
     },
     "Microsoft.Extensions.DependencyInjection/2.1.0": {
-      "sha512": "9lHaNBx9sW5I4Lxfb/jyKYgnyjggqST0bnkpyVNIudJtqoXayiVDO8GCIC+S3YRK+JM2oviDJh4X5tJzdXJoSg==",
+      "sha512": "gqQviLfuA31PheEGi+XJoZc1bc9H9RsPa9Gq9XuDct7XGWSR9eVXjK5Sg7CSUPhTFHSuxUFY12wcTYLZ4zM1hg==",
       "type": "package",
       "path": "microsoft.extensions.dependencyinjection/2.1.0",
       "files": [
@@ -802,7 +802,7 @@
       ]
     },
     "Microsoft.Extensions.DependencyInjection.Abstractions/2.1.0": {
-      "sha512": "Y139tetrEc1Y347FoOK8Oqm1S0aq8jPg5m6L4ti9N7ki0o4amSa7XOq048EhpeQnO/9jrVJKlqBdq/aQduW31A==",
+      "sha512": "8/CtASu80UIoyG+r8FstrmZW5GLtXxzoYpjj3jV0FKZCL5CiFgSH3pAmqut/dC68mu7N1bU6v0UtKKL3gCUQGQ==",
       "type": "package",
       "path": "microsoft.extensions.dependencyinjection.abstractions/2.1.0",
       "files": [
@@ -815,7 +815,7 @@
       ]
     },
     "Microsoft.Extensions.Logging/2.1.0": {
-      "sha512": "/G9Q3drhGymdVz+eq/mTXabTzPeXItPdC46PvjCvKsTRkOg8gymds849tfhX5zWJAc1JFnibfitZlljF0Z2jhQ==",
+      "sha512": "kuZbZMMHb7ibzhLdn9/R1+PAAFKntlF10tOw4loB8VuQkHvSrBE6IzW1rhBLsEdmLXOgi2zFbwcXFrxzSM6ybA==",
       "type": "package",
       "path": "microsoft.extensions.logging/2.1.0",
       "files": [
@@ -828,7 +828,7 @@
       ]
     },
     "Microsoft.Extensions.Logging.Abstractions/2.1.0": {
-      "sha512": "u8HAWN1qOJPH/uEssbSx7VR9rZkU/NwTjIZIO3koM9HOWI6TxR1Z7HCuq+yX/l7B71ZvyjdXPVDKxvz/ILYlUw==",
+      "sha512": "GfD2VtvN9z1W+m6pZZe98yh9VWTSdNY2dZSxtca9uFIY6aBI6twvskMvLO/ktClBOTQmAov/7Em+IWFlHepa0A==",
       "type": "package",
       "path": "microsoft.extensions.logging.abstractions/2.1.0",
       "files": [
@@ -841,7 +841,7 @@
       ]
     },
     "Microsoft.Extensions.Options/2.1.0": {
-      "sha512": "PNsRGgCThrO0sW0JHkAFcycPeGshTuFQ/0Ss6hRM7goZM331bzexYhPVfuOVl9TEpLqC3MLz9DwlLlKSPvGl1Q==",
+      "sha512": "VOM1pPMi9+7/4Vc9aPLU8btHOBQy1+AvpqxLxFI2OVtqGv+1klPaV59g9R6aSt2U7ijfB3TjvAO4Tc/cn9/hxA==",
       "type": "package",
       "path": "microsoft.extensions.options/2.1.0",
       "files": [
@@ -854,7 +854,7 @@
       ]
     },
     "Microsoft.Extensions.Primitives/2.1.0": {
-      "sha512": "3ym2d4KDRYNt77ybBPdjr4WoVST9UC7xUM/Xxr8iSKD9aj5A+GbmjaQrU0Oy2fERMfLF8dYm0wLJoNSq5lt5lA==",
+      "sha512": "gMwH6wgWOPfyfLfMLEP+ZF7/MSJq35e0xxKEYUjt8veEznY45nBVqdfI876+9SFQq2ChcqKf2UyYc2XYj2v27w==",
       "type": "package",
       "path": "microsoft.extensions.primitives/2.1.0",
       "files": [
@@ -867,10 +867,11 @@
       ]
     },
     "Microsoft.NETCore.App/2.1.0": {
-      "sha512": "AvT774nTFgU8cYcGO9j1EMwuayKslxqYTurg32HGpWa2hEYNuW2+XgYVVNcZe6Ndbr84QX6fwaOZfd5n+1m2OA==",
+      "sha512": "JNHhG+j5eIhG26+H721IDmwswGUznTwwSuJMFe/08h0X2YarHvA15sVAvUkA/2Sp3W0ENNm48t+J7KTPRqEpfA==",
       "type": "package",
       "path": "microsoft.netcore.app/2.1.0",
       "files": [
+        ".nupkg.metadata",
         ".signature.p7s",
         "LICENSE.TXT",
         "Microsoft.NETCore.App.versions.txt",
@@ -1132,10 +1133,11 @@
       ]
     },
     "Microsoft.NETCore.DotNetAppHost/2.1.0": {
-      "sha512": "f/47I60Wg3SrveTvnecCQhCZCAMYlUujWF15EQ/AZTqF/54qeEJjbCIAxKcZI8ToUYzSg6JdfrHggsgjCyCE9Q==",
+      "sha512": "vMn8V3GOp/SPOG2oE8WxswzAWZ/GZmc8EPiB3vc2EZ6us14ehXhsvUFXndYopGNSjCa9OdqC6L6xStF1KyUZnw==",
       "type": "package",
       "path": "microsoft.netcore.dotnetapphost/2.1.0",
       "files": [
+        ".nupkg.metadata",
         ".signature.p7s",
         "LICENSE.TXT",
         "THIRD-PARTY-NOTICES.TXT",
@@ -1145,10 +1147,11 @@
       ]
     },
     "Microsoft.NETCore.DotNetHostPolicy/2.1.0": {
-      "sha512": "p50yZYKzhH64lmArJgoKjtvsNehECa+/sAuOQzZh5uDNBTbRKxjN8IXP1e517xdVsgrFcSNxSEVDKZIOWVjGcQ==",
+      "sha512": "vBUwNihtLUVS2HhO6WocYfAktRmfFihm6JB8/sJ53caVW+AelvbnYpfiGzaZDpkWjN6vA3xzOKPu9Vu8Zz3p8Q==",
       "type": "package",
       "path": "microsoft.netcore.dotnethostpolicy/2.1.0",
       "files": [
+        ".nupkg.metadata",
         ".signature.p7s",
         "LICENSE.TXT",
         "THIRD-PARTY-NOTICES.TXT",
@@ -1158,10 +1161,11 @@
       ]
     },
     "Microsoft.NETCore.DotNetHostResolver/2.1.0": {
-      "sha512": "fS9D8a+y55n6mHMbNqgHXaPGkjmpVH9h97OyrBxsCuo3Z8aQaFMJ5xIfmzji2ntUd/3truhMbSgSfIelHOkQpg==",
+      "sha512": "o0PRql5qOHFEY3d1WvzE+T7cMFKtOsWLMg8L1oTeGNnI4u5AzOj8o6AdZT3y2GxFA1DAx7AQ9qZjpCO2/bgZRw==",
       "type": "package",
       "path": "microsoft.netcore.dotnethostresolver/2.1.0",
       "files": [
+        ".nupkg.metadata",
         ".signature.p7s",
         "LICENSE.TXT",
         "THIRD-PARTY-NOTICES.TXT",
@@ -1171,7 +1175,7 @@
       ]
     },
     "Microsoft.NETCore.Platforms/2.1.0": {
-      "sha512": "GmkKfoyerqmsHMn7OZj0AKpcBabD+GaafqphvX2Mw406IwiJRy1pKcKqdCfKJfYmkRyJ6+e+RaUylgdJoDa1jQ==",
+      "sha512": "ok+RPAtESz/9MUXeIEz6Lv5XAGQsaNmEYXMsgVALj4D7kqC8gveKWXWXbufLySR2fWrwZf8smyN5RmHu0e4BHA==",
       "type": "package",
       "path": "microsoft.netcore.platforms/2.1.0",
       "files": [
@@ -1188,10 +1192,11 @@
       ]
     },
     "Microsoft.NETCore.Targets/2.1.0": {
-      "sha512": "etaYwrLZQUS+b3UWTpCnUggd6SQ/ZIkZ5pHnoR7+dIWt/wp2Rv3CvMKOZISsrt7FYCHKwCxfcepuuyEWkQxADg==",
+      "sha512": "x188gIZXOwFXkPXyGavEcPGcR6RGvjFOES2QzskN4gERZjWPN34qhRsZVMC0CLJfQLGSButarcgWxPPM4vmg0w==",
       "type": "package",
       "path": "microsoft.netcore.targets/2.1.0",
       "files": [
+        ".nupkg.metadata",
         ".signature.p7s",
         "LICENSE.TXT",
         "THIRD-PARTY-NOTICES.TXT",
@@ -1331,7 +1336,7 @@
       ]
     },
     "Newtonsoft.Json/11.0.2": {
-      "sha512": "znZGbws7E4BA9jxNZ7FuiIRI3C9hrgatVQSTKhIYZYNOud4M5VfGlTYi6RdYO5sQrebFuF/g9UEV3hOxDMXF6Q==",
+      "sha512": "IvJe1pj7JHEsP8B8J8DwlMEx8UInrs/x+9oVY+oCD13jpLu4JbJU2WCIsMRn5C4yW9+DgkaO8uiVE5VHKjpmdQ==",
       "type": "package",
       "path": "newtonsoft.json/11.0.2",
       "files": [
@@ -1361,7 +1366,7 @@
       ]
     },
     "System.Buffers/4.5.0": {
-      "sha512": "09yL/QiPEDZI9JLg0R0OcGe/0ycFm69QN16DCvXkqkIorCC1Y2EKwk5KvSlfMmGse+LcKkD3H+Cra7fFkxHXEg==",
+      "sha512": "pL2ChpaRRWI/p4LXyy4RgeWlYF2sgfj/pnVMvBqwNFr5cXg7CXNnWZWxrOONLg8VGdFB8oB+EG2Qw4MLgTOe+A==",
       "type": "package",
       "path": "system.buffers/4.5.0",
       "files": [
@@ -1390,7 +1395,7 @@
       ]
     },
     "System.IO.Pipelines/4.5.0": {
-      "sha512": "Kq9eZWVKN9khHhkatLWLLxYCs3j9qSNMZELqn2YG1YsCMv6bPmAtaN0CfA6l7vxFbiV02C996Dy7yHO8DkaJLg==",
+      "sha512": "1GB2tHmb/qRzCF6NX7+1LU6/IKPt8QKm6hHt7Vmyt/olg3XJIwwRzNwdfG0gKgPzNTIj0eOFk6UpVHrVMDrY0w==",
       "type": "package",
       "path": "system.io.pipelines/4.5.0",
       "files": [
@@ -1412,7 +1417,7 @@
       ]
     },
     "System.Memory/4.5.0": {
-      "sha512": "ULODiqdq81e9YfQS/GL4P5zgek90jyPykAV4t1Sp4sjID3/Ebi18lbvOKm+81biHR5a5FdFRXSU/JVc6nxr/7A==",
+      "sha512": "m0psCSpUxTGfvwyO0i03ajXVhgBqyXlibXz0Mo1dtKGjaHrXFLnuQ8rNBTmWRqbfRjr4eC6Wah4X5FfuFDu5og==",
       "type": "package",
       "path": "system.memory/4.5.0",
       "files": [
@@ -1451,10 +1456,11 @@
       ]
     },
     "System.Runtime.CompilerServices.Unsafe/4.5.0": {
-      "sha512": "6zBxkHYemB0kQiHP3vGXGRXejZVoNVuMn2paUuqKKi5Wyjkxfkp+D0rd0c3VrGwotidRINt6KpOi2smL4VkJKw==",
+      "sha512": "YrzNWduCDHhUaSRBxHxL11UkM2fD6y8hITHis4/LbQZ6vj3vdRjoH3IoPWWC9uDXK2wHIqn+b5gv1Np/VKyM1g==",
       "type": "package",
       "path": "system.runtime.compilerservices.unsafe/4.5.0",
       "files": [
+        ".nupkg.metadata",
         ".signature.p7s",
         "LICENSE.TXT",
         "THIRD-PARTY-NOTICES.TXT",
@@ -1618,10 +1624,11 @@
       ]
     },
     "System.Threading.Channels/4.5.0": {
-      "sha512": "Js7f30DXMo1plMo32fOpKF7AhCmuKyOKDT1fSayntGGOVfF5V/xKVu1UPI3N+/hTXuqKKgB++eACPZ120uLpGg==",
+      "sha512": "MEH06N0rIGmRT4LOKQ2BmUO0IxfvmIY/PaouSq+DFQku72OL8cxfw8W99uGpTCFf2vx2QHLRSh374iSM3asdTA==",
       "type": "package",
       "path": "system.threading.channels/4.5.0",
       "files": [
+        ".nupkg.metadata",
         ".signature.p7s",
         "LICENSE.TXT",
         "THIRD-PARTY-NOTICES.TXT",
@@ -1665,23 +1672,23 @@
     ]
   },
   "packageFolders": {
-    "C:\\Users\\jack\\.nuget\\packages\\": {},
+    "C:\\Users\\jackj\\.nuget\\packages\\": {},
     "C:\\Program Files\\dotnet\\sdk\\NuGetFallbackFolder": {}
   },
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "C:\\Users\\jack\\Desktop\\GFHelp-Web\\Mission\\GFHelp.Mission.csproj",
+      "projectUniqueName": "C:\\Code\\GFHelp-Web\\Mission\\GFHelp.Mission.csproj",
       "projectName": "GFHelp.Mission",
-      "projectPath": "C:\\Users\\jack\\Desktop\\GFHelp-Web\\Mission\\GFHelp.Mission.csproj",
-      "packagesPath": "C:\\Users\\jack\\.nuget\\packages\\",
-      "outputPath": "C:\\Users\\jack\\Desktop\\GFHelp-Web\\Mission\\obj\\",
+      "projectPath": "C:\\Code\\GFHelp-Web\\Mission\\GFHelp.Mission.csproj",
+      "packagesPath": "C:\\Users\\jackj\\.nuget\\packages\\",
+      "outputPath": "C:\\Code\\GFHelp-Web\\Mission\\obj\\",
       "projectStyle": "PackageReference",
       "fallbackFolders": [
         "C:\\Program Files\\dotnet\\sdk\\NuGetFallbackFolder"
       ],
       "configFilePaths": [
-        "C:\\Users\\jack\\AppData\\Roaming\\NuGet\\NuGet.Config",
+        "C:\\Users\\jackj\\AppData\\Roaming\\NuGet\\NuGet.Config",
         "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
       ],
       "originalTargetFrameworks": [
@@ -1694,8 +1701,8 @@
       "frameworks": {
         "netcoreapp2.1": {
           "projectReferences": {
-            "C:\\Users\\jack\\Desktop\\GFHelp-Web\\GFHelp.Core\\GFHelp.Core.csproj": {
-              "projectPath": "C:\\Users\\jack\\Desktop\\GFHelp-Web\\GFHelp.Core\\GFHelp.Core.csproj"
+            "C:\\Code\\GFHelp-Web\\GFHelp.Core\\GFHelp.Core.csproj": {
+              "projectPath": "C:\\Code\\GFHelp-Web\\GFHelp.Core\\GFHelp.Core.csproj"
             }
           }
         }
@@ -1717,12 +1724,7 @@
           }
         },
         "imports": [
-          "net461",
-          "net462",
-          "net47",
-          "net471",
-          "net472",
-          "net48"
+          "net461"
         ],
         "assetTargetFallback": true,
         "warn": true
