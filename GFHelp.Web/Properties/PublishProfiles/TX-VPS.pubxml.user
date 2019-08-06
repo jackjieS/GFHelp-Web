@@ -6,8 +6,8 @@
 <Project ToolsVersion="4.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
   <PropertyGroup>
     <TimeStampOfAssociatedLegacyPublishXmlFile />
-    <EncryptedPassword>AQAAANCMnd8BFdERjHoAwE/Cl+sBAAAASMDKOTFXaEqMOr+nSlS+OAAAAAACAAAAAAAQZgAAAAEAACAAAACgADiTTvC8i99Tmfpcs734So9QLCZTC6fUK+pdXGr9cgAAAAAOgAAAAAIAACAAAAAc8KesHVVsxqlb3GZXfgZOKkmg+xS3km6WNkUDMkum0jAAAAB/FbIZMkihAcZvnOtTK6XtP2n9GpvnyEzxD46nJYr/tJ0h9rtAXihZpBeIs+VjzmtAAAAA0cdtrMmQXxdrPUzDZrKO7amwNGYLkD2YzuayZr8e+/u2oc0CuDkRmAtiV9ZaUF0IYo/xfSi2eRy3uTTN1BhjNw==</EncryptedPassword>
-    <_PublishTargetUrl>ftp://35.220.161.157</_PublishTargetUrl>
+    <EncryptedPassword>AQAAANCMnd8BFdERjHoAwE/Cl+sBAAAAPjrFqJrD9kOCLAQTg3s/5QAAAAACAAAAAAAQZgAAAAEAACAAAACw3v23Ig+kWKSvxjB3qgAN9jHDWJKlop4atEmel0VzRgAAAAAOgAAAAAIAACAAAAAq39ise7lRJ0B0kS6F96paD/ah9qCrc8ZNsO1ezjMgZTAAAACNxTWHwibjepvDlNHrvfmayoWHqnEkXxLQaZ3dkfly2cqkUl+3iEfMMl02mF3aVMNAAAAA3ZV5yG4UlHLwO+dHaCRizFOVtC0D6Kdmpxswfn3JQiY2kKas5xVt9HLzhGvKc5i9amyCPmYoemOwkYJJz32h6g==</EncryptedPassword>
+    <_PublishTargetUrl>ftp://35.201.236.215</_PublishTargetUrl>
   </PropertyGroup>
   <ItemGroup>
     <File Include="appsettings.Development.json">
