@@ -2,7 +2,7 @@
 
   <PropertyGroup>
     <TargetFramework>netcoreapp2.1</TargetFramework>
-    <OutputPath>C:\Users\jack\Desktop\GFHelp-Web-411072e34cf148fdc6f7bac447e44a4e6db16456\GFHelp.Web\bin\Debug</OutputPath>
+    <OutputPath></OutputPath>
     <Configurations>Debug;Release;9</Configurations>
     <Platforms>AnyCPU;x64</Platforms>
   </PropertyGroup>

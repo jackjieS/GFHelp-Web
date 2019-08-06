@@ -693,11 +693,11 @@
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "C:\\Users\\jack\\Desktop\\GFHelp-Web-\\GFHelp.DataBase\\GFHelp.DataBase.csproj",
+      "projectUniqueName": "C:\\Users\\jack\\Desktop\\GFHelp-Web\\GFHelp.DataBase\\GFHelp.DataBase.csproj",
       "projectName": "GFHelp.DataBase",
-      "projectPath": "C:\\Users\\jack\\Desktop\\GFHelp-Web-\\GFHelp.DataBase\\GFHelp.DataBase.csproj",
+      "projectPath": "C:\\Users\\jack\\Desktop\\GFHelp-Web\\GFHelp.DataBase\\GFHelp.DataBase.csproj",
       "packagesPath": "C:\\Users\\jack\\.nuget\\packages\\",
-      "outputPath": "C:\\Users\\jack\\Desktop\\GFHelp-Web-\\GFHelp.DataBase\\obj\\",
+      "outputPath": "C:\\Users\\jack\\Desktop\\GFHelp-Web\\GFHelp.DataBase\\obj\\",
       "projectStyle": "PackageReference",
       "fallbackFolders": [
         "C:\\Program Files\\dotnet\\sdk\\NuGetFallbackFolder"

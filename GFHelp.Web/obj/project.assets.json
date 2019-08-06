@@ -14887,11 +14887,11 @@
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "C:\\Users\\jack\\Desktop\\GFHelp-Web-\\GFHelp.Web\\GFHelp.Web.csproj",
+      "projectUniqueName": "C:\\Users\\jack\\Desktop\\GFHelp-Web\\GFHelp.Web\\GFHelp.Web.csproj",
       "projectName": "GFHelp.Web",
-      "projectPath": "C:\\Users\\jack\\Desktop\\GFHelp-Web-\\GFHelp.Web\\GFHelp.Web.csproj",
+      "projectPath": "C:\\Users\\jack\\Desktop\\GFHelp-Web\\GFHelp.Web\\GFHelp.Web.csproj",
       "packagesPath": "C:\\Users\\jack\\.nuget\\packages\\",
-      "outputPath": "C:\\Users\\jack\\Desktop\\GFHelp-Web-\\GFHelp.Web\\obj\\",
+      "outputPath": "C:\\Users\\jack\\Desktop\\GFHelp-Web\\GFHelp.Web\\obj\\",
       "projectStyle": "PackageReference",
       "fallbackFolders": [
         "C:\\Program Files\\dotnet\\sdk\\NuGetFallbackFolder"
@@ -14910,14 +14910,14 @@
       "frameworks": {
         "netcoreapp2.1": {
           "projectReferences": {
-            "C:\\Users\\jack\\Desktop\\GFHelp-Web-\\GFHelp.Core\\GFHelp.Core.csproj": {
-              "projectPath": "C:\\Users\\jack\\Desktop\\GFHelp-Web-\\GFHelp.Core\\GFHelp.Core.csproj"
+            "C:\\Users\\jack\\Desktop\\GFHelp-Web\\GFHelp.Core\\GFHelp.Core.csproj": {
+              "projectPath": "C:\\Users\\jack\\Desktop\\GFHelp-Web\\GFHelp.Core\\GFHelp.Core.csproj"
             },
-            "C:\\Users\\jack\\Desktop\\GFHelp-Web-\\GFHelp.DataBase\\GFHelp.DataBase.csproj": {
-              "projectPath": "C:\\Users\\jack\\Desktop\\GFHelp-Web-\\GFHelp.DataBase\\GFHelp.DataBase.csproj"
+            "C:\\Users\\jack\\Desktop\\GFHelp-Web\\GFHelp.DataBase\\GFHelp.DataBase.csproj": {
+              "projectPath": "C:\\Users\\jack\\Desktop\\GFHelp-Web\\GFHelp.DataBase\\GFHelp.DataBase.csproj"
             },
-            "C:\\Users\\jack\\Desktop\\GFHelp-Web-\\NetBase1\\NetBase.csproj": {
-              "projectPath": "C:\\Users\\jack\\Desktop\\GFHelp-Web-\\NetBase1\\NetBase.csproj"
+            "C:\\Users\\jack\\Desktop\\GFHelp-Web\\NetBase1\\NetBase.csproj": {
+              "projectPath": "C:\\Users\\jack\\Desktop\\GFHelp-Web\\NetBase1\\NetBase.csproj"
             }
           }
         }

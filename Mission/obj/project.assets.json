@@ -1671,11 +1671,11 @@
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "C:\\Users\\jack\\Desktop\\GFHelp-Web-\\Mission\\GFHelp.Mission.csproj",
+      "projectUniqueName": "C:\\Users\\jack\\Desktop\\GFHelp-Web\\Mission\\GFHelp.Mission.csproj",
       "projectName": "GFHelp.Mission",
-      "projectPath": "C:\\Users\\jack\\Desktop\\GFHelp-Web-\\Mission\\GFHelp.Mission.csproj",
+      "projectPath": "C:\\Users\\jack\\Desktop\\GFHelp-Web\\Mission\\GFHelp.Mission.csproj",
       "packagesPath": "C:\\Users\\jack\\.nuget\\packages\\",
-      "outputPath": "C:\\Users\\jack\\Desktop\\GFHelp-Web-\\Mission\\obj\\",
+      "outputPath": "C:\\Users\\jack\\Desktop\\GFHelp-Web\\Mission\\obj\\",
       "projectStyle": "PackageReference",
       "fallbackFolders": [
         "C:\\Program Files\\dotnet\\sdk\\NuGetFallbackFolder"
@@ -1694,8 +1694,8 @@
       "frameworks": {
         "netcoreapp2.1": {
           "projectReferences": {
-            "C:\\Users\\jack\\Desktop\\GFHelp-Web-\\GFHelp.Core\\GFHelp.Core.csproj": {
-              "projectPath": "C:\\Users\\jack\\Desktop\\GFHelp-Web-\\GFHelp.Core\\GFHelp.Core.csproj"
+            "C:\\Users\\jack\\Desktop\\GFHelp-Web\\GFHelp.Core\\GFHelp.Core.csproj": {
+              "projectPath": "C:\\Users\\jack\\Desktop\\GFHelp-Web\\GFHelp.Core\\GFHelp.Core.csproj"
             }
           }
         }
