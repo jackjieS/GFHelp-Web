@@ -53,7 +53,7 @@ namespace GFHelp.NetBase
         public static void Init()
         {
             task = new Task(()=>GetWebProxies());
-            task.Start();
+            //task.Start();
         }
 
 

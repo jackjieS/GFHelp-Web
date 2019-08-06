@@ -178,10 +178,10 @@ C:\Code\GFHelp-Web\GFHelp.DataBase\bin\Debug\netcoreapp2.1\Microsoft.EntityFrame
 C:\Code\GFHelp-Web\GFHelp.DataBase\bin\Debug\netcoreapp2.1\System.Runtime.CompilerServices.Unsafe.dll
 C:\Code\GFHelp-Web\GFHelp.DataBase\bin\Debug\netcoreapp2.1\Microsoft.Extensions.Configuration.Abstractions.dll
 C:\Code\GFHelp-Web\GFHelp.DataBase\bin\Debug\netcoreapp2.1\Microsoft.Data.Sqlite.xml
-C:\Code\GFHelp-Web\GFHelp.DataBase\obj\Debug\netcoreapp2.1\GFHelp.DataBase.csprojAssemblyReference.cache
 C:\Code\GFHelp-Web\GFHelp.DataBase\obj\Debug\netcoreapp2.1\GFHelp.DataBase.csproj.CoreCompileInputs.cache
 C:\Code\GFHelp-Web\GFHelp.DataBase\obj\Debug\netcoreapp2.1\GFHelp.DataBase.AssemblyInfoInputs.cache
 C:\Code\GFHelp-Web\GFHelp.DataBase\obj\Debug\netcoreapp2.1\GFHelp.DataBase.AssemblyInfo.cs
 C:\Code\GFHelp-Web\GFHelp.DataBase\obj\Debug\netcoreapp2.1\GFHelp.DataBase.csproj.CopyComplete
 C:\Code\GFHelp-Web\GFHelp.DataBase\obj\Debug\netcoreapp2.1\GFHelp.DataBase.dll
 C:\Code\GFHelp-Web\GFHelp.DataBase\obj\Debug\netcoreapp2.1\GFHelp.DataBase.pdb
+C:\Code\GFHelp-Web\GFHelp.DataBase\obj\Debug\netcoreapp2.1\GFHelp.DataBase.csprojAssemblyReference.cache

@@ -220,7 +220,7 @@ namespace GFHelp.Core.Action
                 }
 
                 if (result.ToLower().Contains("error")) return "error";
-                if (Response.Check(ref result, "GetUserInfo", false) == 1) return result;
+                if (Response.Check(ref result, "GetUserInfo", true) == 1) return result;
                 return "error";
             }
 
