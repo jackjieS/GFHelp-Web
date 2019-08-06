@@ -11,31 +11,29 @@ using System.Threading.Tasks;
 
 namespace GFHelp.Core.Action
 {
-    public class MissionData
-    {
-        public static Assembly assembly = null;
-        public static void Reload()
-        {
-            byte[] by = File.ReadAllBytes(AppDomain.CurrentDomain.BaseDirectory + "GFHelp.Mission.dll");
-            Action.MissionData.assembly = Assembly.Load(by);
-        }
-    }
     public class Mission
     {
-
+        public Assembly assembly = null;
         private UserData userData;
         public Mission(UserData userData)
         {
-            this.data = new Data(userData);
+
             init();
             this.userData = userData;
+            this.data = new Data(userData, assembly);
+        }
+
+        public void Reload()
+        {
+            byte[] by = File.ReadAllBytes(AppDomain.CurrentDomain.BaseDirectory + "GFHelp.Mission.dll");
+            assembly = Assembly.Load(by);
         }
         public void init()
         {
-            if (Action.MissionData.assembly == null)
+            if (assembly == null)
             {
                 byte[] by = File.ReadAllBytes(AppDomain.CurrentDomain.BaseDirectory + "GFHelp.Mission.dll");
-                Action.MissionData.assembly = Assembly.Load(by);
+                assembly = Assembly.Load(by);
             }
         }
 
@@ -44,10 +42,9 @@ namespace GFHelp.Core.Action
         {
             userData.battle.Check_Equip_Gun_FULL();
 
-            Data data=null;
             try
             {
-                data = new Data(userData).init(userData.MissionInfo.GetFirstData().MissionMap);
+                data = new Data(userData, assembly).init(userData.MissionInfo.GetFirstData().MissionMap);
             }
             catch (Exception e)
             {
@@ -65,7 +62,6 @@ namespace GFHelp.Core.Action
             {
                 new Log().systemInit("调用作战dll文件出错", e.ToString()).coreError();
                 new Log().userInit(userData.GameAccount.GameAccountID, "调用作战dll文件出错", e.ToString()).coreError();
-                userData.MissionInfo.setFirstDataLoopFalse();
                 goto End_At_Battle;
             }
 
@@ -102,7 +98,7 @@ namespace GFHelp.Core.Action
             }
 
             //是否达到客服要求 多用于练级
-            if (userData.MissionInfo.GetFirstData().requestLv != 0 && userData.others.CheckTeamLeval(userData.MissionInfo.GetFirstData().Teams[0].TeamID, userData.MissionInfo.GetFirstData().requestLv))
+            if (userData.MissionInfo.GetFirstData().requestLv != 0 && userData.others.CheckTeamMemberLevel(userData.MissionInfo.GetFirstData().Teams[0].TeamID, userData.MissionInfo.GetFirstData().requestLv))
             {
                 userData.MissionInfo.GetFirstData().Loop = false;
             }
@@ -160,8 +156,9 @@ namespace GFHelp.Core.Action
             int COIN2 = userData.MissionInfo.GetFirstData().recycleLog.Coin2;
             int COIN3 = userData.MissionInfo.GetFirstData().recycleLog.Coin3;
             int NumGun = userData.MissionInfo.GetFirstData().recycleLog.Gun;
+            TimeSpan ts = DateTime.Now - userData.MissionInfo.GetFirstData().dateTimeStart;
 
-            string SummaryStatement = string.Format("战斗任务结束,获得 人力 {0} 子弹 {1} 口粮 {2} 零件 {3} 初级资料 {4} 中级资料 {5} 高级资料 {6} 人形 {7}", MP, AMMO, MRE, PART, COIN1, COIN2, COIN3, NumGun);
+            string SummaryStatement = string.Format("战斗任务结束,获得 人力 {0} 子弹 {1} 口粮 {2} 零件 {3} 初级资料 {4} 中级资料 {5} 高级资料 {6} 人形 {7} 共循环 {8} 次 持续时间 {9} 小时 {10} 分", MP, AMMO, MRE, PART, COIN1, COIN2, COIN3, NumGun, cycleTimes,ts.Hours,ts.Minutes);
 
             new Log().userInit(userData.GameAccount.GameAccountID, SummaryStatement).userInfo();
 
@@ -186,10 +183,12 @@ namespace GFHelp.Core.Action
         Data data;
         class Data
         {
-            public Data(UserData userData)
+            public Data(UserData userData, Assembly assembly)
             {
                 this.userData = userData;
+                this.assembly = assembly;
             }
+            public Assembly assembly;
             public UserData userData;
             public Type typeMap_Controller;
             public Type type = null;
@@ -198,12 +197,12 @@ namespace GFHelp.Core.Action
             public object instance;
             public Data init(string taskMap)
             {
-                typeMap_Controller = Action.MissionData.assembly.GetType("GFHelp.Mission.Map_Controller");
+                typeMap_Controller = assembly.GetType("GFHelp.Mission.Map_Controller");
                 neededType = typeMap_Controller.GetNestedType(taskMap);
                 missionType = neededType.GetField("missionType").GetValue(null);
 
                 
-                instance = Action.MissionData.assembly.CreateInstance("GFHelp.Mission." + missionType.ToString(), 
+                instance = assembly.CreateInstance("GFHelp.Mission." + missionType.ToString(), 
                     false,
                     BindingFlags.CreateInstance,
                     null,
@@ -211,7 +210,7 @@ namespace GFHelp.Core.Action
                     null,
                     null
                     );
-                type = Action.MissionData.assembly.GetType("GFHelp.Mission." + missionType.ToString());
+                type = assembly.GetType("GFHelp.Mission." + missionType.ToString());
                 return this;
             }
         }

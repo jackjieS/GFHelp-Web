@@ -42,7 +42,7 @@ namespace GFHelp.Core.MulitePlayerData
             dailyTaskData = new DailyTaskData(jsonData);
             DailyTaskHandle();
 
-
+            //
 
         }
 
@@ -69,9 +69,17 @@ namespace GFHelp.Core.MulitePlayerData
         {
             if (Convert.ToInt16(dailyTaskData.mission) < 10)
             {
-                if (!CheckBattleList("map1_1"))
+                if (userData.config.M == true)
                 {
-                    addBattle1_1(10);
+                    ;
+                }
+                else
+                {
+                    if (!CheckBattleList("map1_1"))
+                    {
+                        addBattle1_1(10);
+                    }
+
                 }
 
             }
@@ -81,11 +89,28 @@ namespace GFHelp.Core.MulitePlayerData
             }
             if (Convert.ToInt16(dailyTaskData.develop_equip) < 4)
             {
-                 userData.equip_Built.startDevelopDailyTaskHandel();
+                if (userData.config.M == true)
+                {
+                    ;
+                }
+                else
+                {
+                    userData.equip_Built.startDevelopDailyTaskHandel();
+                }
+
             }
+
             if (Convert.ToInt16(dailyTaskData.eat) < 5)
             {
-                userData.Factory.EatGunHandle(1);
+                if (userData.gun_With_User_Info.dicGun.Count >30)
+                {
+                    userData.Factory.EatGunHandle(1);
+                }
+                else
+                {
+
+                }
+
             }
             if (Convert.ToInt16(dailyTaskData.eat_equip) < 5)
             {
@@ -95,6 +120,9 @@ namespace GFHelp.Core.MulitePlayerData
         }
         private void FinishTask(SquadData data)
         {
+            if (userData.config.M == true) return;
+
+
 
             if (data.isFinish) return;
             switch (data.squad_id)
@@ -211,7 +239,7 @@ namespace GFHelp.Core.MulitePlayerData
             bs.CreatTeamList(userData.others.getAvailableTeamID());
             if (userData.others.getAvailableTeamID().Count == 0) return;
             MissionInfo.Data data = new MissionInfo.Data(userData, bs);
-            userData.MissionInfo.listTask.Add(data);
+            userData.MissionInfo.Add(data);
         }
         private void addBattle1_1(int i)
         {
@@ -224,7 +252,7 @@ namespace GFHelp.Core.MulitePlayerData
             bs.CreatTeamList(userData.others.getAvailableTeamID());
             if (userData.others.getAvailableTeamID().Count == 0) return;
             MissionInfo.Data data = new MissionInfo.Data(userData, bs);
-            userData.MissionInfo.listTask.Add(data);
+            userData.MissionInfo.Add(data);
         }
         private void addBattle1_2()
         {
@@ -235,7 +263,7 @@ namespace GFHelp.Core.MulitePlayerData
             bs.CreatTeamList(userData.others.getAvailableTeamID());
             if (userData.others.getAvailableTeamID().Count == 0) return;
             MissionInfo.Data data = new MissionInfo.Data(userData, bs);
-            userData.MissionInfo.listTask.Add(data);
+            userData.MissionInfo.Add(data);
         }
         private void addBattle2_4()
         {
@@ -246,7 +274,7 @@ namespace GFHelp.Core.MulitePlayerData
             bs.CreatTeamList(userData.others.getAvailableTeamID());
             if (userData.others.getAvailableTeamID().Count == 0) return;
             MissionInfo.Data data = new MissionInfo.Data(userData, bs);
-            userData.MissionInfo.listTask.Add(data);
+            userData.MissionInfo.Add(data);
         }
         private void addBattle2_2e()
         {
@@ -257,7 +285,7 @@ namespace GFHelp.Core.MulitePlayerData
             bs.CreatTeamList(userData.others.getAvailableTeamID());
             if (userData.others.getAvailableTeamID().Count == 0) return;
             MissionInfo.Data data = new MissionInfo.Data(userData, bs);
-            userData.MissionInfo.listTask.Add(data);
+            userData.MissionInfo.Add(data);
         }
 
         private void addBattle4_6()
@@ -269,7 +297,7 @@ namespace GFHelp.Core.MulitePlayerData
             bs.CreatTeamList(userData.others.getAvailableTeamID());
             if (userData.others.getAvailableTeamID().Count <2) return;
             MissionInfo.Data data = new MissionInfo.Data(userData, bs);
-            userData.MissionInfo.listTask.Add(data);
+            userData.MissionInfo.Add(data);
         }
         private void addBattle5_6()
         {
@@ -280,7 +308,7 @@ namespace GFHelp.Core.MulitePlayerData
             bs.CreatTeamList(userData.others.getAvailableTeamID());
             if (userData.others.getAvailableTeamID().Count < 2) return;
             MissionInfo.Data data = new MissionInfo.Data(userData, bs);
-            userData.MissionInfo.listTask.Add(data);
+            userData.MissionInfo.Add(data);
         }
         private void addBattle6_6()
         {
@@ -291,7 +319,7 @@ namespace GFHelp.Core.MulitePlayerData
             bs.CreatTeamList(userData.others.getAvailableTeamID());
             if (userData.others.getAvailableTeamID().Count < 2) return;
             MissionInfo.Data data = new MissionInfo.Data(userData, bs);
-            userData.MissionInfo.listTask.Add(data);
+            userData.MissionInfo.Add(data);
         }
         private void addBattle7_6()
         {
@@ -302,7 +330,7 @@ namespace GFHelp.Core.MulitePlayerData
             bs.CreatTeamList(userData.others.getAvailableTeamID());
             if (userData.others.getAvailableTeamID().Count < 2) return;
             MissionInfo.Data data = new MissionInfo.Data(userData, bs);
-            userData.MissionInfo.listTask.Add(data);
+            userData.MissionInfo.Add(data);
         }
         private void addBattle3_4n()
         {
@@ -313,7 +341,7 @@ namespace GFHelp.Core.MulitePlayerData
             bs.CreatTeamList(userData.others.getAvailableTeamID());
             if (userData.others.getAvailableTeamID().Count < 2) return;
             MissionInfo.Data data = new MissionInfo.Data(userData, bs);
-            userData.MissionInfo.listTask.Add(data);
+            userData.MissionInfo.Add(data);
         }
 
         public class SquadData

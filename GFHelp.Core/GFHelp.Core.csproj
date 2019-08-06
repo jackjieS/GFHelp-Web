@@ -1,4 +1,4 @@
-<Project Sdk="Microsoft.NET.Sdk">
+﻿<Project Sdk="Microsoft.NET.Sdk">
 
   <PropertyGroup>
     <TargetFramework>netcoreapp2.1</TargetFramework>
@@ -14,6 +14,8 @@
 
   <ItemGroup>
     <ProjectReference Include="..\GFHelp.DataBase\GFHelp.DataBase.csproj" />
+    <ProjectReference Include="..\GFLogin\GFLogin.csproj" />
+    <ProjectReference Include="..\NetBase1\NetBase.csproj" />
   </ItemGroup>
 
   <ItemGroup>
@@ -21,11 +23,7 @@
       <HintPath>..\packages\AuthCode.dll</HintPath>
     </Reference>
     <Reference Include="dotnet-aspnet-codegenerator-design">
-      <HintPath>..\..\..\..\..\..\Program Files\dotnet\sdk\NuGetFallbackFolder\microsoft.visualstudio.web.codegeneration.design\2.1.0\lib\netstandard2.0\dotnet-aspnet-codegenerator-design.dll</HintPath>
-    </Reference>
-    <Reference Include="GFLogin">
-      <HintPath>..\..\GFLogin\GFLogin\bin\Release\netcoreapp2.1\GFLogin.dll</HintPath>
-      <Private>true</Private>
+      <HintPath>..\Release\dotnet-aspnet-codegenerator-design.dll</HintPath>
     </Reference>
     <Reference Include="ICSharpCode.SharpZipLib">
       <HintPath>..\packages\ICSharpCode.SharpZipLib.dll</HintPath>
@@ -33,11 +31,11 @@
     <Reference Include="LitJson">
       <HintPath>..\packages\LitJson.dll</HintPath>
     </Reference>
-    <Reference Include="Microsoft.AspNetCore.Identity.EntityFrameworkCore">
-      <HintPath>..\..\..\..\..\..\..\Program Files\dotnet\sdk\NuGetFallbackFolder\microsoft.aspnetcore.identity.entityframeworkcore\2.0.3\lib\netstandard2.0\Microsoft.AspNetCore.Identity.EntityFrameworkCore.dll</HintPath>
+    <Reference Include="Microsoft.AspNet.Identity.EntityFramework">
+      <HintPath>..\packages\Microsoft.AspNet.Identity.EntityFramework.2.2.1\lib\net45\Microsoft.AspNet.Identity.EntityFramework.dll</HintPath>
     </Reference>
     <Reference Include="Microsoft.EntityFrameworkCore">
-      <HintPath>..\..\..\..\..\..\..\Program Files\dotnet\sdk\NuGetFallbackFolder\microsoft.entityframeworkcore\2.0.3\lib\netstandard2.0\Microsoft.EntityFrameworkCore.dll</HintPath>
+      <HintPath>..\Release\Microsoft.EntityFrameworkCore.dll</HintPath>
     </Reference>
     <Reference Include="UnityEngine">
       <HintPath>..\packages\UnityEngine.dll</HintPath>

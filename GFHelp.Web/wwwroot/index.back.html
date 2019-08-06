@@ -13,6 +13,9 @@
     <p id="label4"> ↓结果 </p>
     <p id="Result"> Result </p>
 
+    <p> ↓test </p>
+    <p id="test"> test </p>
+
     <p id="label3"> ↓这是系统通知</p>
     <table id="SystemNotes"></table>
 
@@ -24,6 +27,7 @@
     <ul id="message"></ul>
     <!--<script src="lib/jquery/dist/jquery.min.js"></script>-->
     <script src="/lib/SingnlR/signalr.js"></script>
+    <script src="dist/lib/jquery/jquery.js"></script>
     <script>
         const Webuser = "admin";//测试账号
         const Gameuser = "18318080899";//测试账号
@@ -74,16 +78,32 @@
 
 
 
-        document.getElementById("RemoveAllSystemNotice").addEventListener("click", event => {
-            const Webuser = "admin";//测试账号
-            conGamesStatus.invoke("RemoveAllSystemNotice", Webuser).catch(err => console.error(err.toString()));
-            event.preventDefault();
+            conGamesStatus.on("ReceiveTest", (message) => {
+            const encodedMsg = message;
+            document.getElementById("test").textContent = encodedMsg
         });
-        document.getElementById("RemoveGameNotice").addEventListener("click", event => {
-            const Gameuser = "18318080899";//测试账号
-            conGamesDetails.invoke("RemoveGameNotice", Gameuser).catch(err => console.error(err.toString()));
-            event.preventDefault();
+        $(function f1() {
+            while (true) {
+
+            setTimeout(function () {
+                conGamesStatus.invoke("GetTest", Webuser).catch(err => console.error(err.toString()));
+            }, 1000);
+            }
+
+
         });
+
+
+            //document.getElementById("RemoveAllSystemNotice").addEventListener("click", event => {
+            //    const Webuser = "admin";//测试账号
+            //    conGamesStatus.invoke("RemoveAllSystemNotice", Webuser).catch(err => console.error(err.toString()));
+            //    event.preventDefault();
+            //});
+            //document.getElementById("RemoveGameNotice").addEventListener("click", event => {
+            //    const Gameuser = "18318080899";//测试账号
+            //    conGamesDetails.invoke("RemoveGameNotice", Gameuser).catch(err => console.error(err.toString()));
+            //    event.preventDefault();
+            //});
 
     </script>
 </body>

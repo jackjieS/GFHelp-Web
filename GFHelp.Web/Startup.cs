@@ -55,10 +55,6 @@ namespace GFHelp.Web
                         "首先你需要使用 /Auth/WebLogin 进行网站登陆 ( 账号 admin 密码 admin) \n\r" +
                         "在 Authorize 按钮里的 value 填入 密匙 格式 Bearer {token}\n\r " +
                         "范例  Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCbalabalabalabalabalabalabalabalabalabala\n\r"
-
-
-
-
                     }
                  );
 
@@ -85,28 +81,26 @@ namespace GFHelp.Web
                 options.DefaultChallengeScheme = JwtBearerDefaults.AuthenticationScheme;
                 options.DefaultScheme = JwtBearerDefaults.AuthenticationScheme;
 
-            })
-.AddJwtBearer(options =>
-{
-    options.SaveToken = true;
-    options.RequireHttpsMetadata = false;
-    options.TokenValidationParameters = new Microsoft.IdentityModel.Tokens.TokenValidationParameters()
-    {
-        ValidateIssuer = true,
-        ValidateAudience = true,
-        ValidAudience = "http://oec.com",
-        ValidIssuer = "http://oec.com",
-        IssuerSigningKey = new SymmetricSecurityKey(Encoding.UTF8.GetBytes("MySuperSecureKey"))
-    };
+            }).AddJwtBearer(options =>
+            {
+                options.SaveToken = true;
+                options.RequireHttpsMetadata = false;
+                options.TokenValidationParameters = new Microsoft.IdentityModel.Tokens.TokenValidationParameters()
+                {
+                    ValidateIssuer = true,
+                    ValidateAudience = true,
+                    ValidAudience = "http://oec.com",
+                    ValidIssuer = "http://oec.com",
+                    IssuerSigningKey = new SymmetricSecurityKey(Encoding.UTF8.GetBytes("MySuperSecureKey"))
+                };
 
 
 
-});
+            });
 
 
         }
 
-        // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
         public void Configure(IApplicationBuilder app, IHostingEnvironment env)
         {
             if (env.IsDevelopment())
@@ -127,28 +121,19 @@ namespace GFHelp.Web
             app.UseStaticFiles(staticfile);
 
             app.UseCors(builder => builder
-                .AllowAnyOrigin()
+                .SetIsOriginAllowedToAllowWildcardSubdomains()
+                .WithOrigins("https://*.nai-ve.top")
                 .AllowAnyMethod()
                 .AllowAnyHeader()
                 .AllowCredentials());
 
 
 
-            ////更改未经授权的默认重定向
-            //app.UseStatusCodePages(async context =>
-            //{
-            //    var response = context.HttpContext.Response;
-
-            //    if (response.StatusCode == (int)HttpStatusCode.Unauthorized ||
-            //        response.StatusCode == (int)HttpStatusCode.Forbidden)
-            //        response.Redirect("/Auth/Login");
-            //});
 
 
             app.UseSignalR(u => u.MapHub<Chat>("/chathub"));
             app.UseDefaultFiles();
             app.UseStaticFiles();
-
             app.UseMvc(routes =>
             {
                 routes.MapRoute(
@@ -165,8 +150,11 @@ namespace GFHelp.Web
 
 
             Core.SystemOthers.ConfigData.Initialize();
-            Core.SignaIRClient.seed();
             Core.Init.InitFromDatabase();
+            Core.SignaIRClient.init();
+            NetBase.webProxy.Init();
+            ServicePointManager.DefaultConnectionLimit = 512;
+
         }
     }
 }

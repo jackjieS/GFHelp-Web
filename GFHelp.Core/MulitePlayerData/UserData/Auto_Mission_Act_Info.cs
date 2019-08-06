@@ -34,7 +34,7 @@ namespace GFHelp.Core.MulitePlayerData
 
                 }
         }
-        public bool CheckGunStatus(Gun_With_User_Info gwui)
+        public bool CheckGunStatus(Gun_With_User_Info.Data gwui)
         {
             foreach (var item in listData)
             {

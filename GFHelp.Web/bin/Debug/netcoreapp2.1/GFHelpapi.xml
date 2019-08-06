@@ -221,6 +221,12 @@
             </summary>
             <returns></returns>
         </member>
+        <member name="M:GFHelp.Web.Controllers.SystemController.GetRunningNumberOfM">
+            <summary>
+            获取M的情况
+            </summary>
+            <returns></returns>
+        </member>
         <member name="M:GFHelp.Web.Controllers.SystemController.RemoveALLSystemNotice">
             <summary>
             删除全部系统消息信息
@@ -260,6 +266,24 @@
         <member name="M:GFHelp.Web.Controllers.SystemController.ReloadLibeary">
             <summary>
             ReloadMissionDll
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:GFHelp.Web.Controllers.SystemController.LoadWebProxy">
+            <summary>
+            LoadWebProxy
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:GFHelp.Web.Controllers.SystemController.WebProxyTrigger">
+            <summary>
+            WebProxyTrigger
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:GFHelp.Web.Controllers.SystemController.DownloadCatchdata">
+            <summary>
+            DownloadCatchdata
             </summary>
             <returns></returns>
         </member>
@@ -326,7 +350,7 @@
             </summary>
             <returns></returns>
         </member>
-        <member name="M:GFHelp.Web.Chat.SendSystemNotification(System.String,System.String)">
+        <member name="M:GFHelp.Web.Chat.SendSystemNotification(System.String)">
             <summary>
             后端向前端发送信息
             </summary>

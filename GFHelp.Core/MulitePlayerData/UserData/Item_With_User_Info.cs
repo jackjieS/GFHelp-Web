@@ -25,6 +25,7 @@ namespace GFHelp.Core.MulitePlayerData
                 {
                     iwui.item_id = Convert.ToInt32(item.item_id);
                     iwui.number = Convert.ToInt32(item.number);
+                    dicItem.Add(iwui.item_id, iwui);
                 }
                 catch (Exception e)
                 {
@@ -32,7 +33,7 @@ namespace GFHelp.Core.MulitePlayerData
                 }
                 finally
                 {
-                    dicItem.Add(iwui.item_id, iwui);
+
                 }
 
             }
@@ -170,6 +171,17 @@ namespace GFHelp.Core.MulitePlayerData
                 }
             }
         }
+
+        public int IOPcontract
+        {
+            get
+            {
+                if (dicItem.ContainsKey(1))
+                    return dicItem[1].number;
+                return 0;
+            }
+        }
+
 
     }
 

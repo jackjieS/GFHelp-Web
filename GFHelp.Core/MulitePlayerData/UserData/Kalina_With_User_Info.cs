@@ -1,4 +1,5 @@
 ﻿using GFHelp.Core.Helper;
+using GFHelp.Core.Management;
 using System;
 using System.Collections.Generic;
 using System.Text;
@@ -7,6 +8,11 @@ namespace GFHelp.Core.MulitePlayerData
 {
     public class Kalina_With_User_Info
     {
+        private UserData userData;
+        public Kalina_With_User_Info(UserData userData)
+        {
+            this.userData = userData;
+        }
         public int user_id;
         public int click_num;
         public int click_time;
@@ -18,6 +24,9 @@ namespace GFHelp.Core.MulitePlayerData
 
         public bool Read(dynamic jsonobj)
         {
+            if (userData.config.M == true) return true;
+
+
             try
             {
                 user_id = Convert.ToInt32(jsonobj.kalina_with_user_info.user_id);

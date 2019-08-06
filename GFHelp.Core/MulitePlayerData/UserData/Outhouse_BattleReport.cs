@@ -43,6 +43,7 @@ namespace GFHelp.Core.MulitePlayerData
         public bool Read(dynamic jsonobj)
         {
             dicEstablish.Clear();
+            if (userData.config.M) return false;
             foreach (var item in jsonobj.outhouse_establish_info)
             {
                 Data oei = new Data();
@@ -73,6 +74,7 @@ namespace GFHelp.Core.MulitePlayerData
                     int.TryParse(item.parameter_1.ToString(), out oei.parameter_1);
                     int.TryParse(item.parameter_2.ToString(), out oei.parameter_2);
                     int.TryParse(item.parameter_3.ToString(), out oei.parameter_3);
+                    dicEstablish.Add(oei.establish_type, oei);
                 }
                 catch (Exception e)
                 {
@@ -80,7 +82,7 @@ namespace GFHelp.Core.MulitePlayerData
                 }
                 finally
                 {
-                    dicEstablish.Add(oei.establish_type, oei);
+
                 }
 
             }
@@ -104,6 +106,7 @@ namespace GFHelp.Core.MulitePlayerData
 
         public void AutoRun()
         {
+            if (userData.config.M) return;
             if (AutoRunning == false) return;
             BattleReportStart();
             BattleReportFinish();
@@ -118,7 +121,7 @@ namespace GFHelp.Core.MulitePlayerData
             {
                 userData.item_With_User_Info.Battery -= Furniture_printer * 3;
                 userData.item_With_User_Info.globalFreeExp -= Furniture_printer * 3000;
-                this.StartTime =Helper.Decrypt.ConvertDateTime_China_Int(DateTime.Now);
+                this.StartTime =Helper.Decrypt.getDateTime_China_Int(DateTime.Now);
                 Using = true;
             }
 
@@ -157,14 +160,14 @@ namespace GFHelp.Core.MulitePlayerData
             jsonWriter.WritePropertyName("payway");
             jsonWriter.Write("build_coin");
             jsonWriter.WritePropertyName("special_report");
-            jsonWriter.Write(1);//1是普通的
+            jsonWriter.Write(getReportType());//1是普通的
             jsonWriter.WriteObjectEnd();
 
             while (true)
             {
-                string result = API.Dorm.Establish_Build(userData.GameAccount, sb.ToString());
+                string result = userData.Net.Dorm.Establish_Build(userData.GameAccount, sb.ToString());
 
-                switch (Response.Check(userData.GameAccount, ref result, "Establish_Build", true))
+                switch (userData.Response.Check( ref result, "Establish_Build", true))
                 {
                     case 1:
                         {
@@ -212,9 +215,9 @@ namespace GFHelp.Core.MulitePlayerData
 
             while (true)
             {
-                string result = API.Dorm.Establish_Build_Finish(userData.GameAccount, sb.ToString());
+                string result = userData.Net.Dorm.Establish_Build_Finish(userData.GameAccount, sb.ToString());
 
-                switch (Response.Check(userData.GameAccount, ref result, "Establish_Build_Finish", true))
+                switch (userData.Response.Check( ref result, "Establish_Build_Finish", true))
                 {
                     case 1:
                         {
@@ -242,7 +245,23 @@ namespace GFHelp.Core.MulitePlayerData
         }
 
 
-
+        private int getReportType()
+        {
+            if (userData.config.HeavyReport == false && userData.config.NormalReport == false)
+            {
+                Random random = new Random();
+                return random.Next(0, 1);
+            }
+            if (userData.config.HeavyReport == true)
+            {
+                return 1;
+            }
+            if (userData.config.NormalReport == true)
+            {
+                return 0;
+            }
+            return 0;
+        }
 
 
 
@@ -262,6 +281,7 @@ namespace GFHelp.Core.MulitePlayerData
         {
             get
             {
+                if (!dicEstablish.ContainsKey(206)) return 99999;
                 return dicEstablish[206].parameter_1;
             }
         }
@@ -269,6 +289,7 @@ namespace GFHelp.Core.MulitePlayerData
         {
             get
             {
+                if (!dicEstablish.ContainsKey(205)) return 99999;
                 return dicEstablish[205].parameter_1;
             }
         }

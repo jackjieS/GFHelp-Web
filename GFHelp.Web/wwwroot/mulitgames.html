@@ -89,7 +89,7 @@
             };
 
             $.ajax({
-                url: 'http://118.24.162.26:7777/CreatDefaultGame',
+                url: 'http://'+getHost()+':7777/CreatDefaultGame',
                 type: 'post',
                 dataType: 'json',
                 headers: { 'Authorization': 'Bearer ' + token },
@@ -120,7 +120,7 @@
             };
 
             $.ajax({
-                url: 'http://118.24.162.26:7777/DeleteDefaultGame',
+                url: 'http://'+getHost()+':7777/DeleteDefaultGame',
                 type: 'post',
                 dataType: 'json',
                 headers: { 'Authorization': 'Bearer ' + token },
@@ -153,7 +153,7 @@
             }
 
             $.ajax({
-                url: 'http://118.24.162.26:7777/CreatDefaultGame',
+                url: 'http://'+getHost()+':7777/CreatDefaultGame',
                 type: 'post',
                 dataType: 'json',
                 headers: { 'Authorization': 'Bearer ' + token },
@@ -185,7 +185,7 @@
 
         //获取默认实列
         $.ajax({
-            url: 'http://118.24.162.26:7777/GetDefaultGamesInfo',
+            url: 'http://'+getHost()+':7777/GetDefaultGamesInfo',
             type: 'get',
             dataType: 'json',
             headers: { 'Authorization': 'Bearer ' + token },
@@ -198,7 +198,7 @@
                             '<td><input type="text" value="' + res.data[i].webUsername + '" name="webUsername[' + (i + 1) + ']" id="inputID" class="form-control" ></td>\n' +
                             '<td><input type="text" value="' + res.data[i].gameAccountID + '" name="gameAccountID[' + (i + 1) + ']" id="inputID" class="form-control"></td>\n' +
                             '<td><input type="text" value="' + res.data[i].gamePassword + '" name="gamePassword[' + (i + 1) + ']" id="inputID" class="form-control"></td>\n' +
-                            '<td><select class="form-control" name="channelID[' + rowId + ']" ><option value="ios">官方ios</option><option value="gwpz">官方安卓</option><option value="bili">B站</option><option value="other">其他</option></select></td>\n' +
+                            '<td><select class="form-control" name="gamePassword[' + (i + 1) + ']" ><option value="ios">官方ios</option><option value="gwpz">官方安卓</option><option value="bili">B站</option><option value="other">其他</option></select></td>\n' +
                             '<td><input type="text" value="' + res.data[i].worldID + '" name="worldID[' + (i + 1) + ']" id="inputID" class="form-control"></td>\n' +
                             '<td><input type="text" value="' + res.data[i].parm + '" name="parm[' + (i + 1) + ']" id="inputID" class="form-control" ></td>\n' +
                             '<td>\n' +

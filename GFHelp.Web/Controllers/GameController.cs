@@ -330,13 +330,12 @@ namespace GFHelp.Web.Controllers
             Operation_Act_Info.Data data = new Operation_Act_Info.Data();
             data.team_id = text.TeamID;
             data.operation_id = text.operationID;
-            Core.Management.Data.data.getDataByID(accountID).operation_Act_Info.Start(data);
+            Core.Management.Data.data.getDataByID(accountID).operation_Act_Info.StartHandle(data);
             return Ok(new
             {
                 code = 1,
                 //data = result,
                 message = string.Format("开始后勤")
-
             });
         }
 
@@ -396,12 +395,22 @@ namespace GFHelp.Web.Controllers
 
                 });
             }
+            if (bs.isParmError())
+            {
+                return Ok(new
+                {
+                    code = -1,
+                    data = "error",
+                    message = string.Format("缺少-t", bs.accountID)
+
+                });
+            }
 
 
 
 
             Core.Action.BattleBase.MissionInfo.Data data = new Core.Action.BattleBase.MissionInfo.Data(Core.Management.Data.data.getDataByID(bs.accountID), bs);
-            Core.Management.Data.data.getDataByID(bs.accountID).MissionInfo.listTask.Add(data);
+            Core.Management.Data.data.getDataByID(bs.accountID).MissionInfo.Add(data);
 
             return Ok(new
             {
@@ -443,7 +452,7 @@ namespace GFHelp.Web.Controllers
                     continue;
                 }
                 Core.Action.BattleBase.MissionInfo.Data data = new Core.Action.BattleBase.MissionInfo.Data(Core.Management.Data.data.getDataByID(item.GameAccountID), bs);
-                Core.Management.Data.data.getDataByID(item.GameAccountID).MissionInfo.listTask.Add(data);
+                Core.Management.Data.data.getDataByID(item.GameAccountID).MissionInfo.Add(data);
             }
             return Ok(new
             {

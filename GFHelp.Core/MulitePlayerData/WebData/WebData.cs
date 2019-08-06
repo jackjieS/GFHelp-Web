@@ -1,5 +1,6 @@
 ﻿using GFHelp.Core.Action.BattleBase;
 using GFHelp.Core.CatchData.Base;
+using GFHelp.Core.Helper;
 using GFHelp.Core.Management;
 using LitJson;
 using Newtonsoft.Json;
@@ -60,7 +61,7 @@ namespace GFHelp.Core.MulitePlayerData.WebData
             ui.mre = UserData.user_Info.mre.ToString();
             ui.part = UserData.user_Info.part.ToString();
             ui.mp = UserData.user_Info.mp.ToString();
-            ui.IOP_Contract = getItemNumFromID(0);
+            ui.IOP_Contract = getItemNumFromID(1);
             ui.Quick_Develop = getItemNumFromID(3);
             ui.Quick_Reinforce = getItemNumFromID(4);
             ui.Quick_Training = getItemNumFromID(8);
@@ -104,14 +105,22 @@ namespace GFHelp.Core.MulitePlayerData.WebData
             foreach (var item in UserData.operation_Act_Info.dicOperation)
             {
                 WebOperation webOperation = new WebOperation();
-                webOperation.Using = item.Value.Using;
+                webOperation.Using = item.Value.operation_id > 0 ? true : false;
                 webOperation.key = item.Value.key.ToString();
                 webOperation.id = item.Value.id.ToString();
                 webOperation.operation_id = item.Value.operation_id.ToString();
                 webOperation.user_id = item.Value.user_id.ToString();
                 webOperation.team_id = item.Value.team_id.ToString();
                 webOperation.start_time = item.Value.start_time.ToString();
-                webOperation.remaining_time = item.Value.remaining_time > 0 ? item.Value.remaining_time.ToString() : 0.ToString();
+
+                if (item.Value.operation_id > 0)
+                {
+                    webOperation.remaining_time = (item.Value.start_time + item.Value.Duration - Decrypt.getDateTime_China_Int(DateTime.Now)).ToString();
+                }
+                else
+                {
+                    webOperation.remaining_time = 0.ToString();
+                }
                 dic.Add(webOperation);
             }
 
@@ -120,7 +129,9 @@ namespace GFHelp.Core.MulitePlayerData.WebData
         {
             webStatus.AccountId = UserData.GameAccount.GameAccountID;
             webStatus.Name = UserData.GameAccount.ChannelID + " - " + UserData.GameAccount.GameAccountID + " - " + UserData.user_Info.name;
-            webStatus.statusBarText = UserData.webData.StatusBarText;
+
+
+            webStatus.statusBarText = UserData.webData.StatusBarText + "  - 后勤状态 - " + UserData.operation_Act_Info.isRunning().ToString();
         }
         private string getItemNumFromID(int id)
         {
@@ -203,7 +214,7 @@ namespace GFHelp.Core.MulitePlayerData.WebData
     public class Gun
     {
 
-        public Gun(Gun_With_User_Info gun_With_User_Info)
+        public Gun(Gun_With_User_Info.Data gun_With_User_Info)
         {
             this.TeamID = gun_With_User_Info.teamId;
             //this.Name = Asset_Textes.ChangeCodeFromeCSV(Function.FindGunName_GunId(gun_With_User_Info.gun_id));
@@ -293,6 +304,7 @@ namespace GFHelp.Core.MulitePlayerData.WebData
         public string AccountId;//游戏帐户ID
         public string Name;//游戏角色名称
         public string statusBarText;//状态
+
     }
     public class WebMissionInfo
     {

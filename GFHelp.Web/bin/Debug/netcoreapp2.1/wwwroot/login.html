@@ -78,7 +78,7 @@
             if (!UsernameObj.val()) { alert('请输入用户名'); UsernameObj.focus(); return false; }
             if (!PasswordObj.val()) { alert('请输入密码'); PasswordObj.focus(); return false; }
             $.ajax({
-                url: 'http://127.0.0.1:7777/Auth/WebLogin',
+                url: 'https://'+getHost()+':7777/Auth/WebLogin',
                 type: 'post',
                 data: "{'username':'" + UsernameObj.val() + "','password':'" + PasswordObj.val() + "'}",
                 dataType: 'json',
@@ -102,7 +102,7 @@
 
             var html_o = '';
             $.ajax({
-                url: 'http://127.0.0.1:7777/System/UpgradeInfo',
+                url: 'https://'+getHost()+':7777/System/UpgradeInfo',
                 type: 'get',
                 async: false,
                 dataType: 'json',

@@ -45,7 +45,6 @@ namespace GFHelp.Core.MulitePlayerData
                 }
                 catch (Exception e)
                 {
-                    new Log().systemInit("获取邮件错误", e.ToString()).coreInfo();
                     new Log().userInit(userData.GameAccount.GameAccountID, "获取邮件错误", e.ToString()).userInfo();
                 }
 
@@ -81,9 +80,9 @@ namespace GFHelp.Core.MulitePlayerData
             int k = 0;
             while (true)
             {
-                string result = API.Home.getMailList(userData.GameAccount, stringBuilder.ToString());
+                string result = userData.Net.Home.getMailList(userData.GameAccount, stringBuilder.ToString());
 
-                switch (Response.Check(userData.GameAccount, ref result, "home", true))
+                switch (userData.Response.Check( ref result, "home", true))
                 {
                     case 1:
                         {
@@ -119,9 +118,9 @@ namespace GFHelp.Core.MulitePlayerData
             int k = 0;
             while (true)
             {
-                string result = API.Home.GetMailResource(userData.GameAccount, stringBuilder.ToString());
+                string result = userData.Net.Home.GetMailResource(userData.GameAccount, stringBuilder.ToString());
 
-                switch (Response.Check(userData.GameAccount, ref result, "MailResource", true))
+                switch (userData.Response.Check( ref result, "MailResource", true))
                 {
                     case 1:
                         {
@@ -195,7 +194,7 @@ namespace GFHelp.Core.MulitePlayerData
                     this.title = jsonData["title"].String;
                     this.content = jsonData["content"].String;
                     this.start_time = jsonData["start_time"].Int;
-                    if (Decrypt.ConvertDateTime_China_Int(DateTime.Now)>this.start_time)
+                    if (Decrypt.getDateTime_China_Int(DateTime.Now)>this.start_time)
                         this.CouldGet = true;
                     else
                     {

@@ -12,104 +12,40 @@ namespace GFHelp.Core.Helper
 {
     class Decrypt
     {
-        public static int randomtime(int time)
+        public static void init()
         {
-            Random random = new Random();
-            if (time == 0) return 0;
-            return random.Next(1, time);
+            Convert();
         }
-
+        
         public static DateTime LocalDateTimeConvertToChina(DateTime dateTime)
         {
             TimeZoneInfo timeZoneSource = TimeZoneInfo.Local;
             TimeZoneInfo timeZoneDestination = TimeZoneInfo.FindSystemTimeZoneById("China Standard Time");
             return TimeZoneInfo.ConvertTime(dateTime, timeZoneSource, timeZoneDestination);
         }
-        public static int ConvertDateTime_China_Int(DateTime time)
+
+        public static int getDateTime_China_Int(DateTime time)
         {
-            try
+            if (ChinaTimeDateTime.Second == time.Second)
             {
-                TimeZoneInfo timeZoneSource = TimeZoneInfo.Local;
-                TimeZoneInfo timeZoneDestination = TimeZoneInfo.FindSystemTimeZoneById("China Standard Time");
-                time = TimeZoneInfo.ConvertTime(time, timeZoneSource, timeZoneDestination);
-
-
-                DateTime startTime = TimeZone.CurrentTimeZone.ToLocalTime(LocalDateTimeConvertToChina(new DateTime(1970, 1, 1, 0, 0, 0, 0)));
-
-                var t = (time.Ticks - startTime.Ticks) / 10000000;
-
-                return (int)t;
+                return ChinaTimeInt;
             }
-            catch (Exception e)
-            {
-                new Log().systemInit("ConvertDateTime_China_Int", e.ToString()).coreError();
-                throw;
-            }
-
+            Convert();
+            return ChinaTimeInt;
         }
 
-
-
-        public static string DecodeAndMapJson(GameAccount gameAccount, string wwwText)
+        public static void Convert()
         {
-            JsonData result = new JsonData();
-            try
-            {
-                if (wwwText.StartsWith("#"))
-                {
-                    using (MemoryStream memoryStream = new MemoryStream(AuthCode.DecodeWithGzip(wwwText.Substring(1), gameAccount.sign)))
-                    {
-                        using (Stream stream = new GZipInputStream(memoryStream))
-                        {
-                            using (StreamReader streamReader = new StreamReader(stream, Encoding.Default))
-                            {
-                                result = JsonMapper.ToObject(streamReader);
-                                return result.ToJson();
-                            }
-                        }
-                    }
-                }
-                string text2 = AuthCode.Decode(wwwText, gameAccount.sign);
-
-                result = JsonMapper.ToObject(text2);
-            }
-            catch (Exception e)
-            {
-                new Log().systemInit("DecodeAndMapJson", e.ToString()).coreError();
-
-            }
-            return result.ToJson();
+            DateTime dt = TimeZoneInfo.ConvertTimeToUtc(DateTime.Now, TimeZoneInfo.Local);
+            ChinaTimeDateTime = TimeZoneInfo.ConvertTimeFromUtc(dt, TimeZoneInfo.FindSystemTimeZoneById("China Standard Time"));
+            ChinaTimeInt = (int)((ChinaTimeDateTime.Ticks - startTime.Ticks) / 10000000);
         }
+        public static DateTime startTime = TimeZone.CurrentTimeZone.ToLocalTime(LocalDateTimeConvertToChina(new DateTime(1970, 1, 1, 0, 0, 0, 0)));
+        public static DateTime ChinaTimeDateTime;
+        public static int  ChinaTimeInt = 0;
 
-        public static void DecodeSign(GameAccount gameAccount, string result)
-        {
-            JsonData jsonData2 = null;
-            gameAccount.realtimeSinceLogin = Convert.ToInt32((DateTime.UtcNow - new DateTime(1970, 1, 1, 0, 0, 0, 0)).TotalSeconds);
 
-            AuthCode.Init(new AuthCode.IntDelegate(gameAccount.GetCurrentTimeStamp));
 
-            gameAccount.loginTime = ConvertDateTime_China_Int(DateTime.Now);
-            try
-            {
-                using (MemoryStream stream = new MemoryStream(AuthCode.DecodeWithGzip(result.Substring(1), "yundoudou")))
-                {
-                    using (Stream stream2 = new GZipInputStream(stream))
-                    {
-                        using (StreamReader streamReader = new StreamReader(stream2, Encoding.Default))
-                        {
-                            jsonData2 = JsonMapper.ToObject(streamReader);
-                        }
-                    }
-                }
-            }
-            catch (Exception e)
-            {
-                //向網頁傳輸數據一個錯誤窗口之類的
-                throw;
-            }
-            gameAccount.uid = jsonData2["uid"].String;
-            gameAccount.sign = jsonData2["sign"].String;
-        }
 
 
 

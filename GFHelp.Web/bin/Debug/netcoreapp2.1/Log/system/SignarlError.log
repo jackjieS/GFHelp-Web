@@ -1,5 +1,0 @@
-【05:35:58】      message = getGamesStatus Error , exception = System.InvalidOperationException: Collection was modified; enumeration operation may not execute.
-   at System.Collections.Generic.List`1.Enumerator.MoveNextRare()
-   at GFHelp.Core.MulitePlayerData.WebData.WebData.GetWebSquads(List`1& squads) in C:\Users\jack\Desktop\CS\GFHelp-Web\GFHelp.Core\MulitePlayerData\WebData\WebData.cs:line 49
-   at GFHelp.Core.MulitePlayerData.WebData.WebData.Get() in C:\Users\jack\Desktop\CS\GFHelp-Web\GFHelp.Core\MulitePlayerData\WebData\WebData.cs:line 183
-   at GFHelp.Core.SignaIRClient.getWebData() in C:\Users\jack\Desktop\CS\GFHelp-Web\GFHelp.Core\SignaIRClient.cs:line 129

@@ -618,6 +618,8 @@
         $(function () {
             checkToken();
             GetGamesDetail();
+            startWorker();
+
         });
 
         function checkToken() {
@@ -638,7 +640,7 @@
             var token = checkToken();
             var html_o = '';
             $.ajax({
-                url: 'http://127.0.0.1:7777/System/GetOperationInfo',
+                url: 'http://'+getHost()+':7777/System/GetOperationInfo',
                 type: 'get',
                 async: false,
                 dataType: 'json',
@@ -656,65 +658,70 @@
 
         var param = GetRequest();
         const Gameuser = param.gid;
-        const conGamesDetails = new signalR.HubConnectionBuilder().withUrl("http://127.0.0.1:7777/chatHub?name=" + Gameuser).build();
-        conGamesDetails.start().catch(err => {
-            $('#NetWorkS').html('网络连接: Offline');
-            console.error(err.toString());
-        });
+        const conGamesDetails = new signalR.HubConnectionBuilder().withUrl('http://'+getHost()+':7777/chatHub?name=' + Gameuser).build()
+        const conInit = false;
+        conGamesDetails.start();
+        function startWorker() {
+            setInterval(
+                function () {
+                    conGamesDetails.invoke("GetGameDetails",Gameuser).catch(err => console.error(err.toString()));
+                }, 1000);
+        }
+
         function GetGamesDetail() {
-            conGamesDetails.on("ReceiveGamesDetails", (message) => {
+            conGamesDetails.on("ReceiveGameDetails", (message) => {
                 message = $.parseJSON(message);
                 var operationInfo = null;
-                $('#Name').html(message[0].webUser_Info.UserName);
-                $('#commander').html(message[0].webUser_Info.UserName);
-                $('#level').html(message[0].webUser_Info.Level);
-                $('#Core').html(message[0].webUser_Info.Core);
-                $('#ammo').html(message[0].webUser_Info.ammo);
-                $('#IOP_Contract').html(message[0].webUser_Info.IOP_Contract);
-                $('#mre').html(message[0].webUser_Info.mre);
-                $('#mp').html(message[0].webUser_Info.mp);
-                $('#part').html(message[0].webUser_Info.part);
-                $('#Quick_Develop').html(message[0].webUser_Info.Quick_Develop);
-                $('#Quick_Reinforce').html(message[0].webUser_Info.Quick_Reinforce);
-                $('#Quick_Training').html(message[0].webUser_Info.Quick_Training);
-                $('#Quick_Develop').html(message[0].webUser_Info.Quick_Develop);
-                $('#GemNum').html(message[0].webUser_Info.GemNum);
-                $('#BatteryNum').html(message[0].webUser_Info.BatteryNum);
-                $('#BPnum').html(message[0].webUser_Info.BPnum);
-                $('#BP_PayNUM').html(message[0].webUser_Info.BP_PayNUM);
-                $('#FurnitureCoinNum').html(message[0].webUser_Info.FurnitureCoinNum);
-                $('#ExchangeCoinNum').html(message[0].webUser_Info.ExchangeCoinNum);
-                $('#GunNum').html(message[0].webUser_Info.GunNum);
-                $('#maxteam').html(message[0].webUser_Info.maxteam);
-                $('#max_build_slot').html(message[0].webUser_Info.max_build_slot);
-                $('#max_fix_slot').html(message[0].webUser_Info.max_fix_slot);
-                $('#KalinaLevel').html(message[0].webUser_Info.KalinaLevel);
-                $('#KalinaFavor').html(message[0].webUser_Info.KalinaFavor);
-                $('#EquipNum').html(message[0].webUser_Info.EquipNum);
-                $('#EQUIP_Contract').html(message[0].webUser_Info.EQUIP_Contract);
-                $('#Coin1').html(message[0].webUser_Info.Coin1);
-                $('#Coin2').html(message[0].webUser_Info.Coin2);
-                $('#Coin3').html(message[0].webUser_Info.Coin3);
-                $('#GlobalEXP').html(message[0].webUser_Info.GlobalEXP);
+                $('#Name').html(message.webUser_Info.UserName);
+                $('#commander').html(message.webUser_Info.UserName);
+                $('#level').html(message.webUser_Info.Level);
+                $('#Core').html(message.webUser_Info.Core);
+                $('#ammo').html(message.webUser_Info.ammo);
+                $('#IOP_Contract').html(message.webUser_Info.IOP_Contract);
+                $('#mre').html(message.webUser_Info.mre);
+                $('#mp').html(message.webUser_Info.mp);
+                $('#part').html(message.webUser_Info.part);
+                $('#Quick_Develop').html(message.webUser_Info.Quick_Develop);
+                $('#Quick_Reinforce').html(message.webUser_Info.Quick_Reinforce);
+                $('#Quick_Training').html(message.webUser_Info.Quick_Training);
+                $('#Quick_Develop').html(message.webUser_Info.Quick_Develop);
+                $('#GemNum').html(message.webUser_Info.GemNum);
+                $('#BatteryNum').html(message.webUser_Info.BatteryNum);
+                $('#BPnum').html(message.webUser_Info.BPnum);
+                $('#BP_PayNUM').html(message.webUser_Info.BP_PayNUM);
+                $('#FurnitureCoinNum').html(message.webUser_Info.FurnitureCoinNum);
+                $('#ExchangeCoinNum').html(message.webUser_Info.ExchangeCoinNum);
+                $('#GunNum').html(message.webUser_Info.GunNum);
+                $('#maxteam').html(message.webUser_Info.maxteam);
+                $('#max_build_slot').html(message.webUser_Info.max_build_slot);
+                $('#max_fix_slot').html(message.webUser_Info.max_fix_slot);
+                $('#KalinaLevel').html(message.webUser_Info.KalinaLevel);
+                $('#KalinaFavor').html(message.webUser_Info.KalinaFavor);
+                $('#EquipNum').html(message.webUser_Info.EquipNum);
+                $('#EQUIP_Contract').html(message.webUser_Info.EQUIP_Contract);
+                $('#Coin1').html(message.webUser_Info.Coin1);
+                $('#Coin2').html(message.webUser_Info.Coin2);
+                $('#Coin3').html(message.webUser_Info.Coin3);
+                $('#GlobalEXP').html(message.webUser_Info.GlobalEXP);
 
-                $('#OrginalDataNum').html(message[0].webUser_Info.OrginalDataNum);
-                $('#PureDataNum').html(message[0].webUser_Info.PureDataNum);
+                $('#OrginalDataNum').html(message.webUser_Info.OrginalDataNum);
+                $('#PureDataNum').html(message.webUser_Info.PureDataNum);
 
-                $('#ChipNum').html(message[0].webUser_Info.ChipNum);
-                $('#ChipRank5Num').html(message[0].webUser_Info.ChipRank5Num);
-                $('#ChipMaxNum').html(message[0].webUser_Info.ChipMaxNum);
+                $('#ChipNum').html(message.webUser_Info.ChipNum);
+                $('#ChipRank5Num').html(message.webUser_Info.ChipRank5Num);
+                $('#ChipMaxNum').html(message.webUser_Info.ChipMaxNum);
 
-                $('#gameDetail').html(message[0].webStatus.Name + " | " + message[0].webStatus.statusBarText);
+                $('#gameDetail').html(message.webStatus.Name + " | " + message.webStatus.statusBarText);
                 if (true) {
-                    $('#GlobalEXP').html(message[0].webUser_Info.GlobalEXP);
-                    $('#TimeOfReport').html(formatSeconds(message[0].webUser_Info.TimeOfReport));
+                    $('#GlobalEXP').html(message.webUser_Info.GlobalEXP);
+                    $('#TimeOfReport').html(formatSeconds(message.webUser_Info.TimeOfReport));
 
                 }
 
                 if (true) {
                     $('ul.Guns').html("");
                     var teamHtml = '';
-                    $(message[0].WebTeams).each(function (index, el) {
+                    $(message.WebTeams).each(function (index, el) {
                         var Status = '';
                         if (el.isFree == true) Status = 'Free';
                         if (el.isFree == false) Status = 'Locked';
@@ -733,7 +740,7 @@
 
                     var squadHtml = '';
                     var squad = '';
-                    $(message[0].WebSquads).each(function (index, el) {
+                    $(message.WebSquads).each(function (index, el) {
                         squad = '<li><div id="gun"><span id="gunName">' + el.Name + '</span><span id="gunLv">' + " | " + "LV: " + el.Lv + '</span><span id="gunLv">' + " | " + "Rank: " + el.Rank + '</span><span id = "gunExp">' + " | " + "Exp: " + el.Exp + '</span></div></li> ';
                         squadHtml += '<div class=""><div><h3>' + el.Type + '</h3></div><ul>' + squad + '</ul></div>';
                     });
@@ -749,7 +756,7 @@
                 var HeavyEquip_Build = '';
                 var NormalEquip_Build = '';
                 var Equip_Build_Slot = '';
-                $(message[0].webEquip_Build).each(function (index, el) {
+                $(message.webEquip_Build).each(function (index, el) {
                     Equip_Build_Slot = '<div><label>建造槽' + el.Build_Slot + '</label><span>' + formatSeconds(el.remaining_time) + '</span></div>';
                     if (parseInt(el.Build_Slot) % 2 == 0) {
                         HeavyEquip_Build += Equip_Build_Slot;
@@ -766,7 +773,7 @@
                 var HeavyDoll_Build = '';
                 var NormalDoll_Build = '';
                 var Doll_Build_Slot = '';
-                $(message[0].webDoll_Builds).each(function (index, el) {
+                $(message.webDoll_Builds).each(function (index, el) {
                     Doll_Build_Slot = '<div><label>建造槽' + el.Build_Slot + '</label><span>' + formatSeconds(el.remaining_time) + '</span></div>';
                     if (parseInt(el.Build_Slot) % 2 == 0) {
                         HeavyDoll_Build += Doll_Build_Slot;
@@ -781,7 +788,7 @@
 
                 //detail of missioninfo
                 var listMissionInfo = '';
-                $(message[0].webMissionInfo).each(function (index, el) {
+                $(message.webMissionInfo).each(function (index, el) {
                     var MissionInfo = '';
                     var teams = el.Teams;
                     k = index + 1;
@@ -799,13 +806,13 @@
 
 
 
-                for (var i = 0; i < message[0].webOperation.length; i++) {
+                for (var i = 0; i < message.webOperation.length; i++) {
                     var obj = $('.hqrw-item-list')[i];
                     if (gameStatus) {
                         var select2_res = getOperationInfo();
                         var select1_option = '';
-                        $(message[0].WebTeams).each(function (index, el) {
-                            if (el.TeamID == message[0].webOperation[i].team_id) {
+                        $(message.WebTeams).each(function (index, el) {
+                            if (el.TeamID == message.webOperation[i].team_id) {
                                 select1_option += '<option selected="selected" value="' + el.TeamID + '">梯队' + el.TeamID + '(' + el.Leader + ')</option>';
                             } else {
                                 select1_option += '<option value="' + el.TeamID + '">梯队' + el.TeamID + '(' + el.Leader + ')</option>';
@@ -814,7 +821,7 @@
 
                         var select2_option = '';
                         $.each(select2_res.data.operationInfo, function (index, el) {
-                            if (el.id == message[0].webOperation[i].operation_id) {
+                            if (el.id == message.webOperation[i].operation_id) {
                                 select2_option += '<option selected="selected" value="' + el.id + '">' + el.name + '</option>';
                             } else {
                                 select2_option += '<option value="' + el.id + '">' + el.name + '</option>';
@@ -824,8 +831,8 @@
                         $(obj).find('.select2').html(select2_option);
                         $(obj).find('.select1').html(select1_option);
                     }
-                    $(obj).find('.time').html(formatSeconds(message[0].webOperation[i].remaining_time));
-                    if (message[0].webOperation[i].Using) {
+                    $(obj).find('.time').html(formatSeconds(message.webOperation[i].remaining_time));
+                    if (message.webOperation[i].Using) {
                         $(obj).find('.select1').attr('disabled', 'disabled');
                         $(obj).find('.select2').attr('disabled', 'disabled');
                     } else {
@@ -864,7 +871,7 @@
             var operationID = $(Obj).parents('.hqrw-item-list').find('.select2').val();
             var accountID = param.gid;
             $.ajax({
-                url: 'http://127.0.0.1:7777/Game/StartOperation',
+                url: 'http://'+getHost()+':7777/Game/StartOperation',
                 type: 'post',
                 dataType: 'json',
                 contentType: 'application/json;charset=UTF-8',
@@ -879,7 +886,7 @@
         function AutoHeavyEquipBuild() {
             var token = checkToken();
             $.ajax({
-                url: 'http://127.0.0.1:7777/Game/Heavy_Equip_Build',
+                url: 'http://'+getHost()+':7777/Game/Heavy_Equip_Build',
                 type: 'post',
                 dataType: 'json',
                 contentType: 'application/json;charset=UTF-8',
@@ -893,7 +900,7 @@
         function AutoNormalEquipBuild() {
             var token = checkToken();
             $.ajax({
-                url: 'http://127.0.0.1:7777/Game/Normal_Equip_Build',
+                url: 'http://'+getHost()+':7777/Game/Normal_Equip_Build',
                 type: 'post',
                 dataType: 'json',
                 contentType: 'application/json;charset=UTF-8',
@@ -911,7 +918,7 @@
         function AutoHeavyDollBuild() {
             var token = checkToken();
             $.ajax({
-                url: 'http://127.0.0.1:7777/Game/Heavy_Doll_Build',
+                url: 'http://'+getHost()+':7777/Game/Heavy_Doll_Build',
                 type: 'post',
                 dataType: 'json',
                 contentType: 'application/json;charset=UTF-8',
@@ -925,7 +932,7 @@
         function AutoNormalDollBuild() {
             var token = checkToken();
             $.ajax({
-                url: 'http://127.0.0.1:7777/Game/Normal_Doll_Build',
+                url: 'http://'+getHost()+':7777/Game/Normal_Doll_Build',
                 type: 'post',
                 dataType: 'json',
                 contentType: 'application/json;charset=UTF-8',
@@ -948,7 +955,7 @@
             var operationID = $(Obj).parents('.hqrw-item-list').find('.select2').val();
             var accountID = param.gid;
             $.ajax({
-                url: 'http://127.0.0.1:7777/Game/AbortOperation',
+                url: 'http://'+getHost()+':7777/Game/AbortOperation',
                 type: 'post',
                 dataType: 'json',
                 contentType: 'application/json;charset=UTF-8',
@@ -985,7 +992,7 @@
             var username = getCookie('username');
             // var username = sessionStorage.getItem('username');
             $.ajax({
-                url: 'http://127.0.0.1:7777/Game/Login',
+                url: 'http://'+getHost()+':7777/Game/Login',
                 type: 'post',
                 dataType: 'json',
                 contentType: 'application/json;charset=UTF-8',
@@ -1049,7 +1056,7 @@
                 "parm": $('#parm').val()
             };
             $.ajax({
-                url: 'http://127.0.0.1:7777/Game/StartBattle',
+                url: 'http://'+getHost()+':7777/Game/StartBattle',
                 type: 'post',
                 dataType: 'json',
                 contentType: 'application/json;charset=UTF-8',
@@ -1065,7 +1072,7 @@
         function abortBattle() {
             var token = checkToken();
             $.ajax({
-                url: 'http://127.0.0.1:7777/Game/AbortBattle',
+                url: 'http://'+getHost()+':7777/Game/AbortBattle',
                 type: 'post',
                 dataType: 'json',
                 contentType: 'application/json;charset=UTF-8',

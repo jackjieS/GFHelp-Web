@@ -103,7 +103,7 @@ namespace GFHelp.Core.MulitePlayerData
             {
                 if (!Built_Slot.ContainsKey(i)) continue;
                 if (Built_Slot[i].isEmpty) continue;
-                if (Built_Slot[i].endTime < Decrypt.ConvertDateTime_China_Int(DateTime.Now))
+                if (Built_Slot[i].endTime < Decrypt.getDateTime_China_Int(DateTime.Now))
                 {
                     Task<bool> taskFinish = new Task<bool>(() => finishDevelop(Built_Slot[i]));
                     taskFinish.Start();
@@ -184,9 +184,9 @@ namespace GFHelp.Core.MulitePlayerData
             int count = 0;
             while (true)
             {
-                string result = API.Factory.startEquipDevelop(userData.GameAccount, newjson.ToString());
+                string result = userData.Net.Factory.startEquipDevelop(userData.GameAccount, newjson.ToString());
 
-                switch (Response.Check(userData.GameAccount, ref result, "startDevelop", true))
+                switch (userData.Response.Check( ref result, "startDevelop", true))
                 {
                     case 1:
                         {
@@ -217,7 +217,7 @@ namespace GFHelp.Core.MulitePlayerData
                                     Built_Slot.Add(data.build_slot, data);
                                 }
                             }
-                            data.start_time = Decrypt.ConvertDateTime_China_Int(DateTime.Now);
+                            data.start_time = Decrypt.getDateTime_China_Int(DateTime.Now);
                             data.isEmpty = false;
                             return true;
                         }
@@ -229,8 +229,7 @@ namespace GFHelp.Core.MulitePlayerData
                         {
                             if (count++ > userData.config.ErrorCount)
                             {
-                                new Log().userInit(userData.GameAccount.GameAccountID, "startHeavyDevelop Error", result.ToString()).userInfo();
-                                userData.home.Login();
+                                new Log().userInit(userData.GameAccount.GameAccountID, "startDevelop Error", result.ToString()).userInfo();
                                 return false;
                             }
                             continue;
@@ -258,9 +257,9 @@ namespace GFHelp.Core.MulitePlayerData
                 dynamic newjson = new DynamicJson();
                 newjson.build_slot  = data.build_slot;/* 这是值*/
 
-                string result = API.Factory.finishEquipDevelop(userData.GameAccount,newjson.ToString());
+                string result = userData.Net.Factory.finishEquipDevelop(userData.GameAccount,newjson.ToString());
 
-                switch (Response.Check(userData.GameAccount, ref result, "finishDevelop", true))
+                switch (userData.Response.Check( ref result, "finishDevelop", true))
                 {
                     case 1:
                         {
@@ -292,7 +291,7 @@ namespace GFHelp.Core.MulitePlayerData
                             if (count++ > userData.config.ErrorCount)
                             {
                                 new Log().userInit(userData.GameAccount.GameAccountID, "finishHeavyDevelop Error", result.ToString()).userInfo();
-                                userData.home.Login();
+
                                 return false;
                             }
                             continue;
@@ -372,7 +371,7 @@ namespace GFHelp.Core.MulitePlayerData
             {
                 get
                 {
-                    return this.start_time + this.develop_duration + 10 - Decrypt.ConvertDateTime_China_Int(DateTime.Now);
+                    return this.start_time + this.develop_duration + 10 - Decrypt.getDateTime_China_Int(DateTime.Now);
                 }
 
 

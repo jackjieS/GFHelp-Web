@@ -1,4 +1,4 @@
-function setValueToStorage(value0,value1){
+﻿function setValueToStorage(value0,value1){
     localStorage.setItem(value0,value1);
 }
 function getValueFromStorage(value){
@@ -20,6 +20,10 @@ function getCookie(c_name) {
     }
     return ""
 }
+function getHost() {
+        return '127.0.0.1';
+}
+
 
 
 function checkCookie() {

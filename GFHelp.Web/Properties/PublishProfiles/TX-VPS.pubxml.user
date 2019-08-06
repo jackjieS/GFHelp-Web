@@ -6,8 +6,8 @@
 <Project ToolsVersion="4.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
   <PropertyGroup>
     <TimeStampOfAssociatedLegacyPublishXmlFile />
-    <EncryptedPassword>AQAAANCMnd8BFdERjHoAwE/Cl+sBAAAA3zAaZR/s+kSckkwhvsXTewAAAAACAAAAAAAQZgAAAAEAACAAAAAZEh3D4G1EaV3uruSuFFLsyvFOEqDDGj14xpkth3YTCwAAAAAOgAAAAAIAACAAAAAg8GxzLEjo+ChcnHei1J4NuLdNSxwWi6jWVJzX6w1YHCAAAABeyImv7hEOLQJ2/DXpyRVrxz5hHSWYnXwVPGMig9vrikAAAACfYgTlbHqQR0nQdYCJrfYxT5OX0Yl+UYDSLzotTsIWnJq7saE5zW4ti71K+lS/ppP0/BGJv5ByGfT5fT27Vpjq</EncryptedPassword>
-    <_PublishTargetUrl>ftp://118.24.162.26</_PublishTargetUrl>
+    <EncryptedPassword>AQAAANCMnd8BFdERjHoAwE/Cl+sBAAAASMDKOTFXaEqMOr+nSlS+OAAAAAACAAAAAAAQZgAAAAEAACAAAACgADiTTvC8i99Tmfpcs734So9QLCZTC6fUK+pdXGr9cgAAAAAOgAAAAAIAACAAAAAc8KesHVVsxqlb3GZXfgZOKkmg+xS3km6WNkUDMkum0jAAAAB/FbIZMkihAcZvnOtTK6XtP2n9GpvnyEzxD46nJYr/tJ0h9rtAXihZpBeIs+VjzmtAAAAA0cdtrMmQXxdrPUzDZrKO7amwNGYLkD2YzuayZr8e+/u2oc0CuDkRmAtiV9ZaUF0IYo/xfSi2eRy3uTTN1BhjNw==</EncryptedPassword>
+    <_PublishTargetUrl>ftp://35.220.161.157</_PublishTargetUrl>
   </PropertyGroup>
   <ItemGroup>
     <File Include="appsettings.Development.json">
@@ -102,6 +102,9 @@
     </File>
     <File Include="stc/catchdata.json">
       <publishTime>07/03/2018 00:12:45</publishTime>
+    </File>
+    <File Include="stc_data.dat">
+      <publishTime>01/23/2019 14:23:53</publishTime>
     </File>
     <File Include="Swashbuckle.AspNetCore.dll">
       <publishTime>04/07/2018 18:33:18</publishTime>

@@ -2,11 +2,18 @@
 
   <PropertyGroup>
     <TargetFramework>netcoreapp2.1</TargetFramework>
+    <Configurations>Debug;Release;9</Configurations>
+    <Platforms>AnyCPU;x64</Platforms>
 
 
   </PropertyGroup>
 
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|AnyCPU'">
+    <DocumentationFile>bin\Debug\netcoreapp2.1\GFHelpapi.xml</DocumentationFile>
+    <NoWarn>1701;1702;1591</NoWarn>
+  </PropertyGroup>
+
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">
     <DocumentationFile>bin\Debug\netcoreapp2.1\GFHelpapi.xml</DocumentationFile>
     <NoWarn>1701;1702;1591</NoWarn>
   </PropertyGroup>
@@ -53,6 +60,9 @@
       <Private>true</Private>
     </ProjectReference>
     <ProjectReference Include="..\GFHelp.DataBase\GFHelp.DataBase.csproj" />
+    <ProjectReference Include="..\NetBase1\NetBase.csproj">
+      <Private>true</Private>
+    </ProjectReference>
   </ItemGroup>
 
   <ItemGroup>
@@ -75,6 +85,12 @@
   </ItemGroup>
 
   <ItemGroup>
+    <None Update="2590788_gfapi.nai-ve.top.pfx">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
+    <None Update="2593924_mylocal.nai-ve.top.pfx">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
     <None Update="HostAddress.cfg">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </None>

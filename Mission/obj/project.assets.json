@@ -2,6 +2,30 @@
   "version": 3,
   "targets": {
     ".NETCoreApp,Version=v2.1": {
+      "CoreCompat.System.Drawing.v2/5.2.0-preview1-r131": {
+        "type": "package",
+        "dependencies": {
+          "System.Security.Permissions": "4.4.0-preview1-25305-02"
+        },
+        "compile": {
+          "lib/netstandard2.0/CoreCompat.System.Drawing.dll": {}
+        },
+        "runtime": {
+          "lib/netstandard2.0/CoreCompat.System.Drawing.dll": {}
+        }
+      },
+      "HttpCode.Core/4.2.0": {
+        "type": "package",
+        "dependencies": {
+          "CoreCompat.System.Drawing.v2": "5.2.0-preview1-r131"
+        },
+        "compile": {
+          "lib/netstandard2.0/HttpCode.Core.dll": {}
+        },
+        "runtime": {
+          "lib/netstandard2.0/HttpCode.Core.dll": {}
+        }
+      },
       "Microsoft.AspNetCore.Connections.Abstractions/2.1.0": {
         "type": "package",
         "dependencies": {
@@ -469,6 +493,63 @@
           "lib/netcoreapp2.0/System.Runtime.CompilerServices.Unsafe.dll": {}
         }
       },
+      "System.Security.AccessControl/4.4.0-preview1-25305-02": {
+        "type": "package",
+        "dependencies": {
+          "Microsoft.NETCore.Platforms": "2.0.0-preview1-25305-02",
+          "System.Security.Principal.Windows": "4.4.0-preview1-25305-02"
+        },
+        "compile": {
+          "ref/netstandard2.0/System.Security.AccessControl.dll": {}
+        },
+        "runtime": {
+          "lib/netstandard2.0/System.Security.AccessControl.dll": {}
+        },
+        "runtimeTargets": {
+          "runtimes/unix/lib/netcoreapp2.0/System.Security.AccessControl.dll": {
+            "assetType": "runtime",
+            "rid": "unix"
+          },
+          "runtimes/win/lib/netcoreapp2.0/System.Security.AccessControl.dll": {
+            "assetType": "runtime",
+            "rid": "win"
+          }
+        }
+      },
+      "System.Security.Permissions/4.4.0-preview1-25305-02": {
+        "type": "package",
+        "dependencies": {
+          "System.Security.AccessControl": "4.4.0-preview1-25305-02"
+        },
+        "compile": {
+          "ref/netstandard2.0/System.Security.Permissions.dll": {}
+        },
+        "runtime": {
+          "lib/netstandard2.0/System.Security.Permissions.dll": {}
+        }
+      },
+      "System.Security.Principal.Windows/4.4.0-preview1-25305-02": {
+        "type": "package",
+        "dependencies": {
+          "Microsoft.NETCore.Platforms": "2.0.0-preview1-25305-02"
+        },
+        "compile": {
+          "ref/netstandard2.0/System.Security.Principal.Windows.dll": {}
+        },
+        "runtime": {
+          "lib/netstandard2.0/System.Security.Principal.Windows.dll": {}
+        },
+        "runtimeTargets": {
+          "runtimes/unix/lib/netcoreapp2.0/System.Security.Principal.Windows.dll": {
+            "assetType": "runtime",
+            "rid": "unix"
+          },
+          "runtimes/win/lib/netcoreapp2.0/System.Security.Principal.Windows.dll": {
+            "assetType": "runtime",
+            "rid": "win"
+          }
+        }
+      },
       "System.Threading.Channels/4.5.0": {
         "type": "package",
         "compile": {
@@ -483,7 +564,9 @@
         "framework": ".NETCoreApp,Version=v2.1",
         "dependencies": {
           "GFHelp.DataBase": "1.0.0",
+          "GFLogin": "1.0.0",
           "Microsoft.AspNetCore.SignalR.Client": "1.0.0",
+          "NetBase": "1.0.0",
           "Newtonsoft.Json": "11.0.2"
         },
         "compile": {
@@ -502,10 +585,58 @@
         "runtime": {
           "bin/placeholder/GFHelp.DataBase.dll": {}
         }
+      },
+      "GFLogin/1.0.0": {
+        "type": "project",
+        "framework": ".NETCoreApp,Version=v2.1",
+        "dependencies": {
+          "HttpCode.Core": "4.2.0",
+          "NetBase": "1.0.0"
+        },
+        "compile": {
+          "bin/placeholder/GFLogin.dll": {}
+        },
+        "runtime": {
+          "bin/placeholder/GFLogin.dll": {}
+        }
+      },
+      "NetBase/1.0.0": {
+        "type": "project",
+        "framework": ".NETCoreApp,Version=v2.1",
+        "compile": {
+          "bin/placeholder/NetBase.dll": {}
+        },
+        "runtime": {
+          "bin/placeholder/NetBase.dll": {}
+        }
       }
     }
   },
   "libraries": {
+    "CoreCompat.System.Drawing.v2/5.2.0-preview1-r131": {
+      "sha512": "+WrScg+skrIiNLBwbl+BFdlSyzUqKOZtAUskW2xfI8vcKQdDJp+UoreUFC9uMSEgSiAR32e5l3fTtFDUKEpRaA==",
+      "type": "package",
+      "path": "corecompat.system.drawing.v2/5.2.0-preview1-r131",
+      "files": [
+        ".nupkg.metadata",
+        ".signature.p7s",
+        "corecompat.system.drawing.v2.5.2.0-preview1-r131.nupkg.sha512",
+        "corecompat.system.drawing.v2.nuspec",
+        "lib/netstandard2.0/CoreCompat.System.Drawing.dll"
+      ]
+    },
+    "HttpCode.Core/4.2.0": {
+      "sha512": "WpT0vfoFoy13eJG6hFTnjKeWdL9aDdFB8nDWEJGqwZtZ22m4S/XzCPZx2fUVChCDJZMck/Y+dFqna/dD2BPU/g==",
+      "type": "package",
+      "path": "httpcode.core/4.2.0",
+      "files": [
+        ".nupkg.metadata",
+        ".signature.p7s",
+        "httpcode.core.4.2.0.nupkg.sha512",
+        "httpcode.core.nuspec",
+        "lib/netstandard2.0/HttpCode.Core.dll"
+      ]
+    },
     "Microsoft.AspNetCore.Connections.Abstractions/2.1.0": {
       "sha512": "MHJTOt5fUCxUzSWpPc4q75OPM5nq9yKWFmIC6HiZc4uwjGsi4eLs/cgtGv6+WbfaWosdkikXYfvjXtM7dI5zuQ==",
       "type": "package",
@@ -520,7 +651,7 @@
       ]
     },
     "Microsoft.AspNetCore.Http.Connections.Client/1.0.0": {
-      "sha512": "JWSI+jLDKPm9p+ptQNTAmSSxeS8tpG7Q3SHL9kp8FK+uR7L31wUE8pNgjt2s9kb4EXoOCCAUhaELpDW+CnSpDg==",
+      "sha512": "S8q0eTW+AqaltowKSER8y+Q3s7Uz0lkVG7qrAfP/4SL6FXdgTfTz4l18kI1D8uKOt2Xi241VcFchUwKZzob+oQ==",
       "type": "package",
       "path": "microsoft.aspnetcore.http.connections.client/1.0.0",
       "files": [
@@ -548,7 +679,7 @@
       ]
     },
     "Microsoft.AspNetCore.Http.Features/2.1.0": {
-      "sha512": "+WbQPk+pPpyrL/gig0jpChQ426XyESiJsXdz9GaXPdjx062m+IA+0Sv4BCpKF8LjsQQ5pLBhlvBGsmx8X66MKQ==",
+      "sha512": "g+l5TKp20g+zOrlspVTP1gkgzDkMZySn8ZkkihLXjd2QdsPpMAMZ2eKxAf6Tl+EkoRFX8SgUJCOPHzcofIEZkw==",
       "type": "package",
       "path": "microsoft.aspnetcore.http.features/2.1.0",
       "files": [
@@ -561,7 +692,7 @@
       ]
     },
     "Microsoft.AspNetCore.SignalR.Client/1.0.0": {
-      "sha512": "KF+Vjq5lwARvdEnCkUX7+1NcK95OGcNFsOBAHB573utc+c5tSir7g97wrniuct1zSwIvKcmA8jEZZHymGReqRg==",
+      "sha512": "bLWEF9G0ZMZym4b1VUQcCStubqrRr3N1fO0Y6EP+Qp3fBTgqTWRckKaz+N7Oa1atfwwrPiWGWi2ZwYWq9QupwA==",
       "type": "package",
       "path": "microsoft.aspnetcore.signalr.client/1.0.0",
       "files": [
@@ -574,7 +705,7 @@
       ]
     },
     "Microsoft.AspNetCore.SignalR.Client.Core/1.0.0": {
-      "sha512": "VuG3bSqvIjtRgE9/8bWyf/x3ymI9J8cWb86LGu5r52fGbfbbuqpdj+O/sK2LswGef6uumwI2acjzTOw/EmB81Q==",
+      "sha512": "r6L72wg9cvVsfvshHD9Wkti+vQzWhkkHrUoUGD69AsWpW/kOIIbsaAEgM8wWfB8kyHNOA7IHoL6d9R3/ih2Tuw==",
       "type": "package",
       "path": "microsoft.aspnetcore.signalr.client.core/1.0.0",
       "files": [
@@ -587,7 +718,7 @@
       ]
     },
     "Microsoft.AspNetCore.SignalR.Common/1.0.0": {
-      "sha512": "yNmt4OvXIyCZ7HWxjot3IAHZHFwptMBGLh34nPScSyfLuNeci+pMBJhKud2KvrSJrhoJ4crvbYEZ3U4tUjvvgw==",
+      "sha512": "bz8scI0ocxSyg/O7csj08wVy9WddOLow6ZmxWNPizUI2DA4MXsVyeHBC8Le4ZzLMpg/njAJhOiLwbVADZOAyWQ==",
       "type": "package",
       "path": "microsoft.aspnetcore.signalr.common/1.0.0",
       "files": [
@@ -602,7 +733,7 @@
       ]
     },
     "Microsoft.AspNetCore.SignalR.Protocols.Json/1.0.0": {
-      "sha512": "kN/lnKkgMkTlLwxYiTgjHwoXENmBoyxN4fLOrDjxgyaR0WJtclPsLKEow91BjpIe9IYDxdv3EspDypNHFN7Zmw==",
+      "sha512": "o8i6gAljo8fAP1owxnZyDrGJO36ZkyfrUlWWxcQUnMPigC28KvD8OKcrqsgR91uGH0hFtW/bC0NT/T2rkPu3iA==",
       "type": "package",
       "path": "microsoft.aspnetcore.signalr.protocols.json/1.0.0",
       "files": [
@@ -615,7 +746,7 @@
       ]
     },
     "Microsoft.Extensions.Configuration/2.1.0": {
-      "sha512": "uI1/UjIQOQ2M9ZJGvOTaXn4JM6v69w4CgB+6U0HIb5jx2R4YvIRcXNzOj1beori97O/5wsOprqb3JM6FJFoReA==",
+      "sha512": "5nnZYvEJXM0jNCoI7aYbjVU3CKNy6Yx09WLMSaa5ZhwaYh92/7uzgqn8Y97wQW2jOXeu4gqcS4FxPa/kMwVixQ==",
       "type": "package",
       "path": "microsoft.extensions.configuration/2.1.0",
       "files": [
@@ -628,7 +759,7 @@
       ]
     },
     "Microsoft.Extensions.Configuration.Abstractions/2.1.0": {
-      "sha512": "AkLB20hJn2S65RplZwIKNI90yWfi5WvSKFLwIHXrDJyr0l8U88UnBVNvvN/qa7/xgtyrSkq6WoXDq5I3v1sD9w==",
+      "sha512": "3aTLjQ1t+5h15MSqt1BzzwzVO8j13/NReFwn/r8nmwRBBw2U78b2On1j27L6S7G3QynPb90Itsvut0EIoZNfdw==",
       "type": "package",
       "path": "microsoft.extensions.configuration.abstractions/2.1.0",
       "files": [
@@ -641,7 +772,7 @@
       ]
     },
     "Microsoft.Extensions.Configuration.Binder/2.1.0": {
-      "sha512": "k9dHRKfmXjeHTAmafyQPB9LFoQbvfLcD7m/OAJ3R1LaIE5C92t12tOkU2Jprp5n1I8Nze0ja9zkBNYxLydxPRA==",
+      "sha512": "f98sU3mGlDiUx5YO2gMaDpm+0KZUCkWDirbZ6Me9CwmUDGajyOtFJ9Ftgk1QYGQcK3m1Kp2jec3OUIgAyGzAQg==",
       "type": "package",
       "path": "microsoft.extensions.configuration.binder/2.1.0",
       "files": [
@@ -654,7 +785,7 @@
       ]
     },
     "Microsoft.Extensions.DependencyInjection/2.1.0": {
-      "sha512": "HG/PMzoRWkHk+XHknD7J2q/UmeXF8eqqwDEfgvNL6nkOITcYgp3r+pCCPHD0dxVXtZjaFru7PoYxmvq2NcJy6Q==",
+      "sha512": "9lHaNBx9sW5I4Lxfb/jyKYgnyjggqST0bnkpyVNIudJtqoXayiVDO8GCIC+S3YRK+JM2oviDJh4X5tJzdXJoSg==",
       "type": "package",
       "path": "microsoft.extensions.dependencyinjection/2.1.0",
       "files": [
@@ -671,7 +802,7 @@
       ]
     },
     "Microsoft.Extensions.DependencyInjection.Abstractions/2.1.0": {
-      "sha512": "6Krshi1mFyDQ+NZSgyxv4GN9I45TXjmXTHJZ3c7x24m/IV2iy7euEivIdYpQXdBGzzslZcHBS9ElN2Cs7n6wpQ==",
+      "sha512": "Y139tetrEc1Y347FoOK8Oqm1S0aq8jPg5m6L4ti9N7ki0o4amSa7XOq048EhpeQnO/9jrVJKlqBdq/aQduW31A==",
       "type": "package",
       "path": "microsoft.extensions.dependencyinjection.abstractions/2.1.0",
       "files": [
@@ -684,7 +815,7 @@
       ]
     },
     "Microsoft.Extensions.Logging/2.1.0": {
-      "sha512": "5kVI1AN3GgD4cZ2sq29wb6Zu1VEq0rXwSIJHpZgYsLCuWvDK5fGRNZ3Wj86TtNgGMDMy3klfZn7jneuJm6upsQ==",
+      "sha512": "/G9Q3drhGymdVz+eq/mTXabTzPeXItPdC46PvjCvKsTRkOg8gymds849tfhX5zWJAc1JFnibfitZlljF0Z2jhQ==",
       "type": "package",
       "path": "microsoft.extensions.logging/2.1.0",
       "files": [
@@ -697,7 +828,7 @@
       ]
     },
     "Microsoft.Extensions.Logging.Abstractions/2.1.0": {
-      "sha512": "VuBM437B1/0psqcrh1tiAXBurDqqbtZQ0krlHMenN9/4D3rJflAs7EEcxTCx6/lw3aEfhkbU1twMi+ughEt9WA==",
+      "sha512": "u8HAWN1qOJPH/uEssbSx7VR9rZkU/NwTjIZIO3koM9HOWI6TxR1Z7HCuq+yX/l7B71ZvyjdXPVDKxvz/ILYlUw==",
       "type": "package",
       "path": "microsoft.extensions.logging.abstractions/2.1.0",
       "files": [
@@ -710,7 +841,7 @@
       ]
     },
     "Microsoft.Extensions.Options/2.1.0": {
-      "sha512": "iUdqUj8y8r8gYRfalIFLCL2MirwCAaZdnXUhM6Pg7VUKmzt4WUo2wDjdSp5+W/hOf0gGeunAlbgPeraZQYB5ow==",
+      "sha512": "PNsRGgCThrO0sW0JHkAFcycPeGshTuFQ/0Ss6hRM7goZM331bzexYhPVfuOVl9TEpLqC3MLz9DwlLlKSPvGl1Q==",
       "type": "package",
       "path": "microsoft.extensions.options/2.1.0",
       "files": [
@@ -723,7 +854,7 @@
       ]
     },
     "Microsoft.Extensions.Primitives/2.1.0": {
-      "sha512": "9OFMB9KN1zLsr2zw/gvGc9FqNt6UBn0jsXRLx5nZsIU+ipPsk2ziMhYIvSjWgA9WzkUwcXAuvO8bmrGSMDVoEg==",
+      "sha512": "3ym2d4KDRYNt77ybBPdjr4WoVST9UC7xUM/Xxr8iSKD9aj5A+GbmjaQrU0Oy2fERMfLF8dYm0wLJoNSq5lt5lA==",
       "type": "package",
       "path": "microsoft.extensions.primitives/2.1.0",
       "files": [
@@ -1040,7 +1171,7 @@
       ]
     },
     "Microsoft.NETCore.Platforms/2.1.0": {
-      "sha512": "aSTPL94NloSiQVL5Len8wbjFKOnoAX/vOh3s3DF6g3c7GUUMLCDvnBhmA72M2iN2AedyA8hpr7m89kzSAKUnJQ==",
+      "sha512": "GmkKfoyerqmsHMn7OZj0AKpcBabD+GaafqphvX2Mw406IwiJRy1pKcKqdCfKJfYmkRyJ6+e+RaUylgdJoDa1jQ==",
       "type": "package",
       "path": "microsoft.netcore.platforms/2.1.0",
       "files": [
@@ -1230,10 +1361,11 @@
       ]
     },
     "System.Buffers/4.5.0": {
-      "sha512": "xpHYjjtyTEpzMwtSQBWdVc3dPjLdQtvyUg6fBlBqcLl1r2Y7gDG/W/enAYOB98nG3oD3Q153Y2FBO8JDWd+0Xw==",
+      "sha512": "09yL/QiPEDZI9JLg0R0OcGe/0ycFm69QN16DCvXkqkIorCC1Y2EKwk5KvSlfMmGse+LcKkD3H+Cra7fFkxHXEg==",
       "type": "package",
       "path": "system.buffers/4.5.0",
       "files": [
+        ".nupkg.metadata",
         ".signature.p7s",
         "LICENSE.TXT",
         "THIRD-PARTY-NOTICES.TXT",
@@ -1258,7 +1390,7 @@
       ]
     },
     "System.IO.Pipelines/4.5.0": {
-      "sha512": "kPBg1oHIqNgZzzIbAFVTfMLmqYid6juXFJv7VnQf7m9K6ooLD8sGZq9rsB+4wZLrgKm0t3TuhBXyPE1StpjqvQ==",
+      "sha512": "Kq9eZWVKN9khHhkatLWLLxYCs3j9qSNMZELqn2YG1YsCMv6bPmAtaN0CfA6l7vxFbiV02C996Dy7yHO8DkaJLg==",
       "type": "package",
       "path": "system.io.pipelines/4.5.0",
       "files": [
@@ -1344,6 +1476,147 @@
         "version.txt"
       ]
     },
+    "System.Security.AccessControl/4.4.0-preview1-25305-02": {
+      "sha512": "E3acs1/hAThiFxLFwfS0XXEOk/qw9+Wf2He4y0hj8ZQ7wQZum4/q7nv+zHUA/MigdYChM94qTArnUWkXdcFNkw==",
+      "type": "package",
+      "path": "system.security.accesscontrol/4.4.0-preview1-25305-02",
+      "files": [
+        ".nupkg.metadata",
+        ".signature.p7s",
+        "ThirdPartyNotices.txt",
+        "dotnet_library_license.txt",
+        "lib/net46/System.Security.AccessControl.dll",
+        "lib/net461/System.Security.AccessControl.dll",
+        "lib/netstandard1.3/System.Security.AccessControl.dll",
+        "lib/netstandard2.0/System.Security.AccessControl.dll",
+        "ref/net46/System.Security.AccessControl.dll",
+        "ref/net461/System.Security.AccessControl.dll",
+        "ref/netstandard1.3/System.Security.AccessControl.dll",
+        "ref/netstandard1.3/System.Security.AccessControl.xml",
+        "ref/netstandard1.3/de/System.Security.AccessControl.xml",
+        "ref/netstandard1.3/es/System.Security.AccessControl.xml",
+        "ref/netstandard1.3/fr/System.Security.AccessControl.xml",
+        "ref/netstandard1.3/it/System.Security.AccessControl.xml",
+        "ref/netstandard1.3/ja/System.Security.AccessControl.xml",
+        "ref/netstandard1.3/ko/System.Security.AccessControl.xml",
+        "ref/netstandard1.3/ru/System.Security.AccessControl.xml",
+        "ref/netstandard1.3/zh-hans/System.Security.AccessControl.xml",
+        "ref/netstandard1.3/zh-hant/System.Security.AccessControl.xml",
+        "ref/netstandard2.0/System.Security.AccessControl.dll",
+        "ref/netstandard2.0/System.Security.AccessControl.xml",
+        "ref/netstandard2.0/de/System.Security.AccessControl.xml",
+        "ref/netstandard2.0/es/System.Security.AccessControl.xml",
+        "ref/netstandard2.0/fr/System.Security.AccessControl.xml",
+        "ref/netstandard2.0/it/System.Security.AccessControl.xml",
+        "ref/netstandard2.0/ja/System.Security.AccessControl.xml",
+        "ref/netstandard2.0/ko/System.Security.AccessControl.xml",
+        "ref/netstandard2.0/ru/System.Security.AccessControl.xml",
+        "ref/netstandard2.0/zh-hans/System.Security.AccessControl.xml",
+        "ref/netstandard2.0/zh-hant/System.Security.AccessControl.xml",
+        "ref/uap10.1/System.Security.AccessControl.dll",
+        "ref/uap10.1/System.Security.AccessControl.xml",
+        "ref/uap10.1/de/System.Security.AccessControl.xml",
+        "ref/uap10.1/es/System.Security.AccessControl.xml",
+        "ref/uap10.1/fr/System.Security.AccessControl.xml",
+        "ref/uap10.1/it/System.Security.AccessControl.xml",
+        "ref/uap10.1/ja/System.Security.AccessControl.xml",
+        "ref/uap10.1/ko/System.Security.AccessControl.xml",
+        "ref/uap10.1/ru/System.Security.AccessControl.xml",
+        "ref/uap10.1/zh-hans/System.Security.AccessControl.xml",
+        "ref/uap10.1/zh-hant/System.Security.AccessControl.xml",
+        "runtimes/unix/lib/netcoreapp2.0/System.Security.AccessControl.dll",
+        "runtimes/win/lib/net46/System.Security.AccessControl.dll",
+        "runtimes/win/lib/net461/System.Security.AccessControl.dll",
+        "runtimes/win/lib/netcoreapp2.0/System.Security.AccessControl.dll",
+        "runtimes/win/lib/netstandard1.3/System.Security.AccessControl.dll",
+        "runtimes/win/lib/uap10.1/System.Security.AccessControl.dll",
+        "system.security.accesscontrol.4.4.0-preview1-25305-02.nupkg.sha512",
+        "system.security.accesscontrol.nuspec",
+        "useSharedDesignerContext.txt",
+        "version.txt"
+      ]
+    },
+    "System.Security.Permissions/4.4.0-preview1-25305-02": {
+      "sha512": "W4+sOQhP/hijYNMx/TQK2zXP1+8a9WYAvuMQS4XBe+Phfv8fqc4h+U/fzkWC5BuNN0InNY46F5WT1bbOyObQdg==",
+      "type": "package",
+      "path": "system.security.permissions/4.4.0-preview1-25305-02",
+      "files": [
+        ".nupkg.metadata",
+        ".signature.p7s",
+        "ThirdPartyNotices.txt",
+        "dotnet_library_license.txt",
+        "lib/net461/System.Security.Permissions.dll",
+        "lib/netstandard2.0/System.Security.Permissions.dll",
+        "ref/net461/System.Security.Permissions.dll",
+        "ref/netstandard2.0/System.Security.Permissions.dll",
+        "ref/uap10.1/System.Security.Permissions.dll",
+        "runtimes/win/lib/net461/System.Security.Permissions.dll",
+        "system.security.permissions.4.4.0-preview1-25305-02.nupkg.sha512",
+        "system.security.permissions.nuspec",
+        "useSharedDesignerContext.txt",
+        "version.txt"
+      ]
+    },
+    "System.Security.Principal.Windows/4.4.0-preview1-25305-02": {
+      "sha512": "i/87uUlutjoXKIGEgjAh6tzpFtwhBZxMqX+ZW38UoJqHxaW0+cglUovfEfPRJeEYFhck9SqJqJnEqsVvAgu6oQ==",
+      "type": "package",
+      "path": "system.security.principal.windows/4.4.0-preview1-25305-02",
+      "files": [
+        ".nupkg.metadata",
+        ".signature.p7s",
+        "ThirdPartyNotices.txt",
+        "dotnet_library_license.txt",
+        "lib/net46/System.Security.Principal.Windows.dll",
+        "lib/net461/System.Security.Principal.Windows.dll",
+        "lib/netstandard1.3/System.Security.Principal.Windows.dll",
+        "lib/netstandard2.0/System.Security.Principal.Windows.dll",
+        "ref/net46/System.Security.Principal.Windows.dll",
+        "ref/net461/System.Security.Principal.Windows.dll",
+        "ref/netstandard1.3/System.Security.Principal.Windows.dll",
+        "ref/netstandard1.3/System.Security.Principal.Windows.xml",
+        "ref/netstandard1.3/de/System.Security.Principal.Windows.xml",
+        "ref/netstandard1.3/es/System.Security.Principal.Windows.xml",
+        "ref/netstandard1.3/fr/System.Security.Principal.Windows.xml",
+        "ref/netstandard1.3/it/System.Security.Principal.Windows.xml",
+        "ref/netstandard1.3/ja/System.Security.Principal.Windows.xml",
+        "ref/netstandard1.3/ko/System.Security.Principal.Windows.xml",
+        "ref/netstandard1.3/ru/System.Security.Principal.Windows.xml",
+        "ref/netstandard1.3/zh-hans/System.Security.Principal.Windows.xml",
+        "ref/netstandard1.3/zh-hant/System.Security.Principal.Windows.xml",
+        "ref/netstandard2.0/System.Security.Principal.Windows.dll",
+        "ref/netstandard2.0/System.Security.Principal.Windows.xml",
+        "ref/netstandard2.0/de/System.Security.Principal.Windows.xml",
+        "ref/netstandard2.0/es/System.Security.Principal.Windows.xml",
+        "ref/netstandard2.0/fr/System.Security.Principal.Windows.xml",
+        "ref/netstandard2.0/it/System.Security.Principal.Windows.xml",
+        "ref/netstandard2.0/ja/System.Security.Principal.Windows.xml",
+        "ref/netstandard2.0/ko/System.Security.Principal.Windows.xml",
+        "ref/netstandard2.0/ru/System.Security.Principal.Windows.xml",
+        "ref/netstandard2.0/zh-hans/System.Security.Principal.Windows.xml",
+        "ref/netstandard2.0/zh-hant/System.Security.Principal.Windows.xml",
+        "ref/uap10.1/System.Security.Principal.Windows.dll",
+        "ref/uap10.1/System.Security.Principal.Windows.xml",
+        "ref/uap10.1/de/System.Security.Principal.Windows.xml",
+        "ref/uap10.1/es/System.Security.Principal.Windows.xml",
+        "ref/uap10.1/fr/System.Security.Principal.Windows.xml",
+        "ref/uap10.1/it/System.Security.Principal.Windows.xml",
+        "ref/uap10.1/ja/System.Security.Principal.Windows.xml",
+        "ref/uap10.1/ko/System.Security.Principal.Windows.xml",
+        "ref/uap10.1/ru/System.Security.Principal.Windows.xml",
+        "ref/uap10.1/zh-hans/System.Security.Principal.Windows.xml",
+        "ref/uap10.1/zh-hant/System.Security.Principal.Windows.xml",
+        "runtimes/unix/lib/netcoreapp2.0/System.Security.Principal.Windows.dll",
+        "runtimes/win/lib/net46/System.Security.Principal.Windows.dll",
+        "runtimes/win/lib/net461/System.Security.Principal.Windows.dll",
+        "runtimes/win/lib/netcoreapp2.0/System.Security.Principal.Windows.dll",
+        "runtimes/win/lib/netstandard1.3/System.Security.Principal.Windows.dll",
+        "runtimes/win/lib/uap10.1/System.Security.Principal.Windows.dll",
+        "system.security.principal.windows.4.4.0-preview1-25305-02.nupkg.sha512",
+        "system.security.principal.windows.nuspec",
+        "useSharedDesignerContext.txt",
+        "version.txt"
+      ]
+    },
     "System.Threading.Channels/4.5.0": {
       "sha512": "Js7f30DXMo1plMo32fOpKF7AhCmuKyOKDT1fSayntGGOVfF5V/xKVu1UPI3N+/hTXuqKKgB++eACPZ120uLpGg==",
       "type": "package",
@@ -1373,6 +1646,16 @@
       "type": "project",
       "path": "../GFHelp.DataBase/GFHelp.DataBase.csproj",
       "msbuildProject": "../GFHelp.DataBase/GFHelp.DataBase.csproj"
+    },
+    "GFLogin/1.0.0": {
+      "type": "project",
+      "path": "../GFLogin/GFLogin.csproj",
+      "msbuildProject": "../GFLogin/GFLogin.csproj"
+    },
+    "NetBase/1.0.0": {
+      "type": "project",
+      "path": "../NetBase1/NetBase.csproj",
+      "msbuildProject": "../NetBase1/NetBase.csproj"
     }
   },
   "projectFileDependencyGroups": {
@@ -1388,11 +1671,11 @@
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "C:\\Users\\jack\\Desktop\\CS\\GFHelp-Web\\Mission\\GFHelp.Mission.csproj",
+      "projectUniqueName": "C:\\Users\\jack\\Desktop\\GFHelp-Web-\\Mission\\GFHelp.Mission.csproj",
       "projectName": "GFHelp.Mission",
-      "projectPath": "C:\\Users\\jack\\Desktop\\CS\\GFHelp-Web\\Mission\\GFHelp.Mission.csproj",
+      "projectPath": "C:\\Users\\jack\\Desktop\\GFHelp-Web-\\Mission\\GFHelp.Mission.csproj",
       "packagesPath": "C:\\Users\\jack\\.nuget\\packages\\",
-      "outputPath": "C:\\Users\\jack\\Desktop\\CS\\GFHelp-Web\\Mission\\obj\\",
+      "outputPath": "C:\\Users\\jack\\Desktop\\GFHelp-Web-\\Mission\\obj\\",
       "projectStyle": "PackageReference",
       "fallbackFolders": [
         "C:\\Program Files\\dotnet\\sdk\\NuGetFallbackFolder"
@@ -1411,8 +1694,8 @@
       "frameworks": {
         "netcoreapp2.1": {
           "projectReferences": {
-            "C:\\Users\\jack\\Desktop\\CS\\GFHelp-Web\\GFHelp.Core\\GFHelp.Core.csproj": {
-              "projectPath": "C:\\Users\\jack\\Desktop\\CS\\GFHelp-Web\\GFHelp.Core\\GFHelp.Core.csproj"
+            "C:\\Users\\jack\\Desktop\\GFHelp-Web-\\GFHelp.Core\\GFHelp.Core.csproj": {
+              "projectPath": "C:\\Users\\jack\\Desktop\\GFHelp-Web-\\GFHelp.Core\\GFHelp.Core.csproj"
             }
           }
         }
@@ -1434,7 +1717,12 @@
           }
         },
         "imports": [
-          "net461"
+          "net461",
+          "net462",
+          "net47",
+          "net471",
+          "net472",
+          "net48"
         ],
         "assetTargetFallback": true,
         "warn": true

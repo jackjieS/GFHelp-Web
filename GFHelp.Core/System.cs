@@ -41,42 +41,122 @@ namespace GFHelp.Core.SystemOthers
             new Log().systemInit("读取config配置").coreInfo();
             new Log().systemInit("读取文字解析").coreInfo();
             CatchData.Base.Asset_Textes.Read_ALL_CSV();
-            new Log().systemInit("updataCatchData").coreInfo();
-            CatchData.Seed.Updata();
+
+            CatachData.Seed();
+
             new Log().systemInit("引用作战dll").coreInfo();
         }
 
     }
 
-
-
-
-
-    public class Test
+    public class SystemHelper
     {
-        public void Log(string ID)
+
+
+        public class OperationStatus
         {
-            int count = 0;
-            while (count++<50)
-            {
-                Thread.Sleep(10);
-                new Log().userInit(ID, DateTime.Now.ToString()).userInfo();
-            }
+            public int TotalNum = 0;
+
+            public int TotalFinalTimeLogin = 0;
+
+            public int OperationRunning = 0;
+            public int OperationProblem = 0;
+            public List<string> ListOperationProblem = new List<string>();
+
+            public int DollBuildRunning = 0;
+            public int DollBuildProblem = 0;
+            public List<string> ListDollBuildProblem = new List<string>();
+
+
+            public int BattleNum = 0;
+            public List<string> ListBattleNum = new List<string>();
+
+            public int MissionClosed = 0;
+            public List<string> ListMissionClosed = new List<string>();
+
+            public int LoginFalse = 0;
+            public List<string> ListLoginFalse = new List<string>();
+
+
 
         }
-        public static List<Task> tasks = new List<Task>();//公共变量数组
-        public Test()
+        public static OperationStatus GetRunningNumberOfM()
         {
-            for (int i = 0; i < 50; i++)
+            OperationStatus operationStatus = new OperationStatus();
+            var list = Management.Data.data.getDatasByWebID("m");
+            operationStatus.TotalNum = list.Count;
+            foreach (var item in list)
             {
-                Task task = new Task(()=>Log(DateTime.Now.ToFileTimeUtc().ToString()));
-                tasks.Add(task);
-                tasks[tasks.Count - 1].Start();
-            }
-            Thread.Sleep(1000);
+                if (item.config.FinalLoginSuccess)
+                {
+                    operationStatus.TotalFinalTimeLogin++;
+                }
 
+
+                if (item.operation_Act_Info.isRunning())
+                {
+                    operationStatus.OperationRunning++;
+                }
+                else
+                {
+                    if (item.config.FinalLoginSuccess)
+                    {
+                        operationStatus.OperationProblem++;
+                        operationStatus.ListOperationProblem.Add(item.GameAccount.GameAccountID);
+                    }
+
+                }
+                if (item.doll_Build.isAutoRunning())
+                {
+                    operationStatus.DollBuildRunning++;
+                }
+                else
+                {
+                    if (item.config.FinalLoginSuccess)
+                    {
+                        operationStatus.DollBuildProblem++;
+                        operationStatus.ListDollBuildProblem.Add(item.GameAccount.GameAccountID);
+                    }
+
+                }
+
+
+
+
+
+                if (item.MissionInfo.listTask.Count != 0)
+                {
+                    operationStatus.BattleNum++;
+                    operationStatus.ListBattleNum.Add(item.GameAccount.GameAccountID);
+                }
+
+                if (item.mission_With_User_Info.CheckMissionisOpen() == false && item.config.FirstTimeLoginSuccess)
+                {
+                    operationStatus.MissionClosed++;
+                    operationStatus.ListMissionClosed.Add(item.GameAccount.GameAccountID);
+                }
+                if (!item.config.FirstTimeLoginSuccess)
+                {
+                    operationStatus.LoginFalse++;
+                    operationStatus.ListLoginFalse.Add(item.GameAccount.GameAccountID);
+
+                }
+
+            }
+
+
+
+
+
+            return operationStatus;
 
         }
+
+
+
+
+
+
 
     }
 

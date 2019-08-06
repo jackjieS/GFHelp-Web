@@ -95,8 +95,8 @@ namespace GFHelp.Core.MulitePlayerData
             int count = 0;
             while (true)
             {
-                result = API.Factory.Eat_Equip(userData.GameAccount, sb.ToString());
-                switch (Response.Check(userData.GameAccount, ref result, "Eat_Equip_Pro", true))
+                result = userData.Net.Factory.Eat_Equip(userData.GameAccount, sb.ToString());
+                switch (userData.Response.Check( ref result, "Eat_Equip_Pro", true))
                 {
                     case 1:
                         {
@@ -159,9 +159,9 @@ namespace GFHelp.Core.MulitePlayerData
 
                 jsonWriter.WriteObjectEnd();
 
-                string result = API.Factory.Equip_retire(userData.GameAccount, sb.ToString());
+                string result = userData.Net.Factory.Equip_retire(userData.GameAccount, sb.ToString());
 
-                switch (Helper.Response.Check(userData.GameAccount, ref result, "GUN_OUTandIN_Team_PRO", false))
+                switch (userData.Response.Check( ref result, "GUN_OUTandIN_Team_PRO", false))
                 {
                     case 1:
                         {
@@ -177,7 +177,6 @@ namespace GFHelp.Core.MulitePlayerData
                             if (count++ > userData.config.ErrorCount)
                             {
                                 userData.webData.StatusBarText = "Get_Set_UserInfo";
-                                userData.home.GetUserInfo();
                                 new Log().userInit(userData.GameAccount.GameAccountID, "装备强化 ERROR", result).userInfo();
                                 return;
                             }
@@ -230,10 +229,10 @@ namespace GFHelp.Core.MulitePlayerData
 
             while (true)
             {
-                string result =API.Factory.combineGun(userData.GameAccount,sb.ToString());
+                string result =userData.Net.Factory.combineGun(userData.GameAccount,sb.ToString());
 
 
-                switch (Helper.Response.Check(userData.GameAccount, ref result, "GUN_OUTandIN_Team_PRO", false))
+                switch (userData.Response.Check( ref result, "GUN_OUTandIN_Team_PRO", false))
                 {
                     case 1:
                         {
@@ -305,10 +304,10 @@ namespace GFHelp.Core.MulitePlayerData
 
             while (true)
             {
-                result =API.Factory.EatGun(userData.GameAccount,sb.ToString());
+                result =userData.Net.Factory.EatGun(userData.GameAccount,sb.ToString());
 
 
-                switch (Response.Check(userData.GameAccount,ref result, "EatGun", true))
+                switch (userData.Response.Check(ref result, "EatGun", true))
                 {
                     case 1:
                         {
@@ -389,6 +388,15 @@ namespace GFHelp.Core.MulitePlayerData
 
 
 
+        public void UnlockGun()
+        {
+            userData.gun_With_User_Info.GetUnlockList();
+            userData.home.changeLock(new List<int>(), userData.gun_With_User_Info.Unlocklist);
+            userData.gun_With_User_Info.Unlock();
+        }
+
+
+
         /// <summary>
         /// 枪支拆解 参数type是拆解的星
         /// </summary>
@@ -429,6 +437,17 @@ namespace GFHelp.Core.MulitePlayerData
                             }
                             break;
                         }
+                    case 4:
+                        {
+                            if (userData.gun_With_User_Info.Rank4.Count == 0) return false;
+                            userData.webData.StatusBarText = "拆解4星人形";
+
+                            foreach (var item in userData.gun_With_User_Info.Rank4)
+                            {
+                                jsonWriter.Write(item);
+                            }
+                            break;
+                        }
                     default:
                         break;
                 }
@@ -437,9 +456,9 @@ namespace GFHelp.Core.MulitePlayerData
                 Thread.Sleep(2000);
 
 
-                string result = API.Factory.Retire_Gun(userData.GameAccount,sb.ToString());
+                string result = userData.Net.Factory.Retire_Gun(userData.GameAccount,sb.ToString());
 
-                switch (Helper.Response.Check(userData.GameAccount, ref result, "GUN_OUTandIN_Team_PRO", false))
+                switch (userData.Response.Check( ref result, "GUN_OUTandIN_Team_PRO", false))
                 {
                     case 1:
                         {

@@ -111,30 +111,7 @@ namespace GFHelp.Core.MulitePlayerData
             }
         }
 
-        public static void SetTeamInfo(Management.UserData userData )
-        {
-            userData.Teams.Clear();
-            try
-            {
-                for (int i = 1; i <= userData.user_Info.maxteam; i++)
-                {
-                    //一个小队一个小队寻找
-                    Dictionary<int, Gun_With_User_Info> Dic_gwui = new Dictionary<int, Gun_With_User_Info>();
-                    foreach (var item in userData.gun_With_User_Info.dicGun)
-                    {
-                        if (item.Value.teamId == i)
-                        {
-                            Dic_gwui.Add(item.Value.location, item.Value);
-                        }
-                    }
-                    userData.Teams.Add(i, Dic_gwui);
-                }
-            }
-            catch (Exception e)
-            {
-                new Log().systemInit("建立梯队字典出现错误", e.ToString()).coreError();
-            }
-        }
+
 
 
 

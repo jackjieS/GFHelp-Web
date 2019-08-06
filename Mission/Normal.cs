@@ -25,6 +25,15 @@ namespace GFHelp.Mission
 
         public void mapnormal()
         {
+            data.Story = true;
+
+            map1_1(); userData.battle.Check_Equip_Gun_FULL();
+            map1_2(); userData.battle.Check_Equip_Gun_FULL();
+            map1_3(); userData.battle.Check_Equip_Gun_FULL();
+            map1_4(); userData.battle.Check_Equip_Gun_FULL();
+            map1_5(); userData.battle.Check_Equip_Gun_FULL();
+            map1_6(); userData.battle.Check_Equip_Gun_FULL();
+            map2_1(); userData.battle.Check_Equip_Gun_FULL();
             map2_2(); userData.battle.Check_Equip_Gun_FULL();
             map2_3(); userData.battle.Check_Equip_Gun_FULL();
             map2_4(); userData.battle.Check_Equip_Gun_FULL();
@@ -80,16 +89,17 @@ namespace GFHelp.Mission
 
         public void mapemergency()
         {
+            data.Story = true;
             map1_1e(); userData.battle.Check_Equip_Gun_FULL();
             map1_2e(); userData.battle.Check_Equip_Gun_FULL();
             map1_3e(); userData.battle.Check_Equip_Gun_FULL();
             map1_4e(); userData.battle.Check_Equip_Gun_FULL();
-            userData.battle.Check_Equip_Gun_FULL();
+
             map2_1e(); userData.battle.Check_Equip_Gun_FULL();
             map2_2e(); userData.battle.Check_Equip_Gun_FULL();
             map2_3e(); userData.battle.Check_Equip_Gun_FULL();
             map2_4e(); userData.battle.Check_Equip_Gun_FULL();
-            userData.battle.Check_Equip_Gun_FULL();
+
             map3_1e(); userData.battle.Check_Equip_Gun_FULL();
             map3_2e(); userData.battle.Check_Equip_Gun_FULL();
             map3_3e(); userData.battle.Check_Equip_Gun_FULL();
@@ -99,7 +109,7 @@ namespace GFHelp.Mission
             map4_2e(); userData.battle.Check_Equip_Gun_FULL();
             map4_3e(); userData.battle.Check_Equip_Gun_FULL();
             map4_4e(); userData.battle.Check_Equip_Gun_FULL();
-            userData.battle.Check_Equip_Gun_FULL();
+
             map0_1(); userData.battle.Check_Equip_Gun_FULL();
             data.Loop = false;
         }
@@ -213,13 +223,23 @@ namespace GFHelp.Mission
 
             userData.battle.endTurn(data);
             userData.battle.endEnemyTurn();
-            userData.battle.startTurn(data);
+            string endTrun  =   userData.battle.startTurn(data);
+
+
+            if (endTrun.Contains("rank"))
+            {
+                new Log().userInit(userData.GameAccount.GameAccountID, "1_2 成功").userInfo();
+
+            }
+            else
+            {
+                userData.battle.abortMission();
+                map1_2();
+            }
+
         }
         public void map1_2()
         {
-
-
-
             map1_2 map = new map1_2(data);
 
 
@@ -276,7 +296,192 @@ namespace GFHelp.Mission
 
 
         }
+        public void map1_3()
+        {
 
+
+
+            map1_3 map = new map1_3(data);
+
+
+            if (userData.battle.startMission(map, data) == -1)
+            {
+                data.Loop = false;
+                return;
+            }
+
+            userData.battle.teamMove(map.teamMove.dic[map.stepNum++]);
+            userData.battle.teamMove(map.teamMove.dic[map.stepNum++]);
+
+            strbattledata = battleData.setData(101, 0, 0, random.Next(8, 10), 225, 345, 20001, userData.user_Info.experience);
+            if (userData.battle.Normal_battleFinish(strbattledata, ref result))
+            {
+                userData.battle.Battle_Result_PRO(ref data, 0, ref result);
+            }
+            userData.battle.endTurn(data);
+            userData.battle.endEnemyTurn();
+            userData.battle.startTurn(data);
+
+            userData.battle.teamMove(map.teamMove.dic[map.stepNum++]);
+            userData.battle.teamMove(map.teamMove.dic[map.stepNum++]);
+            strbattledata = battleData.setData(107, 0, 0, random.Next(8, 10), 480, 415, 20002, userData.user_Info.experience);
+            if (userData.battle.Normal_battleFinish(strbattledata, ref result))
+            {
+                userData.battle.Battle_Result_PRO(ref data, 0, ref result);
+            }
+
+
+
+            string endTrun = userData.battle.endTurn(data);
+            if (endTrun.Contains("rank"))
+            {
+                new Log().userInit(userData.GameAccount.GameAccountID, "1_3 成功").userInfo();
+
+            }
+            else
+            {
+                userData.battle.abortMission();
+                map1_3();
+            }
+
+
+
+
+
+
+        }
+
+        public void map1_4()
+        {
+
+
+
+            map1_4 map = new map1_4(data);
+
+
+            if (userData.battle.startMission(map, data) == -1)
+            {
+                data.Loop = false;
+                return;
+            }
+
+            userData.battle.teamMove(map.teamMove.dic[map.stepNum++]);
+            userData.battle.teamMove(map.teamMove.dic[map.stepNum++]);
+
+            strbattledata = battleData.setData(113, 0, 0, random.Next(8, 10), 330, 388, 20002, userData.user_Info.experience);
+            if (userData.battle.Normal_battleFinish(strbattledata, ref result))
+            {
+                userData.battle.Battle_Result_PRO(ref data, 0, ref result);
+            }
+            userData.battle.endTurn(data);
+            userData.battle.endEnemyTurn();
+            userData.battle.startTurn(data);
+
+            userData.battle.teamMove(map.teamMove.dic[map.stepNum++]);
+            strbattledata = battleData.setData(114, 0, 0, random.Next(8, 10), 230, 390, 20001, userData.user_Info.experience);
+            if (userData.battle.Normal_battleFinish(strbattledata, ref result))
+            {
+                userData.battle.Battle_Result_PRO(ref data, 0, ref result);
+            }
+            userData.battle.teamMove(map.teamMove.dic[map.stepNum++]);
+            strbattledata = battleData.setData(116, 0, 0, random.Next(8, 10), 221, 512, 20004, userData.user_Info.experience);
+            if (userData.battle.Normal_battleFinish(strbattledata, ref result))
+            {
+                userData.battle.Battle_Result_PRO(ref data, 0, ref result);
+            }
+
+            userData.battle.endTurn(data);
+            userData.battle.endEnemyTurn();
+            userData.battle.startTurn(data);
+            userData.battle.teamMove(map.teamMove.dic[map.stepNum++]);
+            strbattledata = battleData.setData(118, 0, 0, random.Next(8, 10), 221, 512, 20004, userData.user_Info.experience);
+            if (userData.battle.Normal_battleFinish(strbattledata, ref result))
+            {
+                userData.battle.Battle_Result_PRO(ref data, 0, ref result);
+            }
+
+
+            string endTrun = userData.battle.endTurn(data);
+            if (endTrun.Contains("rank"))
+            {
+                new Log().userInit(userData.GameAccount.GameAccountID, "1_4 成功").userInfo();
+
+            }
+            else
+            {
+                userData.battle.abortMission();
+                map1_4();
+            }
+
+
+
+
+
+
+        }
+
+        public void map1_5()
+        {
+
+
+
+            map1_5 map = new map1_5(data);
+
+
+            if (userData.battle.startMission(map, data) == -1)
+            {
+                data.Loop = false;
+                return;
+            }
+
+            userData.battle.teamMove(map.teamMove.dic[map.stepNum++]);
+            userData.battle.teamMove(map.teamMove.dic[map.stepNum++]);
+
+            userData.battle.endTurn(data);
+            strbattledata = battleData.setData(124, 0, 0, random.Next(8, 10), 328, 634, 20004, userData.user_Info.experience);
+            if (userData.battle.Normal_battleFinish(strbattledata, ref result))
+            {
+                userData.battle.Battle_Result_PRO(ref data, 0, ref result);
+            }
+
+
+            userData.battle.endEnemyTurn();
+            userData.battle.startTurn(data);
+
+            userData.battle.teamMove(map.teamMove.dic[map.stepNum++]);
+            strbattledata = battleData.setData(128, 0, 0, random.Next(8, 10), 235, 430, 20001, userData.user_Info.experience);
+            if (userData.battle.Normal_battleFinish(strbattledata, ref result))
+            {
+                userData.battle.Battle_Result_PRO(ref data, 0, ref result);
+            }
+            userData.battle.teamMove(map.teamMove.dic[map.stepNum++]);
+            strbattledata = battleData.setData(131, 0, 0, random.Next(8, 10), 286, 606, 20004, userData.user_Info.experience);
+            if (userData.battle.Normal_battleFinish(strbattledata, ref result))
+            {
+                userData.battle.Battle_Result_PRO(ref data, 0, ref result);
+            }
+            userData.battle.teamMove(map.teamMove.dic[map.stepNum++]);
+
+
+
+            string endTrun = userData.battle.endTurn(data);
+            if (endTrun.Contains("rank"))
+            {
+                new Log().userInit(userData.GameAccount.GameAccountID, "1_5 成功").userInfo();
+
+            }
+            else
+            {
+                userData.battle.abortMission();
+                map1_5();
+            }
+
+
+
+
+
+
+        }
         public void map1_6()
         {
             
@@ -412,6 +617,61 @@ namespace GFHelp.Mission
                 map1_6();
             }
         }
+
+        public void map2_1()
+        {
+            map2_1 map = new map2_1(data);
+
+            if (userData.battle.startMission(map, data) == -1)
+            {
+                data.Loop = false;
+                //这里该怎么办呢
+                return;
+            }
+
+            userData.battle.teamMove(map.teamMove.dic[map.stepNum++]);
+            userData.battle.teamMove(map.teamMove.dic[map.stepNum++]);
+            strbattledata = battleData.setData(204, 0, 0, random.Next(8, 10), 560, 565, 20002, userData.user_Info.experience);
+            if (userData.battle.Normal_battleFinish(strbattledata, ref result))
+            {
+                userData.battle.Battle_Result_PRO(ref data, 0, ref result);
+            }
+
+
+
+            string endTurn = userData.battle.endTurn(data);
+            userData.battle.endEnemyTurn();
+            userData.battle.startTurn(data);
+
+            userData.battle.teamMove(map.teamMove.dic[map.stepNum++]);
+            strbattledata = battleData.setData(206, 0, 0, random.Next(8, 10), 346, 533, 20003, userData.user_Info.experience);
+            if (userData.battle.Normal_battleFinish(strbattledata, ref result))
+            {
+                userData.battle.Battle_Result_PRO(ref data, 0, ref result);
+            }
+
+
+            userData.battle.teamMove(map.teamMove.dic[map.stepNum++]);
+            strbattledata = battleData.setData(209, 0, 0, random.Next(8, 10), 385, 185, 20003, userData.user_Info.experience);
+            if (userData.battle.Normal_battleFinish(strbattledata, ref result))
+            {
+                userData.battle.Battle_Result_PRO(ref data, 0, ref result);
+            }
+            userData.battle.teamMove(map.teamMove.dic[map.stepNum++]);
+
+
+            endTurn = userData.battle.endTurn(data);
+            if (endTurn.Contains("rank"))
+            {
+                new Log().userInit(userData.GameAccount.GameAccountID, "2_1 成功").userInfo();
+            }
+            else
+            {
+                userData.battle.abortMission();
+                this.map2_1();
+            }
+        }
+
         public void map2_2()
         {
             
@@ -723,8 +983,16 @@ namespace GFHelp.Mission
                 userData.battle.Battle_Result_PRO(ref data, 0, ref result);
             }
 
-            userData.battle.endTurn(data);
-            new Log().userInit(userData.GameAccount.GameAccountID, "2_6BOSS 成功", "").userInfo();
+            string endTrun = userData.battle.endTurn(data);
+            if (endTrun.Contains("rank"))
+            {
+                new Log().userInit(userData.GameAccount.GameAccountID, "2_6 成功").userInfo();
+            }
+            else
+            {
+                userData.battle.abortMission();
+                this.map2_6();
+            }
         }
         public void map3_1()
         {
@@ -820,10 +1088,18 @@ namespace GFHelp.Mission
                 userData.battle.Battle_Result_PRO(ref data, 0, ref result);
             }
             userData.battle.endEnemyTurn();
-            userData.battle.startTurn(data);
+            string endTrun = userData.battle.startTurn(data);
 
 
-
+            if (endTrun.Contains("rank"))
+            {
+                new Log().userInit(userData.GameAccount.GameAccountID, "3_2 成功").userInfo();
+            }
+            else
+            {
+                userData.battle.abortMission();
+                this.map3_2();
+            }
 
 
 
@@ -1080,8 +1356,16 @@ namespace GFHelp.Mission
                 userData.battle.Battle_Result_PRO(ref data, 0, ref result);
             }
 
-            userData.battle.endTurn(data);
-            new Log().userInit(userData.GameAccount.GameAccountID, "3_6BOSS 成功", "").userInfo();
+            string endTrun = userData.battle.endTurn(data);
+            if (endTrun.Contains("rank"))
+            {
+                new Log().userInit(userData.GameAccount.GameAccountID, "3_6 成功").userInfo();
+            }
+            else
+            {
+                userData.battle.abortMission();
+                this.map3_6();
+            }
         }
         public void map4_1()
         {
@@ -1129,7 +1413,16 @@ namespace GFHelp.Mission
                 userData.battle.Battle_Result_PRO(ref data, 0, ref result);
             }
             userData.battle.teamMove(map.teamMove.dic[map.stepNum++]);
-            userData.battle.endTurn(data);
+            string endTrun = userData.battle.endTurn(data);
+            if (endTrun.Contains("rank"))
+            {
+                new Log().userInit(userData.GameAccount.GameAccountID, "4_1 成功").userInfo();
+            }
+            else
+            {
+                userData.battle.abortMission();
+                this.map4_1();
+            }
 
         }
         public void map4_2()
@@ -1393,8 +1686,16 @@ namespace GFHelp.Mission
             }
 
 
-            userData.battle.endTurn(data);
-            new Log().userInit(userData.GameAccount.GameAccountID, "4_6BOSS 成功", "").userInfo();
+            string endTrun = userData.battle.endTurn(data);
+            if (endTrun.Contains("rank"))
+            {
+                new Log().userInit(userData.GameAccount.GameAccountID, "4_6 成功").userInfo();
+            }
+            else
+            {
+                userData.battle.abortMission();
+                this.map4_6();
+            }
         }
         public void map5_1()
         {
@@ -1871,8 +2172,16 @@ namespace GFHelp.Mission
                 userData.battle.Battle_Result_PRO(ref data, 0, ref result);
             }
 
-            userData.battle.endTurn(data);
-            new Log().userInit(userData.GameAccount.GameAccountID, "5_6BOSS 成功", "").userInfo();
+            string endTrun = userData.battle.endTurn(data);
+            if (endTrun.Contains("rank"))
+            {
+                new Log().userInit(userData.GameAccount.GameAccountID, "5_6 成功").userInfo();
+            }
+            else
+            {
+                userData.battle.abortMission();
+                this.map5_6();
+            }
         }
         public void map6_1()
         {
@@ -2282,8 +2591,16 @@ namespace GFHelp.Mission
                 userData.battle.Battle_Result_PRO(ref data, 0, ref result);
             }
 
-            userData.battle.endTurn(data);
-            new Log().userInit(userData.GameAccount.GameAccountID, "6_6BOSS 成功", "").userInfo();
+            string endTrun = userData.battle.endTurn(data);
+            if (endTrun.Contains("rank"))
+            {
+                new Log().userInit(userData.GameAccount.GameAccountID, "6_6 成功").userInfo();
+            }
+            else
+            {
+                userData.battle.abortMission();
+                this.map6_6();
+            }
         }
         public void map7_6()
         {

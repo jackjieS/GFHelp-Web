@@ -1,0 +1,23 @@
+﻿<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <TargetFramework>netcoreapp2.1</TargetFramework>
+    <Configurations>Debug;Release;9</Configurations>
+    <Platforms>AnyCPU;x64</Platforms>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <PackageReference Include="HttpCode.Core" Version="4.2.0" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <ProjectReference Include="..\NetBase1\NetBase.csproj" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <Reference Include="LitJson">
+      <HintPath>..\packages\LitJson.dll</HintPath>
+    </Reference>
+  </ItemGroup>
+
+</Project>

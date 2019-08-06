@@ -48,7 +48,7 @@ namespace GFHelp.Core.MulitePlayerData
 
         public void TimeReduce()
         {
-            DateTime BeijingTimeNow = Decrypt.LocalDateTimeConvertToChina(DateTime.Now);
+            DateTime BeijingTimeNow = Decrypt.ChinaTimeDateTime;
             //3点
             if (BeijingTimeNow.Hour * 60 + BeijingTimeNow.Minute == (60 * 3 + 3))
             {
@@ -152,7 +152,7 @@ namespace GFHelp.Core.MulitePlayerData
             //编列梯队列表
             //梯队内人形can_click ==1 则发送post
             //根据result can_click +1;
-
+            if (userData.config.M == true) return;
             for (int x = 1; x <= userData.Teams.Count; x++)
             {
                 if (userData.Teams[x].Count == 0) continue;
@@ -173,8 +173,8 @@ namespace GFHelp.Core.MulitePlayerData
                         int count = 0;
                         while (Loop)
                         {
-                            string result = API.Dorm.ClickGirlsFavor(userData.GameAccount, x, userData.Teams[x][y].id);
-                            switch (Helper.Response.Check(userData.GameAccount, ref result, "ClickGirlsFavor", true))
+                            string result = userData.Net.Dorm.ClickGirlsFavor(userData.GameAccount, x, userData.Teams[x][y].id);
+                            switch (userData.Response.Check( ref result, "ClickGirlsFavor", true))
                             {
                                 case 1:
                                     {
@@ -251,8 +251,8 @@ namespace GFHelp.Core.MulitePlayerData
             int count = 0;
             while (true)
             {
-                var result = API.Dorm.Get_Friend_BattaryNum(userData.GameAccount, id);
-                switch (Helper.Response.Check(userData.GameAccount, ref result, "Get_Friend_BattaryNum", true))
+                var result = userData.Net.Dorm.Get_Friend_BattaryNum(userData.GameAccount, id);
+                switch (userData.Response.Check( ref result, "Get_Friend_BattaryNum", true))
                 {
                     case 1:
                         {
@@ -279,8 +279,8 @@ namespace GFHelp.Core.MulitePlayerData
             int count = 0;
             while (true)
             {
-                var result = API.Dorm.Get_Friend_Battary(userData.GameAccount, id, 0);
-                switch (Helper.Response.Check(userData.GameAccount, ref result, "Get_Friend_Battary", true))
+                var result = userData.Net.Dorm.Get_Friend_Battary(userData.GameAccount, id, 0);
+                switch (userData.Response.Check( ref result, "Get_Friend_Battary", true))
                 {
                     case 1:
                         {
@@ -303,14 +303,15 @@ namespace GFHelp.Core.MulitePlayerData
 
         private void Get_Dorm_Info(UserData userData)
         {
+            if (userData.config.M == true) return;
             try
             {
                 int count = 0;
                 while (true)
                 {
-                    string result = API.Dorm.GetFriend_DormInfo(userData.GameAccount);
+                    string result = userData.Net.Dorm.GetFriend_DormInfo(userData.GameAccount);
 
-                    switch (Helper.Response.Check(userData.GameAccount, ref result, "GetFriend_DormInfo_Pro", true))
+                    switch (userData.Response.Check( ref result, "GetFriend_DormInfo_Pro", true))
                     {
                         case 1:
                             {
@@ -349,6 +350,7 @@ namespace GFHelp.Core.MulitePlayerData
         }
         private void Get_Build_Coin(UserData userData)
         {
+            if (userData.config.M == true) return;
             try
             {
                 if (userData.dorm_with_user_info.current_build_coin <= 0) return;
@@ -357,9 +359,9 @@ namespace GFHelp.Core.MulitePlayerData
                 int count = 0;
                 while (true)
                 {
-                    string result = API.Dorm.Get_Build_Coin(userData.GameAccount, userData.dorm_with_user_info.info.user_id, userData.dorm_with_user_info.info.dorm_id);
+                    string result = userData.Net.Dorm.Get_Build_Coin(userData.GameAccount, userData.dorm_with_user_info.info.user_id, userData.dorm_with_user_info.info.dorm_id);
 
-                    switch (Response.Check(userData.GameAccount, ref result, "Get_Friend_Build_Coin_Pro", true))
+                    switch (userData.Response.Check( ref result, "Get_Friend_Build_Coin_Pro", true))
                     {
                         case 1:
                             {
@@ -398,6 +400,7 @@ namespace GFHelp.Core.MulitePlayerData
 
         private void GetOandPDataHandle()
         {
+            if (userData.config.M == true) return;
             if (userData.config.DataAnalysis == false) return;
             string result = "";
             if(GetOandPData(ref result))
@@ -414,13 +417,14 @@ namespace GFHelp.Core.MulitePlayerData
 
         private bool GetOandPData(ref string result)
         {
+            if (userData.config.M == true) return true;
             new Log().userInit(userData.GameAccount.GameAccountID, "收集数据 数据监测枢纽 ").userInfo();
             int count = 0;
             while (true)
             {
-                result = API.Dorm.getDataCell(userData.GameAccount);
+                result = userData.Net.Dorm.getDataCell(userData.GameAccount);
 
-                switch (Response.Check(userData.GameAccount, ref result, "getDataCell_Pro", true))
+                switch (userData.Response.Check( ref result, "getDataCell_Pro", true))
                 {
                     case 1:
                         {

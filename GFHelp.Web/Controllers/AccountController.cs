@@ -11,6 +11,7 @@ using System.Security.Claims;
 using Newtonsoft.Json;
 using GFHelp.Core.Management;
 using GFHelp.Core.Helper;
+using System.Threading;
 
 namespace GFHelp.Web.Controllers
 {
@@ -66,7 +67,7 @@ namespace GFHelp.Web.Controllers
                 {
                     if (Core.Management.Data.data.ContainsKey(gameAccount.GameAccountID))
                     {
-                        Core.Management.Data.data.getDataByID(gameAccount.GameAccountID).taskDispose = true;
+                        Core.Management.Data.data.getDataByID(gameAccount.GameAccountID).Net = null;
                         Core.Management.Data.data.RemoveByID(gameAccount.GameAccountID);
                         result = true;
                     }
@@ -94,6 +95,169 @@ namespace GFHelp.Web.Controllers
             }
             return false;
         }
+
+
+
+        public async Task C(Core.M.AccountInfo account, string Name)
+        {
+
+            DataBase.GameAccount Account = new DataBase.GameAccount();
+            Account.WebUsername = Name;
+            Account.GameAccountID = account.ID;
+            Account.GamePassword = account.PW;
+            Account.ChannelID = "gwpz";
+            Account.WorldID = "0";
+            Account.isDefault = false;
+            Account.Parm = "-m";
+
+            bool result = DataBase.DataBase.creatGameAccount(Account);
+            if (result == true)
+            {
+                UserData userdata = new UserData();
+                userdata.CreatGameAccount(Account);
+                Core.Management.Data.Seed(userdata);
+                userdata.home.Login();
+                return;
+            }
+        }
+
+        public void OutputGameAccounts(string Name)
+        {
+            new Log().systemInit(string.Format("开始 输出账号")).coreInfo();
+            Core.M.MaccountInfoOutput.Clear();
+            foreach (var item in Core.Management.Data.data.getDatasByWebID(Name))
+            {
+                if (item.config.FinalLoginSuccess == true)
+                {
+
+                    Core.M.AccountInfo accountInfo = new Core.M.AccountInfo(item.GameAccount.GameAccountID, item.GameAccount.GamePassword, item.user_Info.gem);
+                    Core.M.MaccountInfoOutput.Add(accountInfo);
+                }
+            }
+            Core.M.WriteList("MaccountInfosOutput.txt");
+
+
+            new Log().systemInit(string.Format("完成 输出账号")).coreInfo();
+            return;
+        }
+
+        public void L(string Name)
+        {
+            new Log().systemInit(string.Format("开始 二次登陆")).coreInfo();
+            int TaskLimited = 4;
+            int Count = 0;
+            int X = 1;
+
+            foreach (var item in Core.Management.Data.data.getDatasByWebID(Name))
+            {
+                if (item.config.FinalLoginSuccess == false)
+                {
+                    while (Count > TaskLimited)
+                    {
+                        Thread.Sleep(1000);
+                    }
+                    Task task = new Task(() => item.home.Login());
+                    task.Start();
+                    Count++;
+                    task.ContinueWith(t =>
+                    {
+                        Count--;
+                    });
+                }
+            }
+            while (Count > 0)
+            {
+                Thread.Sleep(1000);
+            }
+
+
+            new Log().systemInit(string.Format("二次登完成录", X++.ToString())).coreInfo();
+            return;
+        }
+
+
+
+
+        private void DelteGameAccounts(string Name)
+        {
+
+            var list = Core.Management.Data.data.getGameAccountByName(Name);
+
+            foreach (var item in list)
+            {
+                if (DataBase.DataBase.DelGameAccount(item))
+                {
+                    try
+                    {
+                        if (Core.Management.Data.data.ContainsKey(item.GameAccountID))
+                        {
+                            Core.Management.Data.data.getDataByID(item.GameAccountID).Net = null;
+                            Core.Management.Data.data.RemoveByID(item.GameAccountID);
+                        }
+                    }
+                    catch (Exception e)
+                    {
+                        new Log().systemInit(string.Format("删除游戏实例data出现错误. {0}", item.GameAccountID.ToString()), e.ToString()).coreError();
+                    }
+                }
+            }
+        }
+        public static object ThreadLocker = new object();
+        private async Task creatGameAccounts(string Name)
+        {
+            //读取
+
+            Core.M.Read();
+            DateTime dateTime = DateTime.Now;
+
+            int Count = 0;
+            int Index = 0;
+            while (Index  < Core.M.MaccountInfosInput.Count)
+            {
+                if (Count < 6)
+                {
+                    lock (ThreadLocker)
+                    {
+                        var account = Core.M.MaccountInfosInput[Index];
+                        Interlocked.Increment(ref Count);
+                        Interlocked.Increment(ref Index);
+                        Task.Run(() =>
+                        {
+                            C(account, Name);
+                            lock (ThreadLocker)
+                            {
+                                Interlocked.Decrement(ref Count);
+                            }
+
+                        });
+                    }
+                }
+                else
+                {
+                    Thread.Sleep(1000);
+                }
+
+            }
+            TimeSpan ts = DateTime.Now - dateTime;
+
+            new Log().systemInit(string.Format("创建游戏M 任务完成 总共用时 {0} 时 {1} 分", ts.Hours, ts.Minutes)).coreInfo();
+
+
+
+            new Log().systemInit(string.Format("开始 二次登陆")).coreInfo();
+
+
+            Thread.Sleep(120000);
+            L(Name);
+
+
+
+            return;
+        }
+
+
+
+
 
 
         private bool isMulteAccount(string username)
@@ -126,6 +290,108 @@ namespace GFHelp.Web.Controllers
             });
         }
 
+
+        [Route("[action]")]
+        [HttpGet]
+        public IActionResult cGameAccounts()
+        {
+            string username = User.FindFirst(ClaimTypes.NameIdentifier)?.Value;
+            //检查是否admin
+            if (DataBase.DataBase.getLevelNumber(username) != 1)
+            {
+                return Ok(new
+                {
+                    code = -1,
+                    message = string.Format("权限不足")
+                });
+            }
+
+            Task task = new Task(() => creatGameAccounts(username));
+            task.Start();
+            return Ok(new
+            {
+                code = 1,
+                data = "",
+                message = string.Format("正在读取与创建")
+            });
+        }
+
+
+        [Route("[action]")]
+        [HttpGet]
+        public IActionResult sGameAccounts()
+        {
+            string username = User.FindFirst(ClaimTypes.NameIdentifier)?.Value;
+            //检查是否admin
+            if (DataBase.DataBase.getLevelNumber(username) != 1)
+            {
+                return Ok(new
+                {
+                    code = -1,
+                    message = string.Format("权限不足")
+                });
+            }
+
+            Task task = new Task(() => L(username));
+            task.Start();
+            return Ok(new
+            {
+                code = 1,
+                data = "",
+                message = string.Format("正在读取与创建")
+            });
+        }
+
+        [Route("[action]")]
+        [HttpGet]
+        public IActionResult oGameAccounts()
+        {
+            string username = User.FindFirst(ClaimTypes.NameIdentifier)?.Value;
+            //检查是否admin
+            if (DataBase.DataBase.getLevelNumber(username) != 1)
+            {
+                return Ok(new
+                {
+                    code = -1,
+                    message = string.Format("权限不足")
+                });
+            }
+
+            Task task = new Task(() => OutputGameAccounts(username));
+            task.Start();
+            return Ok(new
+            {
+                code = 1,
+                data = "",
+                message = string.Format("正在读取与创建")
+            });
+        }
+
+        [Route("[action]")]
+        [HttpGet]
+        public IActionResult dGameAccounts()
+        {
+            string username = User.FindFirst(ClaimTypes.NameIdentifier)?.Value;
+            //检查是否admin
+            if (DataBase.DataBase.getLevelNumber(username) != 1)
+            {
+                return Ok(new
+                {
+                    code = -1,
+                    message = string.Format("权限不足")
+                });
+            }
+
+
+            Task task = new Task(() => DelteGameAccounts(username));
+            task.Start();
+            return Ok(new
+            {
+                code = 1,
+                data = "",
+                message = string.Format("正在删除")
+            });
+        }
 
         /// <summary>
         /// 创建一个游戏实例

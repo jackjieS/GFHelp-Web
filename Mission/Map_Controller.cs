@@ -87,10 +87,10 @@ namespace GFHelp.Mission
 
 
 
-            public static List<int> getTeamAvailable(UserData userData,int Require)
+            public static List<int> getTeamAvailable(UserData userData, int Require)
             {
                 List<int> lisID = new List<int>();
-                int count = 0;
+
                 foreach (var item in userData.Teams)
                 {
                     //if (lisID.Count == Require) return lisID;
@@ -140,7 +140,7 @@ namespace GFHelp.Mission
             }
 
             public static MissionType missionType = MissionType.Normal;
-            
+
 
 
 
@@ -160,7 +160,10 @@ namespace GFHelp.Mission
             public static MissionType missionType = MissionType.Normal;
         }
 
-
+        public class mapawbox
+        {
+            public static MissionType missionType = MissionType.Activity;
+        }
 
         public class mapemergency
         {
@@ -180,13 +183,13 @@ namespace GFHelp.Mission
                 Spots.Add(12, 1);//辅助
                 mission_id = 2;
                 withdrawSpot = 3033;//撤离
-                Mission_Start_spots = new Spot.Data[] { Spots.dic[0], Spots.dic[1]};
+                Mission_Start_spots = new Spot.Data[] { Spots.dic[0], Spots.dic[1] };
                 Function.init(teamMove.dic, Spots, data);
             }
 
             public static MissionType missionType = MissionType.Normal;
 
-            
+
 
 
         }
@@ -284,8 +287,103 @@ namespace GFHelp.Mission
 
         }
 
+        public class map1_3 : mapbase
+        {
+            //要给Spots.dic[0] 2 赋值 梯队ID
+            //要给teammove 赋值 梯队ID
 
 
+            public map1_3(MissionInfo.Data data)
+            {
+
+                teamMove.Add(99, 100, 1, 0);
+                teamMove.Add(100, 101, 1, 0);
+                teamMove.Add(101, 106, 1, 0);
+                teamMove.Add(106, 107, 1, 0);
+                Spots.Add(99, 0);//主力
+
+                Mission_Start_spots = new Spot.Data[] { Spots.dic[0] };
+                Function.init(teamMove.dic, Spots, data);
+                mission_id = 7;
+            }
+
+            public static MissionType missionType = MissionType.Normal;
+
+
+
+
+
+
+
+
+
+        }
+
+        public class map1_4 : mapbase
+        {
+            //要给Spots.dic[0] 2 赋值 梯队ID
+            //要给teammove 赋值 梯队ID
+
+
+            public map1_4(MissionInfo.Data data)
+            {
+
+                teamMove.Add(108, 110, 1, 0);
+                teamMove.Add(110, 113, 1, 0);
+                teamMove.Add(113, 114, 1, 0);
+                teamMove.Add(114, 116, 1, 0);
+                teamMove.Add(116, 118, 1, 0);
+                Spots.Add(108, 0);//主力
+
+                Mission_Start_spots = new Spot.Data[] { Spots.dic[0] };
+                Function.init(teamMove.dic, Spots, data);
+                mission_id = 8;
+            }
+
+            public static MissionType missionType = MissionType.Normal;
+
+
+
+
+
+
+
+
+
+        }
+
+        public class map1_5 : mapbase
+        {
+            //要给Spots.dic[0] 2 赋值 梯队ID
+            //要给teammove 赋值 梯队ID
+
+
+            public map1_5(MissionInfo.Data data)
+            {
+
+                teamMove.Add(119, 121, 1, 0);
+                teamMove.Add(121, 124, 1, 0);
+                teamMove.Add(124, 128, 1, 0);
+                teamMove.Add(128, 131, 1, 0);
+                teamMove.Add(131, 132, 1, 0);
+                Spots.Add(119, 0);//主力
+
+                Mission_Start_spots = new Spot.Data[] { Spots.dic[0] };
+                Function.init(teamMove.dic, Spots, data);
+                mission_id = 9;
+            }
+
+            public static MissionType missionType = MissionType.Normal;
+
+
+
+
+
+
+
+
+
+        }
         public class map1_6 : mapbase
         {
             public map1_6(MissionInfo.Data data)
@@ -302,7 +400,7 @@ namespace GFHelp.Mission
                 teamMove.Add(146, 147, 1, 0);
                 Spots.Add(133, 0);
                 Spots.Add(133, 1);
-                Mission_Start_spots = new Spot.Data[] { Spots.dic[0]};
+                Mission_Start_spots = new Spot.Data[] { Spots.dic[0] };
                 withdrawSpot = 1948;//撤离
                 Function.init(teamMove.dic, Spots, data);
             }
@@ -311,7 +409,7 @@ namespace GFHelp.Mission
 
 
 
-            
+
 
 
 
@@ -339,7 +437,34 @@ namespace GFHelp.Mission
             }
         }
 
+        public class map2_1 : mapbase
+        {
+            public map2_1(MissionInfo.Data data)
+            {
 
+                teamMove.Add(202, 203, 1, 0);
+                teamMove.Add(203, 204, 1, 0);
+                teamMove.Add(204, 206, 1, 0);
+                teamMove.Add(206, 209, 1, 0);
+                teamMove.Add(209, 347, 1, 0);
+
+                Spots.Add(202, 0);//主力
+                Mission_Start_spots = new Spot.Data[] { Spots.dic[0]
+            };
+                Function.init(teamMove.dic, Spots, data);
+                mission_id = 15;
+            }
+
+            public static MissionType missionType = MissionType.Normal;
+
+
+
+
+
+
+
+
+        }
         public class map2_2 : mapbase
         {
             public map2_2(MissionInfo.Data data)
@@ -362,7 +487,7 @@ namespace GFHelp.Mission
 
 
 
-            
+
 
 
 
@@ -377,14 +502,14 @@ namespace GFHelp.Mission
                 teamMove.Add(227, 229, 1, 0);
                 teamMove.Add(229, 228, 1, 0);
                 teamMove.Add(228, 224, 1, 0);
-            Spots.Add(227, 0);//主力
-            Spots.Add(220, 1);//主力
+                Spots.Add(227, 0);//主力
+                Spots.Add(220, 1);//主力
                 Mission_Start_spots = new Spot.Data[] { Spots.dic[0], Spots.dic[1] };
                 Function.init(teamMove.dic, Spots, data);
             }
 
 
-            
+
 
 
 
@@ -424,7 +549,7 @@ namespace GFHelp.Mission
             }
 
 
-            
+
 
 
 
@@ -451,7 +576,7 @@ namespace GFHelp.Mission
 
 
 
-            
+
 
 
         }
@@ -464,7 +589,7 @@ namespace GFHelp.Mission
                 teamMove.Add(350, 353, 1, 0);
                 teamMove.Add(353, 356, 1, 0);
                 Spots.Add(348, 0);//主力
-                Mission_Start_spots = new Spot.Data[] { Spots.dic[0]};
+                Mission_Start_spots = new Spot.Data[] { Spots.dic[0] };
                 Function.init(teamMove.dic, Spots, data);
             }
 
@@ -472,7 +597,7 @@ namespace GFHelp.Mission
 
 
 
-            
+
 
 
 
@@ -505,7 +630,7 @@ namespace GFHelp.Mission
 
 
 
-            
+
 
 
 
@@ -534,7 +659,7 @@ namespace GFHelp.Mission
 
 
 
-            
+
 
         }
         public class map3_4 : mapbase
@@ -556,7 +681,7 @@ namespace GFHelp.Mission
 
 
 
-            
+
 
 
 
@@ -581,7 +706,7 @@ namespace GFHelp.Mission
 
 
 
-            
+
 
 
 
@@ -608,7 +733,7 @@ namespace GFHelp.Mission
 
 
 
-            
+
 
 
 
@@ -660,7 +785,7 @@ namespace GFHelp.Mission
 
             public static MissionType missionType = MissionType.Normal;
 
-            
+
 
 
 
@@ -689,7 +814,7 @@ namespace GFHelp.Mission
 
             public static MissionType missionType = MissionType.Normal;
 
-            
+
 
 
 
@@ -713,7 +838,7 @@ namespace GFHelp.Mission
 
             public static MissionType missionType = MissionType.Normal;
 
-            
+
 
 
 
@@ -740,7 +865,7 @@ namespace GFHelp.Mission
 
             public static MissionType missionType = MissionType.Normal;
 
-            
+
 
 
 
@@ -763,7 +888,7 @@ namespace GFHelp.Mission
             public static MissionType missionType = MissionType.Normal;
 
 
-            
+
 
 
 
@@ -798,7 +923,7 @@ namespace GFHelp.Mission
 
             public static MissionType missionType = MissionType.Normal;
 
-            
+
 
 
 
@@ -823,7 +948,7 @@ namespace GFHelp.Mission
 
             public static MissionType missionType = MissionType.Normal;
 
-            
+
 
 
 
@@ -861,7 +986,7 @@ namespace GFHelp.Mission
 
             public static MissionType missionType = MissionType.Normal;
 
-            
+
 
 
         }
@@ -884,7 +1009,7 @@ namespace GFHelp.Mission
 
             public static MissionType missionType = MissionType.Normal;
 
-            
+
 
 
 
@@ -917,7 +1042,7 @@ namespace GFHelp.Mission
             }
             public static MissionType missionType = MissionType.Normal;
 
-            
+
 
 
 
@@ -941,7 +1066,7 @@ namespace GFHelp.Mission
                 mission_id = 50;
             }
 
-            
+
 
 
 
@@ -974,7 +1099,7 @@ namespace GFHelp.Mission
 
 
 
-            
+
 
         }
         public class map6_2 : mapbase
@@ -1000,7 +1125,7 @@ namespace GFHelp.Mission
 
 
 
-            
+
 
         }
         public class map6_3 : mapbase
@@ -1023,7 +1148,7 @@ namespace GFHelp.Mission
             }
             public static MissionType missionType = MissionType.Normal;
 
-            
+
 
 
 
@@ -1053,7 +1178,7 @@ namespace GFHelp.Mission
             }
             public static MissionType missionType = MissionType.Normal;
 
-            
+
 
 
 
@@ -1111,7 +1236,7 @@ namespace GFHelp.Mission
             }
 
 
-            
+
 
 
 
@@ -1155,7 +1280,7 @@ namespace GFHelp.Mission
             }
 
 
-            
+
 
 
 
@@ -1194,7 +1319,7 @@ namespace GFHelp.Mission
             }
 
 
-            
+
 
 
 
@@ -1255,7 +1380,7 @@ namespace GFHelp.Mission
 
 
 
-            
+
 
 
 
@@ -1286,7 +1411,7 @@ namespace GFHelp.Mission
             }
 
 
-            
+
 
 
 
@@ -1316,7 +1441,7 @@ namespace GFHelp.Mission
             }
 
 
-            
+
 
 
 
@@ -1344,7 +1469,7 @@ namespace GFHelp.Mission
                 mission_id = 70;
             }
 
-            
+
 
 
 
@@ -1372,7 +1497,7 @@ namespace GFHelp.Mission
             public static MissionType missionType = MissionType.Normal;
 
 
-            
+
 
 
 
@@ -1397,7 +1522,7 @@ namespace GFHelp.Mission
 
             public static MissionType missionType = MissionType.Normal;
 
-            
+
 
 
 
@@ -1422,7 +1547,7 @@ namespace GFHelp.Mission
             public static MissionType missionType = MissionType.Normal;
 
 
-            
+
 
 
 
@@ -1453,7 +1578,7 @@ namespace GFHelp.Mission
             public static MissionType missionType = MissionType.Normal;
 
 
-            
+
 
 
 
@@ -1501,7 +1626,7 @@ namespace GFHelp.Mission
             public static MissionType missionType = MissionType.Normal;
 
 
-            
+
 
 
 
@@ -1525,7 +1650,7 @@ namespace GFHelp.Mission
             public static MissionType missionType = MissionType.Normal;
 
 
-            
+
 
 
 
@@ -1549,7 +1674,7 @@ namespace GFHelp.Mission
             public static MissionType missionType = MissionType.Normal;
 
 
-            
+
 
 
         }
@@ -1574,7 +1699,7 @@ namespace GFHelp.Mission
             public static MissionType missionType = MissionType.Normal;
 
 
-            
+
 
 
 
@@ -1598,7 +1723,7 @@ namespace GFHelp.Mission
             public static MissionType missionType = MissionType.Normal;
 
 
-            
+
 
 
 
@@ -1622,7 +1747,7 @@ namespace GFHelp.Mission
             public static MissionType missionType = MissionType.Normal;
 
 
-            
+
 
 
 
@@ -1647,7 +1772,7 @@ namespace GFHelp.Mission
             public static MissionType missionType = MissionType.Normal;
 
 
-            
+
 
 
         }
@@ -1676,7 +1801,7 @@ namespace GFHelp.Mission
             public static MissionType missionType = MissionType.Normal;
 
 
-            
+
 
 
         }
@@ -1701,7 +1826,7 @@ namespace GFHelp.Mission
             public static MissionType missionType = MissionType.Normal;
 
 
-            
+
 
         }
 
@@ -1724,7 +1849,7 @@ namespace GFHelp.Mission
             public static MissionType missionType = MissionType.Normal;
 
 
-            
+
 
 
         }
@@ -1747,7 +1872,7 @@ namespace GFHelp.Mission
             public static MissionType missionType = MissionType.Normal;
 
 
-            
+
 
 
 
@@ -1783,7 +1908,7 @@ namespace GFHelp.Mission
             public static MissionType missionType = MissionType.Normal;
 
 
-            
+
 
 
 
@@ -1808,7 +1933,7 @@ namespace GFHelp.Mission
             public static MissionType missionType = MissionType.Normal;
 
 
-            
+
 
 
 
@@ -1841,7 +1966,7 @@ namespace GFHelp.Mission
             public static MissionType missionType = MissionType.Normal;
 
 
-            
+
 
 
 
@@ -1866,7 +1991,7 @@ namespace GFHelp.Mission
             public static MissionType missionType = MissionType.Normal;
 
 
-            
+
 
 
 
@@ -1892,7 +2017,7 @@ namespace GFHelp.Mission
             }
 
 
-            
+
 
 
 
@@ -1920,7 +2045,7 @@ namespace GFHelp.Mission
             }
 
 
-            
+
 
 
 
@@ -1975,7 +2100,7 @@ namespace GFHelp.Mission
             }
 
 
-            
+
 
 
 
@@ -1985,6 +2110,7 @@ namespace GFHelp.Mission
 
             public int BossPos(string result)
             {
+                if (result.Contains("error")) return 1;
                 JsonData jsonData = JsonMapper.ToObject(result);
                 jsonData = jsonData["night_enemy"];
                 foreach (JsonData item in jsonData)
@@ -2058,7 +2184,7 @@ namespace GFHelp.Mission
             }
 
 
-            
+
 
 
 
@@ -2111,7 +2237,7 @@ namespace GFHelp.Mission
             }
 
 
-            
+
 
 
 
@@ -2139,7 +2265,7 @@ namespace GFHelp.Mission
             }
 
 
-            
+
 
 
 
@@ -2170,7 +2296,7 @@ namespace GFHelp.Mission
             public static MissionType missionType = MissionType.Normal;
 
 
-            
+
 
 
 
@@ -2198,7 +2324,7 @@ namespace GFHelp.Mission
             public static MissionType missionType = MissionType.Normal;
 
 
-            
+
 
 
 
@@ -2227,7 +2353,7 @@ namespace GFHelp.Mission
             public static MissionType missionType = MissionType.Normal;
 
 
-            
+
 
 
         }
@@ -2249,7 +2375,7 @@ namespace GFHelp.Mission
             public static MissionType missionType = MissionType.Normal;
 
 
-            
+
         }
         public class map8_3emod2 : mapbase
         {
@@ -2268,7 +2394,7 @@ namespace GFHelp.Mission
             public static MissionType missionType = MissionType.Normal;
 
 
-            
+
         }
 
 
@@ -2307,6 +2433,39 @@ namespace GFHelp.Mission
 
             public int withdrawSpot1 = 4559;//撤离
             public int withdrawSpot2 = 4568;//撤离
+        }
+        public class mapequip_hk416 : mapbase
+        {
+            //要给Spots.dic[0] 2 赋值 梯队ID
+            //要给teammove 赋值 梯队ID
+
+
+            public mapequip_hk416(MissionInfo.Data data)
+            {
+                teamMove.Add(6049, 6048, 1, 0);
+                teamMove.Add(6048, 6047, 1, 0);
+                teamMove.Add(6047, 6042, 1, 0);
+                teamMove.Add(6042, 6047, 1, 0);
+
+                teamMove.Add(6047, 6046, 1, 0);
+                teamMove.Add(6046, 6045, 1, 0);
+                teamMove.Add(6045, 6053, 1, 0);
+                teamMove.Add(6053, 6054, 1, 0);
+
+                teamMove.Add(6054, 6055, 1, 0);
+                teamMove.Add(6055, 6033, 1, 0);
+
+                Spots.Add(6049, 0);//主力
+                Spots.Add(6067, 1);//辅助
+                Mission_Start_spots = new Spot.Data[] { Spots.dic[0], Spots.dic[1] };
+                Function.init(teamMove.dic, Spots, data);
+                mission_id = 10077;
+            }
+
+            public static MissionType missionType = MissionType.Activity;
+
+
+
         }
 
         public class mapcubee1_4 : mapbase
@@ -2366,7 +2525,7 @@ namespace GFHelp.Mission
 
 
 
-            
+
 
 
 
@@ -2418,7 +2577,7 @@ namespace GFHelp.Mission
             }
 
 
-            
+
 
 
 
@@ -2462,7 +2621,7 @@ namespace GFHelp.Mission
             }
 
 
-            
+
 
 
 
@@ -2496,7 +2655,7 @@ namespace GFHelp.Mission
             }
 
 
-            
+
 
 
 
@@ -2529,7 +2688,7 @@ namespace GFHelp.Mission
             }
 
 
-            
+
 
 
 
@@ -2564,7 +2723,7 @@ namespace GFHelp.Mission
             }
 
 
-            
+
 
 
 
@@ -2605,7 +2764,7 @@ namespace GFHelp.Mission
             }
 
 
-            
+
 
 
 
@@ -2702,7 +2861,7 @@ namespace GFHelp.Mission
             }
 
 
-            
+
 
 
 
@@ -2738,7 +2897,7 @@ namespace GFHelp.Mission
             }
 
 
-            
+
 
 
 
@@ -2770,7 +2929,7 @@ namespace GFHelp.Mission
             }
 
 
-            
+
 
 
 
@@ -2803,7 +2962,7 @@ namespace GFHelp.Mission
                 mission_id = 10115;
             }
 
-            
+
 
 
 
@@ -2838,7 +2997,7 @@ namespace GFHelp.Mission
                 mission_id = 10116;
             }
 
-            
+
 
 
 
@@ -2881,7 +3040,7 @@ namespace GFHelp.Mission
             }
 
 
-            
+
 
 
 
@@ -2915,7 +3074,7 @@ namespace GFHelp.Mission
             }
 
 
-            
+
 
 
 
@@ -2948,7 +3107,7 @@ namespace GFHelp.Mission
             }
 
 
-            
+
 
 
 
@@ -2988,7 +3147,7 @@ namespace GFHelp.Mission
             }
 
 
-            
+
 
 
 
@@ -3027,7 +3186,7 @@ namespace GFHelp.Mission
             }
 
 
-            
+
 
 
 
@@ -3140,7 +3299,7 @@ namespace GFHelp.Mission
 
 
 
-            
+
 
 
 
@@ -3200,7 +3359,7 @@ namespace GFHelp.Mission
 
             //[{"spot_id":3033,"team_id":6},{"spot_id":3057,"team_id":7}]
 
-            
+
 
 
 
@@ -3235,7 +3394,7 @@ namespace GFHelp.Mission
 
             //[{"spot_id":3033,"team_id":6},{"spot_id":3057,"team_id":7}]
 
-            
+
 
 
 
@@ -3282,7 +3441,7 @@ namespace GFHelp.Mission
 
             public static MissionType missionType = MissionType.Activity;
 
-            
+
 
         }
 
@@ -3349,7 +3508,7 @@ namespace GFHelp.Mission
             public static MissionType missionType = MissionType.Activity;
 
 
-            
+
 
         }
 
@@ -3641,7 +3800,7 @@ namespace GFHelp.Mission
 
             private UserData userData;
             private Info info;
-            
+
             public int boss_hp = 0;
             public double duration;
             public int skill_cd;
@@ -3726,9 +3885,9 @@ namespace GFHelp.Mission
             {
 
                 public int if_win = 0;
-                internal Dictionary<int, Gun_With_User_Info> teaminfo = new Dictionary<int, Gun_With_User_Info>();
+                internal Dictionary<int, Gun_With_User_Info.Data> teaminfo = new Dictionary<int, Gun_With_User_Info.Data>();
 
-                public TrialExercise_Battle_Sent(Dictionary<int, Gun_With_User_Info> teaminfo)
+                public TrialExercise_Battle_Sent(Dictionary<int, Gun_With_User_Info.Data> teaminfo)
                 {
                     this.teaminfo = teaminfo;
                 }
@@ -3850,17 +4009,436 @@ namespace GFHelp.Mission
         }
 
 
+        public class mapisomer01 : mapbase
+        {
+            public mapisomer01(MissionInfo.Data data)
+            {
+                teamMove.Add(12301, 12302, 1, 0);
+                teamMove.Add(12302, 12303, 1, 0);
+                teamMove.Add(12303, 12300, 1, 0);
+                teamMove.Add(12300, 12299, 1, 0);
+
+                Spots.Add(12301, 0);//主力
+                Spots.Add(12293, 1);//辅助
+
+                mission_id = 10194;
+
+                Mission_Start_spots = new Spot.Data[] { Spots.dic[0], Spots.dic[1] };
+                Function.init(teamMove.dic, Spots, data);
+            }
+
+            public static MissionType missionType = MissionType.Activity;
 
 
 
 
+        }
+
+        public class mapisomer02 : mapbase
+        {
+            public mapisomer02(MissionInfo.Data data)
+            {
+
+
+
+                mission_id = 10195;
+
+                Mission_Start_spots = new Spot.Data[] { };
+                Function.init(teamMove.dic, Spots, data);
+            }
+
+            public static MissionType missionType = MissionType.Activity;
 
 
 
 
+        }
+
+        public class mapisomer23: mapbase
+        {
+
+            public mapisomer23(MissionInfo.Data data)
+            {
+                teamMove.Add(11143, 11144, 1, 0);
+                teamMove.Add(11144, 11154, 1, 0);
+                teamMove.Add(11154, 11173, 1, 0);
+                teamMove.Add(11173, 11156, 1, 0);
+
+                teamMove.Add(11156, 11160, 1, 0);
+                teamMove.Add(11160, 11157, 1, 0);
+                teamMove.Add(11157, 11161, 1, 0);
+                teamMove.Add(11161, 11158, 1, 0);
+                teamMove.Add(11158, 11172, 1, 0);
+                Spots.Add(11143, 0);//主力
+                Spots.Add(11142, 1);//辅助
+
+                mission_id = 10223;
+
+                Mission_Start_spots = new Spot.Data[] { Spots.dic[0], Spots.dic[1] };
+                Function.init(teamMove.dic, Spots, data);
+            }
+
+            public static MissionType missionType = MissionType.Activity;
+
+
+        }
+        public class mapisomer17 : mapbase
+        {
+
+            public mapisomer17(MissionInfo.Data data)
+            {
+                teamMove.Add(10908, 10909, 1, 0);
+                teamMove.Add(10909, 10910, 1, 0);
+                teamMove.Add(10910, 10918, 1, 0);
+                teamMove.Add(10918, 10924, 1, 0);
+                teamMove.Add(10924, 10929, 1, 0);
 
 
 
+                teamMove.Add(10929, 10916, 1, 0);
+                teamMove.Add(10916, 10928, 2, 0);
+                teamMove.Add(10928, 10940, 1, 0);
+
+                Spots.Add(10908, 0);//主力
+                Spots.Add(10903, 1);//辅助
+
+                mission_id = 10217;
+
+                Mission_Start_spots = new Spot.Data[] { Spots.dic[0], Spots.dic[1] };
+                Function.init(teamMove.dic, Spots, data);
+            }
+
+            public static MissionType missionType = MissionType.Activity;
+
+
+        }
+        public class mapisomer09 : mapbase
+        {
+            public mapisomer09(MissionInfo.Data data)
+            {
+                teamMove.Add(11022, 11026, 1, 0);
+                teamMove.Add(11026, 11027, 1, 0);
+                teamMove.Add(11027, 11031, 1, 0);
+                teamMove.Add(11031, 11038, 1, 0);
+                teamMove.Add(11038, 11039, 1, 0);
+                teamMove.Add(11039, 11056, 1, 0);
+
+                teamMove.Add(11056, 11057, 1, 0);
+                teamMove.Add(11057, 11047, 1, 0);
+                teamMove.Add(11047, 11044, 1, 0);
+                teamMove.Add(11044, 11047, 1, 0);
+                teamMove.Add(11047, 11052, 1, 0);
+                teamMove.Add(11052, 11051, 1, 0);
+
+                teamMove.Add(11051, 11046, 1, 0);
+                teamMove.Add(11046, 11045, 1, 0);
+                teamMove.Add(11045, 11043, 1, 0);
+                teamMove.Add(11043, 11028, 1, 0);
+
+
+
+
+                Spots.Add(11022, 0);//主力
+                Spots.Add(11024, 1);//辅助
+                Spots.Add(11023, 2);//辅助
+                mission_id = 10206;
+
+                Mission_Start_spots = new Spot.Data[] { Spots.dic[0], Spots.dic[1], Spots.dic[2] };
+                Function.init(teamMove.dic, Spots, data);
+
+                listBuilding.Add(new BuildIng(3, 11044, 11044, new int[] { 1010104 }));
+                listBuilding.Add(new BuildIng(3, 11044, 11046, new int[] { 1020106 }));
+
+            }
+
+            public static MissionType missionType = MissionType.Activity;
+
+
+
+
+        }
+
+        public class mapisomer10 : mapbase
+        {
+
+            public mapisomer10(MissionInfo.Data data)
+            {
+                teamMove.Add(11353, 11352, 1, 0);
+                teamMove.Add(11352, 11351, 2, 0);
+                teamMove.Add(11351, 11338, 1, 0);
+
+                teamMove.Add(11338, 11347, 1, 0);
+                teamMove.Add(11347, 11348, 1, 0);
+                teamMove.Add(11348, 11349, 1, 0);
+
+
+                Spots.Add(11353, 0);//主力
+
+
+                mission_id = 10210;
+
+                Mission_Start_spots = new Spot.Data[] { Spots.dic[0] };
+                Function.init(teamMove.dic, Spots, data);
+            }
+
+            public static MissionType missionType = MissionType.Activity;
+
+
+        }
+
+        public class mapisomer11 : mapbase
+        {
+
+            public mapisomer11(MissionInfo.Data data)
+            {
+                teamMove.Add(11368, 11369, 1, 0);
+                teamMove.Add(11369, 11385, 1, 0);
+                teamMove.Add(11385, 11383, 1, 0);
+
+                teamMove.Add(11383, 11399, 1, 0);
+                teamMove.Add(11399, 11383, 1, 0);
+                teamMove.Add(11383, 11400, 1, 0);
+
+
+                Spots.Add(11368, 0);//主力
+                Spots.Add(11370, 1);//主力
+
+                mission_id = 10211;
+
+                Mission_Start_spots = new Spot.Data[] { Spots.dic[0],Spots.dic[1] };
+                Function.init(teamMove.dic, Spots, data);
+            }
+
+            public static MissionType missionType = MissionType.Activity;
+
+
+        }
+
+        public class mapisomer12 : mapbase
+        {
+
+            public mapisomer12(MissionInfo.Data data)
+            {
+                teamMove.Add(11068, 11070, 1, 0);
+                teamMove.Add(11067, 11068, 1, 1);
+                teamMove.Add(11068, 11069, 1, 1);
+                teamMove.Add(11070, 11097, 1, 0);
+
+                teamMove.Add(11097, 11096, 1, 0);
+                teamMove.Add(11096, 11103, 1, 0);
+
+
+                Spots.Add(11068, 0);//主力
+                Spots.Add(11067, 1);//主力
+
+                mission_id = 10208;
+
+                Mission_Start_spots = new Spot.Data[] { Spots.dic[0], Spots.dic[1] };
+                listBuilding.Add(new BuildIng(3, 11069, 11069, new int[] { 1010104 }));
+                listBuilding.Add(new BuildIng(3, 11069, 11097, new int[] { 1020106 }));
+
+
+                Function.init(teamMove.dic, Spots, data);
+            }
+
+            public static MissionType missionType = MissionType.Activity;
+
+
+        }
+
+
+        public class mapisomer13 : mapbase
+        {
+
+            public mapisomer13(MissionInfo.Data data)
+            {
+                teamMove.Add(11111, 11118, 1, 0);
+                teamMove.Add(11118, 11112, 1, 0);
+                teamMove.Add(11112, 11117, 1, 0);
+                teamMove.Add(11117, 11114, 1, 0);
+
+                teamMove.Add(11114, 11116, 1, 0);
+                teamMove.Add(11116, 11139, 1, 0);
+                teamMove.Add(11139, 11140, 1, 0);
+                teamMove.Add(11140, 11141, 1, 0);
+                teamMove.Add(11141, 11113, 1, 0);
+                Spots.Add(11111, 0);//主力
+                Spots.Add(11111, 1);//主力
+
+                mission_id = 10221;
+
+                Mission_Start_spots = new Spot.Data[] { Spots.dic[0] };
+                listBuilding.Add(new BuildIng(3, 11069, 11069, new int[] { 1010104 }));
+                listBuilding.Add(new BuildIng(3, 11069, 11097, new int[] { 1020106 }));
+
+
+                Function.init(teamMove.dic, Spots, data);
+            }
+
+            public static MissionType missionType = MissionType.Activity;
+
+
+        }
+
+        public class mapisomer14 : mapbase
+        {
+
+            public mapisomer14(MissionInfo.Data data)
+            {
+                teamMove.Add(10872, 10902, 1, 0);
+                teamMove.Add(10902, 10876, 1, 0);
+
+                Spots.Add(10872, 0);//主力
+
+
+                mission_id = 10214;
+
+                Mission_Start_spots = new Spot.Data[] { Spots.dic[0] };
+
+                Function.init(teamMove.dic, Spots, data);
+            }
+
+            public static MissionType missionType = MissionType.Activity;
+
+
+        }
+
+
+        public class mapisomer25 : mapbase
+        {
+
+            public mapisomer25(MissionInfo.Data data)
+            {
+                teamMove.Add(11186, 11200, 1, 0);
+                teamMove.Add(11200, 11201, 1, 0);
+                teamMove.Add(11201, 11207, 1, 0);
+
+
+                Spots.Add(11186, 0);//主力
+
+
+                mission_id = 10225;
+
+                Mission_Start_spots = new Spot.Data[] { Spots.dic[0] };
+                Function.init(teamMove.dic, Spots, data);
+            }
+
+            public static MissionType missionType = MissionType.Activity;
+
+
+        }
+
+        /// <summary>
+        /// 失温症3-4
+        /// </summary>
+        public class mapg28 : mapbase
+        {
+
+            public mapg28(MissionInfo.Data data)
+            {
+                teamMove.Add(2924, 2942, 1, 0);
+                teamMove.Add(2942, 2941, 1, 0);
+                teamMove.Add(2941, 2940, 1, 0);
+                teamMove.Add(2940, 2944, 1, 0);
+
+                Spots.Add(2924, 0);//主力
+                Spots.Add(2981, 1);//主力
+
+                mission_id = 10016;
+
+                Mission_Start_spots = new Spot.Data[] { Spots.dic[0], Spots.dic[1] };
+                Function.init(teamMove.dic, Spots, data);
+            }
+
+            public static MissionType missionType = MissionType.Activity;
+
+
+        }
+
+        public class mapaw1_2 : mapbase
+        {
+
+            public mapaw1_2(MissionInfo.Data data)
+            {
+                teamMove.Add(2036, 2203, 1, 0);
+                teamMove.Add(2203, 2202, 1, 0);
+                teamMove.Add(2202, 2201, 1, 0);
+                teamMove.Add(2201, 2198, 1, 0);
+                teamMove.Add(2198, 2197, 1, 0);
+                teamMove.Add(2197, 2196, 1, 0);
+                Spots.Add(2036, 0);//主力
+
+                mission_id = 10006;
+
+                Mission_Start_spots = new Spot.Data[] { Spots.dic[0] };
+                Function.init(teamMove.dic, Spots, data);
+            }
+
+            public static MissionType missionType = MissionType.Activity;
+
+
+        }
+
+        public class mapaw2_4 : mapbase
+        {
+
+            public mapaw2_4(MissionInfo.Data data)
+            {
+                teamMove.Add(2503, 2502, 1, 0);
+                teamMove.Add(2502, 2449, 1, 0);
+                teamMove.Add(2449, 2450, 1, 0);
+                teamMove.Add(2450, 2452, 1, 0);
+                teamMove.Add(2452, 2453, 1, 0);
+                teamMove.Add(2453, 2447, 1, 0);
+                teamMove.Add(2447, 2454, 1, 0);
+                teamMove.Add(2454, 2445, 1, 0);
+                Spots.Add(2503, 0);//主力
+                Spots.Add(2503, 1);//主力
+                mission_id = 10012;
+
+                Mission_Start_spots = new Spot.Data[] { Spots.dic[0] };
+                Function.init(teamMove.dic, Spots, data);
+            }
+
+            public static MissionType missionType = MissionType.Activity;
+
+
+        }
+
+        public class mapaw3_4 : mapbase
+        {
+
+            public mapaw3_4(MissionInfo.Data data)
+            {
+                teamMove.Add(2981, 2980, 1, 0);
+                teamMove.Add(2980, 2994, 1, 0);
+                teamMove.Add(2994, 2993, 1, 0);
+                teamMove.Add(2993, 2977, 1, 0);
+
+                teamMove.Add(2977, 2976, 1, 0);
+                teamMove.Add(2976, 2975, 1, 0);
+                teamMove.Add(2975, 2986, 1, 0);
+                teamMove.Add(2986, 2985, 1, 0);
+                teamMove.Add(2985, 2987, 1, 0);
+
+                teamMove.Add(2987, 2988, 1, 0);
+                teamMove.Add(2988, 2989, 1, 0);
+                teamMove.Add(2989, 2990, 1, 0);
+                teamMove.Add(2990, 2991, 1, 0);
+
+
+                Spots.Add(2981, 0);//主力
+                Spots.Add(2924, 1);//主力
+                mission_id = 10016;
+
+                Mission_Start_spots = new Spot.Data[] { Spots.dic[0] , Spots.dic[1] };
+                Function.init(teamMove.dic, Spots, data);
+            }
+
+            public static MissionType missionType = MissionType.Activity;
+
+
+        }
     }
 
 

@@ -9,8 +9,13 @@ using System.Text;
 
 namespace GFHelp.Core.Helper
 {
-    class Response
+    public class Response
     {
+        private UserData userData;
+        public Response(UserData userData)
+        {
+            this.userData = userData;
+        }
         /// <summary>
         /// 结果处理 主要判断此次post是否成功
         /// </summary>
@@ -19,7 +24,7 @@ namespace GFHelp.Core.Helper
         /// <param name="need">是否需要使用sign解密</param>
         /// <param name=""></param>
         /// <returns>1成功 0不成功,需要重发 -1不成功,不需要重发</returns>
-        public static int Check(GameAccount gameAccount,ref string result, string type, bool need_decode)
+        public int Check(ref string result, string type, bool need_decode)
         {
             if (result == "") { return 0; }//
             if (result.ToLower().Contains("error:") ) { return -1; }//我也不知道return 什么好
@@ -29,7 +34,7 @@ namespace GFHelp.Core.Helper
                 try
                 {
                     //AuthCode.Decode(result, ProgrameData.sign);
-                    result = Decrypt.DecodeAndMapJson(gameAccount,result);
+                    result = userData.authCode.DecodeAndMapJson(result);
                 }
                 catch (Exception e)
                 {
@@ -44,10 +49,9 @@ namespace GFHelp.Core.Helper
                         try
                         {
                             JsonData jsonData2 = null;
-                            gameAccount.realtimeSinceLogin = Convert.ToInt32((DateTime.UtcNow - new DateTime(1970, 1, 1, 0, 0, 0, 0)).TotalSeconds);
-                            AuthCode.Init(new AuthCode.IntDelegate(gameAccount.GetCurrentTimeStamp));
-                            gameAccount.loginTime = Decrypt.ConvertDateTime_China_Int(DateTime.Now);
-                            using (MemoryStream stream = new MemoryStream(AuthCode.DecodeWithGzip(result.Substring(1), "yundoudou")))
+                            userData.GameAccount.realtimeSinceLogin = Convert.ToInt32((DateTime.UtcNow - new DateTime(1970, 1, 1, 0, 0, 0, 0)).TotalSeconds);
+                            userData.GameAccount.loginTime = Decrypt.getDateTime_China_Int(DateTime.Now);
+                            using (MemoryStream stream = new MemoryStream(userData.authCode.DecodeWithGzip(result.Substring(1), "yundoudou")))
                             {
                                 using (Stream stream2 = new GZipInputStream(stream))
                                 {
@@ -58,8 +62,8 @@ namespace GFHelp.Core.Helper
                                 }
                             }
 
-                            gameAccount.uid = jsonData2["uid"].String;
-                            gameAccount.sign = jsonData2["sign"].String;
+                            userData.GameAccount.uid = jsonData2["uid"].String;
+                            userData.GameAccount.sign = jsonData2["sign"].String;
                             return 1;
                         }
                         catch (Exception e)
@@ -245,17 +249,23 @@ namespace GFHelp.Core.Helper
                     }
                 case "finishDevelop":
                     {
-                        return result.Contains("id") ? 1 : 0;
+                        return result.Contains("id") ? 1 : -1;
                     }
 
                 case "startDevelop":
                     {
-                        return result.Contains("id") ? 1 : 0;
+                        return result.Contains("id") ? 1 : -1;
                     }
                 case "GetDailyTask":
                     {
                         return result.Contains("daily") ? 1 : 0;
                     }
+                case "BuildTeam":
+                    {
+                        return result.StartsWith("1") ? 1 : 0;
+                    }
+
+
                 default:
                     break;
             }

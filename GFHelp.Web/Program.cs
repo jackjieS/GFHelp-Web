@@ -42,8 +42,23 @@ namespace GFHelp.Web
 
         public static IWebHost BuildWebHost(string[] args) =>
             WebHost.CreateDefaultBuilder(args)
-                .UseUrls("http://*:7777")
-                .UseStartup<Startup>()
-                .Build();
+                    .UseKestrel(options =>
+                    {
+                        options.ListenAnyIP(7776, listenOptions =>
+                        {
+                            listenOptions.UseHttps("2593924_mylocal.nai-ve.top.pfx", "XvVIvb2Q");
+                        });
+                        options.ListenAnyIP(7777, listenOptions =>
+                        {
+
+                            listenOptions.UseHttps("2590788_gfapi.nai-ve.top.pfx", "9g5KIiOL");
+
+                        });
+
+
+                    })
+            .UseStartup<Startup>()
+            .Build();
+
     }
 }

@@ -153,7 +153,6 @@ namespace GFHelp.Core.Helper
             {
                 data.text = string.Format("message = {0} , exception = {1}", data.message, data.exception);
             }
-            ConsolePrint(data.AccountID, data.text);
             return this;
         }
 
@@ -196,7 +195,7 @@ namespace GFHelp.Core.Helper
                 list.Add(data);
                 Viewer.usersLogs.Add(data.AccountID, list);
             }
-            SignaIRClient.SendGameNotice(data.AccountID, data);
+            //SignaIRClient.SendGameNotice(data.AccountID, data);
             return this;
         }
         private void ConsolePrint(string id,string m)

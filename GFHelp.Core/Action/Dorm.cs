@@ -12,6 +12,7 @@ namespace GFHelp.Core.Action
     public class Dorm
     {
         private UserData userData;
+
         public Dorm(UserData userData)
         {
             this.userData = userData;
@@ -36,9 +37,9 @@ namespace GFHelp.Core.Action
                     jsonWriter.WriteObjectEnd();
                     Thread.Sleep(1500);
 
-                    string result =API.Dorm.Friend_visit(userData.GameAccount,sb.ToString());
+                    string result =userData.Net.Dorm.Friend_visit(userData.GameAccount,sb.ToString());
 
-                    switch (Helper.Response.Check(userData.GameAccount, ref result, "Friend_visit", true))
+                    switch (userData.Response.Check( ref result, "Friend_visit", true))
                     {
                         case 1:
                             {
@@ -85,9 +86,9 @@ namespace GFHelp.Core.Action
 
 
 
-                    string result = API.Dorm.Friend_praise(userData.GameAccount,sb.ToString());
+                    string result = userData.Net.Dorm.Friend_praise(userData.GameAccount,sb.ToString());
 
-                    switch (Helper.Response.Check(userData.GameAccount, ref result, "Friend_praise", true))
+                    switch (userData.Response.Check( ref result, "Friend_praise", true))
                     {
                         case 1:
                             {

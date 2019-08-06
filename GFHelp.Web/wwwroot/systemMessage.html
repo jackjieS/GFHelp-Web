@@ -29,9 +29,35 @@
             </div>
             <div class="content-body">
                 <div class="container-fluid">
-                    <div id="message-warpper" style="overflow: scroll;height: 600px;padding: 10px;border: 1px solid #e5e6e7;margin-top: 20px;">
+                    <div id="message-warpper"
+                        style="widows: 100px;overflow: scroll;height: 600px;padding: 10px;border: 1px solid #e5e6e7;margin-top: 20px;white-space: pre-line">
                     </div>
-                    <button style="margin-top: 10px;" class="clean-massage btn btn-primary btn-block">清空消息</button>
+                    <div style="margin:auto;">
+                        <div style="float: left;width: 200px;margin:0,auto;">
+                            <button style="margin-top: 10px;"
+                                class="clean-massage btn btn-primary btn-block">清空消息</button>
+                            <button style="margin-top: 10px;" onclick="sGameAccount()"
+                                class="sGameAccount btn btn-primary btn-block">二次登录</button>
+                            <button style="margin-top: 10px;" onclick="ReloadLibeary()"
+                                class="ReloadLibeary btn btn-primary btn-block">ReloadLibeary</button>
+                        </div>
+                        <div style="float: left;width:200px;margin:0,auto;">
+                            <button style="margin-top: 10px;" onclick="cGameAccount()"
+                                class="cGameAccount btn btn-primary btn-block">创建全部账号</button>
+                            <button style="margin-top: 10px;" onclick="dGameAccount()"
+                                class="dGameAccount btn btn-primary btn-block">删除全部账号</button>
+                            <button style="margin-top: 10px;" onclick="GetRunningNumberOfM()"
+                                class="GetRunningNumberOfM btn btn-primary btn-block">查询账号</button>
+                                <button style="margin-top: 10px;" onclick="oGameAccount()"
+                                class="oGameAccount btn btn-primary btn-block">输出账号</button>
+                        </div>
+                        <div style="float: left;width: 200px;margin:0,auto;">
+                            <button style="margin-top: 10px;" onclick="LoadWebProxy()"
+                                class="LoadWebProxy btn btn-primary btn-block">查询代理</button>
+                            <button style="margin-top: 10px;" onclick="WebProxyTrigger()"
+                                class="WebProxyTrigger btn btn-primary btn-block">代理开关</button>
+                        </div>
+                    </div>
                 </div>
             </div>
         </div>
@@ -45,15 +71,15 @@
     <script src="js/app.js"></script>
     <script type="text/javascript">
         $(function () {
-            $("#BasePage").load("BasePage.html",function(response,status){
-                if(status=="success"){
-                    document.getElementById("content-wrapper").style["display"]="block";
+            $("#BasePage").load("BasePage.html", function (response, status) {
+                if (status == "success") {
+                    document.getElementById("content-wrapper").style["display"] = "block";
                 }
             });
 
         });
-        var Webuser = sessionStorage.getItem('username');
-        const conGamesStatus = new signalR.HubConnectionBuilder().withUrl("http://118.24.162.26:7777/chatHub?name=" + Webuser).build();
+        const Webuser = getCookie('username');
+        const conGamesStatus = new signalR.HubConnectionBuilder().withUrl("http://" + getHost() + ":7777/chatHub?name=" + Webuser).build();
         conGamesStatus.start().catch(err => console.error(err.toString()));
         conGamesStatus.on("ReceiveSystemNotification", (message) => {
             console.log(message);
@@ -69,10 +95,147 @@
             window.location.href = 'login.html';
         }
         $('.clean-massage').click(function () {
-            alert();
             conGamesStatus.invoke("RemoveAllSystemNotice", Webuser).catch(err => console.error(err.toString()));
             $('#message-warpper').html('');
         });
+        function ReloadLibeary(Obj) {
+            var token = checkToken();
+            $.ajax({
+                url: 'http://' + getHost() + ':7777/System/ReloadLibeary',
+                type: 'get',
+                dataType: 'json',
+
+                headers: { 'Authorization': 'Bearer ' + token },
+                success: function (res) {
+                    alert(res.message);
+                }
+            });
+        }
+
+        function cGameAccount(Obj) {
+            var token = checkToken();
+            $.ajax({
+                url: 'http://' + getHost() + ':7777/cGameAccounts',
+                type: 'get',
+                dataType: 'json',
+
+                headers: { 'Authorization': 'Bearer ' + token },
+                success: function (res) {
+                    alert(res.message);
+                }
+            });
+        }
+        function sGameAccount(Obj) {
+            var token = checkToken();
+            $.ajax({
+                url: 'http://' + getHost() + ':7777/sGameAccounts',
+                type: 'get',
+                dataType: 'json',
+
+                headers: { 'Authorization': 'Bearer ' + token },
+                success: function (res) {
+                    alert(res.message);
+                }
+            });
+        }
+        function oGameAccount(Obj) {
+            var token = checkToken();
+            $.ajax({
+                url: 'http://' + getHost() + ':7777/oGameAccounts',
+                type: 'get',
+                dataType: 'json',
+
+                headers: { 'Authorization': 'Bearer ' + token },
+                success: function (res) {
+                    alert(res.message);
+                }
+            });
+        }
+        function dGameAccount(Obj) {
+            var token = checkToken();
+            if (confirm('确认删除实例吗？')) {
+                $.ajax({
+                    url: 'http://' + getHost() + ':7777/dGameAccounts',
+                    type: 'get',
+                    dataType: 'json',
+
+                    headers: { 'Authorization': 'Bearer ' + token },
+                    success: function (res) {
+                        alert(res.message);
+                    }
+                });
+            }
+
+
+
+        }
+        function GetRunningNumberOfM(Obj) {
+            var token = checkToken();
+            $.ajax({
+                url: 'http://' + getHost() + ':7777/System/GetRunningNumberOfM',
+                type: 'get',
+                dataType: 'json',
+
+                headers: { 'Authorization': 'Bearer ' + token },
+                success: function (res) {
+                    if (res.code == 1) {
+                        html_msg = '<div class="alert alert-info">Result = ' + res.message + '</div>';
+                        if ($('#message-warpper').find('html_msg')) {
+                            $('#message-warpper').prepend(html_msg);
+
+                        }
+                    }
+                    else {
+                        alert(res.message);
+                    }
+                }
+            });
+        }
+        function LoadWebProxy(Obj) {
+            var token = checkToken();
+            $.ajax({
+                url: 'http://' + getHost() + ':7777/System/LoadWebProxy',
+                type: 'get',
+                dataType: 'json',
+
+                headers: { 'Authorization': 'Bearer ' + token },
+                success: function (res) {
+                    if (res.code == 1) {
+                        html_msg = '<div class="alert alert-info">Result = ' + res.message + '</div>';
+                        if ($('#message-warpper').find('html_msg')) {
+                            $('#message-warpper').prepend(html_msg);
+
+                        }
+                    }
+                    else {
+                        alert(res.message);
+                    }
+                }
+            });
+        }
+        function WebProxyTrigger(Obj) {
+            var token = checkToken();
+            $.ajax({
+                url: 'http://' + getHost() + ':7777/System/WebProxyTrigger',
+                type: 'get',
+                dataType: 'json',
+
+                headers: { 'Authorization': 'Bearer ' + token },
+                success: function (res) {
+                    alert(res.message);
+                }
+            });
+        }
+
+        function checkToken() {
+            var token = getCookie('token');
+            if (!token) {
+                alert('您尚未登录游戏，请先登录');
+                location.href = 'login.html';
+            } else {
+                return token;
+            }
+        }
     </script>
 </body>
 

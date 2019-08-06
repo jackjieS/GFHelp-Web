@@ -109,47 +109,51 @@ namespace GFHelp.Core.Helper
         public const string DataAnalysis = "Dorm/data_analysis";
         public const string WeeklyShare = "Dorm/share";
         public const string Home = "Index/home";
+        public const string intelligencePoint = "Mission/intelligencePoint";
+        public const string buildingSkillPerform = "Mission/buildingSkillPerform";
+
+
     }
 
-//    class GameHost
-//    {
-//        public static string Get(string platform,string channelID,string worldID)
-//        {
-//            string GameHost="";
+    //    class GameHost
+    //    {
+    //        public static string Get(string platform,string channelID,string worldID)
+    //        {
+    //            string GameHost="";
 
-//            switch (platform.ToLower())
-//            {
-//                case "android":
-//                    {
-//                        if (worldID == "0")
-//                        {
-//                            GameHost = "http://gf-adrgw-cn-zs-game-0001.ppgame.com/index.php/1000/";
-//                        }
-//                        else
-//                        {
-//                            GameHost = "http://s" + worldID + ".gw.gf.ppgame.com/index.php/100" + worldID + "/";
+    //            switch (platform.ToLower())
+    //            {
+    //                case "android":
+    //                    {
+    //                        if (worldID == "0")
+    //                        {
+    //                            GameHost = "http://gf-adrgw-cn-zs-game-0001.ppgame.com/index.php/1000/";
+    //                        }
+    //                        else
+    //                        {
+    //                            GameHost = "http://s" + worldID + ".gw.gf.ppgame.com/index.php/100" + worldID + "/";
 
-//                        }
-//                        break;
-//                    }
-//                case "ios":
-//                    {
-//                        GameHost = "http://gf-ios-cn-zs-game-0001.ppgame.com/index.php/3000/";
-//                        break;
-//                    }
-//                default:
-//                    break;
-//            }
+    //                        }
+    //                        break;
+    //                    }
+    //                case "ios":
+    //                    {
+    //                        GameHost = "http://gf-ios-cn-zs-game-0001.ppgame.com/index.php/3000/";
+    //                        break;
+    //                    }
+    //                default:
+    //                    break;
+    //            }
 
-//tx,http://gf-adrtx-cn-zs-game-0001.ppgame.com/index.php/2000/";
-//vivo,http://58.87.102.150/index.php/4000/";
-//bili,http://gf-adrbili-cn-zs-game-0001.ppgame.com/index.php/5000/";
-//360,http://58.87.102.150/index.php/4000/";
-//huawei,http://58.87.102.150/index.php/4000/";
-//sunborn,http://gf-game.sunborngame.com/index.php/1001/";
-//sunbornjp,http://gfjp-game.sunborngame.com/index.php/1001/";
-//oppo,http://58.87.102.150/index.php/4000/";
-//            return GameHost;
-//        }
-//    }
+    //tx,http://gf-adrtx-cn-zs-game-0001.ppgame.com/index.php/2000/";
+    //vivo,http://58.87.102.150/index.php/4000/";
+    //bili,http://gf-adrbili-cn-zs-game-0001.ppgame.com/index.php/5000/";
+    //360,http://58.87.102.150/index.php/4000/";
+    //huawei,http://58.87.102.150/index.php/4000/";
+    //sunborn,http://gf-game.sunborngame.com/index.php/1001/";
+    //sunbornjp,http://gfjp-game.sunborngame.com/index.php/1001/";
+    //oppo,http://58.87.102.150/index.php/4000/";
+    //            return GameHost;
+    //        }
+    //    }
 }

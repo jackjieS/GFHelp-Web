@@ -19,6 +19,7 @@ namespace GFHelp.DataBase
 
         private static string currentDirectory = Path.GetDirectoryName((new Program()).GetType().Assembly.Location) + @"\database.db";
 
+        private static object Locker = new object();
         public static List<GameAccount> GetGameAccounts()
         {
             string cmd = "Select * From GameAccount";
@@ -160,20 +161,21 @@ namespace GFHelp.DataBase
             string cmd = "INSERT INTO GameAccount (WebUsername,GameAccountID,GamePassword,ChannelID,WorldID,YunDouDou,Parm,isDefault) VALUES(" + "\"" + gameAccount.WebUsername + "\"," + "\"" + gameAccount.GameAccountID + "\"," + "\"" + gameAccount.GamePassword + "\"," + "\"" + gameAccount.ChannelID + "\"," + "\"" + gameAccount.WorldID + "\"," + "\"" + gameAccount.YunDouDou + "\"," + "\"" + gameAccount.Parm+"\"," + "\"" + gameAccount.isDefault + "\")";
             using (SqliteConnection db = new SqliteConnection("Filename=" + currentDirectory))
             {
-                db.Open();
-
-                SqliteCommand selectCommand = new SqliteCommand(cmd, db);
-                try
+                lock (Locker)
                 {
-                    SqliteDataReader query = selectCommand.ExecuteReader();
-                }
-                catch (Exception)
-                {
+                    db.Open();
+                    SqliteCommand selectCommand = new SqliteCommand(cmd, db);
+                    try
+                    {
+                        SqliteDataReader query = selectCommand.ExecuteReader();
+                    }
+                    catch (Exception)
+                    {
+                        db.Close();
+                        return false;
+                    }
                     db.Close();
-                    return false;
                 }
-
-                db.Close();
                 return true;
             }
         }
@@ -215,7 +217,6 @@ namespace GFHelp.DataBase
                 try
                 {
  
-                    if (query.IsDBNull(0)) return 3;
                     result = query.GetString(0);
                 }
                 catch (Exception)

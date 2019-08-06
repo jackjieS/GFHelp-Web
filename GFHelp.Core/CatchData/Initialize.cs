@@ -1,4 +1,5 @@
-﻿using System;
+﻿
+using System;
 using System.Collections.Generic;
 using System.Text;
 using System.Threading.Tasks;
@@ -7,29 +8,49 @@ namespace GFHelp.Core.CatchData
 {
     public class Seed
     {
-        public static string DataVersion;
+        public static bool UpgradeUsing = false;
+
+        public static void init()
+        {
+            new Helper.Log().systemInit("获取版本信息").coreInfo();
+            SystemOthers.ConfigData.DataVersion = SystemOthers.ConfigData.DataVersion.ToLower();
+
+
+
+        }
         public static void Updata()
         {
 
 
-            DataVersion = Action.Home.Index_version(true).ToLower();
-
-            if (DataVersion != SystemOthers.ConfigData.DataVersion.ToLower())
+            if (UpgradeUsing)
             {
-                SystemOthers.ConfigData.DataVersion = DataVersion;
-                Task updata = new Task(() => DownLoad.DownloadCatchdata(DataVersion));
+                new Helper.Log().systemInit("游戏数据正在更新").coreInfo();
+                return;
+            }
+            UpgradeUsing = true;
+
+            try
+            {
+                new Helper.Log().systemInit("获取版本信息").coreInfo();
+                SystemOthers.ConfigData.DataVersion = SystemOthers.ConfigData.DataVersion.ToLower();
+                new Helper.Log().systemInit("游戏数据开始更新").coreInfo();
+                Task updata = new Task(() => DownLoad.DownloadCatchdata(SystemOthers.ConfigData.DataVersion));
                 updata.Start();
                 updata.Wait();
                 updata.ContinueWith(p =>
                 {
-                    Helper.Configer.ConfigManager.SetConfig("catchdata", DataVersion);
+                    Helper.Configer.ConfigManager.SetConfig("catchdata", SystemOthers.ConfigData.DataVersion);
                     CatachData.Seed();
+                    UpgradeUsing = false;
+                    new Helper.Log().systemInit("游戏数据更新完毕").coreInfo();
                 });
             }
-            else
+            catch (Exception e)
             {
-                CatachData.Seed();
+                new Helper.Log().systemInit("数据更新出错",e.ToString()).coreInfo();
+                UpgradeUsing = false;
             }
+
 
 
 

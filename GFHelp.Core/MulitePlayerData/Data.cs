@@ -3,6 +3,7 @@ using GFHelp.Core.Action.BattleBase;
 using GFHelp.Core.Helper;
 using GFHelp.Core.MulitePlayerData;
 using GFHelp.Core.MulitePlayerData.WebData;
+using GFHelp.NetBase;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations;
@@ -14,68 +15,91 @@ using System.Threading.Tasks;
 namespace GFHelp.Core.Management
 {
     public class gameDatas
+
     {
+        public static object mDataslocker = new object();
         public bool Add(UserData userData)
         {
-            foreach (UserData item in mDatas)
+            lock (mDataslocker)
             {
-                if(item.GameAccount.GameAccountID == userData.GameAccount.GameAccountID && item.taskDispose == false)
+                if (!mDatas.ContainsKey(userData.GameAccount.GameAccountID))
                 {
-                    return false;
+                    mDatas.Add(userData.GameAccount.GameAccountID, userData);
+                    return true;
                 }
             }
-            mDatas.Add(userData);
-            return true;
+            return false;
+
         }
         public int Count
         {
             get
             {
-                int count=0;
-                foreach (var item in mDatas)
-                {
-                    if (item.taskDispose == false) count++;
-                }
-                return count;
+
+
+                return mDatas.Count;
             }
         }
         public UserData getDataByID(string ID)
         {
-            foreach (var item in mDatas)
+
+            if (mDatas.ContainsKey(ID))
             {
-                if(item.GameAccount.GameAccountID == ID && item.taskDispose == false)
-                {
-                    return item;
-                }
+                return mDatas[ID];
             }
             return null;
         }
+
+        public List<UserData> getDatasByWebID(string WebID)
+        {
+           return  mDatas.Where(m => m.Value.GameAccount.WebUsername == WebID).Select(k => k.Value).ToList();
+        }
+
+
+
         public void RemoveByID(string ID)
         {
-            for (int i = 0; i < mDatas.Count; i++)
+            if (mDatas.ContainsKey(ID))
             {
-                if (mDatas[i].GameAccount.GameAccountID == ID)
-                {
-                    mDatas.RemoveAt(i);
-                }
+                mDatas.Remove(ID);
             }
+            lock (AutoLoop.dicDataLocker)
+            {
+                AutoLoop.RemoveDic(ID);
+            }
+
+        }
+
+        public void RemoveByData(UserData userData)
+        {
+            var item = mDatas.First(kvp => kvp.Value == userData);
+            mDatas.Remove(item.Key);
         }
         public bool ContainsKey(string id)
         {
-            foreach (var item in mDatas)
-            {
-                if(item.GameAccount.GameAccountID == id && item.taskDispose == false)
-                {
-                    return true;
-                }
-            }
-            return false;
+            return mDatas.ContainsKey(id);
         }
-        public IEnumerator<UserData> GetEnumerator()
+
+        public List<GameAccount> getGameAccountByName(string name)
         {
-            return this.mDatas.GetEnumerator();
+            var list =  getDatasByWebID(name);
+            return list.Select(o => o.GameAccount).ToList();
+
         }
-        private List<UserData> mDatas = new List<UserData>();
+
+        public int getNumOfLoginFalse(string name)
+        {
+            var list = getDatasByWebID(name);
+            return list.Select(o => o.config.FirstTimeLoginSuccess == false).ToList().Count;
+        }
+
+
+
+        //public IEnumerator<string,UserData> GetEnumerator()
+        //{
+        //    return this.mDatas.GetEnumerator();
+        //}
+        public Dictionary<string,UserData> mDatas = new Dictionary<string,UserData>();
 
     }
     public static class Data
@@ -88,7 +112,7 @@ namespace GFHelp.Core.Management
         public static gameDatas data = new gameDatas();
         private static void delDataBaseGameAccount()
         {
-            
+
         }
         public static void Seed(UserData userData)
         {
@@ -100,23 +124,15 @@ namespace GFHelp.Core.Management
             {
                 data.Add(userData);
             }
-
-            userData.battleLoop = new Task(() => userData.threadLoop.BattleLoop());
-            userData.battleLoop.Start();
-            userData.dailyLoop = new Task(() => userData.threadLoop.DailyLoop());
-            userData.dailyLoop.Start();
-            userData.dailyLoop.ContinueWith(t =>
+            lock (AutoLoop.dicDataLocker)
             {
-                DataBase.DataBase.DelGameAccount(userData.GameAccount);
-                string id = userData.GameAccount.GameAccountID;
-                new Log().userInit(id, "程序已注销 请重新创建实例").userInfo();
-                userData = null;
-                data.RemoveByID(id);
-            });
+                AutoLoop.AddDic(new AutoLoop.LoopData(userData));
+            }
+
+
+            
+
         }
-
-
-
 
 
 
@@ -127,8 +143,10 @@ namespace GFHelp.Core.Management
     {
         public UserData()
         {
-
-            eventAction = new EventAction(this);
+            this.ThreadLocker = new object();
+            this.authCode = new AuthCode(this);
+            this.Response = new Response(this);
+            this.config = new Config(this);
             this.battle = new Action.Battle(this);
             this.others = new Others(this);
             this.mission = new Mission(this);
@@ -137,10 +155,10 @@ namespace GFHelp.Core.Management
             this.home = new Home(this);
 
             this.simulation = new Simulation(this);
-            this.BattleReport = new BattleReport(this);
+
             this.outhouse_Establish_Info = new Outhouse_BattleReport(this);
             this.item_With_User_Info = new Item_With_User_Info(this);
-            this.config = new Config(this);
+            this.kalina_with_user_info = new Kalina_With_User_Info(this);
             this.equip_With_User_Info = new Equip(this);
             this.squadDataAnalysisAction = new SquadDataAnalysisAction(this);
             this.task_Daily = new Task_Daily(this);
@@ -148,14 +166,19 @@ namespace GFHelp.Core.Management
             this.chip_With_User_Info = new Chip_With_User_Info(this);
             this.equip_Built = new Equip_Build(this);
             this.doll_Build = new Doll_Build(this);
-            this.threadLoop = new ThreadLoop(this);
+            //this.threadLoop = new ThreadLoop(this);
             this.share_With_User_Info = new Share_With_User_Info(this);
             this.MissionInfo = new MissionInfo(this);
             this.upgrade_Act_Info = new Upgrade_Act_Info(this);
             this.webData = new WebData(this);
             this.mailList = new Mail(this);
             this.Factory = new Factory(this);
+            this.mission_With_User_Info = new Mission_With_User_Info(this);
             this.auto_Mission_Act_Info = new Auto_Mission_Act_Info(this);
+            this.Net = new API.Net(this);
+            this.dailyReFlash = new DailyReFlash(this);
+            this.dataCheck = new DataCheck(this);
+
         }
         public void CreatGameAccount(DataBase.GameAccount gameAccount)
         {
@@ -168,12 +191,9 @@ namespace GFHelp.Core.Management
         {
             user_Info = new User_Info();
             user_Record = new User_Record();
-            kalina_with_user_info = new Kalina_With_User_Info();
-
-
         }
 
-        public void Read(dynamic jsonobj,LitJson.JsonData jsonData)
+        public void Read(dynamic jsonobj, LitJson.JsonData jsonData)
         {
             Clear();
 
@@ -213,12 +233,13 @@ namespace GFHelp.Core.Management
             squadDataAnalysisAction.Read(jsonData);
             task_Daily.Read(jsonData);
             squad_With_User_Info.Read(jsonData);
+            mission_With_User_Info.Read(jsonData);
             chip_With_User_Info.Read(jsonData);
             equip_Built.Read(jsonData);
             doll_Build.Read(jsonData);
 
             share_With_User_Info.Read(jsonobj);
-            Function.SetTeamInfo(this);
+            others.SetTeamInfo();
 
         }
         private void ReadUserData_mission_act_info(LitJson.JsonData JsonData)
@@ -228,7 +249,8 @@ namespace GFHelp.Core.Management
                 if (JsonData["mission_act_info"] == null) return;
                 else
                 {
-                    this.others.Mission_S = true;
+                    this.battle.Abort_Mission_login();
+
                 }
             }
             catch (Exception)
@@ -238,19 +260,15 @@ namespace GFHelp.Core.Management
 
         }
 
-        public Task dailyLoop;
-        public Task battleLoop;
-        public ThreadLoop threadLoop;
-        public bool taskDispose = false;
-
-
+        public AuthCode authCode;
         public Home home;
         public Action.Battle battle;
+        public object ThreadLocker;
 
         public int Dorm_Rest_Friend_Build_Coin_Count;
 
 
-        public Config config; 
+        public Config config;
 
         public GameAccount GameAccount = new GameAccount();
 
@@ -262,7 +280,7 @@ namespace GFHelp.Core.Management
 
         public Equip equip_With_User_Info;
 
-        public Kalina_With_User_Info kalina_with_user_info = new Kalina_With_User_Info();
+        public Kalina_With_User_Info kalina_with_user_info;
         public Dorm_With_User_Info dorm_with_user_info;
         public Friend_With_User_Info friend_with_user_info = new Friend_With_User_Info();
 
@@ -272,7 +290,7 @@ namespace GFHelp.Core.Management
 
         public Upgrade_Act_Info upgrade_Act_Info;
 
-        public Outhouse_BattleReport outhouse_Establish_Info; 
+        public Outhouse_BattleReport outhouse_Establish_Info;
 
         public Fairy_With_User_info fairy_With_User_Info = new Fairy_With_User_info();
 
@@ -282,12 +300,14 @@ namespace GFHelp.Core.Management
 
         public Others others;
 
+        public Mission_With_User_Info mission_With_User_Info;
+
         public Mission mission;
         public Simulation simulation;
         public MissionInfo MissionInfo;
-        public Dictionary<int, Dictionary<int, Gun_With_User_Info>> Teams = new Dictionary<int, Dictionary<int, Gun_With_User_Info>>();//没读一次user_info都需要刷新
+        public Dictionary<int, Dictionary<int, Gun_With_User_Info.Data>> Teams = new Dictionary<int, Dictionary<int, Gun_With_User_Info.Data>>();//没读一次user_info都需要刷新
 
-        public BattleReport BattleReport;
+
 
         //任务列表
         public List<TaskListInfo> Task = new List<TaskListInfo>();
@@ -298,11 +318,11 @@ namespace GFHelp.Core.Management
         public WebData webData;
 
         public logWriter log = new logWriter();
-        public EventAction eventAction;
 
 
-
-
+        public API.Net Net;
+        public DailyReFlash dailyReFlash;
+        public DataCheck dataCheck;
         public SquadDataAnalysisAction squadDataAnalysisAction;
         public Squad_With_User_Info squad_With_User_Info;
         public Chip_With_User_Info chip_With_User_Info;
@@ -311,8 +331,9 @@ namespace GFHelp.Core.Management
         public Task_Daily task_Daily;
         public Share_With_User_Info share_With_User_Info;
         public Factory Factory;
-
+        public Response Response;
         public Random random = new Random();
+        public BaseRequset baseRequset = new BaseRequset();
     }
 
     public class Config
@@ -321,9 +342,24 @@ namespace GFHelp.Core.Management
         {
             ParmConfiuge(userData);
         }
-        public int ErrorCount = 1;
-        public bool LoginSuccessful = false;
+        public int ErrorCount = 2;
+        public bool FirstTimeLoginSuccess = false;
+        private bool _FinalLoginSuccess = false;
+        public bool FinalLoginSuccess
+        {
+            get
+            {
+                return _FinalLoginSuccess;
+            }
+            set
+            {
+                _FinalLoginSuccess = value;
+                AutoLoop.dic[UserID].FinalLoginSuccess = value;
+            }
 
+
+        }
+        public string UserID;
         public bool NeedAuto_Loop_Operation_Act = true;
         public bool NeedAuto_Click_Girls_In_Dorm = true;//这些都需要 read userinfo 重置
         public bool NewGun_Report_Stop = true;
@@ -333,9 +369,16 @@ namespace GFHelp.Core.Management
         public bool AutoSimulation = false;
         public bool DataAnalysis = false;
         public bool AutoTaskDaily = false;
+        public bool NormalReport = false;
+        public bool HeavyReport = false;
+
+        public bool M = false;
+        public double TimeDelay = 1;
+
 
         public void ParmConfiuge(UserData userData)
         {
+            UserID = userData.GameAccount.GameAccountID;
             if (string.IsNullOrEmpty(userData.GameAccount.Parm)) return;
             List<string> Parm = userData.GameAccount.Parm.ToLower().Split(' ').ToList();
             foreach (var item in Parm)
@@ -348,6 +391,27 @@ namespace GFHelp.Core.Management
                 {
                     this.AutoSimulation = true;
                 }
+                if (item.Contains("-nr"))
+                {
+                    this.NormalReport = true;
+                }
+                if (item.Contains("-hr"))
+                {
+                    this.HeavyReport = true;
+                }
+                if (item.Contains("-s"))
+                {
+                    this.AutoSimulation = true;
+                }
+                if (item.Contains("-m"))
+                {
+                    this.M = true;
+                    this.AutoStrengthen = true;
+                    this.AutoTaskDaily = true;
+                    this.TimeDelay = 0.1;
+                }
+
+
                 if (item.Contains("-all"))
                 {
                     this.AutoSimulation = true;
@@ -355,6 +419,8 @@ namespace GFHelp.Core.Management
                     this.DataAnalysis = true;
                     this.AutoTaskDaily = true;
                 }
+
+
             }
         }
 
@@ -375,7 +441,7 @@ namespace GFHelp.Core.Management
 
 
 
-    public class GameAccount: DataBase.GameAccount
+    public class GameAccount : DataBase.GameAccount
     {
         public void setData(DataBase.GameAccount data)
         {
@@ -412,52 +478,11 @@ namespace GFHelp.Core.Management
 
         public string data_version;
         public string ab_version;
-    }
-
-
-
-    public class EventAction
-    {
-        private UserData userData;
-        public EventAction(UserData userData)
-        {
-            this.userData = userData;
-            this.waiter = new Waiter();
-            Action += this.waiter.ActionEvent;
-            Task run = new Task(Run);
-            run.Start();
-        }
-        public Waiter waiter;
-        private event ActionEventHandler Action;
-        private List<ActionEventArgs> list = new List<ActionEventArgs>();
-        private void Run()
-        {
-            while (true)
-            {
-                Thread.Sleep(1000);
-                if (userData.taskDispose) return;
-                if (list.Count == 0) continue;
-                this.Action.Invoke(userData, list[0]);
-                list.RemoveAt(0);
-            }
-        }
-
-        private void invoke(ActionEventArgs e)
-        {
-            if (this.Action != null)
-            {
-                list.Add(e);
-            }
-        }
-
-
-        public void ReloadMissionDll()
-        {
-            invoke(new ActionEventArgs(TaskList.ReloadMissionDll));
-        }
-
 
     }
+
+
+
 
 
 

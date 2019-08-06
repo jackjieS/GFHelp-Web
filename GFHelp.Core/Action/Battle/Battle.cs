@@ -6,6 +6,7 @@ using GFHelp.Core.MulitePlayerData;
 using LitJson;
 using System;
 using System.Collections.Generic;
+using System.IO;
 using System.Text;
 using System.Threading;
 
@@ -19,22 +20,23 @@ namespace GFHelp.Core.Action
         }
         private UserData userData;
 
-
+        private Random random = new Random();
+        private void ThreadDelay(int Second)
+        {
+            double randome = random.NextDouble() + 1;
+            Thread.Sleep((int)(Second * 1000 * userData.MissionInfo.GetFirstData().Delay * randome));
+        }
 
 
         public void Abort_Mission_login()
         {
-            if (userData.others.Mission_S)
-            {
-                new Log().userInit(userData.GameAccount.GameAccountID, "终止作战", "").userInfo();
-                abortMission();
-            }
-            
+            abortMission();
+
         }
-        public bool StartTrial(List<int>teamID)
+        public bool StartTrial(List<int> teamID)
         {
             userData.webData.StatusBarText = "开始防御演习";
-            Thread.Sleep(2000);
+            ThreadDelay(5);
             StringBuilder stringBuilder = new StringBuilder();
             JsonWriter jsonWriter = new JsonWriter(stringBuilder);
             jsonWriter.WriteObjectStart();
@@ -48,9 +50,9 @@ namespace GFHelp.Core.Action
 
             while (true)
             {
-                string result = API.Battle.StartTrial(userData.GameAccount, stringBuilder.ToString());
+                string result = userData.Net.Battle.StartTrial(userData.GameAccount, stringBuilder.ToString());
 
-                switch (Response.Check(userData.GameAccount, ref result, "StartTrial_Pro", true))
+                switch (userData.Response.Check( ref result, "StartTrial_Pro", true))
                 {
                     case 1:
                         {
@@ -67,7 +69,7 @@ namespace GFHelp.Core.Action
                                 new Log().userInit(userData.GameAccount.GameAccountID, String.Format("{0} 无法开始作战任务，请登陆游戏检查", userData.user_Info.name)).userInfo();
                                 return false;
                             }
-                            userData.home.Login();
+                            userData.home.GetUserInfo();
                             userData.others.Check_Equip_GUN_FULL();
                             continue;
                         }
@@ -82,8 +84,9 @@ namespace GFHelp.Core.Action
             int count = 0;
             while (true)
             {
-                string result = API.Battle.EndTrial(userData.GameAccount, outdatacode);
-                switch (Response.Check(userData.GameAccount, ref result, "EndTrial_Pro", true))
+                ThreadDelay(5);
+                string result = userData.Net.Battle.EndTrial(userData.GameAccount, outdatacode);
+                switch (userData.Response.Check( ref result, "EndTrial_Pro", true))
                 {
                     case 1:
                         {
@@ -106,10 +109,11 @@ namespace GFHelp.Core.Action
                         break;
                 }
             }
-        
 
 
-    }
+
+        }
+
         public bool abortMission()
         {
             userData.webData.StatusBarText = (" 终止作战");
@@ -117,10 +121,10 @@ namespace GFHelp.Core.Action
             int count = 0;
             while (true)
             {
-                string result = API.Battle.abortMission(userData.GameAccount);
-                Thread.Sleep(1000);
+                string result = userData.Net.Battle.abortMission(userData.GameAccount);
+                ThreadDelay(3);
 
-                switch (Response.Check(userData.GameAccount,ref result, "Abort_Mission_Pro", true))
+                switch (userData.Response.Check( ref result, "Abort_Mission_Pro", true))
                 {
                     case 1:
                         {
@@ -148,7 +152,7 @@ namespace GFHelp.Core.Action
 
             if (data.Loop == false) return -1;
             userData.webData.StatusBarText = "回合开始";
-            Thread.Sleep(3000);
+
 
             StringBuilder stringBuilder = new StringBuilder();
             JsonWriter jsonWriter = new JsonWriter(stringBuilder);
@@ -176,7 +180,7 @@ namespace GFHelp.Core.Action
 
 
             jsonWriter.WritePropertyName("ally_id");
-            jsonWriter.Write(Decrypt.ConvertDateTime_China_Int(DateTime.Now));
+            jsonWriter.Write(Decrypt.getDateTime_China_Int(DateTime.Now));
 
 
 
@@ -186,9 +190,10 @@ namespace GFHelp.Core.Action
 
             while (true)
             {
-                string result =API.Battle.startMission(userData.GameAccount, stringBuilder.ToString());
+                ThreadDelay(15);
+                string result = userData.Net.Battle.startMission(userData.GameAccount, stringBuilder.ToString());
 
-                switch (Response.Check(userData.GameAccount, ref result, "Start_Mission_Pro", true))
+                switch (userData.Response.Check( ref result, "Start_Mission_Pro", true))
                 {
                     case 1:
                         {
@@ -197,19 +202,25 @@ namespace GFHelp.Core.Action
                         }
                     case 0:
                         {
+                            userData.home.GetUserInfo();
+                            userData.others.Check_Equip_GUN_FULL();
                             continue;
                         }
                     case -1:
                         {
-                            if(count++ > userData.config.ErrorCount)
+                            userData.home.GetUserInfo();
+                            userData.battle.Check_Equip_Gun_FULL();
+                            if (count++ > userData.config.ErrorCount)
                             {
+                                if (data.Story == true)
+                                {
+                                    continue;
+                                }
                                 new Log().userInit(userData.GameAccount.GameAccountID, String.Format("{0} 无法开始作战任务，请登陆游戏检查", userData.user_Info.name)).userInfo();
                                 userData.MissionInfo.listTask[0].Using = false;
                                 userData.MissionInfo.listTask[0].Loop = false;
                                 return -1;
                             }
-                            userData.home.Login();
-                            userData.others.Check_Equip_GUN_FULL();
                             continue;
                         }
                     default:
@@ -222,7 +233,7 @@ namespace GFHelp.Core.Action
         {
             userData.webData.StatusBarText = "部署梯队";
 
-            Thread.Sleep(2000);
+
             int count = 0;
 
             StringBuilder stringBuilder = new StringBuilder();
@@ -237,10 +248,11 @@ namespace GFHelp.Core.Action
             int k = 0;
             while (true)
             {
-                string result =API.Battle.reinforceTeam(userData.GameAccount, stringBuilder.ToString());
+                ThreadDelay(5);
+                string result = userData.Net.Battle.reinforceTeam(userData.GameAccount, stringBuilder.ToString());
 
-                if (night == false) k = Response.Check(userData.GameAccount, ref result, "reinforceTeam",true);
-                if (night == true) k = Response.Check(userData.GameAccount, ref result, "night_reinforceTeam", true);
+                if (night == false) k = userData.Response.Check( ref result, "reinforceTeam", true);
+                if (night == true) k = userData.Response.Check( ref result, "night_reinforceTeam", true);
 
                 switch (k)
                 {
@@ -250,7 +262,7 @@ namespace GFHelp.Core.Action
                         }
                     case 0:
                         {
-                           continue;
+                            continue;
                         }
                     case -1:
                         {
@@ -271,7 +283,7 @@ namespace GFHelp.Core.Action
         public void allyTeamAi(int ally_instance_id, int ai_type)
         {
             userData.webData.StatusBarText = String.Format(" allyTeamAi = {0}", ally_instance_id.ToString());
-            Thread.Sleep(500);
+
             int count = 0;
             dynamic newjson = new DynamicJson();
             newjson.ally_instance_id /*这是节点*/ = ally_instance_id;/* 这是值*/
@@ -279,9 +291,10 @@ namespace GFHelp.Core.Action
 
             while (true)
             {
-                string result = API.Battle.allyTeamAi(userData.GameAccount,newjson.ToString());
+                ThreadDelay(2);
+                string result = userData.Net.Battle.allyTeamAi(userData.GameAccount, newjson.ToString());
 
-                switch (Response.Check(userData.GameAccount, ref result, "GUN_OUTandIN_Team_PRO", false))
+                switch (userData.Response.Check( ref result, "GUN_OUTandIN_Team_PRO", false))
                 {
                     case 1:
                         {
@@ -309,27 +322,27 @@ namespace GFHelp.Core.Action
         public void allyMySideMove()
         {
             userData.webData.StatusBarText = "allyMySideMove";
-            Thread.Sleep(500);
-            API.Battle.allyMySideMove(userData.GameAccount);
+            ThreadDelay(2);
+            userData.Net.Battle.allyMySideMove(userData.GameAccount);
         }
         public void startOtherSideTurn()
         {
             userData.webData.StatusBarText = "startOtherSideTurn";
-            Thread.Sleep(500);
-            API.Battle.startOtherSideTurn(userData.GameAccount);
+            ThreadDelay(2);
+            userData.Net.Battle.startOtherSideTurn(userData.GameAccount);
         }
 
         public void endOtherSideTurn()
         {
             userData.webData.StatusBarText = "endOtherSideTurn";
-            Thread.Sleep(500);
-            API.Battle.endOtherSideTurn(userData.GameAccount);
+            ThreadDelay(2);
+            userData.Net.Battle.endOtherSideTurn(userData.GameAccount);
         }
         public bool teamMove(TeamMove.Data teammove)
         {
             userData.webData.StatusBarText = "移动";
             //{"team_id":6,"from_spot_id":3033,"to_spot_id":3038,"move_type":1}
-            Thread.Sleep(1000);
+
             dynamic newjson = new DynamicJson();
             newjson.team_id /*这是节点*/ = teammove.team_id;/* 这是值*/
             newjson.from_spot_id /*这是节点*/ = teammove.from_spot_id;/* 这是值*/
@@ -340,9 +353,10 @@ namespace GFHelp.Core.Action
             //发送请求
             while (true)
             {
-                string result = API.Battle.teamMove(userData.GameAccount,newjson.ToString());
+                ThreadDelay(4);
+                string result = userData.Net.Battle.teamMove(userData.GameAccount, newjson.ToString());
 
-                switch (Response.Check(userData.GameAccount,ref result, "Team_Move_Pro", true))
+                switch (userData.Response.Check( ref result, "Team_Move_Pro", true))
                 {
                     case 1:
                         {
@@ -374,7 +388,7 @@ namespace GFHelp.Core.Action
         {
             userData.webData.StatusBarText = "移动";
             //{"team_id":6,"from_spot_id":3033,"to_spot_id":3038,"move_type":1}
-            Thread.Sleep(1000);
+            ThreadDelay(3);
             dynamic newjson = new DynamicJson();
             newjson.team_id /*这是节点*/ = teammove.team_id;/* 这是值*/
             newjson.from_spot_id /*这是节点*/ = teammove.from_spot_id;/* 这是值*/
@@ -385,9 +399,9 @@ namespace GFHelp.Core.Action
             //发送请求
             while (true)
             {
-                string result = API.Battle.teamMove(userData.GameAccount, newjson.ToString());
+                string result = userData.Net.Battle.teamMove(userData.GameAccount, newjson.ToString());
 
-                switch (Response.Check(userData.GameAccount, ref result, "Team_MoveRandom_Pro", true))
+                switch (userData.Response.Check( ref result, "Team_MoveRandom_Pro", true))
                 {
 
                     case 1:
@@ -455,7 +469,7 @@ namespace GFHelp.Core.Action
             {
                 data.recycleLog.Ammo += Convert.ToInt16(jsonobj.ammo);
             }
-            if (result.Contains("mre")&& !result.Contains("losemre"))
+            if (result.Contains("mre") && !result.Contains("losemre"))
             {
                 data.recycleLog.Mre += Convert.ToInt16(jsonobj.mre);
             }
@@ -478,15 +492,16 @@ namespace GFHelp.Core.Action
         {
             userData.webData.StatusBarText = "战斗结算";
             //new Log().userInit(userData.GameAccount.GameAccountID, String.Format("data = {0}", data));
-            Thread.Sleep(3000);
+
             int count = 0;
 
             while (true)
             {
+                ThreadDelay(10);
                 result = "";
-                result =API.Battle.battleFinish(userData.GameAccount,data);
+                result = userData.Net.Battle.battleFinish(userData.GameAccount, data);
 
-                switch (Response.Check(userData.GameAccount, ref result, "Battle_Finish_Pro", true))
+                switch (userData.Response.Check( ref result, "Battle_Finish_Pro", true))
                 {
                     case 1:
                         {
@@ -513,7 +528,7 @@ namespace GFHelp.Core.Action
         public bool FairyMissionSkill(int team_id, int spot_id, int new_spot_id)
         {
             userData.webData.StatusBarText = "妖精技能";
-            Thread.Sleep(2000);
+
             StringBuilder stringBuilder = new StringBuilder();
             JsonWriter jsonWriter = new JsonWriter(stringBuilder);
             jsonWriter.WriteObjectStart();
@@ -532,9 +547,10 @@ namespace GFHelp.Core.Action
 
             while (true)
             {
-                string result = API.Battle.FairyMissionSkill(userData.GameAccount,stringBuilder.ToString());
+                ThreadDelay(2);
+                string result = userData.Net.Battle.FairyMissionSkill(userData.GameAccount, stringBuilder.ToString());
 
-                switch (Response.Check(userData.GameAccount, ref result, "FairyMissionSkill", true))
+                switch (userData.Response.Check( ref result, "FairyMissionSkill", true))
                 {
                     case 1:
                         {
@@ -542,7 +558,7 @@ namespace GFHelp.Core.Action
                         }
                     case 0:
                         {
-                           continue;
+                            continue;
                         }
                     case -1:
                         {
@@ -561,7 +577,7 @@ namespace GFHelp.Core.Action
         public bool withdrawTeam(int spot_id)
         {
             userData.webData.StatusBarText = "撤离";
-            Thread.Sleep(2000);
+
             //{"spot_id":3033}
             var obj = new
             {
@@ -571,9 +587,10 @@ namespace GFHelp.Core.Action
             var jsonStringFromObj = DynamicJson.Serialize(obj);
             while (true)
             {
-                string result = API.Battle.withdrawTeam(userData.GameAccount,jsonStringFromObj.ToString());
+                ThreadDelay(3);
+                string result = userData.Net.Battle.withdrawTeam(userData.GameAccount, jsonStringFromObj.ToString());
 
-                switch (Response.Check(userData.GameAccount, ref result, "WithDraw_Team_Pro", true))
+                switch (userData.Response.Check( ref result, "WithDraw_Team_Pro", true))
                 {
                     case 1:
                         {
@@ -600,20 +617,20 @@ namespace GFHelp.Core.Action
         public string endTurn(MissionInfo.Data data)
         {
             userData.webData.StatusBarText = "endTurn";
-            Thread.Sleep(1000);
+
             int count = 0;
 
             while (true)
             {
-                string result =API.Battle.endTurn(userData.GameAccount);
-
-                switch (Response.Check(userData.GameAccount,ref result, "endTurn", true))
+                string result = userData.Net.Battle.endTurn(userData.GameAccount);
+                ThreadDelay(5);
+                switch (userData.Response.Check( ref result, "endTurn", true))
                 {
 
                     case 1:
                         {
                             var jsonobj = DynamicJson.Parse(result);
-                            userData.battle.Add_Get_Gun_Equip_Battle(jsonobj,data);
+                            userData.battle.Add_Get_Gun_Equip_Battle(jsonobj, data);
                             return result;
                         }
                     case 0:
@@ -636,25 +653,25 @@ namespace GFHelp.Core.Action
         }
 
 
-        public bool startTurn(MissionInfo.Data data)
+        public string startTurn(MissionInfo.Data data)
         {
             userData.webData.StatusBarText = "startTurn";
 
-            Thread.Sleep(1000);
+
             int count = 0;
 
             while (true)
             {
-                string result = API.Battle.startTurn(userData.GameAccount);
-
-                switch (Response.Check(userData.GameAccount,ref result, "startTurn", true))
+                string result = userData.Net.Battle.startTurn(userData.GameAccount);
+                ThreadDelay(5);
+                switch (userData.Response.Check( ref result, "startTurn", true))
                 {
                     case 1:
                         {
                             var jsonobj = DynamicJson.Parse(result);
 
                             userData.battle.Add_Get_Gun_Equip_Battle(jsonobj, data);
-                            return true;
+                            return result;
                         }
                     case 0:
                         {
@@ -665,7 +682,7 @@ namespace GFHelp.Core.Action
                             if (count++ > userData.config.ErrorCount)
                             {
                                 new Log().userInit(userData.GameAccount.GameAccountID, "startTurn Error", result).userInfo();
-                                return false;
+                                return result;
                             }
                             continue;
                         }
@@ -678,13 +695,14 @@ namespace GFHelp.Core.Action
         }
         public bool Simulation_battleFinish(string data)
         {
-            Thread.Sleep(2000);
+
             int count = 0;
             while (true)
             {
-                string result = API.Battle.simulation_DATA(userData.GameAccount, data);
+                ThreadDelay(10);
+                string result = userData.Net.Battle.simulation_DATA(userData.GameAccount, data);
 
-                switch (Response.Check(userData.GameAccount, ref result, "Simulation_DATA_Pro", true))
+                switch (userData.Response.Check( ref result, "Simulation_DATA_Pro", true))
                 {
                     case 1:
                         {
@@ -716,10 +734,10 @@ namespace GFHelp.Core.Action
             int count = 0;
             while (true)
             {
-                string result = API.Battle.endEnemyTurn(userData.GameAccount);
-                Thread.Sleep(1000);
+                string result = userData.Net.Battle.endEnemyTurn(userData.GameAccount);
+                Thread.Sleep(3);
 
-                switch (Response.Check(userData.GameAccount,ref result, "endEnemyTurn_PRO", true))
+                switch (userData.Response.Check( ref result, "endEnemyTurn_PRO", true))
                 {
                     case 1:
                         {
@@ -750,9 +768,9 @@ namespace GFHelp.Core.Action
             int count = 0;
             while (true)
             {
-                string result = API.Battle.SupplyTeam(userData.GameAccount, text);
-                Thread.Sleep(1000);
-                switch (Response.Check(userData.GameAccount, ref result, "GUN_OUTandIN_Team_PRO", false))
+                string result = userData.Net.Battle.SupplyTeam(userData.GameAccount, text);
+                Thread.Sleep(3);
+                switch (userData.Response.Check( ref result, "GUN_OUTandIN_Team_PRO", false))
                 {
                     case 1:
                         {
@@ -804,10 +822,10 @@ namespace GFHelp.Core.Action
             int count = 0;
             while (true)
             {
-                string result = API.Battle.saveHostage(userData.GameAccount,stringBuilder.ToString());
-                Thread.Sleep(1000);
+                string result = userData.Net.Battle.saveHostage(userData.GameAccount, stringBuilder.ToString());
+                Thread.Sleep(3);
 
-                switch (Response.Check(userData.GameAccount,ref result, "saveHostage", true))
+                switch (userData.Response.Check( ref result, "saveHostage", true))
                 {
                     case 1:
                         {
@@ -833,10 +851,10 @@ namespace GFHelp.Core.Action
 
 
         }
-        public void Check_Gun_need_FIX(bool fix=false)
+        public void Check_Gun_need_FIX(bool fix = false)
         {
             userData.webData.StatusBarText = "检查人形是否需要修复";
-            Thread.Sleep(1000);
+
             for (int k = 0; k <= userData.Teams.Count; k++)
             {
                 if (!userData.Teams.ContainsKey(k)) continue;
@@ -850,7 +868,7 @@ namespace GFHelp.Core.Action
                         Fix_Gun(userData.Teams[k][i].id, true);
 
                     }
-                    if(fix == false)
+                    if (fix == false)
                     {
                         if (userData.item_With_User_Info.Quick_Reinforce <= 10) continue;
                         if (userData.Teams[k][i].life == userData.Teams[k][i].maxLife) continue;
@@ -886,9 +904,9 @@ namespace GFHelp.Core.Action
             int count = 0;
             while (true)
             {
-                string result = API.Battle.Girl_Fix(userData.GameAccount,sb.ToString());
-
-                switch (Response.Check(userData.GameAccount, ref result, "GUN_OUTandIN_Team_PRO", false))
+                string result = userData.Net.Battle.Girl_Fix(userData.GameAccount, sb.ToString());
+                ThreadDelay(5);
+                switch (userData.Response.Check( ref result, "GUN_OUTandIN_Team_PRO", false))
                 {
                     case 1:
                         {
@@ -916,9 +934,9 @@ namespace GFHelp.Core.Action
         }
 
 
-        public Gun_With_User_Info initGun(int id,int gun_id, MissionInfo.Data data= null)
+        public Gun_With_User_Info.Data initGun(int id, int gun_id, MissionInfo.Data data = null)
         {
-            Gun_With_User_Info gwui = new Gun_With_User_Info();
+            Gun_With_User_Info.Data gwui = new Gun_With_User_Info.Data();
             gwui.id = id;
             gwui.gun_id = gun_id;
             gwui.teamId = 0;
@@ -952,17 +970,17 @@ namespace GFHelp.Core.Action
                     JsonData jsonEquip = jsonData["battle_get_equip"];
                     Equip.Data equip = new Equip.Data(jsonEquip);
                     userData.equip_With_User_Info.listEquip.Add(equip);
-                    
-                    if ((int)equip.info.rank==5)
+
+                    if ((int)equip.info.rank == 5)
                     {
                         new Log().userInit(userData.GameAccount.GameAccountID, "获得5星装备 意不意外 惊不惊喜").userInfo();
                     }
-                    if ((int)equip.info.rank == 5 && data.StopLoopByEquipRank5==true)
+                    if ((int)equip.info.rank == 5 && data.StopLoopByEquipRank5 == true)
                     {
                         data.Loop = false;
                     }
                 }
-                catch (Exception e)
+                catch (Exception)
                 {
                     new Log().userInit(userData.GameAccount.GameAccountID, "添加掉落装备遇到错误").userInfo();
                     return false;
@@ -972,8 +990,8 @@ namespace GFHelp.Core.Action
             {
                 try
                 {
-                    Gun_With_User_Info gwui = new Gun_With_User_Info();
-                    gwui = initGun(Convert.ToInt32(jsonobj.battle_get_gun.gun_with_user_id), Convert.ToInt32(jsonobj.battle_get_gun.gun_id),data);
+                    Gun_With_User_Info.Data gwui = new Gun_With_User_Info.Data();
+                    gwui = initGun(Convert.ToInt32(jsonobj.battle_get_gun.gun_with_user_id), Convert.ToInt32(jsonobj.battle_get_gun.gun_id), data);
                     userData.gun_With_User_Info.dicGunAdd(gwui);
                 }
                 catch (Exception e)
@@ -988,7 +1006,7 @@ namespace GFHelp.Core.Action
             {
                 try
                 {
-                    Gun_With_User_Info gwui = new Gun_With_User_Info();
+                    Gun_With_User_Info.Data gwui = new Gun_With_User_Info.Data();
                     gwui = initGun(jsonData["gun_with_user_id"].Int, jsonData["gun_id"].Int, data);
                     userData.gun_With_User_Info.dicGunAdd(gwui);
                 }
@@ -1004,8 +1022,8 @@ namespace GFHelp.Core.Action
             {
                 try
                 {
-                    Gun_With_User_Info gwui = new Gun_With_User_Info();
-                    gwui = initGun(Convert.ToInt32(jsonobj.mission_win_result.reward_gun.gun_with_user_id), Convert.ToInt32(jsonobj.mission_win_result.reward_gun.gun_id),data);
+                    Gun_With_User_Info.Data gwui = new Gun_With_User_Info.Data();
+                    gwui = initGun(Convert.ToInt32(jsonobj.mission_win_result.reward_gun.gun_with_user_id), Convert.ToInt32(jsonobj.mission_win_result.reward_gun.gun_id), data);
                     int i = 0;
                     while (true)
                     {
@@ -1039,7 +1057,7 @@ namespace GFHelp.Core.Action
                 int gun_with_user_id = int.Parse(jsonobj.gun_with_user_id.ToString());
                 try
                 {
-                    Gun_With_User_Info gwui = new Gun_With_User_Info();
+                    Gun_With_User_Info.Data gwui = new Gun_With_User_Info.Data();
                     gwui = initGun(gun_with_user_id, Convert.ToInt32(jsonobj.gun.gun_id));
                     int i = 0;
                     while (true)
@@ -1063,39 +1081,88 @@ namespace GFHelp.Core.Action
             return true;
         }
 
-
-        public void Check_NewGun(MissionInfo.Data data, Gun_With_User_Info gwui)
+        public void intelligencePoint(int misssionID)
         {
 
-            if (!userData.user_Info.gun_collect.Contains(gwui.gun_id))
+            Thread.Sleep(1000);
+            dynamic newjson = new DynamicJson();
+            newjson.mission_id /*这是节点*/ = misssionID;
+
+            int count = 0;
+            //发送请求
+            while (true)
             {
+                string result = userData.Net.Battle.intelligencePoint(userData.GameAccount, newjson.ToString());
 
-
-
-
-                new Log().userInit(userData.GameAccount.GameAccountID, string.Format("获取新人形 : {0} ,意不意外 惊不惊喜", CatchData.Base.Asset_Textes.ChangeCodeFromeCSV(Function.FindGunName_GunId(gwui.gun_id)))).userInfo();
-                if (data != null)
+                switch (int.Parse(result))
                 {
-                    if (data.StopLoopByStart3 && gwui.info.rank == 3) data.Loop = false;
-                    if (data.StopLoopByStart4 && gwui.info.rank==4) data.Loop = false;
-                    if (data.StopLoopByStart5 && gwui.info.rank == 5) data.Loop = false;
+
+                    case 1:
+                        {
+
+                            return;
+                        }
+                    default:
+                        {
+                            if (count++ > userData.config.ErrorCount)
+                            {
+                                new Log().userInit(userData.GameAccount.GameAccountID, "intelligencePoint Error", result).userInfo();
+                                return;
+                            }
+                            break;
+                        }
+
                 }
 
-                List<int> listLockid = new List<int>();
-                listLockid.Add(gwui.id);
-                List<int> listUnLockid = new List<int>();
-                userData.webData.StatusBarText = "LOCK";
-
-                Thread.Sleep(2000);
-               userData.home.changeLock(listLockid, listUnLockid);
-
             }
-            else
+
+
+
+        }
+
+        public void Check_NewGun(MissionInfo.Data data, Gun_With_User_Info.Data gwui)
+        {
+            bool Locked = false;
+            if (data != null)
             {
+                if (!userData.user_Info.gun_collect.Contains(gwui.gun_id))
+                {
+                    new Log().userInit(userData.GameAccount.GameAccountID, string.Format("获取新人形 : {0} ,意不意外 惊不惊喜", gwui.info.en_name)).userInfo();
+                    userData.home.changeLock(new List<int>(gwui.id), new List<int>());
+                    Locked = true;
+                }
 
+                if (data.StopLoopByStart3 && gwui.info.rank == 3)
+                {
+                    if (Locked == false)
+                    {
+                        userData.home.changeLock(new List<int>(gwui.id), new List<int>());
+                        Locked = true;
+                    }
+
+                    data.Loop = false;
+                }
+
+                if (data.StopLoopByStart4 && gwui.info.rank == 4)
+                {
+                    if (Locked == false)
+                    {
+                        userData.home.changeLock(new List<int>(gwui.id), new List<int>());
+                        Locked = true;
+                    }
+                    data.Loop = false;
+
+                }
+                if (data.StopLoopByStart5 && gwui.info.rank == 5)
+                {
+                    if (Locked == false)
+                    {
+                        userData.home.changeLock(new List<int>(gwui.id), new List<int>());
+                        Locked = true;
+                    }
+                    data.Loop = false;
+                }
             }
-
-
         }
 
         public void Battle_Result_PRO(ref MissionInfo.Data data, int teamLoc, ref string result, int gun_id = 0)
@@ -1130,14 +1197,26 @@ namespace GFHelp.Core.Action
 
         public void Check_Equip_Gun_FULL()
         {
-            userData.webData.StatusBarText= "检查装备仓库人形床位是否满额";
+            userData.webData.StatusBarText = "检查装备仓库人形床位是否满额";
 
 
             if (userData.others.Check_Equip_GUN_FULL())
             {
-                userData.home.Login();
                 if (userData.gun_With_User_Info.dicGun.Count + SystemOthers.ConfigData.UpdateCache >= userData.user_Info.maxgun)
                 {
+                    if (userData.config.M == true)
+                    {
+                        //解锁
+                        userData.Factory.UnlockGun();
+                        //全拆
+                        userData.Factory.Gun_retire(2);
+                        userData.Factory.Gun_retire(3);
+                        userData.Factory.Gun_retire(4);
+                        return;
+                    }
+
+
+
                     if (userData.MissionInfo.GetFirstData().AutoStrengthen)
                     {
                         userData.Factory.EatGunHandle();
@@ -1178,6 +1257,61 @@ namespace GFHelp.Core.Action
             }
         }
 
+        public bool buildingSkillPerform(mapbase.BuildIng buildIng)
+        {
+            ThreadDelay(5);
+
+            StringBuilder stringBuilder = new StringBuilder();
+            JsonWriter jsonWriter = new JsonWriter(stringBuilder);
+            jsonWriter.WriteObjectStart();
+
+            jsonWriter.WritePropertyName("trigger_type");
+            jsonWriter.Write(buildIng.trigger_type);
+            jsonWriter.WritePropertyName("trigger_person_spot");
+            jsonWriter.Write(buildIng.trigger_person_spot);
+            jsonWriter.WritePropertyName("building_spot_id");
+            jsonWriter.Write(buildIng.building_spot_id);
+
+            jsonWriter.WritePropertyName("active_mission_skills");
+            jsonWriter.WriteArrayStart();
+            foreach (var item in buildIng.active_mission_skills)
+            {
+                jsonWriter.Write(item);
+            }
+            jsonWriter.WriteArrayEnd();
+            jsonWriter.WriteObjectEnd();
+
+
+            int count = 0;
+            //发送请求
+            while (true)
+            {
+                string result = userData.Net.Battle.buildingSkillPerform(userData.GameAccount, stringBuilder.ToString());
+
+                switch (userData.Response.Check( ref result, "buildingSkillPerform", true))
+                {
+                    case 1:
+                        {
+                            return true;
+                        }
+                    case 0:
+                        {
+                            continue;
+                        }
+                    case -1:
+                        {
+                            if (count++ > userData.config.ErrorCount)
+                            {
+                                new Log().userInit(userData.GameAccount.GameAccountID, "teamMove Error", result).userInfo();
+                                return false;
+                            }
+                            continue;
+                        }
+                    default:
+                        break;
+                }
+
+            }
 
 
 
@@ -1185,8 +1319,60 @@ namespace GFHelp.Core.Action
 
 
 
+        }
 
 
+
+
+
+
+        //{"team_id":1,"gun_with_user_id":1303783,"location":1}
+        public bool BuildTeam(int TeamID,int GunID,int Loc)
+        {
+            StringBuilder sb = new StringBuilder();
+            JsonWriter jsondata = new JsonWriter(sb);
+            jsondata.WriteObjectStart();
+
+            jsondata.WritePropertyName("team_id");
+            jsondata.Write(TeamID);
+
+            jsondata.WritePropertyName("gun_with_user_id");
+            jsondata.Write(GunID);
+            jsondata.WritePropertyName("location");
+            jsondata.Write(Loc);
+            jsondata.WriteObjectEnd();
+
+            int count = 0;
+
+            while (true)
+            {
+                string result = userData.Net.Battle.BuildTeam(userData.GameAccount,sb.ToString());
+                switch (userData.Response.Check( ref result, "BuildTeam", false))
+                {
+                    case 1:
+                        {
+                            return true;
+                        }
+                    case 0:
+                        {
+                            return false;
+                        }
+                    case -1:
+                        {
+                            if (count++ > userData.config.ErrorCount)
+                            {
+                                new Log().userInit(userData.GameAccount.GameAccountID, "BuildTeam Error", result).userInfo();
+                                return false;
+                            }
+                            continue;
+                        }
+                    default:
+                        break;
+                }
+
+
+            }
+        }
 
 
 
@@ -1212,12 +1398,12 @@ namespace GFHelp.Core.Action
             {
                 return;
             }
-            if ((userData.user_Info.last_bp_recover_time + 7200 + 600) < (Helper.Decrypt.ConvertDateTime_China_Int(DateTime.Now)))//600是延迟10分钟
+            if ((userData.user_Info.last_bp_recover_time + 7200 + 600) < (Helper.Decrypt.getDateTime_China_Int(DateTime.Now)))//600是延迟10分钟
             {
                 //如果上次恢复时间到现在当前时间差距大于两个小时 则 发送请求 
                 GetRecoverBP();
                 userData.webData.StatusBarText = "空闲";
-                userData.user_Info.last_bp_recover_time = Helper.Decrypt.ConvertDateTime_China_Int(DateTime.Now);
+                userData.user_Info.last_bp_recover_time = Helper.Decrypt.getDateTime_China_Int(DateTime.Now);
             }
 
         }
@@ -1229,9 +1415,10 @@ namespace GFHelp.Core.Action
             int count = 0;
             while (true)
             {
-                string result =API.Battle.GetRecoverBP(userData.GameAccount);
+                ThreadDelay(5);
+                string result = userData.Net.Battle.GetRecoverBP(userData.GameAccount);
 
-                switch (Response.Check(userData.GameAccount,ref result, "Get_RecoverBP_Pro", true))
+                switch (userData.Response.Check( ref result, "Get_RecoverBP_Pro", true))
                 {
                     case 1:
                         {

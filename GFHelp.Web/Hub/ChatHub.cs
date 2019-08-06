@@ -9,6 +9,9 @@ using Microsoft.AspNetCore.SignalR;
 using GFHelp.Core.Management;
 using GFHelp.Core;
 using static GFHelp.Core.SignaIRClient;
+using Newtonsoft.Json;
+using GFHelp.Core.Helper;
+using GFHelp.Core.MulitePlayerData.WebData;
 
 namespace GFHelp.Web
 {
@@ -107,17 +110,55 @@ namespace GFHelp.Web
         /// 后端向前端发送信息
         /// </summary>
         /// <returns></returns>
-        public async Task SendSystemNotification(string SignalRID, string message)
+        public async Task SendSystemNotification(string SignalRID)
         {
-            await Clients.Client(SignalRID).SendAsync("ReceiveSystemNotification", message);
+            foreach (var log in Viewer.systemLogs)
+            {
+                await Clients.Client(SignalRID).SendAsync("ReceiveSystemNotification", JsonConvert.SerializeObject(log));
+            }
+
+
+
         }
         public async Task SendGameNotification(string SignalRID, string message)
         {
             await Clients.Client(SignalRID).SendAsync("ReceiveGameNotification", message);
         }
 
+        public async Task GetGamesStatus(string WebName)
+        {
+            var list = Core.Management.Data.data.getDatasByWebID(WebName);
+            List<WebStatus> webDatas = new List<WebStatus>();
+            foreach (var item in list)
+            {
+                item.webData.Get();
+                webDatas.Add(item.webData.webStatus);
+            }
+            string result = JsonConvert.SerializeObject(webDatas);
+            await Clients.Client(Context.ConnectionId).SendAsync("ReceiveGamesStatus", result);
+        }
 
+        public async Task GetGameDetails(string GameID)
+        {
 
+            if (Core.Management.Data.data.ContainsKey(GameID))
+            {
+                Core.Management.Data.data.getDataByID(GameID).webData.Get();
+                string result = JsonConvert.SerializeObject(Core.Management.Data.data.getDataByID(GameID).webData);
+                await Clients.Client(Context.ConnectionId).SendAsync("ReceiveGameDetails", result);
+            }
+        }
+        public async Task GetGameNoties(string GameID)
+        {
+            if (Viewer.usersLogs.ContainsKey(GameID))
+            {
+                foreach (var item in Viewer.usersLogs[GameID])
+                {
+                    await SendGameNotification(Context.ConnectionId, JsonConvert.SerializeObject(item));
+                }
+            }
+
+        }
 
 
 
@@ -128,25 +169,10 @@ namespace GFHelp.Web
         public override async Task OnConnectedAsync()
         {
             string name = Context.GetHttpContext().Request.Query["name"].ToString();
+            string id = Context.GetHttpContext().Request.Query["id"].ToString();
             if (name.ToLower() == "null" || string.IsNullOrEmpty(name)) return;
-            await Task.Run(() =>
-            {
-                try
-                {
-                    SignalRInfo user = new SignalRInfo();
-                    user.SignalRID = Context.ConnectionId;
-                    user.SignalRName = name;
-                    user.Level = DataBase.DataBase.getLevelNumber(user.SignalRName);
-                    userList.Add(user);
-                    SendSystemNotice(Context.ConnectionId);
-                    SendGameNotice(Context.ConnectionId);
-                }
-                catch (Exception e)
-                {
-                    new Core.Helper.Log().systemInit("OnDisconnectedAsync ERROR", e.ToString()).signarlError();
-                }
-                
-            });
+            await  GetGameNoties(name);
+            await SendSystemNotification(id);
         }
 
 
@@ -157,27 +183,6 @@ namespace GFHelp.Web
         /// <returns></returns>
         public override async Task OnDisconnectedAsync(Exception ex)
         {
-            await Task.Run(() => {
-                try
-                {
-                    for (int i = 0; i < userList.Count; i++)
-                    {
-                        if(userList[i].SignalRID == Context.ConnectionId)
-                        {
-                            userList[i] = null;
-                            userList.RemoveAt(i);
-                            return;
-                        }
-                    }
-                }
-                catch (Exception e)
-                {
-                    new Core.Helper.Log().systemInit("OnDisconnectedAsync ERROR", e.ToString()).signarlError();
-
-                }
-
-
-            });
         }
 
 

@@ -1,4 +1,4 @@
-<!DOCTYPE html>
+﻿<!DOCTYPE html>
 <html lang="zh-CN">
 
 <head>
@@ -14,7 +14,7 @@
     <link rel="stylesheet" href="css/new.css">
     <!-- jquery js -->
     <script src="dist/lib/jquery/jquery.js"></script>
-
+    <script src="js/basetools.js"></script>
 </head>
 
 <body>
@@ -154,29 +154,26 @@
     <script src="js/auth.js"></script>
     <script type="text/javascript">
         $(function () {
+            checkToken();
             programInit();
             $("#BasePage").load("BasePage.html",function(response,status){
                 if(status=="success"){
                     document.getElementById("content-wrapper").style["display"]="block";
                 }
             });
-
+            startWorker();
         });
 
         function InformationShows() {
 
             $('#informationModel').modal('show');
         }
-
+        const Webuser = getCookie('username');
+        const conGamesStatus= new signalR.HubConnectionBuilder().withUrl('http://'+getHost()+':7777/chatHub?name=' + getCookie('username')).build();
+        conGamesStatus.start().catch(err => console.error(err.toString()));
         function programInit() {
-
-            // const Webuser = sessionStorage.getItem('username')
-            const Webuser = getCookie('username');
-            const conGamesStatus = new signalR.HubConnectionBuilder().withUrl("http://127.0.0.1:7777/chatHub?name=" + Webuser).build();
-
-            conGamesStatus.start().catch(err => console.error(err.toString()));
-
             conGamesStatus.on("ReceiveGamesStatus", (message) => {
+                console.log(message);
                 var html = '';
                 message = $.parseJSON(message);
                 for (var key in message) {
@@ -204,10 +201,17 @@
             });
 
         }
+        function startWorker() {
+            setInterval(
+                function () {
+                    conGamesStatus.invoke("GetGamesStatus", getCookie('username')).catch(err => console.error(err.toString()));
+                }, 1000);
+        }
+
         function getUserInfo() {
             var token = checkToken();
             $.ajax({
-                url: 'http://127.0.0.1:7777/Account/GetGamesInfo',
+                url: 'http://'+getHost()+':7777/Account/GetGamesInfo',
                 type: 'get',
                 dataType: 'json',
                 headers: { 'Authorization': 'Bearer ' + token },
@@ -245,7 +249,6 @@
             });
         }
         function checkToken() {
-            // var token = sessionStorage.getItem('token');
             var token = getCookie('token');
             if (!token) {
                 alert('您尚未登录游戏，请先登录');
@@ -270,7 +273,7 @@
                     webUsername: 'string'
                 });
                 $.ajax({
-                    url: 'http://127.0.0.1:7777/DeleteGame',
+                    url: 'http://'+getHost()+':7777/DeleteGame',
                     type: 'post',
                     dataType: 'json',
                     headers: { 'Authorization': 'Bearer ' + token },
@@ -287,7 +290,7 @@
         function startOperation(Obj) {
             var token = checkToken();
             $.ajax({
-                url: 'http://127.0.0.1:7777/Game/StartOperation',
+                url: 'http://'+getHost()+':7777/Game/StartOperation',
                 type: 'post',
                 dataType: 'json',
                 data: { accountID: accountID, operationID: operationID, teamID: teamID },
@@ -332,7 +335,7 @@
                 });
                 console.log(data);
                 $.ajax({
-                    url: 'http://127.0.0.1:7777/CreatGame',
+                    url: 'http://'+getHost()+':7777/CreatGame',
                     type: 'post',
                     dataType: 'json',
                     headers: { 'Authorization': 'Bearer ' + token },
@@ -363,7 +366,7 @@
             // var username = sessionStorage.getItem('username');
             var username = getCookie('username');
             $.ajax({
-                url: 'http://127.0.0.1:7777/Game/Login',
+                url: 'http://'+getHost()+':7777/Game/Login',
                 type: 'post',
                 dataType: 'json',
                 contentType: 'application/json;charset=UTF-8',

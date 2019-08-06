@@ -1,0 +1,15 @@
+﻿<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <TargetFramework>netcoreapp2.1</TargetFramework>
+    <Configurations>Debug;Release;9</Configurations>
+    <Platforms>AnyCPU;x64</Platforms>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <Reference Include="LitJson">
+      <HintPath>..\..\CS\GFHelp-Web\GFHelp.Web\bin\Debug\netcoreapp2.1\LitJson.dll</HintPath>
+    </Reference>
+  </ItemGroup>
+
+</Project>

@@ -47,7 +47,7 @@ namespace GFHelp.Core.MulitePlayerData
             if(listSquadDataAnalysisAction.Count==0) return false;
             foreach (var item in listSquadDataAnalysisAction)
             {
-                if(item.endTime > Decrypt.ConvertDateTime_China_Int(DateTime.Now))
+                if(item.endTime > Decrypt.getDateTime_China_Int(DateTime.Now))
                 {
                     return false;
                 }
@@ -73,9 +73,9 @@ namespace GFHelp.Core.MulitePlayerData
             int count = 0;
             while (true)
             {
-                string result = API.Dorm.DataAnalysisFinishAll(userData.GameAccount);
+                string result = userData.Net.Dorm.DataAnalysisFinishAll(userData.GameAccount);
 
-                switch (Response.Check(userData.GameAccount, ref result, "DataAnalysisFinishAll", true))
+                switch (userData.Response.Check( ref result, "DataAnalysisFinishAll", true))
                 {
                     case 1:
                         {
@@ -129,7 +129,7 @@ namespace GFHelp.Core.MulitePlayerData
                     }
                 }
             }
-            this.userData.home.Login();
+            this.userData.home.GetUserInfo();
         }
 
 
@@ -167,11 +167,11 @@ namespace GFHelp.Core.MulitePlayerData
                 }
 
                 int cost = num * 20;
-                result = API.Dorm.DataAnalysis(userData.GameAccount,data);
+                result = userData.Net.Dorm.DataAnalysis(userData.GameAccount,data);
                 new Log().userInit(userData.GameAccount.GameAccountID, result).userInfo();
                 if (resultCheck(result) == 1)
                 {
-                    Response.Check(userData.GameAccount, ref result, "DataAnalysisStart", true);
+                    userData.Response.Check( ref result, "DataAnalysisStart", true);
                     if (inputLevel == 0) userData.item_With_User_Info.originalData -= cost;
                     if (inputLevel == 1) userData.item_With_User_Info.originalData -= cost;
                     DataAnalysisStartRead(result);

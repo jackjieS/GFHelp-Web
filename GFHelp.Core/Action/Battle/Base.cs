@@ -6,6 +6,7 @@ using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
+using System.Threading.Tasks;
 
 namespace GFHelp.Core.Action.BattleBase
 {
@@ -16,7 +17,7 @@ namespace GFHelp.Core.Action.BattleBase
             Data data = new Data();
             data.spot_id = spot_id;
             data.team_loc = key;
-            dic.Add(dic.Count,data);
+            dic.Add(dic.Count, data);
         }
 
 
@@ -166,7 +167,7 @@ namespace GFHelp.Core.Action.BattleBase
             seed += user_exp;
             return seed;
         }
-        public Dictionary<int, Gun_With_User_Info> teaminfo = new Dictionary<int, Gun_With_User_Info>();
+        public Dictionary<int, Gun_With_User_Info.Data> teaminfo = new Dictionary<int, Gun_With_User_Info.Data>();
     }
 
     public class MissionInfo
@@ -188,7 +189,7 @@ namespace GFHelp.Core.Action.BattleBase
 
 
 
-        }
+            }
 
             public List<TeamInfo> Teams = new List<TeamInfo>();
             public string MissionMap = "";
@@ -201,24 +202,26 @@ namespace GFHelp.Core.Action.BattleBase
             public bool needSupply = true;
             public int requestLv = 0;
             public bool Using = false;
-
+            public bool Story = false;
             public int CommanderLv = 0;
             public bool AutoCombine = true;
             public bool AutoStrengthen = true;
             public bool AutoQuickFix = true;
             public int AutoQuickFixTimes = 0;
-            public bool StopLoopByEquipRank5=false;
+            public bool StopLoopByEquipRank5 = false;
             public bool StopLoopByStart3 = false;
             public bool StopLoopByStart4 = false;
             public bool StopLoopByStart5 = false;
             public bool StopLoopByNumberCoreR = false;
             public bool StopLoopByPrize = false;
-            public int NumberCoreRequire =0;
+            public int NumberCoreRequire = 0;
             public int NumberCore = 0;
             public bool needlog = false;
-            public int user_exp=0;
-            public string Parm="";
+            public int user_exp = 0;
+            public string Parm = "";
             public int equipid = 0;
+            public double Delay = 1;
+            public DateTime dateTimeStart = DateTime.Now;
             public RecycleLog recycleLog;
             public class RecycleLog
             {
@@ -233,9 +236,9 @@ namespace GFHelp.Core.Action.BattleBase
 
                 public int Gun = 0;
 
-                public void ResultD(UserData userData,string result)
+                public void ResultD(UserData userData, string result)
                 {
-                    
+
 
 
 
@@ -258,6 +261,7 @@ namespace GFHelp.Core.Action.BattleBase
 
             public Data(UserData userData, Battle battle)
             {
+
                 this.recycleLog = new RecycleLog();
                 this.Using = true;
                 this.user_exp = userData.user_Info.experience;
@@ -266,7 +270,7 @@ namespace GFHelp.Core.Action.BattleBase
                 for (int i = 0; i < battle.Teams.Count; i++)
                 {
                     if (battle.Teams[i] == null) continue;
-                    if (battle.Teams[i].Skt==0)
+                    if (battle.Teams[i].Skt == 0)
                     {
                         battle.Teams[i].Skt = userData.random.Next(20000, 30000);
                     }
@@ -366,7 +370,16 @@ namespace GFHelp.Core.Action.BattleBase
                     }
                     if (item.Contains("-equipid"))
                     {
-                        this.equipid = Convert.ToInt32(item.Remove(0,8));
+                        this.equipid = Convert.ToInt32(item.Remove(0, 8));
+                    }
+                    if (item.Contains("-d"))
+                    {
+                        this.Delay = Convert.ToDouble(item.Remove(0, 2));
+                        userData.config.TimeDelay = this.Delay;
+                    }
+                    else
+                    {
+                        userData.config.TimeDelay = 1;
                     }
 
                 }
@@ -379,15 +392,15 @@ namespace GFHelp.Core.Action.BattleBase
 
             public int getTeamId()
             {
-                if(Teams.Count!=0)
-                return Teams[0].TeamID;
+                if (Teams.Count != 0)
+                    return Teams[0].TeamID;
                 return 1;
             }
             public void LifeReduce(int teamID)
             {
                 if (AutoQuickFix == false) return;
                 if (Teams.Count == 0) return;
-                
+
                 for (int i = 0; i < Teams[teamID].teaminfo.Count; i++)
                 {
                     if (!Teams[teamID].teaminfo.ContainsKey(i)) continue;
@@ -405,6 +418,60 @@ namespace GFHelp.Core.Action.BattleBase
 
 
         public List<Data> listTask = new List<Data>();
+        public Task battleLoop;
+        public void Add(Data data)
+        {
+            if (listTask.Count == 0)
+            {
+                listTask.Add(data);
+                battleLoop = new Task(() => Start());
+                battleLoop.Start();
+                return;
+            }
+
+            if (listTask.Count != 0)
+            {
+                listTask.Add(data);
+                return;
+            }
+
+        }
+        public void Start()
+        {
+            while (listTask.Count > 0)
+                try
+                {
+                    Console.WriteLine("BattleLoop 被调用了");
+                    userData.mission.Test();
+                }
+                catch (Exception e)
+                {
+                    new Log().systemInit("MissionInfo.Task battleLoop Error ", e.ToString()).coreError();
+                }
+        }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
         public Data GetFirstData()
         {
@@ -421,7 +488,7 @@ namespace GFHelp.Core.Action.BattleBase
         public void setFirstDataLoopFalse()
         {
             if (listTask.Count == 0) return;
-            listTask[0].Loop=false;
+            listTask[0].Loop = false;
         }
 
         public MissionInfo(UserData userData)
@@ -442,7 +509,7 @@ namespace GFHelp.Core.Action.BattleBase
     {
         public class Data
         {
-            
+
             public Random random = new Random();
             public int spot_id;
             public bool if_enemy_die = true;
@@ -518,7 +585,7 @@ namespace GFHelp.Core.Action.BattleBase
             writer.WritePropertyName("if_enemy_die");
             writer.Write(data.if_enemy_die);
             writer.WritePropertyName("current_time");
-            writer.Write(Helper.Decrypt.ConvertDateTime_China_Int(DateTime.Now));
+            writer.Write(Helper.Decrypt.getDateTime_China_Int(DateTime.Now));
             writer.WritePropertyName("boss_hp");
             writer.Write(data.boss_hp);
             writer.WritePropertyName("mvp");
@@ -620,6 +687,8 @@ namespace GFHelp.Core.Action.BattleBase
             writer.WritePropertyName("43");
             writer.Write(0);
             writer.WritePropertyName("44");
+            writer.Write(0);
+            writer.WritePropertyName("92");
             writer.Write(0);
             writer.WriteObjectEnd();
 
@@ -773,7 +842,7 @@ namespace GFHelp.Core.Action.BattleBase
             }
             if (Sday.SimulationType == 2)
             {
-                if(userData.others.GetSimulatieDataType()==1 && userData.user_Info.bp >= 1)
+                if (userData.others.GetSimulatieDataType() == 1 && userData.user_Info.bp >= 1)
                 {
                     Simulation_DATA();
                     userData.user_Info.bp -= 1;
@@ -795,7 +864,7 @@ namespace GFHelp.Core.Action.BattleBase
             {
                 CorridorRun();
                 userData.user_Info.bp -= 3;
-                
+
             }
         }
 
@@ -820,7 +889,7 @@ namespace GFHelp.Core.Action.BattleBase
 
             bs.Teams = new List<Team>();
             MissionInfo.Data data = new MissionInfo.Data(userData, bs);
-            userData.MissionInfo.listTask.Add(data);
+            userData.MissionInfo.Add(data);
 
 
 
@@ -833,7 +902,7 @@ namespace GFHelp.Core.Action.BattleBase
             bs.Parm = "-t1 -c -ns -qf -a -e";
             bs.Teams = new List<Team>();
             MissionInfo.Data data = new MissionInfo.Data(userData, bs);
-            userData.MissionInfo.listTask.Add(data);
+            userData.MissionInfo.Add(data);
         }
 
         private void CorridorRun()
@@ -845,7 +914,7 @@ namespace GFHelp.Core.Action.BattleBase
             bs.Parm = "-t1 -c -ns -qf -a -e";
             bs.CreatTeamList(userData.others.getAvailableTeamID());
             MissionInfo.Data data = new MissionInfo.Data(userData, bs);
-            userData.MissionInfo.listTask.Add(data);
+            userData.MissionInfo.Add(data);
         }
 
 
@@ -879,7 +948,7 @@ namespace GFHelp.Core.Action.BattleBase
             {
                 get
                 {
-                    return (int)Helper.Decrypt.LocalDateTimeConvertToChina(DateTime.Now).DayOfWeek;
+                    return (int)Decrypt.ChinaTimeDateTime.DayOfWeek;
                 }
             }
         }
@@ -919,6 +988,14 @@ namespace GFHelp.Core.Action.BattleBase
             }
             return false;
         }
+        public bool isParmError()
+        {
+            if (!Parm.Contains("-t"))
+            {
+                return true;
+            }
+            return false;
+        }
         public void CreatTeamList(List<int> teamlist)
         {
             Teams = new List<Team>();
@@ -951,6 +1028,23 @@ namespace GFHelp.Core.Action.BattleBase
         public Spot.Data[] Mission_Start_spots;
         public TeamMove teamMove = new TeamMove();
         public Spot Spots = new Spot();
+        public List<BuildIng> listBuilding = new List<BuildIng>();
+        public class BuildIng
+        {
+            public BuildIng(int trigger_type, int trigger_person_spot, int building_spot_id, int[] active_mission_skills)
+            {
+                this.trigger_type = trigger_type;
+                this.trigger_person_spot = trigger_person_spot;
+                this.building_spot_id = building_spot_id;
+                this.active_mission_skills = active_mission_skills;
+            }
+            public int trigger_type;
+            public int trigger_person_spot;
+            public int building_spot_id;
+            public int[] active_mission_skills;
+
+
+        }
     }
 
 
