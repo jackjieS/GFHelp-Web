@@ -43,7 +43,19 @@ namespace GFHelp.Core.MulitePlayerData
             }
 
         }
+        private void Auto_Act_Summery()
+        {
 
+            //userData.equip_Built.AutoRun();
+            //userData.task_Daily.AutoRun();
+            userData.home.Click_Kalina();
+            userData.dorm_with_user_info.ClickGirlsFavor();
+            if (userData.config.M) return;
+            userData.battle.BP_Recover();
+            userData.simulation.Run();
+            userData.outhouse_Establish_Info.AutoRun();
+            userData.squadDataAnalysisAction.AutoRun();
+        }
         public async void AutoRun()
         {
             if (Locker) return;
@@ -63,11 +75,13 @@ namespace GFHelp.Core.MulitePlayerData
 
                 userData.config.FinalLoginSuccess = false;
 
-                userData.home.SecondLogin();
+                userData.home.Login();
 
                 SetdefaultLoginTime();
 
                 userData.config.FinalLoginSuccess = true;
+
+                Auto_Act_Summery();
 
                 Interlocked.Decrement(ref AutoLoop.ThreadInfo.LoginThreadNum);
 

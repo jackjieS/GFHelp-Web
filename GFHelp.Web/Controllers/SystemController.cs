@@ -217,6 +217,22 @@ namespace GFHelp.Web.Controllers
 
 
         /// <summary>
+        /// 系统是否正在运行
+        /// </summary>
+        /// <returns></returns>
+        [Route("/System/isRunning")]
+        [HttpGet]
+        public IActionResult isRunning()
+        {
+
+            return Ok(new
+            {
+                code = 1,
+                message = "Running"
+            });
+        }
+
+        /// <summary>
         /// 获取系统信息
         /// </summary>
         /// <returns></returns>
