@@ -60,7 +60,7 @@ namespace GFHelp.Core.Management
             public bool FinalLoginSuccess = false;
             public int OperationNextTime;
             public int DollBuildNextTime;
-
+            public int EquipBuildNextTime;
             public void DataCheck()
             {
                 if (FinalLoginSuccess == false) return;
@@ -78,6 +78,10 @@ namespace GFHelp.Core.Management
                 if (DollBuildNextTime < Decrypt.getDateTime_China_Int(DateTime.Now))
                 {
                     Data.data.mDatas[UserName].doll_Build.AutoRun();
+                }
+                if (EquipBuildNextTime < Decrypt.getDateTime_China_Int(DateTime.Now))
+                {
+                    Data.data.mDatas[UserName].equip_Built.AutoRun();
                 }
             }
         }

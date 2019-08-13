@@ -38,7 +38,6 @@ namespace GFHelp.Core.CatchData.Base
         private static string squadtypename = currentDirectory + "\\textRes\\squad_type.csv";
         private static string squadname = currentDirectory + "\\textRes\\squad.csv";
         private static Dictionary<int, ConfigNode> csvdata = new Dictionary<int, ConfigNode>();
-        private static int maxline = 0;
 
 
 
@@ -75,15 +74,15 @@ namespace GFHelp.Core.CatchData.Base
             string[] con = File.ReadAllLines(filename);
             try
             {
-                int linenum = csvdata.Count - 1;
+                int linenum = csvdata.Count;
                 foreach (string line in con)
                 {
-                    ++linenum;
+ 
                     if (String.IsNullOrEmpty(line) || line[0] == '#') continue;//注释
                     string[] c = line.Split(',');
                     tempdictionary.Add(linenum, new ConfigNode(c[0].Trim(), c[1].Trim().ToLower()));
+                    linenum++;
                 }
-                maxline = con.Length;
                 return true;
             }
             catch (Exception e)

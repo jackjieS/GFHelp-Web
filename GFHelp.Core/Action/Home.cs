@@ -377,7 +377,7 @@ namespace GFHelp.Core.Action
         }
 
 
-        private void DailyTask()
+        public void DailyTask()
         {
             if (!userData.config.AutoTaskDaily) return;
             userData.webData.StatusBarText = "获取每日任务";
@@ -389,13 +389,12 @@ namespace GFHelp.Core.Action
         public void Click_Kalina()
         {
             if (userData.config.M) return;
-            if (userData.kalina_with_user_info.click_num < 5)
+            while (userData.kalina_with_user_info.click_num++ < 5)
             {
                 string result = userData.Net.Kalina.Click_kalinaFavor(userData.GameAccount);
                 if (result.Contains("1"))
                 {
                     userData.webData.StatusBarText = String.Format(" Kalina好感度 + 1 ");
-                    userData.kalina_with_user_info.click_num++;
                 }
             }
         }

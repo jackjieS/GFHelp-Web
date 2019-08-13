@@ -45,12 +45,10 @@ namespace GFHelp.Core.MulitePlayerData
         }
         private void Auto_Act_Summery()
         {
-
-            //userData.equip_Built.AutoRun();
-            //userData.task_Daily.AutoRun();
             userData.home.Click_Kalina();
             userData.dorm_with_user_info.ClickGirlsFavor();
-            if (userData.config.M) return;
+            userData.home.DailyTask();//十次关卡 建造 强化
+            //重装任务
             userData.battle.BP_Recover();
             userData.simulation.Run();
             userData.outhouse_Establish_Info.AutoRun();
