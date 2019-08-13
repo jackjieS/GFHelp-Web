@@ -110,34 +110,43 @@ namespace GFHelp.Core.MulitePlayerData
 
         private void Run(Data data)
         {
+            bool isSuccessed;
             try
             {
-                if (finishDevelop(data) == false)
+                if (data.isEmpty == false)
                 {
-                    Built_Slot[data.build_slot] = new Data(data.build_slot);
-                    SetNextTime();
-                    return;
+                    isSuccessed = finishDevelop(data);
+                    if (isSuccessed)
+                    {
+                        data.isEmpty = true;
+                    }
+                    else
+                    {
+                        Built_Slot[data.build_slot] = new Data(data.build_slot);
+                        SetNextTime();
+                        return;
+                    }
                 }
-                Thread.Sleep(1000);
-
-                if (startDevelop(data) == false)
+                if (data.isEmpty == true)
                 {
-                    Built_Slot[data.build_slot] = new Data(data.build_slot);
-                    SetNextTime();
-                    return;
+                    isSuccessed = startDevelop(data);
+                    if (isSuccessed)
+                    {
+                        data.isEmpty = false;
+                    }
+                    else
+                    {
+                        Built_Slot[data.build_slot] = new Data(data.build_slot);
+                        SetNextTime();
+                        return;
+                    }
                 }
-
-
                 return;
             }
             catch (Exception e)
             {
                 Console.WriteLine("DollBuild Error");
-                throw;
             }
-
-
-
         }
 
 
@@ -209,10 +218,10 @@ namespace GFHelp.Core.MulitePlayerData
             newjson.build_slot = data.build_slot;/* 这是值*/
             newjson.input_level = data.input_level;/* 这是值*/
             int count = 0;
-            while (count<=userData.config.ErrorCount)
+            while (count++ <= userData.config.ErrorCount)
             {
                 string result = userData.Net.Factory.startEquipDevelop(userData.GameAccount, newjson.ToString());
-                if(userData.Response.Check(ref result, "startDevelop", true) == 1)
+                if (userData.Response.Check(ref result, "startDevelop", true) == 1)
                 {
                     JsonData jsonData = JsonMapper.ToObject(result.ToString());
                     if (result.Contains("equip"))
@@ -263,10 +272,10 @@ namespace GFHelp.Core.MulitePlayerData
             int count = 0;
             dynamic newjson = new DynamicJson();
             newjson.build_slot = data.build_slot;/* 这是值*/
-            while (count++<=userData.config.ErrorCount)
+            while (count++ <= userData.config.ErrorCount)
             {
-                string result = userData.Net.Factory.finishEquipDevelop(userData.GameAccount,newjson.ToString());
-                if(userData.Response.Check(ref result, "finishDevelop", true) == 1)
+                string result = userData.Net.Factory.finishEquipDevelop(userData.GameAccount, newjson.ToString());
+                if (userData.Response.Check(ref result, "finishDevelop", true) == 1)
                 {
                     JsonData jsonData = JsonMapper.ToObject(result.ToString());
                     if (result.Contains("fairy_with_user"))
@@ -309,7 +318,7 @@ namespace GFHelp.Core.MulitePlayerData
                 if (jsonData != null)
                 {
                     this.type = jsonData["type"].Int;
-                    if(jsonData.Contains("equip_id"))
+                    if (jsonData.Contains("equip_id"))
                     {
                         this.equip_id = jsonData["equip_id"].Int;
                         this.develop_duration = CatachData.getEquipDevTimeByID(this.equip_id);
@@ -333,11 +342,11 @@ namespace GFHelp.Core.MulitePlayerData
                     this.isEmpty = false;
                 }
             }
-            public bool isEmpty;
+            public bool isEmpty = true;
             public int type;//表示当前字段在字典里的键位
             public int equip_id;
             public int fairy_id;
-            public int build_slot=0;
+            public int build_slot = 0;
             public int user_id;
             public int start_time;
             public int mp;
@@ -352,7 +361,7 @@ namespace GFHelp.Core.MulitePlayerData
             {
                 get
                 {
-                    return this.start_time + this.develop_duration+10;
+                    return this.start_time + this.develop_duration + 10;
                 }
             }
             public int durationTime
@@ -367,7 +376,7 @@ namespace GFHelp.Core.MulitePlayerData
 
             public void DefaulltDataBuild()
             {
-                if (string.IsNullOrEmpty(mp.ToString()) || string.IsNullOrEmpty(ammo.ToString()) || string.IsNullOrEmpty(mre.ToString()) || string.IsNullOrEmpty(part.ToString()))
+                if (mp == 0 || ammo == 0 || mre == 0 || part == 0)
                 {
                     if (build_slot % 2 == 0)
                     {
@@ -397,9 +406,9 @@ namespace GFHelp.Core.MulitePlayerData
                 try
                 {
                     mp = int.Parse(array[0]);
-                    ammo= int.Parse(array[1]);
-                    mre= int.Parse(array[2]);
-                    part= int.Parse(array[3]);
+                    ammo = int.Parse(array[1]);
+                    mre = int.Parse(array[2]);
+                    part = int.Parse(array[3]);
                 }
                 catch (Exception e)
                 {
@@ -412,8 +421,8 @@ namespace GFHelp.Core.MulitePlayerData
         public UserData userData;
         //总开关
         public bool Locker = false;
-        public bool Heavy_Auto= false;
-        public bool Normal_Auto=false;
+        public bool Heavy_Auto = false;
+        public bool Normal_Auto = false;
         public void SetNextTime()
         {
             var dic = Built_Slot.Keys.Select(x => new { x, y = Built_Slot[x] }).OrderBy(x => x.y.endTime).ToList();

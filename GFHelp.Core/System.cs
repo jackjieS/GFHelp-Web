@@ -6,6 +6,7 @@ using System;
 using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations;
 using System.IO;
+using System.Reflection;
 using System.Threading;
 using System.Threading.Tasks;
 
@@ -51,8 +52,6 @@ namespace GFHelp.Core.SystemOthers
 
     public class SystemHelper
     {
-
-
         public class OperationStatus
         {
             public int TotalNum = 0;
