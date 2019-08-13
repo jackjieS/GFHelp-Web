@@ -13,24 +13,5 @@ namespace GFHelp.Core.MulitePlayerData
             this.userData = userData;
         }  
 
-        public void AutoRunning()
-        {
-            if (userData.config.FinalLoginSuccess == false) return;
-            Doll_Build();
-            UpdateUserInfo();
-        }
-        public void Doll_Build()
-        {
-            userData.doll_Build.AutoRun();
-        }
-        public void UpdateUserInfo()
-        {
-            userData.dailyReFlash.AutoRun();
-
-
-        }
-
-
-
     }
 }

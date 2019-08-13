@@ -41,9 +41,6 @@ namespace GFHelp.Core.MulitePlayerData
         {
             dailyTaskData = new DailyTaskData(jsonData);
             DailyTaskHandle();
-
-            //
-
         }
 
 
@@ -69,46 +66,28 @@ namespace GFHelp.Core.MulitePlayerData
         {
             if (Convert.ToInt16(dailyTaskData.mission) < 10)
             {
-                if (userData.config.M == true)
+                if (!CheckBattleList("map1_1"))
                 {
-                    ;
-                }
-                else
-                {
-                    if (!CheckBattleList("map1_1"))
-                    {
-                        addBattle1_1(10);
-                    }
-
+                    addBattle1_1(10);
                 }
 
             }
             if (Convert.ToInt16(dailyTaskData.develop_gun) < 4)
             {
-                 userData.doll_Build.startDevelopDailyTaskHandel();
+                 userData.doll_Build.TaskDaily();
             }
             if (Convert.ToInt16(dailyTaskData.develop_equip) < 4)
             {
-                if (userData.config.M == true)
-                {
-                    ;
-                }
-                else
-                {
-                    userData.equip_Built.startDevelopDailyTaskHandel();
-                }
+
+                userData.equip_Built.TaskDaily();
 
             }
 
             if (Convert.ToInt16(dailyTaskData.eat) < 5)
             {
-                if (userData.gun_With_User_Info.dicGun.Count >30)
+                if (userData.gun_With_User_Info.dicGun.Count > 30)
                 {
                     userData.Factory.EatGunHandle(1);
-                }
-                else
-                {
-
                 }
 
             }

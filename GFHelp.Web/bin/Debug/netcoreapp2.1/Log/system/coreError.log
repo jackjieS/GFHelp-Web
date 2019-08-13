@@ -1,0 +1,8 @@
+【23:53:55】      message = 读取 C:\Code\GFHelp-Web\GFHelp.Web\bin\Debug\netcoreapp2.1\textRes\squad_type.csv 出错 , exception = System.ArgumentException: An item with the same key has already been added. Key: 6130
+   at System.Collections.Generic.Dictionary`2.TryInsert(TKey key, TValue value, InsertionBehavior behavior)
+   at System.Collections.Generic.Dictionary`2.Add(TKey key, TValue value)
+   at GFHelp.Core.CatchData.Base.Asset_Textes.ReadCsv(String filename, Dictionary`2& tempdictionary) in C:\Code\GFHelp-Web\GFHelp.Core\CatchData\Base\asset_textes.cs:line 83
+【23:53:56】      message = 读取 C:\Code\GFHelp-Web\GFHelp.Web\bin\Debug\netcoreapp2.1\textRes\squad.csv 出错 , exception = System.ArgumentException: An item with the same key has already been added. Key: 6130
+   at System.Collections.Generic.Dictionary`2.TryInsert(TKey key, TValue value, InsertionBehavior behavior)
+   at System.Collections.Generic.Dictionary`2.Add(TKey key, TValue value)
+   at GFHelp.Core.CatchData.Base.Asset_Textes.ReadCsv(String filename, Dictionary`2& tempdictionary) in C:\Code\GFHelp-Web\GFHelp.Core\CatchData\Base\asset_textes.cs:line 83
