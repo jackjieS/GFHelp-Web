@@ -58,7 +58,7 @@ namespace GFHelp.Core.Action
 
                 if (login.isSuccessLogin)
                 {
-                    Response.Check( ref login.EncryptResult, "GetDigitalUid_Pro", false);
+                    Response.Check(ref login.EncryptResult, "GetDigitalUid_Pro", false);
                 }
                 else
                 {
@@ -133,7 +133,7 @@ namespace GFHelp.Core.Action
 
                 if (login.isSuccessLogin)
                 {
-                    Response.Check( ref login.EncryptResult, "GetDigitalUid_Pro", false);
+                    Response.Check(ref login.EncryptResult, "GetDigitalUid_Pro", false);
                 }
                 else
                 {
@@ -143,7 +143,7 @@ namespace GFHelp.Core.Action
             }
             else
             {
-                Response.Check( ref userData.GameAccount.YunDouDou, "GetDigitalUid_Pro", false);
+                Response.Check(ref userData.GameAccount.YunDouDou, "GetDigitalUid_Pro", false);
             }
             userData.config.FirstTimeLoginSuccess = true;
 
@@ -169,28 +169,22 @@ namespace GFHelp.Core.Action
 
         public bool GetUserInfo()
         {
-            //userData.config.FinalLoginSuccess = false;
 
             string result = _GetUserInfo();
             if (result.Contains("error"))
             {
-                //userData.config.FirstTimeLoginSuccess = false;
                 return false;
-            } 
-            var jsonobj = DynamicJson.Parse(result); //讲道理，我真不想写了
-            JsonData jsonData;
+            }
             try
             {
-                jsonData = JsonMapper.ToObject(result);
+                var jsonobj =  DynamicJson.Parse(result); //讲道理，我真不想写了
+                JsonData jsonData = JsonMapper.ToObject(result);
+                userData.Read(jsonobj, jsonData);
             }
             catch (Exception)
             {
-
                 return false;
             }
-
-            userData.Read(jsonobj, jsonData);
-
 
             if (userData.config.FinalLoginSuccess)
             {
@@ -206,7 +200,7 @@ namespace GFHelp.Core.Action
         {
             userData.webData.StatusBarText = "云母登陆";
             int count = 0;
-            while (true)
+            while (count++ <= userData.config.ErrorCount)
             {
                 string result;
                 try
@@ -215,15 +209,14 @@ namespace GFHelp.Core.Action
                 }
                 catch (Exception e)
                 {
-                    Console.WriteLine(e.ToString());
+                    new Log().userInit(userData.GameAccount.GameAccountID, "GetUserInfo Failed ", e.ToString()).userInfo();
                     return "error";
                 }
 
-                if (result.ToLower().Contains("error")) return "error";
                 if (Response.Check(ref result, "GetUserInfo", true) == 1) return result;
-                return "error";
-            }
 
+            }
+            return "error";
         }
 
 
@@ -251,7 +244,7 @@ namespace GFHelp.Core.Action
 
 
 
-        public  bool Index_version()//这个API发的是当前时间戳？
+        public bool Index_version()//这个API发的是当前时间戳？
         {
 
             IDictionary<string, string> parameters = new Dictionary<string, string>();
@@ -269,13 +262,13 @@ namespace GFHelp.Core.Action
 
 
             string data = StringBuilder_(parameters);
-            string result = "";
+            string result;
             int count = 0;
-            while (true)
+            while (count++ <= userData.config.ErrorCount)
             {
                 var post = BaseRequset.DoPost(userData.GameAccount.GameHost + URL.Index_version, data.ToString());
                 result = post;//明码不需要解密
-                if (Response.Check( ref result, "Index_version", false) == 1)
+                if (Response.Check(ref result, "Index_version", false) == 1)
                 {
                     var jsonobj = DynamicJson.Parse(result); //讲道理，我真不想写了
                     userData.GameAccount.loginTime = Convert.ToInt32(jsonobj.now);
@@ -283,20 +276,13 @@ namespace GFHelp.Core.Action
                     userData.GameAccount.data_version = jsonobj.data_version.ToString();
                     userData.GameAccount.ab_version = jsonobj.ab_version.ToString();
 
-
-
                     SystemOthers.ConfigData.DataVersion = userData.GameAccount.CatchDataVersion;
                     userData.GameAccount.tomorrow_zero = Convert.ToInt32(jsonobj.tomorrow_zero);
                     userData.GameAccount.weekday = Convert.ToInt32(jsonobj.weekday);
                     return true;
                 }
-                if (Response.Check( ref result, "Index_version", false) == 0) { continue; }
-                if (Response.Check( ref result, "Index_version", false) == -1)
-                {
-                    if (count++ >= userData.config.ErrorCount) return false;
-                    continue; /*特殊处理我还没想好*/;
-                }
             }
+            return false;
         }
         public static string Index_version(bool a)//这个API发的是当前时间戳？
         {
@@ -321,7 +307,7 @@ namespace GFHelp.Core.Action
                 if (Response.Check(ref result, "Index_version") == 1)
                 {
                     var jsonobj = DynamicJson.Parse(result); //讲道理，我真不想写了
-                    return jsonobj.data_version.ToString(); 
+                    return jsonobj.data_version.ToString();
                 }
                 if (Response.Check(ref result, "Index_version") == 0) { continue; }
                 if (Response.Check(ref result, "Index_version") == -1)
@@ -339,9 +325,10 @@ namespace GFHelp.Core.Action
 
         private bool Attendance()
         {
-            userData.webData.StatusBarText = "签到";
-            if (Decrypt.getDateTime_China_Int(DateTime.Now) >userData.user_Record.attendance_type1_time)
+
+            if (Decrypt.getDateTime_China_Int(DateTime.Now) > userData.user_Record.attendance_type1_time)
             {
+                new Log().userInit(userData.GameAccount.GameAccountID, "签到", "").userInfo();
                 userData.Net.Home.Attendance(userData.GameAccount);
             }
             return true;
@@ -375,7 +362,7 @@ namespace GFHelp.Core.Action
 
             string result;
             int count = 0;
-            while (true)
+            while (count++ <= userData.config.ErrorCount)
             {
                 try
                 {
@@ -384,8 +371,8 @@ namespace GFHelp.Core.Action
                 catch (Exception)
                 {
                     return;
-                }   
-                if(Response.Check(ref result, "GUN_OUTandIN_Team_PRO", false) == 1) { return; }
+                }
+                if (Response.Check(ref result, "GUN_OUTandIN_Team_PRO", false) == 1) { return; }
             }
         }
 
@@ -395,7 +382,7 @@ namespace GFHelp.Core.Action
             if (!userData.config.AutoTaskDaily) return;
             userData.webData.StatusBarText = "获取每日任务";
             string result = userData.Net.Home.GetDailyTask(userData.GameAccount);
-            if (Response.Check( ref result, "GetDailyTask", true) != 1) return;
+            if (Response.Check(ref result, "GetDailyTask", true) != 1) return;
             userData.task_Daily.ReadTask_Daily(JsonMapper.ToObject(result));
         }
 

@@ -24,7 +24,6 @@ namespace GFHelp.Core.MulitePlayerData
         public int IntDelegate()
         {
             return Convert.ToInt32((DateTime.UtcNow - new DateTime(1970, 1, 1, 0, 0, 0, 0)).TotalSeconds - userData.GameAccount.realtimeSinceLogin + userData.GameAccount.loginTime);
-
         }
 
         public void init()

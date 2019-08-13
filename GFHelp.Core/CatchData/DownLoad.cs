@@ -84,7 +84,7 @@ namespace GFHelp.Core.CatchData
         }
         private static void SavezipDataTojosn()
         {
-
+            int count = 0;
             var str1 = SystemOthers.ConfigData.currentDirectory + @"\stc_data.dat";
             var str2 = SystemOthers.ConfigData.currentDirectory + @"\stc";
             System.IO.Compression.ZipFile.ExtractToDirectory(str1, str2,true); //解压
@@ -102,6 +102,11 @@ namespace GFHelp.Core.CatchData
                         {
                             string text = streamReader.ReadLine();
                             sw.WriteLine(text);
+                            FileStream f0 = new FileStream(str2 + @"\"+count.ToString()+".json", FileMode.OpenOrCreate);
+                            StreamWriter s0 = new StreamWriter(f0);
+                            s0.WriteLine(text);
+                            f0.Close();
+                            s0.Close();
                             JsonData jsonData = JsonMapper.ToObject(text);
                         }
                         sw.Close();

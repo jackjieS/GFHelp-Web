@@ -43,12 +43,6 @@ namespace GFHelp.Core.Helper
         public static DateTime startTime = TimeZone.CurrentTimeZone.ToLocalTime(LocalDateTimeConvertToChina(new DateTime(1970, 1, 1, 0, 0, 0, 0)));
         public static DateTime ChinaTimeDateTime;
         public static int  ChinaTimeInt = 0;
-
-
-
-
-
-
     }
 
 

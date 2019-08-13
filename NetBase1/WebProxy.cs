@@ -92,12 +92,6 @@ namespace GFHelp.NetBase
                             webProxies.Add(new Data(jsonData[num8].String));
                         }
                     }
-
-
-
-
-
-
                     Thread.Sleep(10000);
                 }
                 catch (Exception)

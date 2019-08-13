@@ -37,7 +37,7 @@ namespace GFHelp.Core.MulitePlayerData
         {
             Random random = new Random();
             defaultLoginTime = random.Next(1, 59);
-            if (defaultLoginTime== DateTime.Now.Minute)
+            if (defaultLoginTime == DateTime.Now.Minute)
             {
                 SetdefaultLoginTime();
             }
@@ -66,7 +66,7 @@ namespace GFHelp.Core.MulitePlayerData
         {
             new Log().userInit(userData.GameAccount.GameAccountID, string.Format("{0} 登陆", DateTime.Now.ToString())).userInfo();
 
-            Task.Run(() =>
+            Task task = new Task(() =>
             {
                 Interlocked.Increment(ref AutoLoop.ThreadInfo.LoginThreadNum);
                 Random random = new Random();
@@ -79,39 +79,25 @@ namespace GFHelp.Core.MulitePlayerData
 
                 SetdefaultLoginTime();
 
-                userData.config.FinalLoginSuccess = true;
-
                 Auto_Act_Summery();
 
-                Interlocked.Decrement(ref AutoLoop.ThreadInfo.LoginThreadNum);
 
-                this.Locker = false;
 
 
 
 
             });
 
-            //ThreadPool.QueueUserWorkItem(state =>
-            //{
-            //    Interlocked.Increment(ref AutoLoop.ThreadInfo.LoginThreadNum);
-            //    Random random = new Random();
-            //    Thread.Sleep(random.Next(1000, 59000));
+            task.ContinueWith(p =>
+            {
 
-                
-            //    userData.config.FinalLoginSuccess = false;
+                userData.config.FinalLoginSuccess = true;
+                Interlocked.Decrement(ref AutoLoop.ThreadInfo.LoginThreadNum);
+                this.Locker = false;
 
-            //    userData.home.SecondLogin();
+            });
 
-            //    SetdefaultLoginTime();
-
-            //    userData.config.FinalLoginSuccess = true;
-
-            //    Interlocked.Decrement(ref AutoLoop.ThreadInfo.LoginThreadNum);
-
-            //    this.Locker = false;
-
-            //});
+            task.Start();
 
         }
     }

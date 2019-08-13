@@ -350,7 +350,8 @@ namespace GFHelp.Core.MulitePlayerData
             writer.WriteObjectEnd();
             //发送请求
             string result;
-            while (true)
+            int count = 0;
+            while (count++ <= userData.config.ErrorCount)
             {
                 try
                 {
@@ -362,6 +363,8 @@ namespace GFHelp.Core.MulitePlayerData
                 }
                 return userData.Response.Check(ref result, "Finish_Operation_Pro", true);
             }
+            userData.webData.StatusBarText = String.Format("空闲 ", data.team_id);
+            return -1;
         }
 
         public int StartHandle(Data data)
@@ -375,7 +378,8 @@ namespace GFHelp.Core.MulitePlayerData
             {
                 dicOperation[data.key] = new Data();
             }
-            SetNextTime();
+
+            userData.home.GetUserInfo();
             return result;
         }
         private int Start(Data data)
@@ -390,7 +394,8 @@ namespace GFHelp.Core.MulitePlayerData
             writer.WriteObjectEnd();
             userData.webData.StatusBarText = String.Format(" 第 {0} 梯队后勤任务开始 ", data.team_id);
             string result;
-            while (true)
+            int count = 0;
+            while (count++ <= userData.config.ErrorCount)
             {
                 try
                 {
@@ -402,6 +407,9 @@ namespace GFHelp.Core.MulitePlayerData
                 }
                 return userData.Response.Check(ref result, "GUN_OUTandIN_Team_PRO", false);
             }
+
+            userData.webData.StatusBarText = String.Format("空闲 ", data.team_id);
+            return -1;
         }
 
         public int Abort(Data data)

@@ -36,9 +36,9 @@ namespace GFHelp.NetBase
             req.Method = "POST";
             req.ContentType = "application/x-www-form-urlencoded";
             req.ContentLength = bs.Length;
-            //req.ContinueTimeout = 20000;
-            //req.Timeout = 20000;
-            //req.ReadWriteTimeout = 20000;
+            req.ContinueTimeout = 20000;
+            req.Timeout = 20000;
+            req.ReadWriteTimeout = 20000;
             using (Stream reqStream = req.GetRequestStream())
             {
                 reqStream.Write(bs, 0, bs.Length);
@@ -70,9 +70,9 @@ namespace GFHelp.NetBase
             req.Method = "POST";
             req.ContentType = "application/x-www-form-urlencoded";
             req.ContentLength = postData.Length;
-            //req.ContinueTimeout = 20000;
-            //req.Timeout = 20000;
-            //req.ReadWriteTimeout = 20000;
+            req.ContinueTimeout = 20000;
+            req.Timeout = 20000;
+            req.ReadWriteTimeout = 20000;
             using (Stream reqStream = req.GetRequestStream())
             {
                 reqStream.Write(postData, 0, postData.Length);
