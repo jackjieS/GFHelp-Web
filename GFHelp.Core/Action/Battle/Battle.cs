@@ -187,49 +187,28 @@ namespace GFHelp.Core.Action
             jsonWriter.WriteObjectEnd();
 
             int count = 0;
-
-            while (true)
+            ThreadDelay(10);
+            while (count++ <= userData.config.ErrorCount)
             {
-                ThreadDelay(15);
-                string result = userData.Net.Battle.startMission(userData.GameAccount, stringBuilder.ToString());
 
-                switch (userData.Response.Check( ref result, "Start_Mission_Pro", true))
+                string result = userData.Net.Battle.startMission(userData.GameAccount, stringBuilder.ToString());
+                if (userData.Response.Check(ref result, "Start_Mission_Pro", true) == 1)
                 {
-                    case 1:
-                        {
-                            SupplyTeam(map, data);
-                            return 1;
-                        }
-                    case 0:
-                        {
-                            userData.home.GetUserInfo();
-                            userData.others.Check_Equip_GUN_FULL();
-                            continue;
-                        }
-                    case -1:
-                        {
-                            userData.home.GetUserInfo();
-                            userData.battle.Check_Equip_Gun_FULL();
-                            if (count++ > userData.config.ErrorCount)
-                            {
-                                if (data.Story == true)
-                                {
-                                    continue;
-                                }
-                                new Log().userInit(userData.GameAccount.GameAccountID, String.Format("{0} 无法开始作战任务，请登陆游戏检查", userData.user_Info.name)).userInfo();
-                                userData.MissionInfo.listTask[0].Using = false;
-                                userData.MissionInfo.listTask[0].Loop = false;
-                                return -1;
-                            }
-                            continue;
-                        }
-                    default:
-                        break;
+                    SupplyTeam(map, data);
+                    return 1;
                 }
+
+                userData.home.GetUserInfo();
+                userData.battle.Check_Equip_Gun_FULL();
+                abortMission();
             }
+            new Log().userInit(userData.GameAccount.GameAccountID, String.Format("{0} 无法开始作战任务，请登陆游戏检查", userData.user_Info.name)).userInfo();
+            userData.MissionInfo.listTask[0].Using = false;
+            userData.MissionInfo.listTask[0].Loop = false;
+            return -1;
         }
 
-        public bool reinforceTeam(Spot.Data spot, bool night = false)
+        public bool reinforceTeam(mapbase mapbase, Spot.Data spot, bool night = false,bool suppply=true)
         {
             userData.webData.StatusBarText = "部署梯队";
 
@@ -239,44 +218,31 @@ namespace GFHelp.Core.Action
             StringBuilder stringBuilder = new StringBuilder();
             JsonWriter jsonWriter = new JsonWriter(stringBuilder);
             jsonWriter.WriteObjectStart();
-            jsonWriter.WritePropertyName("spot_id");
-            jsonWriter.Write(spot.spot_id);
             jsonWriter.WritePropertyName("team_id");
             jsonWriter.Write(spot.team_id);
+            jsonWriter.WritePropertyName("spot_id");
+            jsonWriter.Write(spot.spot_id);
             jsonWriter.WriteObjectEnd();
 
             int k = 0;
-            while (true)
+            ThreadDelay(5);
+            string result = "";
+             while (count++<=userData.config.ErrorCount)
             {
-                ThreadDelay(5);
-                string result = userData.Net.Battle.reinforceTeam(userData.GameAccount, stringBuilder.ToString());
+
+                result = userData.Net.Battle.reinforceTeam(userData.GameAccount, stringBuilder.ToString());
 
                 if (night == false) k = userData.Response.Check( ref result, "reinforceTeam", true);
                 if (night == true) k = userData.Response.Check( ref result, "night_reinforceTeam", true);
-
-                switch (k)
+                if (k == 1)
                 {
-                    case 1:
-                        {
-                            return true;
-                        }
-                    case 0:
-                        {
-                            continue;
-                        }
-                    case -1:
-                        {
-                            if (count++ > userData.config.ErrorCount)
-                            {
-                                new Log().userInit(userData.GameAccount.GameAccountID, String.Format("{0} 无法部署梯队，请登陆游戏检查", userData.user_Info.name), result).userInfo();
-                                return false;
-                            }
-                            continue;
-                        }
-                    default:
-                        break;
+                    if (suppply == false) return true;
+                    SupplyTeam(mapbase.mission_id, spot.team_id, spot.spot_id);
+                    return true;
                 }
             }
+            new Log().userInit(userData.GameAccount.GameAccountID, String.Format("{0} 无法部署梯队，请登陆游戏检查", userData.user_Info.name), result).userInfo();
+            return false;
         }
 
 
@@ -348,38 +314,21 @@ namespace GFHelp.Core.Action
             newjson.from_spot_id /*这是节点*/ = teammove.from_spot_id;/* 这是值*/
             newjson.to_spot_id /*这是节点*/ = teammove.to_spot_id;/* 这是值*/
             newjson.move_type /*这是节点*/ = teammove.move_type;/* 这是值*/
-
+            ThreadDelay(5);
             int count = 0;
+            string result = "";
             //发送请求
-            while (true)
+             while (count++<=userData.config.ErrorCount)
             {
-                ThreadDelay(4);
-                string result = userData.Net.Battle.teamMove(userData.GameAccount, newjson.ToString());
 
-                switch (userData.Response.Check( ref result, "Team_Move_Pro", true))
+                result = userData.Net.Battle.teamMove(userData.GameAccount, newjson.ToString());
+                if(userData.Response.Check(ref result, "Team_Move_Pro", true) == 1)
                 {
-                    case 1:
-                        {
-                            return true;
-                        }
-                    case 0:
-                        {
-                            continue;
-                        }
-                    case -1:
-                        {
-                            if (count++ > userData.config.ErrorCount)
-                            {
-                                new Log().userInit(userData.GameAccount.GameAccountID, "teamMove Error", result).userInfo();
-                                return false;
-                            }
-                            continue;
-                        }
-                    default:
-                        break;
+                    return true;
                 }
-
             }
+            new Log().userInit(userData.GameAccount.GameAccountID, "teamMove Error", result).userInfo();
+            return false;
         }
 
 
@@ -490,40 +439,19 @@ namespace GFHelp.Core.Action
 
         public bool Normal_battleFinish(string data, ref string result, bool errorSkip = false)
         {
-            userData.webData.StatusBarText = "战斗结算";
-            //new Log().userInit(userData.GameAccount.GameAccountID, String.Format("data = {0}", data));
-
             int count = 0;
-
-            while (true)
+            ThreadDelay(10);
+             while (count++<=userData.config.ErrorCount)
             {
-                ThreadDelay(10);
+                userData.webData.StatusBarText = "战斗结算 - 等待";
                 result = "";
                 result = userData.Net.Battle.battleFinish(userData.GameAccount, data);
-
-                switch (userData.Response.Check( ref result, "Battle_Finish_Pro", true))
+                if(userData.Response.Check(ref result, "Battle_Finish_Pro", true) == 1)
                 {
-                    case 1:
-                        {
-                            return true;
-                        }
-                    case 0:
-                        {
-                            continue;
-                        }
-                    case -1:
-                        {
-                            if (count++ > userData.config.ErrorCount)
-                            {
-                                //new Log().userInit(userData.GameAccount.GameAccountID, "Normal_battleFinish Error", result).userInfo();
-                                return false;
-                            }
-                            continue;
-                        }
-                    default:
-                        break;
+                    return true;
                 }
             }
+            return false;
         }
         public bool FairyMissionSkill(int team_id, int spot_id, int new_spot_id)
         {
@@ -584,72 +512,40 @@ namespace GFHelp.Core.Action
                 spot_id = spot_id,
             };
             int count = 0;
+            ThreadDelay(3);
+            string result = "";
             var jsonStringFromObj = DynamicJson.Serialize(obj);
-            while (true)
+             while (count++<=userData.config.ErrorCount)
             {
-                ThreadDelay(3);
-                string result = userData.Net.Battle.withdrawTeam(userData.GameAccount, jsonStringFromObj.ToString());
 
-                switch (userData.Response.Check( ref result, "WithDraw_Team_Pro", true))
+                result = userData.Net.Battle.withdrawTeam(userData.GameAccount, jsonStringFromObj.ToString());
+                if(userData.Response.Check(ref result, "WithDraw_Team_Pro", true) == 1)
                 {
-                    case 1:
-                        {
-                            return true;
-                        }
-                    case 0:
-                        {
-                            continue;
-                        }
-                    case -1:
-                        {
-                            if (count++ > userData.config.ErrorCount)
-                            {
-                                new Log().userInit(userData.GameAccount.GameAccountID, "withdrawTeam Error", result).userInfo();
-                                return false;
-                            }
-                            continue;
-                        }
-                    default:
-                        break;
+                    return true;
                 }
             }
+            new Log().userInit(userData.GameAccount.GameAccountID, "withdrawTeam Error", result).userInfo();
+            return false;
         }
         public string endTurn(MissionInfo.Data data)
         {
             userData.webData.StatusBarText = "endTurn";
 
             int count = 0;
-
-            while (true)
+            ThreadDelay(5);
+            string result = "";
+             while (count++<=userData.config.ErrorCount)
             {
-                string result = userData.Net.Battle.endTurn(userData.GameAccount);
-                ThreadDelay(5);
-                switch (userData.Response.Check( ref result, "endTurn", true))
+                result = userData.Net.Battle.endTurn(userData.GameAccount);
+                if(userData.Response.Check(ref result, "endTurn", true)==1)
                 {
-
-                    case 1:
-                        {
-                            var jsonobj = DynamicJson.Parse(result);
-                            userData.battle.Add_Get_Gun_Equip_Battle(jsonobj, data);
-                            return result;
-                        }
-                    case 0:
-                        {
-                            continue;
-                        }
-                    case -1:
-                        {
-                            if (count++ > userData.config.ErrorCount)
-                            {
-                                new Log().userInit(userData.GameAccount.GameAccountID, "endTurn Error", result).userInfo();
-                                return result;
-                            }
-                            continue;
-                        }
-                    default:
-                        break;
+                    var jsonobj = DynamicJson.Parse(result);
+                    userData.battle.Add_Get_Gun_Equip_Battle(jsonobj, data);
+                    return result;
                 }
             }
+            new Log().userInit(userData.GameAccount.GameAccountID, "endTurn Error", result).userInfo();
+            return result;
         }
 
 
@@ -657,41 +553,23 @@ namespace GFHelp.Core.Action
         {
             userData.webData.StatusBarText = "startTurn";
 
-
+            string result = "";
             int count = 0;
-
-            while (true)
+            ThreadDelay(5);
+             while (count++<=userData.config.ErrorCount)
             {
-                string result = userData.Net.Battle.startTurn(userData.GameAccount);
-                ThreadDelay(5);
-                switch (userData.Response.Check( ref result, "startTurn", true))
+                result = userData.Net.Battle.startTurn(userData.GameAccount);
+                if(userData.Response.Check(ref result, "startTurn", true) == 1)
                 {
-                    case 1:
-                        {
-                            var jsonobj = DynamicJson.Parse(result);
+                    var jsonobj = DynamicJson.Parse(result);
 
-                            userData.battle.Add_Get_Gun_Equip_Battle(jsonobj, data);
-                            return result;
-                        }
-                    case 0:
-                        {
-                            continue;
-                        }
-                    case -1:
-                        {
-                            if (count++ > userData.config.ErrorCount)
-                            {
-                                new Log().userInit(userData.GameAccount.GameAccountID, "startTurn Error", result).userInfo();
-                                return result;
-                            }
-                            continue;
-                        }
-                    default:
-                        break;
+                    userData.battle.Add_Get_Gun_Equip_Battle(jsonobj, data);
+                    return result;
+
                 }
-
-
             }
+            new Log().userInit(userData.GameAccount.GameAccountID, "startTurn Error", result).userInfo();
+            return result;
         }
         public bool Simulation_battleFinish(string data)
         {
@@ -794,6 +672,15 @@ namespace GFHelp.Core.Action
                 }
             }
         }
+        public bool SupplyTeam(int mission_id, int team_id, int spot_id)
+        {
+            dynamic newjson = new DynamicJson();
+            newjson.mission_id /*这是节点*/ = mission_id;/* 这是值*/
+            newjson.team_id /*这是节点*/ = team_id;/* 这是值*/
+            newjson.spot_id /*这是节点*/ = spot_id;/* 这是值*/
+            _SupplyTeam(newjson.ToString());
+            return true;
+        }
 
         public bool SupplyTeam(mapbase map, MissionInfo.Data data)
         {
@@ -803,6 +690,7 @@ namespace GFHelp.Core.Action
             foreach (var item in map.Mission_Start_spots)
             {
                 dynamic newjson = new DynamicJson();
+                newjson.mission_id /*这是节点*/ = map.mission_id;/* 这是值*/
                 newjson.team_id /*这是节点*/ = item.team_id;/* 这是值*/
                 newjson.spot_id /*这是节点*/ = item.spot_id;/* 这是值*/
                 _SupplyTeam(newjson.ToString());
@@ -851,36 +739,29 @@ namespace GFHelp.Core.Action
 
 
         }
-        public void Check_Gun_need_FIX(bool fix = false)
+        public void Check_Gun_need_FIX()
         {
             userData.webData.StatusBarText = "检查人形是否需要修复";
 
-            for (int k = 0; k <= userData.Teams.Count; k++)
+            foreach (var teamID in userData.others.getAvailableTeamID())
             {
-                if (!userData.Teams.ContainsKey(k)) continue;
-                for (int i = 0; i <= userData.Teams[k].Count; i++)
+                for (int i = 0; i <= userData.Teams[teamID].Count; i++)
                 {
-                    if (!userData.Teams[k].ContainsKey(i)) continue;
-                    if (userData.Teams[k][i].life == userData.Teams[k][i].maxLife) continue;
-                    double life = (double)userData.Teams[k][i].life / userData.Teams[k][i].maxLife;
-                    if (fix == true)
-                    {
-                        Fix_Gun(userData.Teams[k][i].id, true);
+                    if (!userData.Teams[teamID].ContainsKey(i)) continue;
+                    if (userData.item_With_User_Info.Quick_Reinforce <= 10) continue;
+                    if (userData.Teams[teamID][i].life == userData.Teams[teamID][i].maxLife) continue;
 
-                    }
-                    if (fix == false)
-                    {
-                        if (userData.item_With_User_Info.Quick_Reinforce <= 10) continue;
-                        if (userData.Teams[k][i].life == userData.Teams[k][i].maxLife) continue;
-                        if (life > 0.25) continue;
-                        Fix_Gun(userData.Teams[k][i].id, true);
-                        userData.Teams[k][i].life = userData.Teams[k][i].maxLife;
-                        userData.item_With_User_Info.Quick_Reinforce -= 1;
-                    }
+                    double life = (double)userData.Teams[teamID][i].life / userData.Teams[teamID][i].maxLife;
+
+                    if (life > 0.25) continue;
+                    Fix_Gun(userData.Teams[teamID][i].id, true);
+                    userData.Teams[teamID][i].life = userData.Teams[teamID][i].maxLife;
+                    userData.item_With_User_Info.Quick_Reinforce -= 1;
 
 
                 }
             }
+
         }
 
         public bool Fix_Gun(int gun_id, bool quick_fix)
@@ -901,36 +782,15 @@ namespace GFHelp.Core.Action
 
             jsonWriter.WriteObjectEnd();
 
-            int count = 0;
-            while (true)
-            {
-                string result = userData.Net.Battle.Girl_Fix(userData.GameAccount, sb.ToString());
-                ThreadDelay(5);
-                switch (userData.Response.Check( ref result, "GUN_OUTandIN_Team_PRO", false))
-                {
-                    case 1:
-                        {
-                            return true;
-                        }
-                    case 0:
-                        {
-                            continue;
-                        }
-                    case -1:
-                        {
-                            if (count++ > userData.config.ErrorCount)
-                            {
-                                new Log().userInit(userData.GameAccount.GameAccountID, "Fix_Gun Error", result).userInfo();
-                                return false;
-                            }
-                            continue;
-                        }
-                    default:
-                        break;
-                }
+            ThreadDelay(5);
+            string result = userData.Net.Battle.Girl_Fix(userData.GameAccount, sb.ToString());
+
+            if (userData.Response.Check(ref result, "GUN_OUTandIN_Team_PRO", false) == 1) return true;
+            return false;
 
 
-            }
+
+            
         }
 
 
@@ -990,9 +850,13 @@ namespace GFHelp.Core.Action
             {
                 try
                 {
-                    Gun_With_User_Info.Data gwui = new Gun_With_User_Info.Data();
-                    gwui = initGun(Convert.ToInt32(jsonobj.battle_get_gun.gun_with_user_id), Convert.ToInt32(jsonobj.battle_get_gun.gun_id), data);
-                    userData.gun_With_User_Info.dicGunAdd(gwui);
+                    var array = jsonobj.battle_get_gun;
+                    foreach (var item in array)
+                    {
+                        Gun_With_User_Info.Data gwui = new Gun_With_User_Info.Data();
+                        gwui = initGun(Convert.ToInt32(item.gun_with_user_id), Convert.ToInt32(item.gun_id), data);
+                        userData.gun_With_User_Info.dicGunAdd(gwui);
+                    }
                 }
                 catch (Exception e)
                 {
@@ -1022,17 +886,13 @@ namespace GFHelp.Core.Action
             {
                 try
                 {
-                    Gun_With_User_Info.Data gwui = new Gun_With_User_Info.Data();
-                    gwui = initGun(Convert.ToInt32(jsonobj.mission_win_result.reward_gun.gun_with_user_id), Convert.ToInt32(jsonobj.mission_win_result.reward_gun.gun_id), data);
-                    int i = 0;
-                    while (true)
+                    var array = jsonobj.mission_win_result.reward_gun;
+
+                    foreach (var item in array)
                     {
-                        if (!userData.gun_With_User_Info.dicGun.ContainsKey(i))
-                        {
-                            userData.gun_With_User_Info.dicGun.Add(i, gwui);
-                            break;
-                        }
-                        i++;
+                        Gun_With_User_Info.Data gwui = new Gun_With_User_Info.Data();
+                        gwui = initGun(Convert.ToInt32(item.gun_with_user_id), Convert.ToInt32(item.gun_id), data);
+                        userData.gun_With_User_Info.dicGunAdd(gwui);
                     }
                 }
                 catch (Exception e)

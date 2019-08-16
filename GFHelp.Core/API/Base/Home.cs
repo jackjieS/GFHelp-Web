@@ -48,10 +48,10 @@ namespace GFHelp.Core.API
 
 
 
-        public  string GetUserInfo(GameAccount gameAccount)//api = index/index
+        public  string GetUserInfo(GameAccount gameAccount,string outdatacode)//api = index/index
         {
 
-            string outdatacode = AuthCode.Encode("{\"time\":" + Helper.Decrypt.getDateTime_China_Int(DateTime.Now).ToString() + "}", gameAccount.sign);
+            outdatacode = AuthCode.Encode(outdatacode, gameAccount.sign);
             string requeststring = String.Format("uid={0}&outdatacode={1}&req_id={2}", gameAccount.uid, System.Web.HttpUtility.UrlEncode(outdatacode), gameAccount.req_id++.ToString());
 
             string result = "";

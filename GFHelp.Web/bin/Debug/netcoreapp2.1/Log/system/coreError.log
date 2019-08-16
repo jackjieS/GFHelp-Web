@@ -6,3 +6,223 @@
    at System.Collections.Generic.Dictionary`2.TryInsert(TKey key, TValue value, InsertionBehavior behavior)
    at System.Collections.Generic.Dictionary`2.Add(TKey key, TValue value)
    at GFHelp.Core.CatchData.Base.Asset_Textes.ReadCsv(String filename, Dictionary`2& tempdictionary) in C:\Code\GFHelp-Web\GFHelp.Core\CatchData\Base\asset_textes.cs:line 83
+【00:24:32】      message = 读取UserData_gun_with_user_info遇到错误 , exception = System.NullReferenceException: Object reference not set to an instance of an object.
+   at GFHelp.Core.MulitePlayerData.Gun_With_User_Info.Data.UpdateData() in C:\Code\GFHelp-Web\GFHelp.Core\MulitePlayerData\UserData\Gun_With_User_Info.cs:line 800
+   at GFHelp.Core.MulitePlayerData.Gun_With_User_Info.Read(JsonData jsonobj) in C:\Code\GFHelp-Web\GFHelp.Core\MulitePlayerData\UserData\Gun_With_User_Info.cs:line 105
+【00:25:28】      message = 读取UserData_gun_with_user_info遇到错误 , exception = System.NullReferenceException: Object reference not set to an instance of an object.
+   at GFHelp.Core.MulitePlayerData.Gun_With_User_Info.Data.UpdateData() in C:\Code\GFHelp-Web\GFHelp.Core\MulitePlayerData\UserData\Gun_With_User_Info.cs:line 800
+   at GFHelp.Core.MulitePlayerData.Gun_With_User_Info.Read(JsonData jsonobj) in C:\Code\GFHelp-Web\GFHelp.Core\MulitePlayerData\UserData\Gun_With_User_Info.cs:line 105
+【00:26:21】      message = 读取CatchData_operation_info遇到错误 , exception = System.ArgumentException: An item with the same key has already been added. Key: 0
+   at System.Collections.Generic.Dictionary`2.TryInsert(TKey key, TValue value, InsertionBehavior behavior)
+   at System.Collections.Generic.Dictionary`2.Add(TKey key, TValue value)
+   at GFHelp.Core.CatachData.ReadCatchData_operation_info(Object jsonobj) in C:\Code\GFHelp-Web\GFHelp.Core\CatchData\Read.cs:line 147
+【00:26:22】      message = 读取CatchData_operation_info遇到错误 , exception = System.ArgumentException: An item with the same key has already been added. Key: 1
+   at System.Collections.Generic.Dictionary`2.TryInsert(TKey key, TValue value, InsertionBehavior behavior)
+   at System.Collections.Generic.Dictionary`2.Add(TKey key, TValue value)
+   at GFHelp.Core.CatachData.ReadCatchData_operation_info(Object jsonobj) in C:\Code\GFHelp-Web\GFHelp.Core\CatchData\Read.cs:line 147
+【00:26:23】      message = 读取CatchData_operation_info遇到错误 , exception = System.ArgumentException: An item with the same key has already been added. Key: 2
+   at System.Collections.Generic.Dictionary`2.TryInsert(TKey key, TValue value, InsertionBehavior behavior)
+   at System.Collections.Generic.Dictionary`2.Add(TKey key, TValue value)
+   at GFHelp.Core.CatachData.ReadCatchData_operation_info(Object jsonobj) in C:\Code\GFHelp-Web\GFHelp.Core\CatchData\Read.cs:line 147
+【00:26:24】      message = 读取CatchData_operation_info遇到错误 , exception = System.ArgumentException: An item with the same key has already been added. Key: 3
+   at System.Collections.Generic.Dictionary`2.TryInsert(TKey key, TValue value, InsertionBehavior behavior)
+   at System.Collections.Generic.Dictionary`2.Add(TKey key, TValue value)
+   at GFHelp.Core.CatachData.ReadCatchData_operation_info(Object jsonobj) in C:\Code\GFHelp-Web\GFHelp.Core\CatchData\Read.cs:line 147
+【00:26:25】      message = 读取CatchData_operation_info遇到错误 , exception = System.ArgumentException: An item with the same key has already been added. Key: 4
+   at System.Collections.Generic.Dictionary`2.TryInsert(TKey key, TValue value, InsertionBehavior behavior)
+   at System.Collections.Generic.Dictionary`2.Add(TKey key, TValue value)
+   at GFHelp.Core.CatachData.ReadCatchData_operation_info(Object jsonobj) in C:\Code\GFHelp-Web\GFHelp.Core\CatchData\Read.cs:line 147
+【00:26:25】      message = 读取CatchData_operation_info遇到错误 , exception = System.ArgumentException: An item with the same key has already been added. Key: 5
+   at System.Collections.Generic.Dictionary`2.TryInsert(TKey key, TValue value, InsertionBehavior behavior)
+   at System.Collections.Generic.Dictionary`2.Add(TKey key, TValue value)
+   at GFHelp.Core.CatachData.ReadCatchData_operation_info(Object jsonobj) in C:\Code\GFHelp-Web\GFHelp.Core\CatchData\Read.cs:line 147
+【00:26:26】      message = 读取CatchData_operation_info遇到错误 , exception = System.ArgumentException: An item with the same key has already been added. Key: 6
+   at System.Collections.Generic.Dictionary`2.TryInsert(TKey key, TValue value, InsertionBehavior behavior)
+   at System.Collections.Generic.Dictionary`2.Add(TKey key, TValue value)
+   at GFHelp.Core.CatachData.ReadCatchData_operation_info(Object jsonobj) in C:\Code\GFHelp-Web\GFHelp.Core\CatchData\Read.cs:line 147
+【00:26:26】      message = 读取CatchData_operation_info遇到错误 , exception = System.ArgumentException: An item with the same key has already been added. Key: 7
+   at System.Collections.Generic.Dictionary`2.TryInsert(TKey key, TValue value, InsertionBehavior behavior)
+   at System.Collections.Generic.Dictionary`2.Add(TKey key, TValue value)
+   at GFHelp.Core.CatachData.ReadCatchData_operation_info(Object jsonobj) in C:\Code\GFHelp-Web\GFHelp.Core\CatchData\Read.cs:line 147
+【00:26:26】      message = 读取CatchData_operation_info遇到错误 , exception = System.ArgumentException: An item with the same key has already been added. Key: 8
+   at System.Collections.Generic.Dictionary`2.TryInsert(TKey key, TValue value, InsertionBehavior behavior)
+   at System.Collections.Generic.Dictionary`2.Add(TKey key, TValue value)
+   at GFHelp.Core.CatachData.ReadCatchData_operation_info(Object jsonobj) in C:\Code\GFHelp-Web\GFHelp.Core\CatchData\Read.cs:line 147
+【00:26:27】      message = 读取CatchData_operation_info遇到错误 , exception = System.ArgumentException: An item with the same key has already been added. Key: 9
+   at System.Collections.Generic.Dictionary`2.TryInsert(TKey key, TValue value, InsertionBehavior behavior)
+   at System.Collections.Generic.Dictionary`2.Add(TKey key, TValue value)
+   at GFHelp.Core.CatachData.ReadCatchData_operation_info(Object jsonobj) in C:\Code\GFHelp-Web\GFHelp.Core\CatchData\Read.cs:line 147
+【00:26:28】      message = 读取CatchData_operation_info遇到错误 , exception = System.ArgumentException: An item with the same key has already been added. Key: 10
+   at System.Collections.Generic.Dictionary`2.TryInsert(TKey key, TValue value, InsertionBehavior behavior)
+   at System.Collections.Generic.Dictionary`2.Add(TKey key, TValue value)
+   at GFHelp.Core.CatachData.ReadCatchData_operation_info(Object jsonobj) in C:\Code\GFHelp-Web\GFHelp.Core\CatchData\Read.cs:line 147
+【00:26:29】      message = 读取CatchData_operation_info遇到错误 , exception = System.ArgumentException: An item with the same key has already been added. Key: 11
+   at System.Collections.Generic.Dictionary`2.TryInsert(TKey key, TValue value, InsertionBehavior behavior)
+   at System.Collections.Generic.Dictionary`2.Add(TKey key, TValue value)
+   at GFHelp.Core.CatachData.ReadCatchData_operation_info(Object jsonobj) in C:\Code\GFHelp-Web\GFHelp.Core\CatchData\Read.cs:line 147
+【00:26:29】      message = 读取CatchData_operation_info遇到错误 , exception = System.ArgumentException: An item with the same key has already been added. Key: 12
+   at System.Collections.Generic.Dictionary`2.TryInsert(TKey key, TValue value, InsertionBehavior behavior)
+   at System.Collections.Generic.Dictionary`2.Add(TKey key, TValue value)
+   at GFHelp.Core.CatachData.ReadCatchData_operation_info(Object jsonobj) in C:\Code\GFHelp-Web\GFHelp.Core\CatchData\Read.cs:line 147
+【00:26:30】      message = 读取CatchData_operation_info遇到错误 , exception = System.ArgumentException: An item with the same key has already been added. Key: 13
+   at System.Collections.Generic.Dictionary`2.TryInsert(TKey key, TValue value, InsertionBehavior behavior)
+   at System.Collections.Generic.Dictionary`2.Add(TKey key, TValue value)
+   at GFHelp.Core.CatachData.ReadCatchData_operation_info(Object jsonobj) in C:\Code\GFHelp-Web\GFHelp.Core\CatchData\Read.cs:line 147
+【00:26:31】      message = 读取CatchData_operation_info遇到错误 , exception = System.ArgumentException: An item with the same key has already been added. Key: 14
+   at System.Collections.Generic.Dictionary`2.TryInsert(TKey key, TValue value, InsertionBehavior behavior)
+   at System.Collections.Generic.Dictionary`2.Add(TKey key, TValue value)
+   at GFHelp.Core.CatachData.ReadCatchData_operation_info(Object jsonobj) in C:\Code\GFHelp-Web\GFHelp.Core\CatchData\Read.cs:line 147
+【00:26:32】      message = 读取CatchData_operation_info遇到错误 , exception = System.ArgumentException: An item with the same key has already been added. Key: 15
+   at System.Collections.Generic.Dictionary`2.TryInsert(TKey key, TValue value, InsertionBehavior behavior)
+   at System.Collections.Generic.Dictionary`2.Add(TKey key, TValue value)
+   at GFHelp.Core.CatachData.ReadCatchData_operation_info(Object jsonobj) in C:\Code\GFHelp-Web\GFHelp.Core\CatchData\Read.cs:line 147
+【00:26:32】      message = 读取CatchData_operation_info遇到错误 , exception = System.ArgumentException: An item with the same key has already been added. Key: 16
+   at System.Collections.Generic.Dictionary`2.TryInsert(TKey key, TValue value, InsertionBehavior behavior)
+   at System.Collections.Generic.Dictionary`2.Add(TKey key, TValue value)
+   at GFHelp.Core.CatachData.ReadCatchData_operation_info(Object jsonobj) in C:\Code\GFHelp-Web\GFHelp.Core\CatchData\Read.cs:line 147
+【00:26:32】      message = 读取CatchData_operation_info遇到错误 , exception = System.ArgumentException: An item with the same key has already been added. Key: 17
+   at System.Collections.Generic.Dictionary`2.TryInsert(TKey key, TValue value, InsertionBehavior behavior)
+   at System.Collections.Generic.Dictionary`2.Add(TKey key, TValue value)
+   at GFHelp.Core.CatachData.ReadCatchData_operation_info(Object jsonobj) in C:\Code\GFHelp-Web\GFHelp.Core\CatchData\Read.cs:line 147
+【00:26:33】      message = 读取CatchData_operation_info遇到错误 , exception = System.ArgumentException: An item with the same key has already been added. Key: 18
+   at System.Collections.Generic.Dictionary`2.TryInsert(TKey key, TValue value, InsertionBehavior behavior)
+   at System.Collections.Generic.Dictionary`2.Add(TKey key, TValue value)
+   at GFHelp.Core.CatachData.ReadCatchData_operation_info(Object jsonobj) in C:\Code\GFHelp-Web\GFHelp.Core\CatchData\Read.cs:line 147
+【00:26:33】      message = 读取CatchData_operation_info遇到错误 , exception = System.ArgumentException: An item with the same key has already been added. Key: 19
+   at System.Collections.Generic.Dictionary`2.TryInsert(TKey key, TValue value, InsertionBehavior behavior)
+   at System.Collections.Generic.Dictionary`2.Add(TKey key, TValue value)
+   at GFHelp.Core.CatachData.ReadCatchData_operation_info(Object jsonobj) in C:\Code\GFHelp-Web\GFHelp.Core\CatchData\Read.cs:line 147
+【00:26:33】      message = 读取CatchData_operation_info遇到错误 , exception = System.ArgumentException: An item with the same key has already been added. Key: 20
+   at System.Collections.Generic.Dictionary`2.TryInsert(TKey key, TValue value, InsertionBehavior behavior)
+   at System.Collections.Generic.Dictionary`2.Add(TKey key, TValue value)
+   at GFHelp.Core.CatachData.ReadCatchData_operation_info(Object jsonobj) in C:\Code\GFHelp-Web\GFHelp.Core\CatchData\Read.cs:line 147
+【00:26:33】      message = 读取CatchData_operation_info遇到错误 , exception = System.ArgumentException: An item with the same key has already been added. Key: 21
+   at System.Collections.Generic.Dictionary`2.TryInsert(TKey key, TValue value, InsertionBehavior behavior)
+   at System.Collections.Generic.Dictionary`2.Add(TKey key, TValue value)
+   at GFHelp.Core.CatachData.ReadCatchData_operation_info(Object jsonobj) in C:\Code\GFHelp-Web\GFHelp.Core\CatchData\Read.cs:line 147
+【00:26:34】      message = 读取CatchData_operation_info遇到错误 , exception = System.ArgumentException: An item with the same key has already been added. Key: 22
+   at System.Collections.Generic.Dictionary`2.TryInsert(TKey key, TValue value, InsertionBehavior behavior)
+   at System.Collections.Generic.Dictionary`2.Add(TKey key, TValue value)
+   at GFHelp.Core.CatachData.ReadCatchData_operation_info(Object jsonobj) in C:\Code\GFHelp-Web\GFHelp.Core\CatchData\Read.cs:line 147
+【00:26:34】      message = 读取CatchData_operation_info遇到错误 , exception = System.ArgumentException: An item with the same key has already been added. Key: 23
+   at System.Collections.Generic.Dictionary`2.TryInsert(TKey key, TValue value, InsertionBehavior behavior)
+   at System.Collections.Generic.Dictionary`2.Add(TKey key, TValue value)
+   at GFHelp.Core.CatachData.ReadCatchData_operation_info(Object jsonobj) in C:\Code\GFHelp-Web\GFHelp.Core\CatchData\Read.cs:line 147
+【00:26:34】      message = 读取CatchData_operation_info遇到错误 , exception = System.ArgumentException: An item with the same key has already been added. Key: 24
+   at System.Collections.Generic.Dictionary`2.TryInsert(TKey key, TValue value, InsertionBehavior behavior)
+   at System.Collections.Generic.Dictionary`2.Add(TKey key, TValue value)
+   at GFHelp.Core.CatachData.ReadCatchData_operation_info(Object jsonobj) in C:\Code\GFHelp-Web\GFHelp.Core\CatchData\Read.cs:line 147
+【00:26:34】      message = 读取CatchData_operation_info遇到错误 , exception = System.ArgumentException: An item with the same key has already been added. Key: 25
+   at System.Collections.Generic.Dictionary`2.TryInsert(TKey key, TValue value, InsertionBehavior behavior)
+   at System.Collections.Generic.Dictionary`2.Add(TKey key, TValue value)
+   at GFHelp.Core.CatachData.ReadCatchData_operation_info(Object jsonobj) in C:\Code\GFHelp-Web\GFHelp.Core\CatchData\Read.cs:line 147
+【00:26:35】      message = 读取CatchData_operation_info遇到错误 , exception = System.ArgumentException: An item with the same key has already been added. Key: 26
+   at System.Collections.Generic.Dictionary`2.TryInsert(TKey key, TValue value, InsertionBehavior behavior)
+   at System.Collections.Generic.Dictionary`2.Add(TKey key, TValue value)
+   at GFHelp.Core.CatachData.ReadCatchData_operation_info(Object jsonobj) in C:\Code\GFHelp-Web\GFHelp.Core\CatchData\Read.cs:line 147
+【00:26:35】      message = 读取CatchData_operation_info遇到错误 , exception = System.ArgumentException: An item with the same key has already been added. Key: 27
+   at System.Collections.Generic.Dictionary`2.TryInsert(TKey key, TValue value, InsertionBehavior behavior)
+   at System.Collections.Generic.Dictionary`2.Add(TKey key, TValue value)
+   at GFHelp.Core.CatachData.ReadCatchData_operation_info(Object jsonobj) in C:\Code\GFHelp-Web\GFHelp.Core\CatchData\Read.cs:line 147
+【00:26:35】      message = 读取CatchData_operation_info遇到错误 , exception = System.ArgumentException: An item with the same key has already been added. Key: 28
+   at System.Collections.Generic.Dictionary`2.TryInsert(TKey key, TValue value, InsertionBehavior behavior)
+   at System.Collections.Generic.Dictionary`2.Add(TKey key, TValue value)
+   at GFHelp.Core.CatachData.ReadCatchData_operation_info(Object jsonobj) in C:\Code\GFHelp-Web\GFHelp.Core\CatchData\Read.cs:line 147
+【00:26:35】      message = 读取CatchData_operation_info遇到错误 , exception = System.ArgumentException: An item with the same key has already been added. Key: 29
+   at System.Collections.Generic.Dictionary`2.TryInsert(TKey key, TValue value, InsertionBehavior behavior)
+   at System.Collections.Generic.Dictionary`2.Add(TKey key, TValue value)
+   at GFHelp.Core.CatachData.ReadCatchData_operation_info(Object jsonobj) in C:\Code\GFHelp-Web\GFHelp.Core\CatchData\Read.cs:line 147
+【00:26:35】      message = 读取CatchData_operation_info遇到错误 , exception = System.ArgumentException: An item with the same key has already been added. Key: 30
+   at System.Collections.Generic.Dictionary`2.TryInsert(TKey key, TValue value, InsertionBehavior behavior)
+   at System.Collections.Generic.Dictionary`2.Add(TKey key, TValue value)
+   at GFHelp.Core.CatachData.ReadCatchData_operation_info(Object jsonobj) in C:\Code\GFHelp-Web\GFHelp.Core\CatchData\Read.cs:line 147
+【00:26:36】      message = 读取CatchData_operation_info遇到错误 , exception = System.ArgumentException: An item with the same key has already been added. Key: 31
+   at System.Collections.Generic.Dictionary`2.TryInsert(TKey key, TValue value, InsertionBehavior behavior)
+   at System.Collections.Generic.Dictionary`2.Add(TKey key, TValue value)
+   at GFHelp.Core.CatachData.ReadCatchData_operation_info(Object jsonobj) in C:\Code\GFHelp-Web\GFHelp.Core\CatchData\Read.cs:line 147
+【00:26:36】      message = 读取CatchData_operation_info遇到错误 , exception = System.ArgumentException: An item with the same key has already been added. Key: 32
+   at System.Collections.Generic.Dictionary`2.TryInsert(TKey key, TValue value, InsertionBehavior behavior)
+   at System.Collections.Generic.Dictionary`2.Add(TKey key, TValue value)
+   at GFHelp.Core.CatachData.ReadCatchData_operation_info(Object jsonobj) in C:\Code\GFHelp-Web\GFHelp.Core\CatchData\Read.cs:line 147
+【00:26:36】      message = 读取CatchData_operation_info遇到错误 , exception = System.ArgumentException: An item with the same key has already been added. Key: 33
+   at System.Collections.Generic.Dictionary`2.TryInsert(TKey key, TValue value, InsertionBehavior behavior)
+   at System.Collections.Generic.Dictionary`2.Add(TKey key, TValue value)
+   at GFHelp.Core.CatachData.ReadCatchData_operation_info(Object jsonobj) in C:\Code\GFHelp-Web\GFHelp.Core\CatchData\Read.cs:line 147
+【00:26:36】      message = 读取CatchData_operation_info遇到错误 , exception = System.ArgumentException: An item with the same key has already been added. Key: 34
+   at System.Collections.Generic.Dictionary`2.TryInsert(TKey key, TValue value, InsertionBehavior behavior)
+   at System.Collections.Generic.Dictionary`2.Add(TKey key, TValue value)
+   at GFHelp.Core.CatachData.ReadCatchData_operation_info(Object jsonobj) in C:\Code\GFHelp-Web\GFHelp.Core\CatchData\Read.cs:line 147
+【00:26:36】      message = 读取CatchData_operation_info遇到错误 , exception = System.ArgumentException: An item with the same key has already been added. Key: 35
+   at System.Collections.Generic.Dictionary`2.TryInsert(TKey key, TValue value, InsertionBehavior behavior)
+   at System.Collections.Generic.Dictionary`2.Add(TKey key, TValue value)
+   at GFHelp.Core.CatachData.ReadCatchData_operation_info(Object jsonobj) in C:\Code\GFHelp-Web\GFHelp.Core\CatchData\Read.cs:line 147
+【00:26:37】      message = 读取CatchData_operation_info遇到错误 , exception = System.ArgumentException: An item with the same key has already been added. Key: 36
+   at System.Collections.Generic.Dictionary`2.TryInsert(TKey key, TValue value, InsertionBehavior behavior)
+   at System.Collections.Generic.Dictionary`2.Add(TKey key, TValue value)
+   at GFHelp.Core.CatachData.ReadCatchData_operation_info(Object jsonobj) in C:\Code\GFHelp-Web\GFHelp.Core\CatchData\Read.cs:line 147
+【00:26:37】      message = 读取CatchData_operation_info遇到错误 , exception = System.ArgumentException: An item with the same key has already been added. Key: 37
+   at System.Collections.Generic.Dictionary`2.TryInsert(TKey key, TValue value, InsertionBehavior behavior)
+   at System.Collections.Generic.Dictionary`2.Add(TKey key, TValue value)
+   at GFHelp.Core.CatachData.ReadCatchData_operation_info(Object jsonobj) in C:\Code\GFHelp-Web\GFHelp.Core\CatchData\Read.cs:line 147
+【00:26:37】      message = 读取CatchData_operation_info遇到错误 , exception = System.ArgumentException: An item with the same key has already been added. Key: 38
+   at System.Collections.Generic.Dictionary`2.TryInsert(TKey key, TValue value, InsertionBehavior behavior)
+   at System.Collections.Generic.Dictionary`2.Add(TKey key, TValue value)
+   at GFHelp.Core.CatachData.ReadCatchData_operation_info(Object jsonobj) in C:\Code\GFHelp-Web\GFHelp.Core\CatchData\Read.cs:line 147
+【00:26:37】      message = 读取CatchData_operation_info遇到错误 , exception = System.ArgumentException: An item with the same key has already been added. Key: 39
+   at System.Collections.Generic.Dictionary`2.TryInsert(TKey key, TValue value, InsertionBehavior behavior)
+   at System.Collections.Generic.Dictionary`2.Add(TKey key, TValue value)
+   at GFHelp.Core.CatachData.ReadCatchData_operation_info(Object jsonobj) in C:\Code\GFHelp-Web\GFHelp.Core\CatchData\Read.cs:line 147
+【00:26:37】      message = 读取CatchData_operation_info遇到错误 , exception = System.ArgumentException: An item with the same key has already been added. Key: 40
+   at System.Collections.Generic.Dictionary`2.TryInsert(TKey key, TValue value, InsertionBehavior behavior)
+   at System.Collections.Generic.Dictionary`2.Add(TKey key, TValue value)
+   at GFHelp.Core.CatachData.ReadCatchData_operation_info(Object jsonobj) in C:\Code\GFHelp-Web\GFHelp.Core\CatchData\Read.cs:line 147
+【00:26:38】      message = 读取CatchData_operation_info遇到错误 , exception = System.ArgumentException: An item with the same key has already been added. Key: 41
+   at System.Collections.Generic.Dictionary`2.TryInsert(TKey key, TValue value, InsertionBehavior behavior)
+   at System.Collections.Generic.Dictionary`2.Add(TKey key, TValue value)
+   at GFHelp.Core.CatachData.ReadCatchData_operation_info(Object jsonobj) in C:\Code\GFHelp-Web\GFHelp.Core\CatchData\Read.cs:line 147
+【00:26:38】      message = 读取CatchData_operation_info遇到错误 , exception = System.ArgumentException: An item with the same key has already been added. Key: 42
+   at System.Collections.Generic.Dictionary`2.TryInsert(TKey key, TValue value, InsertionBehavior behavior)
+   at System.Collections.Generic.Dictionary`2.Add(TKey key, TValue value)
+   at GFHelp.Core.CatachData.ReadCatchData_operation_info(Object jsonobj) in C:\Code\GFHelp-Web\GFHelp.Core\CatchData\Read.cs:line 147
+【00:26:38】      message = 读取CatchData_operation_info遇到错误 , exception = System.ArgumentException: An item with the same key has already been added. Key: 43
+   at System.Collections.Generic.Dictionary`2.TryInsert(TKey key, TValue value, InsertionBehavior behavior)
+   at System.Collections.Generic.Dictionary`2.Add(TKey key, TValue value)
+   at GFHelp.Core.CatachData.ReadCatchData_operation_info(Object jsonobj) in C:\Code\GFHelp-Web\GFHelp.Core\CatchData\Read.cs:line 147
+【00:26:38】      message = 读取CatchData_operation_info遇到错误 , exception = System.ArgumentException: An item with the same key has already been added. Key: 44
+   at System.Collections.Generic.Dictionary`2.TryInsert(TKey key, TValue value, InsertionBehavior behavior)
+   at System.Collections.Generic.Dictionary`2.Add(TKey key, TValue value)
+   at GFHelp.Core.CatachData.ReadCatchData_operation_info(Object jsonobj) in C:\Code\GFHelp-Web\GFHelp.Core\CatchData\Read.cs:line 147
+【00:26:39】      message = 读取CatchData_operation_info遇到错误 , exception = System.ArgumentException: An item with the same key has already been added. Key: 45
+   at System.Collections.Generic.Dictionary`2.TryInsert(TKey key, TValue value, InsertionBehavior behavior)
+   at System.Collections.Generic.Dictionary`2.Add(TKey key, TValue value)
+   at GFHelp.Core.CatachData.ReadCatchData_operation_info(Object jsonobj) in C:\Code\GFHelp-Web\GFHelp.Core\CatchData\Read.cs:line 147
+【00:26:39】      message = 读取CatchData_operation_info遇到错误 , exception = System.ArgumentException: An item with the same key has already been added. Key: 46
+   at System.Collections.Generic.Dictionary`2.TryInsert(TKey key, TValue value, InsertionBehavior behavior)
+   at System.Collections.Generic.Dictionary`2.Add(TKey key, TValue value)
+   at GFHelp.Core.CatachData.ReadCatchData_operation_info(Object jsonobj) in C:\Code\GFHelp-Web\GFHelp.Core\CatchData\Read.cs:line 147
+【00:26:39】      message = 读取CatchData_operation_info遇到错误 , exception = System.ArgumentException: An item with the same key has already been added. Key: 47
+   at System.Collections.Generic.Dictionary`2.TryInsert(TKey key, TValue value, InsertionBehavior behavior)
+   at System.Collections.Generic.Dictionary`2.Add(TKey key, TValue value)
+   at GFHelp.Core.CatachData.ReadCatchData_operation_info(Object jsonobj) in C:\Code\GFHelp-Web\GFHelp.Core\CatchData\Read.cs:line 147
+【02:13:45】      message = 调用作战dll文件出错 , exception = System.Reflection.TargetInvocationException: Exception has been thrown by the target of an invocation. ---> System.Net.WebException: The operation has timed out.
+   at GFHelp.NetBase.BaseRequset.doPost(String url, String data) in C:\Code\GFHelp-Web\NetBase1\NetBase.cs:line 62
+   at GFHelp.NetBase.BaseRequset.DoPost(String url, String data) in C:\Code\GFHelp-Web\NetBase1\NetBase.cs:line 17
+   at GFHelp.Core.API.Battle.battleFinish(GameAccount gameAccount, String outdatacode) in C:\Code\GFHelp-Web\GFHelp.Core\API\Base\Battle.cs:line 125
+   at GFHelp.Core.Action.Battle.Normal_battleFinish(String data, String& result, Boolean errorSkip) in C:\Code\GFHelp-Web\GFHelp.Core\Action\Battle\Battle.cs:line 447
+   at GFHelp.Mission.Activity.mapsc2_4()
+   --- End of inner exception stack trace ---
+   at System.RuntimeMethodHandle.InvokeMethod(Object target, Object[] arguments, Signature sig, Boolean constructor, Boolean wrapExceptions)
+   at System.Reflection.RuntimeMethodInfo.Invoke(Object obj, BindingFlags invokeAttr, Binder binder, Object[] parameters, CultureInfo culture)
+   at System.Reflection.MethodBase.Invoke(Object obj, Object[] parameters)
+   at GFHelp.Core.Action.Mission.Test() in C:\Code\GFHelp-Web\GFHelp.Core\Action\Battle\Loop.cs:line 59
+【02:13:47】      message = 调用作战dll文件出错 , exception = System.Reflection.TargetInvocationException: Exception has been thrown by the target of an invocation. ---> System.Net.WebException: The operation has timed out.
+   at GFHelp.NetBase.BaseRequset.doPost(String url, String data) in C:\Code\GFHelp-Web\NetBase1\NetBase.cs:line 62
+   at GFHelp.NetBase.BaseRequset.DoPost(String url, String data) in C:\Code\GFHelp-Web\NetBase1\NetBase.cs:line 17
+   at GFHelp.Core.API.Battle.battleFinish(GameAccount gameAccount, String outdatacode) in C:\Code\GFHelp-Web\GFHelp.Core\API\Base\Battle.cs:line 125
+   at GFHelp.Core.Action.Battle.Normal_battleFinish(String data, String& result, Boolean errorSkip) in C:\Code\GFHelp-Web\GFHelp.Core\Action\Battle\Battle.cs:line 447
+   at GFHelp.Mission.Activity.mapsc2_4()
+   --- End of inner exception stack trace ---
+   at System.RuntimeMethodHandle.InvokeMethod(Object target, Object[] arguments, Signature sig, Boolean constructor, Boolean wrapExceptions)
+   at System.Reflection.RuntimeMethodInfo.Invoke(Object obj, BindingFlags invokeAttr, Binder binder, Object[] parameters, CultureInfo culture)
+   at System.Reflection.MethodBase.Invoke(Object obj, Object[] parameters)
+   at GFHelp.Core.Action.Mission.Test() in C:\Code\GFHelp-Web\GFHelp.Core\Action\Battle\Loop.cs:line 59

@@ -109,6 +109,7 @@ namespace GFHelp.Core
         private static bool ReadCatchData_operation_info(dynamic jsonobj)
         {
             if (!jsonobj.ToString().Contains("operation_info")) return false;
+            operation_info.Clear();
             foreach (var item in jsonobj.operation_info)
             {
                 try
@@ -183,6 +184,7 @@ namespace GFHelp.Core
         }
         private static bool ReadCatchData_kalina_favor_info(dynamic jsonobj)
         {
+            kalina_favor_info.Clear();
             if (!jsonobj.ToString().Contains("kalina_favor_info")) return false;
             try
             {

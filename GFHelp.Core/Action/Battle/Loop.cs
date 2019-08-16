@@ -104,7 +104,7 @@ namespace GFHelp.Core.Action
             }
 
             //循环次数要求
-            if(userData.MissionInfo.GetFirstData().CycleTime> userData.MissionInfo.GetFirstData().MaxCycleNumber && userData.MissionInfo.GetFirstData().MaxCycleNumber!=0)
+            if(userData.MissionInfo.GetFirstData().CycleTime >= userData.MissionInfo.GetFirstData().MaxCycleNumber && userData.MissionInfo.GetFirstData().MaxCycleNumber!=0)
             {
                 userData.MissionInfo.GetFirstData().Loop = false;
             }
@@ -129,7 +129,6 @@ namespace GFHelp.Core.Action
             if (userData.MissionInfo.GetFirstData().Loop == false)
             {
                 PrintRecycleLog();
-                userData.battle.Check_Gun_need_FIX(true);
                 userData.MissionInfo.listTask.RemoveAt(0);
             }
 

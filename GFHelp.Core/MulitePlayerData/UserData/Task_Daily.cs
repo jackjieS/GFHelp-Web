@@ -48,7 +48,6 @@ namespace GFHelp.Core.MulitePlayerData
 
         public void AutoRun()
         {
-            //return;
             if (!userData.config.AutoTaskDaily) return;
             if (listSquadData.Count == 0) return;
             for (int i = 0; i < listSquadData.Count; i++)
@@ -68,7 +67,7 @@ namespace GFHelp.Core.MulitePlayerData
             {
                 if (!CheckBattleList("map1_1"))
                 {
-                    addBattle1_1(10);
+                    addBattle1_1(10- Convert.ToInt16(dailyTaskData.mission));
                 }
 
             }

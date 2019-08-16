@@ -30,7 +30,7 @@ namespace GFHelp.NetBase
         private string doPost(string url, string data)
         {
 
-            WebProxy proxyObject;
+            Start: WebProxy proxyObject;
             byte[] bs = Encoding.ASCII.GetBytes(data);
             HttpWebRequest req = (HttpWebRequest)HttpWebRequest.Create(url);
             req.Method = "POST";
@@ -59,6 +59,10 @@ namespace GFHelp.NetBase
             }
             catch (Exception e)
             {
+                if(e.ToString().ToLower().Contains("time out"))
+                {
+                    goto Start;
+                }
                 throw e;
             }
         }

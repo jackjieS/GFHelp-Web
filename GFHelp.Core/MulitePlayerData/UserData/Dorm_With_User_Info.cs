@@ -50,7 +50,7 @@ namespace GFHelp.Core.MulitePlayerData
         {
             DateTime BeijingTimeNow = Decrypt.ChinaTimeDateTime;
             //3点
-            if (BeijingTimeNow.Hour * 60 + BeijingTimeNow.Minute == (60 * 3 + 3))
+            if (BeijingTimeNow.Hour ==3)
             {
                 if (is3AMswitchStart == false)
                 {
@@ -66,7 +66,7 @@ namespace GFHelp.Core.MulitePlayerData
             }
 
 
-            if (BeijingTimeNow.Hour * 60 + BeijingTimeNow.Minute == (60 * 15 + 3))
+            if (BeijingTimeNow.Hour ==15)
             {
                 if (is15PMswitchStart == false)
                 {
@@ -80,7 +80,7 @@ namespace GFHelp.Core.MulitePlayerData
                 is15PMswitchStart = false;
             }
 
-            if (BeijingTimeNow.Hour * 60 + BeijingTimeNow.Minute == (60 * 11 + 10))
+            if (BeijingTimeNow.Hour ==11)
             {
                 if (is11PMswitchMineStart == false)
                 {
@@ -98,7 +98,7 @@ namespace GFHelp.Core.MulitePlayerData
             }
 
             //17点
-            if (BeijingTimeNow.Hour * 60 + BeijingTimeNow.Minute == (60 * 17 + 10))
+            if (BeijingTimeNow.Hour ==17)
             {
 
                 if (is17PMswitchMineStart == false)
@@ -116,7 +116,7 @@ namespace GFHelp.Core.MulitePlayerData
             }
 
             //0点
-            if (BeijingTimeNow.Hour==0 &&  BeijingTimeNow.Minute==10 && BeijingTimeNow.Second ==1)
+            if (BeijingTimeNow.Hour==0)
             {
                 Thread.Sleep(1000);
                 Task getdata = new Task(() => GetOandPDataHandle());
@@ -126,7 +126,7 @@ namespace GFHelp.Core.MulitePlayerData
 
             }
             //8点
-            if (BeijingTimeNow.Hour == 8 && BeijingTimeNow.Minute == 10 && BeijingTimeNow.Second == 1)
+            if (BeijingTimeNow.Hour == 8 )
             {
                 Thread.Sleep(1000);
                 Task getdata = new Task(() => GetOandPDataHandle());
@@ -136,7 +136,7 @@ namespace GFHelp.Core.MulitePlayerData
 
             }
             //16点
-            if (BeijingTimeNow.Hour == 16 && BeijingTimeNow.Minute == 10 && BeijingTimeNow.Second == 1)
+            if (BeijingTimeNow.Hour == 16)
             {
                 Thread.Sleep(1000);
                 Task getdata = new Task(() => GetOandPDataHandle());

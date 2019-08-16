@@ -177,7 +177,6 @@ namespace GFHelp.Core.Management
             this.auto_Mission_Act_Info = new Auto_Mission_Act_Info(this);
             this.Net = new API.Net(this);
             this.dailyReFlash = new DailyReFlash(this);
-            this.dataCheck = new DataCheck(this);
 
         }
         public void CreatGameAccount(DataBase.GameAccount gameAccount)
@@ -214,7 +213,6 @@ namespace GFHelp.Core.Management
 
             auto_Mission_Act_Info.Read(jsonData);
 
-            ReadUserData_mission_act_info(jsonData);
 
             upgrade_Act_Info.Read(jsonData);
 
@@ -242,23 +240,7 @@ namespace GFHelp.Core.Management
             others.SetTeamInfo();
 
         }
-        private void ReadUserData_mission_act_info(LitJson.JsonData JsonData)
-        {
-            try
-            {
-                if (JsonData["mission_act_info"] == null) return;
-                else
-                {
-                    this.battle.Abort_Mission_login();
 
-                }
-            }
-            catch (Exception)
-            {
-            }
-
-
-        }
 
         public AuthCode authCode;
         public Home home;
@@ -322,7 +304,6 @@ namespace GFHelp.Core.Management
 
         public API.Net Net;
         public DailyReFlash dailyReFlash;
-        public DataCheck dataCheck;
         public SquadDataAnalysisAction squadDataAnalysisAction;
         public Squad_With_User_Info squad_With_User_Info;
         public Chip_With_User_Info chip_With_User_Info;

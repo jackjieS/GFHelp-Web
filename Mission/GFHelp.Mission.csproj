@@ -17,4 +17,8 @@
     </Reference>
   </ItemGroup>
 
+  <Target Name="PostBuild" AfterTargets="PostBuildEvent">
+    <Exec Command="xcopy /r /y $(TargetPath) $(SolutionDir)GFHelp.Web\bin\Debug\netcoreapp2.1\&#xD;&#xA;xcopy /r /y $(TargetPath) $(SolutionDir)GFHelp.Web\bin\Debug\netcoreapp2.1\publish\" />
+  </Target>
+
 </Project>

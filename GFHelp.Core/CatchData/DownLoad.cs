@@ -102,11 +102,11 @@ namespace GFHelp.Core.CatchData
                         {
                             string text = streamReader.ReadLine();
                             sw.WriteLine(text);
-                            FileStream f0 = new FileStream(str2 + @"\"+count.ToString()+".json", FileMode.OpenOrCreate);
+                            FileStream f0 = new FileStream(str2 + @"\"+count++.ToString()+".json", FileMode.OpenOrCreate);
                             StreamWriter s0 = new StreamWriter(f0);
                             s0.WriteLine(text);
-                            f0.Close();
                             s0.Close();
+                            f0.Close();
                             JsonData jsonData = JsonMapper.ToObject(text);
                         }
                         sw.Close();

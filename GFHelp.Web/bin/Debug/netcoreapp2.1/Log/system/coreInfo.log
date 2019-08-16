@@ -1219,3 +1219,946 @@
 【00:48:39】      message = stcSquad_gridList 解析完成：69 
 【00:48:39】      message = stcSquad_cpu_completionList 解析完成：35 
 【00:48:39】      message = 引用作战dll 
+【16:21:44】      message = 读取config配置 
+【16:21:44】      message = 读取文字解析 
+【16:21:47】      message = stcSquad_standard_attributionList 解析完成：9 
+【16:21:47】      message = stcEquipList 解析完成：147 
+【16:21:47】      message = stcItemList 解析完成：591 
+【16:21:47】      message = stcGunList 解析完成：346 
+【16:21:47】      message = stcSquadList 解析完成：5 
+【16:21:47】      message = stcSquad_chipList 解析完成：28 
+【16:21:47】      message = stcSquad_typeList 解析完成：3 
+【16:21:47】      message = stcSquad_rankList 解析完成：5 
+【16:21:47】      message = stcSquad_expList 解析完成：100 
+【16:21:47】      message = stcSquad_chip_expList 解析完成：20 
+【16:21:47】      message = stcSquad_data_dailyList 解析完成：14 
+【16:21:47】      message = stcSquad_advanced_bonusList 解析完成：50 
+【16:21:47】      message = stcSquad_cpuList 解析完成：5 
+【16:21:47】      message = stcSquad_colorList 解析完成：2 
+【16:21:47】      message = stcSquad_gridList 解析完成：69 
+【16:21:47】      message = stcSquad_cpu_completionList 解析完成：35 
+【16:21:47】      message = 引用作战dll 
+【16:57:16】      message = 读取config配置 
+【16:57:16】      message = 读取文字解析 
+【16:57:19】      message = stcSquad_standard_attributionList 解析完成：9 
+【16:57:19】      message = stcEquipList 解析完成：147 
+【16:57:19】      message = stcItemList 解析完成：591 
+【16:57:19】      message = stcGunList 解析完成：346 
+【16:57:19】      message = stcSquadList 解析完成：5 
+【16:57:19】      message = stcSquad_chipList 解析完成：28 
+【16:57:19】      message = stcSquad_typeList 解析完成：3 
+【16:57:19】      message = stcSquad_rankList 解析完成：5 
+【16:57:19】      message = stcSquad_expList 解析完成：100 
+【16:57:19】      message = stcSquad_chip_expList 解析完成：20 
+【16:57:19】      message = stcSquad_data_dailyList 解析完成：14 
+【16:57:19】      message = stcSquad_advanced_bonusList 解析完成：50 
+【16:57:19】      message = stcSquad_cpuList 解析完成：5 
+【16:57:19】      message = stcSquad_colorList 解析完成：2 
+【16:57:19】      message = stcSquad_gridList 解析完成：69 
+【16:57:19】      message = stcSquad_cpu_completionList 解析完成：35 
+【16:57:19】      message = 引用作战dll 
+【17:24:25】      message = 读取config配置 
+【17:24:25】      message = 读取文字解析 
+【17:24:28】      message = stcSquad_standard_attributionList 解析完成：9 
+【17:24:28】      message = stcEquipList 解析完成：147 
+【17:24:28】      message = stcItemList 解析完成：591 
+【17:24:28】      message = stcGunList 解析完成：346 
+【17:24:28】      message = stcSquadList 解析完成：5 
+【17:24:28】      message = stcSquad_chipList 解析完成：28 
+【17:24:28】      message = stcSquad_typeList 解析完成：3 
+【17:24:28】      message = stcSquad_rankList 解析完成：5 
+【17:24:28】      message = stcSquad_expList 解析完成：100 
+【17:24:28】      message = stcSquad_chip_expList 解析完成：20 
+【17:24:28】      message = stcSquad_data_dailyList 解析完成：14 
+【17:24:28】      message = stcSquad_advanced_bonusList 解析完成：50 
+【17:24:28】      message = stcSquad_cpuList 解析完成：5 
+【17:24:28】      message = stcSquad_colorList 解析完成：2 
+【17:24:28】      message = stcSquad_gridList 解析完成：69 
+【17:24:28】      message = stcSquad_cpu_completionList 解析完成：35 
+【17:24:28】      message = 引用作战dll 
+【17:39:36】      message = 读取config配置 
+【17:39:36】      message = 读取文字解析 
+【17:39:39】      message = stcSquad_standard_attributionList 解析完成：9 
+【17:39:39】      message = stcEquipList 解析完成：147 
+【17:39:39】      message = stcItemList 解析完成：591 
+【17:39:39】      message = stcGunList 解析完成：346 
+【17:39:39】      message = stcSquadList 解析完成：5 
+【17:39:39】      message = stcSquad_chipList 解析完成：28 
+【17:39:39】      message = stcSquad_typeList 解析完成：3 
+【17:39:39】      message = stcSquad_rankList 解析完成：5 
+【17:39:39】      message = stcSquad_expList 解析完成：100 
+【17:39:39】      message = stcSquad_chip_expList 解析完成：20 
+【17:39:39】      message = stcSquad_data_dailyList 解析完成：14 
+【17:39:39】      message = stcSquad_advanced_bonusList 解析完成：50 
+【17:39:39】      message = stcSquad_cpuList 解析完成：5 
+【17:39:39】      message = stcSquad_colorList 解析完成：2 
+【17:39:39】      message = stcSquad_gridList 解析完成：69 
+【17:39:39】      message = stcSquad_cpu_completionList 解析完成：35 
+【17:39:39】      message = 引用作战dll 
+【18:01:23】      message = 读取config配置 
+【18:01:23】      message = 读取文字解析 
+【18:01:26】      message = stcSquad_standard_attributionList 解析完成：9 
+【18:01:26】      message = stcEquipList 解析完成：147 
+【18:01:26】      message = stcItemList 解析完成：591 
+【18:01:26】      message = stcGunList 解析完成：346 
+【18:01:26】      message = stcSquadList 解析完成：5 
+【18:01:26】      message = stcSquad_chipList 解析完成：28 
+【18:01:26】      message = stcSquad_typeList 解析完成：3 
+【18:01:26】      message = stcSquad_rankList 解析完成：5 
+【18:01:26】      message = stcSquad_expList 解析完成：100 
+【18:01:26】      message = stcSquad_chip_expList 解析完成：20 
+【18:01:26】      message = stcSquad_data_dailyList 解析完成：14 
+【18:01:26】      message = stcSquad_advanced_bonusList 解析完成：50 
+【18:01:26】      message = stcSquad_cpuList 解析完成：5 
+【18:01:26】      message = stcSquad_colorList 解析完成：2 
+【18:01:26】      message = stcSquad_gridList 解析完成：69 
+【18:01:26】      message = stcSquad_cpu_completionList 解析完成：35 
+【18:01:26】      message = 引用作战dll 
+【18:43:06】      message = 读取config配置 
+【18:43:06】      message = 读取文字解析 
+【18:43:09】      message = stcSquad_standard_attributionList 解析完成：9 
+【18:43:09】      message = stcEquipList 解析完成：147 
+【18:43:09】      message = stcItemList 解析完成：591 
+【18:43:09】      message = stcGunList 解析完成：346 
+【18:43:09】      message = stcSquadList 解析完成：5 
+【18:43:09】      message = stcSquad_chipList 解析完成：28 
+【18:43:09】      message = stcSquad_typeList 解析完成：3 
+【18:43:09】      message = stcSquad_rankList 解析完成：5 
+【18:43:09】      message = stcSquad_expList 解析完成：100 
+【18:43:09】      message = stcSquad_chip_expList 解析完成：20 
+【18:43:09】      message = stcSquad_data_dailyList 解析完成：14 
+【18:43:09】      message = stcSquad_advanced_bonusList 解析完成：50 
+【18:43:09】      message = stcSquad_cpuList 解析完成：5 
+【18:43:09】      message = stcSquad_colorList 解析完成：2 
+【18:43:09】      message = stcSquad_gridList 解析完成：69 
+【18:43:09】      message = stcSquad_cpu_completionList 解析完成：35 
+【18:43:09】      message = 引用作战dll 
+【01:43:30】      message = 读取config配置 
+【01:43:30】      message = 读取文字解析 
+【01:43:33】      message = stcSquad_standard_attributionList 解析完成：9 
+【01:43:33】      message = stcEquipList 解析完成：147 
+【01:43:33】      message = stcItemList 解析完成：591 
+【01:43:33】      message = stcGunList 解析完成：346 
+【01:43:33】      message = stcSquadList 解析完成：5 
+【01:43:33】      message = stcSquad_chipList 解析完成：28 
+【01:43:33】      message = stcSquad_typeList 解析完成：3 
+【01:43:33】      message = stcSquad_rankList 解析完成：5 
+【01:43:33】      message = stcSquad_expList 解析完成：100 
+【01:43:33】      message = stcSquad_chip_expList 解析完成：20 
+【01:43:33】      message = stcSquad_data_dailyList 解析完成：14 
+【01:43:33】      message = stcSquad_advanced_bonusList 解析完成：50 
+【01:43:33】      message = stcSquad_cpuList 解析完成：5 
+【01:43:33】      message = stcSquad_colorList 解析完成：2 
+【01:43:33】      message = stcSquad_gridList 解析完成：69 
+【01:43:33】      message = stcSquad_cpu_completionList 解析完成：35 
+【01:43:33】      message = 引用作战dll 
+【02:00:29】      message = 读取config配置 
+【02:00:29】      message = 读取文字解析 
+【02:00:32】      message = stcSquad_standard_attributionList 解析完成：9 
+【02:00:32】      message = stcEquipList 解析完成：147 
+【02:00:32】      message = stcItemList 解析完成：591 
+【02:00:32】      message = stcGunList 解析完成：346 
+【02:00:32】      message = stcSquadList 解析完成：5 
+【02:00:32】      message = stcSquad_chipList 解析完成：28 
+【02:00:32】      message = stcSquad_typeList 解析完成：3 
+【02:00:32】      message = stcSquad_rankList 解析完成：5 
+【02:00:32】      message = stcSquad_expList 解析完成：100 
+【02:00:32】      message = stcSquad_chip_expList 解析完成：20 
+【02:00:32】      message = stcSquad_data_dailyList 解析完成：14 
+【02:00:32】      message = stcSquad_advanced_bonusList 解析完成：50 
+【02:00:32】      message = stcSquad_cpuList 解析完成：5 
+【02:00:32】      message = stcSquad_colorList 解析完成：2 
+【02:00:32】      message = stcSquad_gridList 解析完成：69 
+【02:00:32】      message = stcSquad_cpu_completionList 解析完成：35 
+【02:00:32】      message = 引用作战dll 
+【02:16:17】      message = 读取config配置 
+【02:16:17】      message = 读取文字解析 
+【02:16:20】      message = stcSquad_standard_attributionList 解析完成：9 
+【02:16:20】      message = stcEquipList 解析完成：147 
+【02:16:20】      message = stcItemList 解析完成：591 
+【02:16:20】      message = stcGunList 解析完成：346 
+【02:16:20】      message = stcSquadList 解析完成：5 
+【02:16:20】      message = stcSquad_chipList 解析完成：28 
+【02:16:20】      message = stcSquad_typeList 解析完成：3 
+【02:16:20】      message = stcSquad_rankList 解析完成：5 
+【02:16:20】      message = stcSquad_expList 解析完成：100 
+【02:16:20】      message = stcSquad_chip_expList 解析完成：20 
+【02:16:20】      message = stcSquad_data_dailyList 解析完成：14 
+【02:16:20】      message = stcSquad_advanced_bonusList 解析完成：50 
+【02:16:20】      message = stcSquad_cpuList 解析完成：5 
+【02:16:20】      message = stcSquad_colorList 解析完成：2 
+【02:16:20】      message = stcSquad_gridList 解析完成：69 
+【02:16:20】      message = stcSquad_cpu_completionList 解析完成：35 
+【02:16:20】      message = 引用作战dll 
+【02:17:39】      message = 读取config配置 
+【02:17:39】      message = 读取文字解析 
+【02:18:21】      message = 读取config配置 
+【02:18:21】      message = 读取文字解析 
+【02:18:25】      message = stcSquad_standard_attributionList 解析完成：9 
+【02:18:25】      message = stcEquipList 解析完成：147 
+【02:18:25】      message = stcItemList 解析完成：591 
+【02:18:25】      message = stcGunList 解析完成：346 
+【02:18:25】      message = stcSquadList 解析完成：5 
+【02:18:25】      message = stcSquad_chipList 解析完成：28 
+【02:18:25】      message = stcSquad_typeList 解析完成：3 
+【02:18:25】      message = stcSquad_rankList 解析完成：5 
+【02:18:25】      message = stcSquad_expList 解析完成：100 
+【02:18:25】      message = stcSquad_chip_expList 解析完成：20 
+【02:18:25】      message = stcSquad_data_dailyList 解析完成：14 
+【02:18:25】      message = stcSquad_advanced_bonusList 解析完成：50 
+【02:18:25】      message = stcSquad_cpuList 解析完成：5 
+【02:18:25】      message = stcSquad_colorList 解析完成：2 
+【02:18:25】      message = stcSquad_gridList 解析完成：69 
+【02:18:25】      message = stcSquad_cpu_completionList 解析完成：35 
+【02:18:25】      message = 引用作战dll 
+【02:35:02】      message = 读取config配置 
+【02:35:02】      message = 读取文字解析 
+【02:35:05】      message = stcSquad_standard_attributionList 解析完成：9 
+【02:35:05】      message = stcEquipList 解析完成：147 
+【02:35:05】      message = stcItemList 解析完成：591 
+【02:35:05】      message = stcGunList 解析完成：346 
+【02:35:05】      message = stcSquadList 解析完成：5 
+【02:35:05】      message = stcSquad_chipList 解析完成：28 
+【02:35:05】      message = stcSquad_typeList 解析完成：3 
+【02:35:05】      message = stcSquad_rankList 解析完成：5 
+【02:35:05】      message = stcSquad_expList 解析完成：100 
+【02:35:05】      message = stcSquad_chip_expList 解析完成：20 
+【02:35:05】      message = stcSquad_data_dailyList 解析完成：14 
+【02:35:05】      message = stcSquad_advanced_bonusList 解析完成：50 
+【02:35:05】      message = stcSquad_cpuList 解析完成：5 
+【02:35:05】      message = stcSquad_colorList 解析完成：2 
+【02:35:05】      message = stcSquad_gridList 解析完成：69 
+【02:35:05】      message = stcSquad_cpu_completionList 解析完成：35 
+【02:35:05】      message = 引用作战dll 
+【02:36:43】      message = 读取config配置 
+【02:36:43】      message = 读取文字解析 
+【02:36:46】      message = stcSquad_standard_attributionList 解析完成：9 
+【02:36:46】      message = stcEquipList 解析完成：147 
+【02:36:46】      message = stcItemList 解析完成：591 
+【02:36:46】      message = stcGunList 解析完成：346 
+【02:36:46】      message = stcSquadList 解析完成：5 
+【02:36:46】      message = stcSquad_chipList 解析完成：28 
+【02:36:46】      message = stcSquad_typeList 解析完成：3 
+【02:36:46】      message = stcSquad_rankList 解析完成：5 
+【02:36:46】      message = stcSquad_expList 解析完成：100 
+【02:36:46】      message = stcSquad_chip_expList 解析完成：20 
+【02:36:46】      message = stcSquad_data_dailyList 解析完成：14 
+【02:36:46】      message = stcSquad_advanced_bonusList 解析完成：50 
+【02:36:46】      message = stcSquad_cpuList 解析完成：5 
+【02:36:46】      message = stcSquad_colorList 解析完成：2 
+【02:36:46】      message = stcSquad_gridList 解析完成：69 
+【02:36:46】      message = stcSquad_cpu_completionList 解析完成：35 
+【02:36:46】      message = 引用作战dll 
+【02:51:24】      message = 读取config配置 
+【02:51:24】      message = 读取文字解析 
+【02:51:28】      message = stcSquad_standard_attributionList 解析完成：9 
+【02:51:28】      message = stcEquipList 解析完成：147 
+【02:51:28】      message = stcItemList 解析完成：591 
+【02:51:28】      message = stcGunList 解析完成：346 
+【02:51:28】      message = stcSquadList 解析完成：5 
+【02:51:28】      message = stcSquad_chipList 解析完成：28 
+【02:51:28】      message = stcSquad_typeList 解析完成：3 
+【02:51:28】      message = stcSquad_rankList 解析完成：5 
+【02:51:28】      message = stcSquad_expList 解析完成：100 
+【02:51:28】      message = stcSquad_chip_expList 解析完成：20 
+【02:51:28】      message = stcSquad_data_dailyList 解析完成：14 
+【02:51:28】      message = stcSquad_advanced_bonusList 解析完成：50 
+【02:51:28】      message = stcSquad_cpuList 解析完成：5 
+【02:51:28】      message = stcSquad_colorList 解析完成：2 
+【02:51:28】      message = stcSquad_gridList 解析完成：69 
+【02:51:28】      message = stcSquad_cpu_completionList 解析完成：35 
+【02:51:28】      message = 引用作战dll 
+【03:44:28】      message = 读取config配置 
+【03:44:28】      message = 读取文字解析 
+【03:44:32】      message = stcSquad_standard_attributionList 解析完成：9 
+【03:44:32】      message = stcEquipList 解析完成：147 
+【03:44:32】      message = stcItemList 解析完成：591 
+【03:44:32】      message = stcGunList 解析完成：346 
+【03:44:32】      message = stcSquadList 解析完成：5 
+【03:44:32】      message = stcSquad_chipList 解析完成：28 
+【03:44:32】      message = stcSquad_typeList 解析完成：3 
+【03:44:32】      message = stcSquad_rankList 解析完成：5 
+【03:44:32】      message = stcSquad_expList 解析完成：100 
+【03:44:32】      message = stcSquad_chip_expList 解析完成：20 
+【03:44:32】      message = stcSquad_data_dailyList 解析完成：14 
+【03:44:32】      message = stcSquad_advanced_bonusList 解析完成：50 
+【03:44:32】      message = stcSquad_cpuList 解析完成：5 
+【03:44:32】      message = stcSquad_colorList 解析完成：2 
+【03:44:32】      message = stcSquad_gridList 解析完成：69 
+【03:44:32】      message = stcSquad_cpu_completionList 解析完成：35 
+【03:44:32】      message = 引用作战dll 
+【03:47:41】      message = 读取config配置 
+【03:47:41】      message = 读取文字解析 
+【03:47:44】      message = stcSquad_standard_attributionList 解析完成：9 
+【03:47:44】      message = stcEquipList 解析完成：147 
+【03:47:44】      message = stcItemList 解析完成：591 
+【03:47:44】      message = stcGunList 解析完成：346 
+【03:47:44】      message = stcSquadList 解析完成：5 
+【03:47:44】      message = stcSquad_chipList 解析完成：28 
+【03:47:44】      message = stcSquad_typeList 解析完成：3 
+【03:47:44】      message = stcSquad_rankList 解析完成：5 
+【03:47:44】      message = stcSquad_expList 解析完成：100 
+【03:47:44】      message = stcSquad_chip_expList 解析完成：20 
+【03:47:44】      message = stcSquad_data_dailyList 解析完成：14 
+【03:47:44】      message = stcSquad_advanced_bonusList 解析完成：50 
+【03:47:44】      message = stcSquad_cpuList 解析完成：5 
+【03:47:44】      message = stcSquad_colorList 解析完成：2 
+【03:47:44】      message = stcSquad_gridList 解析完成：69 
+【03:47:44】      message = stcSquad_cpu_completionList 解析完成：35 
+【03:47:44】      message = 引用作战dll 
+【03:57:38】      message = 读取config配置 
+【03:57:38】      message = 读取文字解析 
+【03:57:40】      message = stcSquad_standard_attributionList 解析完成：9 
+【03:57:40】      message = stcEquipList 解析完成：147 
+【03:57:40】      message = stcItemList 解析完成：591 
+【03:57:40】      message = stcGunList 解析完成：346 
+【03:57:40】      message = stcSquadList 解析完成：5 
+【03:57:40】      message = stcSquad_chipList 解析完成：28 
+【03:57:40】      message = stcSquad_typeList 解析完成：3 
+【03:57:40】      message = stcSquad_rankList 解析完成：5 
+【03:57:40】      message = stcSquad_expList 解析完成：100 
+【03:57:40】      message = stcSquad_chip_expList 解析完成：20 
+【03:57:40】      message = stcSquad_data_dailyList 解析完成：14 
+【03:57:40】      message = stcSquad_advanced_bonusList 解析完成：50 
+【03:57:40】      message = stcSquad_cpuList 解析完成：5 
+【03:57:40】      message = stcSquad_colorList 解析完成：2 
+【03:57:40】      message = stcSquad_gridList 解析完成：69 
+【03:57:40】      message = stcSquad_cpu_completionList 解析完成：35 
+【03:57:40】      message = 引用作战dll 
+【04:11:48】      message = 读取config配置 
+【04:11:48】      message = 读取文字解析 
+【04:11:52】      message = stcSquad_standard_attributionList 解析完成：9 
+【04:11:52】      message = stcEquipList 解析完成：147 
+【04:11:52】      message = stcItemList 解析完成：591 
+【04:11:52】      message = stcGunList 解析完成：346 
+【04:11:52】      message = stcSquadList 解析完成：5 
+【04:11:52】      message = stcSquad_chipList 解析完成：28 
+【04:11:52】      message = stcSquad_typeList 解析完成：3 
+【04:11:52】      message = stcSquad_rankList 解析完成：5 
+【04:11:52】      message = stcSquad_expList 解析完成：100 
+【04:11:52】      message = stcSquad_chip_expList 解析完成：20 
+【04:11:52】      message = stcSquad_data_dailyList 解析完成：14 
+【04:11:52】      message = stcSquad_advanced_bonusList 解析完成：50 
+【04:11:52】      message = stcSquad_cpuList 解析完成：5 
+【04:11:52】      message = stcSquad_colorList 解析完成：2 
+【04:11:52】      message = stcSquad_gridList 解析完成：69 
+【04:11:52】      message = stcSquad_cpu_completionList 解析完成：35 
+【04:11:52】      message = 引用作战dll 
+【04:18:21】      message = 读取config配置 
+【04:18:21】      message = 读取文字解析 
+【04:18:24】      message = stcSquad_standard_attributionList 解析完成：9 
+【04:18:24】      message = stcEquipList 解析完成：147 
+【04:18:24】      message = stcItemList 解析完成：591 
+【04:18:24】      message = stcGunList 解析完成：346 
+【04:18:24】      message = stcSquadList 解析完成：5 
+【04:18:24】      message = stcSquad_chipList 解析完成：28 
+【04:18:24】      message = stcSquad_typeList 解析完成：3 
+【04:18:24】      message = stcSquad_rankList 解析完成：5 
+【04:18:24】      message = stcSquad_expList 解析完成：100 
+【04:18:24】      message = stcSquad_chip_expList 解析完成：20 
+【04:18:24】      message = stcSquad_data_dailyList 解析完成：14 
+【04:18:24】      message = stcSquad_advanced_bonusList 解析完成：50 
+【04:18:24】      message = stcSquad_cpuList 解析完成：5 
+【04:18:24】      message = stcSquad_colorList 解析完成：2 
+【04:18:24】      message = stcSquad_gridList 解析完成：69 
+【04:18:24】      message = stcSquad_cpu_completionList 解析完成：35 
+【04:18:24】      message = 引用作战dll 
+【04:19:19】      message = 读取config配置 
+【04:19:19】      message = 读取文字解析 
+【04:19:22】      message = stcSquad_standard_attributionList 解析完成：9 
+【04:19:22】      message = stcEquipList 解析完成：147 
+【04:19:22】      message = stcItemList 解析完成：591 
+【04:19:22】      message = stcGunList 解析完成：346 
+【04:19:22】      message = stcSquadList 解析完成：5 
+【04:19:22】      message = stcSquad_chipList 解析完成：28 
+【04:19:22】      message = stcSquad_typeList 解析完成：3 
+【04:19:22】      message = stcSquad_rankList 解析完成：5 
+【04:19:22】      message = stcSquad_expList 解析完成：100 
+【04:19:22】      message = stcSquad_chip_expList 解析完成：20 
+【04:19:22】      message = stcSquad_data_dailyList 解析完成：14 
+【04:19:22】      message = stcSquad_advanced_bonusList 解析完成：50 
+【04:19:22】      message = stcSquad_cpuList 解析完成：5 
+【04:19:22】      message = stcSquad_colorList 解析完成：2 
+【04:19:22】      message = stcSquad_gridList 解析完成：69 
+【04:19:22】      message = stcSquad_cpu_completionList 解析完成：35 
+【04:19:22】      message = 引用作战dll 
+【04:36:26】      message = 读取config配置 
+【04:36:26】      message = 读取文字解析 
+【04:36:29】      message = stcSquad_standard_attributionList 解析完成：9 
+【04:36:29】      message = stcEquipList 解析完成：147 
+【04:36:29】      message = stcItemList 解析完成：591 
+【04:36:29】      message = stcGunList 解析完成：346 
+【04:36:29】      message = stcSquadList 解析完成：5 
+【04:36:29】      message = stcSquad_chipList 解析完成：28 
+【04:36:29】      message = stcSquad_typeList 解析完成：3 
+【04:36:29】      message = stcSquad_rankList 解析完成：5 
+【04:36:29】      message = stcSquad_expList 解析完成：100 
+【04:36:29】      message = stcSquad_chip_expList 解析完成：20 
+【04:36:29】      message = stcSquad_data_dailyList 解析完成：14 
+【04:36:29】      message = stcSquad_advanced_bonusList 解析完成：50 
+【04:36:29】      message = stcSquad_cpuList 解析完成：5 
+【04:36:29】      message = stcSquad_colorList 解析完成：2 
+【04:36:29】      message = stcSquad_gridList 解析完成：69 
+【04:36:29】      message = stcSquad_cpu_completionList 解析完成：35 
+【04:36:29】      message = 引用作战dll 
+【04:43:12】      message = 读取config配置 
+【04:43:12】      message = 读取文字解析 
+【04:43:15】      message = stcSquad_standard_attributionList 解析完成：9 
+【04:43:15】      message = stcEquipList 解析完成：147 
+【04:43:15】      message = stcItemList 解析完成：591 
+【04:43:15】      message = stcGunList 解析完成：346 
+【04:43:15】      message = stcSquadList 解析完成：5 
+【04:43:15】      message = stcSquad_chipList 解析完成：28 
+【04:43:15】      message = stcSquad_typeList 解析完成：3 
+【04:43:15】      message = stcSquad_rankList 解析完成：5 
+【04:43:15】      message = stcSquad_expList 解析完成：100 
+【04:43:15】      message = stcSquad_chip_expList 解析完成：20 
+【04:43:15】      message = stcSquad_data_dailyList 解析完成：14 
+【04:43:15】      message = stcSquad_advanced_bonusList 解析完成：50 
+【04:43:15】      message = stcSquad_cpuList 解析完成：5 
+【04:43:15】      message = stcSquad_colorList 解析完成：2 
+【04:43:15】      message = stcSquad_gridList 解析完成：69 
+【04:43:15】      message = stcSquad_cpu_completionList 解析完成：35 
+【04:43:15】      message = 引用作战dll 
+【05:00:15】      message = 读取config配置 
+【05:00:15】      message = 读取文字解析 
+【05:00:18】      message = stcSquad_standard_attributionList 解析完成：9 
+【05:00:18】      message = stcEquipList 解析完成：147 
+【05:00:18】      message = stcItemList 解析完成：591 
+【05:00:18】      message = stcGunList 解析完成：346 
+【05:00:18】      message = stcSquadList 解析完成：5 
+【05:00:18】      message = stcSquad_chipList 解析完成：28 
+【05:00:18】      message = stcSquad_typeList 解析完成：3 
+【05:00:18】      message = stcSquad_rankList 解析完成：5 
+【05:00:18】      message = stcSquad_expList 解析完成：100 
+【05:00:18】      message = stcSquad_chip_expList 解析完成：20 
+【05:00:18】      message = stcSquad_data_dailyList 解析完成：14 
+【05:00:18】      message = stcSquad_advanced_bonusList 解析完成：50 
+【05:00:18】      message = stcSquad_cpuList 解析完成：5 
+【05:00:18】      message = stcSquad_colorList 解析完成：2 
+【05:00:18】      message = stcSquad_gridList 解析完成：69 
+【05:00:18】      message = stcSquad_cpu_completionList 解析完成：35 
+【05:00:18】      message = 引用作战dll 
+【05:06:26】      message = 获取版本信息 
+【05:06:26】      message = 游戏数据开始更新 
+【05:07:06】      message = 读取config配置 
+【05:07:06】      message = 读取文字解析 
+【05:07:16】      message = stcSquad_standard_attributionList 解析完成：0 
+【05:07:17】      message = stcEquipList 解析完成：0 
+【05:07:17】      message = stcItemList 解析完成：0 
+【05:07:18】      message = stcGunList 解析完成：0 
+【05:07:19】      message = stcSquadList 解析完成：0 
+【05:07:19】      message = stcSquad_chipList 解析完成：0 
+【05:07:19】      message = stcSquad_typeList 解析完成：0 
+【05:07:19】      message = stcSquad_rankList 解析完成：0 
+【05:07:20】      message = stcSquad_expList 解析完成：0 
+【05:07:20】      message = stcSquad_chip_expList 解析完成：0 
+【05:07:20】      message = stcSquad_data_dailyList 解析完成：0 
+【05:07:22】      message = stcSquad_advanced_bonusList 解析完成：0 
+【05:07:23】      message = stcSquad_cpuList 解析完成：0 
+【05:07:23】      message = stcSquad_colorList 解析完成：0 
+【05:07:23】      message = stcSquad_gridList 解析完成：0 
+【05:07:23】      message = stcSquad_cpu_completionList 解析完成：0 
+【05:07:23】      message = 引用作战dll 
+【05:07:29】      message = 获取版本信息 
+【05:07:29】      message = 游戏数据开始更新 
+【05:08:08】      message = 读取config配置 
+【05:08:08】      message = 读取文字解析 
+【05:08:11】      message = stcSquad_standard_attributionList 解析完成：9 
+【05:08:11】      message = stcEquipList 解析完成：147 
+【05:08:11】      message = stcItemList 解析完成：591 
+【05:08:11】      message = stcGunList 解析完成：346 
+【05:08:11】      message = stcSquadList 解析完成：5 
+【05:08:11】      message = stcSquad_chipList 解析完成：28 
+【05:08:11】      message = stcSquad_typeList 解析完成：3 
+【05:08:11】      message = stcSquad_rankList 解析完成：5 
+【05:08:11】      message = stcSquad_expList 解析完成：100 
+【05:08:11】      message = stcSquad_chip_expList 解析完成：20 
+【05:08:11】      message = stcSquad_data_dailyList 解析完成：14 
+【05:08:11】      message = stcSquad_advanced_bonusList 解析完成：50 
+【05:08:11】      message = stcSquad_cpuList 解析完成：5 
+【05:08:11】      message = stcSquad_colorList 解析完成：2 
+【05:08:11】      message = stcSquad_gridList 解析完成：69 
+【05:08:11】      message = stcSquad_cpu_completionList 解析完成：35 
+【05:08:11】      message = 引用作战dll 
+【05:08:15】      message = 获取版本信息 
+【05:08:15】      message = 游戏数据开始更新 
+【05:08:23】      message = stcSquad_standard_attributionList 解析完成：9 
+【05:08:23】      message = stcEquipList 解析完成：147 
+【05:08:23】      message = stcItemList 解析完成：591 
+【05:08:23】      message = stcGunList 解析完成：346 
+【05:08:23】      message = stcSquadList 解析完成：5 
+【05:08:23】      message = stcSquad_chipList 解析完成：28 
+【05:08:23】      message = stcSquad_typeList 解析完成：3 
+【05:08:23】      message = stcSquad_rankList 解析完成：5 
+【05:08:23】      message = stcSquad_expList 解析完成：100 
+【05:08:23】      message = stcSquad_chip_expList 解析完成：20 
+【05:08:23】      message = stcSquad_data_dailyList 解析完成：14 
+【05:08:23】      message = stcSquad_advanced_bonusList 解析完成：50 
+【05:08:23】      message = stcSquad_cpuList 解析完成：5 
+【05:08:23】      message = stcSquad_colorList 解析完成：2 
+【05:08:23】      message = stcSquad_gridList 解析完成：69 
+【05:08:23】      message = stcSquad_cpu_completionList 解析完成：35 
+【05:08:23】      message = 游戏数据更新完毕 
+【05:09:30】      message = 读取config配置 
+【05:09:30】      message = 读取文字解析 
+【05:09:33】      message = stcSquad_standard_attributionList 解析完成：9 
+【05:09:33】      message = stcEquipList 解析完成：147 
+【05:09:33】      message = stcItemList 解析完成：591 
+【05:09:33】      message = stcGunList 解析完成：346 
+【05:09:33】      message = stcSquadList 解析完成：5 
+【05:09:33】      message = stcSquad_chipList 解析完成：28 
+【05:09:33】      message = stcSquad_typeList 解析完成：3 
+【05:09:33】      message = stcSquad_rankList 解析完成：5 
+【05:09:33】      message = stcSquad_expList 解析完成：100 
+【05:09:33】      message = stcSquad_chip_expList 解析完成：20 
+【05:09:33】      message = stcSquad_data_dailyList 解析完成：14 
+【05:09:33】      message = stcSquad_advanced_bonusList 解析完成：50 
+【05:09:33】      message = stcSquad_cpuList 解析完成：5 
+【05:09:33】      message = stcSquad_colorList 解析完成：2 
+【05:09:33】      message = stcSquad_gridList 解析完成：69 
+【05:09:33】      message = stcSquad_cpu_completionList 解析完成：35 
+【05:09:33】      message = 引用作战dll 
+【05:09:51】      message = 获取版本信息 
+【05:09:51】      message = 游戏数据开始更新 
+【05:09:59】      message = stcSquad_standard_attributionList 解析完成：9 
+【05:09:59】      message = stcEquipList 解析完成：147 
+【05:09:59】      message = stcItemList 解析完成：591 
+【05:09:59】      message = stcGunList 解析完成：346 
+【05:09:59】      message = stcSquadList 解析完成：5 
+【05:09:59】      message = stcSquad_chipList 解析完成：28 
+【05:09:59】      message = stcSquad_typeList 解析完成：3 
+【05:09:59】      message = stcSquad_rankList 解析完成：5 
+【05:09:59】      message = stcSquad_expList 解析完成：100 
+【05:09:59】      message = stcSquad_chip_expList 解析完成：20 
+【05:09:59】      message = stcSquad_data_dailyList 解析完成：14 
+【05:09:59】      message = stcSquad_advanced_bonusList 解析完成：50 
+【05:09:59】      message = stcSquad_cpuList 解析完成：5 
+【05:09:59】      message = stcSquad_colorList 解析完成：2 
+【05:09:59】      message = stcSquad_gridList 解析完成：69 
+【05:09:59】      message = stcSquad_cpu_completionList 解析完成：35 
+【05:09:59】      message = 游戏数据更新完毕 
+【00:23:58】      message = 读取config配置 
+【00:23:58】      message = 读取文字解析 
+【00:24:01】      message = stcSquad_standard_attributionList 解析完成：9 
+【00:24:01】      message = stcEquipList 解析完成：147 
+【00:24:01】      message = stcItemList 解析完成：591 
+【00:24:01】      message = stcGunList 解析完成：346 
+【00:24:01】      message = stcSquadList 解析完成：5 
+【00:24:01】      message = stcSquad_chipList 解析完成：28 
+【00:24:01】      message = stcSquad_typeList 解析完成：3 
+【00:24:01】      message = stcSquad_rankList 解析完成：5 
+【00:24:01】      message = stcSquad_expList 解析完成：100 
+【00:24:01】      message = stcSquad_chip_expList 解析完成：20 
+【00:24:01】      message = stcSquad_data_dailyList 解析完成：14 
+【00:24:01】      message = stcSquad_advanced_bonusList 解析完成：50 
+【00:24:01】      message = stcSquad_cpuList 解析完成：5 
+【00:24:01】      message = stcSquad_colorList 解析完成：2 
+【00:24:01】      message = stcSquad_gridList 解析完成：69 
+【00:24:01】      message = stcSquad_cpu_completionList 解析完成：35 
+【00:24:01】      message = 引用作战dll 
+【00:24:32】      message = 读取UserData_gun_with_user_info遇到错误 , exception = System.NullReferenceException: Object reference not set to an instance of an object.
+   at GFHelp.Core.MulitePlayerData.Gun_With_User_Info.Data.UpdateData() in C:\Code\GFHelp-Web\GFHelp.Core\MulitePlayerData\UserData\Gun_With_User_Info.cs:line 800
+   at GFHelp.Core.MulitePlayerData.Gun_With_User_Info.Read(JsonData jsonobj) in C:\Code\GFHelp-Web\GFHelp.Core\MulitePlayerData\UserData\Gun_With_User_Info.cs:line 105
+【00:24:43】      message = 读取config配置 
+【00:24:43】      message = 读取文字解析 
+【00:24:45】      message = stcSquad_standard_attributionList 解析完成：9 
+【00:24:45】      message = stcEquipList 解析完成：147 
+【00:24:45】      message = stcItemList 解析完成：591 
+【00:24:45】      message = stcGunList 解析完成：346 
+【00:24:45】      message = stcSquadList 解析完成：5 
+【00:24:45】      message = stcSquad_chipList 解析完成：28 
+【00:24:45】      message = stcSquad_typeList 解析完成：3 
+【00:24:45】      message = stcSquad_rankList 解析完成：5 
+【00:24:45】      message = stcSquad_expList 解析完成：100 
+【00:24:45】      message = stcSquad_chip_expList 解析完成：20 
+【00:24:45】      message = stcSquad_data_dailyList 解析完成：14 
+【00:24:45】      message = stcSquad_advanced_bonusList 解析完成：50 
+【00:24:45】      message = stcSquad_cpuList 解析完成：5 
+【00:24:45】      message = stcSquad_colorList 解析完成：2 
+【00:24:45】      message = stcSquad_gridList 解析完成：69 
+【00:24:45】      message = stcSquad_cpu_completionList 解析完成：35 
+【00:24:45】      message = 引用作战dll 
+【00:25:28】      message = 读取UserData_gun_with_user_info遇到错误 , exception = System.NullReferenceException: Object reference not set to an instance of an object.
+   at GFHelp.Core.MulitePlayerData.Gun_With_User_Info.Data.UpdateData() in C:\Code\GFHelp-Web\GFHelp.Core\MulitePlayerData\UserData\Gun_With_User_Info.cs:line 800
+   at GFHelp.Core.MulitePlayerData.Gun_With_User_Info.Read(JsonData jsonobj) in C:\Code\GFHelp-Web\GFHelp.Core\MulitePlayerData\UserData\Gun_With_User_Info.cs:line 105
+【00:25:37】      message = 获取版本信息 
+【00:25:37】      message = 游戏数据开始更新 
+【00:26:21】      message = 读取CatchData_operation_info遇到错误 , exception = System.ArgumentException: An item with the same key has already been added. Key: 0
+   at System.Collections.Generic.Dictionary`2.TryInsert(TKey key, TValue value, InsertionBehavior behavior)
+   at System.Collections.Generic.Dictionary`2.Add(TKey key, TValue value)
+   at GFHelp.Core.CatachData.ReadCatchData_operation_info(Object jsonobj) in C:\Code\GFHelp-Web\GFHelp.Core\CatchData\Read.cs:line 147
+【00:26:22】      message = 读取CatchData_operation_info遇到错误 , exception = System.ArgumentException: An item with the same key has already been added. Key: 1
+   at System.Collections.Generic.Dictionary`2.TryInsert(TKey key, TValue value, InsertionBehavior behavior)
+   at System.Collections.Generic.Dictionary`2.Add(TKey key, TValue value)
+   at GFHelp.Core.CatachData.ReadCatchData_operation_info(Object jsonobj) in C:\Code\GFHelp-Web\GFHelp.Core\CatchData\Read.cs:line 147
+【00:26:23】      message = 读取CatchData_operation_info遇到错误 , exception = System.ArgumentException: An item with the same key has already been added. Key: 2
+   at System.Collections.Generic.Dictionary`2.TryInsert(TKey key, TValue value, InsertionBehavior behavior)
+   at System.Collections.Generic.Dictionary`2.Add(TKey key, TValue value)
+   at GFHelp.Core.CatachData.ReadCatchData_operation_info(Object jsonobj) in C:\Code\GFHelp-Web\GFHelp.Core\CatchData\Read.cs:line 147
+【00:26:24】      message = 读取CatchData_operation_info遇到错误 , exception = System.ArgumentException: An item with the same key has already been added. Key: 3
+   at System.Collections.Generic.Dictionary`2.TryInsert(TKey key, TValue value, InsertionBehavior behavior)
+   at System.Collections.Generic.Dictionary`2.Add(TKey key, TValue value)
+   at GFHelp.Core.CatachData.ReadCatchData_operation_info(Object jsonobj) in C:\Code\GFHelp-Web\GFHelp.Core\CatchData\Read.cs:line 147
+【00:26:25】      message = 读取CatchData_operation_info遇到错误 , exception = System.ArgumentException: An item with the same key has already been added. Key: 4
+   at System.Collections.Generic.Dictionary`2.TryInsert(TKey key, TValue value, InsertionBehavior behavior)
+   at System.Collections.Generic.Dictionary`2.Add(TKey key, TValue value)
+   at GFHelp.Core.CatachData.ReadCatchData_operation_info(Object jsonobj) in C:\Code\GFHelp-Web\GFHelp.Core\CatchData\Read.cs:line 147
+【00:26:25】      message = 读取CatchData_operation_info遇到错误 , exception = System.ArgumentException: An item with the same key has already been added. Key: 5
+   at System.Collections.Generic.Dictionary`2.TryInsert(TKey key, TValue value, InsertionBehavior behavior)
+   at System.Collections.Generic.Dictionary`2.Add(TKey key, TValue value)
+   at GFHelp.Core.CatachData.ReadCatchData_operation_info(Object jsonobj) in C:\Code\GFHelp-Web\GFHelp.Core\CatchData\Read.cs:line 147
+【00:26:26】      message = 读取CatchData_operation_info遇到错误 , exception = System.ArgumentException: An item with the same key has already been added. Key: 6
+   at System.Collections.Generic.Dictionary`2.TryInsert(TKey key, TValue value, InsertionBehavior behavior)
+   at System.Collections.Generic.Dictionary`2.Add(TKey key, TValue value)
+   at GFHelp.Core.CatachData.ReadCatchData_operation_info(Object jsonobj) in C:\Code\GFHelp-Web\GFHelp.Core\CatchData\Read.cs:line 147
+【00:26:26】      message = 读取CatchData_operation_info遇到错误 , exception = System.ArgumentException: An item with the same key has already been added. Key: 7
+   at System.Collections.Generic.Dictionary`2.TryInsert(TKey key, TValue value, InsertionBehavior behavior)
+   at System.Collections.Generic.Dictionary`2.Add(TKey key, TValue value)
+   at GFHelp.Core.CatachData.ReadCatchData_operation_info(Object jsonobj) in C:\Code\GFHelp-Web\GFHelp.Core\CatchData\Read.cs:line 147
+【00:26:26】      message = 读取CatchData_operation_info遇到错误 , exception = System.ArgumentException: An item with the same key has already been added. Key: 8
+   at System.Collections.Generic.Dictionary`2.TryInsert(TKey key, TValue value, InsertionBehavior behavior)
+   at System.Collections.Generic.Dictionary`2.Add(TKey key, TValue value)
+   at GFHelp.Core.CatachData.ReadCatchData_operation_info(Object jsonobj) in C:\Code\GFHelp-Web\GFHelp.Core\CatchData\Read.cs:line 147
+【00:26:27】      message = 读取CatchData_operation_info遇到错误 , exception = System.ArgumentException: An item with the same key has already been added. Key: 9
+   at System.Collections.Generic.Dictionary`2.TryInsert(TKey key, TValue value, InsertionBehavior behavior)
+   at System.Collections.Generic.Dictionary`2.Add(TKey key, TValue value)
+   at GFHelp.Core.CatachData.ReadCatchData_operation_info(Object jsonobj) in C:\Code\GFHelp-Web\GFHelp.Core\CatchData\Read.cs:line 147
+【00:26:28】      message = 读取CatchData_operation_info遇到错误 , exception = System.ArgumentException: An item with the same key has already been added. Key: 10
+   at System.Collections.Generic.Dictionary`2.TryInsert(TKey key, TValue value, InsertionBehavior behavior)
+   at System.Collections.Generic.Dictionary`2.Add(TKey key, TValue value)
+   at GFHelp.Core.CatachData.ReadCatchData_operation_info(Object jsonobj) in C:\Code\GFHelp-Web\GFHelp.Core\CatchData\Read.cs:line 147
+【00:26:29】      message = 读取CatchData_operation_info遇到错误 , exception = System.ArgumentException: An item with the same key has already been added. Key: 11
+   at System.Collections.Generic.Dictionary`2.TryInsert(TKey key, TValue value, InsertionBehavior behavior)
+   at System.Collections.Generic.Dictionary`2.Add(TKey key, TValue value)
+   at GFHelp.Core.CatachData.ReadCatchData_operation_info(Object jsonobj) in C:\Code\GFHelp-Web\GFHelp.Core\CatchData\Read.cs:line 147
+【00:26:29】      message = 读取CatchData_operation_info遇到错误 , exception = System.ArgumentException: An item with the same key has already been added. Key: 12
+   at System.Collections.Generic.Dictionary`2.TryInsert(TKey key, TValue value, InsertionBehavior behavior)
+   at System.Collections.Generic.Dictionary`2.Add(TKey key, TValue value)
+   at GFHelp.Core.CatachData.ReadCatchData_operation_info(Object jsonobj) in C:\Code\GFHelp-Web\GFHelp.Core\CatchData\Read.cs:line 147
+【00:26:30】      message = 读取CatchData_operation_info遇到错误 , exception = System.ArgumentException: An item with the same key has already been added. Key: 13
+   at System.Collections.Generic.Dictionary`2.TryInsert(TKey key, TValue value, InsertionBehavior behavior)
+   at System.Collections.Generic.Dictionary`2.Add(TKey key, TValue value)
+   at GFHelp.Core.CatachData.ReadCatchData_operation_info(Object jsonobj) in C:\Code\GFHelp-Web\GFHelp.Core\CatchData\Read.cs:line 147
+【00:26:31】      message = 读取CatchData_operation_info遇到错误 , exception = System.ArgumentException: An item with the same key has already been added. Key: 14
+   at System.Collections.Generic.Dictionary`2.TryInsert(TKey key, TValue value, InsertionBehavior behavior)
+   at System.Collections.Generic.Dictionary`2.Add(TKey key, TValue value)
+   at GFHelp.Core.CatachData.ReadCatchData_operation_info(Object jsonobj) in C:\Code\GFHelp-Web\GFHelp.Core\CatchData\Read.cs:line 147
+【00:26:32】      message = 读取CatchData_operation_info遇到错误 , exception = System.ArgumentException: An item with the same key has already been added. Key: 15
+   at System.Collections.Generic.Dictionary`2.TryInsert(TKey key, TValue value, InsertionBehavior behavior)
+   at System.Collections.Generic.Dictionary`2.Add(TKey key, TValue value)
+   at GFHelp.Core.CatachData.ReadCatchData_operation_info(Object jsonobj) in C:\Code\GFHelp-Web\GFHelp.Core\CatchData\Read.cs:line 147
+【00:26:32】      message = 读取CatchData_operation_info遇到错误 , exception = System.ArgumentException: An item with the same key has already been added. Key: 16
+   at System.Collections.Generic.Dictionary`2.TryInsert(TKey key, TValue value, InsertionBehavior behavior)
+   at System.Collections.Generic.Dictionary`2.Add(TKey key, TValue value)
+   at GFHelp.Core.CatachData.ReadCatchData_operation_info(Object jsonobj) in C:\Code\GFHelp-Web\GFHelp.Core\CatchData\Read.cs:line 147
+【00:26:32】      message = 读取CatchData_operation_info遇到错误 , exception = System.ArgumentException: An item with the same key has already been added. Key: 17
+   at System.Collections.Generic.Dictionary`2.TryInsert(TKey key, TValue value, InsertionBehavior behavior)
+   at System.Collections.Generic.Dictionary`2.Add(TKey key, TValue value)
+   at GFHelp.Core.CatachData.ReadCatchData_operation_info(Object jsonobj) in C:\Code\GFHelp-Web\GFHelp.Core\CatchData\Read.cs:line 147
+【00:26:33】      message = 读取CatchData_operation_info遇到错误 , exception = System.ArgumentException: An item with the same key has already been added. Key: 18
+   at System.Collections.Generic.Dictionary`2.TryInsert(TKey key, TValue value, InsertionBehavior behavior)
+   at System.Collections.Generic.Dictionary`2.Add(TKey key, TValue value)
+   at GFHelp.Core.CatachData.ReadCatchData_operation_info(Object jsonobj) in C:\Code\GFHelp-Web\GFHelp.Core\CatchData\Read.cs:line 147
+【00:26:33】      message = 读取CatchData_operation_info遇到错误 , exception = System.ArgumentException: An item with the same key has already been added. Key: 19
+   at System.Collections.Generic.Dictionary`2.TryInsert(TKey key, TValue value, InsertionBehavior behavior)
+   at System.Collections.Generic.Dictionary`2.Add(TKey key, TValue value)
+   at GFHelp.Core.CatachData.ReadCatchData_operation_info(Object jsonobj) in C:\Code\GFHelp-Web\GFHelp.Core\CatchData\Read.cs:line 147
+【00:26:33】      message = 读取CatchData_operation_info遇到错误 , exception = System.ArgumentException: An item with the same key has already been added. Key: 20
+   at System.Collections.Generic.Dictionary`2.TryInsert(TKey key, TValue value, InsertionBehavior behavior)
+   at System.Collections.Generic.Dictionary`2.Add(TKey key, TValue value)
+   at GFHelp.Core.CatachData.ReadCatchData_operation_info(Object jsonobj) in C:\Code\GFHelp-Web\GFHelp.Core\CatchData\Read.cs:line 147
+【00:26:33】      message = 读取CatchData_operation_info遇到错误 , exception = System.ArgumentException: An item with the same key has already been added. Key: 21
+   at System.Collections.Generic.Dictionary`2.TryInsert(TKey key, TValue value, InsertionBehavior behavior)
+   at System.Collections.Generic.Dictionary`2.Add(TKey key, TValue value)
+   at GFHelp.Core.CatachData.ReadCatchData_operation_info(Object jsonobj) in C:\Code\GFHelp-Web\GFHelp.Core\CatchData\Read.cs:line 147
+【00:26:34】      message = 读取CatchData_operation_info遇到错误 , exception = System.ArgumentException: An item with the same key has already been added. Key: 22
+   at System.Collections.Generic.Dictionary`2.TryInsert(TKey key, TValue value, InsertionBehavior behavior)
+   at System.Collections.Generic.Dictionary`2.Add(TKey key, TValue value)
+   at GFHelp.Core.CatachData.ReadCatchData_operation_info(Object jsonobj) in C:\Code\GFHelp-Web\GFHelp.Core\CatchData\Read.cs:line 147
+【00:26:34】      message = 读取CatchData_operation_info遇到错误 , exception = System.ArgumentException: An item with the same key has already been added. Key: 23
+   at System.Collections.Generic.Dictionary`2.TryInsert(TKey key, TValue value, InsertionBehavior behavior)
+   at System.Collections.Generic.Dictionary`2.Add(TKey key, TValue value)
+   at GFHelp.Core.CatachData.ReadCatchData_operation_info(Object jsonobj) in C:\Code\GFHelp-Web\GFHelp.Core\CatchData\Read.cs:line 147
+【00:26:34】      message = 读取CatchData_operation_info遇到错误 , exception = System.ArgumentException: An item with the same key has already been added. Key: 24
+   at System.Collections.Generic.Dictionary`2.TryInsert(TKey key, TValue value, InsertionBehavior behavior)
+   at System.Collections.Generic.Dictionary`2.Add(TKey key, TValue value)
+   at GFHelp.Core.CatachData.ReadCatchData_operation_info(Object jsonobj) in C:\Code\GFHelp-Web\GFHelp.Core\CatchData\Read.cs:line 147
+【00:26:34】      message = 读取CatchData_operation_info遇到错误 , exception = System.ArgumentException: An item with the same key has already been added. Key: 25
+   at System.Collections.Generic.Dictionary`2.TryInsert(TKey key, TValue value, InsertionBehavior behavior)
+   at System.Collections.Generic.Dictionary`2.Add(TKey key, TValue value)
+   at GFHelp.Core.CatachData.ReadCatchData_operation_info(Object jsonobj) in C:\Code\GFHelp-Web\GFHelp.Core\CatchData\Read.cs:line 147
+【00:26:35】      message = 读取CatchData_operation_info遇到错误 , exception = System.ArgumentException: An item with the same key has already been added. Key: 26
+   at System.Collections.Generic.Dictionary`2.TryInsert(TKey key, TValue value, InsertionBehavior behavior)
+   at System.Collections.Generic.Dictionary`2.Add(TKey key, TValue value)
+   at GFHelp.Core.CatachData.ReadCatchData_operation_info(Object jsonobj) in C:\Code\GFHelp-Web\GFHelp.Core\CatchData\Read.cs:line 147
+【00:26:35】      message = 读取CatchData_operation_info遇到错误 , exception = System.ArgumentException: An item with the same key has already been added. Key: 27
+   at System.Collections.Generic.Dictionary`2.TryInsert(TKey key, TValue value, InsertionBehavior behavior)
+   at System.Collections.Generic.Dictionary`2.Add(TKey key, TValue value)
+   at GFHelp.Core.CatachData.ReadCatchData_operation_info(Object jsonobj) in C:\Code\GFHelp-Web\GFHelp.Core\CatchData\Read.cs:line 147
+【00:26:35】      message = 读取CatchData_operation_info遇到错误 , exception = System.ArgumentException: An item with the same key has already been added. Key: 28
+   at System.Collections.Generic.Dictionary`2.TryInsert(TKey key, TValue value, InsertionBehavior behavior)
+   at System.Collections.Generic.Dictionary`2.Add(TKey key, TValue value)
+   at GFHelp.Core.CatachData.ReadCatchData_operation_info(Object jsonobj) in C:\Code\GFHelp-Web\GFHelp.Core\CatchData\Read.cs:line 147
+【00:26:35】      message = 读取CatchData_operation_info遇到错误 , exception = System.ArgumentException: An item with the same key has already been added. Key: 29
+   at System.Collections.Generic.Dictionary`2.TryInsert(TKey key, TValue value, InsertionBehavior behavior)
+   at System.Collections.Generic.Dictionary`2.Add(TKey key, TValue value)
+   at GFHelp.Core.CatachData.ReadCatchData_operation_info(Object jsonobj) in C:\Code\GFHelp-Web\GFHelp.Core\CatchData\Read.cs:line 147
+【00:26:35】      message = 读取CatchData_operation_info遇到错误 , exception = System.ArgumentException: An item with the same key has already been added. Key: 30
+   at System.Collections.Generic.Dictionary`2.TryInsert(TKey key, TValue value, InsertionBehavior behavior)
+   at System.Collections.Generic.Dictionary`2.Add(TKey key, TValue value)
+   at GFHelp.Core.CatachData.ReadCatchData_operation_info(Object jsonobj) in C:\Code\GFHelp-Web\GFHelp.Core\CatchData\Read.cs:line 147
+【00:26:36】      message = 读取CatchData_operation_info遇到错误 , exception = System.ArgumentException: An item with the same key has already been added. Key: 31
+   at System.Collections.Generic.Dictionary`2.TryInsert(TKey key, TValue value, InsertionBehavior behavior)
+   at System.Collections.Generic.Dictionary`2.Add(TKey key, TValue value)
+   at GFHelp.Core.CatachData.ReadCatchData_operation_info(Object jsonobj) in C:\Code\GFHelp-Web\GFHelp.Core\CatchData\Read.cs:line 147
+【00:26:36】      message = 读取CatchData_operation_info遇到错误 , exception = System.ArgumentException: An item with the same key has already been added. Key: 32
+   at System.Collections.Generic.Dictionary`2.TryInsert(TKey key, TValue value, InsertionBehavior behavior)
+   at System.Collections.Generic.Dictionary`2.Add(TKey key, TValue value)
+   at GFHelp.Core.CatachData.ReadCatchData_operation_info(Object jsonobj) in C:\Code\GFHelp-Web\GFHelp.Core\CatchData\Read.cs:line 147
+【00:26:36】      message = 读取CatchData_operation_info遇到错误 , exception = System.ArgumentException: An item with the same key has already been added. Key: 33
+   at System.Collections.Generic.Dictionary`2.TryInsert(TKey key, TValue value, InsertionBehavior behavior)
+   at System.Collections.Generic.Dictionary`2.Add(TKey key, TValue value)
+   at GFHelp.Core.CatachData.ReadCatchData_operation_info(Object jsonobj) in C:\Code\GFHelp-Web\GFHelp.Core\CatchData\Read.cs:line 147
+【00:26:36】      message = 读取CatchData_operation_info遇到错误 , exception = System.ArgumentException: An item with the same key has already been added. Key: 34
+   at System.Collections.Generic.Dictionary`2.TryInsert(TKey key, TValue value, InsertionBehavior behavior)
+   at System.Collections.Generic.Dictionary`2.Add(TKey key, TValue value)
+   at GFHelp.Core.CatachData.ReadCatchData_operation_info(Object jsonobj) in C:\Code\GFHelp-Web\GFHelp.Core\CatchData\Read.cs:line 147
+【00:26:36】      message = 读取CatchData_operation_info遇到错误 , exception = System.ArgumentException: An item with the same key has already been added. Key: 35
+   at System.Collections.Generic.Dictionary`2.TryInsert(TKey key, TValue value, InsertionBehavior behavior)
+   at System.Collections.Generic.Dictionary`2.Add(TKey key, TValue value)
+   at GFHelp.Core.CatachData.ReadCatchData_operation_info(Object jsonobj) in C:\Code\GFHelp-Web\GFHelp.Core\CatchData\Read.cs:line 147
+【00:26:37】      message = 读取CatchData_operation_info遇到错误 , exception = System.ArgumentException: An item with the same key has already been added. Key: 36
+   at System.Collections.Generic.Dictionary`2.TryInsert(TKey key, TValue value, InsertionBehavior behavior)
+   at System.Collections.Generic.Dictionary`2.Add(TKey key, TValue value)
+   at GFHelp.Core.CatachData.ReadCatchData_operation_info(Object jsonobj) in C:\Code\GFHelp-Web\GFHelp.Core\CatchData\Read.cs:line 147
+【00:26:37】      message = 读取CatchData_operation_info遇到错误 , exception = System.ArgumentException: An item with the same key has already been added. Key: 37
+   at System.Collections.Generic.Dictionary`2.TryInsert(TKey key, TValue value, InsertionBehavior behavior)
+   at System.Collections.Generic.Dictionary`2.Add(TKey key, TValue value)
+   at GFHelp.Core.CatachData.ReadCatchData_operation_info(Object jsonobj) in C:\Code\GFHelp-Web\GFHelp.Core\CatchData\Read.cs:line 147
+【00:26:37】      message = 读取CatchData_operation_info遇到错误 , exception = System.ArgumentException: An item with the same key has already been added. Key: 38
+   at System.Collections.Generic.Dictionary`2.TryInsert(TKey key, TValue value, InsertionBehavior behavior)
+   at System.Collections.Generic.Dictionary`2.Add(TKey key, TValue value)
+   at GFHelp.Core.CatachData.ReadCatchData_operation_info(Object jsonobj) in C:\Code\GFHelp-Web\GFHelp.Core\CatchData\Read.cs:line 147
+【00:26:37】      message = 读取CatchData_operation_info遇到错误 , exception = System.ArgumentException: An item with the same key has already been added. Key: 39
+   at System.Collections.Generic.Dictionary`2.TryInsert(TKey key, TValue value, InsertionBehavior behavior)
+   at System.Collections.Generic.Dictionary`2.Add(TKey key, TValue value)
+   at GFHelp.Core.CatachData.ReadCatchData_operation_info(Object jsonobj) in C:\Code\GFHelp-Web\GFHelp.Core\CatchData\Read.cs:line 147
+【00:26:37】      message = 读取CatchData_operation_info遇到错误 , exception = System.ArgumentException: An item with the same key has already been added. Key: 40
+   at System.Collections.Generic.Dictionary`2.TryInsert(TKey key, TValue value, InsertionBehavior behavior)
+   at System.Collections.Generic.Dictionary`2.Add(TKey key, TValue value)
+   at GFHelp.Core.CatachData.ReadCatchData_operation_info(Object jsonobj) in C:\Code\GFHelp-Web\GFHelp.Core\CatchData\Read.cs:line 147
+【00:26:38】      message = 读取CatchData_operation_info遇到错误 , exception = System.ArgumentException: An item with the same key has already been added. Key: 41
+   at System.Collections.Generic.Dictionary`2.TryInsert(TKey key, TValue value, InsertionBehavior behavior)
+   at System.Collections.Generic.Dictionary`2.Add(TKey key, TValue value)
+   at GFHelp.Core.CatachData.ReadCatchData_operation_info(Object jsonobj) in C:\Code\GFHelp-Web\GFHelp.Core\CatchData\Read.cs:line 147
+【00:26:38】      message = 读取CatchData_operation_info遇到错误 , exception = System.ArgumentException: An item with the same key has already been added. Key: 42
+   at System.Collections.Generic.Dictionary`2.TryInsert(TKey key, TValue value, InsertionBehavior behavior)
+   at System.Collections.Generic.Dictionary`2.Add(TKey key, TValue value)
+   at GFHelp.Core.CatachData.ReadCatchData_operation_info(Object jsonobj) in C:\Code\GFHelp-Web\GFHelp.Core\CatchData\Read.cs:line 147
+【00:26:38】      message = 读取CatchData_operation_info遇到错误 , exception = System.ArgumentException: An item with the same key has already been added. Key: 43
+   at System.Collections.Generic.Dictionary`2.TryInsert(TKey key, TValue value, InsertionBehavior behavior)
+   at System.Collections.Generic.Dictionary`2.Add(TKey key, TValue value)
+   at GFHelp.Core.CatachData.ReadCatchData_operation_info(Object jsonobj) in C:\Code\GFHelp-Web\GFHelp.Core\CatchData\Read.cs:line 147
+【00:26:38】      message = 读取CatchData_operation_info遇到错误 , exception = System.ArgumentException: An item with the same key has already been added. Key: 44
+   at System.Collections.Generic.Dictionary`2.TryInsert(TKey key, TValue value, InsertionBehavior behavior)
+   at System.Collections.Generic.Dictionary`2.Add(TKey key, TValue value)
+   at GFHelp.Core.CatachData.ReadCatchData_operation_info(Object jsonobj) in C:\Code\GFHelp-Web\GFHelp.Core\CatchData\Read.cs:line 147
+【00:26:39】      message = 读取CatchData_operation_info遇到错误 , exception = System.ArgumentException: An item with the same key has already been added. Key: 45
+   at System.Collections.Generic.Dictionary`2.TryInsert(TKey key, TValue value, InsertionBehavior behavior)
+   at System.Collections.Generic.Dictionary`2.Add(TKey key, TValue value)
+   at GFHelp.Core.CatachData.ReadCatchData_operation_info(Object jsonobj) in C:\Code\GFHelp-Web\GFHelp.Core\CatchData\Read.cs:line 147
+【00:26:39】      message = 读取CatchData_operation_info遇到错误 , exception = System.ArgumentException: An item with the same key has already been added. Key: 46
+   at System.Collections.Generic.Dictionary`2.TryInsert(TKey key, TValue value, InsertionBehavior behavior)
+   at System.Collections.Generic.Dictionary`2.Add(TKey key, TValue value)
+   at GFHelp.Core.CatachData.ReadCatchData_operation_info(Object jsonobj) in C:\Code\GFHelp-Web\GFHelp.Core\CatchData\Read.cs:line 147
+【00:26:39】      message = 读取CatchData_operation_info遇到错误 , exception = System.ArgumentException: An item with the same key has already been added. Key: 47
+   at System.Collections.Generic.Dictionary`2.TryInsert(TKey key, TValue value, InsertionBehavior behavior)
+   at System.Collections.Generic.Dictionary`2.Add(TKey key, TValue value)
+   at GFHelp.Core.CatachData.ReadCatchData_operation_info(Object jsonobj) in C:\Code\GFHelp-Web\GFHelp.Core\CatchData\Read.cs:line 147
+【00:26:48】      message = 读取config配置 
+【00:26:48】      message = 读取文字解析 
+【00:34:45】      message = 读取config配置 
+【00:34:45】      message = 读取文字解析 
+【00:35:35】      message = 读取config配置 
+【00:35:35】      message = 读取文字解析 
+【00:36:29】      message = stcSquad_standard_attributionList 解析完成：0 
+【00:36:31】      message = stcEquipList 解析完成：0 
+【00:36:33】      message = stcItemList 解析完成：0 
+【00:36:34】      message = stcGunList 解析完成：0 
+【00:36:34】      message = stcSquadList 解析完成：0 
+【00:36:35】      message = stcSquad_chipList 解析完成：0 
+【00:36:35】      message = stcSquad_typeList 解析完成：0 
+【00:36:35】      message = stcSquad_rankList 解析完成：0 
+【00:36:36】      message = stcSquad_expList 解析完成：0 
+【00:36:36】      message = stcSquad_chip_expList 解析完成：0 
+【00:36:37】      message = stcSquad_data_dailyList 解析完成：0 
+【00:36:37】      message = stcSquad_advanced_bonusList 解析完成：0 
+【00:36:37】      message = stcSquad_cpuList 解析完成：0 
+【00:36:38】      message = stcSquad_colorList 解析完成：0 
+【00:36:38】      message = stcSquad_gridList 解析完成：0 
+【00:36:38】      message = stcSquad_cpu_completionList 解析完成：0 
+【00:36:38】      message = 引用作战dll 
+【00:38:35】      message = 读取config配置 
+【00:38:35】      message = 读取文字解析 
+【00:40:44】      message = 读取config配置 
+【00:40:44】      message = 读取文字解析 
+【00:42:08】      message = stcSquad_standard_attributionList 解析完成：0 
+【00:44:48】      message = 读取config配置 
+【00:44:48】      message = 读取文字解析 
+【00:44:50】      message = stcSquad_standard_attributionList 解析完成：9 
+【00:44:50】      message = stcEquipList 解析完成：147 
+【00:44:50】      message = stcItemList 解析完成：591 
+【00:44:50】      message = stcGunList 解析完成：346 
+【00:44:50】      message = stcSquadList 解析完成：5 
+【00:44:50】      message = stcSquad_chipList 解析完成：28 
+【00:44:50】      message = stcSquad_typeList 解析完成：3 
+【00:44:50】      message = stcSquad_rankList 解析完成：5 
+【00:44:50】      message = stcSquad_expList 解析完成：100 
+【00:44:50】      message = stcSquad_chip_expList 解析完成：20 
+【00:44:50】      message = stcSquad_data_dailyList 解析完成：14 
+【00:44:50】      message = stcSquad_advanced_bonusList 解析完成：50 
+【00:44:50】      message = stcSquad_cpuList 解析完成：5 
+【00:44:50】      message = stcSquad_colorList 解析完成：2 
+【00:44:50】      message = stcSquad_gridList 解析完成：69 
+【00:44:50】      message = stcSquad_cpu_completionList 解析完成：35 
+【00:44:50】      message = 引用作战dll 
+【00:51:25】      message = 游戏数据正在更新 
+【00:51:25】      message = 获取版本信息 
+【00:51:25】      message = 游戏数据开始更新 
+【00:57:43】      message = 读取config配置 
+【00:57:43】      message = 读取文字解析 
+【00:57:46】      message = stcSquad_standard_attributionList 解析完成：9 
+【00:57:46】      message = stcEquipList 解析完成：147 
+【00:57:46】      message = stcItemList 解析完成：591 
+【00:57:46】      message = stcGunList 解析完成：346 
+【00:57:46】      message = stcSquadList 解析完成：5 
+【00:57:46】      message = stcSquad_chipList 解析完成：28 
+【00:57:46】      message = stcSquad_typeList 解析完成：3 
+【00:57:46】      message = stcSquad_rankList 解析完成：5 
+【00:57:46】      message = stcSquad_expList 解析完成：100 
+【00:57:46】      message = stcSquad_chip_expList 解析完成：20 
+【00:57:46】      message = stcSquad_data_dailyList 解析完成：14 
+【00:57:46】      message = stcSquad_advanced_bonusList 解析完成：50 
+【00:57:46】      message = stcSquad_cpuList 解析完成：5 
+【00:57:46】      message = stcSquad_colorList 解析完成：2 
+【00:57:46】      message = stcSquad_gridList 解析完成：69 
+【00:57:46】      message = stcSquad_cpu_completionList 解析完成：35 
+【00:57:46】      message = 引用作战dll 
+【01:08:51】      message = 读取config配置 
+【01:08:51】      message = 读取文字解析 
+【01:08:55】      message = stcSquad_standard_attributionList 解析完成：9 
+【01:08:55】      message = stcEquipList 解析完成：147 
+【01:08:55】      message = stcItemList 解析完成：591 
+【01:08:55】      message = stcGunList 解析完成：346 
+【01:08:55】      message = stcSquadList 解析完成：5 
+【01:08:55】      message = stcSquad_chipList 解析完成：28 
+【01:08:55】      message = stcSquad_typeList 解析完成：3 
+【01:08:55】      message = stcSquad_rankList 解析完成：5 
+【01:08:55】      message = stcSquad_expList 解析完成：100 
+【01:08:55】      message = stcSquad_chip_expList 解析完成：20 
+【01:08:55】      message = stcSquad_data_dailyList 解析完成：14 
+【01:08:55】      message = stcSquad_advanced_bonusList 解析完成：50 
+【01:08:55】      message = stcSquad_cpuList 解析完成：5 
+【01:08:55】      message = stcSquad_colorList 解析完成：2 
+【01:08:55】      message = stcSquad_gridList 解析完成：69 
+【01:08:55】      message = stcSquad_cpu_completionList 解析完成：35 
+【01:08:55】      message = 引用作战dll 
+【01:55:04】      message = 读取config配置 
+【01:55:04】      message = 读取文字解析 
+【01:55:08】      message = stcSquad_standard_attributionList 解析完成：9 
+【01:55:08】      message = stcEquipList 解析完成：147 
+【01:55:08】      message = stcItemList 解析完成：591 
+【01:55:08】      message = stcGunList 解析完成：346 
+【01:55:08】      message = stcSquadList 解析完成：5 
+【01:55:08】      message = stcSquad_chipList 解析完成：28 
+【01:55:08】      message = stcSquad_typeList 解析完成：3 
+【01:55:08】      message = stcSquad_rankList 解析完成：5 
+【01:55:08】      message = stcSquad_expList 解析完成：100 
+【01:55:08】      message = stcSquad_chip_expList 解析完成：20 
+【01:55:08】      message = stcSquad_data_dailyList 解析完成：14 
+【01:55:08】      message = stcSquad_advanced_bonusList 解析完成：50 
+【01:55:08】      message = stcSquad_cpuList 解析完成：5 
+【01:55:08】      message = stcSquad_colorList 解析完成：2 
+【01:55:08】      message = stcSquad_gridList 解析完成：69 
+【01:55:08】      message = stcSquad_cpu_completionList 解析完成：35 
+【01:55:08】      message = 引用作战dll 
+【02:13:45】      message = 调用作战dll文件出错 , exception = System.Reflection.TargetInvocationException: Exception has been thrown by the target of an invocation. ---> System.Net.WebException: The operation has timed out.
+   at GFHelp.NetBase.BaseRequset.doPost(String url, String data) in C:\Code\GFHelp-Web\NetBase1\NetBase.cs:line 62
+   at GFHelp.NetBase.BaseRequset.DoPost(String url, String data) in C:\Code\GFHelp-Web\NetBase1\NetBase.cs:line 17
+   at GFHelp.Core.API.Battle.battleFinish(GameAccount gameAccount, String outdatacode) in C:\Code\GFHelp-Web\GFHelp.Core\API\Base\Battle.cs:line 125
+   at GFHelp.Core.Action.Battle.Normal_battleFinish(String data, String& result, Boolean errorSkip) in C:\Code\GFHelp-Web\GFHelp.Core\Action\Battle\Battle.cs:line 447
+   at GFHelp.Mission.Activity.mapsc2_4()
+   --- End of inner exception stack trace ---
+   at System.RuntimeMethodHandle.InvokeMethod(Object target, Object[] arguments, Signature sig, Boolean constructor, Boolean wrapExceptions)
+   at System.Reflection.RuntimeMethodInfo.Invoke(Object obj, BindingFlags invokeAttr, Binder binder, Object[] parameters, CultureInfo culture)
+   at System.Reflection.MethodBase.Invoke(Object obj, Object[] parameters)
+   at GFHelp.Core.Action.Mission.Test() in C:\Code\GFHelp-Web\GFHelp.Core\Action\Battle\Loop.cs:line 59
+【02:13:47】      message = 调用作战dll文件出错 , exception = System.Reflection.TargetInvocationException: Exception has been thrown by the target of an invocation. ---> System.Net.WebException: The operation has timed out.
+   at GFHelp.NetBase.BaseRequset.doPost(String url, String data) in C:\Code\GFHelp-Web\NetBase1\NetBase.cs:line 62
+   at GFHelp.NetBase.BaseRequset.DoPost(String url, String data) in C:\Code\GFHelp-Web\NetBase1\NetBase.cs:line 17
+   at GFHelp.Core.API.Battle.battleFinish(GameAccount gameAccount, String outdatacode) in C:\Code\GFHelp-Web\GFHelp.Core\API\Base\Battle.cs:line 125
+   at GFHelp.Core.Action.Battle.Normal_battleFinish(String data, String& result, Boolean errorSkip) in C:\Code\GFHelp-Web\GFHelp.Core\Action\Battle\Battle.cs:line 447
+   at GFHelp.Mission.Activity.mapsc2_4()
+   --- End of inner exception stack trace ---
+   at System.RuntimeMethodHandle.InvokeMethod(Object target, Object[] arguments, Signature sig, Boolean constructor, Boolean wrapExceptions)
+   at System.Reflection.RuntimeMethodInfo.Invoke(Object obj, BindingFlags invokeAttr, Binder binder, Object[] parameters, CultureInfo culture)
+   at System.Reflection.MethodBase.Invoke(Object obj, Object[] parameters)
+   at GFHelp.Core.Action.Mission.Test() in C:\Code\GFHelp-Web\GFHelp.Core\Action\Battle\Loop.cs:line 59
+【02:19:18】      message = 读取config配置 
+【02:19:18】      message = 读取文字解析 
+【02:19:22】      message = stcSquad_standard_attributionList 解析完成：9 
+【02:19:22】      message = stcEquipList 解析完成：147 
+【02:19:22】      message = stcItemList 解析完成：591 
+【02:19:22】      message = stcGunList 解析完成：346 
+【02:19:22】      message = stcSquadList 解析完成：5 
+【02:19:22】      message = stcSquad_chipList 解析完成：28 
+【02:19:22】      message = stcSquad_typeList 解析完成：3 
+【02:19:22】      message = stcSquad_rankList 解析完成：5 
+【02:19:22】      message = stcSquad_expList 解析完成：100 
+【02:19:22】      message = stcSquad_chip_expList 解析完成：20 
+【02:19:22】      message = stcSquad_data_dailyList 解析完成：14 
+【02:19:22】      message = stcSquad_advanced_bonusList 解析完成：50 
+【02:19:22】      message = stcSquad_cpuList 解析完成：5 
+【02:19:22】      message = stcSquad_colorList 解析完成：2 
+【02:19:22】      message = stcSquad_gridList 解析完成：69 
+【02:19:22】      message = stcSquad_cpu_completionList 解析完成：35 
+【02:19:22】      message = 引用作战dll 
+【02:53:53】      message = 读取config配置 
+【02:53:53】      message = 读取文字解析 
+【02:53:56】      message = stcSquad_standard_attributionList 解析完成：9 
+【02:53:56】      message = stcEquipList 解析完成：147 
+【02:53:56】      message = stcItemList 解析完成：591 
+【02:53:56】      message = stcGunList 解析完成：346 
+【02:53:56】      message = stcSquadList 解析完成：5 
+【02:53:56】      message = stcSquad_chipList 解析完成：28 
+【02:53:56】      message = stcSquad_typeList 解析完成：3 
+【02:53:56】      message = stcSquad_rankList 解析完成：5 
+【02:53:56】      message = stcSquad_expList 解析完成：100 
+【02:53:56】      message = stcSquad_chip_expList 解析完成：20 
+【02:53:56】      message = stcSquad_data_dailyList 解析完成：14 
+【02:53:56】      message = stcSquad_advanced_bonusList 解析完成：50 
+【02:53:56】      message = stcSquad_cpuList 解析完成：5 
+【02:53:56】      message = stcSquad_colorList 解析完成：2 
+【02:53:56】      message = stcSquad_gridList 解析完成：69 
+【02:53:56】      message = stcSquad_cpu_completionList 解析完成：35 
+【02:53:56】      message = 引用作战dll 
+【04:52:45】      message = 读取config配置 
+【04:52:45】      message = 读取文字解析 
+【04:52:48】      message = stcSquad_standard_attributionList 解析完成：9 
+【04:52:48】      message = stcEquipList 解析完成：147 
+【04:52:48】      message = stcItemList 解析完成：591 
+【04:52:48】      message = stcGunList 解析完成：346 
+【04:52:48】      message = stcSquadList 解析完成：5 
+【04:52:48】      message = stcSquad_chipList 解析完成：28 
+【04:52:48】      message = stcSquad_typeList 解析完成：3 
+【04:52:48】      message = stcSquad_rankList 解析完成：5 
+【04:52:48】      message = stcSquad_expList 解析完成：100 
+【04:52:48】      message = stcSquad_chip_expList 解析完成：20 
+【04:52:48】      message = stcSquad_data_dailyList 解析完成：14 
+【04:52:48】      message = stcSquad_advanced_bonusList 解析完成：50 
+【04:52:48】      message = stcSquad_cpuList 解析完成：5 
+【04:52:48】      message = stcSquad_colorList 解析完成：2 
+【04:52:48】      message = stcSquad_gridList 解析完成：69 
+【04:52:48】      message = stcSquad_cpu_completionList 解析完成：35 
+【04:52:48】      message = 引用作战dll 
