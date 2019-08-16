@@ -226,3 +226,25 @@
    at System.Reflection.RuntimeMethodInfo.Invoke(Object obj, BindingFlags invokeAttr, Binder binder, Object[] parameters, CultureInfo culture)
    at System.Reflection.MethodBase.Invoke(Object obj, Object[] parameters)
    at GFHelp.Core.Action.Mission.Test() in C:\Code\GFHelp-Web\GFHelp.Core\Action\Battle\Loop.cs:line 59
+【04:24:43】      message = 调用作战dll文件出错 , exception = System.Reflection.TargetInvocationException: Exception has been thrown by the target of an invocation. ---> System.Net.WebException: The remote server returned an error: (503) Forwarding failure.
+   at GFHelp.NetBase.BaseRequset.doPost(String url, String data) in C:\Users\jack\Desktop\GFHelp-Web\NetBase1\NetBase.cs:line 66
+   at GFHelp.NetBase.BaseRequset.DoPost(String url, String data) in C:\Users\jack\Desktop\GFHelp-Web\NetBase1\NetBase.cs:line 17
+   at GFHelp.Core.API.Battle.startMission(GameAccount gameAccount, String outdatacode) in C:\Users\jack\Desktop\GFHelp-Web\GFHelp.Core\API\Base\Battle.cs:line 66
+   at GFHelp.Core.Action.Battle.startMission(mapbase map, Data data) in C:\Users\jack\Desktop\GFHelp-Web\GFHelp.Core\Action\Battle\Battle.cs:line 194
+   at GFHelp.Mission.Activity.mapsc2_4ex()
+   --- End of inner exception stack trace ---
+   at System.RuntimeMethodHandle.InvokeMethod(Object target, Object[] arguments, Signature sig, Boolean constructor, Boolean wrapExceptions)
+   at System.Reflection.RuntimeMethodInfo.Invoke(Object obj, BindingFlags invokeAttr, Binder binder, Object[] parameters, CultureInfo culture)
+   at System.Reflection.MethodBase.Invoke(Object obj, Object[] parameters)
+   at GFHelp.Core.Action.Mission.Test() in C:\Users\jack\Desktop\GFHelp-Web\GFHelp.Core\Action\Battle\Loop.cs:line 59
+【04:24:44】      message = 调用作战dll文件出错 , exception = System.Reflection.TargetInvocationException: Exception has been thrown by the target of an invocation. ---> System.Net.WebException: The remote server returned an error: (503) Forwarding failure.
+   at GFHelp.NetBase.BaseRequset.doPost(String url, String data) in C:\Users\jack\Desktop\GFHelp-Web\NetBase1\NetBase.cs:line 66
+   at GFHelp.NetBase.BaseRequset.DoPost(String url, String data) in C:\Users\jack\Desktop\GFHelp-Web\NetBase1\NetBase.cs:line 17
+   at GFHelp.Core.API.Battle.startMission(GameAccount gameAccount, String outdatacode) in C:\Users\jack\Desktop\GFHelp-Web\GFHelp.Core\API\Base\Battle.cs:line 66
+   at GFHelp.Core.Action.Battle.startMission(mapbase map, Data data) in C:\Users\jack\Desktop\GFHelp-Web\GFHelp.Core\Action\Battle\Battle.cs:line 194
+   at GFHelp.Mission.Activity.mapsc2_4ex()
+   --- End of inner exception stack trace ---
+   at System.RuntimeMethodHandle.InvokeMethod(Object target, Object[] arguments, Signature sig, Boolean constructor, Boolean wrapExceptions)
+   at System.Reflection.RuntimeMethodInfo.Invoke(Object obj, BindingFlags invokeAttr, Binder binder, Object[] parameters, CultureInfo culture)
+   at System.Reflection.MethodBase.Invoke(Object obj, Object[] parameters)
+   at GFHelp.Core.Action.Mission.Test() in C:\Users\jack\Desktop\GFHelp-Web\GFHelp.Core\Action\Battle\Loop.cs:line 59

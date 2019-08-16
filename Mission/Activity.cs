@@ -3243,6 +3243,45 @@ namespace GFHelp.Mission
 
         }
 
+        public void mapsc2_4ex()
+        {
+
+
+            mapsc2_4ex map = new mapsc2_4ex(data);
+
+
+            if (userData.battle.startMission(map, data) == -1)
+            {
+                data.Loop = false;
+                //这里该怎么办呢
+                return;
+            }
+            userData.battle.teamMove(map.teamMove.dic[map.stepNum++]);//右移一步
+            userData.battle.teamMove(map.teamMove.dic[map.stepNum++]);//右移一步
+            strbattledata = battleData.setData(13236, 0, 0, random.Next(10, 12), 17928, 38772, 10037, userData.user_Info.experience);
+            if (userData.battle.Normal_battleFinish(strbattledata, ref result))
+            {
+                userData.battle.Battle_Result_PRO(ref data, 0, ref result);
+            }
+            userData.battle.teamMove(map.teamMove.dic[map.stepNum++]);//右移一步
+
+
+
+            userData.battle.allyMySideMove();
+            userData.battle.endTurn(data);
+            userData.battle.endEnemyTurn();
+            userData.battle.startTurn(data);
+
+            userData.battle.reinforceTeam(map, map.Spots.dic[1], false, false);
+
+            userData.battle.teamMove(map.teamMove.dic[map.stepNum++]);//右移一步
+
+            userData.battle.withdrawTeam(13233);
+
+
+            userData.battle.abortMission();
+
+        }
         public void mapsc2_4()
         {
 

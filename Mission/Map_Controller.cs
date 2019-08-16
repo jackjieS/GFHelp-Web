@@ -4097,6 +4097,31 @@ namespace GFHelp.Mission
 
         }
 
+        public class mapsc2_4ex : mapbase
+        {
+            public mapsc2_4ex(MissionInfo.Data data)
+            {
+                teamMove.Add(13233, 13235, 1, 0);
+                teamMove.Add(13235, 13236, 1, 0);
+                teamMove.Add(13236, 13235, 1, 0);
+                teamMove.Add(13235, 13233, 2, 0);
+
+                Spots.Add(13233, 0);//主力
+                Spots.Add(13233, 1);
+
+
+                mission_id = 10349;
+
+                Mission_Start_spots = new Spot.Data[] { Spots.dic[0] };
+                Function.init(teamMove.dic, Spots, data);
+            }
+
+            public static MissionType missionType = MissionType.Activity;
+
+
+
+
+        }
         public class mapsc2_4 : mapbase
         {
             public mapsc2_4(MissionInfo.Data data)

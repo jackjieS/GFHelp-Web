@@ -59,7 +59,7 @@ namespace GFHelp.NetBase
             }
             catch (Exception e)
             {
-                if(e.ToString().ToLower().Contains("time out"))
+                if(e.ToString().ToLower().Contains("the operation has timed out."))
                 {
                     goto Start;
                 }
