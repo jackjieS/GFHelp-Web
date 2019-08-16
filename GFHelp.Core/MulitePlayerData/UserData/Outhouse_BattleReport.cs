@@ -106,7 +106,6 @@ namespace GFHelp.Core.MulitePlayerData
 
         public void AutoRun()
         {
-            if (userData.config.M) return;
             if (AutoRunning == false) return;
             BattleReportStart();
             BattleReportFinish();

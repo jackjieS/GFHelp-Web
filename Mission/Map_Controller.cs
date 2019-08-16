@@ -41,9 +41,9 @@ namespace GFHelp.Mission
                 {
                     JsonData jsonData = JsonMapper.ToObject(result);
                     jsonData = jsonData["enemy_move"];
-                    foreach (JsonData item in jsonData)
+                    for (int i = 0; i < jsonData.Count; i++)
                     {
-                        if (item["to_spot_id"].Int == toSpot)
+                        if (jsonData[i]["to_spot_id"].Int == toSpot)
                             return 1;//需要打
                     }
                     return 2;//不需要打
@@ -82,6 +82,8 @@ namespace GFHelp.Mission
                 {
                     spots.dic[i].team_id = data.Teams[spots.dic[i].team_loc].TeamID;
                 }
+
+
             }
 
 
@@ -4008,7 +4010,147 @@ namespace GFHelp.Mission
             private UserData userData;
         }
 
+        public class mapscbox
+        {
+            public static MissionType missionType = MissionType.Activity;
+        }
+        public class mapsc2_1 : mapbase
+        {
+            public mapsc2_1(MissionInfo.Data data)
+            {
+                teamMove.Add(80045, 80046, 1, 0);
+                teamMove.Add(80046, 80048, 1, 0);
+                teamMove.Add(80048, 80050, 1, 0);
+                teamMove.Add(80050, 80049, 1, 0);
 
+                Spots.Add(80045, 0);//主力
+                Spots.Add(80045, 1);
+
+                mission_id = 10303;
+
+                Mission_Start_spots = new Spot.Data[] { Spots.dic[0] };
+                Function.init(teamMove.dic, Spots, data);
+            }
+
+            public static MissionType missionType = MissionType.Activity;
+
+
+
+
+        }
+
+        public class mapsc2_2 : mapbase
+        {
+            public mapsc2_2(MissionInfo.Data data)
+            {
+                teamMove.Add(80072, 80071, 1, 0);
+                teamMove.Add(80071, 80075, 1, 0);
+                teamMove.Add(80075, 80074, 1, 0);
+                teamMove.Add(80074, 80075, 1, 0);
+
+                teamMove.Add(80075, 80071, 1, 0);
+                teamMove.Add(80071, 80072, 1, 0);
+   
+
+                Spots.Add(80072, 0);//主力
+                Spots.Add(80060, 1);
+
+                mission_id = 10305;
+
+                Mission_Start_spots = new Spot.Data[] { Spots.dic[0], Spots.dic[1] };
+                Function.init(teamMove.dic, Spots, data);
+            }
+
+            public static MissionType missionType = MissionType.Activity;
+
+
+
+
+        }
+        public class mapsc2_3 : mapbase
+        {
+            public mapsc2_3(MissionInfo.Data data)
+            {
+                teamMove.Add(80079, 80080, 1, 0);
+                teamMove.Add(80080, 80084, 1, 0);
+                teamMove.Add(80084, 80080, 1, 0);
+                teamMove.Add(80079, 80082, 1, 1);
+
+                teamMove.Add(80080, 80079, 1, 0);
+                teamMove.Add(80082, 80079, 2, 1);
+
+
+                Spots.Add(80079, 0);//主力
+                Spots.Add(80079, 1);
+                Spots.Add(80079, 2);//主力
+
+                mission_id = 10307;
+
+                Mission_Start_spots = new Spot.Data[] { Spots.dic[0] };
+                Function.init(teamMove.dic, Spots, data);
+            }
+
+            public static MissionType missionType = MissionType.Activity;
+
+
+
+
+        }
+
+        public class mapsc2_4 : mapbase
+        {
+            public mapsc2_4(MissionInfo.Data data)
+            {
+                teamMove.Add(80118, 80115, 1, 0);
+                teamMove.Add(80115, 80118, 2, 0);
+                teamMove.Add(80118, 80117, 1, 0);
+                teamMove.Add(80117, 80116, 1, 0);
+
+                teamMove.Add(80116, 80110, 1, 0);
+                teamMove.Add(80110, 80111, 1, 0);
+                teamMove.Add(80111, 80112, 1, 0);
+                teamMove.Add(80112, 80109, 1, 0);
+                teamMove.Add(80109, 80108, 1, 0);
+
+                Spots.Add(80118, 0);//主力
+                Spots.Add(80118, 1);
+
+
+                mission_id = 10309;
+
+                Mission_Start_spots = new Spot.Data[] { Spots.dic[0]};
+                Function.init(teamMove.dic, Spots, data);
+            }
+
+            public static MissionType missionType = MissionType.Activity;
+
+
+
+
+        }
+
+
+        public class mapsc2_1ex : mapbase
+        {
+            public mapsc2_1ex(MissionInfo.Data data)
+            {
+                teamMove.Add(13156, 13158, 1, 0);
+
+                Spots.Add(13156, 0);//主力
+
+
+                mission_id = 10346;
+
+                Mission_Start_spots = new Spot.Data[] { Spots.dic[0] };
+                Function.init(teamMove.dic, Spots, data);
+            }
+
+            public static MissionType missionType = MissionType.Activity;
+
+
+
+
+        }
         public class mapisomer01 : mapbase
         {
             public mapisomer01(MissionInfo.Data data)

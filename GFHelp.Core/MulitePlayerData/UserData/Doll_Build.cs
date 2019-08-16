@@ -157,22 +157,39 @@ namespace GFHelp.Core.MulitePlayerData
 
         public void Run(Data data)
         {
+            bool result;
             try
             {
-                if (finishDevelop(data) == false)
+                if (data.isEmpty == false)
                 {
-                    Built_Slot[data.build_slot] = new Data(data.build_slot);
-                    SetNextTime();
-                    return;
+                    result = finishDevelop(data);
+                    if (result == true)
+                    {
+                        data.isEmpty = true;
+                    }
+                    else
+                    {
+                        Built_Slot[data.build_slot] = new Data(data.build_slot);
+                        SetNextTime();
+                        return;
+                    }
                 }
-                Thread.Sleep(1000);
 
-                if (startDevelop(data) == false)
+                if (data.isEmpty == true)
                 {
-                    Built_Slot[data.build_slot] = new Data(data.build_slot);
-                    SetNextTime();
-                    return;
+                    result = startDevelop(data);
+                    if (result == true)
+                    {
+                        data.isEmpty = false;
+                    }
+                    else
+                    {
+                        Built_Slot[data.build_slot] = new Data(data.build_slot);
+                        SetNextTime();
+                        return;
+                    }
                 }
+
 
 
                 return;
@@ -196,30 +213,6 @@ namespace GFHelp.Core.MulitePlayerData
             DollBuild_Loop();
         }
 
-
-
-
-        private void DataBuild(ref Data data)
-        {
-            if (data.build_slot % 2 == 0)
-            {
-                //偶数大建
-                data.ammo = 500;
-                data.part = 500;
-                data.mp = 500;
-                data.mre = 500;
-                data.input_level = 1;
-            }
-            if (data.build_slot % 2 != 0)
-            {
-                //奇数普建
-                data.ammo = 400;
-                data.part = 400;
-                data.mp = 400;
-                data.mre = 200;
-                data.input_level = 0;
-            }
-        }
 
         public bool ResourecsCheck()
         {
@@ -253,12 +246,11 @@ namespace GFHelp.Core.MulitePlayerData
         {
             if (data.isEmpty) return true;
             int count = 0;
+            string result = "";
             dynamic newjson = new DynamicJson();
             newjson.build_slot = data.build_slot;/* 这是值*/
-            while (true)
+            while (count++ < userData.config.ErrorCount)
             {
-
-                string result;
                 try
                 {
                     result = userData.Net.Factory.finishDollDevelop(userData.GameAccount, newjson.ToString());
@@ -271,46 +263,29 @@ namespace GFHelp.Core.MulitePlayerData
                 {
                     return false;
                 }
-                switch (userData.Response.Check(ref result, "finishDevelop", true))
+                if (userData.Response.Check(ref result, "finishDevelop", true) == 1)
                 {
-                    case 1:
-                        {
-                            if (result.Contains("gun_with_user_add"))
-                            {
-                                JsonData jsonData = JsonMapper.ToObject(result.ToString());
-                                jsonData = jsonData["gun_with_user_add"];
-                                Gun_With_User_Info.Data gwui = new Gun_With_User_Info.Data();
-                                gwui = userData.battle.initGun(jsonData["gun_with_user_id"].Int, jsonData["gun_id"].Int);
-                                userData.gun_With_User_Info.dicGunAdd(gwui);
-                            }
-                            Built_Slot[data.build_slot].isEmpty = true;
-                            return true;
-                        }
-                    case 0:
-                        {
-                            continue;
-                        }
-                    case -1:
-                        {
-                            if (count > userData.config.ErrorCount)
-                            {
-                                new Log().userInit(userData.GameAccount.GameAccountID, "finishDevelop Error", result.ToString()).userInfo();
-                                return false;
-                            }
-                            continue;
-                        }
-                    default:
-                        break;
+                    if (result.Contains("gun_with_user_add"))
+                    {
+                        JsonData jsonData = JsonMapper.ToObject(result.ToString());
+                        jsonData = jsonData["gun_with_user_add"];
+                        Gun_With_User_Info.Data gwui = new Gun_With_User_Info.Data();
+                        gwui = userData.battle.initGun(jsonData["gun_with_user_id"].Int, jsonData["gun_id"].Int);
+                        userData.gun_With_User_Info.dicGunAdd(gwui);
+                    }
+                    Built_Slot[data.build_slot].isEmpty = true;
+                    return true;
                 }
             }
-
+            new Log().userInit(userData.GameAccount.GameAccountID, "Finish DollBuild Error", result.ToString()).userInfo();
+            return false;
 
 
         }
 
         public bool startDevelop(Data data)
         {
-            DataBuild(ref data);
+            data.DefaulltDataBuild();
             dynamic newjson = new DynamicJson();
             newjson.mp = data.mp;/* 这是值*/
             newjson.ammo = data.ammo;/* 这是值*/
@@ -319,9 +294,9 @@ namespace GFHelp.Core.MulitePlayerData
             newjson.build_slot = data.build_slot;/* 这是值*/
             newjson.input_level = data.input_level;/* 这是值*/
             int count = 0;
-            while (true)
+            string result = "";
+            while (count <= userData.config.ErrorCount)
             {
-                string result;
                 try
                 {
                     result = userData.Net.Factory.startDollDevelop(userData.GameAccount, newjson.ToString());
@@ -332,43 +307,27 @@ namespace GFHelp.Core.MulitePlayerData
                 }
                 if (result.ToLower().Contains("error"))
                 {
+                    new Log().userInit(userData.GameAccount.GameAccountID, "startDevelop Error", result.ToString()).userInfo();
                     return false;
                 }
 
-                switch (userData.Response.Check(ref result, "startDevelop", true))
+                if (userData.Response.Check(ref result, "startDevelop", true) == 1)
                 {
-                    case 1:
-                        {
-                            JsonData jsonData = JsonMapper.ToObject(result.ToString());
-                            if (result.Contains("gun_id"))
-                            {
-                                Built_Slot[data.build_slot].gun_id = jsonData["gun_id"].Int;
-                                Built_Slot[data.build_slot].develop_duration = CatachData.getDollDevTimeByID(data.gun_id);
+                    JsonData jsonData = JsonMapper.ToObject(result.ToString());
+                    if (result.Contains("gun_id"))
+                    {
+                        Built_Slot[data.build_slot].gun_id = jsonData["gun_id"].Int;
+                        Built_Slot[data.build_slot].develop_duration = CatachData.getDollDevTimeByID(data.gun_id);
 
-                            }
-                            Built_Slot[data.build_slot].start_time = Decrypt.getDateTime_China_Int(DateTime.Now);
-                            Built_Slot[data.build_slot].isEmpty = false;
-
-                            return true;
-                        }
-                    case 0:
-                        {
-                            continue;
-                        }
-                    case -1:
-                        {
-                            if (count > userData.config.ErrorCount)
-                            {
-                                new Log().userInit(userData.GameAccount.GameAccountID, "startDevelop Error", result.ToString()).userInfo();
-                                return false;
-                            }
-                            continue;
-                        }
-                    default:
-                        break;
+                    }
+                    Built_Slot[data.build_slot].start_time = Decrypt.getDateTime_China_Int(DateTime.Now);
+                    Built_Slot[data.build_slot].isEmpty = false;
+                    return true;
                 }
-            }
 
+            }
+            new Log().userInit(userData.GameAccount.GameAccountID, "Start DollBuild Error", result.ToString()).userInfo();
+            return false;
 
 
 
@@ -422,7 +381,6 @@ namespace GFHelp.Core.MulitePlayerData
                     this.develop_duration = GameData.listGunInfo.GetDataById(gun_id).develop_duration;
                 }
             }
-            public Task DollBuild_Task;
             public int id;
             public int user_id;
             public int gun_id;
@@ -455,9 +413,50 @@ namespace GFHelp.Core.MulitePlayerData
                 {
                     return this.start_time + this.develop_duration + 10 - Decrypt.getDateTime_China_Int(DateTime.Now);
                 }
-
-
             }
+
+            public void DefaulltDataBuild()
+            {
+                if (mp == 0 || ammo == 0 || mre == 0 || part == 0)
+                {
+                    if (build_slot % 2 == 0)
+                    {
+                        //偶数大建
+                        ammo = 4000;
+                        part = 4000;
+                        mp = 6000;
+                        mre = 4000;
+                        input_level = 1;
+                    }
+                    if (build_slot % 2 != 0)
+                    {
+                        //奇数普建
+                        ammo = 400;
+                        part = 400;
+                        mp = 400;
+                        mre = 400;
+                        input_level = 0;
+                    }
+                }
+            }
+            public void DataBuild(string fomula)
+            {
+                if (string.IsNullOrEmpty(fomula)) return;
+                var array = fomula.Split(':');
+                if (array.Length < 4) return;
+                try
+                {
+                    mp = int.Parse(array[0]);
+                    ammo = int.Parse(array[1]);
+                    mre = int.Parse(array[2]);
+                    part = int.Parse(array[3]);
+                }
+                catch (Exception e)
+                {
+                    throw;
+                }
+            }
+
         }
 
 

@@ -228,13 +228,13 @@ namespace GFHelp.Mission
 
             if (endTrun.Contains("rank"))
             {
-                new Log().userInit(userData.GameAccount.GameAccountID, "1_2 成功").userInfo();
+                new Log().userInit(userData.GameAccount.GameAccountID, "1_1 成功").userInfo();
 
             }
             else
             {
                 userData.battle.abortMission();
-                map1_2();
+                map1_1();
             }
 
         }
@@ -1127,7 +1127,7 @@ namespace GFHelp.Mission
             {
                 userData.battle.Battle_Result_PRO(ref data, 0, ref result);
             }
-            userData.battle.reinforceTeam(map.Spots.dic[1]);
+            userData.battle.reinforceTeam(map,map.Spots.dic[1]);
             userData.battle.endTurn(data);
 
             strbattledata = battleData.setData(379, 0, 0, random.Next(8, 10), 1330, 3790, 20004, userData.user_Info.experience);
@@ -1198,7 +1198,7 @@ namespace GFHelp.Mission
             {
                 userData.battle.Battle_Result_PRO(ref data, 0, ref result);
             }
-            userData.battle.reinforceTeam(map.Spots.dic[1]);
+            userData.battle.reinforceTeam(map,map.Spots.dic[1]);
             string endTurn = userData.battle.endTurn(data);
             int pos1 = Map_Controller.Function.Normal_PosCheck_type2(endTurn, 385);
             if (pos1 == 1)
@@ -1712,7 +1712,7 @@ namespace GFHelp.Mission
                 return;
             }
             userData.battle.teamMove(map.teamMove.dic[map.stepNum++]);
-            userData.battle.reinforceTeam(map.Spots.dic[1]);
+            userData.battle.reinforceTeam(map,map.Spots.dic[1]);
 
             userData.battle.endTurn(data);
 
@@ -1831,7 +1831,7 @@ namespace GFHelp.Mission
 
             userData.battle.startMission(map, data);
             userData.battle.teamMove(map.teamMove.dic[map.stepNum++]);
-            userData.battle.reinforceTeam(map.Spots.dic[1]);
+            userData.battle.reinforceTeam(map,map.Spots.dic[1]);
             userData.battle.endTurn(data);
 
             strbattledata = battleData.setData(713, 0, 0, random.Next(8, 10), 2415, 7360, 20005, userData.user_Info.experience);
@@ -2194,7 +2194,7 @@ namespace GFHelp.Mission
 
             userData.battle.startMission(map, data);
             userData.battle.teamMove(map.teamMove.dic[map.stepNum++]);
-            userData.battle.reinforceTeam(map.Spots.dic[1]);
+            userData.battle.reinforceTeam(map,map.Spots.dic[1]);
             userData.battle.endTurn(data);
 
             strbattledata = battleData.setData(1512, 0, 0, random.Next(8, 10), 4308, 3620, 10005, userData.user_Info.experience);
@@ -2379,7 +2379,7 @@ namespace GFHelp.Mission
 
             userData.battle.startMission(map, data);
             userData.battle.teamMove(map.teamMove.dic[map.stepNum++]);
-            userData.battle.reinforceTeam(map.Spots.dic[1]);
+            userData.battle.reinforceTeam(map,map.Spots.dic[1]);
             userData.battle.endTurn(data);
             userData.battle.endEnemyTurn();
             userData.battle.startTurn(data);
@@ -2469,7 +2469,7 @@ namespace GFHelp.Mission
 
             userData.battle.endEnemyTurn();
             userData.battle.startTurn(data);
-            userData.battle.reinforceTeam(map.Spots.dic[1]);
+            userData.battle.reinforceTeam(map,map.Spots.dic[1]);
             userData.battle.teamMove(map.teamMove.dic[map.stepNum++]);
             userData.battle.teamMove(map.teamMove.dic[map.stepNum++]);
 
@@ -2662,7 +2662,7 @@ namespace GFHelp.Mission
                 userData.battle.Battle_Result_PRO(ref data, 0, ref result);
             }
 
-            userData.battle.reinforceTeam(map.Spots.dic[1]);
+            userData.battle.reinforceTeam(map,map.Spots.dic[1]);
 
             userData.battle.teamMove(map.teamMove.dic[map.stepNum++]);
 
@@ -2701,7 +2701,7 @@ namespace GFHelp.Mission
                 userData.battle.Battle_Result_PRO(ref data, 0, ref result);
             }
 
-            userData.battle.reinforceTeam(map.Spots.dic[1]);
+            userData.battle.reinforceTeam(map,map.Spots.dic[1]);
 
 
             userData.battle.endTurn(data);
@@ -2792,7 +2792,7 @@ namespace GFHelp.Mission
 
 
             userData.battle.teamMove(map.teamMove.dic[map.stepNum++]);
-            userData.battle.reinforceTeam(map.Spots.dic[1]);
+            userData.battle.reinforceTeam(map,map.Spots.dic[1]);
 
 
             strbattledata = userData.battle.endTurn(data);
@@ -3028,7 +3028,7 @@ namespace GFHelp.Mission
             {
                 userData.battle.Battle_Result_PRO(ref data, 0, ref result);
             }
-            userData.battle.reinforceTeam(map.Spots.dic[1]);
+            userData.battle.reinforceTeam(map,map.Spots.dic[1]);
 
             userData.battle.allyMySideMove();
             string endTurn = userData.battle.endTurn(data);
@@ -3358,7 +3358,7 @@ namespace GFHelp.Mission
                 return;
             }
             userData.battle.teamMove(map.teamMove.dic[map.stepNum++]);
-            userData.battle.reinforceTeam(map.Spots.dic[1], true);
+            userData.battle.reinforceTeam(map,map.Spots.dic[1], true);
 
             userData.battle.endTurn(data);//门口两点
             strbattledata = battleData.setData(1317, 0, 0, random.Next(8, 10), 2241, 3606, 10016, userData.user_Info.experience);
@@ -4519,7 +4519,7 @@ namespace GFHelp.Mission
                 userData.battle.Battle_Result_PRO(ref data, 0, ref result);
             }
 
-            userData.battle.reinforceTeam(map.Spots.dic[1]);
+            userData.battle.reinforceTeam(map,map.Spots.dic[1]);
             userData.battle.endTurn(data);
 
             strbattledata = battleData.setData(302, 1, 0, random.Next(8, 10), 1460, 1030, 20003, userData.user_Info.experience);
@@ -4611,7 +4611,7 @@ namespace GFHelp.Mission
             {
                 userData.battle.Battle_Result_PRO(ref data, 0, ref result);
             }
-            userData.battle.reinforceTeam(map.Spots.dic[1]);
+            userData.battle.reinforceTeam(map,map.Spots.dic[1]);
             userData.battle.endTurn(data);
 
             strbattledata = battleData.setData(446, 0, 0, random.Next(8, 10), 1534, 4461, 20005, userData.user_Info.experience);
@@ -5153,7 +5153,7 @@ namespace GFHelp.Mission
             {
                 userData.battle.Battle_Result_PRO(ref data, 0, ref result);
             }
-            userData.battle.reinforceTeam(map.Spots.dic[2]);
+            userData.battle.reinforceTeam(map,map.Spots.dic[2]);
             userData.battle.endTurn(data);
 
             strbattledata = battleData.setData(907, 2, 0, random.Next(8, 10), 4575, 13360, 20004, userData.user_Info.experience);
@@ -5269,7 +5269,7 @@ namespace GFHelp.Mission
             {
                 userData.battle.Battle_Result_PRO(ref data, 0, ref result);
             }
-            userData.battle.reinforceTeam(map.Spots.dic[1], true);
+            userData.battle.reinforceTeam(map,map.Spots.dic[1], true);
 
             string endTurnResult =  userData.battle.endTurn(data);
             userData.battle.endEnemyTurn();
@@ -5389,7 +5389,7 @@ namespace GFHelp.Mission
 
             userData.battle.teamMove(map.teamMove.dic[map.stepNum++]);
 
-            userData.battle.reinforceTeam(map.Spots.dic[1]);
+            userData.battle.reinforceTeam(map,map.Spots.dic[1]);
 
             string endResult = userData.battle.endTurn(data);
 

@@ -793,6 +793,11 @@ namespace GFHelp.Core.MulitePlayerData
                         break;
                     }
                 }
+                if (this.info == null)
+                {
+                    gun_id = 1;
+                    info = GameData.listGunInfo.GetDataById(1);
+                }
 
                 float num = (this.level <= 100) ? CatchData.Base.Data.GetDataFromStringArray<float>("life_basic", 0, ',') : CatchData.Base.Data.GetDataFromStringArray<float>("life_basic_after100", 0, ',');
                 float num2 = (this.level <= 100) ? CatchData.Base.Data.GetDataFromStringArray<float>("life_basic", 1, ',') : CatchData.Base.Data.GetDataFromStringArray<float>("life_basic_after100", 1, ',');

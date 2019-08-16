@@ -164,6 +164,7 @@ namespace GFHelp.Core.Action
             userData.others.Minit();
             userData.dailyReFlash.dateTime = DateTime.Now;
             userData.webData.StatusBarText = "空闲";
+            userData.dailyReFlash.Auto_Act_Summery();
             return true;
         }
 
@@ -205,7 +206,11 @@ namespace GFHelp.Core.Action
                 string result;
                 try
                 {
-                    result = userData.Net.Home.GetUserInfo(userData.GameAccount);
+                    dynamic newjson = new DynamicJson();
+                    newjson.time = Helper.Decrypt.getDateTime_China_Int(DateTime.Now).ToString();/* 这是值*/
+                    newjson.furniture_data = "false";/* 这是值*/
+
+                    result = userData.Net.Home.GetUserInfo(userData.GameAccount, newjson.ToString());
                 }
                 catch (Exception e)
                 {

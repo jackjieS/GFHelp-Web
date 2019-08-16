@@ -75,14 +75,9 @@ namespace GFHelp.Core.Management
                     Data.data.mDatas[UserName].operation_Act_Info.AutoRun();
                 }
 
-                if (DollBuildNextTime < Decrypt.getDateTime_China_Int(DateTime.Now))
-                {
-                    Data.data.mDatas[UserName].doll_Build.AutoRun();
-                }
-                if (EquipBuildNextTime < Decrypt.getDateTime_China_Int(DateTime.Now))
-                {
-                    Data.data.mDatas[UserName].equip_Built.AutoRun();
-                }
+
+                Data.data.mDatas[UserName].doll_Build.AutoRun();
+                Data.data.mDatas[UserName].equip_Built.AutoRun();
             }
         }
         public static Dictionary<string, LoopData> dic = new Dictionary<string, LoopData>();

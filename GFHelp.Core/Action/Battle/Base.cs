@@ -6,7 +6,9 @@ using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
+using System.Threading;
 using System.Threading.Tasks;
+
 
 namespace GFHelp.Core.Action.BattleBase
 {
@@ -17,9 +19,10 @@ namespace GFHelp.Core.Action.BattleBase
             Data data = new Data();
             data.spot_id = spot_id;
             data.team_loc = key;
+
             dic.Add(dic.Count, data);
         }
-
+        
 
         public Dictionary<int, Data> dic = new Dictionary<int, Data>();
         public class Data
@@ -541,6 +544,14 @@ namespace GFHelp.Core.Action.BattleBase
         {
             this.data.Teams = data.Teams;
         }
+
+        private void ThreadDelay(int Second)
+        {
+            System.Random random = new System.Random();
+            double randome = random.NextDouble() + 1;
+            Thread.Sleep((int)(Second * 1000 * userData.MissionInfo.GetFirstData().Delay * randome));
+        }
+
         /// <summary>
         /// 
         /// </summary>
@@ -554,6 +565,8 @@ namespace GFHelp.Core.Action.BattleBase
         /// <param name="ecti">enemy_character_type_id</param>
         public string setData(int spotid, int teamLoc, int lrd, int tt, int eec, int le, int ecti, int userexp, bool if_enemy_die = true)
         {
+            userData.webData.StatusBarText = "计算战斗数据 - 等待";
+            ThreadDelay(tt);
             userData.MissionInfo.GetFirstData().LifeReduce(teamLoc);
 
             data.if_enemy_die = if_enemy_die;
@@ -1042,6 +1055,12 @@ namespace GFHelp.Core.Action.BattleBase
             public int trigger_person_spot;
             public int building_spot_id;
             public int[] active_mission_skills;
+        }
+
+        public void SpotInit()
+        {
+            
+
 
 
         }

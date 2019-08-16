@@ -43,7 +43,7 @@ namespace GFHelp.Core.MulitePlayerData
             }
 
         }
-        private void Auto_Act_Summery()
+        public void Auto_Act_Summery()
         {
             userData.home.Click_Kalina();
             userData.dorm_with_user_info.ClickGirlsFavor();
@@ -52,7 +52,8 @@ namespace GFHelp.Core.MulitePlayerData
             userData.battle.BP_Recover();
             userData.simulation.Run();
             userData.outhouse_Establish_Info.AutoRun();
-            userData.squadDataAnalysisAction.AutoRun();
+            //userData.squadDataAnalysisAction.AutoRun();
+            userData.dorm_with_user_info.TimeReduce();
         }
         public async void AutoRun()
         {
@@ -74,10 +75,9 @@ namespace GFHelp.Core.MulitePlayerData
                 userData.config.FinalLoginSuccess = false;
 
                 userData.home.Login();
-
                 SetdefaultLoginTime();
 
-                Auto_Act_Summery();
+
 
 
 
