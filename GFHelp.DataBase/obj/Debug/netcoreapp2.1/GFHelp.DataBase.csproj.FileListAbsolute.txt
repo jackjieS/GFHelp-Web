@@ -141,7 +141,6 @@ C:\Users\jack\Desktop\GFHelp-Web\GFHelp.DataBase\obj\Debug\netcoreapp2.1\GFHelp.
 C:\Users\jack\Desktop\GFHelp-Web\GFHelp.DataBase\obj\Debug\netcoreapp2.1\GFHelp.DataBase.csproj.CopyComplete
 C:\Users\jack\Desktop\GFHelp-Web\GFHelp.DataBase\obj\Debug\netcoreapp2.1\GFHelp.DataBase.dll
 C:\Users\jack\Desktop\GFHelp-Web\GFHelp.DataBase\obj\Debug\netcoreapp2.1\GFHelp.DataBase.pdb
-C:\Users\jack\Desktop\GFHelp-Web\GFHelp.DataBase\obj\Debug\netcoreapp2.1\GFHelp.DataBase.csprojAssemblyReference.cache
 C:\Code\GFHelp-Web\GFHelp.DataBase\bin\Debug\netcoreapp2.1\GFHelp.DataBase.deps.json
 C:\Code\GFHelp-Web\GFHelp.DataBase\bin\Debug\netcoreapp2.1\GFHelp.DataBase.dll
 C:\Code\GFHelp-Web\GFHelp.DataBase\bin\Debug\netcoreapp2.1\GFHelp.DataBase.pdb

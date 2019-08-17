@@ -403,12 +403,17 @@ namespace GFHelp.Core.Action.BattleBase
             {
                 if (AutoQuickFix == false) return;
                 if (Teams.Count == 0) return;
-
+                Random random = new Random();
                 for (int i = 0; i < Teams[teamID].teaminfo.Count; i++)
                 {
+                    if (random.Next(0, 1) == 0) continue;
                     if (!Teams[teamID].teaminfo.ContainsKey(i)) continue;
-                    if (Teams[teamID].teaminfo[i].life < 27) continue;
-                    Teams[teamID].teaminfo[i].life--;
+                    if (Teams[teamID].teaminfo[i].life < 30) continue;
+                    if (random.Next(0, 1) == 0)
+                    {
+                        Teams[teamID].teaminfo[i].life--;
+                    }
+
                 }
 
             }
@@ -660,11 +665,13 @@ namespace GFHelp.Core.Action.BattleBase
             writer.WritePropertyName("17");
             writer.Write(data.truetime * 29.7);//要 4场战斗 不同的时间 总帧数
 
+
+
             writer.WritePropertyName("33");
             writer.Write(data.enemy_character_type_id);//改
 
             writer.WritePropertyName("40");
-            writer.Write(128);//我也不知道是什么
+            writer.Write(random.Next(100,500));//我也不知道是什么
 
             writer.WritePropertyName("18");
             writer.Write(data.life_reduce);
@@ -703,6 +710,8 @@ namespace GFHelp.Core.Action.BattleBase
             writer.Write(0);
             writer.WritePropertyName("92");
             writer.Write(0);
+            writer.WritePropertyName("100");
+            writer.Write(random.Next(500, 1000));
             writer.WriteObjectEnd();
 
             writer.WritePropertyName("1001");
@@ -720,6 +729,7 @@ namespace GFHelp.Core.Action.BattleBase
                 writer.WriteObjectEnd();
             }
             writer.WriteObjectEnd();
+
             writer.WritePropertyName("1003");
             writer.WriteObjectStart();
             writer.WriteObjectEnd();
@@ -1039,6 +1049,7 @@ namespace GFHelp.Core.Action.BattleBase
         public int mission_id;
         public int withdrawSpot;
         public Spot.Data[] Mission_Start_spots;
+        public List<int> listSupplySpot = new List<int>();
         public TeamMove teamMove = new TeamMove();
         public Spot Spots = new Spot();
         public List<BuildIng> listBuilding = new List<BuildIng>();

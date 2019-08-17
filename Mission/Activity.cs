@@ -3159,6 +3159,54 @@ namespace GFHelp.Mission
 
         }
 
+        public void mapsc2_2ex()
+        {
+
+
+            mapsc2_2ex map = new mapsc2_2ex(data);
+            data.needSupply = false;
+
+            if (userData.battle.startMission(map, data) == -1)
+            {
+                data.Loop = false;
+                //这里该怎么办呢
+                return;
+            }
+            userData.battle.SupplyTeam(map,data,0,0);
+
+
+            userData.battle.teamMove(map.teamMove.dic[map.stepNum++]);//右移一步
+            userData.battle.teamMove(map.teamMove.dic[map.stepNum++]);//右移一步
+
+            strbattledata = battleData.setData(13186, 0, 0, random.Next(10, 15), 12635, 27314, 10037, userData.user_Info.experience);
+            if (userData.battle.Normal_battleFinish(strbattledata, ref result))
+            {
+                userData.battle.Battle_Result_PRO(ref data, 0, ref result);
+            }
+            userData.battle.teamMove(map.teamMove.dic[map.stepNum++]);//右移一步
+            userData.battle.teamMove(map.teamMove.dic[map.stepNum++]);//右移一步
+
+            strbattledata = battleData.setData(13189, 0, 0, random.Next(10, 15), 72836, 251891, 900117, userData.user_Info.experience);
+            if (userData.battle.Normal_battleFinish(strbattledata, ref result))
+            {
+                userData.battle.Battle_Result_PRO(ref data, 0, ref result);
+            }
+            userData.battle.teamMove(map.teamMove.dic[map.stepNum++]);//右移一步
+
+            userData.battle.allyMySideMove();
+            userData.battle.endTurn(data);
+            userData.battle.endEnemyTurn();
+            userData.battle.startTurn(data);
+
+            userData.battle.teamMove(map.teamMove.dic[map.stepNum++]);//右移一步
+            userData.battle.teamMove(map.teamMove.dic[map.stepNum++]);//右移一步
+            userData.battle.teamMove(map.teamMove.dic[map.stepNum++]);//右移一步
+
+            userData.battle.withdrawTeam(13190);
+            userData.battle.abortMission();
+
+        }
+
         public void mapsc2_3()
         {
 
@@ -3240,6 +3288,43 @@ namespace GFHelp.Mission
             userData.battle.withdrawTeam(80079);
 
             userData.battle.abortMission();
+
+        }
+
+        public void mapsc2_3ex()
+        {
+
+
+            mapsc2_3ex map = new mapsc2_3ex(data);
+            data.needSupply = false;
+
+            if (userData.battle.startMission(map, data) == -1)
+            {
+                data.Loop = false;
+                //这里该怎么办呢
+                return;
+            }
+            userData.battle.SupplyTeam(map,data,0,0);
+            string endResult = userData.battle.endTurn(data);
+
+            strbattledata = battleData.setData(13197, 0, 0, random.Next(5, 7), 12593, 53361, 0, userData.user_Info.experience);
+            if (userData.battle.Normal_battleFinish(strbattledata, ref result))
+            {
+                userData.battle.Battle_Result_PRO(ref data, 0, ref result);
+            }
+            userData.battle.endEnemyTurn();
+            userData.battle.startTurn(data);
+            userData.battle.teamMove(map.teamMove.dic[map.stepNum++]);//右移一步
+            strbattledata = battleData.setData(13198, 0, 0, random.Next(5, 7), 16281, 52373, 0, userData.user_Info.experience);
+            if (userData.battle.Normal_battleFinish(strbattledata, ref result))
+            {
+                userData.battle.Battle_Result_PRO(ref data, 0, ref result);
+            }
+            userData.battle.reinforceTeam(map, map.Spots.dic[1]);
+            userData.battle.teamMove(map.teamMove.dic[map.stepNum++]);//右移一步
+            userData.battle.withdrawTeam(13197);//右移一步
+            userData.battle.abortMission();
+
 
         }
 
@@ -3370,9 +3455,9 @@ namespace GFHelp.Mission
 
         }
 
-        public void mapsc2_1ex()
+        public void mapsc2_1exbox()
         {
-            mapsc2_1ex map = new mapsc2_1ex(data);
+            mapsc2_1exbox map = new mapsc2_1exbox(data);
 
 
             if (userData.battle.startMission(map, data) == -1)
@@ -3395,15 +3480,15 @@ namespace GFHelp.Mission
         public void mapscbox()
         {
             userData.battle.Check_Equip_Gun_FULL();
-            mapsc2_1ex();
+            mapsc2_1exbox();
             userData.battle.Check_Equip_Gun_FULL();
-            mapsc2_1ex();
+            mapsc2_1exbox();
             userData.battle.Check_Equip_Gun_FULL();
-            mapsc2_1ex();
+            mapsc2_1exbox();
             userData.battle.Check_Equip_Gun_FULL();
-            mapsc2_1ex();
+            mapsc2_1exbox();
             userData.battle.Check_Equip_Gun_FULL();
-            mapsc2_1ex();
+            mapsc2_1exbox();
 
         }
 

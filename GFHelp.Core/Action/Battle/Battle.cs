@@ -672,12 +672,23 @@ namespace GFHelp.Core.Action
                 }
             }
         }
-        public bool SupplyTeam(int mission_id, int team_id, int spot_id)
+        public bool SupplyTeam(mapbase mapbase, MissionInfo.Data data,int teamLoc, int spot_id)
         {
+            
             dynamic newjson = new DynamicJson();
-            newjson.mission_id /*这是节点*/ = mission_id;/* 这是值*/
-            newjson.team_id /*这是节点*/ = team_id;/* 这是值*/
-            newjson.spot_id /*这是节点*/ = spot_id;/* 这是值*/
+            newjson.mission_id /*这是节点*/ = mapbase.mission_id;/* 这是值*/
+            newjson.team_id /*这是节点*/ = data.Teams[teamLoc].TeamID ;/* 这是值*/
+            newjson.spot_id /*这是节点*/ = mapbase.listSupplySpot[spot_id];/* 这是值*/
+            _SupplyTeam(newjson.ToString());
+            return true;
+        }
+        public bool SupplyTeam(int missionID,int TeamID,int SpotID)
+        {
+
+            dynamic newjson = new DynamicJson();
+            newjson.mission_id /*这是节点*/ = missionID;/* 这是值*/
+            newjson.team_id /*这是节点*/ = TeamID;/* 这是值*/
+            newjson.spot_id /*这是节点*/ = SpotID;/* 这是值*/
             _SupplyTeam(newjson.ToString());
             return true;
         }
