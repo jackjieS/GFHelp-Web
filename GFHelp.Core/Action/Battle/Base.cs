@@ -449,7 +449,7 @@ namespace GFHelp.Core.Action.BattleBase
             while (listTask.Count > 0)
                 try
                 {
-                    Console.WriteLine("BattleLoop 被调用了");
+                    //Console.WriteLine("BattleLoop 被调用了");
                     userData.mission.Test();
                 }
                 catch (Exception e)

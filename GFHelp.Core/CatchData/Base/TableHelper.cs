@@ -47,81 +47,83 @@ namespace GFHelp.Core.CatchData.Base
                     using (SimpleEncryptStream simpleEncryptStream = new SimpleEncryptStream(stream))
                     {
                         simpleEncryptStream.SetManualHeader(Encoding.ASCII.GetBytes(TableHelper.encryption));
-
-                        if (TableHelper.dataBuffer == null)
+                        using (Stream stream2 = new GZipInputStream(simpleEncryptStream))
                         {
-                            TableHelper.dataBuffer = new byte[4194304];
-                        }
-                        int num2 = stream.Read(TableHelper.dataBuffer, 0, 4194304);
-                        if (num2 <= 0)
-                        {
-                            Console.WriteLine("读取表格字段失败！");
-
-                            simpleEncryptStream.Close();
-                            return false;
-                        }
-                        stream.Close();
-                        if (TableHelper.dataBuffer.Length <= 0)
-                        {
-                            return false;
-                        }
-                        ByteBuffer byteBuffer = new ByteBuffer(TableHelper.dataBuffer);
-                        ushort num3 = byteBuffer.ReadUShort();
-                        ushort num4 = byteBuffer.ReadUShort();
-                        ushort num5 = byteBuffer.ReadUShort();
-                        byte b = byteBuffer.ReadByte();
-                        TableHelper.listDataType.Clear();
-                        for (int i = 0; i < (int)b; i++)
-                        {
-                            TableHelper.listDataType.Add((TableHelper.eDataType)byteBuffer.ReadByte());
-                        }
-                        for (int j = 0; j < (int)num5; j++)
-                        {
-                            TableHelper.readIndex = 0;
-                            T data = Activator.CreateInstance<T>();
-                            data.UnPack(byteBuffer);
-                            for (int k = (int)TableHelper.readIndex; k < TableHelper.listDataType.Count; k++)
+                            if (TableHelper.dataBuffer == null)
                             {
-                                switch (TableHelper.listDataType[k])
-                                {
-                                    case TableHelper.eDataType.@sbyte:
-                                        byteBuffer.ReadSbyte();
-                                        break;
-                                    case TableHelper.eDataType.@byte:
-                                        byteBuffer.ReadByte();
-                                        break;
-                                    case TableHelper.eDataType.@short:
-                                        byteBuffer.ReadShort();
-                                        break;
-                                    case TableHelper.eDataType.@ushort:
-                                        byteBuffer.ReadUShort();
-                                        break;
-                                    case TableHelper.eDataType.@int:
-                                        byteBuffer.ReadInt();
-                                        break;
-                                    case TableHelper.eDataType.@uint:
-                                        byteBuffer.ReadUInt();
-                                        break;
-                                    case TableHelper.eDataType.@long:
-                                        byteBuffer.ReadLong();
-                                        break;
-                                    case TableHelper.eDataType.@ulong:
-                                        byteBuffer.ReadULong();
-                                        break;
-                                    case TableHelper.eDataType.@float:
-                                        byteBuffer.ReadFloat();
-                                        break;
-                                    case TableHelper.eDataType.@double:
-                                        byteBuffer.ReadDouble();
-                                        break;
-                                    case TableHelper.eDataType.@string:
-                                        byteBuffer.ReadString();
-                                        break;
-                                }
+                                TableHelper.dataBuffer = new byte[4194304];
                             }
-                            tDatas.Add(data);
-                        }
+                            int num2 = stream.Read(TableHelper.dataBuffer, 0, 4194304);
+                            if (num2 <= 0)
+                            {
+                                Console.WriteLine("读取表格字段失败！");
 
+                                stream2.Close();
+                                return false;
+                            }
+                            stream.Close();
+                            if (TableHelper.dataBuffer.Length <= 0)
+                            {
+                                return false;
+                            }
+                            ByteBuffer byteBuffer = new ByteBuffer(TableHelper.dataBuffer);
+                            ushort num3 = byteBuffer.ReadUShort();
+                            ushort num4 = byteBuffer.ReadUShort();
+                            ushort num5 = byteBuffer.ReadUShort();
+                            byte b = byteBuffer.ReadByte();
+                            TableHelper.listDataType.Clear();
+                            for (int i = 0; i < (int)b; i++)
+                            {
+                                TableHelper.listDataType.Add((TableHelper.eDataType)byteBuffer.ReadByte());
+                            }
+                            byteBuffer.initRead();
+                            for (int j = 0; j < (int)num5; j++)
+                            {
+                                TableHelper.readIndex = 0;
+                                T data = Activator.CreateInstance<T>();
+                                data.UnPack(byteBuffer);
+                                for (int k = (int)TableHelper.readIndex; k < TableHelper.listDataType.Count; k++)
+                                {
+                                    switch (TableHelper.listDataType[k])
+                                    {
+                                        case TableHelper.eDataType.@sbyte:
+                                            byteBuffer.ReadSbyte();
+                                            break;
+                                        case TableHelper.eDataType.@byte:
+                                            byteBuffer.ReadByte();
+                                            break;
+                                        case TableHelper.eDataType.@short:
+                                            byteBuffer.ReadShort();
+                                            break;
+                                        case TableHelper.eDataType.@ushort:
+                                            byteBuffer.ReadUShort();
+                                            break;
+                                        case TableHelper.eDataType.@int:
+                                            byteBuffer.ReadInt();
+                                            break;
+                                        case TableHelper.eDataType.@uint:
+                                            byteBuffer.ReadUInt();
+                                            break;
+                                        case TableHelper.eDataType.@long:
+                                            byteBuffer.ReadLong();
+                                            break;
+                                        case TableHelper.eDataType.@ulong:
+                                            byteBuffer.ReadULong();
+                                            break;
+                                        case TableHelper.eDataType.@float:
+                                            byteBuffer.ReadFloat();
+                                            break;
+                                        case TableHelper.eDataType.@double:
+                                            byteBuffer.ReadDouble();
+                                            break;
+                                        case TableHelper.eDataType.@string:
+                                            byteBuffer.ReadString();
+                                            break;
+                                    }
+                                }
+                                tDatas.Add(data);
+                            }
+                        }
                     }
                 }
             }

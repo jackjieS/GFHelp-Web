@@ -184,3 +184,4 @@ C:\Code\GFHelp-Web\GFHelp.DataBase\obj\Debug\netcoreapp2.1\GFHelp.DataBase.cspro
 C:\Code\GFHelp-Web\GFHelp.DataBase\obj\Debug\netcoreapp2.1\GFHelp.DataBase.dll
 C:\Code\GFHelp-Web\GFHelp.DataBase\obj\Debug\netcoreapp2.1\GFHelp.DataBase.pdb
 C:\Code\GFHelp-Web\GFHelp.DataBase\obj\Debug\netcoreapp2.1\GFHelp.DataBase.csprojAssemblyReference.cache
+C:\Users\jack\Desktop\GFHelp-Web\GFHelp.DataBase\obj\Debug\netcoreapp2.1\GFHelp.DataBase.csprojAssemblyReference.cache
