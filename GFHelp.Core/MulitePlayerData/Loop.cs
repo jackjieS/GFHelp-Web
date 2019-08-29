@@ -56,14 +56,18 @@ namespace GFHelp.Core.Management
             {
                 this.UserName = userData.GameAccount.GameAccountID;
             }
+            
             public string UserName;
             public bool FinalLoginSuccess = false;
             public int OperationNextTime;
             public int DollBuildNextTime;
             public int EquipBuildNextTime;
+
+
             public void DataCheck()
             {
                 if (FinalLoginSuccess == false) return;
+                if (Data.data.mDatas[UserName].config.isOffline) return;
 
                 if (Data.data.mDatas[UserName].dailyReFlash.reLoginDateTime.Minute == DateTime.Now.Minute)
                 {
@@ -170,6 +174,7 @@ namespace GFHelp.Core.Management
                     return;
                 }
                 if (ThreadInfo.isMaxThreadCount) continue;
+                if (SystemOthers.ConfigData.isSystemPause) continue;
                 Stopwatch stopwatch = new Stopwatch();
                 stopwatch.Start();
                 try

@@ -211,7 +211,5 @@ C:\Code\GFHelp-Web\GFHelp.Web\obj\Debug\netcoreapp2.1\GFHelp.Web.RazorTargetAsse
 C:\Code\GFHelp-Web\GFHelp.Web\obj\Debug\netcoreapp2.1\GFHelp.Web.csproj.CopyComplete
 C:\Code\GFHelp-Web\GFHelp.Web\obj\Debug\netcoreapp2.1\GFHelp.Web.dll
 C:\Code\GFHelp-Web\GFHelp.Web\obj\Debug\netcoreapp2.1\GFHelp.Web.pdb
-C:\Code\GFHelp-Web\GFHelp.Web\bin\Debug\netcoreapp2.1\2590788_gfapi.nai-ve.top.pfx
-C:\Code\GFHelp-Web\GFHelp.Web\bin\Debug\netcoreapp2.1\2593924_mylocal.nai-ve.top.pfx
 C:\Users\jack\Desktop\GFHelp-Web\GFHelp.Web\bin\Debug\netcoreapp2.1\2590788_gfapi.nai-ve.top.pfx
 C:\Users\jack\Desktop\GFHelp-Web\GFHelp.Web\bin\Debug\netcoreapp2.1\2593924_mylocal.nai-ve.top.pfx

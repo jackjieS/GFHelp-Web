@@ -47,6 +47,7 @@ namespace GFHelp.Core.SystemOthers
 
             new Log().systemInit("引用作战dll").coreInfo();
         }
+        public static bool isSystemPause = false;
 
     }
 

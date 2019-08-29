@@ -447,9 +447,15 @@ namespace GFHelp.Core.Action.BattleBase
         public void Start()
         {
             while (listTask.Count > 0)
+                if (userData.config.isOffline)
+                {
+                    listTask.Clear();
+                    return;
+                }
                 try
                 {
                     //Console.WriteLine("BattleLoop 被调用了");
+
                     userData.mission.Test();
                 }
                 catch (Exception e)

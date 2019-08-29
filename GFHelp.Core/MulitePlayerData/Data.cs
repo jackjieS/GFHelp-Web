@@ -356,6 +356,7 @@ namespace GFHelp.Core.Management
         public bool M = false;
         public double TimeDelay = 1;
 
+        public bool isOffline = false;
 
         public void ParmConfiuge(UserData userData)
         {
