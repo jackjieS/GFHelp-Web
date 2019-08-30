@@ -447,6 +447,7 @@ namespace GFHelp.Core.Action.BattleBase
         public void Start()
         {
             while (listTask.Count > 0)
+            {
                 if (userData.config.isOffline)
                 {
                     listTask.Clear();
@@ -462,6 +463,8 @@ namespace GFHelp.Core.Action.BattleBase
                 {
                     new Log().systemInit("MissionInfo.Task battleLoop Error ", e.ToString()).coreError();
                 }
+            }
+
         }
 
 
