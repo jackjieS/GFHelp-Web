@@ -307,7 +307,7 @@ namespace GFHelp.Core.Action.BattleBase
                     }
                     if (item.Contains("-loginnum"))
                     {
-                        Int32.TryParse(item.Remove(0, 9), out SystemOthers.ConfigData.BL_ReLogin_num);
+                        Int32.TryParse(item.Remove(0, 9), out SystemManager.ConfigData.BL_ReLogin_num);
                     }
                     if (item.Contains("-lv"))
                     {

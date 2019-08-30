@@ -57,6 +57,47 @@ namespace GFHelp.Web.Controllers
             }
             return resultList;
         }
+        private bool PauseGameAccount(DataBase.GameAccount gameAccount)
+        {
+            bool result = false;
+            try
+            {
+                if (Core.Management.Data.data.ContainsKey(gameAccount.GameAccountID))
+                {
+                    Core.Management.Data.data.PauseById(gameAccount.GameAccountID);
+                    result = true;
+                }
+
+            }
+            catch (Exception e)
+            {
+                new Log().systemInit(string.Format("暂停游戏实例出现错误. {0}", gameAccount.GameAccountID.ToString()), e.ToString()).coreError();
+                result = false;
+            }
+            return result;
+        }
+
+        private bool RestartGameAccount(DataBase.GameAccount gameAccount)
+        {
+            bool result = false;
+            try
+            {
+                if (Core.Management.Data.data.ContainsKey(gameAccount.GameAccountID))
+                {
+                    Core.Management.Data.data.RestartById(gameAccount.GameAccountID);
+                    Task task = new Task(() => Core.Management.Data.data.getDataByID(gameAccount.GameAccountID).home.Login());
+                    task.Start();
+                    result = true;
+                }
+
+            }
+            catch (Exception e)
+            {
+                new Log().systemInit(string.Format("恢复游戏实例出现错误. {0}", gameAccount.GameAccountID.ToString()), e.ToString()).coreError();
+                result = false;
+            }
+            return result;
+        }
 
         private bool delGameAccount(DataBase.GameAccount gameAccount)
         {
@@ -177,7 +218,48 @@ namespace GFHelp.Web.Controllers
 
 
 
+        private void PauseGameAccounts(string Name)
+        {
 
+            var list = Core.Management.Data.data.getGameAccountByName(Name);
+
+            foreach (var item in list)
+            {
+                try
+                {
+                    if (Core.Management.Data.data.ContainsKey(item.GameAccountID))
+                    {
+                        Core.Management.Data.data.PauseById(item.GameAccountID);
+                    }
+                }
+                catch (Exception e)
+                {
+                    new Log().systemInit(string.Format("暂停游戏实例出现错误. {0}", item.GameAccountID.ToString()), e.ToString()).coreError();
+                }
+            }
+        }
+        private void RestartGameAccounts(string Name)
+        {
+
+            var list = Core.Management.Data.data.getGameAccountByName(Name);
+
+            foreach (var item in list)
+            {
+                try
+                {
+                    if (Core.Management.Data.data.ContainsKey(item.GameAccountID))
+                    {
+                        Core.Management.Data.data.RestartById(item.GameAccountID);
+                        Task task = new Task(() => Core.Management.Data.data.getDataByID(item.GameAccountID).home.Login());
+                        task.Start();
+                    }
+                }
+                catch (Exception e)
+                {
+                    new Log().systemInit(string.Format("恢复游戏实例出现错误. {0}", item.GameAccountID.ToString()), e.ToString()).coreError();
+                }
+            }
+        }
         private void DelteGameAccounts(string Name)
         {
 
@@ -501,7 +583,118 @@ namespace GFHelp.Web.Controllers
 
         }
 
+        /// <summary>
+        /// 暂停一个游戏实例
+        /// </summary>
+        /// <param name="accountbase"></param>
+        /// <returns></returns>
+        [Route("[action]")]
+        [HttpPost]
+        public IActionResult PauseGame([FromBody] DataBase.GameAccount accountbase)
+        {
+            if (CheckDataVailed(accountbase) == false) return NoContent();
+            bool reslut = true;
+            string username = User.FindFirst(ClaimTypes.NameIdentifier)?.Value;
+            accountbase.WebUsername = username;
 
+            if (isAccCreated(accountbase))
+            {
+                reslut = PauseGameAccount(accountbase);
+            }
+
+            if (reslut)
+            {
+                return Ok(new
+                {
+                    code = 1,
+                    //data = count,
+                    message = string.Format("游戏账号暂停成功")
+                });
+            }
+            return Ok(new
+            {
+                code = -1,
+                //data = count,
+                message = string.Format("游戏账号暂停失敗")
+            });
+
+        }
+
+        /// <summary>
+        /// 恢复一个游戏实例
+        /// </summary>
+        /// <param name="accountbase"></param>
+        /// <returns></returns>
+        [Route("[action]")]
+        [HttpPost]
+        public IActionResult RestartGame([FromBody] DataBase.GameAccount accountbase)
+        {
+            if (CheckDataVailed(accountbase) == false) return NoContent();
+            bool reslut = true;
+            string username = User.FindFirst(ClaimTypes.NameIdentifier)?.Value;
+            accountbase.WebUsername = username;
+
+            if (isAccCreated(accountbase))
+            {
+                reslut = RestartGameAccount(accountbase);
+            }
+
+            if (reslut)
+            {
+                return Ok(new
+                {
+                    code = 1,
+                    //data = count,
+                    message = string.Format("游戏账号恢复成功")
+                });
+            }
+            return Ok(new
+            {
+                code = -1,
+                //data = count,
+                message = string.Format("游戏账号暂停失敗")
+            });
+
+        }
+
+        /// <summary>
+        /// 暂停所有实例
+        /// </summary>
+        /// <returns></returns>
+        [Route("[action]")]
+        [HttpPost]
+        public IActionResult PauseGameAccounts()
+        {
+            string username = User.FindFirst(ClaimTypes.NameIdentifier)?.Value;
+
+            Task task = new Task(() => PauseGameAccounts(username));
+            task.Start();
+            return Ok(new
+            {
+                code = 1,
+                data = "",
+                message = string.Format("正在暂停")
+            });
+        }
+        /// <summary>
+        /// 恢复所有实例
+        /// </summary>
+        /// <returns></returns>
+        [Route("[action]")]
+        [HttpPost]
+        public IActionResult RestartGameAccounts()
+        {
+            string username = User.FindFirst(ClaimTypes.NameIdentifier)?.Value;
+
+            Task task = new Task(() => RestartGameAccounts(username));
+            task.Start();
+            return Ok(new
+            {
+                code = 1,
+                data = "",
+                message = string.Format("正在恢复")
+            });
+        }
 
         /// <summary>
         /// 获取Default的游戏实例

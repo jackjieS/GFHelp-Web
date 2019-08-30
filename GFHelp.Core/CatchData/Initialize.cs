@@ -13,7 +13,7 @@ namespace GFHelp.Core.CatchData
         public static void init()
         {
             new Helper.Log().systemInit("获取版本信息").coreInfo();
-            SystemOthers.ConfigData.DataVersion = SystemOthers.ConfigData.DataVersion.ToLower();
+            SystemManager.ConfigData.DataVersion = SystemManager.ConfigData.DataVersion.ToLower();
 
 
 
@@ -32,14 +32,13 @@ namespace GFHelp.Core.CatchData
             try
             {
                 new Helper.Log().systemInit("获取版本信息").coreInfo();
-                SystemOthers.ConfigData.DataVersion = SystemOthers.ConfigData.DataVersion.ToLower();
+                SystemManager.ConfigData.DataVersion = SystemManager.ConfigData.DataVersion.ToLower();
                 new Helper.Log().systemInit("游戏数据开始更新").coreInfo();
-                Task updata = new Task(() => DownLoad.DownloadCatchdata(SystemOthers.ConfigData.DataVersion));
+                Task updata = new Task(() => DownLoad.DownloadCatchdata(SystemManager.ConfigData.DataVersion));
                 updata.Start();
-                updata.Wait();
                 updata.ContinueWith(p =>
                 {
-                    Helper.Configer.ConfigManager.SetConfig("catchdata", SystemOthers.ConfigData.DataVersion);
+                    Helper.Configer.ConfigManager.SetConfig("catchdata", SystemManager.ConfigData.DataVersion);
                     CatachData.Seed();
                     UpgradeUsing = false;
                     new Helper.Log().systemInit("游戏数据更新完毕").coreInfo();

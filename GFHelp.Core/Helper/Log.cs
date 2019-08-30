@@ -28,24 +28,24 @@ namespace GFHelp.Core.Helper
 
         public static void initLogWriter()
         {
-            systemDic = SystemOthers.ConfigData.currentDirectory + @"\Log\system";
+            systemDic = SystemManager.ConfigData.currentDirectory + @"\Log\system";
             if (!Directory.Exists(systemDic))//判断文件夹是否存在，如果不存在则创建
             {
                 Directory.CreateDirectory(systemDic);
             }
-            userDic = SystemOthers.ConfigData.currentDirectory + @"\Log\user";
+            userDic = SystemManager.ConfigData.currentDirectory + @"\Log\user";
             if (!Directory.Exists(userDic))//判断文件夹是否存在，如果不存在则创建
             {
                 Directory.CreateDirectory(userDic);
             }
 
-            coreErrorPath = SystemOthers.ConfigData.currentDirectory + @"\Log\system\coreError.log";
+            coreErrorPath = SystemManager.ConfigData.currentDirectory + @"\Log\system\coreError.log";
             coreErrorWriter = !File.Exists(coreErrorPath) ? File.CreateText(coreErrorPath) : File.AppendText(coreErrorPath);    //判断文件是否存在如果不存在则创建，如果存在则添加。
-            coreInfoPath = SystemOthers.ConfigData.currentDirectory + @"\Log\system\coreInfo.log";
+            coreInfoPath = SystemManager.ConfigData.currentDirectory + @"\Log\system\coreInfo.log";
             coreInfoWriter = !File.Exists(coreInfoPath) ? File.CreateText(coreInfoPath) : File.AppendText(coreInfoPath);    //判断文件是否存在如果不存在则创建，如果存在则添加。
-            signarlPath = SystemOthers.ConfigData.currentDirectory + @"\Log\system\SignarlError.log";
+            signarlPath = SystemManager.ConfigData.currentDirectory + @"\Log\system\SignarlError.log";
             signarlWriter = !File.Exists(signarlPath) ? File.CreateText(signarlPath) : File.AppendText(signarlPath);    //判断文件是否存在如果不存在则创建，如果存在则添加。
-            webPath = SystemOthers.ConfigData.currentDirectory + @"\Log\system\webError.log";
+            webPath = SystemManager.ConfigData.currentDirectory + @"\Log\system\webError.log";
             webWriter = !File.Exists(webPath) ? File.CreateText(webPath) : File.AppendText(webPath);    //判断文件是否存在如果不存在则创建，如果存在则添加。
 
 
@@ -110,7 +110,7 @@ namespace GFHelp.Core.Helper
 
         public static int getLogID()
         {
-            return SystemOthers.ConfigData.LogID++;
+            return SystemManager.ConfigData.LogID++;
         }
 
 
@@ -205,7 +205,7 @@ namespace GFHelp.Core.Helper
         }
         private void Add<T>(List<T> list,T data)
         {
-            if (list.Count >= SystemOthers.ConfigData.ListStoreNum)
+            if (list.Count >= SystemManager.ConfigData.ListStoreNum)
             {
                 list.RemoveAt(0);
                 list.Add(data);

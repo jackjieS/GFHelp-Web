@@ -30,7 +30,7 @@ namespace GFHelp.Core.CatchData.Base
         }
         private static bool LoadBytesTable<T>(tBaseDatas<T> tDatas, CmdDef table) where T : NullCmdStruct, tBaseData, new()
         {
-            string stcDirectory = SystemOthers.ConfigData.currentDirectory + @"\stc";
+            string stcDirectory = SystemManager.ConfigData.currentDirectory + @"\stc";
             string str = "\\";
             int num = (int)table;
             string text = stcDirectory + str + num.ToString() + TableHelper.cachePostfix;

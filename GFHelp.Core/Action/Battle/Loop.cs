@@ -92,7 +92,7 @@ namespace GFHelp.Core.Action
             Gun_Retire_Core();
 
             //检查是否需要重新登陆
-            if (userData.MissionInfo.GetFirstData().CycleTime % SystemOthers.ConfigData.BL_ReLogin_num == 0)
+            if (userData.MissionInfo.GetFirstData().CycleTime % SystemManager.ConfigData.BL_ReLogin_num == 0)
             {
                 userData.home.GetUserInfo();
             }

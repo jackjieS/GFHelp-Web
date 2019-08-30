@@ -6,12 +6,12 @@ using System.Threading.Tasks;
 using GFHelp.Core;
 using GFHelp.Core.Helper;
 using GFHelp.Core.Helper.Configer;
-using GFHelp.Core.SystemOthers;
+using GFHelp.Core.SystemManager;
 
 using GFHelp.Web.Data;
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
-using static GFHelp.Core.SystemOthers.SystemHelper;
+using static GFHelp.Core.SystemManager.SystemHelper;
 using static GFHelp.Web.Controllers.GameController;
 
 
@@ -205,7 +205,7 @@ namespace GFHelp.Web.Controllers
             var temp = new
             {
                 OperationInfo = Core.CatachData.GetOperationInfo(),
-                BattleMap = Core.SystemOthers.ConfigData.BattleMap
+                BattleMap = Core.SystemManager.ConfigData.BattleMap
             };
             return Ok(new
             {

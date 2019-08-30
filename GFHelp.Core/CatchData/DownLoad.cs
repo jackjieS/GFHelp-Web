@@ -22,7 +22,7 @@ namespace GFHelp.Core.CatchData
             {
                 using (WebClient client = new WebClient())
                 {
-                    client.DownloadFileAsync(new Uri(GetDataFileFullUrl(version)),string.Format(SystemOthers.ConfigData.currentDirectory + @"\stc_data.dat"));
+                    client.DownloadFileAsync(new Uri(GetDataFileFullUrl(version)),string.Format(SystemManager.ConfigData.currentDirectory + @"\stc_data.dat"));
                     client.DownloadProgressChanged += client_DownloadProgressChanged;
                     client.DownloadFileCompleted += client_DownloadFileCompleted;
                 }
@@ -85,8 +85,8 @@ namespace GFHelp.Core.CatchData
         private static void SavezipDataTojosn()
         {
             int count = 0;
-            var str1 = SystemOthers.ConfigData.currentDirectory + @"\stc_data.dat";
-            var str2 = SystemOthers.ConfigData.currentDirectory + @"\stc";
+            var str1 = SystemManager.ConfigData.currentDirectory + @"\stc_data.dat";
+            var str2 = SystemManager.ConfigData.currentDirectory + @"\stc";
             System.IO.Compression.ZipFile.ExtractToDirectory(str1, str2,true); //解压
             using (Stream stream = new FileStream(str2 + @"\catchdata.dat", FileMode.Open))
             {

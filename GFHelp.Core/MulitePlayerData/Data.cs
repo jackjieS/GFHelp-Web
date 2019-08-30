@@ -55,7 +55,22 @@ namespace GFHelp.Core.Management
            return  mDatas.Where(m => m.Value.GameAccount.WebUsername == WebID).Select(k => k.Value).ToList();
         }
 
+        public void PauseById(string ID)
+        {
+            if (mDatas.ContainsKey(ID))
+            {
+                mDatas[ID].config.isOffline = true;
+            }
 
+        }
+        public void RestartById(string ID)
+        {
+            if (mDatas.ContainsKey(ID))
+            {
+                mDatas[ID].config.isOffline = false;
+            }
+
+        }
 
         public void RemoveByID(string ID)
         {

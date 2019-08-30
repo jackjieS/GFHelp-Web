@@ -12,34 +12,7 @@ using System.Threading.Tasks;
 
 namespace GFHelp.Core.Management
 {
-    public class ThreadLoop
-    {
-        public Task dailyLoop;
 
-        public ThreadLoop(UserData userData)
-        {
-            this.userData = userData;
-        }
-
-        private AutoResetEvent exitEvent = new AutoResetEvent(false);
-
-
-        public void init()
-        {
-
-        }
-
-        public void Stop()
-        {
-            exitEvent.Set();
-        }
-
-        private UserData userData;
-
-
-
-
-    }
 
     public class AutoLoop
     {
@@ -174,7 +147,7 @@ namespace GFHelp.Core.Management
                     return;
                 }
                 if (ThreadInfo.isMaxThreadCount) continue;
-                if (SystemOthers.ConfigData.isSystemPause) continue;
+                if (SystemManager.GameServerStatus.Data.isSystemMainTean) continue;
                 Stopwatch stopwatch = new Stopwatch();
                 stopwatch.Start();
                 try

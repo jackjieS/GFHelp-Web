@@ -130,8 +130,18 @@ namespace GFHelp.Core.MulitePlayerData.WebData
             webStatus.AccountId = UserData.GameAccount.GameAccountID;
             webStatus.Name = UserData.GameAccount.ChannelID + " - " + UserData.GameAccount.GameAccountID + " - " + UserData.user_Info.name;
 
+            webStatus.statusBarText = UserData.webData.StatusBarText;
 
-            webStatus.statusBarText = UserData.webData.StatusBarText + "  - 后勤状态 - " + UserData.operation_Act_Info.isRunning().ToString();
+            if (UserData.operation_Act_Info.isRunning()==false)
+            {
+                webStatus.statusBarText +=    "  后勤出错 ";
+            }
+
+
+            if (UserData.config.isOffline)
+            {
+                webStatus.statusBarText += " - 实例暂停 ";
+            }          
         }
         private string getItemNumFromID(int id)
         {
@@ -304,7 +314,6 @@ namespace GFHelp.Core.MulitePlayerData.WebData
         public string AccountId;//游戏帐户ID
         public string Name;//游戏角色名称
         public string statusBarText;//状态
-
     }
     public class WebMissionInfo
     {

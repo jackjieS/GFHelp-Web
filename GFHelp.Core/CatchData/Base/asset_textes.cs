@@ -27,7 +27,7 @@ namespace GFHelp.Core.CatchData.Base
             }
         }
 
-        static string currentDirectory = SystemOthers.ConfigData.currentDirectory;
+        static string currentDirectory = SystemManager.ConfigData.currentDirectory;
         private static string operationfileName = currentDirectory+ "\\textRes\\operation.csv";
         private static string prizefilename = currentDirectory + "\\textRes\\prize.csv";
         private static string dailyfilename = currentDirectory + "\\textRes\\daily.csv";

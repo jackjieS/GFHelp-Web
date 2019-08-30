@@ -1073,7 +1073,7 @@ namespace GFHelp.Core.Action
 
             if (userData.others.Check_Equip_GUN_FULL())
             {
-                if (userData.gun_With_User_Info.dicGun.Count + SystemOthers.ConfigData.UpdateCache >= userData.user_Info.maxgun)
+                if (userData.gun_With_User_Info.dicGun.Count + SystemManager.ConfigData.UpdateCache >= userData.user_Info.maxgun)
                 {
                     if (userData.config.M == true)
                     {
@@ -1107,7 +1107,7 @@ namespace GFHelp.Core.Action
 
 
                 }
-                if (userData.equip_With_User_Info.listEquip.Count + SystemOthers.ConfigData.UpdateCache >= userData.user_Info.maxequip)
+                if (userData.equip_With_User_Info.listEquip.Count + SystemManager.ConfigData.UpdateCache >= userData.user_Info.maxequip)
                 {
                     if (userData.MissionInfo.GetFirstData().AutoStrengthen)
                     {

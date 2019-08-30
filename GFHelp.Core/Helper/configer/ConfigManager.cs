@@ -25,8 +25,8 @@ namespace GFHelp.Core.Helper.Configer
             }
         }
 
-        public static string fileName = SystemOthers.ConfigData.currentDirectory + @"\config.cfg";
-        public static string UpgradeInfoFile = SystemOthers.ConfigData.currentDirectory + @"\UpgradeInfo.txt";
+        public static string fileName = SystemManager.ConfigData.currentDirectory + @"\config.cfg";
+        public static string UpgradeInfoFile = SystemManager.ConfigData.currentDirectory + @"\UpgradeInfo.txt";
         public static Dictionary<string, object> defultValue = new Dictionary<string, object>();
         public static string[] UpgradeInfo;
 
@@ -160,8 +160,8 @@ namespace GFHelp.Core.Helper.Configer
                 {
                     Console.WriteLine("配置文件加载失败!");
                 }
-                SystemOthers.ConfigData.DataVersion = getConfigString("catchdata").ToLower();
-                SystemOthers.ConfigData.LogID = getConfigInt("LogID");
+                SystemManager.ConfigData.DataVersion = getConfigString("catchdata").ToLower();
+                SystemManager.ConfigData.LogID = getConfigInt("LogID");
 
             }
             catch (Exception e)

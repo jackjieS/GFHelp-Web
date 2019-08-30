@@ -5,6 +5,7 @@ using System.Linq;
 using System.Net;
 using System.Text;
 using System.Threading.Tasks;
+using GFHelp.Core.SystemManager;
 using GFHelp.Web.Data;
 using Microsoft.AspNetCore.Authentication.JwtBearer;
 using Microsoft.AspNetCore.Builder;
@@ -30,7 +31,7 @@ namespace GFHelp.Web
 
         public IConfiguration Configuration { get; }
 
-        static string currentDirectory = Core.SystemOthers.ConfigData.currentDirectory;
+        static string currentDirectory = Core.SystemManager.ConfigData.currentDirectory;
         // This method gets called by the runtime. Use this method to add services to the container.
         public void ConfigureServices(IServiceCollection services)
         {
@@ -148,8 +149,8 @@ namespace GFHelp.Web
                 c.SwaggerEndpoint("/swagger/v1/swagger.json", "My API V1");
             });
 
-
-            Core.SystemOthers.ConfigData.Initialize();
+            GameServerStatus checkGameServer = new GameServerStatus();
+            Core.SystemManager.ConfigData.Initialize();
             Core.Init.InitFromDatabase();
             Core.SignaIRClient.init();
             NetBase.webProxy.Init();

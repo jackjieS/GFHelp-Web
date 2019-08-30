@@ -8,7 +8,7 @@ namespace GFHelp.Core.Helper.Configer
     public class HostAddress
     {
 
-        private static string fileName = SystemOthers.ConfigData.currentDirectory + @"\HostAddress.cfg";
+        private static string fileName = SystemManager.ConfigData.currentDirectory + @"\HostAddress.cfg";
 
         private static List<Data> Address = new List<Data>();
         private class Data

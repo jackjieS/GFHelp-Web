@@ -281,7 +281,7 @@ namespace GFHelp.Core.Action
                     userData.GameAccount.data_version = jsonobj.data_version.ToString();
                     userData.GameAccount.ab_version = jsonobj.ab_version.ToString();
 
-                    SystemOthers.ConfigData.DataVersion = userData.GameAccount.CatchDataVersion;
+                    SystemManager.ConfigData.DataVersion = userData.GameAccount.CatchDataVersion;
                     userData.GameAccount.tomorrow_zero = Convert.ToInt32(jsonobj.tomorrow_zero);
                     userData.GameAccount.weekday = Convert.ToInt32(jsonobj.weekday);
                     return true;

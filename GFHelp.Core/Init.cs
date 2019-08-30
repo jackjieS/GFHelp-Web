@@ -25,7 +25,7 @@ namespace GFHelp.Core
                 }
                 foreach (var item in AccountInfo)
                 {
-                    SystemOthers.ConfigData.WebUserData.Add(item);
+                    SystemManager.ConfigData.WebUserData.Add(item);
                 }
             });
             task.Start();

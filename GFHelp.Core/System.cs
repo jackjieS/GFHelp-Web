@@ -1,18 +1,120 @@
 ﻿using GFHelp.Core.Helper;
 using GFHelp.Core.Helper.Configer;
 using GFHelp.Core.Management;
+using GFHelp.NetBase;
+using LitJson;
 using Microsoft.VisualStudio.Web.CodeGeneration.Design;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations;
 using System.IO;
 using System.Reflection;
+using System.Text;
+using System.Text.RegularExpressions;
 using System.Threading;
 using System.Threading.Tasks;
+using System.Xml;
 
-namespace GFHelp.Core.SystemOthers
+namespace GFHelp.Core.SystemManager
 {
-   
+
+    public class GameServerStatus
+    {
+
+        public GameServerStatus()
+        {
+            baseRequset = new BaseRequset();
+            urldata = new URLData();
+            Loop();
+        }
+        public class Data
+        {
+            public static bool isSystemMainTean = false;
+
+        }
+        public class URLData
+        {
+            public URLData()
+            {
+                init();
+            }
+            public string URL;
+            public string URLParm;
+            void init()
+            {
+                StringBuilder stringBuilder = new StringBuilder();
+                JsonWriter jsonWriter = new JsonWriter(stringBuilder);
+                jsonWriter.WriteObjectStart();
+                jsonWriter.WritePropertyName("c");
+                jsonWriter.Write("game");
+                jsonWriter.WritePropertyName("a");
+                jsonWriter.Write("newserverList");
+                jsonWriter.WritePropertyName("channel");
+                jsonWriter.Write("cn_mica");
+                jsonWriter.WritePropertyName("platformChannelId");
+                jsonWriter.Write("GWPZ");
+                jsonWriter.WritePropertyName("check_version");
+                jsonWriter.Write("20400");
+                jsonWriter.WritePropertyName("rnd");
+                jsonWriter.Write("274413");
+                jsonWriter.WriteObjectEnd();
+                this.URLParm = stringBuilder.ToString();
+                this.URL = "http://adr.transit.gf.ppgame.com/index.php";
+            }
+
+
+        }
+        BaseRequset baseRequset;
+        URLData urldata;
+        private AutoResetEvent exitEvent = new AutoResetEvent(false);
+        public void Stop()
+        {
+            exitEvent.Set();
+        }
+        public void Check()
+        {
+            while (true)
+            {
+
+                string result = baseRequset.DoPost(urldata.URL, urldata.URLParm);
+                if (string.IsNullOrEmpty(result)) return;
+                result = result.Substring(result.IndexOf("<open_time>"));
+                result = result.Remove(result.IndexOf("</open_time>"));
+                int opentime = Convert.ToInt32(Regex.Replace(result, "[^0-9]", ""));
+                if (Decrypt.getDateTime_China_Int(DateTime.Now) < opentime)
+                {
+                    Data.isSystemMainTean = true;
+                }
+
+
+                if (exitEvent.WaitOne(60000))
+                {
+                    return;
+                }
+            }
+
+
+        }
+        public void Loop()
+        {
+            Task autoLoop = new Task(() => Check());
+            autoLoop.Start();
+        }
+
+
+
+
+
+
+
+
+
+
+    }
+
+
+
+
 
     public class ConfigData
     {
@@ -28,7 +130,7 @@ namespace GFHelp.Core.SystemOthers
             "-map5_2n",
             "-map10_4e"
         };
-        public static int Error_num =3;
+        public static int Error_num = 3;
         public static int UpdateCache = 5;
         public static int BL_ReLogin_num = 20;
         public static int ListStoreNum = 500;
@@ -47,7 +149,7 @@ namespace GFHelp.Core.SystemOthers
 
             new Log().systemInit("引用作战dll").coreInfo();
         }
-        public static bool isSystemPause = false;
+
 
     }
 

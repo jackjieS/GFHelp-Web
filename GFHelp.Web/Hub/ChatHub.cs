@@ -193,7 +193,7 @@ namespace GFHelp.Web
         public async Task RemoveAllSystemNotice(string ID)
         {
             await Task.Run(() => {
-                foreach (var item in Core.SystemOthers.ConfigData.WebUserData)
+                foreach (var item in Core.SystemManager.ConfigData.WebUserData)
                 {
                     if(item.Username == ID && item.Policy == "1")
                     {

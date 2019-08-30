@@ -27,7 +27,7 @@ namespace GFHelp.Web
                     Console.WriteLine("0工具被强制关闭"); //Ctrl+C关闭  
                     break;
                 case 2:
-                    Core.Helper.Configer.ConfigManager.SetConfig("LogID", Core.SystemOthers.ConfigData.LogID);
+                    Core.Helper.Configer.ConfigManager.SetConfig("LogID", Core.SystemManager.ConfigData.LogID);
                     Console.WriteLine("2工具被强制关闭");//按控制台关闭按钮关闭  
                     break;
             }
@@ -54,7 +54,9 @@ namespace GFHelp.Web
                             listenOptions.UseHttps("2590788_gfapi.nai-ve.top.pfx", "9g5KIiOL");
 
                         });
-
+                        options.ListenAnyIP(7778, listenOptions =>
+                        {
+                        });
 
                     })
             .UseStartup<Startup>()

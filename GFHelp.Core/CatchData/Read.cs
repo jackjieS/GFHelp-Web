@@ -64,7 +64,7 @@ namespace GFHelp.Core
         private static void ReadCatchData()
         {
 
-            var catchdatafile = SystemOthers.ConfigData.currentDirectory + @"\stc\catchdata.json";
+            var catchdatafile = SystemManager.ConfigData.currentDirectory + @"\stc\catchdata.json";
             var rawString = File.ReadAllLines(catchdatafile);
             JsonData jsonData;
             dynamic jsonobj;
@@ -72,6 +72,7 @@ namespace GFHelp.Core
             {
                 try
                 {
+                    if (item.StartsWith('_')) continue;
                     jsonData = JsonMapper.ToObject(item);
                     jsonobj = DynamicJson.Parse(item); //讲道理，我真不想写了
                 }
@@ -373,7 +374,7 @@ namespace GFHelp.Core
 
             return true;
         }
-        static string fileName = SystemOthers.ConfigData.currentDirectory + @"\test.json";
+        static string fileName = SystemManager.ConfigData.currentDirectory + @"\test.json";
         static StreamWriter file = new StreamWriter(fileName, true);
         private static void Write<T>(string name,List<T> abc)
         {
