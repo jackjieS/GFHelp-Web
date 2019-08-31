@@ -116,6 +116,7 @@ namespace GFHelp.Mission
             Emergency,
             Night,
             Activity,
+            Summer2019,
             Simulation
         };
 
@@ -4015,7 +4016,7 @@ namespace GFHelp.Mission
 
         public class mapscbox
         {
-            public static MissionType missionType = MissionType.Activity;
+            public static MissionType missionType = MissionType.Summer2019;
         }
         public class mapsc2_1 : mapbase
         {
@@ -4035,7 +4036,7 @@ namespace GFHelp.Mission
                 Function.init(teamMove.dic, Spots, data);
             }
 
-            public static MissionType missionType = MissionType.Activity;
+            public static MissionType missionType = MissionType.Summer2019;
 
 
 
@@ -4061,7 +4062,7 @@ namespace GFHelp.Mission
                 Function.init(teamMove.dic, Spots, data);
             }
 
-            public static MissionType missionType = MissionType.Activity;
+            public static MissionType missionType = MissionType.Summer2019;
 
 
 
@@ -4090,7 +4091,7 @@ namespace GFHelp.Mission
                 Function.init(teamMove.dic, Spots, data);
             }
 
-            public static MissionType missionType = MissionType.Activity;
+            public static MissionType missionType = MissionType.Summer2019;
 
 
 
@@ -4121,7 +4122,7 @@ namespace GFHelp.Mission
                 Function.init(teamMove.dic, Spots, data);
             }
 
-            public static MissionType missionType = MissionType.Activity;
+            public static MissionType missionType = MissionType.Summer2019;
 
 
 
@@ -4153,7 +4154,7 @@ namespace GFHelp.Mission
                 Function.init(teamMove.dic, Spots, data);
             }
 
-            public static MissionType missionType = MissionType.Activity;
+            public static MissionType missionType = MissionType.Summer2019;
 
 
 
@@ -4179,7 +4180,7 @@ namespace GFHelp.Mission
                 Function.init(teamMove.dic, Spots, data);
             }
 
-            public static MissionType missionType = MissionType.Activity;
+            public static MissionType missionType = MissionType.Summer2019;
 
 
 
@@ -4206,7 +4207,7 @@ namespace GFHelp.Mission
                 Function.init(teamMove.dic, Spots, data);
             }
 
-            public static MissionType missionType = MissionType.Activity;
+            public static MissionType missionType = MissionType.Summer2019;
 
 
 
@@ -4237,7 +4238,7 @@ namespace GFHelp.Mission
                 Function.init(teamMove.dic, Spots, data);
             }
 
-            public static MissionType missionType = MissionType.Activity;
+            public static MissionType missionType = MissionType.Summer2019;
 
 
 
@@ -4260,7 +4261,7 @@ namespace GFHelp.Mission
                 Function.init(teamMove.dic, Spots, data);
             }
 
-            public static MissionType missionType = MissionType.Activity;
+            public static MissionType missionType = MissionType.Summer2019;
 
 
 

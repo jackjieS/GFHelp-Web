@@ -55,6 +55,11 @@ namespace GFHelp.Core.Management
            return  mDatas.Where(m => m.Value.GameAccount.WebUsername == WebID).Select(k => k.Value).ToList();
         }
 
+        public List<UserData> getDatas()
+        {
+            return mDatas.Select(k => k.Value).ToList();
+        }
+
         public void PauseById(string ID)
         {
             if (mDatas.ContainsKey(ID))

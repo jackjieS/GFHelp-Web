@@ -125,9 +125,42 @@ namespace GFHelp.Web
             await Clients.Client(SignalRID).SendAsync("ReceiveGameNotification", message);
         }
 
-        public async Task GetGamesStatus(string WebName)
+        public enum AccountRequireType
         {
-            var list = Core.Management.Data.data.getDatasByWebID(WebName);
+            Self,
+            All
+        };
+
+        /// <summary>
+        /// 
+        /// </summary>
+        public class Account
+        {
+            public string WebName;
+            public AccountRequireType accountType;
+        }
+
+
+        public async Task GetGamesStatus(Account account)
+        {
+            if (account.accountType == AccountRequireType.All)
+            {
+                if (getUserPolicy(account.WebName) != 1)
+                {
+                    account.accountType = AccountRequireType.Self;
+                }
+            }
+
+
+            List<UserData> list = new List<UserData>();
+            if (account.accountType == AccountRequireType.Self)
+            {
+                list = Core.Management.Data.data.getDatasByWebID(account.WebName);
+            }
+            if (account.accountType == AccountRequireType.All)
+            {
+                list = Core.Management.Data.data.getDatas();
+            }
             List<WebStatus> webDatas = new List<WebStatus>();
             foreach (var item in list)
             {
@@ -137,6 +170,11 @@ namespace GFHelp.Web
             string result = JsonConvert.SerializeObject(webDatas);
             await Clients.Client(Context.ConnectionId).SendAsync("ReceiveGamesStatus", result);
         }
+
+
+
+
+
 
         public async Task GetGameDetails(string GameID)
         {
@@ -186,6 +224,18 @@ namespace GFHelp.Web
         }
 
 
+        public int getUserPolicy(string id)
+        {
+            foreach (var item in Core.SystemManager.ConfigData.WebUserData)
+            {
+                if (item.Username == id)
+                {
+                    return Convert.ToInt32(item.Policy);
+                }
+            }
+            return 0;
+        }
+
         /// <summary>
         /// 移除所有系统消息
         /// </summary>
@@ -193,15 +243,15 @@ namespace GFHelp.Web
         public async Task RemoveAllSystemNotice(string ID)
         {
             await Task.Run(() => {
-                foreach (var item in Core.SystemManager.ConfigData.WebUserData)
+                if (getUserPolicy(ID) == 1)
                 {
-                    if(item.Username == ID && item.Policy == "1")
-                    {
-                        Core.Helper.Viewer.systemLogs.Clear();
-                        return 1;
-                    }
+                    Core.Helper.Viewer.systemLogs.Clear();
+                    return 1;
                 }
-                return 0;
+                else
+                {
+                    return 0;
+                }
             });
         }
         /// <summary>
