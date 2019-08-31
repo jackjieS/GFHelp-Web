@@ -159,7 +159,6 @@ C:\Users\jack\Desktop\GFHelp-Web\GFHelp.Web\bin\Debug\netcoreapp2.1\GFHelp.Core.
 C:\Users\jack\Desktop\GFHelp-Web\GFHelp.Web\bin\Debug\netcoreapp2.1\GFHelp.DataBase.dll
 C:\Users\jack\Desktop\GFHelp-Web\GFHelp.Web\bin\Debug\netcoreapp2.1\GFLogin.dll
 C:\Users\jack\Desktop\GFHelp-Web\GFHelp.Web\bin\Debug\netcoreapp2.1\NetBase.dll
-C:\Users\jack\Desktop\GFHelp-Web\GFHelp.Web\bin\Debug\netcoreapp2.1\LitJson.dll
 C:\Users\jack\Desktop\GFHelp-Web\GFHelp.Web\bin\Debug\netcoreapp2.1\UnityEngine.dll
 C:\Users\jack\Desktop\GFHelp-Web\GFHelp.Web\bin\Debug\netcoreapp2.1\AuthCode.dll
 C:\Users\jack\Desktop\GFHelp-Web\GFHelp.Web\bin\Debug\netcoreapp2.1\ICSharpCode.SharpZipLib.dll
@@ -215,3 +214,4 @@ C:\Users\jack\Desktop\GFHelp-Web\GFHelp.Web\bin\Debug\netcoreapp2.1\2590788_gfap
 C:\Users\jack\Desktop\GFHelp-Web\GFHelp.Web\bin\Debug\netcoreapp2.1\2593924_mylocal.nai-ve.top.pfx
 C:\Code\GFHelp-Web\GFHelp.Web\bin\Debug\netcoreapp2.1\2590788_gfapi.nai-ve.top.pfx
 C:\Code\GFHelp-Web\GFHelp.Web\bin\Debug\netcoreapp2.1\2593924_mylocal.nai-ve.top.pfx
+C:\Users\jack\Desktop\GFHelp-Web\GFHelp.Web\bin\Debug\netcoreapp2.1\LitJson.dll

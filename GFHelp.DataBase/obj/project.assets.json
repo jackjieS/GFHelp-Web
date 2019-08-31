@@ -687,23 +687,23 @@
     ]
   },
   "packageFolders": {
-    "C:\\Users\\jackj\\.nuget\\packages\\": {},
+    "C:\\Users\\jack\\.nuget\\packages\\": {},
     "C:\\Program Files\\dotnet\\sdk\\NuGetFallbackFolder": {}
   },
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "C:\\Code\\GFHelp-Web\\GFHelp.DataBase\\GFHelp.DataBase.csproj",
+      "projectUniqueName": "C:\\Users\\jack\\Desktop\\GFHelp-Web\\GFHelp.DataBase\\GFHelp.DataBase.csproj",
       "projectName": "GFHelp.DataBase",
-      "projectPath": "C:\\Code\\GFHelp-Web\\GFHelp.DataBase\\GFHelp.DataBase.csproj",
-      "packagesPath": "C:\\Users\\jackj\\.nuget\\packages\\",
-      "outputPath": "C:\\Code\\GFHelp-Web\\GFHelp.DataBase\\obj\\",
+      "projectPath": "C:\\Users\\jack\\Desktop\\GFHelp-Web\\GFHelp.DataBase\\GFHelp.DataBase.csproj",
+      "packagesPath": "C:\\Users\\jack\\.nuget\\packages\\",
+      "outputPath": "C:\\Users\\jack\\Desktop\\GFHelp-Web\\GFHelp.DataBase\\obj\\",
       "projectStyle": "PackageReference",
       "fallbackFolders": [
         "C:\\Program Files\\dotnet\\sdk\\NuGetFallbackFolder"
       ],
       "configFilePaths": [
-        "C:\\Users\\jackj\\AppData\\Roaming\\NuGet\\NuGet.Config",
+        "C:\\Users\\jack\\AppData\\Roaming\\NuGet\\NuGet.Config",
         "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
       ],
       "originalTargetFrameworks": [

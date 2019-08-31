@@ -141,23 +141,24 @@ namespace GFHelp.Web
         }
 
 
-        public async Task GetGamesStatus(Account account)
+        public async Task GetGamesStatus(object account)
         {
-            if (account.accountType == AccountRequireType.All)
+            var json = JsonConvert.DeserializeObject<Account>(account.ToString());
+            if (json.accountType == AccountRequireType.All)
             {
-                if (getUserPolicy(account.WebName) != 1)
+                if (getUserPolicy(json.WebName) != 1)
                 {
-                    account.accountType = AccountRequireType.Self;
+                    json.accountType = AccountRequireType.Self;
                 }
             }
 
 
             List<UserData> list = new List<UserData>();
-            if (account.accountType == AccountRequireType.Self)
+            if (json.accountType == AccountRequireType.Self)
             {
-                list = Core.Management.Data.data.getDatasByWebID(account.WebName);
+                list = Core.Management.Data.data.getDatasByWebID(json.WebName);
             }
-            if (account.accountType == AccountRequireType.All)
+            if (json.accountType == AccountRequireType.All)
             {
                 list = Core.Management.Data.data.getDatas();
             }
