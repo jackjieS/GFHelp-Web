@@ -184,10 +184,10 @@ namespace GFHelp.Core.Action.BattleBase
                 {
                     this.needSupply = false;
                 }
-                if (AutoQuickFixTimes > 50)
-                {
-                    this.AutoQuickFix = false;
-                }
+                //if (AutoQuickFixTimes > 50)
+                //{
+                //    this.AutoQuickFix = true;
+                //}
 
 
 
@@ -399,21 +399,20 @@ namespace GFHelp.Core.Action.BattleBase
                     return Teams[0].TeamID;
                 return 1;
             }
-            public void LifeReduce(int teamID)
+            public void LifeReduce(int teamLoc)
             {
-                if (AutoQuickFix == false) return;
-                if (Teams.Count == 0) return;
+                //if (AutoQuickFix == false) return;
+                //if (Teams.Count == 0) return;
                 Random random = new Random();
-                for (int i = 0; i < Teams[teamID].teaminfo.Count; i++)
+                for (int i = 0; i <= Teams[teamLoc].teaminfo.Count; i++)
                 {
-                    if (random.Next(0, 1) == 0) continue;
-                    if (!Teams[teamID].teaminfo.ContainsKey(i)) continue;
-                    if (Teams[teamID].teaminfo[i].life < 30) continue;
-                    if (random.Next(0, 1) == 0)
-                    {
-                        Teams[teamID].teaminfo[i].life--;
-                    }
-
+                    if (Teams[teamLoc].teaminfo[i].info.type == CatchData.Base.GunType.assaultRifle) continue;
+                    if (Teams[teamLoc].teaminfo[i].info.type == CatchData.Base.GunType.machinegun) continue;
+                    if (Teams[teamLoc].teaminfo[i].info.type == CatchData.Base.GunType.sniperRifle) continue;
+                    if (random.Next(0, 2) == 0) continue;
+                    if (!Teams[teamLoc].teaminfo.ContainsKey(i)) continue;
+                    if (Teams[teamLoc].teaminfo[i].life < 30) continue;
+                    Teams[teamLoc].teaminfo[i].life -= random.Next(1, 5);
                 }
 
             }

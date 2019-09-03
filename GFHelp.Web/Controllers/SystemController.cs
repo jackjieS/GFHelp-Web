@@ -11,6 +11,7 @@ using GFHelp.Core.SystemManager;
 using GFHelp.Web.Data;
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
+using Newtonsoft.Json;
 using static GFHelp.Core.SystemManager.SystemHelper;
 using static GFHelp.Web.Controllers.GameController;
 
@@ -140,11 +141,6 @@ namespace GFHelp.Web.Controllers
             }
             result += accountList + "\r\n";
 
-
-
-
-
-
             return Ok(new
             {
                 code = 1,
@@ -194,137 +190,36 @@ namespace GFHelp.Web.Controllers
 
 
         /// <summary>
-        /// 获取基础信息 如10张图的后勤信息
+        /// 获取当前游戏实例个数
         /// </summary>
         /// <returns></returns>
-        [Route("/System/GetOperationInfo")]
+        [Route("/System/getServerInfo")]
         [HttpGet]
-        [Authorize]
-        public IActionResult GetOperationInfo()
+        //[Authorize]
+        public IActionResult getServerInfo()
         {
-            var temp = new
+            string News = "";
+            object obj = new
             {
                 OperationInfo = Core.CatachData.GetOperationInfo(),
-                BattleMap = Core.SystemManager.ConfigData.BattleMap
+                BattleMap = Core.SystemManager.ConfigData.BattleMap,
+                countOfGame = Core.Management.Data.data.Count,
+                isRunning = "Running",
+                isGameServerMainTean = GameServerStatus.Data.isGameServerMainTean,
+                ServerStartTime = ConfigData.ServerStartTime.ToString(),
+                News= News
             };
-            return Ok(new
-            {
-                code = 1,
-                data = temp,
-                message = "获取后勤信息"
-            });
-        }
 
 
-        /// <summary>
-        /// 系统是否正在运行
-        /// </summary>
-        /// <returns></returns>
-        [Route("/System/isRunning")]
-        [HttpGet]
-        public IActionResult isRunning()
-        {
 
             return Ok(new
             {
                 code = 1,
-                message = "Running"
+                data = obj,
+                message = string.Format("系统信息")
             });
         }
 
-        /// <summary>
-        /// 获取系统信息
-        /// </summary>
-        /// <returns></returns>
-        [Route("/System/UpgradeInfo")]
-        [HttpGet]
-        public IActionResult UpgradeInfo()
-        {
-            string data="";
-            foreach (var item in ConfigManager.UpgradeInfo)
-            {
-                data += "<p>"+item+ "</p>";
-            }
-
-            return Ok(new
-            {
-                code = 1,
-                data = data,
-                message = ""
-            });
-        }
-
-        /// <summary>
-        /// 这是一个测试接口，模拟生成一个系统消息并推送到前端
-        /// </summary>
-        /// <returns></returns>
-        [Route("/System/TestInitSystemNotice")]
-        [HttpPost]
-        [Authorize]
-        public  IActionResult TestInitSystemNotice()
-        {
-
-            Task.Run(()=> 
-            {
-                new Log().systemInit(DateTime.Now.ToString()).coreInfo();
-            });
-            return Ok(new
-            {
-                code = 1,
-                data = DateTime.Now.ToString(),
-                message = string.Format("测试")
-            });
-
-        }
-
-        /// <summary>
-        /// 获取当前游戏实例个数
-        /// </summary>
-        /// <returns></returns>
-        [Route("/System/GetCountOfGame")]
-        [HttpGet]
-        [Authorize]
-        public IActionResult GetCountOfGame()
-        {
-            int count = Core.Management.Data.data.Count;
-
-            return Ok(new
-            {
-                code = 1,
-                data = count,
-                message = string.Format("当前共有 {0} 个游戏实例托管中", count)
-            });
-        }
-
-        /// <summary>
-        /// 获取当前游戏实例个数
-        /// </summary>
-        /// <returns></returns>
-        [Route("/System/LoadHostAddress")]
-        [HttpGet]
-        [Authorize]
-        public IActionResult LoadHostAddress()
-        {
-            bool result = HostAddress.Load();
-            if(result == true)
-            {
-                return Ok(new
-                {
-                    code = 1,
-                    data = 1,
-                    message = string.Format("LoadHostAddress Success ")
-                });
-            }
-            else
-            {
-                return Ok(new
-                {
-                    code = 0,
-                    data = 0,
-                    message = string.Format("LoadHostAddress failed ")
-                });
-            }
-        }
 
         /// <summary>
         /// ReloadMissionDll
@@ -468,7 +363,8 @@ namespace GFHelp.Web.Controllers
         /// <returns></returns>
         [Route("/System/GetWebUsers")]
         [HttpGet]
-        [Authorize]        public IActionResult GetWebUsers()
+        [Authorize]
+        public IActionResult GetWebUsers()
         {
             string username = User.FindFirst(ClaimTypes.NameIdentifier)?.Value;
             if (!DataBase.DataBase.isLevel1(username))

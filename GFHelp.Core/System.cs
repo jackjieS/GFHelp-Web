@@ -29,7 +29,7 @@ namespace GFHelp.Core.SystemManager
         }
         public class Data
         {
-            public static bool isSystemMainTean = false;
+            public static bool isGameServerMainTean = false;
 
         }
         public class URLData
@@ -83,7 +83,7 @@ namespace GFHelp.Core.SystemManager
                 int opentime = Convert.ToInt32(Regex.Replace(result, "[^0-9]", ""));
                 if (Decrypt.getDateTime_China_Int(DateTime.Now) < opentime)
                 {
-                    Data.isSystemMainTean = true;
+                    Data.isGameServerMainTean = true;
                 }
 
 
@@ -136,8 +136,10 @@ namespace GFHelp.Core.SystemManager
         public static int ListStoreNum = 500;
         public static List<DataBase.AccountInfo> WebUserData = new List<DataBase.AccountInfo>();
         public static int LogID;
+        public static DateTime ServerStartTime;
         public static void Initialize()
         {
+            ServerStartTime = Helper.Decrypt.LocalDateTimeConvertToChina(DateTime.Now);
             logWriter.initLogWriter();
             ConfigManager.getConfig();
             HostAddress.Load();
