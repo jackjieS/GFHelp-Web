@@ -99,7 +99,6 @@ namespace GFHelp.NetBase
 
 
 
-
         public string DoPost(string url, IDictionary<string, string> postData)
         {
             return DoPost(url, StringBuilder(postData));
@@ -126,7 +125,7 @@ namespace GFHelp.NetBase
 
 
 
-        private static string StringBuilder(IDictionary<string, string> parameters)
+        public static string StringBuilder(IDictionary<string, string> parameters)
         {
             StringBuilder buffer = new StringBuilder();
             if (!(parameters == null || parameters.Count == 0))

@@ -39,27 +39,19 @@ namespace GFHelp.Core.SystemManager
                 init();
             }
             public string URL;
-            public string URLParm;
-            void init()
+            public Dictionary<string, string> URLParm = new Dictionary<string, string>();
+            public URLData init()
             {
-                StringBuilder stringBuilder = new StringBuilder();
-                JsonWriter jsonWriter = new JsonWriter(stringBuilder);
-                jsonWriter.WriteObjectStart();
-                jsonWriter.WritePropertyName("c");
-                jsonWriter.Write("game");
-                jsonWriter.WritePropertyName("a");
-                jsonWriter.Write("newserverList");
-                jsonWriter.WritePropertyName("channel");
-                jsonWriter.Write("cn_mica");
-                jsonWriter.WritePropertyName("platformChannelId");
-                jsonWriter.Write("GWPZ");
-                jsonWriter.WritePropertyName("check_version");
-                jsonWriter.Write("20400");
-                jsonWriter.WritePropertyName("rnd");
-                jsonWriter.Write("274413");
-                jsonWriter.WriteObjectEnd();
-                this.URLParm = stringBuilder.ToString();
+                URLParm.Clear();
+                Random random = new Random();
+                URLParm.Add("c", "game");
+                URLParm.Add("a", "newserverList");
+                URLParm.Add("channel", "cn_mica");
+                URLParm.Add("platformChannelId", "GWPZ");
+                URLParm.Add("check_version", "20400");
+                URLParm.Add("rnd", random.Next(259861, 422202).ToString());
                 this.URL = "http://adr.transit.gf.ppgame.com/index.php";
+                return this;
             }
 
 
@@ -73,10 +65,11 @@ namespace GFHelp.Core.SystemManager
         }
         public void Check()
         {
+
             while (true)
             {
 
-                string result = baseRequset.DoPost(urldata.URL, urldata.URLParm);
+                string result = baseRequset.DoPost(urldata.URL, BaseRequset.StringBuilder(urldata.init().URLParm));
                 if (string.IsNullOrEmpty(result)) return;
                 result = result.Substring(result.IndexOf("<open_time>"));
                 result = result.Remove(result.IndexOf("</open_time>"));
@@ -85,7 +78,6 @@ namespace GFHelp.Core.SystemManager
                 {
                     Data.isGameServerMainTean = true;
                 }
-
 
                 if (exitEvent.WaitOne(60000))
                 {

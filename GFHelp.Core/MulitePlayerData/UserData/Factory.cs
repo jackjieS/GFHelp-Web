@@ -213,7 +213,7 @@ namespace GFHelp.Core.MulitePlayerData
             userData.gun_With_User_Info.Get_dicGun_Combine(userData.MissionInfo.getFirsDataTeamID());
             if (userData.gun_With_User_Info.dicGun_Combine.Count == 0) return;
 
-            if (userData.user_Info.core < userData.gun_With_User_Info.dicGun_Combine[0].Core_COMbineNeed) return;
+            if (userData.user_Info.core <= userData.gun_With_User_Info.dicGun_Combine[0].Core_COMbineNeed) return;
             Thread.Sleep(2000);
             StringBuilder sb = new StringBuilder();
             JsonWriter jsonWriter = new JsonWriter(sb);
@@ -227,39 +227,21 @@ namespace GFHelp.Core.MulitePlayerData
 
 
 
-            while (true)
+            while (count++ <= userData.config.ErrorCount)
             {
-                string result =userData.Net.Factory.combineGun(userData.GameAccount,sb.ToString());
-
-
-                switch (userData.Response.Check( ref result, "GUN_OUTandIN_Team_PRO", false))
+                string result = userData.Net.Factory.combineGun(userData.GameAccount, sb.ToString());
+                if (userData.Response.Check(ref result, "GUN_OUTandIN_Team_PRO", false) == 1)
                 {
-                    case 1:
-                        {
-                            userData.user_Info.core  -= userData.gun_With_User_Info.dicGun_Combine[0].Core_COMbineNeed;
-                            userData.gun_With_User_Info.dicGun_Combine[0].number++;
-                            new Log().userInit(userData.GameAccount.GameAccountID, string.Format("人形 : {0} 扩编", userData.gun_With_User_Info.dicGun_Combine[0].id)).userInfo();
-                            return;
-                        }
-                    case 0:
-                        {
-                          continue;
-                        }
-                    case -1:
-                        {
-                            new Log().userInit(userData.GameAccount.GameAccountID, "扩编出错",result).userInfo();
-                            if (count++ >= userData.config.ErrorCount) return;
-                            continue;
-                        }
-                    default:
-                        break;
+                    userData.user_Info.core -= userData.gun_With_User_Info.dicGun_Combine[0].Core_COMbineNeed;
+                    userData.gun_With_User_Info.dicGun_Combine[0].number++;
+                    new Log().userInit(userData.GameAccount.GameAccountID, string.Format("人形 : {0} 扩编", userData.gun_With_User_Info.dicGun_Combine[0].id)).userInfo();
+                    return;
                 }
-
+                else
+                {
+                    new Log().userInit(userData.GameAccount.GameAccountID, "扩编出错", result).userInfo();
+                }
             }
-
-
-
-
         }
 
 

@@ -42,6 +42,9 @@ namespace GFHelp.Core.Management
                 if (FinalLoginSuccess == false) return;
                 if (Data.data.mDatas[UserName].config.isOffline) return;
 
+
+
+
                 if (Data.data.mDatas[UserName].dailyReFlash.reLoginDateTime.Minute == DateTime.Now.Minute)
                 {
                     Data.data.mDatas[UserName].dailyReFlash.AutoRun();
