@@ -28,9 +28,9 @@ namespace GFHelp.Core.MulitePlayerData
 
             public int key;//表示当前字段在字典里的键位
             public int id;
-            public int operation_id=0;
+            public int operation_id = 0;
             public int user_id;
-            public int team_id=0;
+            public int team_id = 0;
             public int start_time;
             public int Duration
             {
@@ -79,7 +79,7 @@ namespace GFHelp.Core.MulitePlayerData
             data3.operation_id = 30;
             DefaultOperationMissionList.Add(data3);
         }
-        private object ObjectLocker = new object();
+
         public bool Locker = false;
         private int _NextTime;
         public int NextTime
@@ -134,29 +134,7 @@ namespace GFHelp.Core.MulitePlayerData
 
                 this.Locker = false;
                 Interlocked.Decrement(ref AutoLoop.ThreadInfo.OperationThreadNum);
-
-
             });
-
-
-            //ThreadPool.QueueUserWorkItem(state =>
-            //{
-            //    Interlocked.Increment(ref AutoLoop.ThreadInfo.OperationThreadNum);
-
-            //    for (int i = 0; i < dicOperation.Count; i++)
-            //    {
-            //        if (dicOperation[i].operation_id == 0) continue;
-            //        if (dicOperation[i].start_time == 0) continue;
-            //        if (dicOperation[i].EndTime < Decrypt.getDateTime_China_Int(DateTime.Now))
-            //        {
-            //            OperationLoop(dicOperation[i]);
-            //        }
-            //    }
-
-            //    this.Locker = false;
-            //    Interlocked.Decrement(ref AutoLoop.ThreadInfo.OperationThreadNum);
-
-            //});
         }
 
         public void OperationLoop(Data data)
@@ -195,11 +173,12 @@ namespace GFHelp.Core.MulitePlayerData
                 dicOperation.Add(dicOperation.Count, data);
             }
 
-            while (dicOperation.Count<4)
+            while (dicOperation.Count < 4)
             {
                 dicOperation.Add(dicOperation.Count, new Data());
             }
             SetNextTime();
+            Locker = false;
             return true;
         }
 

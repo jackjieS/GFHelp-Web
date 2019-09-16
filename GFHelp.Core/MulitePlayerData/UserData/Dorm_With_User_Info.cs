@@ -155,9 +155,11 @@ namespace GFHelp.Core.MulitePlayerData
             if (userData.config.M == true) return;
             for (int x = 1; x <= userData.Teams.Count; x++)
             {
+                if (!userData.Teams.ContainsKey(x)) continue;
                 if (userData.Teams[x].Count == 0) continue;
                 for (int y = 1; y <= userData.Teams[x].Count; y++)
                 {
+                    if (!userData.Teams[x].ContainsKey(y)) continue;
                     try
                     {
                         if (string.IsNullOrEmpty(userData.Teams[x][y].location.ToString())) continue;

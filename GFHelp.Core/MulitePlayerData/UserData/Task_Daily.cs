@@ -213,7 +213,7 @@ namespace GFHelp.Core.MulitePlayerData
             Battle bs = new Battle();
             bs.accountID = userData.GameAccount.GameAccountID;
             bs.Map = "-map1_1";
-            bs.Parm = "-t1 -c -ns -qf -a -e";
+            bs.Parm = "-t1 -c -qf -a -e";
             bs.CreatTeamList(userData.others.getAvailableTeamID());
             if (userData.others.getAvailableTeamID().Count == 0) return;
             MissionInfo.Data data = new MissionInfo.Data(userData, bs);
@@ -225,7 +225,7 @@ namespace GFHelp.Core.MulitePlayerData
             Battle bs = new Battle();
             bs.accountID = userData.GameAccount.GameAccountID;
             bs.Map = "-map1_1";
-            string parm = string.Format("-t{0} -c -ns -qf -a -e", i);
+            string parm = string.Format("-t{0} -c -qf -a -e", i);
             bs.Parm = parm;
             bs.CreatTeamList(userData.others.getAvailableTeamID());
             if (userData.others.getAvailableTeamID().Count == 0) return;
@@ -237,7 +237,7 @@ namespace GFHelp.Core.MulitePlayerData
             Battle bs = new Battle();
             bs.accountID = userData.GameAccount.GameAccountID;
             bs.Map = "-map1_2";
-            bs.Parm = "-t4 -c -ns -qf -a -e";
+            bs.Parm = "-t4 -c -qf -a -e";
             bs.CreatTeamList(userData.others.getAvailableTeamID());
             if (userData.others.getAvailableTeamID().Count == 0) return;
             MissionInfo.Data data = new MissionInfo.Data(userData, bs);
@@ -248,7 +248,7 @@ namespace GFHelp.Core.MulitePlayerData
             Battle bs = new Battle();
             bs.accountID = userData.GameAccount.GameAccountID;
             bs.Map = "-map2_4";
-            bs.Parm = "-t4 -c -ns -qf -a -e";
+            bs.Parm = "-t4 -c -qf -a -e";
             bs.CreatTeamList(userData.others.getAvailableTeamID());
             if (userData.others.getAvailableTeamID().Count == 0) return;
             MissionInfo.Data data = new MissionInfo.Data(userData, bs);
@@ -259,7 +259,7 @@ namespace GFHelp.Core.MulitePlayerData
             Battle bs = new Battle();
             bs.accountID = userData.GameAccount.GameAccountID;
             bs.Map = "-map2_2e";
-            bs.Parm = "-t1 -c -ns -qf -a -e";
+            bs.Parm = "-t1 -c -qf -a -e";
             bs.CreatTeamList(userData.others.getAvailableTeamID());
             if (userData.others.getAvailableTeamID().Count == 0) return;
             MissionInfo.Data data = new MissionInfo.Data(userData, bs);
@@ -271,7 +271,7 @@ namespace GFHelp.Core.MulitePlayerData
             Battle bs = new Battle();
             bs.accountID = userData.GameAccount.GameAccountID;
             bs.Map = "-map4_6";
-            bs.Parm = "-t2 -c -ns -qf -a -e";
+            bs.Parm = "-t2 -c -qf -a -e";
             bs.CreatTeamList(userData.others.getAvailableTeamID());
             if (userData.others.getAvailableTeamID().Count <2) return;
             MissionInfo.Data data = new MissionInfo.Data(userData, bs);
@@ -282,7 +282,7 @@ namespace GFHelp.Core.MulitePlayerData
             Battle bs = new Battle();
             bs.accountID = userData.GameAccount.GameAccountID;
             bs.Map = "-map5_6";
-            bs.Parm = "-t2 -c -ns -qf -a -e";
+            bs.Parm = "-t2 -c -qf -a -e";
             bs.CreatTeamList(userData.others.getAvailableTeamID());
             if (userData.others.getAvailableTeamID().Count < 2) return;
             MissionInfo.Data data = new MissionInfo.Data(userData, bs);
@@ -293,7 +293,7 @@ namespace GFHelp.Core.MulitePlayerData
             Battle bs = new Battle();
             bs.accountID = userData.GameAccount.GameAccountID;
             bs.Map = "-map6_6";
-            bs.Parm = "-t1 -c -ns -qf -a -e";
+            bs.Parm = "-t1 -c -qf -a -e";
             bs.CreatTeamList(userData.others.getAvailableTeamID());
             if (userData.others.getAvailableTeamID().Count < 2) return;
             MissionInfo.Data data = new MissionInfo.Data(userData, bs);
@@ -304,7 +304,7 @@ namespace GFHelp.Core.MulitePlayerData
             Battle bs = new Battle();
             bs.accountID = userData.GameAccount.GameAccountID;
             bs.Map = "-map7_6";
-            bs.Parm = "-t1 -c -ns -qf -a -e";
+            bs.Parm = "-t1 -c -qf -a -e";
             bs.CreatTeamList(userData.others.getAvailableTeamID());
             if (userData.others.getAvailableTeamID().Count < 2) return;
             MissionInfo.Data data = new MissionInfo.Data(userData, bs);
@@ -315,7 +315,7 @@ namespace GFHelp.Core.MulitePlayerData
             Battle bs = new Battle();
             bs.accountID = userData.GameAccount.GameAccountID;
             bs.Map = "-map3_4n";
-            bs.Parm = "-t5 -c -ns -qf -a -e";
+            bs.Parm = "-t5 -c -qf -a -e";
             bs.CreatTeamList(userData.others.getAvailableTeamID());
             if (userData.others.getAvailableTeamID().Count < 2) return;
             MissionInfo.Data data = new MissionInfo.Data(userData, bs);

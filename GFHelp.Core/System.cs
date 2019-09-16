@@ -78,6 +78,10 @@ namespace GFHelp.Core.SystemManager
                 {
                     Data.isGameServerMainTean = true;
                 }
+                else
+                {
+                    Data.isGameServerMainTean = false;
+                }
 
                 if (exitEvent.WaitOne(60000))
                 {

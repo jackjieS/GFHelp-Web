@@ -2795,13 +2795,13 @@ namespace GFHelp.Mission
             userData.battle.reinforceTeam(map,map.Spots.dic[1]);
 
 
-            strbattledata = userData.battle.endTurn(data);
+            var endTrunResult = userData.battle.endTurn(data);
             userData.battle.endEnemyTurn();
             userData.battle.startTurn(data);
 
             
             userData.battle.teamMove(map.teamMove.dic[map.stepNum++]);
-            if(Function.Normal_PosCheck_type2(strbattledata, 3789) == 1)
+            if(Function.Normal_PosCheck_type2(endTrunResult, 3789) == 1)
             {
                 strbattledata = battleData.setData(3789, 0, 0, random.Next(8, 10), 14216, 11880, 10005, userData.user_Info.experience);
 
@@ -2827,8 +2827,8 @@ namespace GFHelp.Mission
 
 
 
-            strbattledata = userData.battle.endTurn(data);
-            if (Function.Normal_PosCheck_type2(strbattledata, 3679) == 1)
+            endTrunResult = userData.battle.endTurn(data);
+            if (Function.Normal_PosCheck_type2(endTrunResult, 3679) == 1)
             {
                 strbattledata = battleData.setData(3679, 0, 0, random.Next(8, 10), 14216, 11880, 10005, userData.user_Info.experience);
 
@@ -2837,7 +2837,7 @@ namespace GFHelp.Mission
                     userData.battle.Battle_Result_PRO(ref data, 0, ref result);
                 }
             }
-            if (Function.Normal_PosCheck_type2(strbattledata, 3788) == 1)
+            if (Function.Normal_PosCheck_type2(endTrunResult, 3788) == 1)
             {
                 strbattledata = battleData.setData(3788, 1, 0, random.Next(8, 10), 14216, 11880, 10005, userData.user_Info.experience);
 
@@ -2850,7 +2850,7 @@ namespace GFHelp.Mission
             userData.battle.startTurn(data);
             
             userData.battle.teamMove(map.teamMove.dic[map.stepNum++]);
-            if (Function.Normal_PosCheck_type2(strbattledata, 3681) == 1)
+            if (Function.Normal_PosCheck_type2(endTrunResult, 3681) == 1)
             {
                 strbattledata = battleData.setData(3681, 0, 0, random.Next(8, 10), 14216, 11880, 10005, userData.user_Info.experience);
 
@@ -2860,7 +2860,7 @@ namespace GFHelp.Mission
                 }
             }
             userData.battle.teamMove(map.teamMove.dic[map.stepNum++]);
-            if (Function.Normal_PosCheck_type2(strbattledata, 3682) == 1)
+            if (Function.Normal_PosCheck_type2(endTrunResult, 3682) == 1)
             {
                 strbattledata = battleData.setData(3682, 0, 0, random.Next(8, 10), 14216, 11880, 10005, userData.user_Info.experience);
 
@@ -2884,8 +2884,8 @@ namespace GFHelp.Mission
             }
 
 
-            strbattledata = userData.battle.endTurn(data);
-            if (Function.Normal_PosCheck_type2(strbattledata, 3788) == 1)
+            endTrunResult = userData.battle.endTurn(data);
+            if (Function.Normal_PosCheck_type2(endTrunResult, 3788) == 1)
             {
                 strbattledata = battleData.setData(3788, 1, 0, random.Next(8, 10), 14216, 11880, 10005, userData.user_Info.experience);
 
@@ -2918,8 +2918,8 @@ namespace GFHelp.Mission
             }
 
             userData.battle.teamMove(map.teamMove.dic[map.stepNum++]);
-            strbattledata = userData.battle.endTurn(data);
-            if (Function.Normal_PosCheck_type2(strbattledata, 3788) == 1)
+            endTrunResult = userData.battle.endTurn(data);
+            if (Function.Normal_PosCheck_type2(endTrunResult, 3788) == 1)
             {
                 strbattledata = battleData.setData(3788, 1, 0, random.Next(8, 10), 14216, 11880, 10005, userData.user_Info.experience);
 
@@ -2940,16 +2940,6 @@ namespace GFHelp.Mission
             {
                 userData.battle.Battle_Result_PRO(ref data, 0, ref result);
             }
-
-
-
-
-
-
-
-
-
-
 
             if (result.Contains("rank"))
             {
@@ -3001,7 +2991,7 @@ namespace GFHelp.Mission
             else
             {
                 userData.battle.abortMission();
-                this.map8_6();
+                this.map9_6();
             }
         }
 
@@ -4021,7 +4011,7 @@ namespace GFHelp.Mission
             else
             {
                 userData.battle.abortMission();
-                this.map8_6();
+                this.map7_4n();
             }
         }
         public void map8_1n()
@@ -4128,7 +4118,7 @@ namespace GFHelp.Mission
             else
             {
                 userData.battle.abortMission();
-                this.map8_6();
+                this.map8_4n();
             }
         
 

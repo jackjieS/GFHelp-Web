@@ -150,7 +150,9 @@ namespace GFHelp.Core.Management
                     return;
                 }
                 if (ThreadInfo.isMaxThreadCount) continue;
+
                 if (SystemManager.GameServerStatus.Data.isGameServerMainTean) continue;
+
                 Stopwatch stopwatch = new Stopwatch();
                 stopwatch.Start();
                 try
@@ -182,122 +184,12 @@ namespace GFHelp.Core.Management
 
 
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
             }
 
 
 
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
         }
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 
 
 

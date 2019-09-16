@@ -406,13 +406,15 @@ namespace GFHelp.Core.Action.BattleBase
                 Random random = new Random();
                 for (int i = 0; i <= Teams[teamLoc].teaminfo.Count; i++)
                 {
-                    if (Teams[teamLoc].teaminfo[i].info.type == CatchData.Base.GunType.assaultRifle) continue;
-                    if (Teams[teamLoc].teaminfo[i].info.type == CatchData.Base.GunType.machinegun) continue;
-                    if (Teams[teamLoc].teaminfo[i].info.type == CatchData.Base.GunType.sniperRifle) continue;
-                    if (random.Next(0, 2) == 0) continue;
-                    if (!Teams[teamLoc].teaminfo.ContainsKey(i)) continue;
-                    if (Teams[teamLoc].teaminfo[i].life < 30) continue;
-                    Teams[teamLoc].teaminfo[i].life -= random.Next(1, 5);
+                    if (Teams[teamLoc].teaminfo.ContainsKey(i))
+                    {
+                        if (Teams[teamLoc].teaminfo[i].info.type == CatchData.Base.GunType.assaultRifle) continue;
+                        if (Teams[teamLoc].teaminfo[i].info.type == CatchData.Base.GunType.machinegun) continue;
+                        if (Teams[teamLoc].teaminfo[i].info.type == CatchData.Base.GunType.sniperRifle) continue;
+                        if (random.Next(0, 2) == 0) continue;
+                        if (Teams[teamLoc].teaminfo[i].life < 30) continue;
+                        Teams[teamLoc].teaminfo[i].life -= random.Next(1, 5);
+                    }
                 }
 
             }

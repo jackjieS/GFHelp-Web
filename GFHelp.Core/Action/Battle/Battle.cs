@@ -993,44 +993,34 @@ namespace GFHelp.Core.Action
 
         public void Check_NewGun(MissionInfo.Data data, Gun_With_User_Info.Data gwui)
         {
-            bool Locked = false;
+
             if (data != null)
             {
                 if (!userData.user_Info.gun_collect.Contains(gwui.gun_id))
                 {
                     new Log().userInit(userData.GameAccount.GameAccountID, string.Format("获取新人形 : {0} ,意不意外 惊不惊喜", gwui.info.en_name)).userInfo();
-                    userData.home.changeLock(new List<int>(gwui.id), new List<int>());
-                    Locked = true;
-                }
 
-                if (data.StopLoopByStart3 && gwui.info.rank == 3)
-                {
-                    if (Locked == false)
+                    if (data.StopLoopByStart3 && gwui.info.rank == 3)
                     {
-                        userData.home.changeLock(new List<int>(gwui.id), new List<int>());
-                        Locked = true;
+                        userData.home.changeLock(new List<int> { gwui.id }, new List<int>());
+                        data.Loop = false;
                     }
 
-                    data.Loop = false;
-                }
-
-                if (data.StopLoopByStart4 && gwui.info.rank == 4)
-                {
-                    if (Locked == false)
+                    if (data.StopLoopByStart4 && gwui.info.rank == 4)
                     {
-                        userData.home.changeLock(new List<int>(gwui.id), new List<int>());
-                        Locked = true;
-                    }
-                    data.Loop = false;
+                        userData.home.changeLock(new List<int> { gwui.id }, new List<int>());
+                        data.Loop = false;
 
+                    }
+                    if (data.StopLoopByStart5 && gwui.info.rank == 5)
+                    {
+                        userData.home.changeLock(new List<int> { gwui.id }, new List<int>());
+                        data.Loop = false;
+                    }
                 }
                 if (data.StopLoopByStart5 && gwui.info.rank == 5)
                 {
-                    if (Locked == false)
-                    {
-                        userData.home.changeLock(new List<int>(gwui.id), new List<int>());
-                        Locked = true;
-                    }
+                    userData.home.changeLock(new List<int> { gwui.id }, new List<int>());
                     data.Loop = false;
                 }
             }
