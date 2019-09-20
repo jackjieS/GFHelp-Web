@@ -4,6 +4,7 @@ using GFHelp.Core.MulitePlayerData;
 using LitJson;
 using System;
 using System.Collections.Generic;
+using System.Diagnostics;
 using System.Linq;
 using System.Text;
 using System.Threading;
@@ -180,20 +181,10 @@ namespace GFHelp.Core.Action.BattleBase
         {
             public void DataHandle()
             {
-                if (CycleTime > 50)
-                {
-                    this.needSupply = false;
-                }
-                //if (AutoQuickFixTimes > 50)
-                //{
-                //    this.AutoQuickFix = true;
-                //}
-
-
-
 
             }
-
+            public Stopwatch stopwatch = new Stopwatch();
+            public int TimeLimiteHours = 0;
             public List<TeamInfo> Teams = new List<TeamInfo>();
             public string MissionMap = "";
             public Dictionary<int, int> List_withdrawPOS = new Dictionary<int, int>();
@@ -375,6 +366,11 @@ namespace GFHelp.Core.Action.BattleBase
                     {
                         this.equipid = Convert.ToInt32(item.Remove(0, 8));
                     }
+                    if (item.Contains("-tl"))
+                    {
+                        Int32.TryParse(item.Remove(0, 3), out this.TimeLimiteHours);
+                    }
+
                     if (item.Contains("-d"))
                     {
                         this.Delay = Convert.ToDouble(item.Remove(0, 2));
@@ -391,6 +387,7 @@ namespace GFHelp.Core.Action.BattleBase
             public Data()
             {
                 this.recycleLog = new RecycleLog();
+                this.stopwatch.Start();
             }
 
             public int getTeamId()
@@ -456,8 +453,6 @@ namespace GFHelp.Core.Action.BattleBase
                 }
                 try
                 {
-                    //Console.WriteLine("BattleLoop 被调用了");
-
                     userData.mission.Test();
                 }
                 catch (Exception e)

@@ -65,9 +65,6 @@ namespace GFHelp.Core.Action
                 goto End_At_Battle;
             }
 
-
-
-
             End_At_Battle: userData.mission.End_At_Battle();
 
 
@@ -91,11 +88,16 @@ namespace GFHelp.Core.Action
             //检查是否需要拆解核心
             Gun_Retire_Core();
 
-            //检查是否需要重新登陆
-            if (userData.MissionInfo.GetFirstData().CycleTime % SystemManager.ConfigData.BL_ReLogin_num == 0)
+            //是否超过时间限制
+            if(userData.MissionInfo.GetFirstData().TimeLimiteHours != 0)
             {
-                userData.home.GetUserInfo();
+                TimeSpan timespan = userData.MissionInfo.GetFirstData().stopwatch.Elapsed;
+                if (timespan.TotalHours > userData.MissionInfo.GetFirstData().TimeLimiteHours)
+                {
+                    userData.MissionInfo.GetFirstData().Loop = false;
+                }
             }
+
 
             //是否达到客服要求 多用于练级
             if (userData.MissionInfo.GetFirstData().requestLv != 0 && userData.others.CheckTeamMemberLevel(userData.MissionInfo.GetFirstData().Teams[0].TeamID, userData.MissionInfo.GetFirstData().requestLv))
