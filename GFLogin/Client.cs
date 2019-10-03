@@ -124,7 +124,7 @@ namespace GFLogin
                 {"platform_type","3" },
                 {"sdk_log_type","1" },
                 {"sdk_type","1" },
-                {"sdk_ver","1.8.2" },
+                {"sdk_ver","2.2.1" },
                 {"server_id","345" },
                 {"support_abis","x86,armeabi-v7a,armeabi" },
                 {"timestamp",timestamp },
@@ -247,6 +247,10 @@ namespace GFLogin
             string[] stringArray = new string[] { "app_id", "c", "channel_id", "domain", "domain_switch_count", "dp", "game_id", "isRoot", "merchant_id", "model", "net", "operators", "pf_ver", "platform_type", "pwd", "sdk_log_type", "sdk_type", "sdk_ver", "server_id", "support_abis", "timestamp", "udid", "uid", "user_id", "ver", "version" };
             string result = netBase.DoPost(this.Bilidata.LoginURL, this.getPlatfromInfoDic(stringArray));
             JsonData jsonData = JsonMapper.ToObject(result);
+            if (jsonData["code"].Int != 0)
+            {
+                throw new Exception();
+            }
             this.Bilidata.dicInfos["access_key"] = jsonData["access_key"].String;
             this.Bilidata.dicInfos["uid"] = jsonData["uid"].String;
         }

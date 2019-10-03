@@ -39,8 +39,11 @@ namespace GFHelp.Core.MulitePlayerData
         {
             if (userData.config.DataAnalysis == false) return;
             if (AutoRunning == false) return;
+            if (Locker) return;
+            Locker = true;
             DataAnalysisFinishHandel();
             DataAnalysisStartHandel();
+            Locker = false;
         }
         private bool isAllDataAnalysisFinish()
         {
@@ -237,6 +240,7 @@ namespace GFHelp.Core.MulitePlayerData
         tBaseDatas<Data> listSquadDataAnalysisAction = new tBaseDatas<Data>();
         private UserData userData;
         private bool AutoRunning = true;
+        public bool Locker = false;
         class Data : tBaseData
         {
             public Data(JsonData jsonData = null)

@@ -344,8 +344,19 @@ namespace GFHelp.Core.MulitePlayerData.WebData
     {
         public Squad(Squad_With_User_Info.Data squad)
         {
-            this.Name = Asset_Textes.ChangeCodeFromeCSV(squad.info.en_name);
-            this.Type = Asset_Textes.ChangeCodeFromeCSV(squad.info.typeInfo.en_name);
+            try
+            {
+                this.Name = Asset_Textes.ChangeCodeFromeCSV(squad.info.en_name);
+                this.Type = Asset_Textes.ChangeCodeFromeCSV(squad.info.typeInfo.en_name);
+
+            }
+            catch (Exception)
+            {
+
+                this.Name = "???";
+                this.Type = "???";
+            }
+
             this.Lv = squad.level.ToString();
             this.Exp = squad.exp.ToString();
             this.Rank = squad.rank.ToString();

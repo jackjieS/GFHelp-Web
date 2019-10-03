@@ -55,7 +55,7 @@ namespace GFHelp.Core.Management
                     Data.data.mDatas[UserName].operation_Act_Info.AutoRun();
                 }
 
-
+                Data.data.mDatas[UserName].squadDataAnalysisAction.AutoRun();
                 Data.data.mDatas[UserName].doll_Build.AutoRun();
                 Data.data.mDatas[UserName].equip_Built.AutoRun();
             }
